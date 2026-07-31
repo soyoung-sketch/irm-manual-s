@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>매입관리 발주 흐름도</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; background: #f5f5f5; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 32px 16px; }
+  .wrap { background: #fff; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,.1); padding: 28px 28px 24px; max-width: 960px; width: 100%; }
+  h2 { font-size: 15px; font-weight: 600; color: #222; margin-bottom: 18px; letter-spacing: -.01em; }
+  svg text { font-family: inherit; }
+  .box-blue { fill: #e6f1fb; stroke: #185fa5; }
+  .box-teal { fill: #e1f5ee; stroke: #0f6e56; }
+  .box-gray { fill: #f4f4f4; stroke: #999; }
+  .box-coral { fill: #faece7; stroke: #993c1d; }
+  .txt-blue { fill: #0c447c; }
+  .txt-teal { fill: #085041; }
+  .txt-gray { fill: #444; }
+  .txt-coral { fill: #7a2e12; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h2>4. 매입관리Ⅱ – 발주 흐름도</h2>
+
+  <svg width="100%" viewBox="0 0 880 700" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L9 5 L0 10 Z" fill="#888"/>
+      </marker>
+      <marker id="arr-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L9 5 L0 10 Z" fill="#185fa5"/>
+      </marker>
+    </defs>
+
+    <!-- Outer border -->
+    <rect x="0.5" y="0.5" width="879" height="699" fill="none" stroke="#ccc" stroke-width="0.8" rx="10"/>
+    <!-- Header bg -->
+    <rect x="0" y="0" width="880" height="48" fill="#f0f0f0" rx="10"/>
+    <rect x="0" y="40" width="880" height="8" fill="#f0f0f0"/>
+    <path d="M 0.5 48 L 0.5 10 Q 0.5 0.5 10 0.5 L 870 0.5 Q 879.5 0.5 879.5 10 L 879.5 48" fill="none" stroke="#ccc" stroke-width="0.8"/>
+
+    <!-- Column divider -->
+    <line x1="44" y1="48" x2="44" y2="700" stroke="#ddd" stroke-width="0.8"/>
+
+    <!-- Header -->
+    <text x="462" y="29" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">사업장</text>
+
+    <!-- 행 라벨: 발주계획 -->
+    <text x="22" y="350" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">발</text>
+    <text x="22" y="366" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">주</text>
+    <text x="22" y="382" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">계</text>
+    <text x="22" y="398" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">획</text>
+
+    <!-- ════ 발주서등록 dashed box (좌측) ════ -->
+    <rect x="60" y="66" width="260" height="160" rx="8" fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="6 3"/>
+    <text x="76" y="83" font-size="11" font-weight="600" fill="#777">발주서등록</text>
+
+    <!-- 발주서 작성 -->
+    <rect x="118" y="130" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="190" y="146" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">발주서 작성</text>
+
+    <!-- 저장 annotation -->
+    <line x1="262" y1="146" x2="418" y2="146" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="276" y="139" width="40" height="14" rx="2" fill="white"/>
+    <text x="296" y="146" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#aaa">저장</text>
+
+    <!-- ════ 발주서조회 dashed box (우측 상단) ════ -->
+    <rect x="346" y="66" width="510" height="614" rx="8" fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="6 3"/>
+    <text x="362" y="83" font-size="11" font-weight="600" fill="#777">발주서조회</text>
+
+    <!-- 발주서 입력 (center x=490) -->
+    <rect x="418" y="130" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="490" y="146" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">발주서 입력</text>
+
+    <!-- 발주서 입력 ↔ 발주대기 취소 (양방향) -->
+    <path d="M 562 146 H 732 V 228" fill="none" stroke="#888" stroke-width="1" marker-start="url(#arr)" marker-end="url(#arr)"/>
+
+    <!-- 발주서 입력 → 발주 대기 -->
+    <line x1="490" y1="162" x2="490" y2="228" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+
+    <!-- 발주 대기 -->
+    <rect x="418" y="228" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="490" y="244" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">발주 대기</text>
+
+    <!-- 발주대기 ↔ 취소 (양방향) -->
+    <line x1="562" y1="244" x2="660" y2="244" stroke="#888" stroke-width="1" marker-start="url(#arr)" marker-end="url(#arr)"/>
+
+    <!-- 취소 박스 -->
+    <rect x="660" y="228" width="144" height="32" rx="6" class="box-gray" stroke-width="0.6"/>
+    <text x="732" y="244" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-gray">취소</text>
+
+    <!-- 발주 대기 → 발주완료 -->
+    <line x1="490" y1="260" x2="490" y2="325" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+
+    <!-- 발주완료 -->
+    <rect x="418" y="325" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="490" y="341" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">발주완료</text>
+
+    <!-- 발주대기~발주완료 세로선 중앙(x=490, y=292)에서 매입처로 가로 연결 -->
+    <line x1="490" y1="292" x2="262" y2="292" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+
+    <!-- ════ 매입처 박스 ════ -->
+    <rect x="118" y="276" width="144" height="32" rx="6" class="box-coral" stroke-width="0.6"/>
+    <text x="190" y="292" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-coral">매입처</text>
+
+    <!-- ════ 발주서 불러오기 섹션 ════ -->
+    <text x="190" y="428" text-anchor="middle" font-size="11" font-weight="600" fill="#777">발주서 불러오기</text>
+    <!-- 발주서 불러오기 → 매입등록 -->
+    <line x1="190" y1="436" x2="190" y2="490" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+
+    <!-- 매입 등록 dashed box -->
+    <rect x="60" y="460" width="260" height="130" rx="8" fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="6 3"/>
+    <text x="76" y="477" font-size="11" font-weight="600" fill="#777">매입 등록</text>
+
+    <!-- 매입 등록 박스 -->
+    <rect x="118" y="490" width="144" height="32" rx="6" class="box-teal" stroke-width="0.6"/>
+    <text x="190" y="506" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-teal">매입 등록</text>
+
+    <!-- 매입 등록 → 저장 → 입고완료 (파란 cross) -->
+    <line x1="262" y1="506" x2="418" y2="506" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="300" y="499" width="40" height="14" rx="2" fill="white"/>
+    <text x="320" y="506" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#aaa">저장</text>
+
+    <!-- 입고완료 -->
+    <rect x="418" y="490" width="144" height="32" rx="6" class="box-teal" stroke-width="0.6"/>
+    <text x="490" y="506" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-teal">입고완료</text>
+
+    <!-- ════ 본사↔가맹점 프로세스 dashed box ════ -->
+    <rect x="616" y="460" width="220" height="200" rx="8" fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="6 3"/>
+    <text x="632" y="477" font-size="11" font-weight="600" fill="#777">본사↔가맹점 프로세스</text>
+
+    <!-- 입고대기 -->
+    <rect x="664" y="496" width="124" height="32" rx="6" class="box-teal" stroke-width="0.6"/>
+    <text x="726" y="512" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-teal">입고대기</text>
+
+    <!-- 입고반려 -->
+    <rect x="664" y="590" width="124" height="32" rx="6" class="box-gray" stroke-width="0.6"/>
+    <text x="726" y="606" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-gray">입고반려</text>
+
+  </svg>
+</div>
+</body>
+</html>

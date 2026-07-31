@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>매입관리II 발주&매입 흐름도</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; background: #f5f5f5; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 32px 16px; }
+  .wrap { background: #fff; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,.1); padding: 28px 28px 24px; max-width: 1000px; width: 100%; }
+  h2 { font-size: 15px; font-weight: 600; color: #222; margin-bottom: 18px; letter-spacing: -.01em; }
+  svg text { font-family: inherit; }
+  .box-blue  { fill: #e6f1fb; stroke: #185fa5; }
+  .box-teal  { fill: #e1f5ee; stroke: #0f6e56; }
+  .box-gray  { fill: #f4f4f4; stroke: #999; }
+  .txt-blue  { fill: #0c447c; }
+  .txt-teal  { fill: #085041; }
+  .txt-gray  { fill: #444; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h2>4. 매입관리Ⅱ – 발주 &amp; 매입 흐름도</h2>
+
+  <svg width="100%" viewBox="0 0 880 660" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L9 5 L0 10 Z" fill="#888"/>
+      </marker>
+      <marker id="arr-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L9 5 L0 10 Z" fill="#185fa5"/>
+      </marker>
+    </defs>
+
+    <!-- 외부 테두리 -->
+    <rect x="0.5" y="0.5" width="879" height="659" fill="none" stroke="#ccc" stroke-width="0.8" rx="10"/>
+    <!-- 헤더 배경 -->
+    <rect x="0" y="0" width="880" height="48" fill="#f0f0f0" rx="10"/>
+    <rect x="0" y="40" width="880" height="8" fill="#f0f0f0"/>
+    <path d="M 0.5 48 L 0.5 10 Q 0.5 0.5 10 0.5 L 870 0.5 Q 879.5 0.5 879.5 10 L 879.5 48" fill="none" stroke="#ccc" stroke-width="0.8"/>
+
+    <!-- 구분선: 라벨 | 본문 -->
+    <line x1="44" y1="48" x2="44" y2="660" stroke="#ddd" stroke-width="0.8"/>
+
+    <!-- 헤더 -->
+    <text x="462" y="29" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">직영점 및 본사</text>
+
+    <!-- 좌측 세로 라벨 -->
+    <text x="22" y="318" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#555">매</text>
+    <text x="22" y="336" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#555">입</text>
+    <text x="22" y="354" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#555">흐</text>
+    <text x="22" y="372" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#555">름</text>
+    <text x="22" y="390" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#555">도</text>
+
+    <!-- ══════ 발주관리 dashed box (center x=255) ══════ -->
+    <rect x="150" y="64" width="210" height="580" rx="8" fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="6 3"/>
+    <text x="166" y="82" font-size="11" font-weight="600" fill="#777">발주관리</text>
+
+    <!-- 발주서 등록 -->
+    <rect x="183" y="100" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="255" y="116" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">발주서 등록</text>
+
+    <!-- 발주서 등록 → 발주서 입력 (라벨: 발주서 작성 후 저장) -->
+    <line x1="255" y1="132" x2="255" y2="188" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="191" y="153" width="128" height="14" rx="2" fill="white"/>
+    <text x="255" y="160" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#aaa">발주서 작성 후 저장</text>
+
+    <!-- 발주서 입력 -->
+    <rect x="183" y="188" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="255" y="204" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">발주서 입력</text>
+
+    <!-- 발주서 입력 → 발주 대기 (라벨: 대기로 이동) -->
+    <line x1="255" y1="220" x2="255" y2="276" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="209" y="241" width="92" height="14" rx="2" fill="white"/>
+    <text x="255" y="248" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#aaa">대기로 이동</text>
+
+    <!-- 발주 대기 -->
+    <rect x="183" y="276" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="255" y="292" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">발주 대기</text>
+
+    <!-- 발주 대기 → 발주 완료 (라벨: 발주서 전송) + 매입처 분기 -->
+    <line x1="255" y1="308" x2="255" y2="364" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <path d="M 255 336 H 135" fill="none" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="209" y="329" width="92" height="14" rx="2" fill="white"/>
+    <text x="255" y="336" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#aaa">발주서 전송</text>
+
+    <!-- 발주 완료 -->
+    <rect x="183" y="364" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="255" y="380" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">발주 완료</text>
+
+    <!-- 입고 대기 -->
+    <rect x="183" y="452" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="255" y="468" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">입고 대기</text>
+
+    <!-- 입고 대기 → 입고 완료 (라벨: 매입검수 시작) -->
+    <line x1="255" y1="484" x2="255" y2="540" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="201" y="505" width="108" height="14" rx="2" fill="white"/>
+    <text x="255" y="512" text-anchor="middle" dominant-baseline="central" font-size="10" font-weight="600" fill="#c0392b">매입검수 시작</text>
+
+    <!-- 입고 완료 (매입보류와 동일 라인 y=540) -->
+    <rect x="183" y="540" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="255" y="556" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">입고 완료</text>
+
+    <!-- ══════ 매입처 (발주관리 외부 좌측) ══════ -->
+    <rect x="55" y="320" width="80" height="32" rx="6" class="box-gray" stroke-width="0.6"/>
+    <text x="95" y="336" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-gray">매입처</text>
+
+    <!-- ══════ 매입관리 dashed box (center x=645) ══════ -->
+    <rect x="430" y="64" width="430" height="580" rx="8" fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="6 3"/>
+    <text x="446" y="82" font-size="11" font-weight="600" fill="#777">매입관리</text>
+
+    <!-- 매입 입력 -->
+    <rect x="573" y="100" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="645" y="116" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">매입 입력</text>
+
+    <!-- 매입 입력 → 입고대기(검수중) (라벨: 입고대기) -->
+    <line x1="645" y1="132" x2="645" y2="188" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="610" y="153" width="70" height="14" rx="2" fill="white"/>
+    <text x="645" y="160" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#aaa">입고대기</text>
+
+    <!-- 입고대기(검수중) - 발주서 입력과 동일 y 라인 -->
+    <rect x="561" y="188" width="168" height="32" rx="6" class="box-teal" stroke-width="0.6"/>
+    <text x="645" y="204" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-teal">입고대기(검수중)</text>
+
+    <!-- 입고대기(검수중) → 매입 검수 다이아몬드 -->
+    <line x1="645" y1="220" x2="645" y2="416" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+
+    <!-- 매입 검수 다이아몬드 -->
+    <polygon points="645,416 713,450 645,484 577,450" fill="#fff9e6" stroke="#c8960c" stroke-width="0.8"/>
+    <text x="645" y="450" text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="600" fill="#7a5800">매입 검수</text>
+
+    <!-- 같음 / 다름 화살표 먼저 그리기 (라벨이 위에 올라오도록) -->
+    <path d="M 713 450 H 769 V 540" fill="none" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <path d="M 577 450 H 519 V 540" fill="none" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+
+    <!-- 다름 / 같음 라벨 (화살표 위에 렌더) -->
+    <rect x="528" y="440" width="40" height="20" rx="3" fill="#fcebeb" stroke="#a32d2d" stroke-width="0.8"/>
+    <text x="548" y="450" text-anchor="middle" dominant-baseline="central" font-size="10" font-weight="600" fill="#a32d2d">다름</text>
+    <rect x="721" y="440" width="40" height="20" rx="3" fill="#eaf3de" stroke="#3b6d11" stroke-width="0.8"/>
+    <text x="741" y="450" text-anchor="middle" dominant-baseline="central" font-size="10" font-weight="600" fill="#3b6d11">같음</text>
+
+    <!-- 매입완료 -->
+    <rect x="697" y="540" width="144" height="32" rx="6" class="box-teal" stroke-width="0.6"/>
+    <text x="769" y="556" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-teal">매입완료</text>
+
+    <!-- 매입보류 -->
+    <rect x="447" y="540" width="144" height="32" rx="6" class="box-gray" stroke-width="0.6"/>
+    <text x="519" y="556" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-gray">매입보류</text>
+
+    <!-- 좌측 입고 대기 ↔ 우측 입고대기 라벨 (양방향) -->
+    <path d="M 327 468 H 395 V 160 H 610" fill="none" stroke="#888" stroke-width="1" marker-start="url(#arr)" marker-end="url(#arr)"/>
+
+  </svg>
+</div>
+</body>
+</html>

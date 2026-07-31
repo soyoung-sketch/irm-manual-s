@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>매입가수정</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; background: #f5f5f5; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 32px 16px; }
+  .wrap { background: #fff; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,.1); padding: 28px 28px 24px; max-width: 960px; width: 100%; }
+  h2 { font-size: 15px; font-weight: 600; color: #222; margin-bottom: 18px; letter-spacing: -.01em; }
+  svg text { font-family: inherit; }
+  .box-blue  { fill: #e6f1fb; stroke: #185fa5; }
+  .box-teal  { fill: #e1f5ee; stroke: #0f6e56; }
+  .box-amber { fill: #f8eedb; stroke: #854f0b; }
+  .txt-blue  { fill: #0c447c; }
+  .txt-teal  { fill: #085041; }
+  .txt-amber { fill: #633806; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h2>4. 매입관리Ⅱ – 본사 ↔ 가맹점 발주 &amp; 매입 흐름도 &nbsp;(2 / 2) - 매입가수정</h2>
+
+  <svg width="100%" viewBox="0 0 880 630" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L9 5 L0 10 Z" fill="#888"/>
+      </marker>
+      <marker id="arr-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L9 5 L0 10 Z" fill="#185fa5"/>
+      </marker>
+      <!-- 굵은 양방향 화살표용 마커 -->
+      <marker id="arr-bold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M0 0 L9 5 L0 10 Z" fill="#185fa5"/>
+      </marker>
+      <marker id="arr-bold-rev" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M9 0 L0 5 L9 10 Z" fill="#185fa5"/>
+      </marker>
+    </defs>
+
+    <!-- Outer border -->
+    <rect x="0.5" y="0.5" width="879" height="629" fill="none" stroke="#ccc" stroke-width="0.8" rx="10"/>
+
+    <!-- Header bg -->
+    <rect x="0" y="0" width="880" height="48" fill="#f0f0f0" rx="10"/>
+    <rect x="0" y="40" width="880" height="8" fill="#f0f0f0"/>
+    <path d="M 0.5 48 L 0.5 10 Q 0.5 0.5 10 0.5 L 870 0.5 Q 879.5 0.5 879.5 10 L 879.5 48" fill="none" stroke="#ccc" stroke-width="0.8"/>
+
+    <!-- Column dividers -->
+    <line x1="44"  y1="48" x2="44"  y2="630" stroke="#ddd" stroke-width="0.8"/>
+    <line x1="440" y1="48" x2="440" y2="630" stroke="#ddd" stroke-width="0.8"/>
+
+    <!-- Column headers -->
+    <text x="242" y="29" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">가맹점</text>
+    <text x="660" y="29" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">본사</text>
+
+    <!-- 행 라벨: 매입가수정 -->
+    <text x="22" y="273" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">매</text>
+    <text x="22" y="289" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">입</text>
+    <text x="22" y="305" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">가</text>
+    <text x="22" y="321" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">수</text>
+    <text x="22" y="337" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">정</text>
+
+    <!-- ════ 매입관리 dashed box (좌여백=88, 우여백=88) ════ -->
+    <rect x="61" y="66" width="320" height="462" rx="8" fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="6 3"/>
+    <text x="77" y="83" font-size="11" font-weight="600" fill="#777">매입관리</text>
+
+    <!-- ① 뱃지 (매입관리 박스 우측 밖, 15px 여백) -->
+    <text x="410" y="64" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#185fa5">매입검수</text>
+    <line x1="410" y1="71" x2="410" y2="86" stroke="#185fa5" stroke-width="1" marker-end="url(#arr-blue)"/>
+    <circle cx="410" cy="98" r="14" fill="#185fa5"/>
+    <text x="410" y="98" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="700" fill="white">1</text>
+
+    <!-- 매입 입력 -->
+    <rect x="149" y="98" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="221" y="114" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">매입 입력</text>
+
+    <!-- 매입 입력 → 입고대기(검수중) -->
+    <line x1="221" y1="130" x2="221" y2="164" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="188" y="140" width="66" height="14" rx="2" fill="white"/>
+    <text x="221" y="147" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#aaa">입고대기</text>
+
+    <!-- 입고대기(검수중) -->
+    <rect x="149" y="164" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="221" y="180" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">입고대기(검수중)</text>
+
+    <!-- 입고대기(검수중) → diamond -->
+    <line x1="221" y1="196" x2="221" y2="222" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+
+    <!-- 육각형: 현재 출고수량과 입고수량이 같은가? (center 242,258, width=144, height=56) -->
+    <polygon points="221,230 293,244 293,272 221,286 149,272 149,244" class="box-amber" stroke-width="0.6"/>
+    <text x="221" y="252" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-amber">현재 출고수량과 입고 수량이</text>
+    <text x="221" y="266" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-amber">같은가?</text>
+
+    <!-- 같음 → 매입완료, 중간(y=320)에서 판매완료로 분기 -->
+    <line x1="221" y1="286" x2="221" y2="349" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="201" y="293" width="40" height="20" rx="3" fill="#eaf3de" stroke="#3b6d11" stroke-width="0.8"/>
+    <text x="221" y="303" text-anchor="middle" dominant-baseline="central" font-size="10" font-weight="600" fill="#3b6d11">같음</text>
+    <!-- 분기: 판매완료 좌측 중앙으로 -->
+    <path d="M 221 320 H 460 V 350 H 538" fill="none" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+
+    <!-- 매입완료 → 판매완료 직통선 삭제 -->
+
+    <!-- 다름: 육각형 좌측 → 하단 → 우측(y=430) → 하단 → 판매보류 좌측 -->
+    <path d="M 149 258 H 91 V 408 H 410 V 466 H 528" fill="none" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <!-- 분기: y=430 가로선에서 매입보류 상단으로 -->
+    <line x1="221" y1="408" x2="221" y2="450" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="100" y="248" width="40" height="20" rx="3" fill="#fcebeb" stroke="#a32d2d" stroke-width="0.8"/>
+    <text x="120" y="258" text-anchor="middle" dominant-baseline="central" font-size="10" font-weight="600" fill="#a32d2d">다름</text>
+
+    <!-- 매입완료 -->
+    <rect x="149" y="349" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="221" y="365" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">매입완료</text>
+
+    <!-- 매입완료 → 재고 수불 발생 선 삭제 -->
+
+    <!-- 매입보류 -->
+    <rect x="149" y="450" width="144" height="32" rx="6" class="box-blue" stroke-width="0.6"/>
+    <text x="221" y="466" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">매입보류</text>
+
+    <!-- ════ 매장관리 dashed box (본사, x=468 width=281 center=608) ════ -->
+    <rect x="508" y="66" width="281" height="462" rx="8" fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="6 3"/>
+    <text x="524" y="83" font-size="11" font-weight="600" fill="#777">매장관리</text>
+
+    <!-- ② 뱃지 -->
+    <text x="818" y="64" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#185fa5">배송시작</text>
+    <line x1="818" y1="71" x2="818" y2="86" stroke="#185fa5" stroke-width="1" marker-end="url(#arr-blue)"/>
+    <circle cx="818" cy="98" r="14" fill="#185fa5"/>
+    <text x="818" y="98" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="700" fill="white">2</text>
+
+    <!-- ② → 판매(출고)대기 (하단 중앙에서 출발) -->
+    <path d="M 818 112 V 180 H 682" fill="none" stroke="#185fa5" stroke-width="1" marker-end="url(#arr-blue)"/>
+
+    <!-- 판매입력 -->
+    <rect x="538" y="98" width="144" height="32" rx="6" class="box-teal" stroke-width="0.6"/>
+    <text x="610" y="114" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-teal">판매입력</text>
+
+    <!-- 판매입력 → 판매(출고)대기 -->
+    <line x1="610" y1="130" x2="610" y2="164" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="580" y="140" width="60" height="14" rx="2" fill="white"/>
+    <text x="610" y="147" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#aaa">판매대기</text>
+
+    <!-- 판매(출고)대기 -->
+    <rect x="538" y="164" width="144" height="32" rx="6" class="box-teal" stroke-width="0.6"/>
+    <text x="610" y="180" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-teal">판매(출고)대기</text>
+
+    <!-- 판매(출고)대기 → 입고대기(검수중) 선 제거 -->
+
+    <!-- ① 뱃지 → 검수요청 (중간 x=460에서 입고대기로 분기) -->
+    <path d="M 424 98 H 460 V 227 H 575" fill="none" stroke="#185fa5" stroke-width="1" marker-end="url(#arr-blue)"/>
+    <!-- 분기: x=460, y=180 → 입고대기(검수중) 우측 -->
+    <line x1="460" y1="180" x2="293" y2="180" stroke="#185fa5" stroke-width="1" marker-end="url(#arr-blue)"/>
+
+    <!-- 검수요청 → 판매보류 (우측 경로) -->
+    <path d="M 682 466 H 755 V 227 H 645" fill="none" stroke="#185fa5" stroke-width="1" marker-end="url(#arr-blue)"/>
+    <rect x="724" y="340" width="62" height="14" rx="2" fill="white"/>
+    <text x="755" y="347" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#185fa5">재검수요청</text>
+
+    <!-- 판매(출고)대기 → 검수완료 -->
+    <line x1="610" y1="196" x2="610" y2="256" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="575" y="220" width="70" height="14" rx="2" fill="white"/>
+    <text x="610" y="227" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#aaa">검수요청</text>
+
+    <!-- 검수완료 -->
+    <rect x="538" y="256" width="144" height="32" rx="6" class="box-teal" stroke-width="0.6"/>
+    <text x="610" y="272" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-teal">검수완료</text>
+
+    <!-- 검수완료 → 판매완료 -->
+    <line x1="610" y1="288" x2="610" y2="334" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="575" y="305" width="70" height="14" rx="2" fill="white"/>
+    <text x="610" y="312" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#aaa">판매완료</text>
+
+    <!-- 판매완료 -->
+    <rect x="538" y="334" width="144" height="32" rx="6" class="box-teal" stroke-width="0.6"/>
+    <text x="610" y="350" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-teal">판매완료</text>
+
+    <!-- 판매완료 → 재고 수불 발생 선 삭제 -->
+
+    <!-- 판매보류 → 판매완료 (위로 화살표, 텍스트 중앙) -->
+    <line x1="610" y1="450" x2="610" y2="366" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <!-- 원인파악 지점에서 매입완료 우측 가운데로 -->
+    <path d="M 610 408 H 445 V 365 H 293" fill="none" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="533" y="394" width="154" height="28" rx="2" fill="white"/>
+    <text x="610" y="401" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#aaa">원인파악 및 가맹점과 협의후</text>
+    <text x="610" y="415" text-anchor="middle" dominant-baseline="central" font-size="10" fill="#aaa">본사에서 확정</text>
+
+    <!-- 판매보류 -->
+    <rect x="538" y="450" width="144" height="32" rx="6" class="box-teal" stroke-width="0.6"/>
+    <text x="610" y="466" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-teal">판매보류</text>
+
+    <!-- ════ 크로스 화살표 ════ -->
+    <!-- 매입완료 → 판매완료 직통선 제거 -->
+    <!-- 매입보류 → 판매보류 선 제거 -->
+
+    <!-- ════ 재고 수불 발생 ════ -->
+    <rect x="61" y="568" width="728" height="40" rx="6" fill="#f4f4f4" stroke="#999" stroke-width="0.6"/>
+    <text x="425" y="588" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#444">재고 수불 발생</text>
+
+    <!-- 매입보류 ↕ 재고수불 (양방향 굵은 파란 화살표, 중앙 배치) -->
+    <line x1="221" y1="487" x2="221" y2="563" stroke="#185fa5" stroke-width="2.5" marker-start="url(#arr-bold-rev)" marker-end="url(#arr-bold)"/>
+
+    <!-- 판매보류 ↕ 재고수불 (양방향 굵은 파란 화살표, 중앙 배치) -->
+    <line x1="610" y1="487" x2="610" y2="563" stroke="#185fa5" stroke-width="2.5" marker-start="url(#arr-bold-rev)" marker-end="url(#arr-bold)"/>
+
+    <!-- 육각형 맨 앞 렌더링 -->
+    <polygon points="221,230 293,244 293,272 221,286 149,272 149,244" class="box-amber" stroke-width="0.6"/>
+    <text x="221" y="252" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-amber">현재 출고수량과 입고 수량이</text>
+    <text x="221" y="266" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-amber">같은가?</text>
+
+  </svg>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>상품관리 흐름도 3</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; background: #f5f5f5; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 32px 16px; }
+  .wrap { background: #fff; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,.1); padding: 28px 28px 24px; max-width: 900px; width: 100%; }
+  h2 { font-size: 15px; font-weight: 600; color: #222; margin-bottom: 18px; letter-spacing: -.01em; }
+  svg text { font-family: inherit; }
+  .box-blue   { fill: #e6f1fb; stroke: #185fa5; }
+  .box-teal   { fill: #e1f5ee; stroke: #0f6e56; }
+  .box-purple { fill: #eeedfe; stroke: #534ab7; }
+  .box-coral  { fill: #faece7; stroke: #993c1d; }
+  .txt-blue   { fill: #0c447c; }
+  .txt-teal   { fill: #085041; }
+  .txt-purple { fill: #3c3489; }
+  .txt-coral  { fill: #712b13; }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; font-size: 12px; color: #555; }
+  .legend span { display: flex; align-items: center; gap: 5px; }
+  .dot { display: inline-block; width: 11px; height: 11px; border-radius: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h2>2. 상품관리 – 본사 ↔ 가맹점 상품 등록 흐름도 &nbsp;(3 / 3)</h2>
+
+  <svg width="100%" viewBox="0 0 820 530" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M2 1L8 5L2 9" fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+    </defs>
+
+    <!-- Outer border -->
+    <rect x="0.5" y="0.5" width="819" height="529" fill="none" stroke="#ccc" stroke-width="0.8" rx="10"/>
+
+    <!-- Header bg -->
+    <rect x="0" y="0" width="820" height="48" fill="#f0f0f0" rx="10"/>
+    <rect x="0" y="40" width="820" height="8" fill="#f0f0f0"/>
+
+    <!-- 헤더 테두리 (하단선 제외, 상단만 라운드) -->
+    <path d="M 0.5 48 L 0.5 10 Q 0.5 0.5 10 0.5 L 810 0.5 Q 819.5 0.5 819.5 10 L 819.5 48" fill="none" stroke="#ccc" stroke-width="0.8"/>
+
+    <!-- Column dividers -->
+    <line x1="44"  y1="48" x2="44"  y2="530" stroke="#ddd" stroke-width="0.8"/>
+    <line x1="240" y1="48" x2="240" y2="530" stroke="#ddd" stroke-width="0.8"/>
+    <line x1="470" y1="48" x2="470" y2="530" stroke="#ddd" stroke-width="0.8"/>
+    <line x1="650" y1="48" x2="650" y2="530" stroke="#ddd" stroke-width="0.6" stroke-dasharray="5 3"/>
+
+    <!-- Column headers -->
+    <text x="142" y="29" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">직영점</text>
+    <text x="355" y="29" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">본사</text>
+    <text x="648" y="29" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#333">가맹점 &amp; 외주센터</text>
+
+    <!-- 행 라벨: 매입가행사등록 (7글자) 섹션 중앙 y=(48+530)/2=289, 7×16=112 → 시작233 -->
+    <text x="22" y="233" text-anchor="middle" font-size="11" fill="#888">매</text>
+    <text x="22" y="249" text-anchor="middle" font-size="11" fill="#888">입</text>
+    <text x="22" y="265" text-anchor="middle" font-size="11" fill="#888">가</text>
+    <text x="22" y="281" text-anchor="middle" font-size="11" fill="#888">행</text>
+    <text x="22" y="297" text-anchor="middle" font-size="11" fill="#888">사</text>
+    <text x="22" y="313" text-anchor="middle" font-size="11" fill="#888">등</text>
+    <text x="22" y="329" text-anchor="middle" font-size="11" fill="#888">록</text>
+
+    <!-- ════ Row 1: 두 줄 박스 (y=62, h=50) ════ -->
+    <rect x="281" y="62" width="148" height="50" rx="7" class="box-blue"  stroke-width="0.6"/>
+    <text x="355" y="80" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">가맹상품</text>
+    <text x="355" y="98" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">매입가행사 등록</text>
+
+    <rect x="666" y="62" width="140" height="50" rx="7" class="box-coral" stroke-width="0.6"/>
+    <text x="736" y="80" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-coral">사입상품</text>
+    <text x="736" y="98" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-coral">매입가행사 등록</text>
+
+    <!-- 본사·외주 row1 → row3 (long arrows) -->
+    <line x1="355" y1="112" x2="355" y2="248" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="736" y1="112" x2="736" y2="248" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+
+    <!-- ════ Row 2: 발주 (y=160, h=40) ════ -->
+    <rect x="64"  y="160" width="152" height="40" rx="7" class="box-teal"   stroke-width="0.6"/>
+    <text x="140" y="180" text-anchor="middle" dominant-baseline="central" font-size="12.5" font-weight="600" class="txt-teal">발주</text>
+
+    <rect x="480" y="160" width="152" height="40" rx="7" class="box-purple" stroke-width="0.6"/>
+    <text x="556" y="180" text-anchor="middle" dominant-baseline="central" font-size="12.5" font-weight="600" class="txt-purple">발주</text>
+
+    <!-- 발주 → row3 -->
+    <line x1="140" y1="200" x2="140" y2="248" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="556" y1="200" x2="556" y2="248" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+
+    <!-- ════ Row 3: 전송/적용 (y=248, h=40) ════ -->
+    <rect x="64"  y="248" width="152" height="40" rx="7" class="box-teal"   stroke-width="0.6"/>
+    <text x="140" y="268" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-teal">매입가 행사 적용</text>
+
+    <rect x="281" y="248" width="148" height="40" rx="7" class="box-blue"   stroke-width="0.6"/>
+    <text x="355" y="268" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-blue">매입가 행사 전송</text>
+
+    <rect x="480" y="248" width="152" height="40" rx="7" class="box-purple" stroke-width="0.6"/>
+    <text x="556" y="268" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-purple">매입가행사 적용</text>
+
+    <rect x="666" y="248" width="140" height="40" rx="7" class="box-coral"  stroke-width="0.6"/>
+    <text x="736" y="268" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-coral">매입가행사 등록</text>
+
+    <!-- 직영점 ↔ 본사, 본사 → 가맹점 -->
+    <line x1="216" y1="268" x2="281" y2="268" stroke="#888" stroke-width="1" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <line x1="429" y1="268" x2="480" y2="268" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+
+    <!-- row3 → row4 -->
+    <line x1="140" y1="288" x2="140" y2="366" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="556" y1="288" x2="556" y2="366" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="736" y1="288" x2="736" y2="366" stroke="#888" stroke-width="1" marker-end="url(#arr)"/>
+
+    <!-- ════ Row 4: 매입가행사로 매입 (y=366, h=40) ════ -->
+    <rect x="64"  y="366" width="152" height="40" rx="7" class="box-teal"   stroke-width="0.6"/>
+    <text x="140" y="386" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-teal">매입가행사로 매입</text>
+
+    <rect x="480" y="366" width="152" height="40" rx="7" class="box-purple" stroke-width="0.6"/>
+    <text x="556" y="386" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-purple">매입가행사로 매입</text>
+
+    <rect x="666" y="366" width="140" height="40" rx="7" class="box-coral"  stroke-width="0.6"/>
+    <text x="736" y="386" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" class="txt-coral">매입가행사로 매입</text>
+
+  </svg>
+
+  <div class="legend">
+    <span><i class="dot" style="background:#1D9E75;opacity:.8"></i>직영점</span>
+    <span><i class="dot" style="background:#185fa5;opacity:.8"></i>본사</span>
+    <span><i class="dot" style="background:#534ab7;opacity:.8"></i>가맹점</span>
+    <span><i class="dot" style="background:#993c1d;opacity:.8"></i>외주센터 (사입)</span>
+  </div>
+</div>
+</body>
+</html>
