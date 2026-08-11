@@ -912,7 +912,7 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .card-img-wrap .annot-popup-arrow { border-left-width:1.6cqw; border-right-width:1.6cqw; border-bottom-width:3.2cqw; top:-3.2cqw; }
 .card-img-wrap .callout-circle, .card-img-wrap .callout-pin { width:4.2cqw; height:4.2cqw; font-size:2.4cqw; }
 /* 목록 썸네일: SIM 시작화면 정적 오버레이 (비대화형 + 비율 축소) */
-.annot-static .sim-spot, .annot-static .sim-fill, .annot-static .sim-cat { pointer-events:none; }
+.annot-static .sim-spot, .annot-static .sim-fill, .annot-static .sim-fillov, .annot-static .sim-cat { pointer-events:none; }
 .card-img-wrap .sim-num { width:4.4cqw; height:4.4cqw; min-width:4.4cqw; font-size:2.6cqw; left:-1.8cqw; top:-1.8cqw; transform:none; }
 .card-img-wrap .sim-cue { border-width:0.45cqw; }
 /* 인터랙티브 화면 시뮬레이터 */
@@ -944,7 +944,8 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .sim-cue.notint:hover { background:transparent; }
 .sim-cue.noline { border:0; }
 .sim-spot.noev { pointer-events:none; }
-.sim-fill { position:absolute; box-sizing:border-box; z-index:8; border-radius:3px; background:rgba(255,212,77,0.6); mix-blend-mode:multiply; cursor:help; }
+.sim-fill { position:absolute; box-sizing:border-box; z-index:8; border-radius:3px; background:rgba(255,212,77,0.6); mix-blend-mode:multiply; pointer-events:none; }
+.sim-fillov { position:absolute; box-sizing:border-box; z-index:9; border-radius:3px; cursor:help; }
 .sim-fill.red { background:rgba(226,36,26,0.32); }
 .sim-fill.soft { background:#f59e0b; mix-blend-mode:normal; }
 .sim-fill.blue { background:rgba(37,99,235,0.30); }
@@ -952,8 +953,8 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .sim-fill.solid.red { background:#e2241a; }
 .sim-fill.solid.blue { background:#2563eb; }
 .sim-fill.clear { background:transparent; mix-blend-mode:normal; }
-.sim-fill.click { cursor:pointer; }
-.sim-fill:hover .sim-tip { opacity:1; }
+.sim-fillov.click { cursor:pointer; }
+.sim-fillov:hover .sim-tip { opacity:1; }
 /* 이미지 스왑 전용 표시: 스왑 상태(#simOverlay.img-swapped)에서만 보임 */
 .sim-swaponly { display:none !important; }
 #simOverlay.img-swapped .sim-swaponly { display:block !important; }
@@ -1092,7 +1093,7 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .sim-tip.tip-numr::before { left:-6px; right:auto; top:50%; bottom:auto; transform:translateY(-50%); border-top:6px solid transparent; border-bottom:6px solid transparent; border-right:6px solid var(--navy); border-left:none; }
 .sim-spot:hover .sim-tip { opacity:1; }
 /* 말풍선 항상 최상단: 호버된 박스를 최상위 레이어로 올려 말풍선이 다른 박스에 가려지지 않게 함 (전 페이지) */
-.sim-spot:hover, .sim-fill:hover { z-index:2000 !important; }
+.sim-spot:hover, .sim-fillov:hover { z-index:2000 !important; }
 .sim-force-top { z-index:2200 !important; }
 /* 말풍선이 항상 최상위로 — hover 시 해당 요소 전체를 끌어올려 다른 버튼/테두리에 가리지 않게 */
 .sim-spot:hover, .sim-drag:hover, .sim-pick:hover { z-index:1000; }
@@ -26236,7 +26237,8 @@ function simOverlayHTML(pg, sid) {
       const fact = b.close ? "winClose()" : (b.to ? (sim.screens[b.to] && sim.screens[b.to].win ? `winGo('${pg}','${b.to}')` : `simGo('${pg}','${b.to}')`) : (b.gif ? `playGif('${b.gif}')` : ""));
       const ftxt = b.fillText ? `<span class="sim-fill-txt">${b.fillText}</span>` : '';
       const fup = (b.tip||b.label) ? `<span class="sim-tip${tipCls(b.x,b.w,b.y)}${b.tipNowrap?' nowrap':''}">${b.tip||b.label}</span>` : '';
-      h += `<div class="sim-fill${b.red?' red':''}${b.blue?' blue':''}${b.soft?' soft':''}${b.solid?' solid':''}${b.clear?' clear':''}${fact?' click':''}${b.swapOnly?' sim-swaponly':''}${b.hideSwap?' sim-hideswap':''}" style="${pos}${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}${b.radius!=null?'border-radius:'+b.radius+'px;':''}"${fact?` onclick="${fact}"`:""}>${ftxt}${fup}</div>`;
+      h += `<div class="sim-fill${b.red?' red':''}${b.blue?' blue':''}${b.soft?' soft':''}${b.solid?' solid':''}${b.clear?' clear':''}${b.swapOnly?' sim-swaponly':''}${b.hideSwap?' sim-hideswap':''}" style="${pos}${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}${b.radius!=null?'border-radius:'+b.radius+'px;':''}"></div>`
+        + `<div class="sim-fillov${fact?' click':''}${b.swapOnly?' sim-swaponly':''}${b.hideSwap?' sim-hideswap':''}" style="${pos}${b.zTop?'z-index:2101;':b.front?'z-index:1002;':''}${b.radius!=null?'border-radius:'+b.radius+'px;':''}"${fact?` onclick="${fact}"`:""}>${ftxt}${fup}</div>`;
       return;
     }
     if (b.lite) {
@@ -26386,7 +26388,8 @@ function winOverlayHTML(pg, sid) {
     if (b.fill) {
       const pos = `left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;`;
       const fact = b.close ? "winClose()" : (b.to ? (sim.screens[b.to] && sim.screens[b.to].win ? `winGo('${pg}','${b.to}')` : `simGo('${pg}','${b.to}')`) : "");
-      h += `<div class="sim-fill${b.red?' red':''}${b.soft?' soft':''}" style="${pos}"${fact?` onclick="${fact}"`:""}>${(b.tip||b.label)?`<span class="sim-tip${tipCls(b.x,b.w,b.y)}${b.tipNowrap?' nowrap':''}">${b.tip||b.label}</span>`:''}</div>`;
+      h += `<div class="sim-fill${b.red?' red':''}${b.soft?' soft':''}" style="${pos}"></div>`
+        + `<div class="sim-fillov${fact?' click':''}" style="${pos}"${fact?` onclick="${fact}"`:""}>${(b.tip||b.label)?`<span class="sim-tip${tipCls(b.x,b.w,b.y)}${b.tipNowrap?' nowrap':''}">${b.tip||b.label}</span>`:''}</div>`;
       return;
     }
     if (b.lite) {
@@ -26561,7 +26564,7 @@ function simChkToggle(group) {
 // 큰 박스에 호버한 채로 이동해도 안쪽 작은 버튼(···등)이 정상적으로 호버·클릭되게 한다.
 document.addEventListener("mousemove", function (e) {
   const all = (document.elementsFromPoint(e.clientX, e.clientY) || []).filter(el =>
-    el.classList && (el.classList.contains("sim-spot") || el.classList.contains("sim-fill")));
+    el.classList && (el.classList.contains("sim-spot") || el.classList.contains("sim-fill") || el.classList.contains("sim-fillov")));
   const clickable = all.filter(el => el.getAttribute("onclick") || el.getAttribute("ondblclick"));
   let best = null, bestA = Infinity;
   clickable.forEach(el => { const r = el.getBoundingClientRect(); const a = r.width * r.height; if (a > 0 && a < bestA) { bestA = a; best = el; } });
