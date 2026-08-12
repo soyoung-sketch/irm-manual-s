@@ -27620,7 +27620,7 @@ showWelcome();
 })();
 
 /* 우측 카드 클릭 → 좌측 짝 영역 깜빡임 (1차 적용: POP 인쇄 관리) */
-var FLASH_PAGES = ["spop1"]; // null이면 전체 페이지 적용
+var FLASH_PAGES = null; // 전체 페이지 적용
 function _simFlashEls(els) {
   els.forEach(function (el) {
     if (!el) return;
