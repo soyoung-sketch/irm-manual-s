@@ -946,8 +946,8 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .sim-spot.noev { pointer-events:none; }
 .sim-fill { position:absolute; box-sizing:border-box; z-index:8; border-radius:3px; background:rgba(255,212,77,0.6); mix-blend-mode:multiply; pointer-events:none; }
 .sim-fillov { position:absolute; box-sizing:border-box; z-index:9; border-radius:3px; cursor:help; }
-@keyframes simFlashKf { 0%,100% { box-shadow:none; } 30%,70% { background:rgba(226,36,26,0.25); box-shadow:0 0 0 3px rgba(226,36,26,0.85); } }
-.sim-flash { animation: simFlashKf 0.45s ease-in-out 3; z-index:2150 !important; }
+@keyframes simFlashKf { 0% { box-shadow:0 0 0 0 rgba(226,36,26,0); background:rgba(226,36,26,0); } 30% { box-shadow:0 0 0 4px rgba(226,36,26,0.40), 0 0 22px 4px rgba(226,36,26,0.28); background:rgba(226,36,26,0.12); } 100% { box-shadow:0 0 0 0 rgba(226,36,26,0); background:rgba(226,36,26,0); } }
+.sim-flash { animation: simFlashKf 1.15s cubic-bezier(.4,0,.2,1) 1; z-index:2150 !important; }
 .sim-fill.red { background:rgba(226,36,26,0.20); }
 .sim-fill.soft { background:#f59e0b; mix-blend-mode:normal; }
 .sim-fill.blue { background:rgba(37,99,235,0.30); }
@@ -27625,7 +27625,7 @@ function _simFlashEls(els) {
   els.forEach(function (el) {
     if (!el) return;
     el.classList.remove("sim-flash"); void el.offsetWidth; el.classList.add("sim-flash");
-    setTimeout(function () { el.classList.remove("sim-flash"); }, 1500);
+    setTimeout(function () { el.classList.remove("sim-flash"); }, 1250);
   });
 }
 document.addEventListener("click", function (e) {
