@@ -16930,7 +16930,7 @@ DESCS["sfo4"] = [
   {type:"step", num:"1", title:`✅ 발주서 선택`, body:"최종 컨펌한 <b>입고대기</b> 목록에서 처리할 발주서를 선택합니다."},
   {type:"step", num:"2", title:`📥 입고완료로 넘김`, body:"컨펌이 끝났으면 <span class='ui-btn'>입고완료</span>로 넘겨 입고를 마칩니다(입고완료 탭으로 이동)."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
-    "<b>매입 검수시작</b> : <span class='ui-btn'>매입 검수시작</span>으로 <b class='dlink' onclick=\"openSub('s-ch3','s-pq',true)\">매입 조회</b>의 금액 확인 화면으로 이동해 매입완료하면 입고완료됩니다.",
+    "<b>매입 검수시작</b> : <span class='ui-btn'>매입 검수시작</span>으로 🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-pq',true)\">매입 조회</b>의 금액 확인 화면으로 이동해 매입완료하면 입고완료됩니다.",
     "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 선택한 발주서를 출력합니다.",
     "<b>취소</b> : <span class='ui-btn'>취소</span>로 쓰지 않을 발주서를 취소합니다.",
     "<b>수정</b> : 이 단계에서는 수정할 수 없습니다.",
@@ -22038,9 +22038,9 @@ DESCS["sopv1"] = [
 
   {type:"step", num:"3", title:`<span class="hl-red2">이미 발주된 품목 확인하기</span>`, body:"이미 <b>발주수량이 존재</b>하면 <b>빨간색</b>으로 표시됩니다.", subs:[]},
 
-  {type:"step", num:"4", title:`📝 발주하기`, body:"<span class='hl-red'>핑크색 라인의 상품</span>을 선택하고 <span class='ui-btn'>＋ 발주서 만들기</span> 버튼을 클릭합니다.", subs:[
-    "⬇ <b class='dlink' onclick=\"openSub('s-ch3','s-order',true)\">발주서 등록</b> 화면으로 이동합니다.",
-    "발주한 것은 <span style='color:#e2241a'><b>빨간색</b></span>으로 바뀝니다 (<b class='dlink' onclick=\"openSub('s-ch3','s-inquiry',true);setTimeout(function(){goPage(1)},80)\">발주서 조회 › 발주대기</b>에서 확인).",
+  {type:"step", num:"4", title:`📝 발주하기`, body:"<span class='hl-red'><b>핑크색 라인의 상품</b></span>을 선택하고 <span class='ui-btn'>＋ 발주서 만들기</span> 버튼을 클릭합니다.", subs:[
+    "⬇ 🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-order',true)\">발주서 등록</b> 화면으로 이동합니다.",
+    "발주한 것은 <span style='background:#e2241a;color:#fff;padding:1px 6px;border-radius:4px'><b>빨간색</b></span>으로 바뀝니다 (🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-inquiry',true);setTimeout(function(){goPage(1)},80)\">발주서 조회 › 발주대기</b>에서 확인).",
   ]},
 ];
 SIM["sopv1"] = { start:"1", screens:{
