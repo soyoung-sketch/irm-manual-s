@@ -18717,7 +18717,7 @@ DESCS["spu2d"] = [
     "📌 인쇄",
     "<span class='ui-btn'>인쇄</span> 버튼으로 <b>매입전표</b>를 인쇄합니다.",
   ]},
-  {type:"step", num:"★", ystar:true, title:`🔗 매입 반품 조회`, body:"<span class='ui-btn'>매입반품</span> 버튼을 클릭해 반품된 전표는 <b class='dlink' onclick=\"openSub('s-ch3','s-rq',true);setTimeout(function(){goPage(3)},80)\">매입 반품 조회</b>의 <b>반품완료</b> 탭에서 확인하실 수 있습니다."},
+  {type:"step", num:"★", ystar:true, title:`🔗 매입 반품 조회`, body:"<span class='ui-btn'>매입반품</span> 버튼을 클릭해 반품된 전표는 🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-rq',true);setTimeout(function(){goPage(3)},80)\">매입 반품 조회</b>의 <b>반품완료</b> 탭에서 확인하실 수 있습니다."},
 ];
 SIM["spu2d"] = { start:"done", screens:{
 
@@ -19206,9 +19206,9 @@ DESCS["str1"] = [
     "📌 보고서 작성",
     "<span class='ui-btn'>🖨 보고서 작성</span> 메뉴에서 <b>보고서 인쇄</b>를 클릭하면 매입 보고서 미리 보기가 열립니다.",
     "📌 매입처 원장(결제) · 원장(상품)",
-    "<b class='dlink' onclick=\"openSub('s-ch3','s-wl1',true)\">매입처 원장(결제)</b> · <b class='dlink' onclick=\"openSub('s-ch3','s-wl2',true)\">매입처 원장(상품)</b> 버튼으로 원장 화면을 엽니다.",
+    "🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-wl1',true)\">매입처 원장(결제)</b> · 🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-wl2',true)\">매입처 원장(상품)</b> 버튼으로 원장 화면을 엽니다.",
     "📌 채무지급입력",
-    "<b class='dlink' onclick=\"openSub('s-ch3','s-dpay',true)\">채무지급입력</b> 버튼으로 매입처가 미리 입력된 <b>채무지급 관리</b> 화면으로 이동합니다.",
+    "🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-dpay',true)\">채무지급입력</b> 버튼으로 매입처가 미리 입력된 <b>채무지급 관리</b> 화면으로 이동합니다.",
   ]},
 ];
 
@@ -20400,8 +20400,8 @@ DESCS["swl1"] = [
     "<b>기초잔고+매입-결제-장려금=잔고</b> 구조로 내역을 확인합니다.",
     "⬇ 하단 합계 줄에서 기간 전체의 <b>잔고합계</b>를 확인할 수 있습니다.",
   ]},
-  {type:"step", num:"★", ystar:true, title:`📌 매입처 원장(상품)`, body:"<b class='dlink' onclick=\"openSub('s-ch3','s-wl2',true)\">매입처 원장(상품)</b> 버튼으로 같은 매입처의 <b>상품 단위 원장</b>으로 이동합니다."},
-  {type:"step", num:"★", ystar:true, title:`📌 채무지급입력`, body:"<span class='ui-btn'>채무지급입력</span> 버튼으로 <b class='dlink' onclick=\"openSub('s-ch3','s-dpay',true)\">채무 지급 관리</b>로 이동합니다."},
+  {type:"step", num:"★", ystar:true, title:`📌 매입처 원장(상품)`, body:"🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-wl2',true)\">매입처 원장(상품)</b> 버튼으로 같은 매입처의 <b>상품 단위 원장</b>으로 이동합니다."},
+  {type:"step", num:"★", ystar:true, title:`📌 채무지급입력`, body:"<span class='ui-btn'>채무지급입력</span> 버튼으로 🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-dpay',true)\">채무 지급 관리</b>로 이동합니다."},
 ];
 SIM["swl1"] = { start:"1", screens:{
 
@@ -20514,12 +20514,12 @@ DESCS["swl2"] = [
     "%%반품은 수량·금액이 마이너스로 표시되어 잔고에서 차감됩니다.",
     "화면 하단 <b>합계 및 잔고</b> 줄에서 기간 전체 합계와 최종 잔고를 확인합니다.",
   ]},
-  {type:"step", num:"★", ystar:true, title:`📌 채무지급입력`, body:"<span class='ui-btn'>채무지급입력</span> 버튼으로 <b class='dlink' onclick=\"openSub('s-ch3','s-dpay',true)\">채무 지급 관리</b> 화면으로 이동할 수 있습니다."},
+  {type:"step", num:"★", ystar:true, title:`📌 채무지급입력`, body:"<span class='ui-btn'>채무지급입력</span> 버튼으로 🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-dpay',true)\">채무 지급 관리</b> 화면으로 이동할 수 있습니다."},
   {type:"step", num:"★", ystar:true, title:`📌 합계 행 보기`, subs:[
     "<b>일 합계 · 월 합계 · 월 총합계</b>를 체크하면 아래 목록에 주황색 <b>합계 행</b>이 함께 표시됩니다.",
   ]},
   
-  {type:"note", text:"📌 결제 단위로 정리된 원장은 <b class='dlink' onclick=\"openSub('s-ch3','s-wl1',true)\">매입처 원장(결제)</b>에서 확인할 수 있습니다."},
+  {type:"note", text:"📌 결제 단위로 정리된 원장은 🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-wl1',true)\">매입처 원장(결제)</b>에서 확인할 수 있습니다."},
 ];
 SIM["swl2"] = { start:"1", screens:{
 
