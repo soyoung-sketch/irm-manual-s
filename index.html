@@ -14642,7 +14642,6 @@ DESCS["sin"] = [
   ]},
   {type:"step", num:"★", ystar:true, title:`➕ 매입처 등록`, subs:[
     "<span class='ui-btn'>+ 매입처 등록</span> 버튼을 클릭하면 매입처 등록 화면이 열립니다.",
-    "→ <span class='ui-tab'>매입처 등록</span> 메뉴 참고",
   ]},
   {type:"step", num:"★", ystar:true, title:`✏️ 매입처정보 일괄변경`, body:"여러 매입처의 정보를 한 번에 수정합니다.", subs:[
     "<b>멀티선택모드</b>를 체크한 후 변경할 매입처를 선택합니다.",
@@ -27570,55 +27569,60 @@ function toggleSidebar() {
 buildNav();
 showWelcome();
 
-/* 전역 정책: 페이지 점프 버튼은 이동 대신 설명 카드의 바로가기 링크 사용 */
+/* 전역 정책: 페이지 점프 버튼은 이동 대신, 그 버튼을 설명하는 카드 안에 바로가기 링크 */
 (function(){
-  function _lk(ch,sub,page,title){ var oc="openSub(\u0027"+ch+"\u0027,\u0027"+sub+"\u0027,true)"+(page!=null?";setTimeout(function(){goPage("+page+")},80)":""); return {type:"note", text:"🔗 <b class=\u0027dlink\u0027 onclick=\""+oc+"\">"+title+"</b> 페이지 바로가기"}; }
-  if(DESCS["sin"]) DESCS["sin"].push(_lk("s-ch2","s-inreg",null,"매입처 등록"));
-  if(DESCS["sinb"]) DESCS["sinb"].push(_lk("s-ch2","s-inreg",null,"매입처 등록"));
-  if(DESCS["sinreg"]) DESCS["sinreg"].push(_lk("s-ch2","s-in",null,"매입처 목록"));
-  if(DESCS["sincat"]) DESCS["sincat"].push(_lk("s-ch5","7-3a",null,"바코드 인쇄관리"));
-  if(DESCS["sincat"]) DESCS["sincat"].push(_lk("s-ch5","7-3g-s43",null,"POP 인쇄 관리"));
-  if(DESCS["sincat"]) DESCS["sincat"].push(_lk("s-ch6","9-1b",null,"상품 수불 내역"));
-  if(DESCS["sbc1"]) DESCS["sbc1"].push(_lk("s-ch2","7-1",null,"사업장 상품관리"));
-  if(DESCS["sbc2"]) DESCS["sbc2"].push(_lk("s-ch2","7-1",null,"사업장 상품관리"));
-  if(DESCS["sbc3"]) DESCS["sbc3"].push(_lk("s-ch2","7-1",null,"사업장 상품관리"));
-  if(DESCS["sod1"]) DESCS["sod1"].push(_lk("s-ch5","7-3a",null,"바코드 인쇄관리"));
-  if(DESCS["sfo4"]) DESCS["sfo4"].push(_lk("s-ch3","s-pq",null,"매입 조회"));
-  if(DESCS["sop1"]) DESCS["sop1"].push(_lk("s-ch5","7-3a",null,"바코드 인쇄관리"));
-  if(DESCS["spu1"]) DESCS["spu1"].push(_lk("s-ch5","7-3a",null,"바코드 인쇄관리"));
-  if(DESCS["sru1"]) DESCS["sru1"].push(_lk("s-ch2","7-1",null,"사업장 상품관리"));
-  if(DESCS["sru1"]) DESCS["sru1"].push(_lk("s-ch5","7-3a",null,"바코드 인쇄관리"));
-  if(DESCS["spu2d"]) DESCS["spu2d"].push(_lk("s-ch3","s-rq",null,"매입 반품 조회"));
-  if(DESCS["str1"]) DESCS["str1"].push(_lk("s-ch3","s-wl1",null,"매입처 원장(결제)"));
-  if(DESCS["str1"]) DESCS["str1"].push(_lk("s-ch3","s-wl2",null,"매입처 원장(상품)"));
-  if(DESCS["str1"]) DESCS["str1"].push(_lk("s-ch3","s-dpay",null,"채무 지급 관리"));
-  if(DESCS["svt1"]) DESCS["svt1"].push(_lk("s-ch4","5-al1",null,"매출처 원장(결제)"));
-  if(DESCS["svt1"]) DESCS["svt1"].push(_lk("s-ch4","5-al2",null,"매출처 원장(상품)"));
-  if(DESCS["swl1"]) DESCS["swl1"].push(_lk("s-ch3","s-wl2",null,"매입처 원장(상품)"));
-  if(DESCS["swl1"]) DESCS["swl1"].push(_lk("s-ch3","s-dpay",null,"채무 지급 관리"));
-  if(DESCS["swl2"]) DESCS["swl2"].push(_lk("s-ch3","s-dpay",null,"채무 지급 관리"));
-  if(DESCS["sopv1"]) DESCS["sopv1"].push(_lk("s-ch3","s-order",null,"발주서 등록"));
-  if(DESCS["shhj1"]) DESCS["shhj1"].push(_lk("s-ch5","7-3g-s43",null,"POP 인쇄 관리"));
-  if(DESCS["shcq_edit"]) DESCS["shcq_edit"].push(_lk("s-ch5","7-3a",1,"바코드 인쇄관리"));
-  if(DESCS["spgc1"]) DESCS["spgc1"].push(_lk("s-ch5","7-3g-s43",null,"POP 인쇄 관리"));
-  if(DESCS["spgc1"]) DESCS["spgc1"].push(_lk("s-ch5","7-3a",null,"바코드 인쇄관리"));
-  if(DESCS["spgc1a"]) DESCS["spgc1a"].push(_lk("s-ch5","7-3g-s43",null,"POP 인쇄 관리"));
-  if(DESCS["spgc1b"]) DESCS["spgc1b"].push(_lk("s-ch5","7-3g-s43",null,"POP 인쇄 관리"));
-  if(DESCS["spgc1b"]) DESCS["spgc1b"].push(_lk("s-ch5","7-3a",null,"바코드 인쇄관리"));
-  if(DESCS["sher1"]) DESCS["sher1"].push(_lk("s-ch5","7-3g-s43",null,"POP 인쇄 관리"));
-  if(DESCS["ssale2d"]) DESCS["ssale2d"].push(_lk("s-ch4","s-srq",3,"판매 반품 조회"));
-  if(DESCS["svsl1"]) DESCS["svsl1"].push(_lk("s-ch3","s-wl1",null,"매입처 원장(결제)"));
-  if(DESCS["svsl1"]) DESCS["svsl1"].push(_lk("s-ch3","s-wl2",null,"매입처 원장(상품)"));
-  if(DESCS["svsl1"]) DESCS["svsl1"].push(_lk("s-ch3","s-dpay",null,"채무 지급 관리"));
-  if(DESCS["svsl1b"]) DESCS["svsl1b"].push(_lk("s-ch3","s-wl1",null,"매입처 원장(결제)"));
-  if(DESCS["svsl1b"]) DESCS["svsl1b"].push(_lk("s-ch3","s-wl2",null,"매입처 원장(상품)"));
-  if(DESCS["svsl1b"]) DESCS["svsl1b"].push(_lk("s-ch3","s-dpay",null,"채무 지급 관리"));
-  if(DESCS["svsl1c"]) DESCS["svsl1c"].push(_lk("s-ch3","s-wl1",null,"매입처 원장(결제)"));
-  if(DESCS["svsl1c"]) DESCS["svsl1c"].push(_lk("s-ch3","s-wl2",null,"매입처 원장(상품)"));
-  if(DESCS["svsl1c"]) DESCS["svsl1c"].push(_lk("s-ch3","s-dpay",null,"채무 지급 관리"));
-  if(DESCS["svsl1d"]) DESCS["svsl1d"].push(_lk("s-ch3","s-wl1",null,"매입처 원장(결제)"));
-  if(DESCS["svsl1d"]) DESCS["svsl1d"].push(_lk("s-ch3","s-wl2",null,"매입처 원장(상품)"));
-  if(DESCS["svsl1d"]) DESCS["svsl1d"].push(_lk("s-ch3","s-dpay",null,"채무 지급 관리"));
+  function _lk(ch,sub,page,title){ var oc="openSub(\u0027"+ch+"\u0027,\u0027"+sub+"\u0027,true)"+(page!=null?";setTimeout(function(){goPage("+page+")},80)":""); return "🔗 <b class=\u0027dlink\u0027 onclick=\""+oc+"\">"+title+"</b> 페이지 바로가기"; }
+  function attach(pg,ch,sub,page,title,kws,star){
+    var arr=DESCS[pg]; if(!arr) return;
+    var link=_lk(ch,sub,page,title);
+    var card=null;
+    for(var i=0;i<arr.length;i++){ var c=arr[i]; if(c.type!=="step") continue;
+      var t=(c.title||"")+"|"+(c.body||"")+"|"+JSON.stringify(c.subs||[]);
+      for(var k=0;k<kws.length;k++){ if(t.indexOf(kws[k])>=0){ card=c; break; } }
+      if(card) break; }
+    if(card){ card.subs=card.subs||[]; card.subs.push(link); }
+    else arr.push(star||{type:"step",num:"★",ystar:true,title:"🔗 "+title,body:"버튼을 클릭하면 <b>"+title+"</b> 화면으로 이동됩니다.",subs:[link]});
+  }
+  var IN_REG={type:"step",num:"★",ystar:true,title:"➕ 매입처 등록",body:"<span class=\u0027ui-btn\u0027>+ 매입처 등록</span> 버튼을 클릭하면 매입처 등록 화면으로 이동됩니다.",subs:[_lk("s-ch2","s-inreg",null,"매입처 등록")]};
+  attach("sin","s-ch2","s-inreg",null,"매입처 등록",["매입처 등록","매입처등록"],IN_REG);
+  attach("sinb","s-ch2","s-inreg",null,"매입처 등록",["매입처 등록","매입처등록"],JSON.parse(JSON.stringify(IN_REG)));
+  attach("sinreg","s-ch2","s-in",null,"매입처 목록",["매입처 목록","매입처목록"]);
+  attach("sincat","s-ch5","7-3a",null,"바코드 인쇄관리",["바코드"]);
+  attach("sincat","s-ch5","7-3g-s43",null,"POP 인쇄 관리",["POP"]);
+  attach("sincat","s-ch6","9-1b",null,"상품 수불 내역",["수불"]);
+  attach("sbc1","s-ch2","7-1",null,"사업장 상품관리",["사업장 상품관리","판매가"]);
+  attach("sbc2","s-ch2","7-1",null,"사업장 상품관리",["사업장 상품관리","판매가"]);
+  attach("sbc3","s-ch2","7-1",null,"사업장 상품관리",["사업장 상품관리","판매가"]);
+  attach("sod1","s-ch5","7-3a",null,"바코드 인쇄관리",["바코드"]);
+  attach("sfo4","s-ch3","s-pq",null,"매입 조회",["매입 조회","매입조회"]);
+  attach("sop1","s-ch5","7-3a",null,"바코드 인쇄관리",["바코드"]);
+  attach("spu1","s-ch5","7-3a",null,"바코드 인쇄관리",["바코드"]);
+  attach("sru1","s-ch2","7-1",null,"사업장 상품관리",["사업장 상품관리","판매가변경","판매가 변경"]);
+  attach("sru1","s-ch5","7-3a",null,"바코드 인쇄관리",["바코드"]);
+  attach("spu2d","s-ch3","s-rq",null,"매입 반품 조회",["매입 반품","매입반품"]);
+  attach("str1","s-ch3","s-wl1",null,"매입처 원장(결제)",["원장(결제)"]);
+  attach("str1","s-ch3","s-wl2",null,"매입처 원장(상품)",["원장(상품)"]);
+  attach("str1","s-ch3","s-dpay",null,"채무 지급 관리",["채무"]);
+  attach("svt1","s-ch4","5-al1",null,"매출처 원장(결제)",["원장(결제)"]);
+  attach("svt1","s-ch4","5-al2",null,"매출처 원장(상품)",["원장(상품)"]);
+  attach("swl1","s-ch3","s-wl2",null,"매입처 원장(상품)",["원장(상품)"]);
+  attach("swl1","s-ch3","s-dpay",null,"채무 지급 관리",["채무"]);
+  attach("swl2","s-ch3","s-dpay",null,"채무 지급 관리",["채무"]);
+  attach("sopv1","s-ch3","s-order",null,"발주서 등록",["발주서 등록","발주서등록"]);
+  attach("shhj1","s-ch5","7-3g-s43",null,"POP 인쇄 관리",["POP"]);
+  attach("shcq_edit","s-ch5","7-3a",1,"바코드 인쇄관리",["바코드"]);
+  attach("spgc1","s-ch5","7-3g-s43",null,"POP 인쇄 관리",["POP"]);
+  attach("spgc1","s-ch5","7-3a",null,"바코드 인쇄관리",["바코드"]);
+  attach("spgc1a","s-ch5","7-3g-s43",null,"POP 인쇄 관리",["POP"]);
+  attach("spgc1b","s-ch5","7-3g-s43",null,"POP 인쇄 관리",["POP"]);
+  attach("spgc1b","s-ch5","7-3a",null,"바코드 인쇄관리",["바코드"]);
+  attach("sher1","s-ch5","7-3g-s43",null,"POP 인쇄 관리",["POP생성","POP"]);
+  attach("ssale2d","s-ch4","s-srq",3,"판매 반품 조회",["판매 반품","판매반품"]);
+  ["svsl1","svsl1b","svsl1c","svsl1d"].forEach(function(pg){
+    attach(pg,"s-ch3","s-wl1",null,"매입처 원장(결제)",["원장(결제)"]);
+    attach(pg,"s-ch3","s-wl2",null,"매입처 원장(상품)",["원장(상품)"]);
+    attach(pg,"s-ch3","s-dpay",null,"채무 지급 관리",["채무"]);
+  });
 })();
 </script>
 
