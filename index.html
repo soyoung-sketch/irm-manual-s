@@ -15094,9 +15094,9 @@ const _SBP_TOOL = (sel, win) => ([
   {x:47.5, y:23.4, w:6.1,  h:2.9, num:"3", numCorner:true, page:1, tip:"선택한 상품의 <b>상품수정</b> 화면을 엽니다."},
   {x:53.6, y:23.4, w:6.1,  h:2.9, plain:true, to:"p_xls", toggle:true, tip:"매장을 고른 후 조회된 목록을 <b>엑셀 파일</b>로 저장합니다."},
   {x:59.7, y:23.4, w:6.9,  h:2.9, yellow:true, to:"p_in", toggle:true, tip:"<b>매입처 목록</b> 창에서 선택한 상품의 매입처를 지정합니다."},
-  {x:66.7, y:23.4, w:6.9,  h:2.9, yellow:true, tip:"선택한 상품으로 <b>매장관리 &gt; 바코드 인쇄관리</b> 화면이 열립니다."},
-  {x:73.6, y:23.4, w:6.9,  h:2.9, yellow:true, tip:"선택한 상품으로 <b>매장관리 &gt; POP 인쇄 관리</b> 화면이 열립니다."},
-  {x:80.5, y:23.4, w:7.7,  h:2.9, yellow:true, tip:"선택한 상품의 <b>재고관리 &gt; 상품 수불 내역</b> 화면이 열립니다."},
+  {x:66.7, y:23.4, w:6.9,  h:2.9, yellow:true, scroll:"★1", tip:"선택한 상품으로 <b>매장관리 &gt; 바코드 인쇄관리</b> 화면이 열립니다."},
+  {x:73.6, y:23.4, w:6.9,  h:2.9, yellow:true, scroll:"★1", tip:"선택한 상품으로 <b>매장관리 &gt; POP 인쇄 관리</b> 화면이 열립니다."},
+  {x:80.5, y:23.4, w:7.7,  h:2.9, yellow:true, scroll:"★1", tip:"선택한 상품의 <b>재고관리 &gt; 상품 수불 내역</b> 화면이 열립니다."},
   {x:88.2, y:23.4, w:11.6, h:2.9, yellow:true, to:"p_batch", toggle:true, tip:"선택한 상품의 <b>공통 항목</b>을 한 번에 변경합니다."},
 ]);
 // 상품 목록 그리드 — sel:왼쪽에 선택 열이 생기며 열이 +30px 밀림 / win:하단 정보 영역이 없어 그리드가 아래까지 늘어남
@@ -27586,9 +27586,9 @@ showWelcome();
   var IN_REG={type:"step",num:"★",ystar:true,title:"➕ 매입처 등록",body:"<span class=\u0027ui-btn\u0027>+ 매입처 등록</span> 버튼을 클릭하면 매입처 등록 화면으로 이동됩니다.",subs:[_lk("s-ch2","s-inreg",null,"매입처 등록")]};
   attach("sin","s-ch2","s-inreg",null,"매입처 등록",["매입처 등록","매입처등록"],IN_REG);
   attach("sinb","s-ch2","s-inreg",null,"매입처 등록",["매입처 등록","매입처등록"],JSON.parse(JSON.stringify(IN_REG)));
-  attach("sincat","s-ch5","7-3a",null,"바코드 인쇄관리",["바코드"]);
-  attach("sincat","s-ch5","7-3g-s43",null,"POP 인쇄 관리",["POP"]);
-  attach("sincat","s-ch6","9-1b",null,"상품 수불 내역",["수불"]);
+  attach("sbp1","s-ch5","7-3a",null,"바코드 인쇄관리",["바코드"]);
+  attach("sbp1","s-ch5","7-3g-s43",null,"POP 인쇄 관리",["POP"]);
+  attach("sbp1","s-ch6","9-1b",null,"상품 수불 내역",["수불"]);
   attach("sbc1","s-ch2","7-1",null,"사업장 상품관리",["사업장 상품관리","판매가"]);
   attach("sbc2","s-ch2","7-1",null,"사업장 상품관리",["사업장 상품관리","판매가"]);
   attach("sbc3","s-ch2","7-1",null,"사업장 상품관리",["사업장 상품관리","판매가"]);
