@@ -16733,6 +16733,9 @@ DESCS["sod1"] = [
     "<b>노란색</b>으로 표시한 메모영역의 입력칸에 메모를 입력합니다.",
     "<span class='ui-btn'>＋ 저장</span>을 누르면 메모가 등록되고, 잘못 남긴 메모는 <span class='ui-btn'>✕ 삭제</span>로 지웁니다.",
   ]},
+  {type:"step", num:"★", ystar:true, title:`🔗 바코드 인쇄관리`, body:"<span class='ui-btn'>바코드인쇄</span> 버튼을 클릭하면 바코드 인쇄관리 화면으로 이동합니다.", subs:[
+    "🔗 <b class='dlink' onclick=\"openSub('s-ch5','7-3a',true)\">바코드 인쇄관리</b> 페이지 바로가기",
+  ]},
   {type:"note", text:"등록된 발주서는 <b class='dlink' onclick=\"openSub('s-ch3','s-inquiry',true)\">발주서 조회</b> 페이지에서 확인할 수 있습니다."},
 ];
 SIM["sod1"] = { start:"1", screens:{
@@ -16759,7 +16762,7 @@ SIM["sod1"] = { start:"1", screens:{
       {x:16.0, y:34.0, w:7.7,  h:2.9, plain:true, tip:"<b>다시작성(F12)</b>은 담은 내용을 전부 초기화하고 다시 추가합니다."},
       {x:23.7, y:34.0, w:9.1,  h:2.9, plain:true, tip:"<b>문서불러오기</b>로 다른 주문서·발주서의 상품을 그대로 가져옵니다."},
       {x:32.8, y:34.0, w:9.0,  h:2.9, plain:true, xls:true, tip:"<b>엑셀업로드</b>로 여러 상품을 한 번에 가져옵니다."},
-      {x:41.8, y:34.0, w:7.7,  h:2.9, plain:true, tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
+      {x:41.8, y:34.0, w:7.7,  h:2.9, yellow:true, scroll:"★2", tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
       {x:77.2, y:34.0, w:22.0, h:2.9, plain:true, tip:"선택한 상품의 매입·판매 <b>단가</b>와 이력 표시 여부를 확인합니다."},
       {x:0.8,  y:39.6, w:97.7, h:3.1, plain:true, notint:true, tip:"상품추가(F2)로 만든 <b>빈 행</b>입니다. 상품코드의 ···로 상품을 선택하세요."},
       {x:8.8,  y:39.7, w:1.4,  h:3.0, front:true, search:true, searchDone:"g_fill", tip:"상품코드의 <b>···</b> 버튼으로 상품 통합검색창을 열어 상품을 선택합니다."},
@@ -16788,7 +16791,7 @@ SIM["sod1"] = { start:"1", screens:{
       {x:16.0, y:34.0, w:7.7,  h:2.9, plain:true, tip:"<b>다시작성(F12)</b>은 담은 내용을 전부 초기화하고 다시 추가합니다."},
       {x:23.7, y:34.0, w:9.1,  h:2.9, plain:true, tip:"<b>문서불러오기</b>로 다른 주문서·발주서의 상품을 그대로 가져옵니다."},
       {x:32.8, y:34.0, w:9.0,  h:2.9, plain:true, xls:true, tip:"<b>엑셀업로드</b>로 여러 상품을 한 번에 가져옵니다."},
-      {x:41.8, y:34.0, w:7.7,  h:2.9, plain:true, tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
+      {x:41.8, y:34.0, w:7.7,  h:2.9, yellow:true, scroll:"★2", tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
       {x:77.2, y:34.0, w:22.0, h:2.9, plain:true, tip:"선택한 상품의 매입·판매 <b>단가</b>와 이력 표시 여부를 확인합니다."},
       {x:0.8,  y:42.8, w:97.7, h:3.1, fill:true, notint:true, tip:"상품을 선택하면 <b>매입단가·수량</b>을 입력할 수 있고 공급가·부가세·매입합계가 계산됩니다."},
       {x:8.8,  y:42.9, w:1.4,  h:3.0, front:true, search:true, searchDone:"g_fill", tip:"상품코드의 <b>···</b>로 다른 상품을 다시 검색할 수 있습니다."},
@@ -16927,7 +16930,7 @@ DESCS["sfo4"] = [
   {type:"step", num:"1", title:`✅ 발주서 선택`, body:"최종 컨펌한 <b>입고대기</b> 목록에서 처리할 발주서를 선택합니다."},
   {type:"step", num:"2", title:`📥 입고완료로 넘김`, body:"컨펌이 끝났으면 <span class='ui-btn'>입고완료</span>로 넘겨 입고를 마칩니다(입고완료 탭으로 이동)."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
-    "<b>매입 검수시작</b> : <span class='ui-btn'>매입 검수시작</span>으로 <b>매입 조회</b>의 금액 확인 화면으로 이동해 매입완료하면 입고완료됩니다.",
+    "<b>매입 검수시작</b> : <span class='ui-btn'>매입 검수시작</span>으로 <b class='dlink' onclick=\"openSub('s-ch3','s-pq',true)\">매입 조회</b>의 금액 확인 화면으로 이동해 매입완료하면 입고완료됩니다.",
     "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 선택한 발주서를 출력합니다.",
     "<b>취소</b> : <span class='ui-btn'>취소</span>로 쓰지 않을 발주서를 취소합니다.",
     "<b>수정</b> : 이 단계에서는 수정할 수 없습니다.",
@@ -17136,6 +17139,9 @@ DESCS["sop1"] = [
   {type:"step", num:"5", title:`💾 발주계획을 등록해주세요`, subs:[
     "등록할 상품을 체크하고 <span class='ui-btn'>신규등록(F5)</span> 버튼을 클릭합니다.",
   ]},
+  {type:"step", num:"★", ystar:true, title:`🔗 바코드 인쇄관리`, body:"<span class='ui-btn'>바코드인쇄</span> 버튼을 클릭하면 바코드 인쇄관리 화면으로 이동합니다.", subs:[
+    "🔗 <b class='dlink' onclick=\"openSub('s-ch5','7-3a',true)\">바코드 인쇄관리</b> 페이지 바로가기",
+  ]},
   {type:"note", text:"등록된 발주계획은 <b class='dlink' onclick=\"openSub('s-ch3','s-planq',true)\">발주계획 조회</b> 탭에서 확인하실 수 있습니다."},
 ];
 SIM["sop1"] = { start:"1", screens:{
@@ -17154,7 +17160,7 @@ SIM["sop1"] = { start:"1", screens:{
       {x:16.0, y:31.3, w:7.7,  h:2.9, plain:true, tip:"<b>다시작성(F12)</b>은 담은 내용을 전부 초기화하고 다시 추가합니다."},
       {x:23.7, y:31.3, w:9.0,  h:2.9, plain:true, tip:"<b>문서불러오기</b>로 다른 주문서·발주서의 상품을 그대로 가져옵니다."},
       {x:32.8, y:31.3, w:8.9,  h:2.9, plain:true, xls:true, tip:"<b>엑셀업로드</b>로 여러 상품을 한 번에 가져옵니다."},
-      {x:41.8, y:31.3, w:7.7,  h:2.9, plain:true, tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
+      {x:41.8, y:31.3, w:7.7,  h:2.9, yellow:true, scroll:"★1", tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
       {x:77.0, y:31.3, w:22.3, h:2.9, plain:true, tip:"선택한 상품의 매입·판매 <b>단가</b>와 이력 표시 여부를 확인합니다."},
       {x:0.7,  y:36.9, w:98.5, h:3.1, plain:true, notint:true, tip:"첫 행은 미리 생성돼 있으며 <b>매입단가·수량</b>을 입력하면 공급가·부가세·매입합계가 계산됩니다."},
       {x:9.0,  y:37.0, w:1.1,  h:2.6, num:"3", numCorner:true, front:true, search:true, searchDone:"2", tip:"상품코드의 <b>···</b> 버튼으로 상품 통합검색창을 열어 발주할 상품을 선택합니다."},
@@ -17175,7 +17181,7 @@ SIM["sop1"] = { start:"1", screens:{
       {x:16.0, y:31.3, w:7.7,  h:2.9, plain:true, tip:"<b>다시작성(F12)</b>은 담은 내용을 전부 초기화하고 다시 추가합니다."},
       {x:23.7, y:31.3, w:9.0,  h:2.9, plain:true, tip:"<b>문서불러오기</b>로 다른 주문서·발주서의 상품을 그대로 가져옵니다."},
       {x:32.8, y:31.3, w:8.9,  h:2.9, plain:true, xls:true, tip:"<b>엑셀업로드</b>로 여러 상품을 한 번에 가져옵니다."},
-      {x:41.8, y:31.3, w:7.7,  h:2.9, plain:true, tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
+      {x:41.8, y:31.3, w:7.7,  h:2.9, yellow:true, scroll:"★1", tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
       {x:77.0, y:31.3, w:22.3, h:2.9, plain:true, tip:"선택한 상품의 매입·판매 <b>단가</b>와 이력 표시 여부를 확인합니다."},
       {x:0.7,  y:40, w:98.5, h:51.7, plain:true, notint:true, tip:"행을 여러 개 추가해 상품별로 채우면 발주계획을 <b>한 번에</b> 등록할 수 있습니다."},
       {x:0.9,  y:37.1, w:98.3, h:2.9, num:"4", numCorner:true, notint:true, tip:"선택한 상품이 행에 채워집니다 · <b>수량</b>과 <b>매입처</b>를 입력하세요."},
@@ -17720,6 +17726,9 @@ DESCS["spu1"] = [
     "조회된 상품을 <b>더블클릭</b>하면 좌측 매입 목록에 바로 등록됩니다.",
     "이미 담긴 <b>중복 상품</b>은 상품코드가 빨간색으로 표시됩니다.",
   ]},
+  {type:"step", num:"★", ystar:true, title:`🔗 바코드 인쇄관리`, body:"<span class='ui-btn'>바코드인쇄</span> 버튼을 클릭하면 바코드 인쇄관리 화면으로 이동합니다.", subs:[
+    "🔗 <b class='dlink' onclick=\"openSub('s-ch5','7-3a',true)\">바코드 인쇄관리</b> 페이지 바로가기",
+  ]},
   {type:"note", text:"등록된 매입 내역은 <b class='dlink' onclick=\"openSub('s-ch3','s-pq',true)\">매입 조회</b> 화면에서 확인할 수 있습니다."},
 ];
 SIM["spu1"] = { start:"1", screens:{
@@ -17760,7 +17769,7 @@ SIM["spu1"] = { start:"1", screens:{
       {x:23.7, y:35.1, w:9.0,  h:2.9, plain:true, tip:"<b>문서불러오기</b>로 다른 카테고리의 주문서 정보를 불러옵니다."},
       {x:32.8, y:35.1, w:8.9,  h:2.9, plain:true, xls:true, tip:"<b>엑셀업로드</b>로 지정 탬플릿 엑셀을 이용해 여러 상품을 한꺼번에 등록합니다."},
       {x:41.8, y:35.1, w:7.5,  h:2.9, plain:true, tip:"등록한 상품의 판매가를 바꿔야 하면 <b>판매가변경</b>으로 사업장 상품관리를 엽니다."},
-      {x:49.6, y:35.1, w:7.6,  h:2.9, plain:true, tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
+      {x:49.6, y:35.1, w:7.6,  h:2.9, yellow:true, scroll:"★3", tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
       {x:80.3, y:35.1, w:18.9, h:2.9, plain:true, tip:"선택한 상품의 매입·판매 <b>단가</b>와 이력 표시 여부를 확인합니다."},
       // ── 그리드 (상품이 담기는 영역) ──
       {x:0.5,  y:40.6, w:98.7, h:3.2, plain:true, notint:true, tip:"첫 행은 미리 생성돼 있으며 상품과 <b>구매수량</b>을 입력하면 공급가·부가세·매입합계가 계산됩니다."},
@@ -17814,7 +17823,7 @@ SIM["spu1"] = { start:"1", screens:{
       {x:23.7, y:35.1, w:9.0,  h:2.9, plain:true, tip:"<b>문서불러오기</b>로 다른 카테고리의 주문서 정보를 불러옵니다."},
       {x:32.8, y:35.1, w:8.9,  h:2.9, plain:true, xls:true, tip:"<b>엑셀업로드</b>로 지정 탬플릿 엑셀을 이용해 여러 상품을 한꺼번에 등록합니다."},
       {x:41.8, y:35.1, w:7.5,  h:2.9, plain:true, to:"price", tip:"판매가를 바꿔야 하면 <b>판매가변경</b> 버튼으로 사업장 상품관리를 엽니다."},
-      {x:49.6, y:35.1, w:7.6,  h:2.9, plain:true, tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
+      {x:49.6, y:35.1, w:7.6,  h:2.9, yellow:true, scroll:"★3", tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
       {x:80.3, y:35.1, w:18.9, h:2.9, plain:true, tip:"선택한 상품의 매입·판매 <b>단가</b>와 이력 표시 여부를 확인합니다."},
       // ── 그리드 ──
       {x:0.6,  y:38.1, w:98.6, h:53.8, plain:true, notint:true, tip:"행을 여러 개 추가해 상품별로 채우면 매입을 <b>한 번에</b> 등록할 수 있습니다."},
@@ -17880,6 +17889,9 @@ DESCS["sru1"] = [
     "<b>노란색</b>으로 표시한 메모영역의 입력칸에 메모를 입력합니다.",
     "<span class='ui-btn'>＋ 저장</span>을 누르면 메모가 등록되고, 잘못 남긴 메모는 <span class='ui-btn'>✕ 삭제</span>로 지웁니다.",
   ]},
+  {type:"step", num:"★", ystar:true, title:`🔗 바코드 인쇄관리`, body:"<span class='ui-btn'>바코드인쇄</span> 버튼을 클릭하면 바코드 인쇄관리 화면으로 이동합니다.", subs:[
+    "🔗 <b class='dlink' onclick=\"openSub('s-ch5','7-3a',true)\">바코드 인쇄관리</b> 페이지 바로가기",
+  ]},
   {type:"note", text:"등록된 반품 내역은 <b class='dlink' onclick=\"openSub('s-ch3','s-rq',true)\">매입 반품 조회</b> 페이지에서 확인할 수 있습니다."},
 ];
 SIM["sru1"] = { start:"1", screens:{
@@ -17922,7 +17934,7 @@ SIM["sru1"] = { start:"1", screens:{
       {x:23.7, y:36.7, w:9.1,  h:2.9, plain:true, tip:"<b>문서불러오기</b>로 다른 문서의 상품을 그대로 가져옵니다."},
       {x:32.8, y:36.7, w:9.0,  h:2.9, plain:true, xls:true, tip:"<b>엑셀업로드</b>로 여러 상품을 한 번에 가져옵니다."},
       {x:41.7, y:36.7, w:7.7,  h:2.9, yellow:true, scroll:"★1", tipUp:true, tip:"<b>판매가변경</b> 버튼을 누르면 <b>사업장 상품관리</b> 화면으로 이동해 판매단가를 수정합니다."},
-      {x:49.4, y:36.7, w:7.7,  h:2.9, plain:true, tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
+      {x:49.4, y:36.7, w:7.7,  h:2.9, yellow:true, scroll:"★3", tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
       {x:80.4, y:36.7, w:18.9, h:2.9, plain:true, tip:"선택한 상품의 매입·판매 <b>단가</b>와 이력 표시 여부를 확인합니다."},
       // ── 그리드 (상품이 담기는 영역, y409~948) ──
       {x:0.6,  y:42.2, w:98.5, h:3.1, plain:true, notint:true, tip:"추가한 상품의 매입단가와 <b>반품수량</b>을 입력하면 공급가·부가세·매입합계가 계산됩니다."},
@@ -17956,7 +17968,7 @@ SIM["sru1"] = { start:"1", screens:{
       {x:23.7, y:36.7, w:9.1,  h:2.9, plain:true, tip:"<b>문서불러오기</b>로 다른 문서의 상품을 그대로 가져옵니다."},
       {x:32.8, y:36.7, w:9.0,  h:2.9, plain:true, xls:true, tip:"<b>엑셀업로드</b>로 여러 상품을 한 번에 가져옵니다."},
       {x:41.7, y:36.7, w:7.7,  h:2.9, yellow:true, scroll:"★1", tipUp:true, tip:"<b>판매가변경</b> 버튼을 누르면 <b>사업장 상품관리</b> 화면으로 이동해 판매단가를 수정합니다."},
-      {x:49.4, y:36.7, w:7.7,  h:2.9, plain:true, tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
+      {x:49.4, y:36.7, w:7.7,  h:2.9, yellow:true, scroll:"★3", tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
       {x:80.4, y:36.7, w:18.9, h:2.9, plain:true, tip:"선택한 상품의 매입·판매 <b>단가</b>가 표시됩니다."},
       // ── 채워진 데이터 행 (y436~467) ──
       {x:0.6,  y:42.2, w:2.0,  h:3.0, plain:true, tip:"삭제할 상품을 고를 때 <b>체크</b>해 선택합니다."},
@@ -18705,6 +18717,7 @@ DESCS["spu2d"] = [
     "📌 인쇄",
     "<span class='ui-btn'>인쇄</span> 버튼으로 <b>매입전표</b>를 인쇄합니다.",
   ]},
+  {type:"step", num:"★", ystar:true, title:`🔗 매입 반품 조회`, body:"<span class='ui-btn'>매입반품</span> 버튼을 클릭해 반품된 전표는 <b class='dlink' onclick=\"openSub('s-ch3','s-rq',true);setTimeout(function(){goPage(3)},80)\">매입 반품 조회</b>의 <b>반품완료</b> 탭에서 확인하실 수 있습니다."},
 ];
 SIM["spu2d"] = { start:"done", screens:{
 
@@ -18725,7 +18738,7 @@ SIM["spu2d"] = { start:"done", screens:{
       {x:40.3, y:23.5, w:6.2,  h:2.8, yellow:true, to:"p_print", toggle:true, tip:"<b>인쇄</b> 버튼으로 매입전표 인쇄 미리보기를 엽니다."},
       {x:46.5, y:23.5, w:10.7, h:2.8, plain:true, tip:"선택한 상품의 <b>매입처를 지정</b>합니다."},
       {x:57.2, y:23.5, w:6.9,  h:2.8, plain:true, page:5, tip:"여러 매입 전표를 하나로 합치는 <b>매입전표합치기</b> 탭으로 이동합니다."},
-      {x:64.1, y:23.5, w:6.4,  h:2.8, plain:true, tip:"반품할 문서를 선택하고 <b>매입반품</b> 화면으로 이동해 반품을 처리합니다."},
+      {x:64.1, y:23.5, w:6.4,  h:2.8, yellow:true, scroll:"★2", tip:"반품할 문서를 선택하고 <b>매입반품</b> 화면으로 이동해 반품을 처리합니다."},
       {x:70.5, y:23.5, w:6.2,  h:2.8, plain:true, tip:"<b>＋재주문</b>은 같은 내용으로 다시 등록하며 <b>매입처 수정이 가능</b>합니다."},
       {x:76.7, y:23.5, w:10.4, h:2.8, plain:true, tip:"<b>매입보류(점검요청)</b>로 점검이 필요한 문서를 보류합니다."},
       {x:87.1, y:23.5, w:6.2,  h:2.8, plain:true, to:"edit", tip:"<b>수정</b> 버튼을 누르면 매입수정 화면이 열립니다 · 매입처는 수정할 수 없습니다."},
@@ -19189,13 +19202,13 @@ DESCS["str1"] = [
     "<b>이전금액+매입금액-지급합계-장려금=잔고합계</b> 구조로 표시됩니다.",
   ]},
 
-  {type:"step", num:"3", title:`🗂️ 상세 화면 열기`, body:"매입처를 선택한 후 상단 버튼으로 상세 화면을 엽니다.", subs:[
+  {type:"step", num:"3", ystar:true, title:`🗂️ 상세 화면 열기`, body:"매입처를 선택한 후 상단 버튼으로 상세 화면을 엽니다.", subs:[
     "📌 보고서 작성",
     "<span class='ui-btn'>🖨 보고서 작성</span> 메뉴에서 <b>보고서 인쇄</b>를 클릭하면 매입 보고서 미리 보기가 열립니다.",
     "📌 매입처 원장(결제) · 원장(상품)",
-    "<span class='ui-btn'>매입처 원장(결제)</span> · <span class='ui-btn'>매입처 원장(상품)</span> 버튼으로 원장 화면을 엽니다.",
+    "<b class='dlink' onclick=\"openSub('s-ch3','s-wl1',true)\">매입처 원장(결제)</b> · <b class='dlink' onclick=\"openSub('s-ch3','s-wl2',true)\">매입처 원장(상품)</b> 버튼으로 원장 화면을 엽니다.",
     "📌 채무지급입력",
-    "<span class='ui-btn'>채무지급입력</span> 버튼으로 매입처가 미리 입력된 <b>채무지급 관리</b> 화면으로 이동합니다.",
+    "<b class='dlink' onclick=\"openSub('s-ch3','s-dpay',true)\">채무지급입력</b> 버튼으로 매입처가 미리 입력된 <b>채무지급 관리</b> 화면으로 이동합니다.",
   ]},
 ];
 
@@ -19331,9 +19344,9 @@ SIM["str1"] = { start:"1", screens:{
       {x:80.9, y:26.8, w:18.4, h:6.8, plain:true, notint:true, tip:"조회 대상으로 선택한 <b>매입처</b>가 표시되는 영역입니다."},
       // ── ③ 버튼 줄 (y356~385) ──
       {x:64.1, y:34.5, w:8.4,  h:2.8, num:"3", numCorner:true, to:"p_rmenu", toggle:true, tip:"<b>보고서 작성</b> 버튼을 클릭하면 보고서 메뉴가 열립니다."},
-      {x:72.6, y:34.5, w:9.0,  h:2.8, plain:true, tip:"선택한 매입처의 <b>매입처 원장(결제)</b> 카테고리로 이동합니다."},
-      {x:81.8, y:34.5, w:9.0,  h:2.8, plain:true, tip:"선택한 매입처의 <b>매입처 원장(상품)</b> 카테고리로 이동합니다."},
-      {x:91.0, y:34.5, w:8.3,  h:2.8, plain:true, tip:"<b>채무 지급 관리</b> 카테고리로 이동합니다."},
+      {x:72.6, y:34.5, w:9.0,  h:2.8, yellow:true, scroll:"3", tip:"선택한 매입처의 <b>매입처 원장(결제)</b> 카테고리로 이동합니다."},
+      {x:81.8, y:34.5, w:9.0,  h:2.8, yellow:true, scroll:"3", tip:"선택한 매입처의 <b>매입처 원장(상품)</b> 카테고리로 이동합니다."},
+      {x:91.0, y:34.5, w:8.3,  h:2.8, yellow:true, scroll:"3", tip:"<b>채무 지급 관리</b> 카테고리로 이동합니다."},
       // ── ② 그리드 (y387~929 · 총 145건) ──
       {x:0.5,  y:37.5, w:64.9, h:52.5, num:"2", numCorner:true, notint:true, tip:"매입처별 <b>이전금액+매입-지급-장려금=잔고</b>를 확인하고 행을 선택합니다."},
       // ── 하단 합계 (y929~961) ──
@@ -20387,10 +20400,8 @@ DESCS["swl1"] = [
     "<b>기초잔고+매입-결제-장려금=잔고</b> 구조로 내역을 확인합니다.",
     "⬇ 하단 합계 줄에서 기간 전체의 <b>잔고합계</b>를 확인할 수 있습니다.",
   ]},
-  {type:"step", num:"★", ystar:true, title:`📌 다른 화면으로 이동`, subs:[
-    "📌 <b class='dlink' onclick=\"openSub('s-ch3','s-wl2',true)\">매입처 원장(상품)</b> 버튼으로 같은 매입처의 상품 단위 원장으로 이동합니다.",
-    "📌 <span class='ui-btn'>채무지급입력</span> 버튼으로 <b class='dlink' onclick=\"openSub('s-ch3','s-dpay',true)\">채무 지급 관리</b>로 이동합니다.",
-  ]},
+  {type:"step", num:"★", ystar:true, title:`📌 매입처 원장(상품)`, body:"<b class='dlink' onclick=\"openSub('s-ch3','s-wl2',true)\">매입처 원장(상품)</b> 버튼으로 같은 매입처의 <b>상품 단위 원장</b>으로 이동합니다."},
+  {type:"step", num:"★", ystar:true, title:`📌 채무지급입력`, body:"<span class='ui-btn'>채무지급입력</span> 버튼으로 <b class='dlink' onclick=\"openSub('s-ch3','s-dpay',true)\">채무 지급 관리</b>로 이동합니다."},
 ];
 SIM["swl1"] = { start:"1", screens:{
 
@@ -20417,7 +20428,7 @@ SIM["swl1"] = { start:"1", screens:{
       {x:93.8, y:23.8, w:5.4,  h:2.6, num:"3", numCorner:true, tip:"<b>검색</b> 버튼을 클릭해 원장 내역을 조회합니다."},
       // ── 버튼 줄 (y328~357) ──
       {x:81.8, y:31.8, w:9.2,  h:2.8, yellow:true, scroll:"★1", tip:"<b>매입처 원장(상품)</b> 화면으로 이동합니다."},
-      {x:91.0, y:31.8, w:8.4,  h:2.8, yellow:true, scroll:"★1", tip:"<b>채무지급입력</b>을 클릭해 채무 지급 관리 화면으로 이동합니다."},
+      {x:91.0, y:31.8, w:8.4,  h:2.8, yellow:true, scroll:"★2", tip:"<b>채무지급입력</b>을 클릭해 채무 지급 관리 화면으로 이동합니다."},
       // ── ④ 그리드 (헤더 y360~414 · 이전잔고 행 y414~435) ──
       {x:0.6,  y:34.9, w:98.7, h:58.6, num:"4", numCorner:true, notint:true, tip:"조회된 내역을 <b>기초잔고+매입-결제-장려금=잔고</b> 구조로 확인합니다."},
       {x:0.6,  y:40.1, w:98.7, h:2.0, plain:true, front:true, notint:true, tip:"시작일 이전의 잔고가 <b>이전잔고</b> 행으로 표시됩니다."},
@@ -20503,10 +20514,11 @@ DESCS["swl2"] = [
     "%%반품은 수량·금액이 마이너스로 표시되어 잔고에서 차감됩니다.",
     "화면 하단 <b>합계 및 잔고</b> 줄에서 기간 전체 합계와 최종 잔고를 확인합니다.",
   ]},
+  {type:"step", num:"★", ystar:true, title:`📌 채무지급입력`, body:"<span class='ui-btn'>채무지급입력</span> 버튼으로 <b class='dlink' onclick=\"openSub('s-ch3','s-dpay',true)\">채무 지급 관리</b> 화면으로 이동할 수 있습니다."},
   {type:"step", num:"★", ystar:true, title:`📌 합계 행 보기`, subs:[
     "<b>일 합계 · 월 합계 · 월 총합계</b>를 체크하면 아래 목록에 주황색 <b>합계 행</b>이 함께 표시됩니다.",
   ]},
-  {type:"note", text:"📌 <span class='ui-btn'>채무지급입력</span> 버튼으로 <b class='dlink' onclick=\"openSub('s-ch3','s-dpay',true)\">채무 지급 관리</b> 화면으로 이동할 수 있습니다."},
+  
   {type:"note", text:"📌 결제 단위로 정리된 원장은 <b class='dlink' onclick=\"openSub('s-ch3','s-wl1',true)\">매입처 원장(결제)</b>에서 확인할 수 있습니다."},
 ];
 SIM["swl2"] = { start:"1", screens:{
@@ -20533,7 +20545,7 @@ SIM["swl2"] = { start:"1", screens:{
       {x:93.8, y:23.8, w:5.3,  h:2.8, num:"3", numCorner:true, tip:"<b>검색</b> 버튼을 클릭해 원장 내역을 조회합니다."},
       // ── 버튼 줄 (y329~360 · 총: 7건 + 채무지급입력) ──
       {x:0.6,  y:31.9, w:3.5,  h:3.0, plain:true, notint:true, tip:"조회된 원장 내역이 <b>총 7건</b>으로 표시됩니다."},
-      {x:91.0, y:31.9, w:8.3,  h:3.0, tip:"<b>채무지급입력</b>을 클릭해 채무 지급 관리 화면으로 이동합니다."},
+      {x:91.0, y:31.9, w:8.3,  h:3.0, yellow:true, scroll:"★1", tip:"<b>채무지급입력</b>을 클릭해 채무 지급 관리 화면으로 이동합니다."},
       // ── 그리드 헤더 (y361~415 · 그룹행+열행) ──
       {x:0.6,  y:35.0, w:98.8, h:5.2, plain:true, notint:true, tip:"<b>상품정보</b>와 <b>매입금액(+)·결제내역(-)·장려금(-)·잔고합계(=)</b> 열로 구성됩니다."},
       // ── 이전잔고 행 (y415~436) ──
@@ -22026,9 +22038,9 @@ DESCS["sopv1"] = [
 
   {type:"step", num:"3", title:`<span class="hl-red2">이미 발주된 품목 확인하기</span>`, body:"이미 <b>발주수량이 존재</b>하면 <b>빨간색</b>으로 표시됩니다.", subs:[]},
 
-  {type:"step", num:"4", title:`📝 발주하기`, body:"<span class='hl-pink'>핑크색 라인의 상품</span>을 선택하고 <span class='ui-btn'>＋ 발주서 만들기</span> 버튼을 클릭합니다.", subs:[
-    "⬇ <b>발주서 등록</b> 화면으로 이동합니다.",
-    "발주한 것은 <b>빨간색</b>으로 바뀝니다 (발주서 조회 &gt; 발주대기에서 확인).",
+  {type:"step", num:"4", title:`📝 발주하기`, body:"<span class='hl-red'>핑크색 라인의 상품</span>을 선택하고 <span class='ui-btn'>＋ 발주서 만들기</span> 버튼을 클릭합니다.", subs:[
+    "⬇ <b class='dlink' onclick=\"openSub('s-ch3','s-order',true)\">발주서 등록</b> 화면으로 이동합니다.",
+    "발주한 것은 <span style='color:#e2241a'><b>빨간색</b></span>으로 바뀝니다 (<b class='dlink' onclick=\"openSub('s-ch3','s-inquiry',true);setTimeout(function(){goPage(1)},80)\">발주서 조회 › 발주대기</b>에서 확인).",
   ]},
 ];
 SIM["sopv1"] = { start:"1", screens:{
@@ -27592,22 +27604,9 @@ showWelcome();
   attach("sbc1","s-ch2","7-1",null,"사업장 상품관리",["사업장 상품관리","판매가"]);
   attach("sbc2","s-ch2","7-1",null,"사업장 상품관리",["사업장 상품관리","판매가"]);
   attach("sbc3","s-ch2","7-1",null,"사업장 상품관리",["사업장 상품관리","판매가"]);
-  attach("sod1","s-ch5","7-3a",null,"바코드 인쇄관리",["바코드"]);
-  attach("sfo4","s-ch3","s-pq",null,"매입 조회",["매입 조회","매입조회"]);
-  attach("sop1","s-ch5","7-3a",null,"바코드 인쇄관리",["바코드"]);
-  attach("spu1","s-ch5","7-3a",null,"바코드 인쇄관리",["바코드"]);
   attach("sru1","s-ch2","7-1",null,"사업장 상품관리",["사업장 상품관리","판매가변경","판매가 변경"]);
-  attach("sru1","s-ch5","7-3a",null,"바코드 인쇄관리",["바코드"]);
-  attach("spu2d","s-ch3","s-rq",null,"매입 반품 조회",["매입 반품","매입반품"]);
-  attach("str1","s-ch3","s-wl1",null,"매입처 원장(결제)",["원장(결제)"]);
-  attach("str1","s-ch3","s-wl2",null,"매입처 원장(상품)",["원장(상품)"]);
-  attach("str1","s-ch3","s-dpay",null,"채무 지급 관리",["채무"]);
   attach("svt1","s-ch4","5-al1",null,"매출처 원장(결제)",["원장(결제)"]);
   attach("svt1","s-ch4","5-al2",null,"매출처 원장(상품)",["원장(상품)"]);
-  attach("swl1","s-ch3","s-wl2",null,"매입처 원장(상품)",["원장(상품)"]);
-  attach("swl1","s-ch3","s-dpay",null,"채무 지급 관리",["채무"]);
-  attach("swl2","s-ch3","s-dpay",null,"채무 지급 관리",["채무"]);
-  attach("sopv1","s-ch3","s-order",null,"발주서 등록",["발주서 등록","발주서등록"]);
   attach("shhj1","s-ch5","7-3g-s43",null,"POP 인쇄 관리",["POP"]);
   attach("shcq_edit","s-ch5","7-3a",1,"바코드 인쇄관리",["바코드"]);
   attach("spgc1","s-ch5","7-3g-s43",null,"POP 인쇄 관리",["POP"]);
