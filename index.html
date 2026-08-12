@@ -946,6 +946,8 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .sim-spot.noev { pointer-events:none; }
 .sim-fill { position:absolute; box-sizing:border-box; z-index:8; border-radius:3px; background:rgba(255,212,77,0.6); mix-blend-mode:multiply; pointer-events:none; }
 .sim-fillov { position:absolute; box-sizing:border-box; z-index:9; border-radius:3px; cursor:help; }
+@keyframes simFlashKf { 0%,100% { box-shadow:none; } 30%,70% { background:rgba(226,36,26,0.25); box-shadow:0 0 0 3px rgba(226,36,26,0.85); } }
+.sim-flash { animation: simFlashKf 0.45s ease-in-out 3; z-index:2150 !important; }
 .sim-fill.red { background:rgba(226,36,26,0.20); }
 .sim-fill.soft { background:#f59e0b; mix-blend-mode:normal; }
 .sim-fill.blue { background:rgba(37,99,235,0.30); }
@@ -16143,14 +16145,14 @@ SIM["spop1"] = { start:"1", screens:{
       {x:0.1,  y:16.7, w:3.6,  h:2.6,  plain:true, tip:"<span class='ui-tab'>HOME</span> 탭을 클릭하면 메인 화면으로 돌아갑니다."},
       {x:3.7,  y:16.7, w:8.1,  h:2.6,  plain:true, tip:"열려 있는 <b>POP 인쇄 관리</b> 화면입니다."},
       // ── 상단 툴바 — 실측 y 207~237 (y·h 통일) ──
-      {x:0.1,  y:20.1, w:14.2, h:2.9,  yellow:true, tip:"인쇄할 <b>매수</b>를 입력한 후 체크 버튼으로 적용합니다."},
+      {x:0.1,  y:20.1, w:14.2, h:2.9,  yellow:true, scroll:"★1", tip:"인쇄할 <b>매수</b>를 입력한 후 체크 버튼으로 적용합니다."},
       {x:17.1, y:20.1, w:7.7,  h:2.9,  num:"1", numCorner:true, search:true, tip:"<span class='ui-btn'>+ 상품추가</span> 버튼을 클릭하면 <b>상품 통합검색창</b>이 열립니다."},
       {x:24.8, y:20.1, w:7.6,  h:2.9,  plain:true, tip:"선택한 상품을 목록에서 <b>삭제</b>합니다."},
-      {x:65.8, y:20.1, w:12.9, h:2.9,  yellow:true, tip:"<b>배율</b>을 조절하거나 100% 버튼으로 원래 크기로 되돌립니다."},
+      {x:65.8, y:20.1, w:12.9, h:2.9,  yellow:true, scroll:"★2", tip:"<b>배율</b>을 조절하거나 100% 버튼으로 원래 크기로 되돌립니다."},
       // ── 좌측 상품 목록 — 실측 x 3~496, y 236~1008 ──
       {x:0.2,  y:22.9, w:32.2, h:74.8, num:"2", numCorner:true, numInset:true, notint:true, tip:"추가한 상품의 <b>상품코드·바코드·상품명</b>을 확인하고 인쇄할 상품을 <b>체크</b>합니다."},
       // ── 가운데 미리보기 — 라벨 실측 x 735~978 / 용지 x 519~917, y 282~844 ──
-      {x:48,   y:24.2, w:16,   h:1.7,  yellow:true, tip:"지금 보고 있는 <b>상품명·상품코드</b>와 용지 크기가 표시됩니다."},
+      {x:48,   y:24.2, w:16,   h:1.7,  yellow:true, scroll:"★2", tip:"지금 보고 있는 <b>상품명·상품코드</b>와 용지 크기가 표시됩니다."},
       {x:33.9, y:27.3, w:26.1, h:54.5, num:"4", numCorner:true, notint:true, tip:"선택한 템플릿이 적용된 <b>POP 용지</b>를 인쇄 전에 확인합니다."},
       // ── 우측 POP 환경설정 — 실측 x 1209~1526, 목록 y 239~906 ──
       {x:79,   y:23.2, w:20.7, h:64.6, num:"3", numCorner:true, notint:true, tip:"썸네일로 모양을 확인하고 인쇄에 사용할 <b>템플릿</b>을 선택합니다."},
@@ -26368,7 +26370,7 @@ function simOverlayHTML(pg, sid) {
     const action = scroll + nav + (b.gif?`playGif('${b.gif}');`:'') + (b.editBack?`goBackEdit();`:'') + (b.swapImg?`simSwapImg(this,'${sc.img}','${b.swapImg}');`:'');
     const _clickable = !!(b.to || b.close || b.page != null || b.chkRow || b.back || b.popup || b.dbl || b.dblWin || b.dblPage != null || b.delMap || b.goSub || b.gif || b.editBack || b.swapImg);
     const cls = (b.plain ? "sim-spot sim-tab" : ("sim-spot sim-cue" + (b.dash ? " dash" : "") + (b.yellow ? " yellow" : "") + (b.gray ? " gray" : "") + (b.blue ? " blue" : "") + (b.green ? " green" : "") + (b.thin ? " thin" : "") + (b.notint ? " notint" : "") + (b.noline ? " noline" : "") + (b.noev ? " noev" : ""))) + (_clickable ? " click" : "") + (b.swapOnly ? " sim-swaponly" : "") + (b.hideSwap ? " sim-hideswap" : "") + (b.blink ? " sim-blink" : "");
-    h += `<div class="${cls}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}"${action?` onclick="${action}"`:""}${b.dblClose?` ondblclick="winClose()"`:(b.dblWin?` ondblclick="winToggle('${pg}','${b.dblWin}')"`:(b.dblPage!=null?` ondblclick="goPage(${b.dblPage})"`:(b.dbl?` ondblclick="simGo('${pg}','${b.dbl}')"`:"")))}>${ico}${tip}${tagEl}</div>`;
+    h += `<div class="${cls}"${b.scroll ? ` data-sc="${b.scroll}"` : ""} style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}"${action?` onclick="${action}"`:""}${b.dblClose?` ondblclick="winClose()"`:(b.dblWin?` ondblclick="winToggle('${pg}','${b.dblWin}')"`:(b.dblPage!=null?` ondblclick="goPage(${b.dblPage})"`:(b.dbl?` ondblclick="simGo('${pg}','${b.dbl}')"`:"")))}>${ico}${tip}${tagEl}</div>`;
   });
   (sc.arrows||[]).forEach(a => h += simArrowHTML(a));
   // 스왑 상태(img-swapped)에서만 보이는 화살표
@@ -26529,7 +26531,7 @@ function winOverlayHTML(pg, sid) {
     if (b.gif) action += `playGif('${b.gif}');`;
     const _clickable = !!(b.to || b.close || b.page != null || b.chkRow || b.back || b.popup || b.dbl || b.dblPage != null || b.delMap || b.goSub || b.gif || b.editBack);
     const cls = (b.plain ? "sim-spot sim-tab" : ("sim-spot sim-cue" + (b.dash ? " dash" : "") + (b.yellow ? " yellow" : "") + (b.gray ? " gray" : "") + (b.blue ? " blue" : "") + (b.green ? " green" : "") + (b.thin ? " thin" : "") + (b.notint ? " notint" : "") + (b.noline ? " noline" : "") + (b.noev ? " noev" : ""))) + (_clickable ? " click" : "") + (b.swapOnly ? " sim-swaponly" : "") + (b.hideSwap ? " sim-hideswap" : "") + (b.blink ? " sim-blink" : "");
-    h += `<div class="${cls}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}"${action?` onclick="${action}"`:""}${b.dblClose?` ondblclick="winClose()"`:(b.dblWin?` ondblclick="winToggle('${pg}','${b.dblWin}')"`:(b.dblPage!=null?` ondblclick="goPage(${b.dblPage})"`:(b.dbl?` ondblclick="simGo('${pg}','${b.dbl}')"`:"")))}>${ico}${tip}${tagEl}</div>`;
+    h += `<div class="${cls}"${b.scroll ? ` data-sc="${b.scroll}"` : ""} style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}"${action?` onclick="${action}"`:""}${b.dblClose?` ondblclick="winClose()"`:(b.dblWin?` ondblclick="winToggle('${pg}','${b.dblWin}')"`:(b.dblPage!=null?` ondblclick="goPage(${b.dblPage})"`:(b.dbl?` ondblclick="simGo('${pg}','${b.dbl}')"`:"")))}>${ico}${tip}${tagEl}</div>`;
   });
   (sc.arrows||[]).forEach(a => h += simArrowHTML(a));
   return h;
@@ -27616,6 +27618,42 @@ showWelcome();
     attach(pg,"s-ch3","s-dpay",null,"채무 지급 관리",["채무"]);
   });
 })();
+
+/* 우측 카드 클릭 → 좌측 짝 영역 깜빡임 (1차 적용: POP 인쇄 관리) */
+var FLASH_PAGES = ["spop1"]; // null이면 전체 페이지 적용
+function _simFlashEls(els) {
+  els.forEach(function (el) {
+    if (!el) return;
+    el.classList.remove("sim-flash"); void el.offsetWidth; el.classList.add("sim-flash");
+    setTimeout(function () { el.classList.remove("sim-flash"); }, 1500);
+  });
+}
+document.addEventListener("click", function (e) {
+  if (e.target.closest(".dlink") || e.target.closest("a")) return;
+  var card = e.target.closest(".desc-step"); if (!card) return;
+  if (FLASH_PAGES) {
+    var pg = (typeof curSection !== "undefined" && curSection && curSection.sub && curSection.sub.pages) ? curSection.sub.pages[curPageIdx] : null;
+    if (FLASH_PAGES.indexOf(pg) < 0) return;
+  }
+  var ov = document.getElementById("simOverlay"); if (!ov) return;
+  var nEl = card.querySelector(".desc-step-num"); if (!nEl) return;
+  var num = nEl.textContent.trim(); if (!num) return;
+  if (num === "★") {
+    var body = card.closest(".desc-body") || document;
+    var stars = [].slice.call(body.querySelectorAll(".desc-step .desc-step-num")).filter(function (n) { return n.textContent.trim() === "★"; }).map(function (n) { return n.closest(".desc-step"); });
+    var k = stars.indexOf(card) + 1;
+    var els = [].slice.call(ov.querySelectorAll('[data-sc="★' + k + '"]'));
+    if (!els.length) {
+      var badges = [].slice.call(ov.querySelectorAll(".sim-num")).filter(function (n) { return n.textContent.trim() === "★"; });
+      if (badges[k - 1]) els = [badges[k - 1].parentElement];
+    }
+    _simFlashEls(els);
+    return;
+  }
+  var hits = [];
+  ov.querySelectorAll(".sim-num").forEach(function (n) { if (n.textContent.trim() === num) hits.push(n.parentElement); });
+  _simFlashEls(hits);
+});
 </script>
 
 <!-- ═══ PDA 매입등록 오버레이 ═══ -->
