@@ -20143,20 +20143,20 @@ DESCS["7ca6"] = [
 SIM["7cb1"] = { start:"1", screens:{
   "1":{img:"images/계산원과부족현황.png",
     btns:[
-      {x:17.6, y:3.3,  w:5,   h:2.6, plain:true, tip:"<b>HOME</b> 탭을 클릭하면 프로그램 시작 화면으로 돌아갑니다."},
-      {x:22.7, y:3.3,  w:9.5, h:2.6, plain:true, tip:"현재 열려 있는 <b>계산원 과부족 현황</b> 탭이며 <b>⊗</b>를 클릭하면 닫힙니다."},
-      {x:94.6, y:6.7,  w:4.6, h:2.6, plain:true, option:true, optionWin:{x:47, y:10, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
-      {x:71.8, y:10.4, w:21.5, h:2.5, fill:true, tip:"조회할 <b>사업장</b>을 선택합니다."},
+      {x:0.1,  y:17,   w:3.5, h:2.4, plain:true, tip:"<b>HOME</b> 탭을 클릭하면 프로그램 시작 화면으로 돌아갑니다."},
+      {x:3.6,  y:17,   w:9.7, h:2.4, plain:true, tip:"현재 열려 있는 <b>계산원 과부족 현황</b> 탭이며 <b>⊗</b>를 클릭하면 닫힙니다."},
+      {x:88,   y:20.2, w:5.9, h:2.6, plain:true, tip:"<b>닫기</b> 버튼으로 화면을 닫습니다."},
+      {x:94.1, y:20.2, w:5.2, h:2.6, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ① 사원 지정
-      {x:90.7, y:13.2, w:1.3, h:2.2, num:"1", numCorner:true, notint:true, front:true, to:"emp", toggle:true, tip:"돋보기를 클릭하면 <b>사원 검색</b> 창이 열립니다."},
-      {x:75.9, y:13.2, w:13.5, h:2.3, fill:true, tip:"조회할 <b>사원명</b>을 입력합니다."},
+      {x:90.6, y:23.9, w:1.4, h:2.6, num:"1", numCorner:true, notint:true, front:true, to:"emp", toggle:true, tip:"돋보기를 클릭하면 <b>사원 검색</b> 창이 열립니다."},
+      {x:75.9, y:23.9, w:13.9, h:2.5, fill:true, tip:"조회할 <b>사원명</b>을 입력합니다."},
       // ② 업무일
-      {x:75.9, y:15.9, w:7.6, h:2.5, fill:true, tip:"업무일 <b>시작일</b>을 지정합니다."},
-      {x:84.6, y:15.9, w:7.6, h:2.5, fill:true, tip:"업무일 <b>종료일</b>을 지정합니다."},
-      {x:92.3, y:15.9, w:1.2, h:2.5, plain:true, front:true, to:"dgrp", toggle:true, tip:"<b>···</b> 버튼으로 날짜 그룹을 빠르게 선택합니다."},
-      {x:71.8, y:15.7, w:21.8, h:2.9, num:"2", numCorner:true, notint:true, tip:"조회할 <b>업무일</b> 범위를 지정합니다."},
+      {x:75.9, y:26.7, w:7.6, h:2.5, fill:true, tip:"업무일 <b>시작일</b>을 지정합니다."},
+      {x:84.9, y:26.5, w:7.2, h:2.7, fill:true, tip:"업무일 <b>종료일</b>을 지정합니다."},
+      {x:92.1, y:26.5, w:1.3, h:2.7, plain:true, front:true, to:"dgrp", toggle:true, tip:"<b>···</b> 버튼으로 날짜 그룹을 빠르게 선택합니다."},
+      {x:72.5, y:26.4, w:21,  h:3,   num:"2", numCorner:true, notint:true, tip:"조회할 <b>업무일</b> 범위를 지정합니다."},
       // ③ 검색
-      {x:93.4, y:10.3, w:5.9, h:2.7, num:"3", numCorner:true, notint:true, tip:"조건을 정하고 <b>검색</b> 버튼으로 조회합니다."},
+      {x:93.4, y:23.8, w:6,   h:2.9, num:"3", numCorner:true, notint:true, tip:"조건을 정하고 <b>검색</b> 버튼으로 조회합니다."},
       // ④ 내역 확인
       {x:0.6,  y:36.6, w:49.6, h:6.2, num:"4", numCorner:true, notint:true, tip:"매출일·사업장·사원별 <b>포스번호별 과부족 금액</b>을 확인합니다."},
     ]},
@@ -20166,7 +20166,7 @@ SIM["7cb1"] = { start:"1", screens:{
       {x:87.3, y:6.2,  w:12,   h:4.7, num:"2", numCorner:true, notint:true, close:true, tip:"<b>선택</b> 버튼을 누르면 사원명에 입력되고 창이 닫힙니다."},
       {x:96.3, y:0,    w:3.3,  h:4.8, plain:true, close:true, tip:"<b>✕</b>를 클릭하면 창이 닫힙니다."},
     ]},
-  "dgrp":{img:"images/날자그룹선택.png", win:{x:70, y:18.5, w:26.9},
+  "dgrp":{img:"images/날자그룹선택.png", win:{x:71.8, y:29.2, w:26.9},
     btns:[
       {x:0, y:0, w:100, h:100, plain:true, close:true, tip:"조회할 <b>날짜 그룹</b>을 선택합니다."},
     ]},
