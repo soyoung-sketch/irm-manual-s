@@ -19884,8 +19884,12 @@ SIM["7ca2"] = { start:"1", screens:{
       {x:38.7, y:20,   w:6.2, h:3.1, plain:true, page:3, tip:"<b>마감확정</b> 탭으로 이동합니다."},
       {x:71.8, y:22.9, w:27.9, h:7,   num:"1", numCorner:true, notint:true, tip:"<b>사원명·업무일</b>을 지정하고 검색 버튼으로 조회합니다."},
       {x:0.7,  y:45.7, w:98.5, h:2.5, num:"2", numCorner:true, notint:true, tip:"마감점검 중인 계산원의 <b>시재금액·마감정보</b>를 확인하고 행을 선택합니다."},
-      {x:69.1, y:29.7, w:6.9,  h:3,   num:"3", numCorner:true, notint:true, tip:"점검을 마친 계산원을 <b>마감중</b> 단계로 넘깁니다."},
+      {x:69.1, y:29.7, w:6.9,  h:3,   num:"3", numCorner:true, notint:true, tip:"점검을 마친 계산원을 <b>마감확정</b> 처리합니다."},
       {x:75.9, y:29.7, w:7.8,  h:2.8, yellow:true, scroll:"★1", to:"amt", tip:"<b>마감금액수정</b>으로 시재·권종 금액을 수정합니다."},
+      {x:54.9, y:29.9, w:6.8,  h:2.8, plain:true, page:0, tip:"<b>업무중으로</b> 버튼으로 선택한 계산원을 업무중 상태로 되돌립니다."},
+      {x:61.9, y:29.9, w:7,    h:3,   plain:true, page:2, tip:"선택한 계산원을 <b>마감중</b> 단계로 넘깁니다."},
+      {x:83.7, y:29.8, w:9.9,  h:2.9, yellow:true, scroll:"★2", tip:"<b>마감금액일괄수정</b>은 매장의 변경정보를 반영하는 새로고침 버튼입니다."},
+      {x:93.6, y:29.7, w:5.8,  h:2.9, plain:true, page:4, tip:"<b>취소</b>한 계산원 마감은 취소 탭에 모입니다."},
     ]},
   "amt":{img:"images/계산원마감관리-마감점검-마감금액수정.png",
     arrows:[
@@ -19903,7 +19907,7 @@ SIM["7ca2"] = { start:"1", screens:{
       {x:38.7, y:20,   w:6.2, h:3.1, plain:true, page:3, tip:"<b>마감확정</b> 탭으로 이동합니다."},
       {x:71.8, y:22.9, w:27.9, h:7,   num:"1", numCorner:true, notint:true, tip:"<b>사원명·업무일</b>을 지정하고 검색 버튼으로 조회합니다."},
       {x:0.9,  y:41.3, w:79.9, h:2.3, num:"2", numCorner:true, notint:true, tip:"마감점검 중인 계산원의 <b>시재금액·마감정보</b>를 확인하고 행을 선택합니다."},
-      {x:69.1, y:29.7, w:6.9,  h:3,   num:"3", numCorner:true, notint:true, tip:"점검을 마친 계산원을 <b>마감중</b> 단계로 넘깁니다."},
+      {x:69.1, y:29.7, w:6.9,  h:3,   num:"3", numCorner:true, notint:true, tip:"점검을 마친 계산원을 <b>마감확정</b> 처리합니다."},
       {x:75.9, y:29.7, w:7.8,  h:2.8, yellow:true, to:"1", tip:"<b>마감금액수정</b>을 다시 누르면 패널이 닫힙니다."},
       {x:86.8, y:45.1, w:11.7, h:2.5, fill:true, tip:"마감할 <b>금액</b>을 설정해주세요. 좌측 리스트에 반영됩니다."},
       {x:53.2, y:41.4, w:9.1,  h:2.2, fill:true, tip:"선택한 행의 <b>마감금액</b>이 표시됩니다."},
@@ -19915,10 +19919,14 @@ DESCS["7ca2"] = [
   {type:"note", text:"<b>마감점검</b> 단계의 계산원을 점검하고 마감금액을 수정하는 탭입니다."},
   {type:"step", num:"1", title:`🔍 검색`, body:"<b>사원명·업무일</b>을 지정하고 <span class='ui-btn'>검색</span>으로 조회합니다."},
   {type:"step", num:"2", title:`📋 점검 내역 확인`, body:"계산원의 <b>시재금액·마감정보</b>를 확인하고 처리할 행을 선택합니다."},
-  {type:"step", num:"3", title:`✏️ 마감중 처리`, body:"점검을 마친 계산원을 <span class='ui-btn'>마감중</span> 버튼으로 <b>마감중</b> 단계로 넘깁니다."},
+  {type:"step", num:"3", title:`✅ 마감확정`, body:"점검을 마친 계산원을 <span class='ui-btn'>마감확정</span> 버튼으로 확정합니다.", subs:[
+    "<span class='ui-btn'>마감중</span> 버튼으로 넘기면 🔗 <b class='dlink' onclick=\"goPage(2)\">마감중</b> 탭에서 확인합니다.",
+    "<span class='ui-btn'>업무중으로</span> 버튼으로 🔗 <b class='dlink' onclick=\"goPage(0)\">업무중</b> 상태까지 되돌릴 수도 있습니다.",
+  ]},
   {type:"step", num:"★", ystar:true, title:`💰 마감금액수정`, body:"<span class='ui-btn'>마감금액수정</span> 버튼으로 수정 패널을 엽니다.", subs:[
     "<b>시재금액·권종 수량</b>을 고치고 <span class='ui-btn'>저장</span>으로 반영합니다 · <span class='ui-btn'>닫기</span>로 취소합니다.",
   ]},
+  {type:"step", num:"★", ystar:true, title:`🔄 마감금액일괄수정`, body:"현재 매장에서 일어나고 있는 <b>변경정보를 반영</b>해 주는 새로고침 버튼입니다."},
 ];
 
 SIM["7ca3"] = { start:"1", screens:{
