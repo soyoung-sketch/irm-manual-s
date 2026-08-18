@@ -320,6 +320,7 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 /* 이미지의 노란 표시 영역과 짝을 이루는 카드 — 노란 라인으로 구분 */
 .desc-step.ystar-card { border:1.5px solid #f59e0b; }
 .desc-step.bstar-card { border:1.5px solid #2563eb; }
+.desc-step.pstar-card { border:1.5px solid #8b5cf6; }
 
 /* ── Step 카드 ── */
 .desc-step {
@@ -931,6 +932,8 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .sim-spot.click { cursor:pointer; }
 .sim-tab:hover { background:rgba(96,165,250,0.12); outline:2px solid rgba(96,165,250,0.55); }
 .sim-cue { border:2.5px solid #e2241a; }
+.sim-cue.purple { border-color:#8b5cf6; }
+.sim-cue.white { border-color:#fff; }
 .sim-poly { position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none; z-index:8; overflow:visible; }
 .sim-poly polygon { fill:none; stroke:#e2241a; stroke-width:2.5; vector-effect:non-scaling-stroke; }
 .sim-cue.dash { border-style:dashed; border-radius:5px; }
@@ -954,6 +957,7 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .sim-fill.red { background:rgba(226,36,26,0.20); }
 .sim-fill.soft { background:#f59e0b; mix-blend-mode:normal; }
 .sim-fill.blue { background:rgba(37,99,235,0.30); }
+.sim-fill.purple { background:rgba(139,92,246,0.32); }
 .sim-fill.solid { mix-blend-mode:normal; }
 .sim-fill.solid.red { background:#e2241a; }
 .sim-fill.solid.blue { background:#2563eb; }
@@ -1575,7 +1579,7 @@ const IMGS = {
   "7ba1": "images/바코드인쇄관리-1.png",
   "7ba2": "images/바코드인쇄관리-2.png",
   "7ba3": "images/바코드인쇄관리-3.png",
-  "7bb1": "images/바코드탬플릿-1.png",
+  "7bb1": "images/바코드탬플릿.png",
   "7bb2": "images/바코드탬플릿-2.png",
   "7bc1": "images/POP제작관리.png",
   "7bd1": "images/POP제작목록.png",
@@ -20310,6 +20314,66 @@ DESCS["7pr1d"] = [
   ]},
 ];
 
+SIM["7bb1"] = { start:"1", screens:{
+  "1":{img:"images/바코드탬플릿.png",
+    arrows:[
+      {pts:[[65.3,23.3],[65.3,58.3]], yellow:true},
+      {pts:[[88.5,23.1],[88.5,69],[80.4,69]], color:"#8b5cf6"},
+    ],
+    btns:[
+      {x:0.1,  y:17,   w:3.5, h:2.4, plain:true, tip:"<b>HOME</b> 탭을 클릭하면 프로그램 시작 화면으로 돌아갑니다."},
+      {x:3.6,  y:17,   w:8.5, h:2.4, plain:true, tip:"현재 열려 있는 <b>바코드 템플릿</b> 탭이며 <b>⊗</b>를 클릭하면 닫힙니다."},
+      // ① 바코드 타입
+      {x:40.7, y:20,   w:12.9, h:3,   num:"1", numCorner:true, notint:true, tip:"인쇄할 <b>바코드 타입</b>(상품정보·쿠폰정보·로케이션)을 선택합니다."},
+      // ② 바코드 추가 → 디자인 화면
+      {x:53.6, y:20.1, w:7.6,  h:2.6, num:"2", numCorner:true, notint:true, to:"bar", tip:"<b>+ 바코드 추가</b> 버튼으로 새 바코드 템플릿을 만듭니다."},
+      // ★1 라인 추가 (노란)
+      {x:61.5, y:20.1, w:7.4,  h:2.7, yellow:true, scroll:"★1", tip:"<b>+ 라인 추가</b>를 누르면 목록에 구분용 라인 행이 추가됩니다."},
+      {x:1.8,  y:56.9, w:78.5, h:2.4, fill:true, scroll:"★1", tip:"추가된 <b>신규 라인</b> 행입니다 · 이름을 바꿔 구분선으로 씁니다."},
+      // ★2 복사 (보라)
+      {x:85.7, y:20.1, w:5.4,  h:2.8, purple:true, scroll:"★2", tip:"<b>복사</b>로 선택한 템플릿을 복제합니다."},
+      {x:1.9,  y:68.1, w:78.4, h:2.3, fill:true, purple:true, scroll:"★2", tip:"복제된 <b>(복사)</b> 템플릿 행입니다."},
+      // 투명
+      {x:69.2, y:20.1, w:5.3,  h:2.7, plain:true, tip:"<b>위로</b> 버튼으로 선택한 템플릿의 순서를 올립니다."},
+      {x:74.7, y:20.1, w:5.3,  h:2.7, plain:true, tip:"<b>아래</b> 버튼으로 선택한 템플릿의 순서를 내립니다."},
+      {x:80.2, y:20.1, w:5.3,  h:2.7, plain:true, tip:"체크한 템플릿을 <b>삭제</b>합니다."},
+      {x:92.1, y:20.1, w:7.5,  h:2.6, plain:true, tip:"<b>새로고침</b>으로 목록을 다시 불러옵니다."},
+      // ③ 목록 행
+      {x:1.9,  y:38.5, w:78.4, h:2.3, num:"3", numCorner:true, notint:true, tip:"등록된 템플릿의 <b>바코드명·크기</b>를 확인하고 <b>수정</b>을 클릭해 편집합니다."},
+    ]},
+  "bar":{img:"images/바코드탬플릿-바코드추가.png",
+    arrows:[
+      {pts:[[17,15.6],[40.7,15.6],[40.7,40.2]], yellow:true},
+      {pts:[[17.2,19.2],[51.2,19.2],[51.2,40.9]], yellow:true},
+      {pts:[[17.1,22.6],[33.3,22.6],[33.3,50.6],[40.3,50.6]], yellow:true},
+      {pts:[[17.1,26.5],[28.8,26.5],[28.8,61.1],[49.6,61.1],[49.6,52.2]], yellow:true},
+    ],
+    btns:[
+      // ① 좌측 기본 요소
+      {x:0.7,  y:8.7,  w:17.6, h:21.2, yellow:true, num:"1", numCorner:true, notint:true, tip:"<b>텍스트·바코드·QR코드·이미지</b> 요소를 클릭해 라벨에 추가합니다."},
+      // ② 우측 속성
+      {x:77.3, y:8.9,  w:20.3, h:75,   yellow:true, num:"2", numCorner:true, notint:true, tip:"선택한 요소의 <b>내용·폰트·정렬·색상</b> 속성을 설정합니다."},
+      // ③ 상단 툴바
+      {x:0.7,  y:4.6,  w:74.8, h:3.5,  yellow:true, num:"3", numCorner:true, notint:true, tip:"<b>저장(Ctrl+S)</b>·닫기와 실행 취소·정렬·그룹화·복제 등 편집 도구 모음입니다."},
+      {x:10.1, y:4.9,  w:3.3,  h:3.2,  plain:true, front:true, to:"1", tip:"<b>닫기</b>를 누르면 템플릿 목록으로 돌아갑니다."},
+      // 캔버스 요소 (노란라인)
+      {x:38.6, y:38.2, w:18.3, h:18.9, yellow:true, tip:"추가한 요소가 배치되는 <b>바코드 라벨</b> 미리보기입니다."},
+      // 하단 페이지 설정 (흰색라인)
+      {x:18.6, y:94.4, w:58.5, h:4.3,  white:true, tip:"<b>페이지 크기·라벨·여백</b>을 설정합니다."},
+    ]},
+} };
+DESCS["7bb1"] = [
+  {type:"note", text:"바코드 인쇄에 사용할 <b>바코드 템플릿</b>을 만들고 관리하는 화면입니다."},
+  {type:"step", num:"1", title:`🗂️ 바코드 타입 선택`, body:"인쇄할 <b>바코드 타입</b>(상품정보·쿠폰정보·로케이션)을 선택합니다."},
+  {type:"step", num:"2", title:`➕ 바코드 추가`, body:"<span class='ui-btn'>+ 바코드 추가</span> 버튼을 누르면 <b>바코드 템플릿 디자인</b> 화면이 열립니다.", subs:[
+    "<b>텍스트·바코드·QR코드·이미지</b> 요소로 라벨을 디자인하고 <span class='ui-btn'>저장</span>합니다.",
+  ]},
+  {type:"step", num:"3", title:`📋 템플릿 목록 확인`, body:"사업장·타입별로 묶인 템플릿의 <b>바코드명·크기</b>를 확인하고 <span class='ui-btn'>수정</span>으로 편집합니다."},
+  {type:"step", num:"★", ystar:true, title:`➕ 라인 추가`, body:"<span class='ui-btn'>+ 라인 추가</span>를 누르면 목록에 <b>구분용 라인 행</b>이 추가됩니다."},
+  {type:"step", num:"★", pstar:true, title:`📄 복사`, body:"<span class='ui-btn'>복사</span>로 선택한 템플릿을 복제합니다 · <b>(복사)</b> 이름으로 목록에 추가됩니다."},
+];
+
+
 DESCS["7bh1e"] = [
   {type:"note", text:"<b>텍스트·바코드·QR코드·이미지</b> 요소로 POP 스킨을 디자인하는 화면입니다 · 좌측 목록에서 요소를 클릭해 보세요."},
   {type:"note", text:"하단 <b>일반·수식·도형</b> 탭으로 전환합니다 · 수식 탭에서 <b>필드·날짜 포맷</b>을, 도형 탭에서 <b>선·도형 그리기</b>를 사용합니다."},
@@ -26553,7 +26617,7 @@ function renderSection() {
         } else if (!item.groupStart && !item.groupEnd && item.link) {
           html += `<div style="display:flex;align-items:stretch;gap:8px;">`;
         }
-        html += `<div class="desc-step${item.ystar?' ystar-card':''}${item.bstar?' bstar-card':''}" style="flex:1;margin:0;">
+        html += `<div class="desc-step${item.ystar?' ystar-card':''}${item.bstar?' bstar-card':''}${item.pstar?' pstar-card':''}" style="flex:1;margin:0;">
           <div class="desc-step-row">
             <div class="desc-step-num${item.orange?' orange':item.red?' red':item.ystar?' ystar':''}">${item.num}</div>
             <div class="desc-step-body"><strong>${item.title}</strong>`;
@@ -26776,7 +26840,7 @@ function simOverlayHTML(pg, sid) {
       const fact = b.close ? "winClose()" : (b.to ? (sim.screens[b.to] && sim.screens[b.to].win ? `winGo('${pg}','${b.to}')` : `simGo('${pg}','${b.to}')`) : (b.gif ? `playGif('${b.gif}')` : ""));
       const ftxt = b.fillText ? `<span class="sim-fill-txt">${b.fillText}</span>` : '';
       const fup = (b.tip||b.label) ? `<span class="sim-tip${tipCls(b.x,b.w,b.y)}${b.tipNowrap?' nowrap':''}">${b.tip||b.label}</span>` : '';
-      h += `<div class="sim-fill${b.red?' red':''}${b.blue?' blue':''}${b.soft?' soft':''}${b.solid?' solid':''}${b.clear?' clear':''}${b.swapOnly?' sim-swaponly':''}${b.hideSwap?' sim-hideswap':''}" style="${pos}${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}${b.radius!=null?'border-radius:'+b.radius+'px;':''}"></div>`
+      h += `<div class="sim-fill${b.red?' red':''}${b.blue?' blue':''}${b.purple?' purple':''}${b.soft?' soft':''}${b.solid?' solid':''}${b.clear?' clear':''}${b.swapOnly?' sim-swaponly':''}${b.hideSwap?' sim-hideswap':''}" style="${pos}${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}${b.radius!=null?'border-radius:'+b.radius+'px;':''}"></div>`
         + `<div class="sim-fillov${(fact||b.scroll)?' click':''}${b.swapOnly?' sim-swaponly':''}${b.hideSwap?' sim-hideswap':''}"${b.scroll?` data-sc="${b.scroll}"`:''} style="${pos}${b.zTop?'z-index:2101;':b.front?'z-index:1002;':''}${b.radius!=null?'border-radius:'+b.radius+'px;':''}"${fact?` onclick="${b.scroll?`simScrollDesc('${b.scroll}');`:''}${fact}"`:(b.scroll?` onclick="simScrollDesc('${b.scroll}')"`:"")}>${ftxt}${fup}</div>`;
       return;
     }
@@ -26805,7 +26869,7 @@ function simOverlayHTML(pg, sid) {
     const scroll = (!b.noLink&&(b.scroll||b.num)) ? `simScrollDesc('${b.scroll||b.num}');` : ((b.to || b.popup) ? `simScrollDescBtns();` : "");
     const action = scroll + nav + (b.gif?`playGif('${b.gif}');`:'') + (b.editBack?`goBackEdit();`:'') + (b.swapImg?`simSwapImg(this,'${sc.img}','${b.swapImg}');`:'');
     const _clickable = !!(b.to || b.close || b.page != null || b.chkRow || b.back || b.popup || b.dbl || b.dblWin || b.dblPage != null || b.delMap || b.goSub || b.gif || b.editBack || b.swapImg);
-    const cls = (b.plain ? "sim-spot sim-tab" : ("sim-spot sim-cue" + (b.dash ? " dash" : "") + (b.yellow ? " yellow" : "") + (b.gray ? " gray" : "") + (b.blue ? " blue" : "") + (b.green ? " green" : "") + (b.thin ? " thin" : "") + (b.notint ? " notint" : "") + (b.noline ? " noline" : "") + (b.noev ? " noev" : ""))) + (_clickable ? " click" : "") + (b.swapOnly ? " sim-swaponly" : "") + (b.hideSwap ? " sim-hideswap" : "") + (b.blink ? " sim-blink" : "");
+    const cls = (b.plain ? "sim-spot sim-tab" : ("sim-spot sim-cue" + (b.dash ? " dash" : "") + (b.yellow ? " yellow" : "") + (b.gray ? " gray" : "") + (b.blue ? " blue" : "") + (b.purple ? " purple" : "") + (b.white ? " white" : "") + (b.green ? " green" : "") + (b.thin ? " thin" : "") + (b.notint ? " notint" : "") + (b.noline ? " noline" : "") + (b.noev ? " noev" : ""))) + (_clickable ? " click" : "") + (b.swapOnly ? " sim-swaponly" : "") + (b.hideSwap ? " sim-hideswap" : "") + (b.blink ? " sim-blink" : "");
     h += `${b.poly?`<svg class="sim-poly" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="${b.poly}"/></svg>`:""}<div class="${cls}"${b.scroll ? ` data-sc="${b.scroll}"` : ""} style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}"${action?` onclick="${action}"`:""}${b.dblClose?` ondblclick="winClose()"`:(b.dblWin?` ondblclick="winToggle('${pg}','${b.dblWin}')"`:(b.dblPage!=null?` ondblclick="goPage(${b.dblPage})"`:(b.dbl?` ondblclick="simGo('${pg}','${b.dbl}')"`:"")))}>${ico}${tip}${tagEl}</div>`;
   });
   (sc.arrows||[]).forEach(a => h += simArrowHTML(a));
@@ -26966,7 +27030,7 @@ function winOverlayHTML(pg, sid) {
     else if (b.page != null) action += `winClose();goPage(${b.page})`;
     if (b.gif) action += `playGif('${b.gif}');`;
     const _clickable = !!(b.to || b.close || b.page != null || b.chkRow || b.back || b.popup || b.dbl || b.dblPage != null || b.delMap || b.goSub || b.gif || b.editBack);
-    const cls = (b.plain ? "sim-spot sim-tab" : ("sim-spot sim-cue" + (b.dash ? " dash" : "") + (b.yellow ? " yellow" : "") + (b.gray ? " gray" : "") + (b.blue ? " blue" : "") + (b.green ? " green" : "") + (b.thin ? " thin" : "") + (b.notint ? " notint" : "") + (b.noline ? " noline" : "") + (b.noev ? " noev" : ""))) + (_clickable ? " click" : "") + (b.swapOnly ? " sim-swaponly" : "") + (b.hideSwap ? " sim-hideswap" : "") + (b.blink ? " sim-blink" : "");
+    const cls = (b.plain ? "sim-spot sim-tab" : ("sim-spot sim-cue" + (b.dash ? " dash" : "") + (b.yellow ? " yellow" : "") + (b.gray ? " gray" : "") + (b.blue ? " blue" : "") + (b.purple ? " purple" : "") + (b.white ? " white" : "") + (b.green ? " green" : "") + (b.thin ? " thin" : "") + (b.notint ? " notint" : "") + (b.noline ? " noline" : "") + (b.noev ? " noev" : ""))) + (_clickable ? " click" : "") + (b.swapOnly ? " sim-swaponly" : "") + (b.hideSwap ? " sim-hideswap" : "") + (b.blink ? " sim-blink" : "");
     h += `${b.poly?`<svg class="sim-poly" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="${b.poly}"/></svg>`:""}<div class="${cls}"${b.scroll ? ` data-sc="${b.scroll}"` : ""} style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}"${action?` onclick="${action}"`:""}${b.dblClose?` ondblclick="winClose()"`:(b.dblWin?` ondblclick="winToggle('${pg}','${b.dblWin}')"`:(b.dblPage!=null?` ondblclick="goPage(${b.dblPage})"`:(b.dbl?` ondblclick="simGo('${pg}','${b.dbl}')"`:"")))}>${ico}${tip}${tagEl}</div>`;
   });
   (sc.arrows||[]).forEach(a => h += simArrowHTML(a));
