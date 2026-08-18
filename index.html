@@ -26145,7 +26145,9 @@ document.addEventListener('mouseup', () => {
 function sMaybeCrop(img){
   if (VER !== "s") return;
   const r = img.naturalWidth / img.naturalHeight;
-  if (img.naturalWidth < 1200 || r <= 1.25 || r >= 1.55) return;
+  // 1.9~2.1 = 하단을 재단한 구형 전체캡처(1515~1520×745~747) — 동일하게 크롭+리본 적용
+  const shortCropped = img.naturalWidth >= 1500 && img.naturalWidth <= 1525 && r >= 1.9 && r <= 2.1;
+  if (!shortCropped && (img.naturalWidth < 1200 || r <= 1.25 || r >= 1.55)) return;
   // 1.42~1.55 = 1529×1032 계열(.s-cropped) / 1.25~1.42 = 구형 2847×2172 계열(.s-cropped2)
   const cropCls = r > 1.42 ? "s-cropped" : "s-cropped2";
   const wrap = img.closest(".img-pin-wrap");
