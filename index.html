@@ -931,6 +931,8 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .sim-spot.click { cursor:pointer; }
 .sim-tab:hover { background:rgba(96,165,250,0.12); outline:2px solid rgba(96,165,250,0.55); }
 .sim-cue { border:2.5px solid #e2241a; }
+.sim-poly { position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none; z-index:8; overflow:visible; }
+.sim-poly polygon { fill:none; stroke:#e2241a; stroke-width:2.5; vector-effect:non-scaling-stroke; }
 .sim-cue.dash { border-style:dashed; border-radius:5px; }
 .sim-cue.yellow { border-color:#f59e0b; }
 .sim-cue.yellow:hover { background:rgba(245,158,11,0.14); }
@@ -16026,7 +16028,7 @@ SIM["sbc1"] = { start:"1", screens:{
       {x:47.8, y:23.2, w:31.2, h:74.5, notint:true, tip:"선택한 상품과 템플릿이 적용된 <b>인쇄 모양</b>과 라벨 크기를 확인합니다."},
       {x:79.4, y:23.2, w:19.8, h:64.6, num:"3", numCorner:true, numInset:true, notint:true, tip:"라벨 모양이 되는 <b>바코드 인쇄 템플릿</b>을 선택합니다."},
       {x:65.7, y:20.2, w:13.0, h:2.9,  fill:true, scroll:"★2", tip:"<b>+ · −</b> 버튼과 배율 입력으로 미리보기를 확대·축소합니다."},
-      {x:79.4, y:87.8, w:19.8, h:8.4,  num:"4", numCorner:true, numInset:true, tip:"<b>프린터</b>를 선택하고 <b>바코드 인쇄</b> 버튼을 클릭하면 출력됩니다."},
+      {x:79.4, y:87.8, w:19.8, h:8.4,  num:"4", numCorner:true, numInset:true, plain:true, poly:"79.4,87.8 99.2,87.8 99.2,91.4 89.1,91.4 89.1,96.2 79.4,96.2", tip:"<b>프린터</b>를 선택하고 <b>바코드 인쇄</b> 버튼을 클릭하면 출력됩니다."},
       {x:89.5, y:91.4, w:9.6,  h:4.8,  plain:true, scroll:"★3", tip:"담긴 목록과 설정을 모두 <b>초기화</b>합니다."},
     ]},
 } };
@@ -16036,13 +16038,13 @@ SIM["sbc2"] = { start:"1", screens:{
       {x:0.2,  y:20.2, w:9.2,  h:2.9,  plain:true, page:0, tip:"상품 라벨을 뽑는 <b>상품정보 바코드 인쇄</b> 탭으로 이동합니다."},
       {x:9.4,  y:20.2, w:9.0,  h:2.9,  plain:true, tip:"할인쿠폰 라벨을 뽑는 <b>쿠폰정보 바코드 인쇄</b> 탭입니다."},
       {x:18.4, y:20.2, w:9.0,  h:2.9,  plain:true, page:2, tip:"진열 위치 QR을 뽑는 <b>로케이션 바코드 인쇄</b> 탭으로 이동합니다."},
-      {x:0.2,  y:23.7, w:14.7, h:2.7,  fill:true, tip:"쿠폰 한 건당 뽑을 <b>인쇄수</b>를 입력합니다."},
+      {x:0.2,  y:23.7, w:14.7, h:2.7,  fill:true, scroll:"★2", tip:"쿠폰 한 건당 뽑을 <b>인쇄수</b>를 입력합니다."},
       {x:39.7, y:23.7, w:7.6,  h:2.7,  plain:true, tip:"체크한 쿠폰을 목록에서 <b>삭제</b>합니다."},
       {x:0.8,  y:26.6, w:46.5, h:70.9, num:"1", numCorner:true, numInset:true, notint:true, tip:"등록된 쿠폰의 바코드·제목·할인구분·할인금액을 확인하고 인쇄할 행을 <b>체크</b>합니다."},
       {x:47.8, y:23.2, w:31.2, h:74.3, notint:true, tip:"쿠폰과 템플릿을 모두 고르면 <b>인쇄 모양</b>이 표시됩니다."},
       {x:79.4, y:23.2, w:19.8, h:64.6, num:"2", numCorner:true, numInset:true, notint:true, tip:"쿠폰바코드·쿠폰QR 중 사용할 <b>템플릿</b>을 선택합니다."},
-      {x:65.7, y:20.2, w:13.0, h:2.9,  fill:true, tip:"<b>+ · −</b> 버튼과 배율 입력으로 미리보기를 확대·축소합니다."},
-      {x:79.4, y:87.8, w:19.8, h:8.4,  num:"3", numCorner:true, numInset:true, tip:"<b>프린터</b>를 선택하고 <b>바코드 인쇄</b> 버튼을 클릭하면 출력됩니다."},
+      {x:65.7, y:20.2, w:13.0, h:2.9,  fill:true, scroll:"★3", tip:"<b>+ · −</b> 버튼과 배율 입력으로 미리보기를 확대·축소합니다."},
+      {x:79.4, y:87.8, w:19.8, h:8.4,  num:"3", numCorner:true, numInset:true, plain:true, poly:"79.4,87.8 99.2,87.8 99.2,91.4 89.1,91.4 89.1,96.2 79.4,96.2", tip:"<b>프린터</b>를 선택하고 <b>바코드 인쇄</b> 버튼을 클릭하면 출력됩니다."},
       {x:89.5, y:91.4, w:9.6,  h:4.8,  plain:true, tip:"담긴 목록과 설정을 모두 <b>초기화</b>합니다."},
     ]},
 } };
@@ -16058,8 +16060,8 @@ SIM["sbc3"] = { start:"1", screens:{
       {x:0.8,  y:26.6, w:46.5, h:69.7, num:"2", numCorner:true, numInset:true, notint:true, tip:"담긴 <b>로케이션코드</b>와 대·중·소·세분류로 이어지는 로케이션명을 확인합니다."},
       {x:47.8, y:23.2, w:31.2, h:74.5, notint:true, tip:"로케이션과 템플릿을 고르면 로케이션명과 <b>QR코드</b>가 찍힌 인쇄 모양이 표시됩니다."},
       {x:79.4, y:23.2, w:19.8, h:64.6, num:"3", numCorner:true, numInset:true, notint:true, tip:"로케이션바코드 600*600처럼 <b>QR 크기</b>가 정해진 템플릿을 선택합니다."},
-      {x:65.7, y:20.2, w:13.0, h:3.0,  fill:true, tip:"<b>+ · −</b> 버튼과 배율 입력으로 미리보기를 확대·축소합니다."},
-      {x:79.4, y:87.8, w:19.8, h:8.4,  num:"4", numCorner:true, numInset:true, tip:"<b>프린터</b>를 선택하고 <b>바코드 인쇄</b> 버튼을 클릭하면 출력됩니다."},
+      {x:65.7, y:20.2, w:13.0, h:3.0,  fill:true, scroll:"★2", tip:"<b>+ · −</b> 버튼과 배율 입력으로 미리보기를 확대·축소합니다."},
+      {x:79.4, y:87.8, w:19.8, h:8.4,  num:"4", numCorner:true, numInset:true, plain:true, poly:"79.4,87.8 99.2,87.8 99.2,91.4 89.1,91.4 89.1,96.2 79.4,96.2", tip:"<b>프린터</b>를 선택하고 <b>바코드 인쇄</b> 버튼을 클릭하면 출력됩니다."},
       {x:89.5, y:91.4, w:9.6,  h:4.8,  plain:true, tip:"담긴 목록과 설정을 모두 <b>초기화</b>합니다."},
     ]},
   // 결과 — 로케이션 1건을 담고 템플릿 '로케이션바코드 600*600' 을 골라 QR 미리보기가 뜬 화면
@@ -16073,8 +16075,8 @@ SIM["sbc3"] = { start:"1", screens:{
       {x:0.8,  y:26.6, w:46.5, h:69.7, num:"2", numCorner:true, numInset:true, notint:true, tip:"담긴 로케이션의 <b>로케이션코드</b>와 대 &gt; 중 &gt; 소 &gt; 세분류 로케이션명을 확인합니다."},
       {x:47.8, y:23.2, w:31.2, h:74.5, notint:true, tip:"③에서 템플릿을 고르면 로케이션명과 <b>QR코드</b>가 찍힌 인쇄 모양이 표시됩니다."},
       {x:79.4, y:23.2, w:19.8, h:64.6, num:"3", numCorner:true, numInset:true, notint:true, tip:"<b>로케이션바코드 600*600</b> 템플릿을 선택하면 왼쪽 미리보기에 QR이 반영됩니다."},
-      {x:65.7, y:20.2, w:13.0, h:3.0,  fill:true, tip:"<b>+ · −</b> 버튼과 배율 입력으로 미리보기를 확대·축소합니다."},
-      {x:79.4, y:87.8, w:19.8, h:8.4,  num:"4", numCorner:true, numInset:true, tip:"<b>프린터</b>를 선택하고 <b>바코드 인쇄</b> 버튼을 클릭하면 출력됩니다."},
+      {x:65.7, y:20.2, w:13.0, h:3.0,  fill:true, scroll:"★2", tip:"<b>+ · −</b> 버튼과 배율 입력으로 미리보기를 확대·축소합니다."},
+      {x:79.4, y:87.8, w:19.8, h:8.4,  num:"4", numCorner:true, numInset:true, plain:true, poly:"79.4,87.8 99.2,87.8 99.2,91.4 89.1,91.4 89.1,96.2 79.4,96.2", tip:"<b>프린터</b>를 선택하고 <b>바코드 인쇄</b> 버튼을 클릭하면 출력됩니다."},
       {x:89.5, y:91.4, w:9.6,  h:4.8,  plain:true, to:"1", tip:"담긴 목록과 설정을 모두 <b>초기화</b>합니다."},
     ]},
   // 761x549 → win.w = 761/1530*100 = 49.7 (본화면 1530 기준, 1:1 배율) · win.x=25 로 화면 중앙 배치
@@ -26808,7 +26810,7 @@ function simOverlayHTML(pg, sid) {
     const action = scroll + nav + (b.gif?`playGif('${b.gif}');`:'') + (b.editBack?`goBackEdit();`:'') + (b.swapImg?`simSwapImg(this,'${sc.img}','${b.swapImg}');`:'');
     const _clickable = !!(b.to || b.close || b.page != null || b.chkRow || b.back || b.popup || b.dbl || b.dblWin || b.dblPage != null || b.delMap || b.goSub || b.gif || b.editBack || b.swapImg);
     const cls = (b.plain ? "sim-spot sim-tab" : ("sim-spot sim-cue" + (b.dash ? " dash" : "") + (b.yellow ? " yellow" : "") + (b.gray ? " gray" : "") + (b.blue ? " blue" : "") + (b.green ? " green" : "") + (b.thin ? " thin" : "") + (b.notint ? " notint" : "") + (b.noline ? " noline" : "") + (b.noev ? " noev" : ""))) + (_clickable ? " click" : "") + (b.swapOnly ? " sim-swaponly" : "") + (b.hideSwap ? " sim-hideswap" : "") + (b.blink ? " sim-blink" : "");
-    h += `<div class="${cls}"${b.scroll ? ` data-sc="${b.scroll}"` : ""} style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}"${action?` onclick="${action}"`:""}${b.dblClose?` ondblclick="winClose()"`:(b.dblWin?` ondblclick="winToggle('${pg}','${b.dblWin}')"`:(b.dblPage!=null?` ondblclick="goPage(${b.dblPage})"`:(b.dbl?` ondblclick="simGo('${pg}','${b.dbl}')"`:"")))}>${ico}${tip}${tagEl}</div>`;
+    h += `${b.poly?`<svg class="sim-poly" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="${b.poly}"/></svg>`:""}<div class="${cls}"${b.scroll ? ` data-sc="${b.scroll}"` : ""} style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}"${action?` onclick="${action}"`:""}${b.dblClose?` ondblclick="winClose()"`:(b.dblWin?` ondblclick="winToggle('${pg}','${b.dblWin}')"`:(b.dblPage!=null?` ondblclick="goPage(${b.dblPage})"`:(b.dbl?` ondblclick="simGo('${pg}','${b.dbl}')"`:"")))}>${ico}${tip}${tagEl}</div>`;
   });
   (sc.arrows||[]).forEach(a => h += simArrowHTML(a));
   // 스왑 상태(img-swapped)에서만 보이는 화살표
@@ -26969,7 +26971,7 @@ function winOverlayHTML(pg, sid) {
     if (b.gif) action += `playGif('${b.gif}');`;
     const _clickable = !!(b.to || b.close || b.page != null || b.chkRow || b.back || b.popup || b.dbl || b.dblPage != null || b.delMap || b.goSub || b.gif || b.editBack);
     const cls = (b.plain ? "sim-spot sim-tab" : ("sim-spot sim-cue" + (b.dash ? " dash" : "") + (b.yellow ? " yellow" : "") + (b.gray ? " gray" : "") + (b.blue ? " blue" : "") + (b.green ? " green" : "") + (b.thin ? " thin" : "") + (b.notint ? " notint" : "") + (b.noline ? " noline" : "") + (b.noev ? " noev" : ""))) + (_clickable ? " click" : "") + (b.swapOnly ? " sim-swaponly" : "") + (b.hideSwap ? " sim-hideswap" : "") + (b.blink ? " sim-blink" : "");
-    h += `<div class="${cls}"${b.scroll ? ` data-sc="${b.scroll}"` : ""} style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}"${action?` onclick="${action}"`:""}${b.dblClose?` ondblclick="winClose()"`:(b.dblWin?` ondblclick="winToggle('${pg}','${b.dblWin}')"`:(b.dblPage!=null?` ondblclick="goPage(${b.dblPage})"`:(b.dbl?` ondblclick="simGo('${pg}','${b.dbl}')"`:"")))}>${ico}${tip}${tagEl}</div>`;
+    h += `${b.poly?`<svg class="sim-poly" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="${b.poly}"/></svg>`:""}<div class="${cls}"${b.scroll ? ` data-sc="${b.scroll}"` : ""} style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}"${action?` onclick="${action}"`:""}${b.dblClose?` ondblclick="winClose()"`:(b.dblWin?` ondblclick="winToggle('${pg}','${b.dblWin}')"`:(b.dblPage!=null?` ondblclick="goPage(${b.dblPage})"`:(b.dbl?` ondblclick="simGo('${pg}','${b.dbl}')"`:"")))}>${ico}${tip}${tagEl}</div>`;
   });
   (sc.arrows||[]).forEach(a => h += simArrowHTML(a));
   return h;
