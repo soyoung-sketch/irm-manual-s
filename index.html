@@ -20358,17 +20358,20 @@ SIM["7bb2"] = { start:"1", noRibCrop:true, screens:{
       {x:0.7,  y:4.9,  w:9.2,  h:3.2,  plain:true, front:true, editBack:true, tip:"<b>저장(Ctrl+S)</b>을 누르면 저장하고 템플릿 목록으로 돌아갑니다."},
       {x:10.1, y:4.9,  w:3.3,  h:3.2,  plain:true, front:true, editBack:true, tip:"<b>닫기</b>를 누르면 템플릿 목록으로 돌아갑니다."},
       {x:38.6, y:38.2, w:18.3, h:18.9, yellow:true, scroll:"★1", tip:"추가한 요소가 배치되는 <b>바코드 라벨</b> 미리보기입니다."},
-      {x:18.6, y:94.4, w:58.5, h:4.3,  white:true, tip:"<b>페이지 크기·라벨·여백</b>을 설정합니다."},
+      {x:18.6, y:94.4, w:58.5, h:4.3,  white:true, scroll:"★2", tip:"<b>다매 인쇄</b>와 페이지 크기·라벨·여백을 설정합니다."},
     ]},
 } };
 DESCS["7bb2"] = [
   {type:"note", text:"<b>텍스트·바코드·QR코드·이미지</b> 요소로 바코드 라벨을 디자인하는 화면입니다."},
-  {type:"step", num:"1", title:`🧩 요소 추가`, body:"좌측 <b>기본 요소</b>(텍스트·바코드·QR코드·이미지)를 클릭해 라벨에 추가합니다."},
-  {type:"step", num:"2", title:`⚙️ 속성 설정`, body:"선택한 요소의 <b>속성</b>을 설정합니다."},
-  {type:"step", num:"3", title:`🛠️ 편집 도구`, body:"<b>저장(Ctrl+S)</b>과 실행 취소·정렬·그룹화·복제 등 편집 도구를 사용합니다.", subs:[
+  {type:"step", num:"1", orange:true, title:`🧩 요소 추가`, body:"좌측 <b>기본 요소</b>(텍스트·바코드·QR코드·이미지)를 클릭해 라벨에 추가합니다."},
+  {type:"step", num:"2", orange:true, title:`⚙️ 속성 설정`, body:"선택한 요소의 <b>속성</b>을 설정합니다."},
+  {type:"step", num:"3", orange:true, title:`🛠️ 편집 도구`, body:"<b>저장(Ctrl+S)</b>과 실행 취소·정렬·그룹화·복제 등 편집 도구를 사용합니다.", subs:[
     "<span class='ui-btn'>저장</span>, 또는 <span class='ui-btn'>닫기</span>를 누르면 템플릿 목록으로 돌아갑니다.",
   ]},
-  {type:"step", num:"★", ystar:true, title:`🏷️ 라벨 미리보기`, body:"추가한 요소가 배치되는 <b>바코드 라벨</b> 미리보기입니다 · 하단에서 페이지 크기·라벨·여백을 설정합니다."},
+  {type:"step", num:"★", ystar:true, title:`🏷️ 라벨 미리보기`, body:"추가한 요소가 배치되는 <b>바코드 라벨</b> 미리보기입니다."},
+  {type:"step", num:"★", ystar:true, title:`🖨️ 다매 인쇄`, body:"<b>다매 인쇄</b>를 체크하면 라벨 여러 장을 한 페이지에 배치해 출력합니다.", subs:[
+    "하단에서 <b>페이지 크기·라벨 크기·여백·간격</b>을 함께 설정합니다.",
+  ]},
 ];
 
 DESCS["7bb1"] = [
