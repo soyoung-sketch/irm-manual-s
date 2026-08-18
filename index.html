@@ -11683,22 +11683,23 @@ const SIM = {
   },
   "8cc1": {
     start: "1",
-    cat: {x:5.4, y:35.5, w:10.8, h:2.9},
     screens: {
       "1": {img:"images/로케이션관리-1.png", btns:[
+                {x:0.1,  y:17,   w:3.5, h:2.4, plain:true, tip:"<b>HOME</b> 탭을 클릭하면 프로그램 시작 화면으로 돌아갑니다."},
+                {x:3.6,  y:17,   w:8,   h:2.4, plain:true, tip:"현재 열려 있는 <b>로케이션 관리</b> 탭이며 <b>⊗</b>를 클릭하면 닫힙니다."},
                 // ★ 엑셀등록 (노란라인)
-                {x:91.7, y:6.2, w:7.0, h:3.1, yellow:true, scroll:"★1", to:"excel", toggle:true, tip:"<b>엑셀등록</b>으로 로케이션을 엑셀 양식으로 한 번에 등록합니다."},
+                {x:92.6, y:20.2, w:6.8, h:2.7, yellow:true, scroll:"★1", to:"excel", toggle:true, tip:"<b>엑셀등록</b>으로 로케이션을 엑셀 양식으로 한 번에 등록합니다."},
                 // ① 로케이션 검색·선택 (좌측 트리 패널)
-                {x:17.0, y:9.5, w:10.0, h:87.2, num:"1", numCorner:true, notint:true, tip:"검색어로 찾아 편집할 <b>로케이션 분류</b>를 선택합니다."},
-                // ② 대·중·소·세분류 4개 열을 한 박스로 병합 (옛 2·3·4·5)
-                {x:27.7, y:9.5, w:70.8, h:87.2, num:"2", numCorner:true, notint:true, tip:"<b>대분류 ▸ 중분류 ▸ 소분류 ▸ 세분류</b> 순으로 선택해 위치 체계를 확인합니다."},
-                // 분류명 입력칸 (빨간 칠 = 맥락, 번호 없이 칠만)
-                {x:28.0, y:12.4, w:21.2, h:2.4, lite:true},
-                {x:49.6, y:12.4, w:15.7, h:2.4, lite:true},
-                {x:66.0, y:12.4, w:15.9, h:2.4, lite:true},
-                {x:82.4, y:12.4, w:16.1, h:2.4, lite:true},
-                // ③ 입력·편집 툴바 줄을 한 박스로 병합 (옛 ＋ 4개)
-                {x:28.0, y:12.4, w:70.6, h:2.4, num:"3", numCorner:true, numInsetTop:true, front:true, notint:true, tip:"빨간 입력칸에 분류명을 넣고 <b>＋</b>로 추가합니다."},
+                {x:0.5,  y:24.5, w:12.3, h:71.9, num:"1", numCorner:true, notint:true, tip:"검색어로 찾아 편집할 <b>로케이션 분류</b>를 선택합니다."},
+                // ② 대·중·소·세분류 4개 열
+                {x:13.4, y:23.3, w:74.8, h:73.1, num:"2", numCorner:true, notint:true, tip:"<b>대분류 ▸ 중분류 ▸ 소분류 ▸ 세분류</b> 순으로 선택해 위치 체계를 확인합니다."},
+                // 분류명 입력칸 (칠)
+                {x:13.7, y:26,   w:17.5, h:2.4, lite:true},
+                {x:35.3, y:26,   w:11.7, h:2.4, lite:true},
+                {x:53,   y:26,   w:11.7, h:2.4, lite:true},
+                {x:70.7, y:26,   w:11.7, h:2.4, lite:true},
+                // ③ 입력·편집 툴바 줄
+                {x:13.7, y:26,   w:74.4, h:2.4, num:"3", numCorner:true, numInsetTop:true, front:true, notint:true, tip:"빨간 입력칸에 분류명을 넣고 <b>＋</b>로 추가합니다."},
               ]},
       "excel": {img:"images/로케이션관리-엑셀등록.png", win:{x:8, y:22, w:83}, btns:[
                 {x:38.6, y:5.2, w:8.1, h:4,   yellow:true, num:"1", numCorner:true, notint:true, tip:"<b>샘플저장</b>으로 엑셀 등록 양식을 내려받습니다."},
