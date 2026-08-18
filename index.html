@@ -26166,6 +26166,29 @@ function sMaybeCrop(img){
     sec.insertBefore(holder.firstElementChild, clipDiv);
   }
 }
+// 챕터 개요 카드(썸네일): 하단 재단된 구형 캡처(1500~1525×745~747)에 크롭+리본 적용
+function sCardCrop(img){
+  if (VER !== "s") return;
+  const r = img.naturalWidth / img.naturalHeight;
+  const shortCropped = img.naturalWidth >= 1500 && img.naturalWidth <= 1525 && r >= 1.9 && r <= 2.1;
+  if (!shortCropped) return;
+  const wrap = img.closest(".card-img-wrap");
+  if (!wrap || wrap.classList.contains("s-cropped")) return;
+  const sec = wrap.parentElement;
+  const clip = document.createElement("div");
+  clip.style.cssText = "overflow:hidden;width:100%;margin-bottom:10px;border:1px solid var(--border);border-radius:6px;";
+  sec.insertBefore(clip, wrap);
+  const chDef = NAVSECS().find(c => c.id === wrap.dataset.ch);
+  const rb = chDef && chDef.ribbon;
+  if (rb) {
+    const h = document.createElement("div");
+    h.innerHTML = sRibbonHTML(rb, null, wrap.dataset.ch, wrap.dataset.sub || "");
+    clip.appendChild(h.firstElementChild);
+  }
+  clip.appendChild(wrap);
+  wrap.classList.add("s-cropped", "s-topcrop");
+  wrap.style.marginBottom = "0"; wrap.style.border = "none"; wrap.style.borderRadius = "0";
+}
 
 // ========== STATE ==========
 let curSection = null;
@@ -26394,7 +26417,7 @@ function showChapter(ch) {
     } else if (hasImg && ch.id !== 'ch1') {
       const ov = SIM[firstPg] ? simCardOverlay(firstPg) : overlayHTML(firstPg, true);
       if (ov) {
-        html += `<div class="card-img-wrap annot-static" style="position:relative;width:100%;margin-bottom:10px;border:1px solid var(--border);border-radius:6px;overflow:hidden;"><img src="${cardImg}" style="width:100%;display:block;">${ov}</div>`;
+        html += `<div class="card-img-wrap annot-static" data-ch="${ch.id}" data-sub="${sub.id}" style="position:relative;width:100%;margin-bottom:10px;border:1px solid var(--border);border-radius:6px;overflow:hidden;"><img class="screen-img" src="${cardImg}" style="width:100%;display:block;"${VER === "s" ? ` onload="sCardCrop(this)"` : ``}>${ov}</div>`;
       } else {
         html += `<img src="${cardImg}" style="width:100%;border-radius:6px;margin-bottom:10px;border:1px solid var(--border)">`;
       }
