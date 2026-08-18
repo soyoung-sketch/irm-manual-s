@@ -11687,7 +11687,7 @@ const SIM = {
     screens: {
       "1": {img:"images/로케이션관리-1.png", btns:[
                 // ★ 엑셀등록 (노란라인)
-                {x:91.7, y:6.2, w:7.0, h:3.1, yellow:true, scroll:"★1", tip:"<b>엑셀등록</b>으로 로케이션을 엑셀 양식으로 한 번에 등록합니다."},
+                {x:91.7, y:6.2, w:7.0, h:3.1, yellow:true, scroll:"★1", to:"excel", toggle:true, tip:"<b>엑셀등록</b>으로 로케이션을 엑셀 양식으로 한 번에 등록합니다."},
                 // ① 로케이션 검색·선택 (좌측 트리 패널)
                 {x:17.0, y:9.5, w:10.0, h:87.2, num:"1", numCorner:true, notint:true, tip:"검색어로 찾아 편집할 <b>로케이션 분류</b>를 선택합니다."},
                 // ② 대·중·소·세분류 4개 열을 한 박스로 병합 (옛 2·3·4·5)
@@ -11700,6 +11700,16 @@ const SIM = {
                 // ③ 입력·편집 툴바 줄을 한 박스로 병합 (옛 ＋ 4개)
                 {x:28.0, y:12.4, w:70.6, h:2.4, num:"3", numCorner:true, numInsetTop:true, front:true, notint:true, tip:"빨간 입력칸에 분류명을 넣고 <b>＋</b>로 추가합니다."},
               ]},
+      "excel": {img:"images/로케이션관리-엑셀등록.png", win:{x:8, y:22, w:83}, btns:[
+                {x:38.6, y:5.2, w:8.1, h:4,   yellow:true, num:"1", numCorner:true, notint:true, tip:"<b>샘플저장</b>으로 엑셀 등록 양식을 내려받습니다."},
+                {x:46.8, y:5.2, w:8.2, h:4.1, yellow:true, num:"2", numCorner:true, notint:true, tip:"<b>엑셀선택</b>으로 작성한 엑셀 파일을 불러옵니다."},
+                {x:0.5,  y:13.2, w:46.1, h:3.1, yellow:true, num:"3", numCorner:true, notint:true, tip:"불러온 <b>대·중·소·세분류</b> 목록을 확인합니다."},
+                {x:82.8, y:5.1, w:8.2, h:4,   yellow:true, num:"4", numCorner:true, notint:true, tip:"<b>신규등록</b>을 누르면 기존 로케이션 정보는 모두 삭제되고 새로 등록됩니다."},
+                {x:91.3, y:5,   w:8.1, h:4.1, yellow:true, num:"5", numCorner:true, notint:true, close:true, tip:"<b>닫기</b>로 창을 닫습니다."},
+                {x:97.3, y:0,   w:2.7, h:4,   plain:true, close:true, tip:"<b>✕</b>를 클릭하면 창이 닫힙니다."},
+      ], arrows:[
+                {pts:[[50.9,9.5],[50.9,14.6],[46.6,14.6]], yellow:true},
+      ]},
     },
   },
   "8cc2": {
