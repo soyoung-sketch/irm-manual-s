@@ -1595,7 +1595,7 @@ const IMGS = {
   "7bf1": "images/POP스킨목록.png",
   "7bg1": "images/POP인쇄v2.PNG",
   "7bh1": "images/POP스킨탬플릿.png",
-  "7bh1e": "images/POP스킨추가-텍스트.png",
+  "7bh1e": "images/pop스킨디자인.png",
   "7ca1": "images/계산원마감관리-업무중.png",
   "7ca2": "images/계산원마감관리-마감점검.png",
   "7ca3": "images/계산원마감관리-마감중.png",
@@ -19668,117 +19668,28 @@ SIM["7bh1"] = { start:"main", screens:{
 
 /* ═══════════ POP 스킨 디자인 (7bh1e · 탭페이지) ═══════════ */
 SIM["7bh1e"] = { start:"1", noRibCrop:true, screens:{
-
-  "1":{img:"images/POP스킨추가-텍스트.png",
+  "1":{img:"images/pop스킨디자인.png",
+    arrows:[
+      {pts:[[16,13],[38.2,13],[38.2,33.4]], yellow:true},
+      {pts:[[16,16.3],[56.5,16.3],[56.5,30.8]], yellow:true},
+      {pts:[[16.1,19.5],[21.3,19.5],[21.3,54.8],[33.1,54.8]], yellow:true},
+      {pts:[[15.9,22.6],[18.4,22.6],[18.4,65.5],[50,65.5]], yellow:true},
+    ],
     btns:[
-      {x:0.5,  y:4.8,  w:8,    h:3.5, plain:true, tip:"<b>저장(Ctrl+S)</b> 버튼으로 만든 스킨을 저장합니다."},
-      {x:8.7,  y:4.8,  w:3.2,  h:3.5, plain:true, editBack:true, tip:"<b>닫기</b>를 누르면 템플릿 목록으로 돌아갑니다."},
-      {x:12.3, y:4.8,  w:86,   h:3.5, plain:true, tip:"실행 취소·정렬·그룹화·복제·삭제 등 <b>편집 도구</b> 모음입니다."},
-      {x:0.3,  y:13.9, w:15.9, h:3.5, plain:true, to:"1",   tip:"<b>텍스트</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:0.3,  y:17.6, w:15.9, h:3.4, plain:true, to:"bar", tip:"<b>바코드</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:0.3,  y:21.3, w:15.9, h:3.4, plain:true, to:"qr",  tip:"<b>QR코드</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:0.3,  y:25,   w:15.9, h:3.4, plain:true, to:"img", tip:"<b>이미지</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:21.1, y:14.2, w:53.9, h:66.5, plain:true, notint:true, tip:"요소를 배치하고 크기를 조절해 <b>POP 스킨</b>을 디자인합니다."},
-      {x:80.4, y:9.2,  w:19,   h:76,  notint:true, tip:"선택한 텍스트의 <b>내용·폰트·정렬·색상</b> 속성을 설정합니다."},
-      {x:80.8, y:24.2, w:16,   h:2.7, front:true, plain:true, to:"fx", tip:"<b>수식 만들기</b> 버튼으로 수식 목록을 엽니다."},
-      {x:16.3, y:87,   w:83.2, h:7.5, plain:true, tip:"<b>페이지 크기·라벨·여백·간격</b>을 설정합니다."},
-      {x:38.6, y:94.8, w:12.4, h:2.9, plain:true, to:"preset", toggle:true, tip:"<b>라벨 프리셋</b>으로 자주 쓰는 라벨 규격을 고릅니다."},
-      {x:0.4,  y:95.7, w:3.1,  h:3.1, plain:true, to:"1",     tip:"<b>일반</b> 탭입니다 · 텍스트·바코드·QR코드·이미지 요소를 씁니다."},
-      {x:3.5,  y:95.7, w:2.2,  h:3.1, plain:true, to:"fx",    tip:"<b>수식</b> 탭으로 필드·날짜 등 수식 포맷을 사용합니다."},
-      {x:5.7,  y:95.7, w:2.7,  h:3.1, plain:true, to:"shape", tip:"<b>도형</b> 탭으로 선·도형을 그립니다."},
+      // ① 좌측 기본 요소
+      {x:0.6,  y:9.6,  w:15.5, h:15,   yellow:true, num:"1", numCorner:true, notint:true, tip:"<b>텍스트·바코드·QR코드·이미지</b> 요소를 클릭해 캔버스에 추가합니다."},
+      // 캔버스 (노랑라인)
+      {x:26.1, y:25.2, w:43.8, h:45.6, yellow:true, scroll:"★1", tip:"추가한 요소가 배치되는 <b>미리보기 편집</b> 화면입니다."},
+      // ② 우측 속성
+      {x:80.2, y:7.4,  w:18.3, h:84.3, yellow:true, num:"2", numCorner:true, notint:true, tip:"선택한 요소의 <b>속성</b>을 설정합니다."},
+      // ③ 상단 툴바
+      {x:0.4,  y:3.7,  w:65.5, h:3.7,  yellow:true, num:"3", numCorner:true, notint:true, tip:"<b>저장(Ctrl+S)</b>·닫기와 실행 취소·정렬·그룹화·복제 등 편집 도구 모음입니다."},
+      // 하단 설정 (노랑라인 2)
+      {x:16.4, y:91.3, w:63.3, h:3.3,  yellow:true, scroll:"★2", tip:"<b>페이지 크기·각도·프리셋·줌</b>을 설정합니다."},
+      {x:16.3, y:95.2, w:63.6, h:3.9,  yellow:true, scroll:"★2", tip:"<b>다매 인쇄</b>와 라벨 크기·여백·간격을 설정합니다."},
+      // 닫기
+      {x:97.2, y:0.2,  w:2.3,  h:3.4,  plain:true, front:true, editBack:true, tip:"<b>✕</b>를 누르면 POP 스킨 템플릿 목록으로 돌아갑니다."},
     ]},
-
-  "bar":{img:"images/POP스킨추가-바코드.png",
-    btns:[
-      {x:0.5,  y:4.8,  w:8,    h:3.5, plain:true, tip:"<b>저장(Ctrl+S)</b> 버튼으로 만든 스킨을 저장합니다."},
-      {x:8.7,  y:4.8,  w:3.2,  h:3.5, plain:true, editBack:true, tip:"<b>닫기</b>를 누르면 템플릿 목록으로 돌아갑니다."},
-      {x:12.3, y:4.8,  w:86,   h:3.5, plain:true, tip:"실행 취소·정렬·그룹화·복제·삭제 등 <b>편집 도구</b> 모음입니다."},
-      {x:0.3,  y:13.9, w:15.9, h:3.5, plain:true, to:"1",   tip:"<b>텍스트</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:0.3,  y:17.6, w:15.9, h:3.4, plain:true, to:"bar", tip:"<b>바코드</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:0.3,  y:21.3, w:15.9, h:3.4, plain:true, to:"qr",  tip:"<b>QR코드</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:0.3,  y:25,   w:15.9, h:3.4, plain:true, to:"img", tip:"<b>이미지</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:21.1, y:14.2, w:53.9, h:66.5, plain:true, notint:true, tip:"추가한 <b>바코드</b> 요소의 위치와 크기를 조절합니다."},
-      {x:80.4, y:9.2,  w:19,   h:76,  notint:true, tip:"바코드의 <b>값·종류(CODE128 등)·텍스트 표시</b>를 설정합니다."},
-      {x:16.3, y:87,   w:83.2, h:7.5, plain:true, tip:"<b>페이지 크기·라벨·여백·간격</b>을 설정합니다."},
-      {x:38.6, y:94.8, w:12.4, h:2.9, plain:true, to:"preset", toggle:true, tip:"<b>라벨 프리셋</b>으로 자주 쓰는 라벨 규격을 고릅니다."},
-      {x:0.4,  y:95.7, w:3.1,  h:3.1, plain:true, to:"1",     tip:"<b>일반</b> 탭입니다 · 텍스트·바코드·QR코드·이미지 요소를 씁니다."},
-      {x:3.5,  y:95.7, w:2.2,  h:3.1, plain:true, to:"fx",    tip:"<b>수식</b> 탭으로 필드·날짜 등 수식 포맷을 사용합니다."},
-      {x:5.7,  y:95.7, w:2.7,  h:3.1, plain:true, to:"shape", tip:"<b>도형</b> 탭으로 선·도형을 그립니다."},
-    ]},
-
-  "qr":{img:"images/POP스킨추가-큐알코드.png",
-    btns:[
-      {x:0.5,  y:4.8,  w:8,    h:3.5, plain:true, tip:"<b>저장(Ctrl+S)</b> 버튼으로 만든 스킨을 저장합니다."},
-      {x:8.7,  y:4.8,  w:3.2,  h:3.5, plain:true, editBack:true, tip:"<b>닫기</b>를 누르면 템플릿 목록으로 돌아갑니다."},
-      {x:12.3, y:4.8,  w:86,   h:3.5, plain:true, tip:"실행 취소·정렬·그룹화·복제·삭제 등 <b>편집 도구</b> 모음입니다."},
-      {x:0.3,  y:13.9, w:15.9, h:3.5, plain:true, to:"1",   tip:"<b>텍스트</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:0.3,  y:17.6, w:15.9, h:3.4, plain:true, to:"bar", tip:"<b>바코드</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:0.3,  y:21.3, w:15.9, h:3.4, plain:true, to:"qr",  tip:"<b>QR코드</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:0.3,  y:25,   w:15.9, h:3.4, plain:true, to:"img", tip:"<b>이미지</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:21.1, y:14.2, w:53.9, h:66.5, plain:true, notint:true, tip:"추가한 <b>QR코드</b> 요소의 위치와 크기를 조절합니다."},
-      {x:80.4, y:9.2,  w:19,   h:76,  notint:true, tip:"QR코드의 <b>값</b>과 표시 속성을 설정합니다."},
-      {x:16.3, y:87,   w:83.2, h:7.5, plain:true, tip:"<b>페이지 크기·라벨·여백·간격</b>을 설정합니다."},
-      {x:38.6, y:94.8, w:12.4, h:2.9, plain:true, to:"preset", toggle:true, tip:"<b>라벨 프리셋</b>으로 자주 쓰는 라벨 규격을 고릅니다."},
-      {x:0.4,  y:95.7, w:3.1,  h:3.1, plain:true, to:"1",     tip:"<b>일반</b> 탭입니다 · 텍스트·바코드·QR코드·이미지 요소를 씁니다."},
-      {x:3.5,  y:95.7, w:2.2,  h:3.1, plain:true, to:"fx",    tip:"<b>수식</b> 탭으로 필드·날짜 등 수식 포맷을 사용합니다."},
-      {x:5.7,  y:95.7, w:2.7,  h:3.1, plain:true, to:"shape", tip:"<b>도형</b> 탭으로 선·도형을 그립니다."},
-    ]},
-
-  "img":{img:"images/POP스킨추가-이미지.png",
-    btns:[
-      {x:0.5,  y:4.8,  w:8,    h:3.5, plain:true, tip:"<b>저장(Ctrl+S)</b> 버튼으로 만든 스킨을 저장합니다."},
-      {x:8.7,  y:4.8,  w:3.2,  h:3.5, plain:true, editBack:true, tip:"<b>닫기</b>를 누르면 템플릿 목록으로 돌아갑니다."},
-      {x:12.3, y:4.8,  w:86,   h:3.5, plain:true, tip:"실행 취소·정렬·그룹화·복제·삭제 등 <b>편집 도구</b> 모음입니다."},
-      {x:0.3,  y:13.9, w:15.9, h:3.5, plain:true, to:"1",   tip:"<b>텍스트</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:0.3,  y:17.6, w:15.9, h:3.4, plain:true, to:"bar", tip:"<b>바코드</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:0.3,  y:21.3, w:15.9, h:3.4, plain:true, to:"qr",  tip:"<b>QR코드</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:0.3,  y:25,   w:15.9, h:3.4, plain:true, to:"img", tip:"<b>이미지</b> 요소를 클릭해 캔버스에 추가합니다."},
-      {x:21.1, y:14.2, w:53.9, h:66.5, plain:true, notint:true, tip:"추가한 <b>이미지</b> 요소의 위치와 크기를 조절합니다."},
-      {x:80.4, y:9.2,  w:19,   h:76,  notint:true, tip:"이미지 요소의 <b>그림 파일</b>과 표시 속성을 설정합니다."},
-      {x:16.3, y:87,   w:83.2, h:7.5, plain:true, tip:"<b>페이지 크기·라벨·여백·간격</b>을 설정합니다."},
-      {x:38.6, y:94.8, w:12.4, h:2.9, plain:true, to:"preset", toggle:true, tip:"<b>라벨 프리셋</b>으로 자주 쓰는 라벨 규격을 고릅니다."},
-      {x:0.4,  y:95.7, w:3.1,  h:3.1, plain:true, to:"1",     tip:"<b>일반</b> 탭입니다 · 텍스트·바코드·QR코드·이미지 요소를 씁니다."},
-      {x:3.5,  y:95.7, w:2.2,  h:3.1, plain:true, to:"fx",    tip:"<b>수식</b> 탭으로 필드·날짜 등 수식 포맷을 사용합니다."},
-      {x:5.7,  y:95.7, w:2.7,  h:3.1, plain:true, to:"shape", tip:"<b>도형</b> 탭으로 선·도형을 그립니다."},
-    ]},
-
-  "fx":{img:"images/POP스킨추가-수식만들기.png",
-    btns:[
-      {x:0.5,  y:4.8,  w:8,    h:3.5, plain:true, tip:"<b>저장(Ctrl+S)</b> 버튼으로 만든 스킨을 저장합니다."},
-      {x:8.7,  y:4.8,  w:3.2,  h:3.5, plain:true, editBack:true, tip:"<b>닫기</b>를 누르면 템플릿 목록으로 돌아갑니다."},
-      {x:12.3, y:4.8,  w:86,   h:3.5, plain:true, tip:"실행 취소·정렬·그룹화·복제·삭제 등 <b>편집 도구</b> 모음입니다."},
-      {x:0.7,  y:11.9, w:14.5, h:3,   plain:true, tip:"<b>수식 만들기</b>로 조건·계산식을 직접 만듭니다."},
-      {x:0.3,  y:15.5, w:15.9, h:69,  notint:true, tip:"<b>필드·날짜·식별</b> 수식 포맷을 클릭해 요소에 적용합니다."},
-      {x:21.1, y:14.2, w:53.9, h:66.5, plain:true, notint:true, tip:"수식이 적용된 요소는 인쇄 시 <b>실제 값</b>으로 바뀌어 출력됩니다."},
-      {x:80.4, y:9.2,  w:19,   h:76,  notint:true, tip:"선택한 요소에 적용된 <b>수식 내용</b>을 확인·수정합니다."},
-      {x:16.3, y:87,   w:83.2, h:7.5, plain:true, tip:"<b>페이지 크기·라벨·여백·간격</b>을 설정합니다."},
-      {x:38.6, y:94.8, w:12.4, h:2.9, plain:true, to:"preset", toggle:true, tip:"<b>라벨 프리셋</b>으로 자주 쓰는 라벨 규격을 고릅니다."},
-      {x:0.4,  y:95.7, w:3.1,  h:3.1, plain:true, to:"1",     tip:"<b>일반</b> 탭입니다 · 텍스트·바코드·QR코드·이미지 요소를 씁니다."},
-      {x:3.5,  y:95.7, w:2.2,  h:3.1, plain:true, to:"fx",    tip:"<b>수식</b> 탭으로 필드·날짜 등 수식 포맷을 사용합니다."},
-      {x:5.7,  y:95.7, w:2.7,  h:3.1, plain:true, to:"shape", tip:"<b>도형</b> 탭으로 선·도형을 그립니다."},
-    ]},
-
-  "shape":{img:"images/POP스킨추가-도형.png",
-    btns:[
-      {x:0.5,  y:4.8,  w:8,    h:3.5, plain:true, tip:"<b>저장(Ctrl+S)</b> 버튼으로 만든 스킨을 저장합니다."},
-      {x:8.7,  y:4.8,  w:3.2,  h:3.5, plain:true, editBack:true, tip:"<b>닫기</b>를 누르면 템플릿 목록으로 돌아갑니다."},
-      {x:12.3, y:4.8,  w:86,   h:3.5, plain:true, tip:"실행 취소·정렬·그룹화·복제·삭제 등 <b>편집 도구</b> 모음입니다."},
-      {x:0.3,  y:10.5, w:15.9, h:13.5, notint:true, tip:"<b>펜툴·선 색·두께</b>를 정해 자유롭게 그립니다."},
-      {x:0.3,  y:24.5, w:15.9, h:63,  notint:true, tip:"<b>직사각형·원·선·다각형·별</b> 등 도형을 클릭해 추가합니다."},
-      {x:21.1, y:14.2, w:53.9, h:66.5, plain:true, notint:true, tip:"추가한 <b>도형</b>의 위치와 크기를 조절합니다."},
-      {x:80.4, y:9.2,  w:19,   h:76,  notint:true, tip:"도형의 <b>채움색·선 색·두께·모서리 둥글기</b>를 설정합니다."},
-      {x:16.3, y:87,   w:83.2, h:7.5, plain:true, tip:"<b>페이지 크기·라벨·여백·간격</b>을 설정합니다."},
-      {x:38.6, y:94.8, w:12.4, h:2.9, plain:true, to:"preset", toggle:true, tip:"<b>라벨 프리셋</b>으로 자주 쓰는 라벨 규격을 고릅니다."},
-      {x:0.4,  y:95.7, w:3.1,  h:3.1, plain:true, to:"1",     tip:"<b>일반</b> 탭입니다 · 텍스트·바코드·QR코드·이미지 요소를 씁니다."},
-      {x:3.5,  y:95.7, w:2.2,  h:3.1, plain:true, to:"fx",    tip:"<b>수식</b> 탭으로 필드·날짜 등 수식 포맷을 사용합니다."},
-      {x:5.7,  y:95.7, w:2.7,  h:3.1, plain:true, to:"shape", tip:"<b>도형</b> 탭으로 선·도형을 그립니다."},
-    ]},
-
-  "preset":{img:"images/POP스킨추가-라벨프리셋.png", win:{x:38.6, y:83.5, w:11.8},
-    btns:[
-      {x:2, y:2, w:96, h:96, notint:true, close:true, tip:"사용할 <b>라벨 규격</b>을 클릭하면 적용됩니다."},
-    ]},
-
 } };
 
 /* ═══════════ 계산원 마감 관리 (7ca1~7ca5) ═══════════ */
@@ -20389,9 +20300,16 @@ DESCS["7bb1"] = [
 
 
 DESCS["7bh1e"] = [
-  {type:"note", text:"<b>텍스트·바코드·QR코드·이미지</b> 요소로 POP 스킨을 디자인하는 화면입니다 · 좌측 목록에서 요소를 클릭해 보세요."},
-  {type:"note", text:"하단 <b>일반·수식·도형</b> 탭으로 전환합니다 · 수식 탭에서 <b>필드·날짜 포맷</b>을, 도형 탭에서 <b>선·도형 그리기</b>를 사용합니다."},
-  {type:"note", text:"<b>저장(Ctrl+S)</b>으로 스킨을 저장하고 <b>닫기</b>를 누르면 템플릿 목록으로 돌아갑니다."},
+  {type:"note", text:"<b>텍스트·바코드·QR코드·이미지</b> 요소로 POP 스킨을 디자인하는 화면입니다."},
+  {type:"step", num:"1", orange:true, title:`🧩 요소 추가`, body:"좌측 <b>기본 요소</b>(텍스트·바코드·QR코드·이미지)를 클릭해 캔버스에 추가합니다."},
+  {type:"step", num:"2", orange:true, title:`⚙️ 속성 설정`, body:"선택한 요소의 <b>속성</b>을 설정합니다."},
+  {type:"step", num:"3", orange:true, title:`🛠️ 편집 도구`, body:"<b>저장(Ctrl+S)</b>과 실행 취소·정렬·그룹화·복제 등 편집 도구를 사용합니다.", subs:[
+    "<span class='ui-btn'>저장</span> 후 우측 상단 <b>✕</b>를 누르면 템플릿 목록으로 돌아갑니다.",
+  ]},
+  {type:"step", num:"★", ystar:true, title:`🏷️ 미리보기`, body:"추가한 요소가 배치되는 <b>미리보기 편집</b> 화면입니다."},
+  {type:"step", num:"★", ystar:true, title:`🖨️ 다매 인쇄`, body:"<b>다매 인쇄</b>를 체크하면 스킨 여러 장을 한 페이지에 배치해 출력합니다.", subs:[
+    "하단에서 <b>페이지 크기·라벨 크기·여백·간격</b>을 함께 설정합니다.",
+  ]},
 ];
 
 
