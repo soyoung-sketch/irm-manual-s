@@ -7157,6 +7157,7 @@ const DESCS = {
       "<span class='ui-btn'>🖨</span> 를 누르면 🔗 <b class='dlink' onclick=\"openSub('s-ch5','7-3a',true)\">바코드인쇄관리</b> 페이지로 이동합니다.",
     ]},
     {type:"note", text:"💡 입력칸과 <b>＋ ✕ ▲ ▼ 🖨</b> 버튼은 대·중·소·세분류 <b>네 개 열에 똑같이</b> 있습니다."},
+    {type:"step", num:"★", ystar:true, title:`📊 엑셀등록`, body:"<span class='ui-btn'>엑셀등록</span>으로 로케이션을 <b>엑셀 양식</b>으로 한 번에 등록합니다."},
   ], "8cc2": [
     {type:"note", text:"<b>로케이션 엑셀 등록</b>은 엑셀 파일로 매장·창고의 <b>로케이션 분류</b>를 한 번에 일괄 등록하는 화면입니다."},
     {type:"note", blue:true, text:"진행 순서 : <b>① 샘플저장 → ② 엑셀선택 → ③ 신규등록</b>"},
@@ -11685,6 +11686,8 @@ const SIM = {
     cat: {x:5.4, y:35.5, w:10.8, h:2.9},
     screens: {
       "1": {img:"images/로케이션관리-1.png", btns:[
+                // ★ 엑셀등록 (노란라인)
+                {x:91.7, y:6.2, w:7.0, h:3.1, yellow:true, scroll:"★1", tip:"<b>엑셀등록</b>으로 로케이션을 엑셀 양식으로 한 번에 등록합니다."},
                 // ① 로케이션 검색·선택 (좌측 트리 패널)
                 {x:17.0, y:9.5, w:10.0, h:87.2, num:"1", numCorner:true, notint:true, tip:"검색어로 찾아 편집할 <b>로케이션 분류</b>를 선택합니다."},
                 // ② 대·중·소·세분류 4개 열을 한 박스로 병합 (옛 2·3·4·5)
