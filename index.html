@@ -1184,6 +1184,8 @@ mark { background:#FEF08A; border-radius:2px; padding:0 2px; }
 .s-ribbon-wrap .s-ribbon { margin-bottom:0; }
 .s-rcat { position:absolute; background:rgba(255,90,90,0.32); mix-blend-mode:multiply; border-radius:3px; box-sizing:border-box; pointer-events:none; }
 .s-cropped.s-topcrop { margin-top:-2.51%; } /* 원본 상단 다크 타이틀바(32px) 크롭 */
+.s-cropped.s-topcrop2 { margin-top:-2.53%; } /* 하단 재단 캡처(높이 746)용 */
+.s-cropped.s-topcrop2 .sim-img, .s-cropped.s-topcrop2 .screen-img { clip-path: inset(4.29% 0 0 16.5%); }
 /* 구형 고해상도 캡처(2847×2172, 비율 1.31) 계열 — 사이드바 16.9%, 타이틀바 60px */
 .s-cropped2 { width:120.28% !important; margin-left:-20.28% !important; }
 .s-cropped2.s-topcrop { margin-top:-2.53%; }
@@ -11764,6 +11766,7 @@ const SIM = {
   },
   "8cc3": {
     start: "1",
+    shortTop: true,
     cat: {x:5.4, y:39.8, w:11.1, h:2.5},
     screens: {
       // 메인 (상품 없음)
@@ -11809,6 +11812,7 @@ const SIM = {
   },
   "8cc4": {
     start: "1",
+    shortTop: true,
     cat: {x:5.4, y:41.6, w:11.1, h:2.7},
     screens: {
       // 로케이션 상품목록
@@ -11822,6 +11826,7 @@ const SIM = {
   },
   "8cc5": {
     start: "1",
+    shortTop: true,
     cat: {x:5.4, y:43.6, w:11.1, h:2.7},
     screens: {
       // 미지정 상품목록
@@ -11843,6 +11848,7 @@ const SIM = {
   },
   "8cc6": {
     start: "1",
+    shortTop: true,
     cat: {x:5.4, y:45.7, w:11.3, h:2.3},
     screens: {
       "1": {img:"images/포장모니터관리.png", btns:[
@@ -26159,7 +26165,7 @@ function sMaybeCrop(img){
   wrap.classList.add(cropCls);
   const rb = curSection && curSection.ch && curSection.ch.ribbon;
   if (rb) {
-    wrap.classList.add("s-topcrop");
+    wrap.classList.add(shortCropped ? "s-topcrop2" : "s-topcrop");
     const pg = curSection.sub && curSection.sub.pages ? curSection.sub.pages[curPageIdx] : null;
     const holder = document.createElement("div");
     holder.innerHTML = sRibbonHTML(rb, pg, curSection.ch.id, curSection.sub ? curSection.sub.id : "");
@@ -26186,7 +26192,7 @@ function sCardCrop(img){
     clip.appendChild(h.firstElementChild);
   }
   clip.appendChild(wrap);
-  wrap.classList.add("s-cropped", "s-topcrop");
+  wrap.classList.add("s-cropped", "s-topcrop2");
   wrap.style.marginBottom = "0"; wrap.style.border = "none"; wrap.style.borderRadius = "0";
 }
 
@@ -26536,7 +26542,7 @@ function renderSection() {
       const ribCrop = !sCrop && ch.sRibbonAll && !SIM[pg].noRibCrop; // S 전용 캡처: 이미지 안 상단 카테고리(타이틀바~리본)를 잘라 스와이프 리본과 중복 제거
       html += (sRibbon ? sRibbonHTML(ch.ribbon, pg, ch.id, sub.id) : ``) +
         (sCrop ? `<div class="s-clip">` : ``) +
-        `<div class="img-pin-wrap sim-wrap${sCrop ? ' s-cropped' : ''}${sCrop && sRibbon ? ' s-topcrop' : ''}${ribCrop ? ' s-ribcrop' : ''}" id="simWrap" style="position:relative;width:100%;">`+
+        `<div class="img-pin-wrap sim-wrap${sCrop ? ' s-cropped' : ''}${sCrop && sRibbon ? (SIM[pg].shortTop ? ' s-topcrop2' : ' s-topcrop') : ''}${ribCrop ? ' s-ribcrop' : ''}" id="simWrap" style="position:relative;width:100%;">`+
         simScreenHTML(pg, SIM[pg].start) + `</div>` + (sCrop ? `</div>` : ``);
     } else if (imgSrc) {
       html += `<div class="img-pin-wrap" style="position:relative;width:100%;">`+
