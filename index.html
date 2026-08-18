@@ -20341,7 +20341,7 @@ SIM["7bb1"] = { start:"1", screens:{
       // ③ 목록 행
       {x:1.9,  y:38.5, w:78.4, h:2.3, num:"3", numCorner:true, notint:true, tip:"등록된 템플릿의 <b>바코드명·크기</b>를 확인하고 <b>더블클릭</b>해 편집합니다."},
     ]},
-  "bar":{img:"images/바코드탬플릿-바코드추가.png",
+  "bar":{img:"images/바코드탬플릿-바코드추가.png", noRib:true,
     arrows:[
       {pts:[[17,15.6],[40.7,15.6],[40.7,40.2]], yellow:true},
       {pts:[[17.2,19.2],[51.2,19.2],[51.2,40.9]], yellow:true},
@@ -27073,6 +27073,19 @@ function simNavPush(state) {
 function simShow(s) {
   SIMPICK = null;
   const img = document.getElementById("simImg"), ov = document.getElementById("simOverlay");
+  // 화면 단위 리본 제외(noRib): 별창 캡처 화면에서 상단 카테고리바 숨김
+  {
+    const scr = SIM[s.pg].screens[s.sid];
+    const rw = document.querySelector(".s-ribbon-wrap");
+    const wrap = document.getElementById("simWrap");
+    if (scr && scr.noRib) {
+      if (rw) rw.style.display = "none";
+      if (wrap && wrap.classList.contains("s-ribcrop")) { wrap.classList.remove("s-ribcrop"); wrap.dataset.ribcrop = "1"; }
+    } else {
+      if (rw) rw.style.display = "";
+      if (wrap && wrap.dataset.ribcrop === "1") { wrap.classList.add("s-ribcrop"); delete wrap.dataset.ribcrop; }
+    }
+  }
   if (img) img.src = SIM[s.pg].screens[s.sid].img;
   if (ov) ov.innerHTML = simOverlayHTML(s.pg, s.sid);
   const w = document.getElementById("simWin"); if (w) w.remove();
