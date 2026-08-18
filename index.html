@@ -1580,7 +1580,7 @@ const IMGS = {
   "7ba2": "images/바코드인쇄관리-2.png",
   "7ba3": "images/바코드인쇄관리-3.png",
   "7bb1": "images/바코드탬플릿.png",
-  "7bb2": "images/바코드탬플릿-2.png",
+  "7bb2": "images/바코드탬플릿-바코드추가.png",
   "7bc1": "images/POP제작관리.png",
   "7bd1": "images/POP제작목록.png",
   "7be1": "images/POP스킨제작-1.png",
@@ -6272,7 +6272,7 @@ const DESCS = {
         `<span class='ui-btn'>📋 복사</span> 버튼 : 선택한 템플릿을 복사하여 생성합니다.`,
       ]},
     {type:"note", text:"💡 바코드 템플릿은 <b>상품정보, 쿠폰정보, 로케이션 바코드</b> 출력 시 사용되는 인쇄 양식입니다.<br>💡 템플릿별로 <b>용지 크기, 출력 항목, 디자인</b>을 자유롭게 구성할 수 있습니다.<br>💡 필드 목록의 데이터를 <b>드래그</b>하여 템플릿에 배치할 수 있습니다.<br>💡 템플릿을 <b>복사</b>하여 기존 양식을 수정하면 새로운 양식을 쉽게 만들 수 있습니다.<br>💡 수정된 템플릿은 바코드 인쇄관리 화면의 <b>바코드 환경설정 목록</b>에서 선택하여 사용할 수 있습니다."},
-  ], "7bb2": [
+  ], "7bb2_old": [
     {type:"note", text:"바코드 템플릿 화면에서 수정 버튼을 클릭하면 실행되는 <b>템플릿 편집 화면</b>입니다."},
     {type:"note", text:"바코드, 상품명, 가격, 쿠폰명 등의 출력 항목을 직접 배치하여 <b>원하는 바코드 양식을 제작</b>할 수 있습니다."},
     {type:"bullet", title:`출력 항목 배치하기`,
@@ -10322,7 +10322,7 @@ const SECTIONS = [
     // ── 인쇄관리 ──
     { id: "d-ch7-4", type: "divider", title: "인쇄관리" },
     { id: "7-3a",   title: "바코드 인쇄관리",        subtitles: { "7ba1": "바코드 인쇄하기", "7ba2": "할인쿠폰 바코드 인쇄하기", "7ba3": "로케이션 바코드 인쇄하기" }, pages: ["7ba1","7ba2","7ba3"], tips: {} },
-    { id: "7-3b",   title: "바코드 템플릿",          subtitles: { "7bb1": "바코드 템플릿 관리하기", "7bb2": "바코드 템플릿 수정하기" }, pages: ["7bb1","7bb2"], tips: {} },
+    { id: "7-3b",   title: "바코드 템플릿",          subtitles: { "7bb1": "바코드 템플릿 목록 관리", "7bb2": "텍스트·바코드·QR·이미지로 라벨 디자인" }, pages: ["7bb1","7bb2"], pageLabels: ["바코드탬플릿","바코드추가"], editReturn: "7bb2", tips: {} },
     { id: "7-3c",   title: "POP 제작 관리",          subtitles: { "7bc1": "POP 생성 및 출력하기" }, pages: ["7bc1"], tips: {} },
     { id: "7-3d",   title: "POP 제작 목록",          subtitles: { "7bd1": "POP 제작 내역 조회하기" }, pages: ["7bd1"], tips: {} },
     { id: "7-3e",   title: "POP 스킨 제작",          subtitles: { "7be1": "<span class='ui-tab'>홈</span> 도형 추가하기", "7be2": "<span class='ui-tab'>홈</span> 문자(텍스트) 추가하기", "7be3": "<span class='ui-tab'>디자인</span> 용지 및 도형 스타일 설정하기", "7be4": "<span class='ui-tab'>삽입</span> 이미지 및 배경 이미지 추가하기", "7be5": "<span class='ui-tab'>삽입</span> 도형 편집 도구 열기", "7be6": "<span class='ui-tab'>삽입</span> 상품 정보 필드 추가하기", "7be7": "<span class='ui-tab'>보기</span> 보기 옵션 설정하기", "7be8": "<span class='ui-tab'>형식</span> 이미지 정렬 및 회전하기", "7be9": "<span class='ui-tab'>형식</span> 이미지 편집하기" }, pages: ["7be1","7be2","7be3","7be4","7be5","7be6","7be7","7be8","7be9"], tips: {} },
@@ -20326,7 +20326,7 @@ SIM["7bb1"] = { start:"1", screens:{
       // ① 바코드 타입
       {x:40.7, y:20,   w:12.9, h:3,   num:"1", numCorner:true, notint:true, tip:"인쇄할 <b>바코드 타입</b>(상품정보·쿠폰정보·로케이션)을 선택합니다."},
       // ② 바코드 추가 → 디자인 화면
-      {x:53.6, y:20.1, w:7.6,  h:2.6, num:"2", numCorner:true, notint:true, to:"bar", tip:"<b>+ 바코드 추가</b> 버튼으로 새 바코드 템플릿을 만듭니다."},
+      {x:53.6, y:20.1, w:7.6,  h:2.6, num:"2", numCorner:true, notint:true, page:1, tip:"<b>+ 바코드 추가</b> 버튼으로 새 바코드 템플릿을 만듭니다."},
       // ★1 라인 추가 (노란)
       {x:61.5, y:20.1, w:7.4,  h:2.7, yellow:true, scroll:"★1", tip:"<b>+ 라인 추가</b>를 누르면 목록에 구분용 라인 행이 추가됩니다."},
       {x:1.8,  y:56.9, w:78.5, h:2.4, fill:true, scroll:"★1", tip:"추가된 <b>신규 라인</b> 행입니다 · 이름을 바꿔 구분선으로 씁니다."},
@@ -20341,7 +20341,10 @@ SIM["7bb1"] = { start:"1", screens:{
       // ③ 목록 행
       {x:1.9,  y:38.5, w:78.4, h:2.3, num:"3", numCorner:true, notint:true, tip:"등록된 템플릿의 <b>바코드명·크기</b>를 확인하고 <b>더블클릭</b>해 편집합니다."},
     ]},
-  "bar":{img:"images/바코드탬플릿-바코드추가.png", noRib:true,
+  
+} };
+SIM["7bb2"] = { start:"1", noRibCrop:true, screens:{
+  "1":{img:"images/바코드탬플릿-바코드추가.png",
     arrows:[
       {pts:[[17,15.6],[40.7,15.6],[40.7,40.2]], yellow:true},
       {pts:[[17.2,19.2],[51.2,19.2],[51.2,40.9]], yellow:true},
@@ -20349,19 +20352,24 @@ SIM["7bb1"] = { start:"1", screens:{
       {pts:[[17.1,26.5],[28.8,26.5],[28.8,61.1],[49.6,61.1],[49.6,52.2]], yellow:true},
     ],
     btns:[
-      // ① 좌측 기본 요소
       {x:0.7,  y:8.7,  w:17.6, h:21.2, yellow:true, num:"1", numCorner:true, notint:true, tip:"<b>텍스트·바코드·QR코드·이미지</b> 요소를 클릭해 라벨에 추가합니다."},
-      // ② 우측 속성
       {x:77.3, y:8.9,  w:20.3, h:75,   yellow:true, num:"2", numCorner:true, notint:true, tip:"선택한 요소의 <b>내용·폰트·정렬·색상</b> 속성을 설정합니다."},
-      // ③ 상단 툴바
       {x:0.7,  y:4.6,  w:74.8, h:3.5,  yellow:true, num:"3", numCorner:true, notint:true, tip:"<b>저장(Ctrl+S)</b>·닫기와 실행 취소·정렬·그룹화·복제 등 편집 도구 모음입니다."},
-      {x:10.1, y:4.9,  w:3.3,  h:3.2,  plain:true, front:true, to:"1", tip:"<b>닫기</b>를 누르면 템플릿 목록으로 돌아갑니다."},
-      // 캔버스 요소 (노란라인)
-      {x:38.6, y:38.2, w:18.3, h:18.9, yellow:true, tip:"추가한 요소가 배치되는 <b>바코드 라벨</b> 미리보기입니다."},
-      // 하단 페이지 설정 (흰색라인)
+      {x:10.1, y:4.9,  w:3.3,  h:3.2,  plain:true, front:true, editBack:true, tip:"<b>닫기</b>를 누르면 템플릿 목록으로 돌아갑니다."},
+      {x:38.6, y:38.2, w:18.3, h:18.9, yellow:true, scroll:"★1", tip:"추가한 요소가 배치되는 <b>바코드 라벨</b> 미리보기입니다."},
       {x:18.6, y:94.4, w:58.5, h:4.3,  white:true, tip:"<b>페이지 크기·라벨·여백</b>을 설정합니다."},
     ]},
 } };
+DESCS["7bb2"] = [
+  {type:"note", text:"<b>텍스트·바코드·QR코드·이미지</b> 요소로 바코드 라벨을 디자인하는 화면입니다."},
+  {type:"step", num:"1", title:`🧩 요소 추가`, body:"좌측 <b>기본 요소</b>(텍스트·바코드·QR코드·이미지)를 클릭해 라벨에 추가합니다."},
+  {type:"step", num:"2", title:`⚙️ 속성 설정`, body:"선택한 요소의 <b>내용·폰트·정렬·색상</b> 속성을 설정합니다."},
+  {type:"step", num:"3", title:`🛠️ 편집 도구`, body:"<b>저장(Ctrl+S)</b>과 실행 취소·정렬·그룹화·복제 등 편집 도구를 사용합니다.", subs:[
+    "<span class='ui-btn'>닫기</span>를 누르면 템플릿 목록으로 돌아갑니다.",
+  ]},
+  {type:"step", num:"★", ystar:true, title:`🏷️ 라벨 미리보기`, body:"추가한 요소가 배치되는 <b>바코드 라벨</b> 미리보기입니다 · 하단에서 페이지 크기·라벨·여백을 설정합니다."},
+];
+
 DESCS["7bb1"] = [
   {type:"note", text:"바코드 인쇄에 사용할 <b>바코드 템플릿</b>을 만들고 관리하는 화면입니다."},
   {type:"step", num:"1", title:`🗂️ 바코드 타입 선택`, body:"인쇄할 <b>바코드 타입</b>(상품정보·쿠폰정보·로케이션)을 선택합니다."},
