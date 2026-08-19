@@ -16232,7 +16232,7 @@ DESCS["sstk1"] = [
   {type:"step", num:"★", ystar:true, title:`📊 합계 확인`, subs:[
     "화면 하단에서 조회된 <b>건수</b>와 입·출고 항목별 <b>수량 합계</b>를 확인합니다.",
   ]},
-  {type:"bullet", title:`⚙️ 옵션`, body:"<span class='ui-btn'>⚙ 옵션</span> 버튼을 클릭하면 메뉴가 표시됩니다.", subs:[
+  {type:"step", num:"★", ystar:true, title:`⚙️ 옵션`, body:"<span class='ui-btn'>⚙ 옵션</span> 버튼을 클릭하면 메뉴가 표시됩니다.", subs:[
     "<b>문서저장</b> : 조회된 내역을 <b>엑셀 · 워드 · PDF</b> 형식으로 저장합니다.",
     "<b>도움말</b> : 화면 사용 안내를 확인합니다.",
   ]},
@@ -16247,7 +16247,7 @@ SIM["sstk1"] = { start:"1", screens:{
       {x:0.1,  y:16.7, w:3.5,  h:2.6,  plain:true, tip:"<b>HOME</b> 탭을 클릭하면 프로그램 시작 화면으로 돌아갑니다."},
       {x:3.7,  y:16.7, w:7.9,  h:2.6,  plain:true, tip:"현재 열려 있는 <b>상품 수불 내역</b> 탭이며 <b>⊗</b>를 클릭하면 닫힙니다."},
       // 우상단 옵션 — 실측 x 1441~1520, y 207~238px
-      {x:94.2, y:20.1, w:5.2,  h:3,    plain:true, to:"p_opt", toggle:true, tip:"<b>옵션</b> 버튼으로 문서저장·도움말 메뉴를 표시합니다."},
+      {x:94.2, y:20.1, w:5.2,  h:3,    plain:true, scroll:"★2", to:"p_opt", toggle:true, tip:"<b>옵션</b> 버튼으로 문서저장·도움말 메뉴를 표시합니다."},
       // 조회 조건 패널(본사·시작일/종료일·상품명·검색) — 실측 x 965~1520, y 239~310px
       {x:63.1, y:23.2, w:36.3, h:6.9,  num:"1", numCorner:true, notint:true, tip:"상품과 <b>조회 기간</b>을 지정한 후 검색합니다."},
       // ··· 버튼 — 실측 x 1172~1192, y 283~301px
