@@ -7813,7 +7813,7 @@ const DESCS = {
       "그룹화한 기준별로 집계된 <b>수량·합계금액</b> 목록을 확인합니다.",
       "%%사용일·사업장·처리사유(대/소분류)별로 표시됩니다.",
     ]},
-    {type:"step", num:"★", ystar:true, title:`⚙ <b class="gif-link" onclick="playGif('images/레이아웃관리.gif')">레이아웃관리</b>`, body:"<span class='ui-btn'>⚙ 레이아웃관리</span> 버튼으로 구성한 피벗 화면을 관리합니다.", subs:[
+    {type:"step", num:"★", ystar:true, title:`⚙ 레이아웃관리 <b class="gif-link" onclick="playGif('images/레이아웃관리.gif')">▶ 사용법 재생</b>`, body:"<span class='ui-btn'>⚙ 레이아웃관리</span> 버튼을 클릭하면 <b>레이아웃 관리 창</b>이 열립니다.", subs:[
       "<b>레이아웃 신규저장</b> · 현재 구성을 새 이름으로 저장합니다.",
       "<b>레이아웃 불러오기</b> · 저장된 레이아웃을 적용하며 <b>삭제</b>도 가능합니다.",
     ]},
@@ -13335,10 +13335,48 @@ const SIM = {
                 {x:29.6, y:6.6, w:6, h:2.7, plain:true, page:2, tip:"<b>월 현황(상품)</b> 탭으로 이동합니다."},
                 {x:35.7, y:6.6, w:6.1, h:2.7, plain:true, page:3, tip:"<b>월 현황(분류)</b> 탭으로 이동합니다."},
                 {x:87.5, y:10.4, w:6.1, h:2.9, num:"1", tip:"<b>상세검색</b>으로 조건을 지정해 조회합니다."},
-                {x:62.8, y:10.4, w:8.4, h:2.9, yellow:true, num:"★", scroll:"★1", gif:"images/레이아웃관리.gif", tip:"<b>레이아웃관리</b>로 구성한 조회 화면을 저장·불러오기·삭제합니다 (클릭하면 <b>사용법 GIF</b> 재생)."},
+                {x:62.8, y:10.4, w:8.4, h:2.9, yellow:true, num:"★", scroll:"★1", to:"lay", toggle:true, tip:"<b>레이아웃관리</b>로 구성한 화면을 저장·불러오기·삭제합니다 · 클릭하면 관리 창이 열립니다."},
                 {x:17.8, y:13.6, w:81.1, h:3.6, num:"2", tip:"<b>문서번호·분류·작성일·처리사유·상품·수량·합계금액</b> 등 보고 싶은 항목을 선택합니다."},
                 {x:49.0, y:17.2, w:27.0, h:2.9, fill:true, tip:"여기로 드래그하면 해당 기준으로 <b>집계</b>됩니다."},
                 {x:18, y:25.2, w:50.8, h:16.3, num:"3", numCorner:true, notint:true, tip:"그룹화한 기준별로 집계된 <b>수량·합계금액</b> 목록을 확인합니다."},
+              ]},
+      // 레이아웃관리 팝업 (소분작업 입고현황과 동일 플로우)
+      "lay": {img:"images/소분작업 입고현황-4.png", win:{x:55.7, y:23.4, w:24}, btns:[
+                {x:17.1, y:45.3, w:71.6, h:13.2, to:"laySave", tip:"현재 구성을 새 이름으로 <b>저장</b>합니다."},
+                {x:17.0, y:60.5, w:71.7, h:13.4, to:"layLoad", tip:"저장된 레이아웃을 불러옵니다."},
+                {x:17.0, y:75.6, w:71.8, h:13.2, plain:true, close:true, tip:"레이아웃 관리를 닫습니다."},
+              ]},
+      "laySave":{img:"images/소분작업 입고현황-5.png", win:{x:55.7, y:23.4, w:24}, btns:[
+                {x:18.4, y:41.4, w:63.3, h:4.4, tip:"<b>관리</b>할 레이아웃 이름을 입력합니다."},
+                {x:18.6, y:57.8, w:30.5, h:11.1, plain:true, close:true, tip:"입력한 이름으로 레이아웃을 <b>저장</b>합니다."},
+                {x:51.0, y:58.0, w:30.3, h:10.9, plain:true, to:"lay", tip:"이전으로 돌아갑니다."},
+              ]},
+      "layLoad":{img:"images/소분작업 입고현황-6.png", win:{x:55.7, y:23.4, w:24}, btns:[
+                {x:3.9, y:24.9, w:92.5, h:4.5, pick:"r1", tip:"test01 선택"},
+                {x:3.7, y:29.3, w:92.5, h:4.3, pick:"r2", tip:"test02 선택"},
+                {x:3.6, y:33.6, w:92.5, h:4.1, pick:"r3", tip:"test03 선택"},
+                {x:3.7, y:88.4, w:26.9, h:8.8, delMap:{r1:"layDel", r2:"layDel", r3:"layDel"}, plain:true, tip:"선택한 레이아웃을 <b>삭제</b>합니다."},
+                {x:41.6, y:88.5, w:26.7, h:8.7, plain:true, close:true, tip:"선택한 레이아웃을 <b>적용</b>합니다."},
+                {x:69.3, y:88.6, w:26.9, h:8.6, plain:true, to:"lay", tip:"이전으로 돌아갑니다."},
+              ]},
+      "layDel":{img:"images/소분작업 입고현황-7.png", win:{x:55.7, y:23.4, w:24}, btns:[
+                {x:3.7, y:24.8, w:92.4, h:4.4, pick:"r1", tip:"test02 선택"},
+                {x:3.7, y:29.3, w:92.3, h:4.2, pick:"r2", tip:"test03 선택"},
+                {x:3.6, y:88.6, w:27.1, h:8.6, delMap:{r1:"layDel8", r2:"layDel9"}, plain:true, tip:"선택한 레이아웃을 <b>삭제</b>합니다."},
+                {x:41.1, y:88.5, w:27.1, h:8.6, plain:true, close:true, tip:"선택한 레이아웃을 <b>적용</b>합니다."},
+                {x:69.4, y:88.5, w:26.7, h:8.8, plain:true, to:"lay", tip:"이전으로 돌아갑니다."},
+              ]},
+      "layDel8":{img:"images/소분작업 입고현황-8.png", win:{x:55.7, y:23.4, w:24}, btns:[
+                {x:4.0, y:24.8, w:92.0, h:4.4, pick:"r1", tip:"test03 선택"},
+                {x:3.6, y:88.6, w:27.1, h:8.6, delMap:{r1:"close"}, plain:true, tip:"선택한 레이아웃을 <b>삭제</b>합니다."},
+                {x:41.1, y:88.5, w:27.1, h:8.6, plain:true, close:true, tip:"선택한 레이아웃을 <b>적용</b>합니다."},
+                {x:69.4, y:88.5, w:26.7, h:8.8, plain:true, to:"lay", tip:"이전으로 돌아갑니다."},
+              ]},
+      "layDel9":{img:"images/소분작업 입고현황-9.png", win:{x:55.7, y:23.4, w:24}, btns:[
+                {x:4.0, y:24.8, w:92.0, h:4.4, pick:"r1", tip:"test02 선택"},
+                {x:3.6, y:88.6, w:27.1, h:8.6, delMap:{r1:"close"}, plain:true, tip:"선택한 레이아웃을 <b>삭제</b>합니다."},
+                {x:41.1, y:88.5, w:27.1, h:8.6, plain:true, close:true, tip:"선택한 레이아웃을 <b>적용</b>합니다."},
+                {x:69.4, y:88.5, w:26.7, h:8.8, plain:true, to:"lay", tip:"이전으로 돌아갑니다."},
               ]},
     },
   },
