@@ -7730,7 +7730,10 @@ const DESCS = {
       "⬇",
       "조건에 맞는 전표가 목록에 표시됩니다.",
     ]},
-    {type:"step", num:"2", title:`✅ 승인요청`, body:"전표를 확인한 후 <span class='ui-btn'>▶ 승인요청</span> 버튼을 누르면 🔗 <b class='dlink' onclick=\"goPage(3)\">승인대기</b> 탭으로 이동합니다.", subs:[
+    {type:"step", num:"2", title:`📋 전표 확인`, subs:[
+      "조회된 전표의 <b>문서번호·사용일·사업장·담당자·처리사유·금액</b>을 확인합니다.",
+    ]},
+    {type:"step", num:"3", title:`✅ 승인요청`, body:"전표를 확인한 후 <span class='ui-btn'>▶ 승인요청</span> 버튼을 누르면 🔗 <b class='dlink' onclick=\"goPage(3)\">승인대기</b> 탭으로 이동합니다.", subs:[
       "승인대기 탭에서 <b>완료</b> 처리해야 재고가 차감됩니다.",
     ]},
     {type:"step", num:"★", ystar:true, title:`📥 완료`, body:"승인 없이 완료할 수 있는 경우 <span class='ui-btn'>📥 완료</span> 버튼을 누르면 바로 완료됩니다.", subs:[
@@ -13249,12 +13252,12 @@ const SIM = {
                 {x:88.1, y:6.5, w:6.2, h:2.8, num:"1", numCorner:true, tip:"<b>상세검색</b>으로 조건 입력창을 엽니다."},
                 {x:94.3, y:6.5, w:5.2, h:2.8, plain:true, tip:"<b>옵션</b>에서 문서저장 등 부가 기능을 사용합니다."},
                 {x:61.5, y:9.9, w:5.6, h:2.8, plain:true, popup:PRINT_POPUP, tip:"선택한 전표를 <b>출력</b>합니다."},
-                {x:67.3, y:9.9, w:6.1, h:2.8, num:"2", numCorner:true, tip:"<b>승인요청</b>하면 전표가 승인대기 탭으로 이동합니다."},
+                {x:67.3, y:9.9, w:6.1, h:2.8, num:"3", numCorner:true, tip:"<b>승인요청</b>하면 전표가 승인대기 탭으로 이동합니다."},
                 {x:73.5, y:9.9, w:6.1, h:2.8, yellow:true, scroll:"★1", tip:"승인 없이 바로 <b>완료</b>합니다 · 재고가 차감됩니다."},
                 {x:79.7, y:9.9, w:7.4, h:2.8, plain:true, popup:"images/자가사용조회사용이미지-2.png", tip:"전표의 <b>처리사유</b>를 변경합니다."},
                 {x:87.3, y:9.9, w:6.1, h:2.8, plain:true, tip:"선택한 전표를 <b>수정</b> 화면에서 변경합니다."},
                 {x:93.5, y:9.9, w:6.1, h:2.8, plain:true, tip:"전표를 <b>취소</b>하면 취소 탭으로 이동합니다."},
-                {x:17.2, y:16.3, w:82.3, h:72.7, plain:true, notint:true, tip:"조회된 전표의 <b>문서번호·사용일·사업장·담당자·처리사유·금액</b>을 확인합니다."},
+                {x:17.2, y:16.3, w:82.3, h:72.7, num:"2", numCorner:true, notint:true, tip:"조회된 전표의 <b>문서번호·사용일·사업장·담당자·처리사유·금액</b>을 확인합니다."},
                 {x:17.2, y:89.0, w:82.3, h:2.9, plain:true, tip:"조회된 전표의 <b>건수·금액 합계</b>가 표시됩니다."},
               ]},
     },
