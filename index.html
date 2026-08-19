@@ -8286,6 +8286,12 @@ const DESCS = {
     {type:"step", num:"★", ystar:true, title:`🔗 재고조정 등록`, body:"<span class='ui-btn'>재고조정</span> 버튼을 누르면 <b>재고조정 등록</b> 화면으로 이동합니다.", subs:[
       "🔗 <b class='dlink' onclick=\"openSub('s-ch6','9-3a',true)\">재고조정 등록</b> 페이지 바로가기",
     ]},
+    {type:"step", num:"★", ystar:true, title:`🔧 필터 편집`, body:"<span class='ui-btn'>필터 편집</span> 을 클릭하면 <b>필터 편집기</b> 창이 열립니다.", subs:[
+      "<b class='ui-num-y'>1</b> <b>값 설정</b> : 필터링할 값을 설정합니다.",
+      "<b class='ui-num-y'>2</b> <b>확인</b> : 적용되고 목록으로 돌아갑니다.",
+      "<b class='ui-num-y'>3</b> <b>취소</b> : 취소되고 창이 닫힙니다.",
+      "<b class='ui-num-y'>4</b> <b>적용</b> : 팝업창이 열린 채로 적용된 목록을 볼 수 있습니다.",
+    ]},
   ], "9ia2": [
     {type:"note", text:"<b>상품 수불 내역</b>은 상품별 <b>입·출고(수불) 내역</b>을 기간별로 조회하는 화면입니다."},
     {type:"step", num:"1", title:`🔍 검색 기간`, subs:[
@@ -11883,7 +11889,15 @@ const SIM = {
                 {x:88.0, y:20.0, w:6.1,  h:2.9, plain:true, tip:"<b>닫기</b>를 누르면 상단 검색조건 영역이 접힙니다."},
                 {x:94.1, y:20.0, w:5.2,  h:2.9, plain:true, tip:"<b>옵션</b>에서 조회 화면 설정을 변경합니다."},
                 {x:0.6,  y:23.1, w:15.8, h:17.5, plain:true, tip:"<b>매입처 목록 숨김</b>을 체크하면 매입처 목록이 가려집니다."},
-                {x:20.7, y:92.2, w:75.0, h:4.2, fill:true, tip:"매입처 <b>더블클릭</b> 시 해당 매입처코드만 필터링됩니다 · ✕를 누르면 해제됩니다."},
+                {x:20.7, y:92.2, w:73.5, h:4.2, fill:true, tip:"매입처 <b>더블클릭</b> 시 해당 매입처코드만 필터링됩니다 · ✕를 누르면 해제됩니다."},
+                {x:94.5, y:92.2, w:5.2,  h:4.2, yellow:true, scroll:"★2", to:"fedit", toggle:true, tip:"<b>필터 편집</b> 창을 열어 필터링할 값을 직접 설정합니다."},
+              ]},
+      "fedit": {img:"images/필터편집.png", win:{x:57, y:40, w:36.6}, btns:[
+                {x:4.9,  y:66,   w:22.4, h:5.6, yellow:true, num:"1", numCorner:true, notint:true, tip:"필터링할 <b>값</b>을 설정합니다."},
+                {x:52.6, y:90.9, w:14.3, h:5.1, yellow:true, num:"2", numCorner:true, notint:true, close:true, tip:"<b>확인</b>을 누르면 적용되고 목록으로 돌아갑니다."},
+                {x:68,   y:91,   w:14.3, h:5,   yellow:true, num:"3", numCorner:true, notint:true, close:true, tip:"<b>취소</b>를 누르면 취소되고 창이 닫힙니다."},
+                {x:83.4, y:91,   w:14.3, h:5.1, yellow:true, num:"4", numCorner:true, notint:true, tip:"<b>적용</b>을 누르면 팝업창이 열린 채로 적용된 목록을 볼 수 있습니다."},
+                {x:94.5, y:0,    w:5.5,  h:6.6, plain:true, close:true, tip:"<b>✕</b>를 클릭하면 창이 닫힙니다."},
               ]},
     },
   },
