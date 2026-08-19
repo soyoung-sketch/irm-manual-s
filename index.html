@@ -7739,6 +7739,9 @@ const DESCS = {
     {type:"step", num:"★", ystar:true, title:`📥 완료`, body:"승인 없이 완료할 수 있는 경우 <span class='ui-btn'>📥 완료</span> 버튼을 누르면 바로 완료됩니다.", subs:[
       "완료된 전표는 🔗 <b class='dlink' onclick=\"goPage(4)\">완료</b> 탭에서 확인합니다.",
     ]},
+    {type:"step", num:"★", ystar:true, title:`📊 합계 확인`, subs:[
+      "화면 하단에서 조회된 전표의 <b>건수</b>와 <b>금액 합계</b>를 확인합니다.",
+    ]},
     {type:"bullet", title:`보조 기능`, subs:[
       "<span class='ui-btn'>✏️ 수정</span> : 🔗 <b class='dlink' onclick=\"goPage(5)\">수정</b> 화면에서 상품·수량을 변경합니다.",
       "<span class='ui-btn'>✖ 취소</span> : 전표를 취소하면 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭으로 이동합니다.",
@@ -13258,7 +13261,7 @@ const SIM = {
                 {x:87.3, y:9.9, w:6.1, h:2.8, plain:true, tip:"선택한 전표를 <b>수정</b> 화면에서 변경합니다."},
                 {x:93.5, y:9.9, w:6.1, h:2.8, plain:true, tip:"전표를 <b>취소</b>하면 취소 탭으로 이동합니다."},
                 {x:17.2, y:16.3, w:82.3, h:72.7, num:"2", numCorner:true, notint:true, tip:"조회된 전표의 <b>문서번호·사용일·사업장·담당자·처리사유·금액</b>을 확인합니다."},
-                {x:17.2, y:89.0, w:82.3, h:2.9, plain:true, tip:"조회된 전표의 <b>건수·금액 합계</b>가 표시됩니다."},
+                {x:17.2, y:89.0, w:82.3, h:2.9, fill:true, scroll:"★2", tip:"조회된 전표의 <b>건수·금액 합계</b>가 표시됩니다."},
               ]},
     },
   },
