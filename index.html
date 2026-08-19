@@ -959,6 +959,7 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .sim-fill.soft { background:#f59e0b; mix-blend-mode:normal; }
 .sim-fill.blue { background:rgba(37,99,235,0.30); }
 .sim-fill.purple { background:rgba(139,92,246,0.32); }
+.sim-fill.lpurple { background:rgba(196,181,253,0.5); }
 .sim-fill.solid { mix-blend-mode:normal; }
 .sim-fill.solid.red { background:#e2241a; }
 .sim-fill.solid.blue { background:#2563eb; }
@@ -7689,8 +7690,6 @@ const DESCS = {
     {type:"note", blue:true, text:"진행 순서 : <b>기본 정보 입력</b> → <b>상품추가</b> → <b>상품 선택·단가·수량 입력</b> → <b>신규등록</b>"},
     {type:"step", num:"1", title:`📝 기본 정보 입력`, subs:[
       "사용사업장·사용유형·사용일·부서명·담당자를 입력해 전표의 기본 정보를 채워주세요. (필수)",
-      "%%문서번호·작성일·비고는 필요할 때만 입력하면 됩니다.",
-      "💡 사용유형은 환경설정 → 사유코드관리에서 등록한 코드가 표시됩니다.",
     ]},
     {type:"step", num:"2", title:`➕ 상품추가`, subs:[
       `<span class='ui-btn'>➕ 상품추가(F2)</span> 버튼을 클릭하면 상품 목록에 신규 라인이 생성됩니다.`,
@@ -10811,7 +10810,9 @@ const SIM = {
               {x:17.0, y:9.5, w:64.0, h:8.3, num:"1", numCorner:true, notint:true, tip:"<b>사용사업장·사용유형·사용일·부서명·담당자</b>(필수)를 입력합니다."},
               {x:17.0, y:17.9, w:7.8, h:3.3, num:"2", numCorner:true, tip:"<span class='ui-btn'>상품추가(F2)</span> 버튼을 누르면 상품 목록에 신규 라인이 생성됩니다."},
               {x:17.0, y:26.3, w:82.5, h:2.9, dash:true, noev:true},
-              {x:22.5, y:23.0, w:47.7, h:7.0, num:"3", numCorner:true, front:true, search:true, tip:"<span class='ui-btn'>···</span> 버튼으로 <b>상품을 선택</b>하고 <b>매입단가·수량</b>을 입력합니다."},
+              {x:22.5, y:23.0, w:57.6, h:7.0, num:"3", numCorner:true, front:true, search:true, searchWin:{x:20, y:22, w:78}, tip:"<span class='ui-btn'>···</span> 버튼으로 <b>상품을 선택</b>하고 <b>매입단가·수량</b>을 입력합니다."},
+              {x:64.0, y:24.3, w:6.3, h:3.0, fill:true, purple:true, tip:"추가된 상품의 <b>매입(지정)단가</b>를 입력하는 칸입니다."},
+              {x:75.2, y:24.3, w:4.9, h:3.0, fill:true, lpurple:true, tip:"자가사용할 <b>수량</b>을 입력하는 칸입니다."},
               {x:79.6, y:6.3, w:7.2, h:3.2, num:"4", numCorner:true, tip:"<span class='ui-btn'>신규등록(F5)</span> 버튼을 눌러 자가사용 전표를 저장합니다."},
             ]} } },
   "8so1": {
@@ -26849,7 +26850,7 @@ function simOverlayHTML(pg, sid) {
       const fact = b.close ? "winClose()" : (b.to ? (sim.screens[b.to] && sim.screens[b.to].win ? `winGo('${pg}','${b.to}')` : `simGo('${pg}','${b.to}')`) : (b.gif ? `playGif('${b.gif}')` : ""));
       const ftxt = b.fillText ? `<span class="sim-fill-txt">${b.fillText}</span>` : '';
       const fup = (b.tip||b.label) ? `<span class="sim-tip${tipCls(b.x,b.w,b.y)}${b.tipNowrap?' nowrap':''}">${b.tip||b.label}</span>` : '';
-      h += `<div class="sim-fill${b.red?' red':''}${b.blue?' blue':''}${b.purple?' purple':''}${b.soft?' soft':''}${b.solid?' solid':''}${b.clear?' clear':''}${b.swapOnly?' sim-swaponly':''}${b.hideSwap?' sim-hideswap':''}" style="${pos}${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}${b.radius!=null?'border-radius:'+b.radius+'px;':''}"></div>`
+      h += `<div class="sim-fill${b.red?' red':''}${b.blue?' blue':''}${b.purple?' purple':''}${b.lpurple?' lpurple':''}${b.soft?' soft':''}${b.solid?' solid':''}${b.clear?' clear':''}${b.swapOnly?' sim-swaponly':''}${b.hideSwap?' sim-hideswap':''}" style="${pos}${b.zTop?'z-index:2100;':b.front?'z-index:1001;':''}${b.radius!=null?'border-radius:'+b.radius+'px;':''}"></div>`
         + `<div class="sim-fillov${(fact||b.scroll)?' click':''}${b.swapOnly?' sim-swaponly':''}${b.hideSwap?' sim-hideswap':''}"${b.scroll?` data-sc="${b.scroll}"`:''} style="${pos}${b.zTop?'z-index:2101;':b.front?'z-index:1002;':''}${b.radius!=null?'border-radius:'+b.radius+'px;':''}"${fact?` onclick="${b.scroll?`simScrollDesc('${b.scroll}');`:''}${fact}"`:(b.scroll?` onclick="simScrollDesc('${b.scroll}')"`:"")}>${ftxt}${fup}</div>`;
       return;
     }
