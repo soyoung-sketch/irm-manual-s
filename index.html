@@ -12254,7 +12254,11 @@ const SIM = {
     sRibbon: true,
     ribCrop: true,
     screens: {
-      "1": {img:"images/재고실사계획-1.png", btns:[
+      "1": {img:"images/재고실사계획-1.png",
+              arrows:[
+                {pts:[[84.3,36.1],[76.3,36.1],[76.3,41.6]]},
+              ],
+              btns:[
                 {x:0.7, y:31.4, w:6.5, h:3.1, plain:true, page:0, tip:"실사 전 <b>문서 마감 상태</b>를 확인하는 탭입니다."},
                 {x:7.2, y:31.4, w:6.3, h:3.1, plain:true, page:1, tip:"<b>선택상품 실사</b> 탭으로 이동해 실사할 상품을 추가합니다."},
                 {x:0.7, y:23.1, w:55.9, h:8.3, num:"1", numCorner:true, notint:true, tip:"<b>제목·조정일·작성일</b>(필수)과 부서명·담당자·비고를 입력합니다."},
