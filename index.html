@@ -1662,7 +1662,7 @@ const IMGS = {
   "8so2e": "images/소분작업조회-수정.png",
   "8so3": "images/소분작업현황.png",
   "8so4": "images/소분상품관리.png",
-  "8so5": "images/소요량별 소분-1.png",
+  "8so5": "images/소요량별소분.png",
   "8so6": "images/소분작업 입고현황-1.png",
   "8so7": "images/소분작업 출고현황-1.png",
   "8ea1": "images/경비사용등록-1.png",
@@ -8199,33 +8199,31 @@ const DESCS = {
     ]},
     {type:"note", text:"💡 <b>화면 구조 한눈에 보기</b><table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>영역</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>역할</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'><b>상단</b></td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>기준상품 ↔ 소분상품 연결 및 기준 수량 설정</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'><b>하단</b></td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>실제 소분작업의 수량·단가 조정 및 작업완료</td></tr></table><b>핵심</b> — 소분상품 관리 = 상품을 연결해 <b>수량 기준</b>을 정한 뒤, 실제 작업 시 <b>수량과 단가까지 조정</b>할 수 있는 소분 방식"},
   ], "8so5": [
-    {type:"note", text:"<b>소요량별 소분</b>은 하나의 <b>기준(생산) 상품</b>을 만들 때 들어가는 여러 <b>소요 재료(소요량)</b>를 묶어 등록하는 화면입니다. (일종의 레시피/소요량 구성 등록)"},
-    {type:"note", blue:true, text:"진행 순서 : <b>① 기준상품 추가</b> → <b>② 소요량 추가</b> → <b>③ 기준 상품 추가(생산)</b> → <b>④ 작업완료</b>"},
-    {type:"step", num:"1", title:`➕ 기준상품 추가`, subs:[
-      `좌측 <b>기준(생산) 상품정보</b>의 <span class='ui-btn'>➕ 상품추가</span> 버튼을 누르면 <b>상품 통합검색</b> 창이 열립니다.`,
-      "⬇",
-      "만들 기준(생산) 상품을 검색·선택하고 <b>수량</b>을 입력합니다.",
+    {type:"note", text:"<b>소요량별 소분</b>은 기준(생산) 상품에 들어가는 <b>소요 재료(소요량)</b>를 등록해 두고, 생산 수량에 따라 재료 소요량을 <b>자동 계산</b>하여 소분작업을 등록하는 화면입니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 상품추가</b> → <b>② 소요량 등록</b> → <b>③ 기준 상품 추가</b> → <b>④ 수량 입력</b> → <b>⑤ 작업완료</b>"},
+    {type:"step", num:"1", title:`➕ 상품추가`, subs:[
+      `<span class='ui-btn'>＋ 상품추가</span> 버튼으로 <b>기준(생산) 상품</b>을 추가합니다.`,
+      "%%구분에서 <b>일반(소분용) · 세트(판매용)</b> 를 선택할 수 있습니다.",
     ]},
-    {type:"step", num:"2", title:`➕ 소요량 추가`, subs:[
-      `우측 <b>소요량 정보</b>의 <span class='ui-btn'>➕ 상품추가</span> 버튼을 누르면 <b>상품 통합검색</b> 창이 열립니다.`,
-      "⬇",
-      "기준 상품을 만들 때 필요한 <b>재료(소요량) 상품</b>을 검색·선택하고 수량을 입력합니다.",
+    {type:"step", num:"2", title:`🧾 소요량 등록`, subs:[
+      "기준 상품 행을 선택하면 우측 <b>소요량 정보</b>에 해당 상품의 소요 재료가 표시됩니다.",
+      "우측 <span class='ui-btn'>＋ 상품추가</span> 로 재료를 추가하고 <b>수량</b>(기준 상품 1개당 소요량)을 입력합니다.",
     ]},
-    {type:"step", num:"3", title:`➕ 기준 상품 추가(생산)`, subs:[
-      `하단 <b>생산 정보</b>의 <span class='ui-btn'>⬇ 기준 상품 추가</span> 버튼을 누릅니다.`,
+    {type:"step", num:"3", title:`⬇️ 기준 상품 추가`, subs:[
+      `기준 상품을 선택한 후 <span class='ui-btn'>⬇ 기준 상품 추가</span> 버튼을 클릭합니다.`,
       "⬇",
-      "기준 상품이 <b>생산 상품 정보</b>로 내려가고, 우측 <b>소요량 확인</b>에 필요한 재료가 표시됩니다.",
+      "선택한 상품이 하단 <b>생산 정보</b>에 추가됩니다.",
+      "%%기준 상품 행을 <b>더블클릭</b>해도 추가됩니다.",
     ]},
-    {type:"step", num:"4", title:`📋 작업완료`, subs:[
-      `<span class='ui-btn'>➕ 작업완료</span> 버튼을 누르면 확인창이 나타납니다.`,
+    {type:"step", num:"4", title:`📝 수량 입력`, subs:[
+      "생산 상품 정보에서 <b>소요량·생산 수량</b>을 입력합니다.",
       "⬇",
-      `확인창에서 <span class='ui-btn'>예</span>를 누르면 소요량 소분 등록이 <b>확정</b>됩니다.`,
+      "생산 수량에 따라 우측 <b>소요량 확인</b>의 생산 소요량·남은재고·소요금액이 자동 계산됩니다.",
     ]},
-    {type:"note", text:"🔘 <b>버튼 설명</b>"},
-    {type:"bullet", title:`버튼 설명`, subs:[
-      `<div style="width:100%;margin-bottom:2px"><span class='ui-btn'>🔄 새로고침</span></div>목록을 최신 상태로 다시 불러옵니다.`,
-      `<div style="width:100%;margin-bottom:2px"><span class='ui-btn'>❌ 상품삭제</span></div>기준 상품정보·소요량 정보에서 선택한 상품을 삭제합니다.`,
-      `<div style="width:100%;margin-bottom:2px"><span class='ui-btn'>❌ 삭제</span></div>생산 상품 정보에서 선택한 상품을 제거합니다.`,
+    {type:"step", num:"5", title:`✅ 작업완료`, subs:[
+      `수량과 소요량을 확인한 후 <span class='ui-btn'>＋ 작업완료</span> 버튼을 클릭합니다.`,
+      "완료한 작업은 🔗 <b class='dlink' onclick=\"openSub('s-ch6','8-6b',true)\">소분작업 조회</b> > <b>작업중</b>에서 확인할 수 있으며, 이후 승인 및 소분완료 절차를 진행합니다.",
+      "%%작업중 → 승인대기 → 소분완료",
     ]},
   ], "8so6": [
     {type:"note", text:"<b>소분작업 입고현황</b>은 소분으로 <b>입고(생산)</b>된 내역을 <b>기간·분류·상품</b>별로 집계·분석하는 <b>조회 전용</b> 피벗 화면입니다."},
@@ -11230,51 +11228,31 @@ const SIM = {
   },
   "8so5": {
     start: "1",
-    cat: {x:5.4, y:73.9, w:11.2, h:2.5},
+    sRibbon: true,
+    ribCrop: true,
     screens: {
-      // 빈 화면
-      "1":   {img:"images/소요량별 소분-1.png", btns:[
-                {x:45.8, y:6.4, w:7.6, h:3.1, num:"1", to:"p", tip:"만들 기준(생산) 상품을 <b>검색</b>해 추가합니다."},
-                {x:84.0, y:6.4, w:7.6, h:3.1, num:"2", to:"p", tip:"소요되는 재료(소요량) 상품을 <b>검색</b>해 추가합니다."},
-                {x:75.9, y:52.8, w:8.4, h:3.1, num:"3", to:"3", tip:"기준 상품을 생산 대상으로 내려 소요량을 <b>확인</b>합니다."},
-                {x:91.6, y:53.0, w:7.6, h:2.9, num:"4", to:"done", tip:"확인창에서 [예]를 누르면 소요량 소분이 확정됩니다."},
-                {x:36.3, y:6.4, w:7.6, h:3.1, plain:true, tip:"목록을 새로고칩니다."},
-                {x:53.5, y:6.4, w:6.5, h:3.1, plain:true, tip:"선택한 기준 상품을 <b>삭제</b>합니다."},
-                {x:91.7, y:6.4, w:7.4, h:3.1, plain:true, tip:"선택한 소요량 상품을 <b>삭제</b>합니다."},
-                {x:84.9, y:52.8, w:4.5, h:3.0, plain:true, tip:"선택한 생산 상품을 <b>제거</b>합니다."},
-              ]},
-      // 상품 통합검색 팝업 (재사용)
-      "p":   {img:"images/소분작업등록-1-1상품검색.png", win:{x:16.5, y:3, w:83.4}, btns:[
-                {x:0.3, y:10, w:99.2, h:30.5, tip:"검색조건을 입력한 후 <b>검색</b> 버튼을 눌러주세요."},
-                {x:93.4, y:10.3, w:6.4, h:4.3, to:"p2", tip:"입력한 조건으로 상품을 <b>조회</b>합니다."},
-              ]},
-      "p2":  {img:"images/소분작업등록-1-1상품검색.png", win:{x:16.5, y:3, w:83.4},
-              hl:[{x:0.3, y:51.7, w:99.2, h:3.8}],
+      "1": {img:"images/소요량별소분.png",
+              arrows:[
+                {pts:[[42.2,19.7],[42.2,16.9],[21.8,16.9],[21.8,32.6]]},
+                {pts:[[21.8,35.8],[21.8,40],[77.5,40],[77.5,33.4]]},
+                {pts:[[75.8,61.3],[28.3,61.3],[28.3,62.7]]},
+                {pts:[[41.5,70.4],[41.5,78.1],[85.9,78.1],[85.9,72.4]]},
+              ],
               btns:[
-                {x:0.3, y:10, w:99.2, h:30.5, tip:"검색조건을 입력한 후 <b>검색</b> 버튼을 눌러주세요."},
-                {x:93.4, y:10.3, w:6.4, h:4.3, to:"p2", tip:"입력한 조건으로 상품을 <b>조회</b>합니다."},
-                {x:0.5, y:95.1, w:7.3, h:4.5, to:"2", tip:"선택한 상품을 목록에 <b>추가</b>합니다."},
-              ]},
-      // 상단(기준+소요량) 입력됨
-      "2":   {img:"images/소요량별 소분-2.png", btns:[
-                {x:45.8, y:6.4, w:7.6, h:3.1, num:"1", to:"p", tip:"만들 기준(생산) 상품을 <b>검색</b>해 추가합니다."},
-                {x:84.0, y:6.4, w:7.6, h:3.1, num:"2", to:"p", tip:"소요되는 재료(소요량) 상품을 <b>검색</b>해 추가합니다."},
-                {x:75.8, y:53.8, w:8.6, h:3.1, num:"3", to:"3", tip:"기준 상품을 생산 대상으로 내려 소요량을 <b>확인</b>합니다."},
-                {x:91.5, y:53.8, w:7.8, h:3.0, num:"4", to:"done", tip:"확인창에서 [예]를 누르면 소요량 소분이 확정됩니다."},
-                {x:84.9, y:53.8, w:4.5, h:3.0, plain:true, tip:"선택한 생산 상품을 <b>제거</b>합니다."},
-              ]},
-      // 생산정보까지 완성
-      "3":   {img:"images/소요량별 소분-3.png", btns:[
-                {x:45.8, y:6.4, w:7.6, h:3.1, num:"1", to:"p", tip:"만들 기준(생산) 상품을 <b>검색</b>해 추가합니다."},
-                {x:84.0, y:6.4, w:7.6, h:3.1, num:"2", to:"p", tip:"소요되는 재료(소요량) 상품을 <b>검색</b>해 추가합니다."},
-                {x:75.9, y:52.8, w:8.4, h:3.1, num:"3", to:"3", tip:"기준 상품을 생산 대상으로 내려 소요량을 <b>확인</b>합니다."},
-                {x:91.6, y:53.0, w:7.6, h:2.9, num:"4", to:"done", tip:"확인창에서 [예]를 누르면 소요량 소분이 확정됩니다."},
-                {x:84.9, y:52.8, w:4.5, h:3.0, plain:true, to:"2", tip:"선택한 생산 상품을 <b>제거</b>합니다."},
-              ]},
-      // 작업완료 확인 팝업
-      "done":{img:"images/완료알림.png", win:{x:40.8, y:55, w:42.8}, btns:[
-                {x:67.9, y:76.4, w:13.9, h:15.5, to:"1", tip:"작업을 <b>완료</b>하고 소요량 소분을 확정합니다."},
-                {x:83.0, y:76.4, w:13.0, h:15.5, plain:true, close:true, tip:"<b>취소</b>하고 돌아갑니다."},
+                {x:38.2, y:20, w:7.6, h:3.2, num:"1", numCorner:true, search:true, tip:"<b>＋ 상품추가</b> 버튼으로 상품 통합검색창을 열어 기준(생산) 상품을 추가합니다."},
+                {x:29.0, y:20.1, w:7.5, h:2.9, plain:true, tip:"<b>새로고침</b>으로 목록을 다시 불러옵니다."},
+                {x:45.8, y:20.1, w:7.7, h:2.9, plain:true, tip:"체크한 기준 상품을 <b>삭제</b>합니다."},
+                {x:0.7, y:32.9, w:52.9, h:2.2, notint:true, tip:"기준 상품 행을 선택하면 우측에 해당 상품의 <b>소요량 정보</b>가 표시됩니다."},
+                {x:24.8, y:38.5, w:7.5, h:2.9, badge:"더블클릭"},
+                {x:54.3, y:23.5, w:43.6, h:9.3, num:"2", numCorner:true, notint:true, tip:"선택한 기준 상품에 들어가는 <b>소요 재료(소요량)</b>를 등록·확인합니다."},
+                {x:84.1, y:20.1, w:7.6, h:2.9, plain:true, tip:"<b>＋ 상품추가</b>로 소요 재료를 추가합니다."},
+                {x:91.7, y:20.1, w:7.6, h:2.9, plain:true, tip:"체크한 소요 재료를 <b>삭제</b>합니다."},
+                {x:76.1, y:59.9, w:8.3, h:3, num:"3", numCorner:true, tip:"<b>기준 상품 추가</b>를 누르면 선택한 상품이 하단 생산 정보에 추가됩니다."},
+                {x:84.4, y:59.9, w:5.4, h:2.9, plain:true, tip:"체크한 생산 상품을 <b>삭제</b>합니다."},
+                {x:0.7, y:62.8, w:43.2, h:31.2, notint:true, tip:"생산할 상품의 <b>단가·소요량·생산 수량</b>을 확인합니다."},
+                {x:38.6, y:65.5, w:5.4, h:4.6, num:"4", numCorner:true, tip:"<b>소요량·생산 수량</b>을 입력합니다."},
+                {x:83, y:65.5, w:5, h:6.9, notint:true, tip:"생산 수량에 따라 <b>생산 소요량</b>이 자동 계산됩니다."},
+                {x:91.7, y:59.7, w:7.8, h:3.3, num:"5", numCorner:true, tip:"<b>작업완료</b> 버튼을 누르면 소요량별 소분작업이 등록됩니다."},
               ]},
     },
   },
