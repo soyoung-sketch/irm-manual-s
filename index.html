@@ -28605,12 +28605,13 @@ document.addEventListener("keydown", e => { if(e.key==="Escape") closeLb(); });
 function doSearch(q) {
   q = q.trim().toLowerCase();
   if (!q) { showWelcome(); return; }
+  const qn = q.replace(/\s+/g, "");  // 띄어쓰기 무시 검색
 
   let results = [];
   NAVSECS().forEach(ch => { if (ch.hidden) return;
     ch.subs.forEach(sub => {
       if (sub.type === "divider") return;
-      if (sub.title.toLowerCase().includes(q) || ch.title.toLowerCase().includes(q)) {
+      if (sub.title.toLowerCase().replace(/\s+/g, "").includes(qn) || ch.title.toLowerCase().replace(/\s+/g, "").includes(qn)) {
         results.push({ch, sub});
       }
     });
@@ -28619,7 +28620,8 @@ function doSearch(q) {
   let html = `<div class="sr-wrap">
     <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px">${results.length}개 결과 · "${q}"</div>`;
   results.forEach(r => {
-    const title = r.sub.title.replace(new RegExp(q,'gi'), m=>`<mark>${m}</mark>`);
+    const hlRe = new RegExp(qn.split("").map(c => c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("\\s*"), "gi");
+    const title = r.sub.title.replace(hlRe, m=>`<mark>${m}</mark>`);
     const firstPg = r.sub.pages[0];
     html += `<div class="sr-item" onclick="openSub('${r.ch.id}','${r.sub.id}')">
       <div class="sr-ch">${r.ch.icon} ${r.ch.title}</div>
