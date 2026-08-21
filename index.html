@@ -8789,16 +8789,21 @@ const DESCS = {
     ]},
   ],
   "st06": [
-    {type:"note", text:"<b>판매상품순위</b>는 상품별 판매 실적을 <b>순위</b>로 보여주는 화면입니다. <b>총수량·판매금액·마진율</b>을 확인해 <b>인기 상품</b>을 파악할 수 있습니다."},
+    {type:"note", text:"<b>판매상품순위</b>는 조회 조건에 따라 <b>상품별 판매 실적과 순위를 확인하는 화면</b>입니다. 판매수량뿐 아니라 <b>매입금액·판매금액·마진율</b>을 함께 확인하여 상품별 판매성과를 비교할 수 있습니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 조회 조건 지정</b> → <b>② 검색</b> → <b>③ 판매순위 및 실적 확인</b>"},
     {type:"step", num:"1", title:`🔍 조회 조건 지정`, subs:[
-      "사업장·분류·판매구분·<b>기간</b> 등 조회 조건을 지정합니다.",
+      "조회할 <b>사업장 · 상품분류 · 기간</b> 등을 설정합니다.",
+      "%%필요한 경우 <b>판매구분 · 배송구분 · 결제구분 · 매입처 · 매출처</b> 등으로 조건을 추가하여 원하는 판매내역만 조회할 수 있습니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
-      "<span class='ui-btn'>검색</span> 버튼을 눌러 조건에 맞는 순위를 조회합니다.",
+      "<span class='ui-btn'>검색</span> 버튼을 클릭하면 설정한 조건에 맞는 상품별 판매순위가 표시됩니다.",
+      "%%목록에서 원하는 상품을 빠르게 찾을 때는 <b>결과 내 검색</b>을 이용합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 순위 확인`, subs:[
-      "순위별 <b>분류·상품코드·상품명</b>과 <b>총수량·매입금액·판매금액·마진율</b>을 확인합니다.",
-      "%%우측에서 <b>사업장별 실적</b>을 함께 비교할 수 있습니다.",
+    {type:"step", num:"3", title:`✅ 판매순위 및 실적 확인`, subs:[
+      "조회 결과에서 상품별 <b>순위와 판매성과</b>를 확인합니다.",
+      "<table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>확인 항목</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>의미</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>총수량</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매된 상품 수량</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매입금액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매상품의 총 매입금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매금액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>상품 판매로 발생한 총 금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진율</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매금액 대비 수익 비율</td></tr></table>",
+      "<b>판매수량이 많은 상품뿐 아니라 판매금액과 마진율을 함께 비교하면, 많이 팔리는 상품과 수익성이 높은 상품을 구분하여 확인할 수 있습니다.</b>",
+      "또한 <b>전체 실적과 사업장별 실적을 함께 비교</b>하여 사업장에 따른 상품 판매성과 차이를 확인할 수 있습니다.",
     ]},
   ],
   "st07": [
