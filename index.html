@@ -938,6 +938,8 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .sim-poly { position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none; z-index:8; overflow:visible; }
 .sim-poly polygon { fill:none; stroke:#e2241a; stroke-width:2.5; vector-effect:non-scaling-stroke; }
 .sim-cue.dash { border-style:dotted; border-radius:5px; }
+.search-back-btn { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); z-index:1500; background:#0D1B3E; color:#fff; border:none; border-radius:999px; padding:10px 20px; font-size:13px; font-weight:600; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,0.3); display:none; }
+.search-back-btn:hover { background:#1a2c5c; }
 .sim-cue.yellow { border-color:#f59e0b; }
 .sim-cue.yellow:hover { background:rgba(245,158,11,0.14); }
 .sim-cue.thin { border-width:1px; }
@@ -27661,6 +27663,7 @@ function showChapter(ch) {
 }
 
 function openSub(chId, subId, fromLink=false) {
+  { const bb = document.getElementById("searchBackBtn"); if (bb) bb.style.display = "none"; }
   if (fromLink && curSection) {
     setPrevBtn(curSection.ch, curSection.sub, curPageIdx);
   }
@@ -28602,10 +28605,28 @@ function closeLb() {
 document.addEventListener("keydown", e => { if(e.key==="Escape") closeLb(); });
 
 // ========== SEARCH ==========
+let _lastSearchQ = "";
+function openSubFromSearch(chId, subId) {
+  openSub(chId, subId);
+  let b = document.getElementById("searchBackBtn");
+  if (!b) {
+    b = document.createElement("button");
+    b.id = "searchBackBtn";
+    b.className = "search-back-btn";
+    b.innerHTML = "↩ 검색결과로 돌아가기";
+    b.onclick = () => { b.style.display = "none"; doSearch(_lastSearchQ);
+      const i = document.getElementById("searchInput"); if (i) i.value = _lastSearchQ;
+      const t = document.getElementById("topSearchInput"); if (t) t.value = _lastSearchQ; };
+    document.body.appendChild(b);
+  }
+  b.style.display = "block";
+}
 function doSearch(q) {
   q = q.trim().toLowerCase();
   if (!q) { showWelcome(); return; }
   const qn = q.replace(/\s+/g, "");  // 띄어쓰기 무시 검색
+  _lastSearchQ = q;
+  { const bb = document.getElementById("searchBackBtn"); if (bb) bb.style.display = "none"; }
 
   let results = [];
   NAVSECS().forEach(ch => { if (ch.hidden) return;
@@ -28623,7 +28644,7 @@ function doSearch(q) {
     const hlRe = new RegExp(qn.split("").map(c => c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("\\s*"), "gi");
     const title = r.sub.title.replace(hlRe, m=>`<mark>${m}</mark>`);
     const firstPg = r.sub.pages[0];
-    html += `<div class="sr-item" onclick="openSub('${r.ch.id}','${r.sub.id}')">
+    html += `<div class="sr-item" onclick="openSubFromSearch('${r.ch.id}','${r.sub.id}')">
       <div class="sr-ch">${r.ch.icon} ${r.ch.title}</div>
       <div style="display:flex;align-items:center;gap:12px">`;
     if (IMGS[firstPg]) {
