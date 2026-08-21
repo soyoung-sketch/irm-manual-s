@@ -8616,23 +8616,26 @@ const DESCS = {
     {type:"note", text:"💡 재고실사 현황은 <b>조회 전용</b>(읽기 전용)으로, 실사 문서를 처리하지 않습니다."},
   ], "9ja1": [
     {type:"note", text:"<b>재고조정 등록</b>은 전산 재고와 실제 재고의 차이를 <b>조정</b>하여 등록하는 화면입니다."},
-    {type:"note", blue:true, text:"진행 순서 : <b>① 기본 정보 입력</b> → <b>② 상품 선택</b> → <b>③ 실사 재고 입력</b> → <b>④ 신규등록</b>"},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 기본 정보 입력</b> → <b>② 상품추가</b> → <b>③ 상품 선택</b> → <b>④ 실사 재고 입력</b> → <b>⑤ 신규등록</b>"},
     {type:"step", num:"1", title:`📝 기본 정보 입력`, subs:[
       "정보를 입력해주세요.",
       "%%필수항목 (<b>조정일 · 제목 · 부서명 · 담당자</b>) 을 입력하지 않으면 진행이 되지 않습니다.",
     ]},
-    {type:"step", num:"2", title:`🔍 상품 선택`, subs:[
+    {type:"step", num:"2", title:`➕ 상품추가`, subs:[
+      "<span class='ui-btn'>＋ 상품추가(F2)</span> 버튼을 클릭하면 상품을 입력할 <b>빈 행</b>이 추가됩니다.",
+    ]},
+    {type:"step", num:"3", title:`🔍 상품 선택`, subs:[
       `상품코드의 <span class='ui-btn'>···</span> 버튼을 클릭하면 <b>상품 통합검색</b> 창이 열립니다.`,
       "⬇",
       "조정할 상품을 검색·체크한 후 <span class='ui-btn'>✔ 선택</span> 버튼을 클릭하면 목록에 추가됩니다.",
     ]},
-    {type:"step", num:"3", title:`📝 실사 재고 입력`, subs:[
+    {type:"step", num:"4", title:`📝 실사 재고 입력`, subs:[
       "<b>실사 재고</b> 칸에 실제 조사한 재고수를 입력합니다.",
       "⬇",
       "현재 재고와의 차이에 따라 <b>[+]/[−] 조정재고</b>와 조정금액이 자동 계산됩니다.",
     ]},
     {type:"note", text:"💡 <b>조정재고 계산</b><br>· [−] 조정재고 <b>재고수 = 현재재고 − 실사재고</b><br>· <b>조정금액 = 조정재고수 × 단가</b><br>· <b>재고금액 = 실사재고 × 단가</b>"},
-    {type:"step", num:"4", title:`💾 신규등록`, subs:[
+    {type:"step", num:"5", title:`💾 신규등록`, subs:[
       `모든 입력이 끝나면 <span class='ui-btn'>💾 신규등록</span> 버튼을 눌러 재고조정 문서를 저장합니다.`,
       "저장된 문서는 🔗 <b class='dlink' onclick=\"openSub('s-ch6','9-3b',true)\">재고조정 조회</b> 메뉴에서 프로세스를 진행합니다.",
     ]},
@@ -8643,7 +8646,6 @@ const DESCS = {
       "엑셀 파일로 <b>상품·재고 정보</b>를 일괄 등록합니다.",
     ]},
     {type:"bullet", title:`보조 기능`, subs:[
-      "<span class='ui-btn'>＋ 상품추가(F2)</span> : 조정할 상품을 입력할 빈 행을 추가합니다.",
       "<span class='ui-btn'>✕ 선택삭제(F4)</span> : 체크한 상품 행을 삭제합니다.",
       "<span class='ui-btn'>🔄 다시작성(F12)</span> : 입력 내용을 초기화합니다.",
       "<span class='ui-btn'>✔ 동일재고 삭제</span> : 전산 재고와 실사 재고가 같은 행을 삭제합니다.",
@@ -12476,19 +12478,24 @@ const SIM = {
     sRibbon: true,
     ribCrop: true,
     screens: {
-      "1": {img:"images/재고조정등록.png", btns:[
-                {x:0.6, y:23.1, w:55.9, h:8.3, num:"1", numCorner:true, notint:true, tip:"<b>조정일·제목·부서명·담당자</b> 등 기본 정보를 입력합니다."},
-                {x:29.5, y:23.3, w:10.6, h:2.5, fill:true, tip:"<b>조정일</b>을 지정합니다 (필수)."},
-                {x:6.2, y:26.0, w:17.7, h:2.5, fill:true, tip:"<b>제목</b>을 입력합니다 (필수)."},
-                {x:29.5, y:26.0, w:10.6, h:2.5, fill:true, tip:"<b>부서명</b>을 지정합니다 (필수)."},
-                {x:45.8, y:26.0, w:10.6, h:2.5, fill:true, tip:"<b>담당자</b>를 지정합니다 (필수)."},
-                {x:5.8, y:42.7, w:1.9, h:2.3, num:"2", numCorner:true, front:true, search:true, tip:"상품코드의 <b>···</b> 버튼으로 상품 통합검색창을 열어 조정할 상품을 추가합니다."},
-                {x:44.4, y:39.2, w:4.4, h:2.9, num:"3", numCorner:true, tip:"<b>실사 재고</b> 칸에 실제 조사한 재고수를 입력합니다."},
-                {x:51.4, y:34.1, w:31.2, h:11.2, notint:true, tip:"실사 재고에 따라 <b>[+]/[−] 조정재고</b>와 조정금액·재고금액이 자동 계산됩니다."},
-                {x:78.8, y:20.1, w:7.3, h:2.9, num:"4", numCorner:true, tip:"<b>신규등록</b> 버튼을 눌러 재고조정 문서를 저장합니다."},
+      "1": {img:"images/재고조정등록.png",
+              arrows:[
+                {pts:[[1.5,34.2],[1.5,44.1],[3.3,44.1]]},
+              ],
+              btns:[
+                {x:0.9, y:23, w:55.6, h:8.4, num:"1", numCorner:true, notint:true, tip:"<b>조정일·제목·부서명·담당자</b> 등 기본 정보를 입력합니다."},
+                {x:29.5, y:23.1, w:10.6, h:2.8, fill:true, tip:"<b>조정일</b>을 지정합니다 (필수)."},
+                {x:6.2, y:25.9, w:17.4, h:2.7, fill:true, tip:"<b>제목</b>을 입력합니다 (필수)."},
+                {x:29.5, y:25.9, w:10.7, h:2.8, fill:true, tip:"<b>부서명</b>을 지정합니다 (필수)."},
+                {x:45.8, y:25.9, w:10.6, h:2.6, fill:true, tip:"<b>담당자</b>를 지정합니다 (필수)."},
+                {x:0.6, y:31.5, w:8, h:2.5, num:"2", numCorner:true, tip:"<b>상품추가(F2)</b>를 클릭하면 상품을 입력할 빈 행이 추가됩니다."},
+                {x:0.6, y:42.2, w:98.8, h:3.4, dash:true, noev:true},
+                {x:6.2, y:42.4, w:1.5, h:3, num:"3", numCorner:true, front:true, search:true, tip:"상품코드의 <b>···</b> 버튼으로 상품 통합검색창을 열어 조정할 상품을 추가합니다."},
+                {x:44.5, y:36.7, w:5.5, h:8.8, num:"4", numCorner:true, notint:true, tip:"<b>실사 재고</b> 칸에 실제 조사한 재고수를 입력합니다."},
+                {x:50, y:34.3, w:32.3, h:11.3, dash:true, notint:true, tip:"실사 재고에 따라 <b>[+]/[−] 조정재고</b>와 조정금액·재고금액이 자동 계산됩니다."},
+                {x:79, y:20, w:7.2, h:3.1, num:"5", numCorner:true, tip:"<b>신규등록</b> 버튼을 눌러 재고조정 문서를 저장합니다."},
                 {x:86.1, y:20.1, w:7.4, h:2.9, plain:true, tip:"<b>닫기</b>를 누르면 화면이 닫힙니다."},
                 {x:93.5, y:20.1, w:5.8, h:2.9, plain:true, tip:"<b>옵션</b>에서 문서저장 등 부가 기능을 사용합니다."},
-                {x:0.6, y:31.5, w:8.0, h:2.5, plain:true, tip:"<b>상품추가(F2)</b>로 조정할 상품을 입력할 빈 행을 추가합니다."},
                 {x:8.6, y:31.5, w:8.0, h:2.5, plain:true, tip:"체크한 상품 행을 <b>삭제</b>합니다."},
                 {x:16.6, y:31.5, w:8.1, h:2.5, plain:true, tip:"<b>다시작성(F12)</b>으로 입력 내용을 초기화합니다."},
                 {x:24.7, y:31.5, w:8.0, h:2.5, yellow:true, scroll:"★1", tip:"<b>실사정보검색</b>으로 실사 문서를 검색해 실사 정보를 불러옵니다."},
