@@ -8904,95 +8904,104 @@ const DESCS = {
   ],
   "st13": [
     {type:"note", text:"<b>매출통계</b>는 판매 데이터를 기간·상품·분류·판매구분·매출처 등 여러 기준으로 집계하여 <b>매출, 매입, 마진을 비교·분석하는 메뉴</b>입니다."},
-    {type:"note", blue:true, text:"공통 조회 방법 : <b>① 조회 조건 설정</b> → <b>② 검색</b> → <b>③ 매출·마진 확인</b>"},
     {type:"note", text:"상세검색이 있는 화면에서는 <b>상품분류 · 판매구분 · 배송구분 · 결제구분 · 매입처 · 매출처 · 부서 · 담당자</b> 등으로 조회 범위를 좁힐 수 있습니다."},
     {type:"note", text:"💡 <b>주요 금액 항목</b><table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>항목</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>의미</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매입 합계금액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매된 상품의 총 매입원가</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 공급가액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>부가세를 제외한 매출금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 부가세</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출에 포함된 부가세</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 면세금액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>면세상품의 판매금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 합계금액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>최종 판매금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 합계금액 − 매입 합계금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진율(%)</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진 ÷ 매출 합계금액 × 100</td></tr></table>"},
-    {type:"note", text:"<b>일자별 매출</b>은 선택한 기간의 매출을 <b>판매일자별로 집계</b>하여 확인하는 화면입니다. 날짜별 <b>매입금액 · 매출금액 · 마진 · 마진율</b>을 비교하여 일별 판매 흐름을 확인할 수 있습니다."},
-    {type:"step", num:"1", title:`✔️ 날짜 선택`, subs:[
-      "조회할 <b>날짜</b> 범위를 지정합니다.",
+    {type:"note", text:"<b>일자별 매출</b>은 선택한 기간의 판매실적을 <b>판매일자별로 집계하여 확인하는 화면</b>입니다. 날짜별 매출과 마진을 비교하여 일별 판매 흐름을 확인할 수 있습니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 기간 지정</b> → <b>② 검색</b> → <b>③ 일자별 매출 확인</b>"},
+    {type:"step", num:"1", title:`✔️ 기간 지정`, subs:[
+      "조회할 <b>시작일 ~ 종료일</b>을 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "판매일자별 <b>매입금액 · 매출금액 · 마진 · 마진율</b>을 확인합니다.",
-      "%%예) 8월 4일 매출 12,300원 / 마진 8,090원 / 마진율 65.8%",
-      "%%하단에 기간 <b>합계</b>가 표시됩니다.",
+    {type:"step", num:"3", title:`✅ 일자별 매출 확인`, subs:[
+      "<table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>항목</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>설명</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매일자</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출이 발생한 날짜</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매입 합계금액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>해당 날짜의 총 매입원가</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 합계금액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>해당 날짜의 총 판매금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출금액에서 매입금액을 제외한 금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진율(%)</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출금액 대비 마진 비율</td></tr></table>",
     ]},
+    {type:"note", text:"💡 전체 <b>매출 합계</b>와 함께 우측의 <b>본사 등 사업장별 실적</b>을 비교할 수 있습니다."},
   ],
   "st14": [
     {type:"note", text:"<b>연도별 매출</b>은 선택한 연도의 매출실적을 <b>연간 합계와 월별 실적</b>으로 확인하는 화면입니다."},
-    {type:"step", num:"1", title:`✔️ 연도 선택`, subs:[
-      "조회할 <b>시작·종료 연도</b>를 지정합니다.",
+    {type:"note", blue:true, text:"진행 순서 : <b>① 연도 지정</b> → <b>② 검색</b> → <b>③ 연간·월별 실적 확인</b>"},
+    {type:"step", num:"1", title:`✔️ 연도 지정`, subs:[
+      "조회할 <b>시작연도 · 종료연도</b>를 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "<table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>확인 항목</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>연간 매입금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>연간 매출금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진 · 마진율</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>월별 매입 · 매출 · 마진</td></tr></table>",
+    {type:"step", num:"3", title:`✅ 연간·월별 실적 확인`, subs:[
+      "<table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>구분</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>확인 내용</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>연간 실적</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매입금액 · 매출금액 · 마진 · 마진율</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>월별 실적</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>각 월의 매입금액 · 매출금액 · 마진</td></tr></table>",
     ]},
-    {type:"note", text:"💡 한 해의 전체 실적과 각 월의 매출 흐름을 함께 비교할 수 있습니다."},
+    {type:"note", text:"💡 한 해의 <b>전체 실적과 각 월의 매출 흐름을 함께 비교</b>할 수 있습니다."},
   ],
   "st15": [
-    {type:"note", text:"<b>상품별 매출상세</b>는 판매된 상품의 내역을 <b>상품 단위로 상세 조회</b>하는 화면입니다. 상품분류, 매출처, 상품코드, 상품명과 함께 <b>매입단가 · 판매단가 · 수량 · 매입금액 · 매출금액</b>을 확인할 수 있습니다."},
+    {type:"note", text:"<b>상품별 매출상세</b>는 판매된 상품의 내역을 <b>상품 단위로 상세 조회하는 화면</b>입니다. 특정 상품이 언제, 몇 개, 얼마에 판매되었는지 자세히 확인할 수 있습니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 조회 조건 지정</b> → <b>② 검색</b> → <b>③ 상품별 상세내역 확인</b>"},
     {type:"step", num:"1", title:`🔍 조회 조건 지정`, subs:[
-      "분류·판매구분·매입처 등 조회 조건과 <b>기간</b>을 지정합니다.",
+      "<b>상품분류 · 부서 · 담당자 · 판매일 · 판매구분 · 배송구분 · 결제구분 · 매입처 · 매출처</b> 등을 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "<table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>주요 확인정보</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>내용</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>상품정보</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>상품코드 · 상품명 · 분류 · 단위</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매정보</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매일자 · 매출처</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>단가/수량</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매입단가 · 판매단가 · 수량</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>금액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매입합계 · 공급가액 · 부가세</td></tr></table>",
+    {type:"step", num:"3", title:`✅ 상품별 상세내역 확인`, subs:[
+      "<table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>구분</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>확인 내용</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>상품정보</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>상품코드 · 상품명 · 분류 · 단위</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매정보</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매일자 · 사업장 · 매출처</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>단가/수량</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매입단가 · 판매단가 · 수량</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>금액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매입합계 · 공급가액 · 부가세 등</td></tr></table>",
     ]},
-    {type:"note", text:"💡 특정 상품이 <b>언제, 어느 매출처에서, 몇 개 판매되었는지</b> 상세하게 확인할 때 사용합니다."},
+    {type:"note", text:"💡 여러 상품의 합계가 아닌 <b>개별 상품의 판매내역을 상세하게 확인할 때</b> 사용합니다."},
   ],
   "st16": [
-    {type:"note", text:"<b>상품별 매출(일)</b>은 상품별 판매실적을 <b>일자 단위로 집계</b>하여 확인하는 화면입니다."},
+    {type:"note", text:"<b>상품별 매출(일)</b>은 상품별 판매실적을 <b>일자 단위로 집계하여 확인하는 화면</b>입니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 조회 조건 지정</b> → <b>② 검색</b> → <b>③ 상품별 일자 매출 확인</b>"},
     {type:"step", num:"1", title:`🔍 조회 조건 지정`, subs:[
-      "분류·판매구분·매입처 등 조회 조건과 <b>기간</b>을 지정합니다.",
+      "상품분류 · 판매구분 · 매입처 등 조회 조건과 <b>판매기간</b>을 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "상품별로 <b>매입금액 · 매출금액 · 마진 · 마진율</b>을 확인하여 일별 상품 성과를 비교합니다.",
+    {type:"step", num:"3", title:`✅ 상품별 일자 매출 확인`, subs:[
+      "상품별 <b>매입금액 · 매출금액 · 마진 · 마진율</b>을 일자 기준으로 확인합니다.",
     ]},
+    {type:"note", text:"💡 특정 날짜에 <b>어떤 상품에서 매출과 마진이 발생했는지</b> 비교할 수 있습니다."},
   ],
   "st17": [
-    {type:"note", text:"<b>상품별 매출(주)</b>는 상품별 판매실적을 <b>주 단위로 집계</b>하여 확인하는 화면입니다."},
+    {type:"note", text:"<b>상품별 매출(주)</b>는 상품별 판매실적을 <b>주 단위로 집계하여 확인하는 화면</b>입니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 조회 조건 지정</b> → <b>② 검색</b> → <b>③ 상품별 주간 매출 확인</b>"},
     {type:"step", num:"1", title:`🔍 조회 조건 지정`, subs:[
-      "분류·판매구분·매입처 등 조회 조건과 <b>기간</b>을 지정합니다.",
+      "상품분류 · 판매구분 · 매입처 등 조회 조건과 <b>판매기간</b>을 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "주간 기준으로 상품별 매입·매출·마진을 비교하여 <b>주간 판매 흐름</b>을 확인합니다.",
+    {type:"step", num:"3", title:`✅ 상품별 주간 매출 확인`, subs:[
+      "<table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>확인 항목</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>상품코드 · 상품명</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>상품분류</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매입 합계금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 합계금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진 · 마진율</td></tr></table>",
     ]},
+    {type:"note", text:"💡 상품별 실적을 주간 기준으로 비교하여 <b>주간 판매 흐름</b>을 확인할 수 있습니다."},
   ],
   "st18": [
-    {type:"note", text:"<b>상품별 매출(월)</b>은 상품별 판매실적을 <b>월 단위로 집계</b>하는 화면입니다."},
+    {type:"note", text:"<b>상품별 매출(월)</b>은 상품별 판매실적을 <b>월 단위로 집계하여 확인하는 화면</b>입니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 조회 조건 지정</b> → <b>② 검색</b> → <b>③ 상품별 월간 매출 확인</b>"},
     {type:"step", num:"1", title:`🔍 조회 조건 지정`, subs:[
-      "분류·판매구분·매입처 등 조회 조건과 <b>기간</b>을 지정합니다.",
+      "상품분류 · 판매구분 · 매입처 등 조회 조건과 <b>판매기간</b>을 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "월별로 상품의 <b>매입금액 · 매출금액 · 마진 · 마진율</b>을 비교합니다.",
+    {type:"step", num:"3", title:`✅ 상품별 월간 매출 확인`, subs:[
+      "상품별 <b>월간 매입금액 · 매출금액 · 마진 · 마진율</b>을 확인합니다.",
     ]},
+    {type:"note", text:"💡 월별로 어떤 상품의 <b>매출과 수익성이 높은지</b> 비교할 수 있습니다."},
   ],
   "st19": [
-    {type:"note", text:"<b>상품별 매출(년)</b>은 상품별 판매실적을 <b>연도 단위로 집계</b>하여 확인하는 화면입니다."},
+    {type:"note", text:"<b>상품별 매출(년)</b>은 상품별 판매실적을 <b>연도 단위로 집계하여 확인하는 화면</b>입니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 조회 조건 지정</b> → <b>② 검색</b> → <b>③ 상품별 연간 매출 확인</b>"},
     {type:"step", num:"1", title:`🔍 조회 조건 지정`, subs:[
-      "분류·판매구분·매입처 등 조회 조건과 <b>기간</b>을 지정합니다.",
+      "상품분류 · 판매구분 · 매입처 등 조회 조건과 <b>판매기간</b>을 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "연간 기준으로 어떤 상품에서 <b>매출과 마진이 많이 발생했는지</b> 비교합니다.",
+    {type:"step", num:"3", title:`✅ 상품별 연간 매출 확인`, subs:[
+      "상품별 <b>연간 매입금액 · 매출금액 · 마진 · 마진율</b>을 확인합니다.",
     ]},
+    {type:"note", text:"💡 연간 기준으로 어떤 상품에서 <b>매출과 마진이 많이 발생했는지</b> 비교할 수 있습니다."},
   ],
   "st20": [
     {type:"note", text:"<b>사업장별 매출(일)</b> — 사업장별 매출을 <b>일 단위</b>로 집계하여 조회하는 화면입니다."},
@@ -9015,29 +9024,32 @@ const DESCS = {
     {type:"step", num:"2", title:"✅ 사업장별 매출 확인", subs:["사업장별 <b>연도별 매출</b>과 <b>마진</b>을 확인합니다."]},
   ],
   "st24": [
-    {type:"note", text:"<b>분류별 매출(일)</b>은 상품 판매실적을 <b>상품분류별 + 일자별</b>로 집계하는 화면입니다."},
+    {type:"note", text:"<b>분류별 매출(일)</b>은 판매실적을 <b>상품분류별 · 일자별로 집계하여 확인하는 화면</b>입니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 조회 조건 지정</b> → <b>② 검색</b> → <b>③ 분류별 일자 매출 확인</b>"},
     {type:"step", num:"1", title:`🔍 조회 조건 지정`, subs:[
-      "분류·판매구분·매입처 등 조회 조건과 <b>기간</b>을 지정합니다.",
+      "상품분류 · 판매구분 · 매입처 등 조회 조건과 <b>판매기간</b>을 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "<b>대분류 · 중분류 · 소분류 · 세분류</b>별 매입·매출·마진을 확인합니다.",
+    {type:"step", num:"3", title:`✅ 분류별 일자 매출 확인`, subs:[
+      "<table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>항목</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>설명</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>대분류 · 중분류 · 소분류 · 세분류</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>상품이 속한 분류</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매입 합계금액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>해당 분류의 매입원가</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 합계금액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>해당 분류의 판매금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진 · 마진율</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>해당 분류의 수익</td></tr></table>",
     ]},
-    {type:"note", text:"💡 특정 날짜에 어떤 상품분류에서 매출이 발생했는지 확인할 때 사용합니다."},
+    {type:"note", text:"💡 특정 날짜에 <b>어떤 상품분류에서 매출이 발생했는지</b> 확인할 수 있습니다."},
   ],
   "st25": [
-    {type:"note", text:"<b>분류별 매출(주)</b>는 상품분류별 판매실적을 <b>주 단위로 집계</b>하는 화면입니다."},
+    {type:"note", text:"<b>분류별 매출(주)</b>는 상품분류별 판매실적을 <b>주 단위로 집계하여 확인하는 화면</b>입니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 조회 조건 지정</b> → <b>② 검색</b> → <b>③ 분류별 주간 매출 확인</b>"},
     {type:"step", num:"1", title:`🔍 조회 조건 지정`, subs:[
-      "분류·판매구분·매입처 등 조회 조건과 <b>기간</b>을 지정합니다.",
+      "상품분류 · 판매구분 · 매입처 등 조회 조건과 <b>판매기간</b>을 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "분류별 <b>매입 · 매출 · 마진 · 마진율</b>을 비교하여 주간 분류별 실적을 확인합니다.",
+    {type:"step", num:"3", title:`✅ 분류별 주간 매출 확인`, subs:[
+      "분류별 <b>매입금액 · 매출금액 · 마진 · 마진율</b>을 비교합니다.",
     ]},
+    {type:"note", text:"💡 주간 기준으로 <b>어떤 상품분류가 매출과 이익에 많이 기여했는지</b> 확인할 수 있습니다."},
   ],
   "st26": [
     {type:"note", text:"<b>매출처구분별 매출(월)</b> — 매출처 구분별 매출을 <b>월 단위</b>로 집계하여 조회하는 화면입니다."},
@@ -9045,125 +9057,138 @@ const DESCS = {
     {type:"step", num:"2", title:"✅ 매출처구분별 매출 확인", subs:["매출처 구분별 <b>월별 매출</b>과 <b>마진</b>을 확인합니다."]},
   ],
   "st27": [
-    {type:"note", text:"<b>분류별 매출(월)</b>은 상품분류별 판매실적을 <b>월 단위로 집계</b>하는 화면입니다."},
+    {type:"note", text:"<b>분류별 매출(월)</b>은 상품분류별 판매실적을 <b>월 단위로 집계하여 확인하는 화면</b>입니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 조회 조건 지정</b> → <b>② 검색</b> → <b>③ 분류별 월간 매출 확인</b>"},
     {type:"step", num:"1", title:`🔍 조회 조건 지정`, subs:[
-      "분류·판매구분·매입처 등 조회 조건과 <b>기간</b>을 지정합니다.",
+      "상품분류 · 판매구분 · 매입처 등 조회 조건과 <b>판매기간</b>을 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "월별로 어떤 상품분류가 매출과 마진에 많이 기여했는지 확인합니다.",
+    {type:"step", num:"3", title:`✅ 분류별 월간 매출 확인`, subs:[
+      "월별로 각 상품분류의 <b>매입 · 매출 · 마진 · 마진율</b>을 비교합니다.",
     ]},
+    {type:"note", text:"💡 월별 상품분류의 <b>판매성과와 수익성 차이</b>를 확인할 수 있습니다."},
   ],
   "st28": [
-    {type:"note", text:"<b>분류별 매출(년)</b>은 상품분류별 판매실적을 <b>연도 단위로 집계</b>하는 화면입니다."},
+    {type:"note", text:"<b>분류별 매출(년)</b>은 상품분류별 판매실적을 <b>연도 단위로 집계하여 확인하는 화면</b>입니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 조회 조건 지정</b> → <b>② 검색</b> → <b>③ 분류별 연간 매출 확인</b>"},
     {type:"step", num:"1", title:`🔍 조회 조건 지정`, subs:[
-      "분류·판매구분·매입처 등 조회 조건과 <b>기간</b>을 지정합니다.",
+      "상품분류 · 판매구분 · 매입처 등 조회 조건과 <b>판매기간</b>을 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
+    {type:"step", num:"3", title:`✅ 분류별 연간 매출 확인`, subs:[
       "연간 기준으로 분류별 <b>매입금액 · 매출금액 · 마진 · 마진율</b>을 비교합니다.",
     ]},
+    {type:"note", text:"💡 한 해 동안 <b>어떤 상품분류가 전체 매출과 수익에 많이 기여했는지</b> 확인할 수 있습니다."},
   ],
   "st29": [
-    {type:"note", text:"<b>구분별 매출(일)</b>은 전체 매출을 <b>판매구분별로 나누어 일자 단위로 비교</b>하는 화면입니다."},
+    {type:"note", text:"<b>구분별 매출(일)</b>은 전체 판매실적을 <b>판매구분별로 나누어 일자 단위로 비교하는 화면</b>입니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 조회 조건 지정</b> → <b>② 검색</b> → <b>③ 판매구분별 일자 매출 확인</b>"},
     {type:"step", num:"1", title:`🔍 조회 조건 지정`, subs:[
-      "분류·판매구분·매입처 등 조회 조건과 <b>기간</b>을 지정합니다.",
+      "상품분류 · 판매구분 · 매입처 등 조회 조건과 <b>판매기간</b>을 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "전체 <b>매출 합계</b>와 함께 <b>매장</b> 등 판매구분별 매출실적을 확인합니다.",
+    {type:"step", num:"3", title:`✅ 판매구분별 일자 매출 확인`, subs:[
+      "전체 <b>매출 합계</b>와 함께 <b>매장</b> 등 각 판매구분의 실적이 표시됩니다.",
+      "<table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>확인 항목</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매입금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진율</td></tr></table>",
     ]},
     {type:"note", text:"💡 같은 날짜의 전체 매출 중 <b>각 판매방식에서 얼마의 매출이 발생했는지</b> 비교할 수 있습니다."},
   ],
   "st30": [
-    {type:"note", text:"<b>구분별 매출(주)</b>는 판매실적을 <b>판매구분별 + 주 단위</b>로 집계하는 화면입니다."},
+    {type:"note", text:"<b>구분별 매출(주)</b>는 판매실적을 <b>판매구분별 · 주 단위로 집계하여 확인하는 화면</b>입니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 조회 조건 지정</b> → <b>② 검색</b> → <b>③ 판매구분별 주간 매출 확인</b>"},
     {type:"step", num:"1", title:`🔍 조회 조건 지정`, subs:[
-      "분류·판매구분·매입처 등 조회 조건과 <b>기간</b>을 지정합니다.",
+      "상품분류 · 판매구분 · 매입처 등 조회 조건과 <b>판매기간</b>을 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "주차별 전체 매출과 판매구분별 <b>매입 · 매출 · 마진</b>을 비교합니다.",
+    {type:"step", num:"3", title:`✅ 판매구분별 주간 매출 확인`, subs:[
+      "주차별 전체 매출과 판매구분별 <b>매입 · 매출 · 마진 · 마진율</b>을 비교합니다.",
     ]},
+    {type:"note", text:"💡 주차별로 <b>판매방식에 따른 실적 차이</b>를 확인할 수 있습니다."},
   ],
   "st31": [
-    {type:"note", text:"<b>구분별 매출(월)</b>은 판매실적을 <b>판매구분별 + 월 단위</b>로 집계하는 화면입니다."},
+    {type:"note", text:"<b>구분별 매출(월)</b>은 판매실적을 <b>판매구분별 · 월 단위로 집계하여 확인하는 화면</b>입니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 조회 조건 지정</b> → <b>② 검색</b> → <b>③ 판매구분별 월간 매출 확인</b>"},
     {type:"step", num:"1", title:`🔍 조회 조건 지정`, subs:[
-      "분류·판매구분·매입처 등 조회 조건과 <b>기간</b>을 지정합니다.",
+      "상품분류 · 판매구분 · 매입처 등 조회 조건과 <b>판매기간</b>을 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "월별 전체 매출과 각 판매구분의 실적을 비교합니다.",
+    {type:"step", num:"3", title:`✅ 판매구분별 월간 매출 확인`, subs:[
+      "월별 전체 매출과 각 판매구분의 <b>매입 · 매출 · 마진</b>을 비교합니다.",
     ]},
+    {type:"note", text:"💡 월별로 <b>어떤 판매방식에서 매출이 많이 발생했는지</b> 확인할 수 있습니다."},
   ],
   "st32": [
-    {type:"note", text:"<b>구분별 매출(년)</b>은 판매실적을 <b>판매구분별 + 연도 단위</b>로 확인하는 화면입니다."},
+    {type:"note", text:"<b>구분별 매출(년)</b>은 판매실적을 <b>판매구분별 · 연도 단위로 집계하여 확인하는 화면</b>입니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 조회 조건 지정</b> → <b>② 검색</b> → <b>③ 판매구분별 연간 매출 확인</b>"},
     {type:"step", num:"1", title:`🔍 조회 조건 지정`, subs:[
-      "분류·판매구분·매입처 등 조회 조건과 <b>기간</b>을 지정합니다.",
+      "상품분류 · 판매구분 · 매입처 등 조회 조건과 <b>판매기간</b>을 설정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "연간 전체 실적과 판매구분별 매출을 비교하여 <b>판매방식별 실적 차이</b>를 확인합니다.",
+    {type:"step", num:"3", title:`✅ 판매구분별 연간 매출 확인`, subs:[
+      "연간 전체 실적과 각 판매구분의 <b>매입금액 · 매출금액 · 마진 · 마진율</b>을 비교합니다.",
     ]},
+    {type:"note", text:"💡 연간 기준으로 <b>판매방식별 실적 차이</b>를 확인할 수 있습니다."},
   ],
   "st33": [
-    {type:"note", text:"<b>매출처별 매출</b>은 선택한 매출처의 판매실적을 기간별로 확인하는 화면입니다."},
+    {type:"note", text:"<b>매출처별 매출</b>은 선택한 매출처의 판매실적을 <b>기간별로 확인하는 화면</b>입니다."},
     {type:"note", blue:true, text:"진행 순서 : <b>① 매출처 선택</b> → <b>② 판매기간 지정</b> → <b>③ 검색</b> → <b>④ 매출실적 확인</b>"},
     {type:"step", num:"1", title:`✔️ 매출처 선택`, subs:[
       "조회할 <b>매출처</b>를 지정합니다.",
     ]},
     {type:"step", num:"2", title:`✔️ 판매기간 지정`, subs:[
-      "<b>판매일</b> 기간을 지정합니다.",
+      "조회할 <b>판매일 기간</b>을 설정합니다.",
     ]},
     {type:"step", num:"3", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
     {type:"step", num:"4", title:`✅ 매출실적 확인`, subs:[
-      "매출처의 <b>공급가액 · 부가세 · 면세금액 · 총 매출금액 · 마진</b>을 확인합니다.",
-      "%%항목을 위쪽 영역으로 <b>드래그</b>하면 원하는 기준으로 묶어서 조회됩니다.",
+      "<table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>항목</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>설명</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매일</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 발생일</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>공급가액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>부가세 제외 매출금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>부가세</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출에 포함된 부가세</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>면세</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>면세상품 매출</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>합계금액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>총 판매금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매로 발생한 이익</td></tr></table>",
     ]},
-    {type:"note", text:"💡 특정 거래처에서 <b>얼마의 매출과 마진이 발생했는지</b> 확인할 때 사용합니다."},
+    {type:"note", text:"💡 특정 매출처에서 <b>언제 얼마의 매출과 마진이 발생했는지</b> 확인할 수 있습니다."},
   ],
   "st34": [
-    {type:"note", text:"<b>매출처별 상품 매출</b>은 선택한 매출처에서 판매된 실적을 <b>상품별로 세분화하여 확인하는 화면</b>입니다."},
-    {type:"step", num:"1", title:`✔️ 조회 조건 지정`, subs:[
+    {type:"note", text:"<b>매출처별 상품 매출</b>은 선택한 매출처의 판매실적을 <b>상품별로 세분화하여 확인하는 화면</b>입니다."},
+    {type:"note", blue:true, text:"진행 순서 : <b>① 매출처·기간 지정</b> → <b>② 검색</b> → <b>③ 상품별 매출 확인</b>"},
+    {type:"step", num:"1", title:`✔️ 매출처·기간 지정`, subs:[
       "<b>매출처</b>와 <b>판매일</b> 기간을 지정합니다.",
     ]},
     {type:"step", num:"2", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
-    {type:"step", num:"3", title:`✅ 매출 확인`, subs:[
-      "<table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>확인 항목</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매일</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출처</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>상품코드 · 상품명</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>수량</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>공급가액 · 부가세 · 면세</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>합계금액 · 마진</td></tr></table>",
-      "%%항목을 위쪽 영역으로 <b>드래그</b>하면 원하는 기준으로 묶어서 조회됩니다.",
+    {type:"step", num:"3", title:`✅ 상품별 매출 확인`, subs:[
+      "<table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>항목</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>설명</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매일</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>상품이 판매된 날짜</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출처</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매 대상 거래처</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>상품코드 · 상품명</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매된 상품</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>수량</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매수량</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>공급가액 · 부가세 · 면세</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 세부금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>합계금액</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>총 판매금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>상품 판매로 발생한 이익</td></tr></table>",
     ]},
-    {type:"note", text:"💡 <b>매출처별 매출</b>보다 상세하게 <b>어떤 상품이 몇 개 판매되었는지</b> 확인할 수 있습니다."},
+    {type:"note", text:"💡 <b>매출처별 매출</b>보다 상세하게 <b>해당 매출처에서 어떤 상품이 판매되었는지</b> 확인할 수 있습니다."},
   ],
   "st35": [
-    {type:"note", text:"<b>매출처 등급별 매출</b>은 매출처의 <b>등급별 판매실적을 확인하는 화면</b>입니다. 조회한 매출처의 전체 매출과 <b>BASIC</b> 등 등록된 등급의 실적을 비교하여 <b>등급별 매출성과</b>를 확인할 수 있습니다."},
+    {type:"note", text:"<b>매출처 등급별 매출</b>은 선택한 매출처의 판매실적을 <b>매출처 등급별로 구분하여 비교하는 화면</b>입니다."},
     {type:"note", blue:true, text:"진행 순서 : <b>① 매출처 선택</b> → <b>② 판매기간 지정</b> → <b>③ 검색</b> → <b>④ 등급별 실적 확인</b>"},
     {type:"step", num:"1", title:`✔️ 매출처 선택`, subs:[
       "조회할 <b>매출처</b>를 지정합니다.",
     ]},
     {type:"step", num:"2", title:`✔️ 판매기간 지정`, subs:[
-      "<b>판매일</b> 기간을 지정합니다.",
+      "조회할 <b>판매일 기간</b>을 설정합니다.",
     ]},
     {type:"step", num:"3", title:`🔍 검색`, subs:[
       "<span class='ui-btn'>검색</span> 버튼을 클릭합니다.",
     ]},
     {type:"step", num:"4", title:`✅ 등급별 실적 확인`, subs:[
-      "<table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>주요 확인정보</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매입 합계금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 공급가액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>부가세 · 면세금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 합계금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진 · 마진율</td></tr></table>",
+      "전체 매출과 <b>BASIC</b> 등 등록된 등급별 실적을 확인합니다.",
+      "<table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>확인 항목</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매입 합계금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 공급가액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 부가세 · 면세금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>매출 합계금액</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>마진 · 마진율</td></tr></table>",
     ]},
+    {type:"note", text:"💡 전체 매출과 <b>등급별 매출실적을 함께 비교하여 매출처 등급에 따른 성과 차이</b>를 확인할 수 있습니다."},
     {type:"note", text:"💡 <b>매출통계 메뉴 한눈에 보기</b><table style='width:100%;border-collapse:collapse;margin:4px 0 2px;font-size:12px;line-height:1.5'><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>메뉴</td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top;background:rgba(0,0,0,0.06);font-weight:600'>핵심</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'><b>일자별 매출</b></td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>날짜별 전체 매출 흐름</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'><b>연도별 매출</b></td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>연간·월별 매출 비교</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'><b>상품별 매출상세</b></td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>개별 상품 판매내역 상세조회</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'><b>상품별 매출(일/주/월/년)</b></td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>상품별 기간 단위 매출</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'><b>분류별 매출(일/주/월/년)</b></td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>상품분류별 기간 단위 매출</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'><b>구분별 매출(일/주/월/년)</b></td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>판매구분별 기간 단위 매출</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'><b>매출처별 매출</b></td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>거래처별 전체 매출</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'><b>매출처별 상품 매출</b></td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>거래처별 상품 판매내역</td></tr><tr><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'><b>매출처 등급별 매출</b></td><td style='border:1px solid var(--border);padding:3px 8px;text-align:left;vertical-align:top'>거래처 등급별 매출 비교</td></tr></table>"},
     {type:"note", text:"💡 <b>핵심 구분</b><br>· <b>상품별</b> → 어떤 <b>상품</b>이 팔렸는지<br>· <b>분류별</b> → 어떤 <b>상품분류</b>에서 매출이 발생했는지<br>· <b>구분별</b> → 어떤 <b>판매방식</b>에서 매출이 발생했는지<br>· <b>매출처별</b> → 어느 <b>거래처</b>에서 매출이 발생했는지"},
   ],
