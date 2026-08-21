@@ -12591,13 +12591,13 @@ const SIM = {
                 {x:17.1, y:9.5, w:55.7, h:8.2, notint:true, tip:"<b>조정일·사업장·부서명·담당자·제목</b> 등 문서 정보를 수정합니다."},
                 {x:78.9, y:6.4, w:7.3, h:3.0, num:"3", numCorner:true, tip:"수정한 재고조정 내역을 <b>저장</b>합니다."},
                 {x:16.9, y:18.0, w:8.1, h:2.6, num:"1", numCorner:true, to:"1b", tip:"<b>조정</b>할 상품을 입력할 빈 행을 추가합니다."},
-                {x:22.6, y:28.7, w:1.6, h:3.5, num:"2", numCorner:true, to:"search", toggle:true, tip:"상품 통합검색으로 상품을 <b>검색</b>해 추가합니다."},
+                {x:22.6, y:28.7, w:1.6, h:3.5, num:"2", numCorner:true, front:true, search:true, searchDone:"2", tip:"상품 통합검색으로 상품을 <b>검색</b>해 추가합니다."},
                 {x:25.0, y:18.0, w:8.1, h:2.6, plain:true, tip:"체크한 상품 행을 목록에서 <b>삭제</b>합니다."},
                 {x:33.1, y:18.1, w:8.0, h:2.5, plain:true, tip:"입력 내용을 <b>초기화</b>합니다."},
-                {x:41.1, y:18.1, w:8.1, h:2.5, plain:true, to:"silsa", toggle:true, tip:"실사 문서를 <b>검색</b>해 실사 정보를 불러옵니다."},
+                {x:41.1, y:18.1, w:8.1, h:2.5, plain:true, tip:"실사 문서를 <b>검색</b>해 실사 정보를 불러옵니다."},
                 {x:49.2, y:18.0, w:8.9, h:2.6, plain:true, tip:"현재 전산 재고를 실사 재고로 <b>반영</b>합니다."},
                 {x:58.0, y:18.0, w:8.2, h:2.4, plain:true, tip:"전산 재고와 실사 재고가 같은 행을 <b>삭제</b>합니다."},
-                {x:66.2, y:18.1, w:7.6, h:2.2, plain:true, to:"excel", toggle:true, tip:"엑셀 파일로 상품을 대량 <b>등록</b>합니다."},
+                {x:66.2, y:18.1, w:7.6, h:2.2, plain:true, xls:true, tip:"엑셀 파일로 상품을 대량 <b>등록</b>합니다."},
               ]},
       // 상품추가 → 빈 행 (색칠)
       "1b": {img:"images/재고조정조회-작성중-수정.png", btns:[
@@ -12605,18 +12605,13 @@ const SIM = {
                 {x:78.9, y:6.4, w:7.3, h:3.0, num:"3", numCorner:true, tip:"수정한 재고조정 내역을 <b>저장</b>합니다."},
                 {x:16.9, y:18.0, w:8.1, h:2.6, num:"1", numCorner:true, to:"1b", tip:"<b>조정</b>할 상품을 입력할 빈 행을 추가합니다."},
                 {x:17.1, y:28.8, w:82.4, h:3.3, lite:true},
-                {x:22.6, y:28.7, w:1.6, h:3.5, num:"2", numCorner:true, to:"search", toggle:true, tip:"상품 통합검색으로 상품을 <b>검색</b>해 추가합니다."},
+                {x:22.6, y:28.7, w:1.6, h:3.5, num:"2", numCorner:true, front:true, search:true, searchDone:"2", tip:"상품 통합검색으로 상품을 <b>검색</b>해 추가합니다."},
                 {x:25.0, y:18.0, w:8.1, h:2.6, plain:true, tip:"체크한 상품 행을 목록에서 <b>삭제</b>합니다."},
                 {x:33.1, y:18.1, w:8.0, h:2.5, plain:true, tip:"입력 내용을 <b>초기화</b>합니다."},
-                {x:41.1, y:18.1, w:8.1, h:2.5, plain:true, to:"silsa", toggle:true, tip:"실사 문서를 <b>검색</b>해 실사 정보를 불러옵니다."},
+                {x:41.1, y:18.1, w:8.1, h:2.5, plain:true, tip:"실사 문서를 <b>검색</b>해 실사 정보를 불러옵니다."},
                 {x:49.2, y:18.0, w:8.9, h:2.6, plain:true, tip:"현재 전산 재고를 실사 재고로 <b>반영</b>합니다."},
                 {x:58.0, y:18.0, w:8.2, h:2.4, plain:true, tip:"전산 재고와 실사 재고가 같은 행을 <b>삭제</b>합니다."},
-                {x:66.2, y:18.1, w:7.6, h:2.2, plain:true, to:"excel", toggle:true, tip:"엑셀 파일로 상품을 대량 <b>등록</b>합니다."},
-              ]},
-      // 상품 통합검색 팝업 (공용)
-      "search": {img:"images/재고조정등록3.png", win:{x:12, y:25, w:80}, btns:[
-                {x:0.4, y:68.5, w:99.0, h:6.0, lite:true},
-                {x:0.4, y:91.5, w:9.0, h:7.5, to:"2", tip:"선택한 상품을 조정 목록에 <b>추가</b>합니다."},
+                {x:66.2, y:18.1, w:7.6, h:2.2, plain:true, xls:true, tip:"엑셀 파일로 상품을 대량 <b>등록</b>합니다."},
               ]},
       // 상품 입력됨 (실사 재고 입력)
       "2": {img:"images/재고조정조회-작성중-수정.png", btns:[
@@ -12624,28 +12619,15 @@ const SIM = {
                 {x:78.9, y:6.4, w:7.3, h:3.0, num:"3", numCorner:true, tip:"수정한 재고조정 내역을 <b>저장</b>합니다."},
                 {x:16.9, y:18.0, w:8.1, h:2.6, num:"1", numCorner:true, to:"1b", tip:"<b>조정</b>할 상품을 입력할 빈 행을 추가합니다."},
                 {x:17.1, y:28.8, w:82.4, h:3.3, lite:true},
-                {x:22.6, y:28.7, w:1.6, h:3.5, num:"2", numCorner:true, to:"search", toggle:true, tip:"상품 통합검색으로 상품을 더 <b>추가</b>할 수 있습니다."},
+                {x:22.6, y:28.7, w:1.6, h:3.5, num:"2", numCorner:true, front:true, search:true, searchDone:"2", tip:"상품 통합검색으로 상품을 더 <b>추가</b>할 수 있습니다."},
                 {x:60.9, y:23.0, w:5.6, h:8.9, tip:"실제 조사한 재고수를 <b>입력</b>하면 조정재고가 자동 계산됩니다."},
                 {x:25.0, y:18.0, w:8.1, h:2.6, plain:true, tip:"체크한 상품 행을 목록에서 <b>삭제</b>합니다."},
                 {x:33.1, y:18.1, w:8.0, h:2.5, plain:true, tip:"입력 내용을 <b>초기화</b>합니다."},
-                {x:41.1, y:18.1, w:8.1, h:2.5, plain:true, to:"silsa", toggle:true, tip:"실사 문서를 <b>검색</b>해 실사 정보를 불러옵니다."},
+                {x:41.1, y:18.1, w:8.1, h:2.5, plain:true, tip:"실사 문서를 <b>검색</b>해 실사 정보를 불러옵니다."},
                 {x:49.2, y:18.0, w:8.9, h:2.6, plain:true, tip:"현재 전산 재고를 실사 재고로 <b>반영</b>합니다."},
                 {x:58.0, y:18.0, w:8.2, h:2.4, plain:true, tip:"전산 재고와 실사 재고가 같은 행을 <b>삭제</b>합니다."},
-                {x:66.2, y:18.1, w:7.6, h:2.2, plain:true, to:"excel", toggle:true, tip:"엑셀 파일로 상품을 대량 <b>등록</b>합니다."},
+                {x:66.2, y:18.1, w:7.6, h:2.2, plain:true, xls:true, tip:"엑셀 파일로 상품을 대량 <b>등록</b>합니다."},
               ]},
-      // 실사정보검색 팝업 (공용)
-      "silsa": {img:"images/재고조정등록5.png", win:{x:28.6, y:26.8, w:70.1},
-              arrows:[
-                {pts:[[91.4,24.1],[95.3,24.1],[95.3,13.1]], hs:13, dash:true},
-                {pts:[[97.7,13],[97.7,54.8],[54.1,54.8]], hs:13, dash:true},
-              ], btns:[
-                {x:96.1, y:0, w:3.8, h:5.3, plain:true, close:true, tip:"닫기"},
-                {x:39.3, y:5.8, w:52.1, h:28.0, dash:true, tip:"<b>사업장·부서명·담당자·등록일로</b> 실사 문서를 검색합니다."},
-                {x:93.6, y:7.4, w:5.9, h:5.4, tip:"조건에 맞는 실사 문서를 <b>조회</b>합니다."},
-                {x:0.5, y:39.4, w:53.5, h:60.6, tip:"조회된 실사 문서에서 <b>반영</b>할 문서를 선택합니다."},
-              ]},
-      // 엑셀업로드 메뉴 구조 (공용)
-      "excel": {img:"images/재고조정등록6.png", win:{x:49.4, y:20.7, w:48.4}, btns:[]},
     },
   },
   // 재고조정 현황 — 상세검색 → 조회 → 결과내 재검색
