@@ -938,8 +938,6 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .sim-poly { position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none; z-index:8; overflow:visible; }
 .sim-poly polygon { fill:none; stroke:#e2241a; stroke-width:2.5; vector-effect:non-scaling-stroke; }
 .sim-cue.dash { border-style:dotted; border-radius:5px; }
-.search-back-btn { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); z-index:1500; background:#0D1B3E; color:#fff; border:none; border-radius:999px; padding:10px 20px; font-size:13px; font-weight:600; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,0.3); display:none; }
-.search-back-btn:hover { background:#1a2c5c; }
 .sim-cue.yellow { border-color:#f59e0b; }
 .sim-cue.yellow:hover { background:rgba(245,158,11,0.14); }
 .sim-cue.thin { border-width:1px; }
@@ -1231,6 +1229,10 @@ mark { background:#FEF08A; border-radius:2px; padding:0 2px; }
 <div id="main">
   <div id="topbar">
     <div style="display:flex;align-items:center;gap:12px;overflow:hidden;flex:1;min-width:0">
+      <button id="searchBackBtn" onclick="searchBackGo()" style="display:none;align-items:center;gap:6px;background:var(--navy);border:1px solid var(--navy);border-radius:8px;padding:7px 13px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;color:#fff;transition:all 0.15s;flex-shrink:0;" onmouseover="this.style.background='#1a2c5c'" onmouseout="this.style.background='var(--navy)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+        🔍 검색결과로
+      </button>
       <button id="prev-btn" onclick="goPrev()" style="display:none;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:7px 13px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;color:var(--navy);transition:all 0.15s;flex-shrink:0;" onmouseover="this.style.background='var(--blue-pale)';this.style.borderColor='var(--blue)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
         이전페이지로
@@ -28608,18 +28610,15 @@ document.addEventListener("keydown", e => { if(e.key==="Escape") closeLb(); });
 let _lastSearchQ = "";
 function openSubFromSearch(chId, subId) {
   openSub(chId, subId);
-  let b = document.getElementById("searchBackBtn");
-  if (!b) {
-    b = document.createElement("button");
-    b.id = "searchBackBtn";
-    b.className = "search-back-btn";
-    b.innerHTML = "↩ 검색결과로 돌아가기";
-    b.onclick = () => { b.style.display = "none"; doSearch(_lastSearchQ);
-      const i = document.getElementById("searchInput"); if (i) i.value = _lastSearchQ;
-      const t = document.getElementById("topSearchInput"); if (t) t.value = _lastSearchQ; };
-    document.body.appendChild(b);
-  }
-  b.style.display = "block";
+  const b = document.getElementById("searchBackBtn");
+  if (b) b.style.display = "flex";
+}
+function searchBackGo() {
+  const b = document.getElementById("searchBackBtn");
+  if (b) b.style.display = "none";
+  doSearch(_lastSearchQ);
+  const i = document.getElementById("searchInput"); if (i) i.value = _lastSearchQ;
+  const t = document.getElementById("topSearchInput"); if (t) t.value = _lastSearchQ;
 }
 function doSearch(q) {
   q = q.trim().toLowerCase();
