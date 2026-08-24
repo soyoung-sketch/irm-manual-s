@@ -16167,7 +16167,7 @@ DESCS["sbp1"] = [
     "%%<b>B · C</b> 체크로 단가그룹의 표시 여부를 선택합니다.",
     "<span class='ui-btn'>판매정보 수정</span> 버튼을 클릭하면 판매가를 바로 고칠 수 있습니다.",
   ]},
-  {type:"bullet", title:`⚙️ 옵션`, body:"<span class='ui-btn'>⚙ 옵션</span> 버튼을 클릭하면 메뉴가 표시됩니다.", subs:[
+  {type:"step", num:"★", title:`⚙️ 옵션`, body:"<span class='ui-btn'>⚙ 옵션</span> 버튼을 클릭하면 메뉴가 표시됩니다.", subs:[
     "<b>문서저장</b> : 조회된 목록을 <b>엑셀 · 워드 · PDF</b> 형식으로 저장합니다.",
     "<b>도움말</b> : 화면 사용 안내를 확인합니다.",
   ]},
@@ -16332,7 +16332,7 @@ const _SBP_TOOL = (sel, win) => ([
   {x:0.5,  y:6,    w:3.5,  h:8, lite:true},   // 리본 메뉴 위치
   // 검색 줄 (y:20.1, h:2.9 통일)
   {x:76.5, y:20.1, w:17.6, h:2.9, num:"1", numCorner:true, tip:"검색어 입력(<b>통합검색</b>) 또는 <b>상세검색</b>으로 조건을 지정해 조회합니다."},
-  {x:94.1, y:20.1, w:5.7,  h:2.9, plain:true, to:"p_opt", toggle:true, tip:"<b>옵션</b> 버튼으로 문서저장·도움말 메뉴를 표시합니다."},
+  {x:94.1, y:20.1, w:5.7,  h:2.9, plain:true, scroll:"★6", to:"p_opt", toggle:true, tip:"<b>옵션</b> 버튼으로 문서저장·도움말 메뉴를 표시합니다."},
   // 버튼 줄 (y:23.4, h:2.9 통일)
   {x:1.4,  y:23.4, w:6.1,  h:2.9, plain:true, tip:"<b>전체 건수 / 표시 건수</b>가 표시됩니다."},
   {x:27.6, y:22.9, w:18.2, h:3.8, blue:true, scroll:"★2", tip:"체크박스 두 개로 <b>목록 표시 방식</b>을 바꿉니다."},
