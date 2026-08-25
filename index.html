@@ -864,12 +864,13 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .pda-vhead h3{margin:0;font-size:21px;font-weight:800;color:#7cb2ff;display:flex;align-items:center;gap:9px;}
 .pda-x{cursor:pointer;font-size:22px;color:#8595aa;border:none;background:none;line-height:1;}
 .pda-x:hover{color:#e5e9f0;}
-.pda-min{cursor:pointer;font-size:18px;color:#8595aa;border:none;background:none;line-height:1;margin-right:14px;}
-.pda-min:hover{color:#e5e9f0;}
-.pda-restore{position:fixed;left:50%;bottom:14px;transform:translateX(-50%) translateY(90px);z-index:2900;background:#0f172a;color:#eaf0f8;border:1px solid #334155;border-radius:999px;padding:10px 22px;display:flex;gap:9px;align-items:center;cursor:pointer;font-weight:700;font-size:13px;box-shadow:0 6px 20px rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:transform .25s ease,opacity .25s ease;}
-.pda-restore.on{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto;}
-.pda-restore b{color:#38bdf8;}
-.pda-restore:hover{background:#1e293b;}
+.pda-fab-dn{position:absolute;top:0;right:6%;width:24px;height:24px;border-radius:50%;background:#0f172a;color:#cbd5e1;display:flex;align-items:center;justify-content:center;font-size:11px;cursor:pointer;z-index:3;border:1px solid #334155;box-shadow:0 2px 8px rgba(0,0,0,.35);}
+.pda-fab-dn:hover{background:#1e293b;color:#fff;}
+.pda-fab .pda-fab-up{display:none;}
+.pda-fab.down{top:auto!important;bottom:0.8%!important;height:4.6%!important;}
+.pda-fab.down .pda-fab-circle,.pda-fab.down .pda-fab-dn{display:none;}
+.pda-fab.down .pda-fab-up{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;height:100%;background:#0f172a;color:#eaf0f8;border:1px solid #334155;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.4);white-space:nowrap;}
+.pda-fab.down .pda-fab-up:hover{background:#1e293b;}
 .pda-body{padding:26px 30px;overflow-y:auto;flex:1;color:#dde4ee;}
 .pda-foot{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid #2c3547;}
 .pda-arrow{border:1px solid #3a4557;background:#232c3b;border-radius:11px;padding:9px 20px;cursor:pointer;font-weight:700;color:#c5d0de;font-size:16px;}
@@ -28053,7 +28054,7 @@ function simOverlayHTML(pg, sid) {
       const cbody = b.calloutHover ? `<span class="co-def">${b.callout}</span><span class="co-hov">${b.calloutHover}</span>` : b.callout;
       h += `<div class="sim-callout${b.calloutHover?' hovswap':''}${cact?'':' noact'}${b.tailR?' tail-r':''}" style="left:${b.x}%;top:${b.y + (b.h||0)/2}%;"${cact?` onclick="${cact}"`:''}>${cbody}</div>`; return;
     }
-    if (b.pdaFab) { const _pl=b.pdaLabel||"PDA로<br>매입등록하기"; h += `<div class="pda-fab" data-pk="${b.pdaKey||''}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;" onclick="event.stopPropagation();pdaOpen(this.dataset.pk)"><div class="pda-fab-circle"><div class="pda-fab-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.4"/><line x1="10" y1="18.6" x2="14" y2="18.6"/></svg></div><div class="pda-fab-txt">${_pl}</div></div></div>`; return; }
+    if (b.pdaFab) { const _pl=b.pdaLabel||"PDA로<br>매입등록하기"; h += `<div class="pda-fab${window._pdaDown?" down":""}" data-pk="${b.pdaKey||''}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;" onclick="event.stopPropagation();if(window._pdaDown){pdaFabUp();}else{pdaOpen(this.dataset.pk);}"><div class="pda-fab-dn" onclick="event.stopPropagation();pdaFabDown()" title="아래로 내려두기">▼</div><div class="pda-fab-circle"><div class="pda-fab-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.4"/><line x1="10" y1="18.6" x2="14" y2="18.6"/></svg></div><div class="pda-fab-txt">${_pl}</div></div><div class="pda-fab-up">📱 PDA ▲ 올리기</div></div>`; return; }
     if (b.pic) { h += `<div class="sim-pic" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;"><img src="${b.pic}" alt=""></div>`; return; }
     if (b.badge) { h += `<div class="sim-badge${b.yellow?' yellow':''}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;">${b.badge}</div>`; return; }
     if (b.dot) { h += `<div class="sim-dot" style="left:${b.x}%;top:${b.y + b.h/2}%;height:${b.h}%;">${b.dot}</div>`; return; }
@@ -29416,12 +29417,11 @@ document.addEventListener("click", function (e) {
     <div class="pda-choice-btn" onclick="pdaPick('batch')"><div class="pda-choice-ico">📚</div><div class="pda-choice-t">PDA 일괄매입등록</div><div class="pda-choice-s">연속 스캔 · 매입처 자동</div></div>
   </div>
   <div class="pda-view" id="pdaView">
-    <div class="pda-vhead"><h3 id="pdaTitle">📱 PDA</h3><div style="display:flex;align-items:center"><button class="pda-min" onclick="pdaMin()" title="아래로 내려두기">▼</button><button class="pda-x" onclick="pdaClose()">✕</button></div></div>
+    <div class="pda-vhead"><h3 id="pdaTitle">📱 PDA</h3><button class="pda-x" onclick="pdaClose()">✕</button></div>
     <div class="pda-body" id="pdaBody"></div>
     <div class="pda-foot"><button class="pda-arrow" id="pdaPrev" onclick="pdaNav(-1)">‹ 이전</button><div class="pda-dots" id="pdaDots"></div><button class="pda-arrow" id="pdaNext" onclick="pdaNav(1)">다음 ›</button></div>
   </div>
 </div>
-<div class="pda-restore" id="pdaRestore" onclick="pdaUp()" title="다시 올리기"><span>📱</span><span id="pdaRestoreT">PDA</span><b>▲</b></div>
 <script>
 const PDA_CONTENT = {
  price: { title:"📱 PDA로 판매가 수정하기", pages:[
@@ -29505,14 +29505,14 @@ const PDA_CONTENT = {
  ]}
 };
 let pdaCur=null, pdaIdx=0;
-function pdaOpen(pk){document.getElementById('pdaRestore').classList.remove('on');var b=document.getElementById('pdaBack');b.classList.add('on');if(pk){document.getElementById('pdaChoice').style.display='none';pdaPick(pk);}else{document.getElementById('pdaChoice').style.display='flex';document.getElementById('pdaView').classList.remove('on');}}
+function pdaOpen(pk){var b=document.getElementById('pdaBack');b.classList.add('on');if(pk){document.getElementById('pdaChoice').style.display='none';pdaPick(pk);}else{document.getElementById('pdaChoice').style.display='flex';document.getElementById('pdaView').classList.remove('on');}}
 function pdaPick(t){pdaCur=t;pdaIdx=0;document.getElementById('pdaChoice').style.display='none';document.getElementById('pdaView').classList.add('on');document.getElementById('pdaTitle').textContent=PDA_CONTENT[t].title;pdaRender();}
 function pdaRender(){var c=PDA_CONTENT[pdaCur];document.getElementById('pdaBody').innerHTML=c.pages[pdaIdx];document.getElementById('pdaDots').innerHTML=c.pages.map(function(_,i){return '<button class="pda-dot '+(i===pdaIdx?'on':'')+'" onclick="pdaGoto('+i+')">'+(i+1)+'</button>';}).join('');document.getElementById('pdaPrev').disabled=pdaIdx===0;document.getElementById('pdaNext').disabled=pdaIdx===c.pages.length-1;document.getElementById('pdaBody').scrollTop=0;}
 function pdaNav(d){var c=PDA_CONTENT[pdaCur];pdaIdx=Math.max(0,Math.min(c.pages.length-1,pdaIdx+d));pdaRender();}
 function pdaGoto(i){pdaIdx=i;pdaRender();}
-function pdaClose(){document.getElementById('pdaBack').classList.remove('on');document.getElementById('pdaRestore').classList.remove('on');}
-function pdaMin(){document.getElementById('pdaBack').classList.remove('on');var t=(pdaCur&&PDA_CONTENT[pdaCur])?PDA_CONTENT[pdaCur].title.replace('📱','').trim():'PDA';document.getElementById('pdaRestoreT').textContent=t;document.getElementById('pdaRestore').classList.add('on');}
-function pdaUp(){document.getElementById('pdaRestore').classList.remove('on');document.getElementById('pdaBack').classList.add('on');}
+function pdaClose(){document.getElementById('pdaBack').classList.remove('on');}
+function pdaFabDown(){window._pdaDown=true;document.querySelectorAll('.pda-fab').forEach(function(f){f.classList.add('down');});}
+function pdaFabUp(){window._pdaDown=false;document.querySelectorAll('.pda-fab').forEach(function(f){f.classList.remove('down');});}
 document.addEventListener('DOMContentLoaded',function(){document.getElementById('pdaBack').addEventListener('click',function(e){if(e.target.id==='pdaBack')pdaClose();});document.addEventListener('keydown',function(e){if(!document.getElementById('pdaBack').classList.contains('on'))return;if(e.key==='Escape')pdaClose();if(document.getElementById('pdaView').classList.contains('on')){if(e.key==='ArrowLeft')pdaNav(-1);if(e.key==='ArrowRight')pdaNav(1);}});});
 </script>
 
