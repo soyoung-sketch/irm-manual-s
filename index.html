@@ -320,6 +320,7 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 /* 이미지의 노란 표시 영역과 짝을 이루는 카드 — 노란 라인으로 구분 */
 .desc-step.ystar-card { border:1.5px solid #f59e0b; }
 .desc-step.bstar-card { border:1.5px solid #2563eb; }
+.desc-step.pstar-card { border:1.5px solid #f472b6; background:#fdf2f8; }
 .desc-step.pstar-card { border:1.5px solid #8b5cf6; }
 
 /* ── Step 카드 ── */
@@ -16119,20 +16120,19 @@ DESCS["sbp1"] = [
   {type:"note", text:"사업장에 등록된 <b>상품 목록</b>을 조회하고, 상품 정보를 수정하거나 여러 상품을 <b>한 번에 처리</b>하는 화면입니다."},
   {type:"step", num:"1", title:`🔍 상품 조회`, subs:[
     "특정 상품을 조회하고자 할 때는 조회할 <b>상품정보(상품명, 상품코드)</b>를 입력하고 <b>엔터</b>를 눌러 조회하세요.",
-    "<span class='ui-btn'>🔍 상세검색</span> 버튼을 클릭하면 카테고리·매입처·재고 등 상세 조건을 지정할 수 있습니다.",
+    "<span class='ui-btn'>🔍 상세검색</span> 버튼을 클릭하면 카테고리·매입처·재고 등 상세 조건을 지정해서 검색하실 수 있습니다.",
   ]},
   {type:"step", num:"2", title:`✅ 상품 목록 확인`, subs:[
     "상품정보를 확인합니다. (타입, 재고, 분류, 행사여부, 판매가정보 등등)",
     "%%가로 스크롤을 이동하면 나머지 항목을 확인할 수 있습니다.",
-    "%%<b>총: 5,006건/ 50건</b>에서 전체 건수와 현재 화면에 표시된 건수를 확인합니다.",
   ]},
   {type:"step", num:"3", title:`✏️ 상품수정`, subs:[
-    "수정할 상품을 선택한 후 <span class='ui-btn'>상품수정</span> 버튼을 클릭하면 상품수정 화면이 열립니다.",
-    "행 오른쪽 끝의 <span class='ui-btn'>보기</span> 버튼을 클릭해도 해당 상품의 상품수정 화면이 바로 열립니다.",
+    "수정할 상품을 선택한 후 <span class='ui-btn'>상품수정</span> 버튼을 클릭하면<br>상품수정 화면이 열립니다.",
+    "행 오른쪽 끝의 <span class='ui-btn'>보기</span> 버튼을 클릭해도 해당 상품의<br>상품수정 화면이 바로 열립니다.",
     "🔗 <b class='dlink' onclick=\"goPage(1)\">상품수정 화면 바로가기</b>",
   ]},
-  {type:"bullet", title:`🔤 열별 필터 검색`, subs:[
-    "열 머리글 아래 <b>필터 칸</b>에 값을 입력하면 해당 열 기준으로 목록이 걸러집니다.",
+  {type:"step", num:"★", pstar:true, title:`🔤 열별 필터 검색`, subs:[
+    "열 머리글 아래 <b>필터 칸</b>에 값을 입력하면<br>해당 열 기준으로 목록이 걸러집니다.",
   ]},
   {type:"step", num:"★", ystar:true, title:`🗂️ 선택한 상품으로 실행하는 기능`, subs:[
     "<span class='ui-btn'>매입처 지정</span> 버튼을 클릭하면 <b>매입처 목록</b> 창이 열립니다.",
@@ -16153,11 +16153,10 @@ DESCS["sbp1"] = [
     "📌 판매 상태 항목",
     "<b>사업장 판매상태</b>와 <b>매장 판매(사용)구분 · 쇼핑몰 판매구분 · POP 출력구분</b>을 한 번에 변경합니다.",
   ]},
-  {type:"step", num:"★", ystar:true, title:`🗂️ 행사·상태·변경 이력`, body:"목록에서 상품을 클릭한 후 탭을 바꿔가며 해당 상품의 이력을 확인합니다.", subs:[
-    "<span class='ui-tab'>행사 정보</span> : 진행 중인 행사의 행사구분·행사제목·기간·행사 판매가를 확인합니다.",
-    "%%<span class='ui-btn'>행사추가</span> 버튼으로 상품을 행사에 넣고, <span class='ui-btn'>POP 인쇄</span> 버튼으로 행사 POP를 출력합니다.",
-    "%%탭 아래에 상품이 진열된 <b>로케이션</b>이 대 &gt; 중 &gt; 소 &gt; 세 순으로 표시됩니다.",
-    "<span class='ui-tab'>상품상태 관리</span> : 관리부서·담당자와 <b>매입상태·판매상태</b>를 확인하고 <span class='ui-btn'>상품정보 수정</span> 버튼으로 고칩니다.",
+  {type:"step", num:"★", ystar:true, title:`🗂️ 행사·상태·변경 이력`, body:"목록에서 상품을 클릭한 후 탭을 바꿔가며 해당 <b>상품 이력</b>을 확인합니다.", subs:[
+    "<span class='ui-tab'>행사 정보</span> : 진행 중인 행사의 <b>행사구분·제목·기간·행사 판매가</b>를 확인합니다.",
+    "%%<span class='ui-btn'>행사추가</span> 버튼으로 상품을 행사에 넣고,<br><span class='ui-btn'>POP 인쇄</span> 버튼으로 행사 POP를 출력합니다.<br>탭 아래에 상품이 진열된 <b>로케이션</b>이 대 &gt; 중 &gt; 소 &gt; 세 순으로 표시됩니다.",
+    "<span class='ui-tab'>상품상태 관리</span> : 관리부서·담당자와 <b>매입상태·판매상태</b>를 확인하고<br><span class='ui-btn'>상품정보 수정</span> 버튼으로 고칩니다.",
     "<span class='ui-tab'>매입가 변경내역</span> : 매입가가 바뀐 <b>확정일·매입가·매입처</b>를 확인합니다.",
     "<span class='ui-tab'>판매가 변경내역</span> : 판매가가 바뀐 <b>수정일·수정자·판매단가</b>를 확인합니다.",
   ]},
@@ -16332,10 +16331,10 @@ const _SBP_TOOL = (sel, win) => ([
   {x:0.5,  y:6,    w:3.5,  h:8, lite:true},   // 리본 메뉴 위치
   // 검색 줄 (y:20.1, h:2.9 통일)
   {x:76.5, y:20.1, w:17.6, h:2.9, num:"1", numCorner:true, tip:"검색어 입력(<b>통합검색</b>) 또는 <b>상세검색</b>으로 조건을 지정해 조회합니다."},
-  {x:94.1, y:20.1, w:5.7,  h:2.9, plain:true, scroll:"★6", to:"p_opt", toggle:true, tip:"<b>옵션</b> 버튼으로 문서저장·도움말 메뉴를 표시합니다."},
+  {x:94.1, y:20.1, w:5.7,  h:2.9, plain:true, scroll:"★7", to:"p_opt", toggle:true, tip:"<b>옵션</b> 버튼으로 문서저장·도움말 메뉴를 표시합니다."},
   // 버튼 줄 (y:23.4, h:2.9 통일)
   {x:1.4,  y:23.4, w:6.1,  h:2.9, plain:true, tip:"<b>전체 건수 / 표시 건수</b>가 표시됩니다."},
-  {x:27.6, y:22.9, w:18.2, h:3.8, blue:true, scroll:"★2", tip:"체크박스 두 개로 <b>목록 표시 방식</b>을 바꿉니다."},
+  {x:27.6, y:22.9, w:18.2, h:3.8, blue:true, scroll:"★3", tip:"체크박스 두 개로 <b>목록 표시 방식</b>을 바꿉니다."},
   {x:28.1, y:23.4, w:5.9,  h:2.9, plain:true, to:_SBP_ST(!sel, win), tip:sel
     ? "체크를 풀면 목록 왼쪽의 <b>선택 열</b>이 사라집니다."
     : "체크하면 목록 왼쪽에 <b>선택 열</b>이 생겨 처리할 상품만 하나씩 고를 수 있습니다."},
@@ -16344,17 +16343,17 @@ const _SBP_TOOL = (sel, win) => ([
     : "체크하면 상세 정보가 <b>별도 창</b>으로 열리고, 화면 아래 정보 영역이 사라져 목록이 넓어집니다."},
   {x:47.5, y:23.4, w:6.1,  h:2.9, num:"3", numCorner:true, page:1, tip:"선택한 상품의 <b>상품수정</b> 화면을 엽니다."},
   {x:53.6, y:23.4, w:6.1,  h:2.9, plain:true, to:"p_xls", toggle:true, tip:"매장을 고른 후 조회된 목록을 <b>엑셀 파일</b>로 저장합니다."},
-  {x:59.7, y:23.4, w:6.9,  h:2.9, yellow:true, scroll:"★1", to:"p_in", toggle:true, tip:"<b>매입처 목록</b> 창에서 선택한 상품의 매입처를 지정합니다."},
-  {x:66.7, y:23.4, w:6.9,  h:2.9, yellow:true, scroll:"★1", tip:"선택한 상품으로 <b>매장관리 &gt; 바코드 인쇄관리</b> 화면이 열립니다."},
-  {x:73.6, y:23.4, w:6.9,  h:2.9, yellow:true, scroll:"★1", tip:"선택한 상품으로 <b>매장관리 &gt; POP 인쇄 관리</b> 화면이 열립니다."},
-  {x:80.5, y:23.4, w:7.7,  h:2.9, yellow:true, scroll:"★1", tip:"선택한 상품의 <b>재고관리 &gt; 상품 수불 내역</b> 화면이 열립니다."},
-  {x:88.2, y:23.4, w:11.6, h:2.9, yellow:true, scroll:"★3", to:"p_batch", toggle:true, tip:"선택한 상품의 <b>공통 항목</b>을 한 번에 변경합니다."},
+  {x:59.7, y:23.4, w:6.9,  h:2.9, yellow:true, scroll:"★2", to:"p_in", toggle:true, tip:"<b>매입처 목록</b> 창에서 선택한 상품의 매입처를 지정합니다."},
+  {x:66.7, y:23.4, w:6.9,  h:2.9, yellow:true, scroll:"★2", tip:"선택한 상품으로 <b>매장관리 &gt; 바코드 인쇄관리</b> 화면이 열립니다."},
+  {x:73.6, y:23.4, w:6.9,  h:2.9, yellow:true, scroll:"★2", tip:"선택한 상품으로 <b>매장관리 &gt; POP 인쇄 관리</b> 화면이 열립니다."},
+  {x:80.5, y:23.4, w:7.7,  h:2.9, yellow:true, scroll:"★2", tip:"선택한 상품의 <b>재고관리 &gt; 상품 수불 내역</b> 화면이 열립니다."},
+  {x:88.2, y:23.4, w:11.6, h:2.9, yellow:true, scroll:"★4", to:"p_batch", toggle:true, tip:"선택한 상품의 <b>공통 항목</b>을 한 번에 변경합니다."},
 ]);
 // 상품 목록 그리드 — sel:왼쪽에 선택 열이 생기며 열이 +30px 밀림 / win:하단 정보 영역이 없어 그리드가 아래까지 늘어남
 const _SBP_GRID = (sel, win) => ([
   {x:0.6, y:26.5, w:98.8, h:win ? 66.8 : 41, num:"2", numCorner:true, numInsetTop:true, notint:true, tip:"상품코드·상품명·재고수·분류와 <b>매입단가·판매단가</b>를 확인합니다."},
   // 열별 필터 행 (그리드 박스 위로 올림)
-  {x:sel ? 2.6 : 0.8, y:29.1, w:sel ? 95.6 : 97.4, h:2.2, lite:true, front:true, tip:"열마다 값을 입력하면 해당 열 기준으로 목록이 <b>걸러집니다</b>."},
+  {x:sel ? 2.6 : 0.8, y:29.1, w:sel ? 95.6 : 97.4, h:2.2, fill:true, red:true, front:true, scroll:"★1", tip:"<b>열별 필터 검색</b>"},
   // 선택 열 — 개별선택모드를 켜야 생긴다 (머리글 아래부터: 좌상단은 ② 배지 자리)
   ...(sel ? [{x:0.6, y:29.1, w:2, h:win ? 62.7 : 37.1, lite:true, front:true, tip:"처리할 상품만 <b>체크</b>해서 하나씩 고릅니다."}] : []),
   // 상세보기 열 — 새창으로 보기를 켜면 사라진다
@@ -16362,7 +16361,7 @@ const _SBP_GRID = (sel, win) => ([
 ]);
 // 하단 좌측 — 탭 패널 (실측 x 9~597, y 747~996)
 const _SBP_TABPANEL = () => ([
-  {x:0.6, y:72.4, w:38.4, h:24.1, yellow:true, notint:true, scroll:"★4", tip:"선택한 상품의 <b>행사·상태·변경 이력</b>을 탭을 바꿔가며 확인합니다."},
+  {x:0.6, y:72.4, w:38.4, h:24.1, yellow:true, notint:true, scroll:"★5", tip:"선택한 상품의 <b>행사·상태·변경 이력</b>을 탭을 바꿔가며 확인합니다."},
 ]);
 // 탭 줄 4개 (실측 x 9~84 · 84~182 · 182~292 · 292~401, y 747~774)
 const _SBP_TABBTNS = () => ([
@@ -16373,7 +16372,7 @@ const _SBP_TABBTNS = () => ([
 ]);
 // 하단 우측 — 상품 판매가 정보 (실측 x 612~1526)
 const _SBP_PRICE = () => ([
-  {x:40,   y:72.4, w:59.7, h:24.1, yellow:true, notint:true, scroll:"★5", tip:"선택한 상품의 <b>매입가·판매단가</b>와 단가그룹별 가격을 확인합니다."},
+  {x:40,   y:72.4, w:59.7, h:24.1, yellow:true, notint:true, scroll:"★6", tip:"선택한 상품의 <b>매입가·판매단가</b>와 단가그룹별 가격을 확인합니다."},
   {x:73.1, y:75.6, w:4.7,  h:3.2, plain:true, front:true, tip:"단가그룹 <b>B · C</b>의 표시 여부를 선택합니다."},
   {x:91,   y:75.6, w:8.3,  h:3.2, plain:true, front:true, tip:"선택한 상품의 <b>판매가</b>를 바로 수정합니다."},
 ]);
