@@ -864,6 +864,78 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .pda-vhead h3{margin:0;font-size:21px;font-weight:800;color:#7cb2ff;display:flex;align-items:center;gap:9px;}
 .pda-x{cursor:pointer;font-size:22px;color:#8595aa;border:none;background:none;line-height:1;}
 .pda-x:hover{color:#e5e9f0;}
+.pda-min{cursor:pointer;font-size:18px;color:#8595aa;border:none;background:none;line-height:1;margin-right:14px;}
+.pda-min:hover{color:#e5e9f0;}
+.pda-restore{position:fixed;left:50%;bottom:14px;transform:translateX(-50%) translateY(90px);z-index:2900;background:#0f172a;color:#eaf0f8;border:1px solid #334155;border-radius:999px;padding:10px 22px;display:flex;gap:9px;align-items:center;cursor:pointer;font-weight:700;font-size:13px;box-shadow:0 6px 20px rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:transform .25s ease,opacity .25s ease;}
+.pda-restore.on{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto;}
+.pda-restore b{color:#38bdf8;}
+.pda-restore:hover{background:#1e293b;}
+.pda-body{padding:26px 30px;overflow-y:auto;flex:1;color:#dde4ee;}
+.pda-foot{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid #2c3547;}
+.pda-arrow{border:1px solid #3a4557;background:#232c3b;border-radius:11px;padding:9px 20px;cursor:pointer;font-weight:700;color:#c5d0de;font-size:16px;}
+.pda-arrow:hover:not(:disabled){border-color:#3b82f6;color:#7cb2ff;}
+.pda-arrow:disabled{opacity:.32;cursor:default;}
+.pda-dots{display:flex;gap:10px;}
+.pda-dot{width:34px;height:34px;border-radius:10px;border:1px solid #3a4557;background:#232c3b;cursor:pointer;font-weight:800;color:#9aa7b8;font-size:16px;}
+.pda-dot.on{background:#3b82f6;color:#fff;border-color:#3b82f6;}
+/* 콘텐츠 (다크·큰글씨) */
+.pda-h{font-size:21px;font-weight:800;color:#7cb2ff;margin:0 0 18px;}
+.pda-steps{list-style:none;margin:0;padding:0;}
+.pda-steps li{display:flex;gap:16px;padding-bottom:19px;position:relative;}
+.pda-steps li:not(:last-child):before{content:'';position:absolute;left:14px;top:32px;bottom:2px;width:2px;background:#324058;}
+.pda-sn{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#3b82f6;color:#fff;font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;z-index:1;}
+.pda-st{font-size:17.5px;font-weight:700;color:#eaf0f8;}
+.pda-sd{font-size:15.5px;color:#9fb0c4;margin-top:5px;line-height:1.55;}
+.pda-sd b{color:#dbe6f2;}
+.pda-warn{border:1px solid #6b3535;background:#2b1e21;border-radius:13px;padding:15px 18px;margin-top:18px;}
+.pda-warn .wt{font-weight:800;color:#f87171;font-size:16.5px;}
+.pda-warn .wd{font-size:15.5px;color:#e0aeae;margin-top:6px;line-height:1.55;}
+.pda-warn .wd b{color:#fca5a5;}
+.pda-note{border:1px solid #6b6440;background:#20242c;border-radius:13px;padding:15px 18px;margin-top:18px;}
+.pda-note .nt{font-weight:800;color:#eaf0f8;font-size:16.5px;}
+.pda-note .nd{font-size:15.5px;color:#c5d0de;margin-top:6px;line-height:1.55;}
+.pda-note .nd b{color:#eaf0f8;}
+.pda-flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:20px;}
+.pda-flow span{background:#243247;border:1px solid #35507a;color:#8fbcff;border-radius:22px;padding:7px 16px;font-size:15px;font-weight:700;}
+.pda-flow span.done{background:#1e3a2e;border-color:#2f6b4c;color:#6ee7b7;}
+.pda-flow i{color:#5f7089;font-style:normal;font-weight:700;font-size:16px;}
+.pda-cols{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start;}
+.pda-col{flex:1;min-width:280px;}
+.pda-col.imgcol{flex:0 0 auto;}
+.pda-img{max-width:100%;border-radius:14px;display:block;box-shadow:0 8px 26px rgba(0,0,0,.45);}
+.pda-chip{display:inline-flex;align-items:center;gap:4px;background:#28303f;border:1px solid #3a4557;border-radius:8px;padding:6px 12px;font-size:14px;font-weight:700;color:#c5d0de;}
+.pda-chip.on{background:#3b82f6;color:#fff;border-color:#3b82f6;}
+.pda-tbl{width:100%;border-collapse:collapse;font-size:15.5px;}
+.pda-tbl th{background:#243247;color:#8fbcff;text-align:left;padding:12px 14px;border:1px solid #35507a;font-weight:800;}
+.pda-tbl td{padding:12px 14px;border:1px solid #2f3a4d;color:#c5d0de;vertical-align:top;line-height:1.6;}
+.pda-tbl td.k{font-weight:800;color:#8fbcff;white-space:nowrap;}
+.pda-hl{color:#8fbcff;font-weight:700;}
+.pda-intro{font-size:16.5px;color:#c5d0de;line-height:1.7;background:#212a38;border-radius:12px;padding:17px 20px;border:1px solid #2f3a4d;}
+
+
+/* ═══ PDA 매입등록 플로팅 버튼 + 뷰어 (다크 스타일) ═══ */
+.pda-fab{position:absolute;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:60;}
+.pda-fab-circle{flex-shrink:0;width:clamp(135px,11.7vw,186px);height:clamp(135px,11.7vw,186px);border-radius:50%;background:#264580;border:3px solid #5876a8;box-shadow:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:#fff;box-sizing:border-box;padding:12px;transition:transform .12s;}
+.pda-fab:hover .pda-fab-circle{transform:scale(1.05);}
+.pda-fab-ico{line-height:1;color:#fff;display:flex;}
+.pda-fab-ico svg{width:clamp(45px,3.9vw,60px);height:clamp(45px,3.9vw,60px);display:block;}
+.pda-fab-txt{font-size:clamp(15px,1.35vw,19px);font-weight:800;text-align:center;line-height:1.2;color:#fff;}
+.pda-back{position:fixed;inset:0;background:rgba(4,8,16,.7);backdrop-filter:blur(3px);z-index:3000;display:none;align-items:center;justify-content:center;}
+.pda-back.on{display:flex;}
+/* 선택 카드 (다크, 1.5배) */
+.pda-choice{display:flex;gap:38px;flex-wrap:wrap;justify-content:center;}
+.pda-choice-btn{width:345px;padding:52px 34px;background:#212836;border:2.5px solid #35415a;border-radius:28px;text-align:center;cursor:pointer;box-shadow:0 14px 44px rgba(0,0,0,.5);transition:.16s;}
+.pda-choice-btn:hover{border-color:#3b82f6;transform:translateY(-6px);box-shadow:0 20px 52px rgba(59,130,246,.4);}
+.pda-choice-ico{font-size:66px;line-height:1;}
+.pda-choice-t{margin-top:18px;font-size:25px;font-weight:800;color:#eaf0f8;}
+.pda-choice-s{margin-top:9px;font-size:18px;color:#9aa7b8;}
+/* 뷰어 (다크, 큰 창) */
+.pda-view{width:min(960px,96vw);max-height:92vh;background:#1a2029;border:1px solid #2c3547;border-radius:20px;box-shadow:0 26px 70px rgba(0,0,0,.6);display:none;flex-direction:column;overflow:hidden;}
+.pda-view.on{display:flex;}
+.pda-vhead{display:flex;align-items:center;justify-content:space-between;padding:18px 26px;border-bottom:1px solid #2c3547;background:linear-gradient(135deg,#222c3d,#1a2029);}
+.pda-vhead h3{margin:0;font-size:21px;font-weight:800;color:#7cb2ff;display:flex;align-items:center;gap:9px;}
+.pda-x{cursor:pointer;font-size:22px;color:#8595aa;border:none;background:none;line-height:1;}
+.pda-x:hover{color:#e5e9f0;}
 .pda-body{padding:26px 30px;overflow-y:auto;flex:1;color:#dde4ee;}
 .pda-foot{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid #2c3547;}
 .pda-arrow{border:1px solid #3a4557;background:#232c3b;border-radius:11px;padding:9px 20px;cursor:pointer;font-weight:700;color:#c5d0de;font-size:16px;}
@@ -16383,7 +16455,7 @@ const _SBP_PRICE = () => ([
 SIM["sbp1"] = { start:"1", screens:{
   // 행사 정보 탭 — 기준 화면
   "1":{img:"images/사업장상품관리- 행사정보.png",
-    btns:[{pdaFab:true,pdaKey:"price",pdaLabel:"PDA로<br>판매가<br>수정하기",x:79.3,y:66.9,w:14,h:19.8},
+    btns:[{pdaFab:true,pdaKey:"price",pdaLabel:"PDA로<br>판매가<br>수정하기",x:79.3,y:66.9,w:14,h:19.8},{pdaFab:true,pdaKey:"price",pdaLabel:"PDA로<br>판매가<br>수정하기",x:79.3,y:66.9,w:14,h:19.8},
       ..._SBP_TOOL(false, false),
       ..._SBP_GRID(false, false),
       ..._SBP_TABPANEL(),
@@ -18386,7 +18458,7 @@ DESCS["sop1"] = [
 ];
 SIM["sop1"] = { start:"1", screens:{
   "1":{img:"images/발주계획입력-1.png",
-    btns:[{pdaFab:true,pdaKey:"plan",pdaLabel:"PDA로<br>발주계획<br>등록하기",x:79.3,y:66.9,w:14,h:19.8},
+    btns:[{pdaFab:true,pdaKey:"plan",pdaLabel:"PDA로<br>발주계획<br>등록하기",x:79.3,y:66.9,w:14,h:19.8},{pdaFab:true,pdaKey:"plan",pdaLabel:"PDA로<br>발주계획<br>등록하기",x:79.3,y:66.9,w:14,h:19.8},
       {x:7.1,  y:6.7,  w:6.8,  h:2.8, lite:true, tip:"현재 <b>발주계획 입력</b> 화면입니다 (매입관리 &gt; 발주계획 입력)."},
       {x:0.1,  y:16.7, w:3.5,  h:2.7, plain:true, tip:"<b>HOME</b> 탭을 클릭하면 프로그램 시작 화면으로 돌아갑니다."},
       {x:3.7,  y:16.7, w:7.7,  h:2.7, plain:true, tip:"현재 열려 있는 <b>발주계획 입력</b> 탭이며 <b>⊗</b>를 클릭하면 닫힙니다."},
@@ -18973,7 +19045,7 @@ DESCS["spu1"] = [
 ];
 SIM["spu1"] = { start:"1", screens:{
   "1":{img:"images/매입등록-1.png",
-    btns:[{pdaFab:true,x:79.3,y:66.9,w:14,h:19.8},
+    btns:[{pdaFab:true,x:79.3,y:66.9,w:14,h:19.8},{pdaFab:true,x:79.3,y:66.9,w:14,h:19.8},
       {x:18.9, y:6.2,  w:6.2, h:2.8, lite:true, tip:"현재 <b>매입 등록</b> 화면입니다 (매입관리 &gt; 매입관리)."},   // 리본 카테고리
       // ── 상단 탭 (y172~199) ──
       {x:0.1,  y:16.7, w:3.5,  h:2.7, plain:true, tip:"<b>HOME</b> 탭을 클릭하면 프로그램 시작 화면으로 돌아갑니다."},
@@ -19136,7 +19208,7 @@ DESCS["sru1"] = [
 ];
 SIM["sru1"] = { start:"1", screens:{
   "1":{img:"images/매입반품등록-1.png",
-    btns:[{pdaFab:true,pdaKey:"ret",pdaLabel:"PDA로<br>매입반품<br>등록하기",x:79.3,y:66.9,w:14,h:19.8},
+    btns:[{pdaFab:true,pdaKey:"ret",pdaLabel:"PDA로<br>매입반품<br>등록하기",x:79.3,y:66.9,w:14,h:19.8},{pdaFab:true,pdaKey:"ret",pdaLabel:"PDA로<br>매입반품<br>등록하기",x:79.3,y:66.9,w:14,h:19.8},
       // ── 리본 (매입관리 > 매입관리 그룹) ──
       {x:24.9, y:6,    w:8.8,  h:3.3, lite:true, tip:"현재 <b>매입 반품 등록</b> 화면입니다 (매입관리 &gt; 매입 반품 등록)."},
       // ── 상단 탭 (y172~199) ──
@@ -28048,6 +28120,7 @@ function simOverlayHTML(pg, sid) {
       h += `<div class="sim-callout${b.calloutHover?' hovswap':''}${cact?'':' noact'}${b.tailR?' tail-r':''}" style="left:${b.x}%;top:${b.y + (b.h||0)/2}%;"${cact?` onclick="${cact}"`:''}>${cbody}</div>`; return;
     }
     if (b.pdaFab) { const _pl=b.pdaLabel||"PDA로<br>매입등록하기"; h += `<div class="pda-fab" data-pk="${b.pdaKey||''}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;" onclick="event.stopPropagation();pdaOpen(this.dataset.pk)"><div class="pda-fab-circle"><div class="pda-fab-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.4"/><line x1="10" y1="18.6" x2="14" y2="18.6"/></svg></div><div class="pda-fab-txt">${_pl}</div></div></div>`; return; }
+    if (b.pdaFab) { const _pl=b.pdaLabel||"PDA로<br>매입등록하기"; h += `<div class="pda-fab" data-pk="${b.pdaKey||''}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;" onclick="event.stopPropagation();pdaOpen(this.dataset.pk)"><div class="pda-fab-circle"><div class="pda-fab-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.4"/><line x1="10" y1="18.6" x2="14" y2="18.6"/></svg></div><div class="pda-fab-txt">${_pl}</div></div></div>`; return; }
     if (b.pic) { h += `<div class="sim-pic" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;"><img src="${b.pic}" alt=""></div>`; return; }
     if (b.badge) { h += `<div class="sim-badge${b.yellow?' yellow':''}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;">${b.badge}</div>`; return; }
     if (b.dot) { h += `<div class="sim-dot" style="left:${b.x}%;top:${b.y + b.h/2}%;height:${b.h}%;">${b.dot}</div>`; return; }
@@ -29504,6 +29577,114 @@ function pdaRender(){var c=PDA_CONTENT[pdaCur];document.getElementById('pdaBody'
 function pdaNav(d){var c=PDA_CONTENT[pdaCur];pdaIdx=Math.max(0,Math.min(c.pages.length-1,pdaIdx+d));pdaRender();}
 function pdaGoto(i){pdaIdx=i;pdaRender();}
 function pdaClose(){document.getElementById('pdaBack').classList.remove('on');}
+document.addEventListener('DOMContentLoaded',function(){document.getElementById('pdaBack').addEventListener('click',function(e){if(e.target.id==='pdaBack')pdaClose();});document.addEventListener('keydown',function(e){if(!document.getElementById('pdaBack').classList.contains('on'))return;if(e.key==='Escape')pdaClose();if(document.getElementById('pdaView').classList.contains('on')){if(e.key==='ArrowLeft')pdaNav(-1);if(e.key==='ArrowRight')pdaNav(1);}});});
+</script>
+
+
+<!-- ═══ PDA 매입등록 오버레이 ═══ -->
+<div class="pda-back" id="pdaBack">
+  <div class="pda-choice" id="pdaChoice">
+    <div class="pda-choice-btn" onclick="pdaPick('buy')"><div class="pda-choice-ico">🧾</div><div class="pda-choice-t">PDA 매입등록</div><div class="pda-choice-s">바코드 스캔으로 매입 등록</div></div>
+    <div class="pda-choice-btn" onclick="pdaPick('batch')"><div class="pda-choice-ico">📚</div><div class="pda-choice-t">PDA 일괄매입등록</div><div class="pda-choice-s">연속 스캔 · 매입처 자동</div></div>
+  </div>
+  <div class="pda-view" id="pdaView">
+    <div class="pda-vhead"><h3 id="pdaTitle">📱 PDA</h3><div style="display:flex;align-items:center"><button class="pda-min" onclick="pdaMin()" title="아래로 내려두기">▼</button><button class="pda-x" onclick="pdaClose()">✕</button></div></div>
+    <div class="pda-body" id="pdaBody"></div>
+    <div class="pda-foot"><button class="pda-arrow" id="pdaPrev" onclick="pdaNav(-1)">‹ 이전</button><div class="pda-dots" id="pdaDots"></div><button class="pda-arrow" id="pdaNext" onclick="pdaNav(1)">다음 ›</button></div>
+  </div>
+</div>
+<div class="pda-restore" id="pdaRestore" onclick="pdaUp()" title="다시 올리기"><span>📱</span><span id="pdaRestoreT">PDA</span><b>▲</b></div>
+<script>
+const PDA_CONTENT = {
+ price: { title:"📱 PDA로 판매가 수정하기", pages:[
+  `<p class="pda-h">매장상품정보 — 스캔 한 번으로 확인·수정</p>
+   <div class="pda-cols">
+   <div class="pda-col imgcol"><img src="images/판매가수정.png" class="pda-img" alt="매장상품정보"></div>
+   <div class="pda-col">
+   <p style="font-weight:800;color:#eaf0f8;font-size:16px;margin:0 0 10px">이 화면에서 바로 할 수 있는 것</p>
+   <ul class="pda-steps">
+   <li><span class="pda-sn">1</span><div><div class="pda-st">매입/판매 상태 토글</div><div class="pda-sd">가능↔중지를 누르는 즉시 저장됩니다. 매입 중지 상품은 매입 화면에서 스캔이 차단됩니다.</div></div></li>
+   <li><span class="pda-sn">2</span><div><div class="pda-st" style="color:#38bdf8">매입가·판매가 수정</div><div class="pda-sd">금액 영역을 탭하면 수정 창이 열립니다 (<b>권한 필요</b>). 저장하면 <b>POS에도 실시간 반영</b>됩니다.</div></div></li>
+   <li><span class="pda-sn">3</span><div><div class="pda-st">매대 위치</div><div class="pda-sd">위치를 탭하면 최대/안전/최소재고를 수정할 수 있습니다. 매입처가 없으면 <b>[매입처 지정]</b> 버튼으로 바로 지정됩니다.</div></div></li>
+   </ul>
+   </div></div>`,
+ ]},
+ buy: { title:"📱 PDA 매입등록", pages:[
+  `<p class="pda-h">매입 · 입고 — 매입입고관리</p>
+   <div class="pda-flow"><span>신규등록</span><i>→</i><span>매입처 선택</span><i>→</i><span>상품 스캔</span><i>→</i><span>단가·수량 확인</span><i>→</i><span>등록(저장)</span><i>→</i><span class="done">매입확정</span></div>
+   <div class="pda-cols">
+   <div class="pda-col imgcol"><img src="images/매입입고관리.png" class="pda-img" alt="매입입고관리"></div>
+   <div class="pda-col">
+   <p style="font-weight:800;color:#eaf0f8;font-size:16px;margin:0 0 10px">목록 화면 구성</p>
+   <ul class="pda-steps">
+   <li><span class="pda-sn">1</span><div><div class="pda-st">매입 전표 카드</div><div class="pda-sd">작성 중인 매입 건. 문서번호·매입처·수량/합계·매입일을 확인합니다.</div></div></li>
+   <li><span class="pda-sn">2</span><div><div class="pda-st">카드 버튼</div><div class="pda-sd">취소(전표 취소)·수정(상품 추가/변경)·금액확인(합계 검토)·<b>매입확정</b>(재고 반영 확정).</div></div></li>
+   <li><span class="pda-sn">3</span><div><div class="pda-st">검수입고</div><div class="pda-sd">발주서 바코드(11로 시작)를 스캔해 발주 수량과 실수령 수량을 비교하며 입고합니다.</div></div></li>
+   <li><span class="pda-sn">4</span><div><div class="pda-st">신규등록</div><div class="pda-sd">새 매입 전표 작성 시작.</div></div></li>
+   </ul>
+   </div></div>`,
+  `<p class="pda-h">매입 등록하기</p>
+   <ul class="pda-steps">
+   <li><span class="pda-sn">1</span><div><div class="pda-st">[신규등록]을 누릅니다</div><div class="pda-sd">매입입고등록 화면이 열립니다.</div></div></li>
+   <li><span class="pda-sn">2</span><div><div class="pda-st">[매입처] 버튼으로 매입처를 선택합니다</div><div class="pda-sd">선택하지 않고 스캔하면 <b>"매입처를 먼저 선택해주세요"</b> 안내가 뜹니다.</div></div></li>
+   <li><span class="pda-sn">3</span><div><div class="pda-st">상품 바코드를 스캔합니다</div><div class="pda-sd">스캔 즉시 <b>상품정보 창</b>이 열립니다. 같은 상품을 다시 스캔하면 수량이 자동 +1.</div></div></li>
+   <li><span class="pda-sn">4</span><div><div class="pda-st">단가와 수량을 확인·수정하고 [확인]</div><div class="pda-sd">다음 장의 <b>상품정보 창</b> 설명 참고.</div></div></li>
+   <li><span class="pda-sn">5</span><div><div class="pda-st">모든 상품 스캔 후 [등록]을 누릅니다</div><div class="pda-sd">매입일 · 매입처 담당자 · 비고 입력 창이 열립니다. 무상지원 여부도 여기서 체크.</div></div></li>
+   <li><span class="pda-sn">6</span><div><div class="pda-st">저장 후 목록에서 [매입확정]</div><div class="pda-sd"><b>확정해야 재고에 반영</b>됩니다.</div></div></li>
+   </ul>`,
+  `<p class="pda-h">상품정보 창</p>
+   <div class="pda-cols">
+   <div class="pda-col imgcol"><img src="images/상품정보창.png" class="pda-img" alt="상품정보 창"></div>
+   <div class="pda-col">
+   <p style="font-weight:800;color:#eaf0f8;font-size:16px;margin:0 0 10px">필드 설명</p>
+   <ul class="pda-steps">
+   <li><span class="pda-sn">1</span><div><div class="pda-st">매입단가</div><div class="pda-sd">수정하면 합계·마진율이 자동 재계산됩니다.</div></div></li>
+   <li><span class="pda-sn">2</span><div><div class="pda-st">수량</div><div class="pda-sd">단위가 BOX(10)이면 총 수량은 10개 단위로 계산됩니다.</div></div></li>
+   <li><span class="pda-sn">3</span><div><div class="pda-st">판매단가·마진율</div><div class="pda-sd">한쪽을 바꾸면 다른 쪽이 자동 계산됩니다.</div></div></li>
+   <li><span class="pda-sn">4</span><div><div class="pda-st">유효일·로트번호</div><div class="pda-sd">의약품 QR 스캔 시 자동 입력, 직접 수정도 가능.</div></div></li>
+   </ul>
+   </div></div>
+   <div class="pda-warn"><div class="wt">수정칸이 회색으로 잠겨 있나요?</div><div class="wd">매입단가·판매단가 수정은 <b>관리자가 부여한 권한</b>이 있어야 합니다.</div></div>
+   <div class="pda-warn"><div class="wt">"매입이 중지된 상품입니다"</div><div class="wd">매입 중지로 설정된 상품은 스캔해도 담기지 않습니다. 매장상품정보에서 매입 상태를 <b>가능</b>으로 바꾼 뒤 다시 스캔하세요.</div></div>`
+ ]},
+ batch: { title:"📱 PDA 일괄매입등록", pages:[
+  `<p class="pda-h">일괄매입관리</p>
+   <div class="pda-flow"><span>일괄매입등록</span><i>→</i><span>상품 연속 스캔</span><i>→</i><span>매입처 자동 매핑</span><i>→</i><span>수량·매입가 확인</span><i>→</i><span>등록</span><i>→</i><span class="done">작성완료</span></div>
+   <div class="pda-intro">매입처를 골라가며 등록할 필요 없이 <b>상품을 연속으로 스캔</b>하면 상품마다 등록된 기본 매입처가 자동으로 붙습니다. 이후 <b>매입처별로 매입이 나뉘는</b> 구조입니다.</div>
+   <p style="font-weight:800;color:#eaf0f8;font-size:16px;margin:18px 0 9px">상세 안내</p>
+   <table class="pda-tbl">
+   <tr><th style="width:132px">항목</th><th>내용</th></tr>
+   <tr><td class="k">매입처 자동 표시</td><td>스캔한 상품 카드에 🏭 <span class="pda-hl">매입처명</span>이 자동 표시됩니다. 매입처가 없는 상품은 <span class="pda-hl">매입처 지정 창</span>이 떠서 바로 지정합니다.</td></tr>
+   <tr><td class="k">수량·매입가 수정</td><td>상품을 탭하면 상품정보 창에서 <span class="pda-hl">수량과 매입가</span>를 수정할 수 있습니다. <b>(판매단가·마진율은 이 화면에서 잠금)</b></td></tr>
+   <tr><td class="k">등록</td><td>[등록] → <span class="pda-hl">입고예정일·입고부서·비고</span> 입력(제목: 일괄매입) → 저장하면 목록에 문서가 생성됩니다.</td></tr>
+   <tr><td class="k">목록 관리</td><td>카드의 <span class="pda-hl">취소 / 수정 / 작성완료</span> 버튼으로 관리. <b>작성완료</b> 시 해당 건의 작성이 종료됩니다.</td></tr>
+   </table>`
+ ]},
+ plan: { title:"📱 PDA 발주계획 등록", pages:[
+  `<p class="pda-h">발주계획관리 · 매입발주관리</p>
+   <div class="pda-flow"><span>발주계획서등록</span><i>→</i><span>상품 스캔·수량 입력</span><i>→</i><span>등록</span><i>→</i><span>발주서작성</span><i>→</i><span class="done">매입발주관리에서 조회</span></div>
+   <ul class="pda-steps">
+   <li><span class="pda-sn">1</span><div><div class="pda-st">발주계획관리에서 [발주계획서등록]</div><div class="pda-sd">상품을 스캔하면 매입처가 자동으로 붙습니다. 발주 단계에서는 단가가 잠기고 <b>수량만</b> 입력합니다.</div></div></li>
+   <li><span class="pda-sn">2</span><div><div class="pda-st">[등록]에서 입고예정일·입고부서 입력</div><div class="pda-sd">저장하면 목록에 발주계획 카드가 생성됩니다.</div></div></li>
+   <li><span class="pda-sn">3</span><div><div class="pda-st">카드의 [발주서작성]</div><div class="pda-sd">계획이 완료 처리되고 <b>발주서가 자동 생성</b>됩니다. 생성된 발주서는 매입발주관리에서 확인합니다.</div></div></li>
+   </ul>
+   <div class="pda-note"><div class="nt">발주서 바코드</div><div class="nd">발주서의 바코드를 <b>매입입고관리 → 검수입고</b>에서 스캔하면 발주 내용이 그대로 불러와져 입고 검수를 빠르게 할 수 있습니다.</div></div>`
+ ]},
+ ret: { title:"📱 PDA 매입반품 등록", pages:[
+  `<p class="pda-h">매입반품</p>
+   <div class="pda-flow"><span>반품등록</span><i>→</i><span>매입처 선택·상품 스캔</span><i>→</i><span>저장</span><i>→</i><span>회수요청</span><i>→</i><span class="done">반품완료</span></div>
+   <div class="pda-intro"><b>매입반품목록</b>에서 <b>[반품등록]</b>으로 시작하며, 등록 방법은 매입입고와 동일합니다(매입처 선택 → 스캔 → 수량 → 저장, 저장 창에서 <b>반품일</b> 입력). 저장된 반품 건은 카드의 <b>회수요청 → 반품완료</b> 순서로 처리합니다.</div>`
+ ]}
+};
+let pdaCur=null, pdaIdx=0;
+function pdaOpen(pk){document.getElementById('pdaRestore').classList.remove('on');var b=document.getElementById('pdaBack');b.classList.add('on');if(pk){document.getElementById('pdaChoice').style.display='none';pdaPick(pk);}else{document.getElementById('pdaChoice').style.display='flex';document.getElementById('pdaView').classList.remove('on');}}
+function pdaPick(t){pdaCur=t;pdaIdx=0;document.getElementById('pdaChoice').style.display='none';document.getElementById('pdaView').classList.add('on');document.getElementById('pdaTitle').textContent=PDA_CONTENT[t].title;pdaRender();}
+function pdaRender(){var c=PDA_CONTENT[pdaCur];document.getElementById('pdaBody').innerHTML=c.pages[pdaIdx];document.getElementById('pdaDots').innerHTML=c.pages.map(function(_,i){return '<button class="pda-dot '+(i===pdaIdx?'on':'')+'" onclick="pdaGoto('+i+')">'+(i+1)+'</button>';}).join('');document.getElementById('pdaPrev').disabled=pdaIdx===0;document.getElementById('pdaNext').disabled=pdaIdx===c.pages.length-1;document.getElementById('pdaBody').scrollTop=0;}
+function pdaNav(d){var c=PDA_CONTENT[pdaCur];pdaIdx=Math.max(0,Math.min(c.pages.length-1,pdaIdx+d));pdaRender();}
+function pdaGoto(i){pdaIdx=i;pdaRender();}
+function pdaClose(){document.getElementById('pdaBack').classList.remove('on');document.getElementById('pdaRestore').classList.remove('on');}
+function pdaMin(){document.getElementById('pdaBack').classList.remove('on');var t=(pdaCur&&PDA_CONTENT[pdaCur])?PDA_CONTENT[pdaCur].title.replace('📱','').trim():'PDA';document.getElementById('pdaRestoreT').textContent=t;document.getElementById('pdaRestore').classList.add('on');}
+function pdaUp(){document.getElementById('pdaRestore').classList.remove('on');document.getElementById('pdaBack').classList.add('on');}
 document.addEventListener('DOMContentLoaded',function(){document.getElementById('pdaBack').addEventListener('click',function(e){if(e.target.id==='pdaBack')pdaClose();});document.addEventListener('keydown',function(e){if(!document.getElementById('pdaBack').classList.contains('on'))return;if(e.key==='Escape')pdaClose();if(document.getElementById('pdaView').classList.contains('on')){if(e.key==='ArrowLeft')pdaNav(-1);if(e.key==='ArrowRight')pdaNav(1);}});});
 </script>
 
