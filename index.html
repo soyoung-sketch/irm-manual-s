@@ -24351,8 +24351,9 @@ DESCS["srst1"] = [
 
   {type:"step", num:"2", title:`🔢 제한수량 설정`, body:"목록의 <b>제한수량</b> 칸에 판매를 제한할 수량을 입력합니다."},
 
-  {type:"step", num:"3", title:`🚦 제한시작`, body:"제한할 상품을 선택하고 <span class='ui-btn'>제한시작</span> 버튼을 클릭하면 <b>제한 상품 제한 중</b> 탭으로 이동합니다.", subs:[
-    "담지 않을 상품이면 <span class='ui-btn'>취소</span> 버튼으로 취소 탭으로 보냅니다.",
+  {type:"step", num:"3", title:`🚦 제한시작`, body:"제한할 상품을 선택하고 <span class='ui-btn'>제한시작</span> 버튼을 클릭하면 🔗 <b class='dlink' onclick=\"goPage(2)\">제한 상품 제한 중</b> 탭으로 이동합니다.", subs:[
+    "담지 않을 상품이면 <span class='ui-btn'>취소</span> 버튼으로 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭으로 보냅니다.",
+    "<span class='ui-btn'>완료</span> 버튼은 선택한 상품을 🔗 <b class='dlink' onclick=\"goPage(3)\">완료</b> 탭으로 보냅니다.",
   ]},
 ];
 SIM["srst1"] = { start:"w", screens:{
@@ -24376,10 +24377,10 @@ SIM["srst1"] = { start:"w", screens:{
       {x:0.6,  y:24.2, w:6.0,  h:2.2, plain:true, notint:true, tip:"준비중 상태 상품이 <b>총 5건</b>입니다."},
       // ── 액션 버튼 줄 ──
       {x:64.1, y:23.3, w:7.4,  h:2.9, num:"1", numCorner:true, search:true, tip:"<b>상품추가</b> 버튼을 클릭해 관리할 상품을 선택합니다."},
-      {x:71.5, y:23.3, w:7.2,  h:2.9, plain:true, page:1, tip:"선택한 상품을 <b>취소</b>합니다(취소 탭으로 이동)."},
+      {x:71.5, y:23.3, w:7.2,  h:2.9, plain:true, tip:"선택한 상품을 <b>취소</b>합니다(취소 탭으로 이동)."},
       {x:80.5, y:23.3, w:7.1,  h:2.9, plain:true, tip:"선택한 상품을 <b>준비중</b> 상태로 되돌립니다."},
-      {x:87.7, y:23.3, w:5.9,  h:2.9, num:"3", numCorner:true, page:2, tip:"제한할 상품을 선택하고 <b>제한시작</b>으로 제한을 시작합니다(제한 상품 제한 중 탭으로 이동)."},
-      {x:93.6, y:23.3, w:5.7,  h:2.9, plain:true, page:3, tip:"선택한 상품을 <b>완료</b> 처리합니다(완료 탭으로 이동)."},
+      {x:87.7, y:23.3, w:5.9,  h:2.9, num:"3", numCorner:true, tip:"제한할 상품을 선택하고 <b>제한시작</b>으로 제한을 시작합니다(제한 상품 제한 중 탭으로 이동)."},
+      {x:93.6, y:23.3, w:5.7,  h:2.9, plain:true, tip:"선택한 상품을 <b>완료</b> 처리합니다(완료 탭으로 이동)."},
       // ── 좌측 결과내 재검색 ──
       {x:52.8, y:27.7, w:12.5, h:2.5, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 담은 상품 목록 안에서 다시 찾습니다."},
       {x:65.7, y:27.7, w:4.5,  h:2.5, plain:true, tip:"검색어를 입력하고 <b>찾기</b>를 클릭합니다."},
@@ -24402,7 +24403,7 @@ DESCS["srst1c"] = [
 
   {type:"bullet", title:`🗂️ 취소 상품 관리`, subs:[
     "취소한 상품 목록을 확인합니다.",
-    "다시 담으려면 상품을 선택해 <span class='ui-btn'>준비중으로</span> 버튼으로 준비중 탭으로 보냅니다.",
+    "다시 담으려면 상품을 선택해 <span class='ui-btn'>준비중으로</span> 버튼으로 🔗 <b class='dlink' onclick=\"goPage(0)\">준비중</b> 탭으로 보냅니다.",
   ]},
 ];
 SIM["srst1c"] = { start:"c", screens:{
@@ -24422,8 +24423,8 @@ SIM["srst1c"] = { start:"c", screens:{
       {x:0.6,  y:24.2, w:6.0,  h:2.2, plain:true, notint:true, tip:"취소한 상품이 <b>총 12건</b>입니다."},
       // ── 액션 버튼 줄 ──
       {x:64.1, y:23.3, w:7.4,  h:2.9, plain:true, tip:"<b>상품추가</b> 버튼으로 관리할 상품을 선택합니다."},
-      {x:71.5, y:23.3, w:7.2,  h:2.9, plain:true, page:1, tip:"선택한 상품을 <b>취소</b>합니다(취소 탭으로 이동)."},
-      {x:80.5, y:23.3, w:7.1,  h:2.9, plain:true, page:0, tip:"선택한 상품을 <b>준비중</b> 상태로 되돌립니다."},
+      {x:71.5, y:23.3, w:7.2,  h:2.9, plain:true, tip:"선택한 상품을 <b>취소</b>합니다(취소 탭으로 이동)."},
+      {x:80.5, y:23.3, w:7.1,  h:2.9, plain:true, tip:"선택한 상품을 <b>준비중</b> 상태로 되돌립니다."},
       {x:87.7, y:23.3, w:5.9,  h:2.9, plain:true, tip:"<b>제한시작</b>으로 판매 제한을 시작합니다."},
       {x:93.6, y:23.3, w:5.7,  h:2.9, plain:true, tip:"선택한 상품을 <b>완료</b> 처리합니다."},
       // ── 검색 + 목록 + 사업장 ──
@@ -24443,9 +24444,9 @@ IMGS["srst1r"] = "images/제한상품관리-제한상품제한중.png";
 DESCS["srst1r"] = [
   {type:"note", text:"제한이 <b>진행 중</b>인 상품 목록입니다. 준비중으로 되돌리거나 진행완료로 넘길 수 있습니다."},
 
-  {type:"step", num:"1", title:`↩️ 준비중으로 되돌리기`, body:"이동할 상품을 선택하고 <span class='ui-btn'>준비중으로</span> 버튼을 클릭하면 <b>준비중</b> 탭으로 돌아갑니다."},
+  {type:"step", num:"1", title:`↩️ 준비중으로 되돌리기`, body:"이동할 상품을 선택하고 <span class='ui-btn'>준비중으로</span> 버튼을 클릭하면 🔗 <b class='dlink' onclick=\"goPage(0)\">준비중</b> 탭으로 돌아갑니다."},
 
-  {type:"step", num:"2", title:`✅ 진행완료`, body:"이동할 상품을 선택하고 <span class='ui-btn'>진행완료</span> 버튼을 클릭하면 <b>완료</b> 탭으로 이동합니다."},
+  {type:"step", num:"2", title:`✅ 진행완료`, body:"이동할 상품을 선택하고 <span class='ui-btn'>진행완료</span> 버튼을 클릭하면 🔗 <b class='dlink' onclick=\"goPage(3)\">완료</b> 탭으로 이동합니다."},
 ];
 SIM["srst1r"] = { start:"r", screens:{
 
@@ -24464,10 +24465,10 @@ SIM["srst1r"] = { start:"r", screens:{
       {x:0.6,  y:24.2, w:6.0,  h:2.2, plain:true, notint:true, tip:"제한 중인 상품이 <b>총 5건</b>입니다."},
       // ── 액션 버튼 줄 ──
       {x:64.1, y:23.3, w:7.4,  h:2.9, plain:true, tip:"<b>상품추가</b> 버튼으로 관리할 상품을 선택합니다."},
-      {x:71.5, y:23.3, w:7.2,  h:2.9, plain:true, page:1, tip:"선택한 상품을 <b>취소</b>합니다(취소 탭으로 이동)."},
-      {x:80.5, y:23.3, w:7.1,  h:2.9, num:"1", numCorner:true, page:0, tip:"이동할 상품을 선택하고 <b>준비중으로</b> 버튼으로 준비중 탭으로 되돌립니다."},
+      {x:71.5, y:23.3, w:7.2,  h:2.9, plain:true, tip:"선택한 상품을 <b>취소</b>합니다(취소 탭으로 이동)."},
+      {x:80.5, y:23.3, w:7.1,  h:2.9, num:"1", numCorner:true, tip:"이동할 상품을 선택하고 <b>준비중으로</b> 버튼으로 준비중 탭으로 되돌립니다."},
       {x:87.7, y:23.3, w:5.9,  h:2.9, plain:true, tip:"<b>제한시작</b>으로 판매 제한을 시작합니다."},
-      {x:93.6, y:23.3, w:5.7,  h:2.9, num:"2", numCorner:true, page:3, tip:"이동할 상품을 선택하고 <b>진행완료</b> 버튼으로 완료 탭으로 넘깁니다."},
+      {x:93.6, y:23.3, w:5.7,  h:2.9, num:"2", numCorner:true, tip:"이동할 상품을 선택하고 <b>진행완료</b> 버튼으로 완료 탭으로 넘깁니다."},
       // ── 검색 + 목록 + 사업장 ──
       {x:52.8, y:27.7, w:12.5, h:2.5, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 목록 안에서 다시 찾습니다."},
       {x:65.7, y:27.7, w:4.5,  h:2.5, plain:true, tip:"검색어를 입력하고 <b>찾기</b>를 클릭합니다."},
@@ -24506,8 +24507,8 @@ SIM["srst1d"] = { start:"d", screens:{
       {x:0.6,  y:24.2, w:6.0,  h:2.2, plain:true, notint:true, tip:"완료된 상품이 <b>총 12건</b>입니다."},
       // ── 액션 버튼 줄 ──
       {x:64.1, y:23.3, w:7.4,  h:2.9, plain:true, tip:"<b>상품추가</b> 버튼으로 관리할 상품을 선택합니다."},
-      {x:71.5, y:23.3, w:7.2,  h:2.9, plain:true, page:1, tip:"선택한 상품을 <b>취소</b>합니다(취소 탭으로 이동)."},
-      {x:80.5, y:23.3, w:7.1,  h:2.9, plain:true, page:0, tip:"선택한 상품을 <b>준비중</b> 상태로 되돌립니다."},
+      {x:71.5, y:23.3, w:7.2,  h:2.9, plain:true, tip:"선택한 상품을 <b>취소</b>합니다(취소 탭으로 이동)."},
+      {x:80.5, y:23.3, w:7.1,  h:2.9, plain:true, tip:"선택한 상품을 <b>준비중</b> 상태로 되돌립니다."},
       {x:87.7, y:23.3, w:5.9,  h:2.9, plain:true, tip:"<b>제한시작</b>으로 판매 제한을 시작합니다."},
       {x:93.6, y:23.3, w:5.7,  h:2.9, plain:true, tip:"선택한 상품을 <b>완료</b> 처리합니다."},
       // ── 검색 + 목록 + 사업장 ──
