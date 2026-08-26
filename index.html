@@ -16795,7 +16795,7 @@ SIM["spr1"] = { start:"1", screens:{
     arrows:[
       {pts:[[43.3,28.6],[43.3,30.5],[46.4,30.5],[46.4,81.3],[56.7,81.3]]},
       {pts:[[63.2,26.1],[63.2,20.8],[23.9,20.8],[23.9,23.1]]},
-      {pts:[[62.2,32.1],[62.2,41.9]], w:2, dash:true},
+      {pts:[[62.2,32.1],[62.2,41.9]], w:2, dash:"dot"},
     ],
     btns:[
       {x:4.2,  y:6.0,  w:7.3,  h:2.7,  lite:true},   // 리본 메뉴 위치 (상품관리 > 상품등록)
@@ -28161,7 +28161,7 @@ function _subLi(s) {
   return `<li${c ? ` class="${c}"` : ''}>${t}</li>`;
 }
 function simPolyArrowHTML(a) {
-  const pts = a.pts, w = a.w || 3, hs = a.hs || 9, ds = a.dash ? 'dashed' : 'solid', head = a.head || 'end';
+  const pts = a.pts, w = a.w || 3, hs = a.hs || 9, ds = a.dash === 'dot' ? 'dotted' : a.dash ? 'dashed' : 'solid', head = a.head || 'end';
   const col = a.color || (a.yellow ? '#f59e0b' : a.gray ? '#4b5460' : a.blue ? '#2563eb' : '#e2241a');
   let h = '';
   for (let i = 0; i < pts.length - 1; i++) {
