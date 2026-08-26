@@ -7680,8 +7680,8 @@ const DESCS = {
       "<span class='ui-btn'>검색</span> 버튼을 클릭하면 <b>작성중 전표 목록</b>이 표시됩니다.",
     ]},
     {type:"step", num:"3", title:"✅ 마감대기 처리", subs:[
-      "전표를 선택한 후 <span class='ui-btn'>마감대기</span> 버튼을 누르면 <b>마감대기</b> 탭으로 이동합니다.",
-      "<span class='ui-btn'>취소</span> 버튼을 누르면 전표가 <b>취소</b> 탭으로 이동합니다.",
+      "전표를 선택한 후 <span class='ui-btn'>마감대기</span> 버튼을 누르면 🔗 <b class='dlink' onclick=\"goPage(2)\">마감대기</b> 탭으로 이동합니다.",
+      "<span class='ui-btn'>취소</span> 버튼을 누르면 전표가 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭으로 이동합니다.",
       "<span class='ui-btn'>상세정보</span> 버튼으로 전표의 <b>상세 내역</b>을 확인할 수 있습니다.",
     ]},
   ],
@@ -7695,16 +7695,16 @@ const DESCS = {
   "8oc5c": [
     {type:"note", text:"<b>마감대기</b> 탭에서는 마감대기 상태의 전표를 확인하고 <b>마감완료</b> 처리할 수 있습니다."},
     {type:"step", num:"1", title:"✅ 마감완료 처리", subs:[
-      "전표를 선택한 후 <span class='ui-btn'>마감완료</span> 버튼을 누르면 <b>마감완료</b> 탭으로 이동합니다.",
-      "<span class='ui-btn'>지급안함</span> 버튼을 누르면 전표가 <b>지급안함</b> 탭으로 이동합니다.",
-      "<span class='ui-btn'>취소</span> 버튼을 누르면 전표가 <b>취소</b> 탭으로 이동합니다.",
+      "전표를 선택한 후 <span class='ui-btn'>마감완료</span> 버튼을 누르면 🔗 <b class='dlink' onclick=\"goPage(4)\">마감완료</b> 탭으로 이동합니다.",
+      "<span class='ui-btn'>지급안함</span> 버튼을 누르면 전표가 🔗 <b class='dlink' onclick=\"goPage(3)\">지급안함</b> 탭으로 이동합니다.",
+      "<span class='ui-btn'>취소</span> 버튼을 누르면 전표가 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭으로 이동합니다.",
     ]},
   ],
   "8oc5d": [
     {type:"note", text:"<b>지급안함</b> 탭에서는 지급안함 처리된 전표를 조회합니다."},
     {type:"step", num:"1", title:"🔍 지급안함 전표 확인", subs:[
       "지급안함 처리된 전표의 <b>매입처 기본정보·매출금액·지급금액</b>을 확인합니다.",
-      "<span class='ui-btn'>취소</span> 버튼을 누르면 전표가 <b>취소</b> 탭으로 이동합니다.",
+      "<span class='ui-btn'>취소</span> 버튼을 누르면 전표가 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭으로 이동합니다.",
     ]},
   ],
   "8oc5e": [
@@ -8674,7 +8674,7 @@ const DESCS = {
       "조회된 재고조정 문서 목록에서 <b>전표번호·사업장·담당자·제목·진행상태</b> 등을 확인합니다.",
     ]},
     {type:"step", num:"2", title:`✅ 승인대기`, subs:[
-      "<span class='ui-btn'>▶ 승인대기</span> 버튼을 누르면 선택 문서의 <b>승인을 요청</b>하고 <b>승인대기</b> 탭으로 이동합니다.",
+      "<span class='ui-btn'>▶ 승인대기</span> 버튼을 누르면 선택 문서의 <b>승인을 요청</b>하고 🔗 <b class='dlink' onclick=\"goPage(2)\">승인대기</b> 탭으로 이동합니다.",
     ]},
     {type:"bullet", title:`문서 처리`, subs:[
       "<span class='ui-btn'>🖨 인쇄</span> : 정보를 인쇄물로 출력할 수 있습니다.",
@@ -8689,7 +8689,7 @@ const DESCS = {
     ]},
     {type:"bullet", title:`문서 처리`, subs:[
       "<span class='ui-btn'>🖨 인쇄</span> : 정보를 인쇄물로 출력할 수 있습니다.",
-      "<span class='ui-btn'>◀ 조정입력</span> : 이전 단계인 작성중으로 되돌릴 수 있습니다.",
+      "<span class='ui-btn'>◀ 조정입력</span> : 이전 단계인 🔗 <b class='dlink' onclick=\"goPage(0)\">작성중</b>으로 되돌릴 수 있습니다.",
       "<span class='ui-btn'>✎ 수정</span> : 문서를 수정할 수 있습니다.",
     ]},
   ],
@@ -8699,13 +8699,13 @@ const DESCS = {
       "승인 대기 중인 재고조정 문서 목록에서 <b>전표번호·사업장·담당자·제목·진행상태</b> 등을 확인합니다.",
     ]},
     {type:"step", num:"2", title:`📋 조정완료`, subs:[
-      "<span class='ui-btn'>✔ 조정완료</span> 버튼을 누르면 조정을 <b>확정</b>하고 조정완료 탭으로 이동합니다.",
+      "<span class='ui-btn'>✔ 조정완료</span> 버튼을 누르면 조정을 <b>확정</b>하고 🔗 <b class='dlink' onclick=\"goPage(3)\">조정완료</b> 탭으로 이동합니다.",
     ]},
     {type:"bullet", title:`문서 처리`, subs:[
       "<span class='ui-btn'>🖨 인쇄</span> : 정보를 인쇄물로 출력할 수 있습니다.",
-      "<span class='ui-btn'>◀ 조정입력</span> : 이전 단계인 작성중으로 되돌릴 수 있습니다.",
+      "<span class='ui-btn'>◀ 조정입력</span> : 이전 단계인 🔗 <b class='dlink' onclick=\"goPage(0)\">작성중</b>으로 되돌릴 수 있습니다.",
       "<span class='ui-btn'>✎ 수정</span> : 문서를 수정할 수 있습니다.",
-      "<span class='ui-btn'>✔ 취소</span> : 문서를 취소 단계로 이동시킬 수 있습니다.",
+      "<span class='ui-btn'>✔ 취소</span> : 문서를 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 단계로 이동시킬 수 있습니다.",
     ]},
   ],
   "9ja2d": [
@@ -11267,8 +11267,8 @@ const SIM = {
               {x:87, y:10.3, w:7, h:3.1, yellow:true, to:"pm", toggle:true, tip:"<span class='ui-btn'>매입처선택</span> 버튼으로 조회할 <b>입점사</b>를 지정합니다."},
               {x:93.9, y:10.2, w:5.6, h:3.1, num:"2", tip:"<span class='ui-btn'>검색</span> 버튼을 클릭하면 <b>작성중 전표 목록</b>이 표시됩니다."},
               {x:17.1, y:32.9, w:82.1, h:2.4, lite:true},
-              {x:80.9, y:20.9, w:6.1, h:3.4, num:"3", page:2, tip:"전표 선택 후 <span class='ui-btn'>마감대기</span> 버튼을 누르면 <b>마감대기</b> 탭으로 이동합니다."},
-              {x:87, y:21, w:6.2, h:3.1, yellow:true, page:1, tip:"<span class='ui-btn'>취소</span> 버튼을 누르면 전표가 <b>취소</b> 탭으로 이동합니다."},
+              {x:80.9, y:20.9, w:6.1, h:3.4, num:"3", tip:"전표 선택 후 <span class='ui-btn'>마감대기</span> 버튼을 누르면 <b>마감대기</b> 탭으로 이동합니다."},
+              {x:87, y:21, w:6.2, h:3.1, yellow:true, tip:"<span class='ui-btn'>취소</span> 버튼을 누르면 전표가 <b>취소</b> 탭으로 이동합니다."},
               {x:93.3, y:20.9, w:6.1, h:3.2, yellow:true, to:"pd", tip:"<span class='ui-btn'>상세정보</span> 버튼으로 전표의 <b>상세 내역</b>을 확인합니다."},
             ]},
             "pm": {img:"images/수수료매출마감조회-작성중-매입처선택.png", win:{x:17, y:25.4, w:82.4},
@@ -11295,8 +11295,8 @@ const SIM = {
               {x:55.6, y:9.3, w:24.9, h:11.8, num:"1", notint:true, tip:"<b>사업장·담당자·시작일·종료일</b>을 지정합니다."},
               {x:87, y:10.3, w:7, h:3.1, yellow:true, to:"pm", toggle:true, tip:"<span class='ui-btn'>매입처선택</span> 버튼으로 조회할 <b>입점사</b>를 지정합니다."},
               {x:93.9, y:10.2, w:5.6, h:3.1, num:"2", tip:"<span class='ui-btn'>검색</span> 버튼을 클릭하면 <b>작성중 전표 목록</b>이 표시됩니다."},
-              {x:80.9, y:20.9, w:6.1, h:3.4, num:"3", page:2, tip:"전표 선택 후 <span class='ui-btn'>마감대기</span> 버튼을 누르면 <b>마감대기</b> 탭으로 이동합니다."},
-              {x:87, y:21, w:6.2, h:3.1, yellow:true, page:1, tip:"<span class='ui-btn'>취소</span> 버튼을 누르면 전표가 <b>취소</b> 탭으로 이동합니다."},
+              {x:80.9, y:20.9, w:6.1, h:3.4, num:"3", tip:"전표 선택 후 <span class='ui-btn'>마감대기</span> 버튼을 누르면 <b>마감대기</b> 탭으로 이동합니다."},
+              {x:87, y:21, w:6.2, h:3.1, yellow:true, tip:"<span class='ui-btn'>취소</span> 버튼을 누르면 전표가 <b>취소</b> 탭으로 이동합니다."},
               {x:93.3, y:20.9, w:6.1, h:3.2, yellow:true, to:"1", tip:"<span class='ui-btn'>상세정보</span> 버튼을 다시 누르면 목록 화면으로 돌아갑니다."},
               {x:16.9, y:32.8, w:39.7, h:2.2, lite:true},
               {x:57.4, y:29.4, w:42, h:2.6, lite:true},
@@ -11310,9 +11310,9 @@ const SIM = {
               {x:35.9, y:6.6, w:6.2, h:2.8, plain:true, page:3},
               {x:42.1, y:6.6, w:6.3, h:2.8, plain:true, page:4},
               {x:17.2, y:32.9, w:82, h:2.3, lite:true},
-              {x:81.1, y:21.2, w:6.1, h:3.1, num:"1", page:4, tip:"전표 선택 후 <span class='ui-btn'>마감완료</span> 버튼을 누르면 <b>마감완료</b> 탭으로 이동합니다."},
-              {x:75, y:21.3, w:6.1, h:2.9, plain:true, page:3, tip:"<span class='ui-btn'>지급안함</span> 버튼을 누르면 전표가 <b>지급안함</b> 탭으로 이동합니다."},
-              {x:87.1, y:21.2, w:6.3, h:3.1, plain:true, page:1, tip:"<span class='ui-btn'>취소</span> 버튼을 누르면 전표가 <b>취소</b> 탭으로 이동합니다."},
+              {x:81.1, y:21.2, w:6.1, h:3.1, num:"1", tip:"전표 선택 후 <span class='ui-btn'>마감완료</span> 버튼을 누르면 <b>마감완료</b> 탭으로 이동합니다."},
+              {x:75, y:21.3, w:6.1, h:2.9, plain:true, tip:"<span class='ui-btn'>지급안함</span> 버튼을 누르면 전표가 <b>지급안함</b> 탭으로 이동합니다."},
+              {x:87.1, y:21.2, w:6.3, h:3.1, plain:true, tip:"<span class='ui-btn'>취소</span> 버튼을 누르면 전표가 <b>취소</b> 탭으로 이동합니다."},
             ]} } },
   // 매장관리Ⅱ · 수수료 매출 마감 조회 — 취소/지급안함/마감완료
   "8oc5b": { start:"1", cat:{x:5.3, y:41.8, w:11, h:2.3}, screens:{ "1":{img:"images/수수료매출마감조회-취소.png", btns:[
@@ -11330,7 +11330,7 @@ const SIM = {
               {x:35.9, y:6.6, w:6.2, h:2.8, plain:true, page:3},
               {x:42.1, y:6.6, w:6.3, h:2.8, plain:true, page:4},
               {x:17.2, y:32.9, w:82, h:2.3, lite:true, num:"1", tip:"지급안함 처리된 전표의 <b>매출금액·지급금액</b>을 확인합니다."},
-              {x:87.2, y:21.1, w:6.2, h:3.2, plain:true, page:1, tip:"<span class='ui-btn'>취소</span> 버튼을 누르면 전표가 <b>취소</b> 탭으로 이동합니다."},
+              {x:87.2, y:21.1, w:6.2, h:3.2, plain:true, tip:"<span class='ui-btn'>취소</span> 버튼을 누르면 전표가 <b>취소</b> 탭으로 이동합니다."},
             ]} } },
   "8oc5e": { start:"1", cat:{x:5.3, y:41.8, w:11, h:2.3}, screens:{ "1":{img:"images/수수료매출마감조회-마감완료.png", btns:[
               {x:17.2, y:6.6, w:6.0, h:2.8, plain:true, page:0},
@@ -12830,7 +12830,7 @@ const SIM = {
                 {x:36.3, y:6.5, w:6.0, h:3.0, plain:true, page:3, tip:"조정 완료된 문서를 <b>조회</b>합니다."},
                 {x:17.3, y:21.1, w:82.1, h:2.2, num:"1", numCorner:true, tip:"<b>전표번호·사업장·담당자·제목·진행상태</b> 등을 확인합니다."},
                 {x:74.9, y:9.9, w:6.0, h:2.8, plain:true, to:"print", toggle:true, tip:"선택 문서의 재고조정 보고서를 미리 보고 <b>인쇄</b>할 수 있습니다."},
-                {x:81.0, y:9.9, w:6.2, h:2.8, num:"2", numCorner:true, page:2, tip:"선택 문서의 승인을 요청하면 <b>승인대기</b> 탭으로 이동합니다."},
+                {x:81.0, y:9.9, w:6.2, h:2.8, num:"2", numCorner:true, tip:"선택 문서의 승인을 요청하면 <b>승인대기</b> 탭으로 이동합니다."},
                 {x:87.2, y:9.9, w:6.1, h:2.8, plain:true, page:4, tip:"선택 문서를 <b>수정</b>합니다."},
                 {x:93.2, y:9.9, w:6.0, h:2.8, plain:true, page:1, tip:"선택 문서를 취소하면 <b>취소</b> 탭으로 이동합니다."},
               ]},
@@ -12852,7 +12852,7 @@ const SIM = {
                 {x:36.3, y:6.5, w:6.0, h:3.0, plain:true, page:3, tip:"조정완료"},
                 {x:16.9, y:21.0, w:82.6, h:2.5, num:"1", numCorner:true, tip:"취소된 문서를 <b>확인</b>합니다."},
                 {x:74.2, y:10.0, w:5.9, h:2.9, plain:true, to:"print", toggle:true, tip:"선택 문서의 재고조정 보고서를 미리 보고 <b>인쇄</b>할 수 있습니다."},
-                {x:80.1, y:10.2, w:6.9, h:2.6, plain:true, page:0, tip:"<b>작성중</b> 상태로 되돌립니다."},
+                {x:80.1, y:10.2, w:6.9, h:2.6, plain:true, tip:"<b>작성중</b> 상태로 되돌립니다."},
                 {x:87.1, y:9.8, w:6.3, h:3.0, plain:true, page:4, tip:"선택 문서를 <b>수정</b>합니다."},
               ]},
       "print": {img:"images/재고조정조회-작성중-인쇄.png", win:{x:30.8, y:15.2, w:50.3}, btns:[
@@ -12872,10 +12872,10 @@ const SIM = {
                 {x:36.3, y:6.5, w:6.0, h:3.0, plain:true, page:3, tip:"조정완료"},
                 {x:16.9, y:21.0, w:82.6, h:2.5, num:"1", numCorner:true, tip:"승인 대기 중인 문서를 <b>확인</b>합니다."},
                 {x:67.4, y:9.7, w:5.7, h:3.1, plain:true, to:"print", toggle:true, tip:"선택 문서의 재고조정 보고서를 미리 보고 <b>인쇄</b>할 수 있습니다."},
-                {x:73.2, y:9.7, w:7.2, h:3.1, plain:true, page:0, tip:"<b>작성중</b> 상태로 되돌립니다."},
-                {x:80.4, y:9.8, w:6.8, h:3.1, num:"2", numCorner:true, page:3, tip:"조정을 확정하면 <b>조정완료</b> 탭으로 이동합니다."},
+                {x:73.2, y:9.7, w:7.2, h:3.1, plain:true, tip:"<b>작성중</b> 상태로 되돌립니다."},
+                {x:80.4, y:9.8, w:6.8, h:3.1, num:"2", numCorner:true, tip:"조정을 확정하면 <b>조정완료</b> 탭으로 이동합니다."},
                 {x:87.1, y:9.8, w:6.3, h:3.0, plain:true, page:4, tip:"선택 문서를 <b>수정</b>합니다."},
-                {x:93.4, y:9.8, w:6.0, h:3.0, plain:true, page:1, tip:"선택 문서를 <b>취소</b>합니다."},
+                {x:93.4, y:9.8, w:6.0, h:3.0, plain:true, tip:"선택 문서를 <b>취소</b>합니다."},
               ]},
       "print": {img:"images/재고조정조회-작성중-인쇄.png", win:{x:30.8, y:15.2, w:50.3}, btns:[
                 {x:18.0, y:10.7, w:4.9, h:6.6, lite:true, close:true, tip:"실제로 누르면 재고조정 보고서가 <b>인쇄</b>됩니다."},
@@ -13101,7 +13101,7 @@ const SIM = {
       "1": {img:"images/직거래판매가조회-작성중.png",
               btns:[
                 {x:68.1, y:10.0, w:6.0, h:2.9, plain:true, tip:"정보를 수정·편집해서 <b>재등록</b> 할 수 있습니다."},
-                {x:74.0, y:10.0, w:6.3, h:2.8, num:"1", page:1, tip:"승인담당자에게 <b>승인을 요청</b>해주세요."},
+                {x:74.0, y:10.0, w:6.3, h:2.8, num:"1", tip:"승인담당자에게 <b>승인을 요청</b>해주세요."},
                 {x:80.8, y:10.0, w:6.1, h:2.9, plain:true, tip:"정보를 <b>수정</b> 할 수 있습니다."},
                 {x:87.1, y:9.8,  w:5.9, h:2.9, plain:true, tip:"취소처리가 되며 <b>취소</b> 탭으로 이동합니다."},
                 {x:93.2, y:9.8,  w:5.9, h:2.9, plain:true, tip:"정보가 완전히 <b>삭제</b>처리됩니다."},
@@ -15651,7 +15651,7 @@ DESCS["soutmerge"] = [
   ]},
   {type:"step", num:"4", title:`🚫 통합 취소`, subs:[
     "통합 건을 선택한 후 <span class='ui-btn'>취소</span> 버튼을 클릭하면 통합이 취소됩니다.",
-    "취소한 건은 <span class='ui-tab'>취소</span> 탭에서 확인할 수 있습니다.",
+    "취소한 건은 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭에서 확인할 수 있습니다.",
   ]},
   {type:"step", num:"★", ystar:true, title:`🔢 조회 건수 확인`, subs:[
     "목록 위·아래의 <b>총: N건</b>에서 현재 탭에 조회된 통합 건수를 확인합니다.",
@@ -15737,7 +15737,7 @@ SIM["soutmerge"] = { start:"1", screens:{
       {x:94.2, y:20.1, w:5.2,  h:2.9, plain:true, to:"p_opt", toggle:true, tip:"<b>옵션</b> 버튼으로 문서저장·도움말 메뉴를 표시합니다."},
       {x:0.6,  y:26.5, w:56.7, h:66.9, num:"2", numCorner:true, notint:true, tip:"통합일자·사업장·매출처·담당자와 <b>적립금·포인트</b>를 확인합니다."},
       {x:58.0, y:26.5, w:41.4, h:66.9, num:"3", numCorner:true, notint:true, tip:"선택한 통합 건에 <b>합쳐진 매출처</b>의 적립금·포인트가 표시됩니다."},
-      {x:93.3, y:23.5, w:6.1,  h:2.9, num:"4", numCorner:true, page:1, tip:"선택한 통합 건을 <b>취소</b>하면 취소 탭에서 확인할 수 있습니다."},
+      {x:93.3, y:23.5, w:6.1,  h:2.9, num:"4", numCorner:true, tip:"선택한 통합 건을 <b>취소</b>하면 취소 탭에서 확인할 수 있습니다."},
     ]},
   "p_opt":{img:"images/옵션버튼1.png", win:{x:88.4, y:24, w:11},
     btns:[
@@ -17535,7 +17535,7 @@ DESCS["sjp1"] = [
   ]},
   {type:"step", num:"★", ystar:true, title:`🚫 적립금 지급취소`, subs:[
     "내역을 선택한 후 <span class='ui-btn'>✓ 적립금 지급취소</span> 버튼을 클릭하면 취소 처리됩니다.",
-    "→ <span class='ui-tab'>지급취소 결과</span> 페이지 참고",
+    "→ 🔗 <b class='dlink' onclick=\"goPage(1)\">지급취소 결과</b> 페이지 참고",
   ]},
   {type:"bullet", title:`📋 기타 버튼`, subs:[
     "<span class='ui-btn'>엑셀저장</span> : 조회된 내역을 엑셀 파일로 저장합니다.",
@@ -17561,7 +17561,7 @@ SIM["sjp1"] = { start:"1", screens:{
       {x:69.1, y:34,   w:30.5, h:43, notint:true, tip:"적립일·사유·구분·결제구분·금액을 입력해 <b>새 적립</b>을 등록합니다."},
       {x:85.5, y:73.1, w:7.9,  h:2.7, num:"3", numCorner:true, tip:"입력한 내용으로 <b>적립금을 적립</b>합니다."},
       {x:93.6, y:73.1, w:5.4,  h:2.7, plain:true, tip:"<b>초기화</b> 버튼으로 입력한 내용을 지우고 다시 작성합니다."},
-      {x:50.7, y:23.3, w:9.1,  h:2.7, yellow:true, page:1, tip:"선택한 내역을 <b>취소</b> 처리하면 차감 내역이 새로 생성됩니다."},
+      {x:50.7, y:23.3, w:9.1,  h:2.7, yellow:true, tip:"선택한 내역을 <b>취소</b> 처리하면 차감 내역이 새로 생성됩니다."},
       {x:41.3, y:23.3, w:9.2,  h:2.7, plain:true, front:true, to:"p_xls", toggle:true, tip:"조회된 내역을 <b>엑셀 파일</b>로 저장합니다."},
       {x:60,   y:23.3, w:8.8,  h:2.7, plain:true, tip:"선택한 내역을 <b>삭제</b>합니다."},
     ]},
@@ -17719,7 +17719,7 @@ DESCS["sjp2"] = [
   {type:"step", num:"★", ystar:true, title:`🚫 지급취소·지급삭제`, subs:[
     "내역을 선택한 후 <span class='ui-btn'>✓ 적립금 지급취소</span> 버튼을 클릭하면 취소 처리됩니다.",
     "%%취소하면 금액이 차감(음수) 내역으로 새로 생성되고, 비고에 취소한 문서번호가 기록됩니다.",
-    "내역을 선택한 후 <span class='ui-btn'>✕ 적립금 지급삭제</span> 버튼을 클릭하면 목록에서 삭제되며, <span class='ui-tab'>지급삭제</span> 탭에서 확인할 수 있습니다.",
+    "내역을 선택한 후 <span class='ui-btn'>✕ 적립금 지급삭제</span> 버튼을 클릭하면 목록에서 삭제되며, 🔗 <b class='dlink' onclick=\"goPage(2)\">지급삭제</b> 탭에서 확인할 수 있습니다.",
   ]},
   {type:"step", num:"★", ystar:true, title:`🗂️ 항목별 그룹 조회`, subs:[
     "열 머리글을 <b>클릭 앤 드래그</b>로 끌어다 놓으면 해당 항목 기준으로 묶어서 조회됩니다.",
@@ -17771,7 +17771,7 @@ SIM["sjp2"] = { start:"1", screens:{
       {x:0.7,  y:30.1, w:98.7, h:39.7, num:"2", numCorner:true, notint:true, tip:"적립일·매출처·금액과 <b>취소 여부</b>를 확인합니다."},
       {x:71.8, y:23.6, w:9.3,  h:2.7, num:"3", numCorner:true, page:1, tip:"선택한 매출처의 <b>적립금 지급/차감</b> 화면을 엽니다."},
       {x:81.3, y:23.6, w:9,    h:2.7, yellow:true, tip:"선택한 내역을 <b>취소</b> 처리하면 차감 내역이 새로 생성됩니다."},
-      {x:90.5, y:23.6, w:9.1,  h:2.7, yellow:true, page:2, tip:"선택한 내역을 <b>삭제</b>하면 지급삭제 탭에서 확인할 수 있습니다."},
+      {x:90.5, y:23.6, w:9.1,  h:2.7, yellow:true, tip:"선택한 내역을 <b>삭제</b>하면 지급삭제 탭에서 확인할 수 있습니다."},
       // 그룹화 바
       {x:0.7,  y:27,   w:98.7, h:2.6, yellow:true, tip:"열 머리글을 <b>클릭 앤 드래그</b>로 끌어다 놓으면 항목별로 묶어서 조회됩니다."},
     ]},
@@ -18050,7 +18050,7 @@ DESCS["sfo1"] = [
   {type:"step", num:"1", title:`✅ 발주서 선택`, body:"발주서입력 목록에서 처리할 발주서를 선택합니다.", subs:[
     "우측 상단 <b>통합검색·상세검색</b>으로 특정 문서를 찾을 수 있습니다.",
   ]},
-  {type:"step", num:"2", title:`📤 발주대기로 넘김`, body:"내용 확인이 끝나면 <span class='ui-btn'>발주대기</span>로 넘겨 다음 단계로 보냅니다(발주대기 탭으로 이동)."},
+  {type:"step", num:"2", title:`📤 발주대기로 넘김`, body:"내용 확인이 끝나면 <span class='ui-btn'>발주대기</span>로 넘겨 다음 단계로 보냅니다(🔗 <b class='dlink' onclick=\"goPage(1)\">발주대기</b> 탭으로 이동)."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
     "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 선택한 발주서를 출력합니다.",
     "<b>수정</b> : <span class='ui-btn'>수정</span>으로 내용을 고칩니다(발주서 등록창과 시스템 동일).",
@@ -18074,7 +18074,7 @@ SIM["sfo1"] = { start:"1", screens:{
       {x:88.0, y:20.2, w:6.1,  h:3.0, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 발주서를 조회합니다."},
       {x:94.1, y:20.2, w:5.2,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       {x:74.6, y:23.8, w:6.1, h:2.8, plain:true, tip:"선택한 발주서를 <b>인쇄</b>합니다."},
-      {x:80.6, y:23.6, w:6.3, h:2.8, num:"2", numCorner:true, page:1, tip:"내용 확인이 끝났으면 <b>발주대기</b>로 넘겨 다음 단계로 보냅니다(발주대기 탭)."},
+      {x:80.6, y:23.6, w:6.3, h:2.8, num:"2", numCorner:true, tip:"내용 확인이 끝났으면 <b>발주대기</b>로 넘겨 다음 단계로 보냅니다(발주대기 탭)."},
       {x:87.2, y:23.8, w:6.1, h:2.8, plain:true, tip:"틀린 곳을 <b>수정</b>합니다 · 수정 화면은 발주서 등록창과 시스템이 같습니다."},
       {x:93.3, y:23.8, w:6.1, h:2.8, plain:true, tip:"쓰지 않을 발주서면 <b>취소</b>합니다(취소 탭으로 이동)."},
       {x:0.6,  y:26.7, w:98.6, h:3.1, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
@@ -18087,10 +18087,10 @@ IMGS["sfo2"] = "images/발주대기.png";
 DESCS["sfo2"] = [
   {type:"note", text:"등록한 발주서를 <b>발주대기 → 발주완료 → 입고</b> 단계로 처리하는 화면입니다. 상단 <b>탭</b>으로 상태별 목록을 봅니다."},
   {type:"step", num:"1", title:`✅ 발주서 선택`, body:"1차 컨펌이 끝난 <b>발주대기</b> 목록에서 처리할 발주서를 선택합니다."},
-  {type:"step", num:"2", title:`📦 발주완료로 전송`, body:"2차 컨펌이 끝나면 <span class='ui-btn'>발주완료</span>로 보내 매입처에 발주서를 전송합니다(발주완료 탭으로 이동)."},
+  {type:"step", num:"2", title:`📦 발주완료로 전송`, body:"2차 컨펌이 끝나면 <span class='ui-btn'>발주완료</span>로 보내 매입처에 발주서를 전송합니다(🔗 <b class='dlink' onclick=\"goPage(2)\">발주완료</b> 탭으로 이동)."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
     "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 선택한 발주서를 출력합니다.",
-    "<b>되돌리기</b> : <span class='ui-btn'>발주서입력</span>으로 이전 단계로 되돌립니다.",
+    "<b>되돌리기</b> : <span class='ui-btn'>발주서입력</span>으로 이전 단계로 되돌립니다(🔗 <b class='dlink' onclick=\"goPage(0)\">발주서입력</b> 탭으로 이동).",
     "<b>수정</b> : <span class='ui-btn'>수정</span>으로 틀린 곳을 고칩니다.",
     "<b>취소</b> : <span class='ui-btn'>취소</span>로 쓰지 않을 발주서를 취소합니다.",
   ]},
@@ -18112,8 +18112,8 @@ SIM["sfo2"] = { start:"1", screens:{
       {x:88.0, y:20.2, w:6.1,  h:3.0, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 발주서를 조회합니다."},
       {x:94.1, y:20.2, w:5.2,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       {x:61.9, y:23.8, w:6.1,  h:2.8, plain:true, tip:"선택한 발주서를 <b>인쇄</b>합니다."},
-      {x:68.1, y:23.8, w:6.9,  h:2.8, plain:true, page:0, tip:"다시 <b>발주서입력</b> 단계로 되돌립니다."},
-      {x:75.2, y:23.4, w:11.8, h:3.1, num:"2", numCorner:true, page:2, tip:"2차 컨펌이 끝나면 <b>발주완료</b>로 보내 발주서를 전송합니다."},
+      {x:68.1, y:23.8, w:6.9,  h:2.8, plain:true, tip:"다시 <b>발주서입력</b> 단계로 되돌립니다."},
+      {x:75.2, y:23.4, w:11.8, h:3.1, num:"2", numCorner:true, tip:"2차 컨펌이 끝나면 <b>발주완료</b>로 보내 발주서를 전송합니다."},
       {x:87.2, y:23.8, w:6.1,  h:2.8, plain:true, tip:"틀린 곳을 <b>수정</b>합니다."},
       {x:93.3, y:23.8, w:6.1,  h:2.8, plain:true, tip:"쓰지 않을 발주서면 <b>취소</b>합니다."},
       {x:0.6,  y:26.7, w:98.6, h:3.1, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
@@ -18126,7 +18126,7 @@ IMGS["sfo3"] = "images/발주완료.png";
 DESCS["sfo3"] = [
   {type:"note", text:"등록한 발주서를 <b>발주대기 → 발주완료 → 입고</b> 단계로 처리하는 화면입니다. 상단 <b>탭</b>으로 상태별 목록을 봅니다."},
   {type:"step", num:"1", title:`✅ 발주서 선택`, body:"2차 컨펌이 끝난 <b>발주완료</b> 목록에서 처리할 발주서를 선택합니다."},
-  {type:"step", num:"2", title:`🚚 입고대기로 넘김`, body:"최종 컨펌이 끝나면 <span class='ui-btn'>입고대기</span>로 넘겨 입고 단계로 보냅니다(입고대기 탭으로 이동)."},
+  {type:"step", num:"2", title:`🚚 입고대기로 넘김`, body:"최종 컨펌이 끝나면 <span class='ui-btn'>입고대기</span>로 넘겨 입고 단계로 보냅니다(🔗 <b class='dlink' onclick=\"goPage(3)\">입고대기</b> 탭으로 이동)."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
     "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 선택한 발주서를 출력합니다.",
     "<b>재전송</b> : <span class='ui-btn'>발주서 재전송</span>으로 매입처에 발주서를 다시 보냅니다.",
@@ -18152,7 +18152,7 @@ SIM["sfo3"] = { start:"1", screens:{
       {x:94.1, y:20.2, w:5.2,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       {x:62.7, y:23.8, w:6.0,  h:2.8, plain:true, tip:"선택한 발주서를 <b>인쇄</b>합니다."},
       {x:69.0, y:23.8, w:11.9, h:2.8, plain:true, tip:"매입처에 발주서를 다시 보내는 <b>발주서 재전송</b>입니다."},
-      {x:81.1, y:23.3, w:5.8,  h:3.0, num:"2", numCorner:true, page:3, tip:"최종 컨펌이 끝나면 <b>입고대기</b>로 넘겨 입고 단계로 보냅니다."},
+      {x:81.1, y:23.3, w:5.8,  h:3.0, num:"2", numCorner:true, tip:"최종 컨펌이 끝나면 <b>입고대기</b>로 넘겨 입고 단계로 보냅니다."},
       {x:87.1, y:23.8, w:6.1,  h:2.8, plain:true, tip:"이 단계에서는 <b>수정</b>이 불가능합니다."},
       {x:93.3, y:23.8, w:6.1,  h:2.8, plain:true, tip:"쓰지 않을 발주서면 <b>취소</b>합니다."},
       {x:0.6,  y:26.7, w:98.6, h:3.1, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
@@ -18165,7 +18165,7 @@ IMGS["sfo4"] = "images/입고대기.png";
 DESCS["sfo4"] = [
   {type:"note", text:"등록한 발주서를 <b>발주대기 → 발주완료 → 입고</b> 단계로 처리하는 화면입니다. 상단 <b>탭</b>으로 상태별 목록을 봅니다."},
   {type:"step", num:"1", title:`✅ 발주서 선택`, body:"최종 컨펌한 <b>입고대기</b> 목록에서 처리할 발주서를 선택합니다."},
-  {type:"step", num:"2", title:`📥 입고완료로 넘김`, body:"컨펌이 끝났으면 <span class='ui-btn'>입고완료</span>로 넘겨 입고를 마칩니다(입고완료 탭으로 이동)."},
+  {type:"step", num:"2", title:`📥 입고완료로 넘김`, body:"컨펌이 끝났으면 <span class='ui-btn'>입고완료</span>로 넘겨 입고를 마칩니다(🔗 <b class='dlink' onclick=\"goPage(4)\">입고완료</b> 탭으로 이동)."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
     "<b>매입 검수시작</b> : <span class='ui-btn'>매입 검수시작</span>으로 🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-pq',true)\">매입 조회</b>의 금액 확인 화면으로 이동해 매입완료하면 입고완료됩니다.",
     "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 선택한 발주서를 출력합니다.",
@@ -18191,7 +18191,7 @@ SIM["sfo4"] = { start:"1", screens:{
       {x:94.1, y:20.2, w:5.2,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       {x:66.2, y:23.8, w:6.0,  h:2.8, plain:true, tip:"선택한 발주서를 <b>인쇄</b>합니다."},
       {x:72.5, y:23.8, w:8.4,  h:2.8, plain:true, tip:"매입검수가 필요하면 <b>매입 검수시작</b>으로 매입 조회의 금액 확인으로 이동합니다."},
-      {x:80.9, y:23.3, w:6.3,  h:3.3, num:"2", numCorner:true, page:4, tip:"컨펌이 끝났으면 <b>입고완료</b>로 넘깁니다."},
+      {x:80.9, y:23.3, w:6.3,  h:3.3, num:"2", numCorner:true, tip:"컨펌이 끝났으면 <b>입고완료</b>로 넘깁니다."},
       {x:87.1, y:23.8, w:6.1,  h:2.8, plain:true, tip:"이 단계에서는 <b>수정</b>이 불가능합니다."},
       {x:93.3, y:23.8, w:6.1,  h:2.8, plain:true, tip:"쓰지 않을 발주서면 <b>취소</b>합니다."},
       {x:0.6,  y:26.7, w:98.6, h:3.1, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
@@ -18458,7 +18458,7 @@ DESCS["sop2"] = [
     "<span class='ui-btn'>수정</span> 버튼을 클릭하면 <b>발주계획수정</b> 화면으로 이동합니다.",
     "📌 완료하기",
     "<span class='ui-btn'>작성완료(발주서작성)</span> 버튼을 클릭하면 <b>작성완료</b> 처리되고 발주서가 자동 작성됩니다.",
-    "⬇ 완료된 문서는 <b>작성완료</b> 탭으로 이동합니다.",
+    "⬇ 완료된 문서는 🔗 <b class='dlink' onclick=\"goPage(1)\">작성완료</b> 탭으로 이동합니다.",
   ]},
 
   {type:"step", num:"★", ystar:true, title:`✏️ 발주계획수정 화면`, body:"수정 버튼으로 열리며 <b>발주계획 입력과 같은 시스템</b>입니다.", subs:[
@@ -18486,7 +18486,7 @@ SIM["sop2"] = { start:"1", screens:{
       {x:88.0, y:20.2, w:6.1,  h:3.0, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 발주계획을 조회합니다."},
       {x:94.1, y:20.2, w:5.2,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 (y246~272) ──
-      {x:75.4, y:23.8, w:11.7, h:2.8, num:"2", numCorner:true, page:1, tip:"문서확인 후 <b>작성을 완료</b>합니다. 완료된 문서는 작성완료 탭으로 이동합니다."},
+      {x:75.4, y:23.8, w:11.7, h:2.8, num:"2", numCorner:true, tip:"문서확인 후 <b>작성을 완료</b>합니다. 완료된 문서는 작성완료 탭으로 이동합니다."},
       {x:87.2, y:23.8, w:6.1,  h:2.8, to:"edit", tip:"내용을 고치려면 <b>수정</b> 버튼으로 발주계획수정 화면을 엽니다."},
       {x:93.3, y:23.8, w:6.1,  h:2.8, plain:true, tip:"쓰지 않을 계획이면 <b>취소</b>합니다(취소 탭으로 이동)."},
       // ── 그룹화 바 (y273~308) ──
@@ -18618,8 +18618,8 @@ DESCS["scm2"] = [
   ]},
 
   {type:"step", num:"2", title:`📤 마감 진행`, body:"확인이 끝난 전표는 <span class='ui-btn'>마감대기</span> 버튼으로 넘깁니다.", subs:[
-    "처리된 전표는 <b>마감대기</b> 페이지로 이동합니다.",
-    "마감하지 않을 전표면 <span class='ui-btn'>취소</span>합니다(취소 페이지로 이동).",
+    "처리된 전표는 🔗 <b class='dlink' onclick=\"goPage(2)\">마감대기</b> 페이지로 이동합니다.",
+    "마감하지 않을 전표면 <span class='ui-btn'>취소</span>합니다(🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 페이지로 이동).",
   ]},
 
   {type:"step", num:"★", ystar:true, title:`📋 매출마감 상품정보 패널`, body:"상세정보 버튼으로 열리며 전표의 상품 내역을 보여줍니다.", subs:[
@@ -18651,8 +18651,8 @@ SIM["scm2"] = { start:"1", screens:{
       {x:88.0, y:20.2, w:6.1,  h:3.0, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 전표를 조회합니다."},
       {x:94.1, y:20.2, w:5.2,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 (y242~271) ──
-      {x:80.9, y:23.5, w:6.1,  h:2.8, num:"2", numCorner:true, page:2, tip:"확인이 끝났으면 <b>마감대기</b>로 넘겨 전표를 다음 단계로 보냅니다."},
-      {x:87.2, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"마감하지 않을 전표면 <b>취소</b>합니다(취소 페이지로 이동)."},
+      {x:80.9, y:23.5, w:6.1,  h:2.8, num:"2", numCorner:true, tip:"확인이 끝났으면 <b>마감대기</b>로 넘겨 전표를 다음 단계로 보냅니다."},
+      {x:87.2, y:23.5, w:6.0,  h:2.8, plain:true, tip:"마감하지 않을 전표면 <b>취소</b>합니다(취소 페이지로 이동)."},
       {x:93.3, y:23.5, w:6.0,  h:2.8, yellow:true, to:"detail", tip:"<b>상세정보</b> 버튼으로 전표의 상품 내역을 우측에 펼쳐 봅니다."},
       // ── 그룹화 바 (y276~308) ──
       {x:0.6,  y:26.7, w:98.6, h:3.1, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
@@ -18679,8 +18679,8 @@ SIM["scm2"] = { start:"1", screens:{
       {x:88.0, y:20.2, w:6.1,  h:3.0, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 전표를 조회합니다."},
       {x:94.1, y:20.2, w:5.2,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 (마감대기·취소·닫기) ──
-      {x:80.9, y:23.5, w:6.1,  h:2.8, num:"2", numCorner:true, page:2, tip:"확인이 끝났으면 <b>마감대기</b>로 넘겨 전표를 다음 단계로 보냅니다."},
-      {x:87.2, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"마감하지 않을 전표면 <b>취소</b>합니다(취소 페이지로 이동)."},
+      {x:80.9, y:23.5, w:6.1,  h:2.8, num:"2", numCorner:true, tip:"확인이 끝났으면 <b>마감대기</b>로 넘겨 전표를 다음 단계로 보냅니다."},
+      {x:87.2, y:23.5, w:6.0,  h:2.8, plain:true, tip:"마감하지 않을 전표면 <b>취소</b>합니다(취소 페이지로 이동)."},
       {x:93.3, y:23.5, w:6.0,  h:2.8, yellow:true, to:"1", tip:"<b>닫기</b> 버튼을 클릭하면 상세 패널이 닫히고 목록으로 돌아갑니다."},
       // ── 좌측 그룹화 바 + 그리드 ──
       {x:0.6,  y:26.7, w:50.0, h:3.1, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
@@ -18708,8 +18708,8 @@ SIM["scm2"] = { start:"1", screens:{
       {x:86.7, y:20.1, w:1.2, h:2.8, plain:true, notint:true, front:true, tipNowrap:true, tip:"<b>···</b> 버튼을 클릭하면 전체 목록이 나옵니다."},
       {x:88.0, y:20.2, w:6.1,  h:3.0, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 전표를 조회합니다."},
       {x:94.1, y:20.2, w:5.2,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
-      {x:80.9, y:23.5, w:6.1,  h:2.8, num:"2", numCorner:true, page:2, tip:"확인이 끝났으면 <b>마감대기</b>로 넘겨 전표를 다음 단계로 보냅니다."},
-      {x:87.2, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"마감하지 않을 전표면 <b>취소</b>합니다(취소 페이지로 이동)."},
+      {x:80.9, y:23.5, w:6.1,  h:2.8, num:"2", numCorner:true, tip:"확인이 끝났으면 <b>마감대기</b>로 넘겨 전표를 다음 단계로 보냅니다."},
+      {x:87.2, y:23.5, w:6.0,  h:2.8, plain:true, tip:"마감하지 않을 전표면 <b>취소</b>합니다(취소 페이지로 이동)."},
       {x:93.3, y:23.5, w:6.0,  h:2.8, yellow:true, to:"1", tip:"<b>닫기</b> 버튼을 클릭하면 상세 패널이 닫히고 목록으로 돌아갑니다."},
       {x:0.6,  y:26.7, w:50.0, h:3.1, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:0.6,  y:29.8, w:50.0, h:58.9, plain:true, notint:true, tip:"상세내용을 볼 내용을 <b>더블클릭</b> 해주세요."},
@@ -18770,10 +18770,10 @@ IMGS["scm2w"] = "images/수수료매출마감조회-마감대기.png";
 DESCS["scm2w"] = [
   {type:"note", text:"<b>마감대기</b>로 넘긴 전표를 확인하고 마감완료 처리하는 화면입니다. 상단 <b>탭</b>으로 상태별 목록을 봅니다."},
   {type:"step", num:"1", title:`✅ 전표 확인`, body:"마감대기로 넘긴 전표 목록에서 내용을 확인합니다."},
-  {type:"step", num:"2", title:`📦 마감완료`, body:"전표 확인이 끝나면 <span class='ui-btn'>마감완료</span>로 마감을 확정합니다(<span class='ui-tab'>마감완료</span> 탭으로 이동)."},
+  {type:"step", num:"2", title:`📦 마감완료`, body:"전표 확인이 끝나면 <span class='ui-btn'>마감완료</span>로 마감을 확정합니다(🔗 <b class='dlink' onclick=\"goPage(3)\">마감완료</b> 탭으로 이동)."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
-    "<b>지급안함</b> : 지급하지 않을 전표는 <span class='ui-btn'>지급안함</span>으로 처리합니다(<span class='ui-tab'>지급안함</span> 탭으로 이동).",
-    "<b>취소</b> : 되돌릴 전표는 <span class='ui-btn'>취소</span>합니다(<span class='ui-tab'>취소</span> 탭으로 이동).",
+    "<b>지급안함</b> : 지급하지 않을 전표는 <span class='ui-btn'>지급안함</span>으로 처리합니다(🔗 <b class='dlink' onclick=\"goPage(4)\">지급안함</b> 탭으로 이동).",
+    "<b>취소</b> : 되돌릴 전표는 <span class='ui-btn'>취소</span>합니다(🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭으로 이동).",
     "<b>상세정보</b> : <span class='ui-btn'>상세정보</span> 버튼으로 전표의 상품 내역을 확인합니다.",
   ]},
 ];
@@ -18797,9 +18797,9 @@ SIM["scm2w"] = { start:"1", screens:{
       {x:88.0, y:20.2, w:6.1,  h:3.0, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 전표를 조회합니다."},
       {x:94.1, y:20.2, w:5.2,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 (✕지급안함·마감완료·취소·상세정보) ──
-      {x:74.9, y:23.5, w:6.0,  h:2.8, plain:true, page:4, tip:"지급하지 않을 전표면 <b>지급안함</b>으로 처리합니다(지급안함 탭으로 이동)."},
-      {x:80.9, y:23.5, w:6.1,  h:2.8, num:"2", numCorner:true, page:3, tip:"전표 확인이 끝났으면 <b>마감완료</b>로 마감을 확정합니다."},
-      {x:87.2, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"마감을 되돌릴 전표면 <b>취소</b>합니다(취소 페이지로 이동)."},
+      {x:74.9, y:23.5, w:6.0,  h:2.8, plain:true, tip:"지급하지 않을 전표면 <b>지급안함</b>으로 처리합니다(지급안함 탭으로 이동)."},
+      {x:80.9, y:23.5, w:6.1,  h:2.8, num:"2", numCorner:true, tip:"전표 확인이 끝났으면 <b>마감완료</b>로 마감을 확정합니다."},
+      {x:87.2, y:23.5, w:6.0,  h:2.8, plain:true, tip:"마감을 되돌릴 전표면 <b>취소</b>합니다(취소 페이지로 이동)."},
       {x:93.3, y:23.5, w:6.0,  h:2.8, yellow:true, tip:"전표를 선택하고 <b>상세정보</b> 버튼으로 상품 내역을 확인합니다."},
       // ── 그룹화 바 + 그리드 + 합계 ──
       {x:0.6,  y:26.7, w:98.6, h:3.1, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
@@ -18871,7 +18871,7 @@ SIM["scm2p"] = { start:"1", screens:{
       {x:86.7, y:20.1, w:1.2, h:2.8, plain:true, notint:true, front:true, tipNowrap:true, tip:"<b>···</b> 버튼을 클릭하면 전체 목록이 나옵니다."},
       {x:88.0, y:20.2, w:6.1,  h:3.0, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 전표를 조회합니다."},
       {x:94.1, y:20.2, w:5.2,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
-      {x:87.2, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"마감을 되돌릴 전표면 <b>취소</b>합니다(취소 탭으로 이동)."},
+      {x:87.2, y:23.5, w:6.0,  h:2.8, plain:true, tip:"마감을 되돌릴 전표면 <b>취소</b>합니다(취소 탭으로 이동)."},
       {x:93.3, y:23.5, w:6.0,  h:2.8, yellow:true, tip:"전표를 선택하고 <b>상세정보</b> 버튼으로 상품 내역을 확인합니다."},
       {x:0.6,  y:26.7, w:98.6, h:3.1, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:0.6,  y:37.2, w:98.6, h:2.3, num:"1", numCorner:true, notint:true, tip:"<b>지급안함</b>으로 처리한 전표 목록입니다."},
@@ -19303,10 +19303,10 @@ DESCS["smc2"] = [
     "<b>매입처 선택</b>해서 검색하기",
   ]},
   {type:"step", num:"2", title:`✅ 마감정보 선택`, body:"<b>작성중</b> 목록에서 마감할 매입처 마감정보 행을 확인하고 선택합니다."},
-  {type:"step", num:"3", title:`📤 마감완료`, body:"확인이 끝났으면 <span class='ui-btn'>마감완료</span>로 마감을 확정합니다(<span class='ui-tab'>마감완료</span> 탭으로 이동)."},
+  {type:"step", num:"3", title:`📤 마감완료`, body:"확인이 끝났으면 <span class='ui-btn'>마감완료</span>로 마감을 확정합니다(🔗 <b class='dlink' onclick=\"goPage(3)\">마감완료</b> 탭으로 이동)."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
-    "<b>마감안함</b> : <span class='ui-btn'>마감안함</span>으로 마감하지 않음 처리합니다(<span class='ui-tab'>마감안함</span> 탭으로 이동).",
-    "<b>취소</b> : <span class='ui-btn'>취소</span>로 마감을 취소합니다 · 취소한 내역은 <span class='ui-tab'>취소</span> 탭으로 이동합니다.",
+    "<b>마감안함</b> : <span class='ui-btn'>마감안함</span>으로 마감하지 않음 처리합니다(🔗 <b class='dlink' onclick=\"goPage(2)\">마감안함</b> 탭으로 이동).",
+    "<b>취소</b> : <span class='ui-btn'>취소</span>로 마감을 취소합니다 · 취소한 내역은 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭으로 이동합니다.",
   ]},
 ];
 SIM["smc2"] = { start:"1", screens:{
@@ -19339,9 +19339,9 @@ SIM["smc2"] = { start:"1", screens:{
       {x:80.9, y:26.8, w:18.4, h:8.2, plain:true, notint:true, tip:"매입처선택으로 지정한 <b>매입처 목록</b>이 표시됩니다."},
       // ── 건수 + 액션 버튼 줄 ──
       {x:0.5,  y:35.9, w:5.2,  h:2.8, plain:true, tip:"조회된 마감정보의 <b>건수</b>가 표시됩니다."},
-      {x:81.0, y:35.9, w:6.0,  h:2.8, plain:true, page:2, tip:"마감하지 않을 정보면 <b>마감안함</b> 처리합니다(마감안함 탭으로 이동)."},
-      {x:87.1, y:35.9, w:6.0,  h:2.8, num:"3", numCorner:true, page:3, tip:"확인이 끝났으면 <b>마감완료</b>로 마감을 확정합니다(마감완료 탭으로 이동)."},
-      {x:93.3, y:35.9, w:6.0,  h:2.8, plain:true, page:1, tip:"마감을 <b>취소</b>합니다 · 취소한 내역은 취소 탭으로 이동합니다."},
+      {x:81.0, y:35.9, w:6.0,  h:2.8, plain:true, tip:"마감하지 않을 정보면 <b>마감안함</b> 처리합니다(마감안함 탭으로 이동)."},
+      {x:87.1, y:35.9, w:6.0,  h:2.8, num:"3", numCorner:true, tip:"확인이 끝났으면 <b>마감완료</b>로 마감을 확정합니다(마감완료 탭으로 이동)."},
+      {x:93.3, y:35.9, w:6.0,  h:2.8, plain:true, tip:"마감을 <b>취소</b>합니다 · 취소한 내역은 취소 탭으로 이동합니다."},
       // ── 그리드 ──
       {x:0.5,  y:39.0, w:98.8, h:54.7, num:"2", numCorner:true, notint:true, tip:"마감할 <b>매입처 마감정보</b> 행을 확인하고 선택합니다."},
       // ── 하단 합계 ──
@@ -19369,7 +19369,7 @@ IMGS["smc2c"] = "images/월매입마감조회-취소.png";
 DESCS["smc2c"] = [
   {type:"note", text:"<b>취소</b> 탭에서는 마감을 <b>취소</b>한 매입 마감정보 목록을 확인합니다. 상단 <b>탭</b>으로 상태별 목록을 봅니다."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
-    "<b>마감안함</b> : <span class='ui-btn'>마감안함</span>으로 마감하지 않음 처리합니다(<span class='ui-tab'>마감안함</span> 탭으로 이동).",
+    "<b>마감안함</b> : <span class='ui-btn'>마감안함</span>으로 마감하지 않음 처리합니다(🔗 <b class='dlink' onclick=\"goPage(2)\">마감안함</b> 탭으로 이동).",
     "<b>마감완료·취소</b> : 이 단계에서는 사용할 수 없습니다.",
   ]},
 ];
@@ -19399,7 +19399,7 @@ SIM["smc2c"] = { start:"1", screens:{
       {x:80.9, y:26.8, w:18.4, h:8.2, plain:true, notint:true, tip:"매입처선택으로 지정한 <b>매입처 목록</b>이 표시됩니다."},
       // ── 건수 + 액션 버튼 줄 (마감완료·취소 비활성) ──
       {x:0.5,  y:35.9, w:5.2,  h:2.8, plain:true, tip:"조회된 마감정보의 <b>건수</b>가 표시됩니다."},
-      {x:81.0, y:35.9, w:6.0,  h:2.8, plain:true, page:2, tip:"<b>마감안함</b> 버튼으로 마감하지 않음 처리하며 <b>마감안함</b> 탭으로 이동합니다."},
+      {x:81.0, y:35.9, w:6.0,  h:2.8, plain:true, tip:"<b>마감안함</b> 버튼으로 마감하지 않음 처리하며 <b>마감안함</b> 탭으로 이동합니다."},
       {x:87.1, y:35.9, w:6.0,  h:2.8, plain:true, tip:"이 단계에서는 <b>마감완료</b> 버튼을 사용할 수 없습니다."},
       {x:93.3, y:35.9, w:6.0,  h:2.8, plain:true, tip:"이 단계에서는 <b>취소</b> 버튼을 사용할 수 없습니다."},
       // ── 그리드 + 합계 ──
@@ -19412,8 +19412,8 @@ IMGS["smc2n"] = "images/월매입마감조회-마감안함.png";
 DESCS["smc2n"] = [
   {type:"note", text:"<b>마감안함</b> 탭에서는 마감하지 않음 처리한 매입 마감정보 목록을 확인합니다. 상단 <b>탭</b>으로 상태별 목록을 봅니다."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
-    "<b>마감완료</b> : <span class='ui-btn'>마감완료</span>로 마감을 완료합니다(<span class='ui-tab'>마감완료</span> 탭으로 이동).",
-    "<b>취소</b> : <span class='ui-btn'>취소</span>로 마감을 취소합니다(<span class='ui-tab'>취소</span> 탭으로 이동).",
+    "<b>마감완료</b> : <span class='ui-btn'>마감완료</span>로 마감을 완료합니다(🔗 <b class='dlink' onclick=\"goPage(3)\">마감완료</b> 탭으로 이동).",
+    "<b>취소</b> : <span class='ui-btn'>취소</span>로 마감을 취소합니다(🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭으로 이동).",
     "<b>마감안함</b> : 이 단계에서는 사용할 수 없습니다.",
   ]},
 ];
@@ -19444,8 +19444,8 @@ SIM["smc2n"] = { start:"1", screens:{
       // ── 건수 + 액션 버튼 줄 (마감안함 비활성) ──
       {x:0.5,  y:35.9, w:5.2,  h:2.8, plain:true, tip:"조회된 마감정보의 <b>건수</b>가 표시됩니다."},
       {x:81.0, y:35.9, w:6.0,  h:2.8, plain:true, tip:"이 단계에서는 <b>마감안함</b> 버튼을 사용할 수 없습니다."},
-      {x:87.1, y:35.9, w:6.0,  h:2.8, plain:true, page:3, tip:"<b>마감완료</b> 버튼을 클릭하면 마감이 완료되어 마감완료 탭으로 이동합니다."},
-      {x:93.3, y:35.9, w:6.0,  h:2.8, plain:true, page:1, tip:"<b>취소</b> 버튼을 클릭하면 마감이 취소되어 취소 탭으로 이동합니다."},
+      {x:87.1, y:35.9, w:6.0,  h:2.8, plain:true, tip:"<b>마감완료</b> 버튼을 클릭하면 마감이 완료되어 마감완료 탭으로 이동합니다."},
+      {x:93.3, y:35.9, w:6.0,  h:2.8, plain:true, tip:"<b>취소</b> 버튼을 클릭하면 마감이 취소되어 취소 탭으로 이동합니다."},
       // ── 그리드 + 합계 ──
       {x:0.5,  y:39.0, w:98.8, h:54.7, notint:true, tip:"<b>마감안함</b> 처리한 매입 마감정보 목록입니다."},
       {x:0.5,  y:93.8, w:98.8, h:2.7, plain:true, notint:true, tip:"조회된 마감정보의 <b>매입금액·계산서발행금액</b> 등 합계가 표시됩니다."},
@@ -19456,8 +19456,8 @@ IMGS["smc2d"] = "images/월매입마감조회-마감완료.png";
 DESCS["smc2d"] = [
   {type:"note", text:"<b>마감완료</b> 탭에서는 마감이 완료된 매입 마감정보 목록을 확인합니다. 상단 <b>탭</b>으로 상태별 목록을 봅니다."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
-    "<b>마감안함</b> : 마감을 원치 않으면 <span class='ui-btn'>마감안함</span>으로 되돌립니다(<span class='ui-tab'>마감안함</span> 탭으로 이동).",
-    "<b>취소</b> : <span class='ui-btn'>취소</span>로 마감을 취소합니다(<span class='ui-tab'>취소</span> 탭으로 이동).",
+    "<b>마감안함</b> : 마감을 원치 않으면 <span class='ui-btn'>마감안함</span>으로 되돌립니다(🔗 <b class='dlink' onclick=\"goPage(2)\">마감안함</b> 탭으로 이동).",
+    "<b>취소</b> : <span class='ui-btn'>취소</span>로 마감을 취소합니다(🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭으로 이동).",
     "<b>마감완료</b> : 이 단계에서는 사용할 수 없습니다.",
   ]},
 ];
@@ -19487,9 +19487,9 @@ SIM["smc2d"] = { start:"1", screens:{
       {x:80.9, y:26.8, w:18.4, h:8.2, plain:true, notint:true, tip:"매입처선택으로 지정한 <b>매입처 목록</b>이 표시됩니다."},
       // ── 건수 + 액션 버튼 줄 (마감완료 비활성) ──
       {x:0.5,  y:35.9, w:5.2,  h:2.8, plain:true, tip:"조회된 마감정보의 <b>건수</b>가 표시됩니다."},
-      {x:81.0, y:35.9, w:6.0,  h:2.8, plain:true, page:2, tip:"마감을 원치 않으면 <b>마감안함</b>으로 되돌립니다(마감안함 탭으로 이동)."},
+      {x:81.0, y:35.9, w:6.0,  h:2.8, plain:true, tip:"마감을 원치 않으면 <b>마감안함</b>으로 되돌립니다(마감안함 탭으로 이동)."},
       {x:87.1, y:35.9, w:6.0,  h:2.8, plain:true, tip:"이 단계에서는 <b>마감완료</b> 버튼을 사용할 수 없습니다."},
-      {x:93.3, y:35.9, w:6.0,  h:2.8, plain:true, page:1, tip:"<b>취소</b> 버튼을 클릭하면 마감이 취소되어 취소 탭으로 이동합니다."},
+      {x:93.3, y:35.9, w:6.0,  h:2.8, plain:true, tip:"<b>취소</b> 버튼을 클릭하면 마감이 취소되어 취소 탭으로 이동합니다."},
       // ── 그리드 + 합계 ──
       {x:0.5,  y:39.0, w:98.8, h:54.7, notint:true, tip:"<b>마감완료</b>된 매입 마감정보 목록입니다."},
       {x:0.5,  y:93.8, w:98.8, h:2.7, plain:true, notint:true, tip:"조회된 마감정보의 <b>매입금액·계산서발행금액</b> 등 합계가 표시됩니다."},
@@ -19516,7 +19516,7 @@ DESCS["sbon1"] = [
     "⬇ 입금내역을 확인하고 <span class='ui-btn'>장려금 입금취소</span> · <span class='ui-btn'>장려금 입금삭제</span>로 취소하거나 삭제할 수 있습니다.",
   ]},
 
-  {type:"note", text:"입금삭제한 내역은 <b>입금 삭제</b> 탭에서 확인하실 수 있습니다."},
+  {type:"note", text:"입금삭제한 내역은 🔗 <b class='dlink' onclick=\"goPage(1)\">입금 삭제</b> 탭에서 확인하실 수 있습니다."},
 ];
 SIM["sbon1"] = { start:"2", screens:{
 
@@ -19535,7 +19535,7 @@ SIM["sbon1"] = { start:"2", screens:{
       {x:70.4, y:20.0, w:5.4,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 ──
       {x:57.3, y:23.5, w:9.2,  h:2.7, plain:true, tip:"내역을 <b>☑ 체크</b>한 뒤 <b>장려금 입금취소</b>로 입금을 되돌립니다."},
-      {x:66.5, y:23.5, w:9.2,  h:2.7, page:1, tip:"<b>☑ 체크</b> 후 <b>장려금 입금삭제</b>하면 내역이 입금 삭제 탭으로 이동합니다."},
+      {x:66.5, y:23.5, w:9.2,  h:2.7, tip:"<b>☑ 체크</b> 후 <b>장려금 입금삭제</b>하면 내역이 입금 삭제 탭으로 이동합니다."},
       // ── 그룹화 바 + 그리드 ──
       {x:0.4,  y:26.8, w:75.1, h:3.3, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:0.4,  y:30.2, w:75.1, h:4.6, plain:true, notint:true, tip:"<b>입금일·매입처명·입금구분·금액·담당자명</b> 열로 내역이 표시됩니다."},
@@ -19712,12 +19712,12 @@ DESCS["spu2"] = [
 
   {type:"step", num:"2", title:`📄 문서 선택`, body:"목록에서 처리할 <b>매입 문서</b>를 <b>☑ 체크</b>로 선택합니다."},
 
-  {type:"step", num:"3", title:`✅ 입고대기(완료하기)`, body:"확인이 끝나면 <span class='ui-btn'>입고대기</span>로 넘깁니다(금액확인 탭으로 이동).", subs:[
+  {type:"step", num:"3", title:`✅ 입고대기(완료하기)`, body:"확인이 끝나면 <span class='ui-btn'>입고대기</span>로 넘깁니다(🔗 <b class='dlink' onclick=\"goPage(2)\">금액확인</b> 탭으로 이동).", subs:[
     "📌 수정하기",
     "<span class='ui-btn'>수정</span> 버튼으로 문서를 고칩니다 · <b>매입처는 수정할 수 없습니다</b>.",
     "매입처를 바꿔야 하면 <span class='ui-btn'>＋재주문</span>으로 다시 등록합니다(매입처 수정 가능).",
     "📌 취소",
-    "쓰지 않을 문서면 <span class='ui-btn'>취소</span>합니다(매입취소 탭으로 이동).",
+    "쓰지 않을 문서면 <span class='ui-btn'>취소</span>합니다(🔗 <b class='dlink' onclick=\"goPage(1)\">매입취소</b> 탭으로 이동).",
   ]},
 
   {type:"step", num:"★", ystar:true, title:`📝 관리자 메모`, body:"수정 화면 우측에 이 매입 건에 남긴 <b>관리자 메모</b>가 작성자·작성일과 함께 표시됩니다.", subs:[
@@ -19751,10 +19751,10 @@ SIM["spu2"] = { start:"in", screens:{
       {x:50.7, y:23.5, w:6.1,  h:2.8, plain:true, to:"p_print", toggle:true, tip:"<b>인쇄</b> 버튼으로 매입전표 인쇄 미리보기를 엽니다."},
       {x:56.8, y:23.5, w:10.8, h:2.8, plain:true, tip:"선택한 상품의 <b>매입처를 지정</b>합니다."},
       {x:67.6, y:23.5, w:6.9,  h:2.8, yellow:true, page:5, tip:"여러 매입 전표를 하나로 합치는 <b>매입전표합치기</b> 탭으로 이동합니다."},
-      {x:74.5, y:23.5, w:6.1,  h:2.8, num:"3", numCorner:true, page:2, tip:"확인이 끝났으면 <b>입고대기</b>로 넘깁니다(금액확인 탭으로 이동)."},
+      {x:74.5, y:23.5, w:6.1,  h:2.8, num:"3", numCorner:true, tip:"확인이 끝났으면 <b>입고대기</b>로 넘깁니다(금액확인 탭으로 이동)."},
       {x:80.6, y:23.5, w:6.5,  h:2.8, plain:true, to:"reorder", tip:"선택한 전표의 내용을 그대로 복제 후 수정하여 <b>재등록</b>할 수 있습니다."},
       {x:87.1, y:23.5, w:6.2,  h:2.8, plain:true, to:"edit", tip:"<b>수정</b> 버튼으로 문서를 고칩니다 · 매입처는 수정할 수 없습니다."},
-      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"쓰지 않을 문서면 <b>취소</b>합니다(매입취소 탭으로 이동)."},
+      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, tip:"쓰지 않을 문서면 <b>취소</b>합니다(매입취소 탭으로 이동)."},
       // ── 그룹화 바 + 결과내 재검색 ──
       {x:0.6,  y:26.6, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.6, y:26.6, w:12.6, h:3.2, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -19809,7 +19809,7 @@ DESCS["spu2c"] = [
 
   {type:"step", num:"1", title:`📄 취소 문서 확인`, body:"취소한 문서 목록에서 처리할 문서를 확인·선택합니다."},
   {type:"step", num:"2", title:`✏️ 수정`, body:"틀린 곳이 있으면 <span class='ui-btn'>수정</span> 버튼으로 고칩니다 · 매입처는 수정할 수 없습니다."},
-  {type:"step", num:"3", title:`↩️ 매입입력으로 복구`, body:"<span class='ui-btn'>매입입력</span> 버튼으로 취소한 문서를 매입입력 상태로 되돌립니다.", subs:[
+  {type:"step", num:"3", title:`↩️ 매입입력으로 복구`, body:"<span class='ui-btn'>매입입력</span> 버튼으로 취소한 문서를 🔗 <b class='dlink' onclick=\"goPage(0)\">매입입력</b> 상태로 되돌립니다.", subs:[
     "이 탭에서는 <span class='ui-btn'>취소</span> 버튼을 사용할 수 없습니다.",
   ]},
 ];
@@ -19835,7 +19835,7 @@ SIM["spu2c"] = { start:"cancel", screens:{
       {x:50.7, y:23.5, w:6.1,  h:2.8, plain:true, tip:"선택한 매입 문서를 <b>인쇄</b>합니다."},
       {x:56.8, y:23.5, w:10.8, h:2.8, plain:true, tip:"선택한 상품의 <b>매입처를 지정</b>합니다."},
       {x:67.6, y:23.5, w:6.9,  h:2.8, plain:true, page:5, tip:"여러 매입 전표를 하나로 합치는 <b>매입전표합치기</b> 탭으로 이동합니다."},
-      {x:74.6, y:23.3, w:6.2, h:3.1, num:"3", numCorner:true, page:0, tip:"<b>매입입력</b> 버튼으로 취소한 문서를 매입입력 상태로 복구합니다."},
+      {x:74.6, y:23.3, w:6.2, h:3.1, num:"3", numCorner:true, tip:"<b>매입입력</b> 버튼으로 취소한 문서를 매입입력 상태로 복구합니다."},
       {x:80.7, y:23.5, w:6.4,  h:2.8, plain:true, tip:"<b>＋재주문</b>은 같은 내용으로 다시 등록하며 <b>매입처 수정이 가능</b>합니다."},
       {x:87, y:23.4, w:6.4, h:3.1, num:"2", numCorner:true, tip:"틀린 곳을 <b>수정</b>합니다 · 매입처는 수정할 수 없습니다."},
       {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, tip:"이 단계에서는 <b>취소</b> 버튼을 사용할 수 없습니다."},
@@ -19855,7 +19855,7 @@ DESCS["spu2a"] = [
   {type:"note", text:"입고대기로 넘긴 문서의 <b>금액을 확인</b>하는 탭입니다."},
 
   {type:"step", num:"1", title:`📄 금액 확인`, body:"문서별 <b>공급가액·부가세·면세금액·합계금액</b>을 확인합니다."},
-  {type:"step", num:"2", title:`💰 완료하기(매입완료)`, body:"확인이 끝나면 <span class='ui-btn'>매입완료</span> 버튼으로 매입을 확정합니다(매입완료 탭으로 이동).", subs:[
+  {type:"step", num:"2", title:`💰 완료하기(매입완료)`, body:"확인이 끝나면 <span class='ui-btn'>매입완료</span> 버튼으로 매입을 확정합니다(🔗 <b class='dlink' onclick=\"goPage(4)\">매입완료</b> 탭으로 이동).", subs:[
     "수정 · ＋재주문 · 취소는 매입입력 탭과 같은 방식으로 처리합니다.",
   ]},
 ];
@@ -19881,10 +19881,10 @@ SIM["spu2a"] = { start:"amt", screens:{
       {x:50.7, y:23.5, w:6.1,  h:2.8, plain:true, tip:"선택한 매입 문서를 <b>인쇄</b>합니다."},
       {x:56.8, y:23.5, w:10.8, h:2.8, plain:true, tip:"선택한 상품의 <b>매입처를 지정</b>합니다."},
       {x:67.6, y:23.5, w:6.8,  h:2.8, plain:true, page:5, tip:"여러 매입 전표를 하나로 합치는 <b>매입전표합치기</b> 탭으로 이동합니다."},
-      {x:74.4, y:23.5, w:6.4,  h:2.8, num:"2", numCorner:true, page:4, tip:"금액 확인이 끝나면 <b>매입완료</b>로 확정합니다(매입완료 탭으로 이동)."},
+      {x:74.4, y:23.5, w:6.4,  h:2.8, num:"2", numCorner:true, tip:"금액 확인이 끝나면 <b>매입완료</b>로 확정합니다(매입완료 탭으로 이동)."},
       {x:80.8, y:23.5, w:6.3,  h:2.8, plain:true, tip:"<b>＋재주문</b>은 같은 내용으로 다시 등록하며 <b>매입처 수정이 가능</b>합니다."},
       {x:87.1, y:23.5, w:6.2,  h:2.8, plain:true, tip:"틀린 곳을 <b>수정</b>합니다 · 매입처는 수정할 수 없습니다."},
-      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"쓰지 않을 문서면 <b>취소</b>합니다(매입취소 탭으로 이동)."},
+      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, tip:"쓰지 않을 문서면 <b>취소</b>합니다(매입취소 탭으로 이동)."},
       // ── 그룹화 바 + 그리드 + 합계 ──
       {x:0.6,  y:26.6, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.6, y:26.6, w:12.6, h:3.2, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -19985,7 +19985,7 @@ SIM["spu2d"] = { start:"done", screens:{
       {x:70.5, y:23.5, w:6.2,  h:2.8, plain:true, tip:"<b>＋재주문</b>은 같은 내용으로 다시 등록하며 <b>매입처 수정이 가능</b>합니다."},
       {x:76.7, y:23.5, w:10.4, h:2.8, plain:true, tip:"<b>매입보류(점검요청)</b>로 점검이 필요한 문서를 보류합니다."},
       {x:87.1, y:23.5, w:6.2,  h:2.8, plain:true, to:"edit", tip:"<b>수정</b> 버튼을 누르면 매입수정 화면이 열립니다 · 매입처는 수정할 수 없습니다."},
-      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"쓰지 않을 문서면 <b>취소</b>합니다(매입취소 탭으로 이동)."},
+      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, tip:"쓰지 않을 문서면 <b>취소</b>합니다(매입취소 탭으로 이동)."},
       // ── 그리드 (라인만) ──
       {x:0.6,  y:34.4, w:98.7, h:2.8, num:"1", numCorner:true, notint:true, tip:"매입이 완료된 문서 목록입니다 · <b>검수필요·검수담당</b>까지 확인합니다."},
     ]},
@@ -20150,11 +20150,11 @@ DESCS["sru2i"] = [
   {type:"step", num:"1", title:`📋 반품 전표 선택`, body:"<b>반품입력</b> 목록에서 처리할 반품 전표를 선택합니다.", subs:[
     "우측 상단 <b>통합검색·상세검색</b>으로 특정 전표를 찾을 수 있습니다.",
   ]},
-  {type:"step", num:"2", title:`➡️ 반품대기로 넘김`, body:"<span class='ui-btn'>반품대기 / 회수요청</span>으로 넘기면 <b>반품대기</b> 상태가 되어 <span class='ui-tab'>반품대기</span> 탭으로 이동합니다."},
+  {type:"step", num:"2", title:`➡️ 반품대기로 넘김`, body:"<span class='ui-btn'>반품대기 / 회수요청</span>으로 넘기면 <b>반품대기</b> 상태가 되어 🔗 <b class='dlink' onclick=\"goPage(2)\">반품대기</b> 탭으로 이동합니다."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
     "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 선택한 반품전표의 <b>매입전표</b>를 출력합니다.",
     "<b>수정</b> : <span class='ui-btn'>수정</span>으로 <b>반품수정</b> 화면에서 내용을 고칩니다.",
-    "<b>취소</b> : <span class='ui-btn'>취소</span>로 필요 없는 전표를 취소합니다(반품취소 탭으로 이동).",
+    "<b>취소</b> : <span class='ui-btn'>취소</span>로 필요 없는 전표를 취소합니다(🔗 <b class='dlink' onclick=\"goPage(1)\">반품취소</b> 탭으로 이동).",
   ]},
 ];
 SIM["sru2i"] = { start:"in", screens:{
@@ -20178,9 +20178,9 @@ SIM["sru2i"] = { start:"in", screens:{
       {x:94.1, y:20.0, w:5.2,  h:3.1, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 (인쇄/반품대기·회수요청/수정/취소 모두 활성) ──
       {x:71.2, y:23.5, w:5.8,  h:2.8, plain:true, to:"p_print", toggle:true, tip:"<b>인쇄</b> 버튼으로 반품입력 매입전표 미리 보기를 열어 인쇄합니다."},
-      {x:76.9, y:23.3, w:10,   h:3.1, num:"2", numCorner:true, page:2, tip:"전표를 <b>반품대기</b> 상태로 넘기며 <b>반품대기</b> 탭으로 이동합니다."},
+      {x:76.9, y:23.3, w:10,   h:3.1, num:"2", numCorner:true, tip:"전표를 <b>반품대기</b> 상태로 넘기며 <b>반품대기</b> 탭으로 이동합니다."},
       {x:87.1, y:23.5, w:6.1,  h:2.8, plain:true, page:4, tip:"<b>수정</b> 버튼을 누르면 반품 내용을 고치는 <b>반품수정</b> 화면으로 이동합니다."},
-      {x:93.2, y:23.5, w:6.1,  h:2.8, plain:true, page:1, tip:"필요 없는 전표면 <b>취소</b>합니다(반품취소 탭으로 이동)."},
+      {x:93.2, y:23.5, w:6.1,  h:2.8, plain:true, tip:"필요 없는 전표면 <b>취소</b>합니다(반품취소 탭으로 이동)."},
       // ── 그룹화 바 + 그리드 + 합계 ──
       {x:0.6,  y:26.6, w:81.0, h:3.3, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.6, y:26.6, w:12.6, h:3.3, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -20204,7 +20204,7 @@ IMGS["sru2c"] = "images/매입반품조회-반품취소.png";
 DESCS["sru2c"] = [
   {type:"note", text:"반품이 <b>취소</b>된 전표를 모아 보는 탭입니다. 상단 <b>탭</b>으로 상태별 목록을 봅니다."},
   {type:"step", num:"1", title:`📋 반품취소 전표 선택`, body:"반품이 취소된 전표 목록에서 처리할 전표를 선택합니다."},
-  {type:"step", num:"2", title:`◀ 반품입력으로 되돌리기`, body:"<span class='ui-btn'>◀반품입력</span>으로 취소한 전표를 다시 <b>반품입력</b> 상태로 되돌립니다(반품입력 탭으로 이동)."},
+  {type:"step", num:"2", title:`◀ 반품입력으로 되돌리기`, body:"<span class='ui-btn'>◀반품입력</span>으로 취소한 전표를 다시 <b>반품입력</b> 상태로 되돌립니다(🔗 <b class='dlink' onclick=\"goPage(0)\">반품입력</b> 탭으로 이동)."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
     "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 반품취소 <b>매입전표</b> 미리 보기를 열어 출력합니다.",
     "<b>수정</b> : <span class='ui-btn'>수정</span>으로 취소 상태에서도 <b>반품수정</b> 화면으로 이동합니다.",
@@ -20231,7 +20231,7 @@ SIM["sru2c"] = { start:"cancel", screens:{
       {x:94.1, y:20.0, w:5.2,  h:3.1, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 (인쇄·◀반품입력·수정 활성 / 취소 회색 비활성) ──
       {x:75.0, y:23.5, w:5.8,  h:2.8, plain:true, to:"p_cprint", toggle:true, tip:"<b>인쇄</b> 버튼으로 반품취소 매입전표 미리 보기를 열어 인쇄합니다."},
-      {x:80.8, y:23.3, w:6.1,  h:3.1, num:"2", numCorner:true, page:0, tip:"취소한 전표를 다시 <b>반품입력</b> 상태로 되돌립니다."},
+      {x:80.8, y:23.3, w:6.1,  h:3.1, num:"2", numCorner:true, tip:"취소한 전표를 다시 <b>반품입력</b> 상태로 되돌립니다."},
       {x:87.1, y:23.5, w:6.1,  h:2.8, plain:true, page:4, tip:"취소 상태에서도 <b>수정</b> 버튼으로 <b>반품수정</b> 화면으로 이동합니다."},
       {x:93.2, y:23.5, w:6.1,  h:2.8, plain:true, tip:"이 단계에서는 <b>취소</b> 버튼을 사용할 수 없습니다."},
       // ── 그룹화 바 + 그리드 + 합계 ──
@@ -20259,11 +20259,11 @@ DESCS["sru2"] = [
   {type:"step", num:"1", title:`✅ 반품 확인`, body:"매입 반품 등록에서 등록한 반품전표가 <b>반품대기</b> 탭에 올라옵니다. 처리할 전표를 선택합니다.", subs:[
     "우측 상단 <b>통합검색</b>으로 특정 전표를 찾을 수 있습니다.",
   ]},
-  {type:"step", num:"2", title:`📦 반품완료 처리`, body:"내용 확인이 끝나면 <span class='ui-btn'>반품완료</span>로 전표를 다음 단계로 보냅니다(반품완료 탭으로 이동)."},
+  {type:"step", num:"2", title:`📦 반품완료 처리`, body:"내용 확인이 끝나면 <span class='ui-btn'>반품완료</span>로 전표를 다음 단계로 보냅니다(🔗 <b class='dlink' onclick=\"goPage(3)\">반품완료</b> 탭으로 이동)."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
     "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 선택한 반품전표의 <b>매입전표</b>를 출력합니다.",
     "<b>수정</b> : <span class='ui-btn'>수정</span>으로 <b>반품수정</b> 화면에서 내용을 고칩니다.",
-    "<b>취소</b> : <span class='ui-btn'>취소</span>로 필요 없는 전표를 취소합니다(반품취소 탭으로 이동).",
+    "<b>취소</b> : <span class='ui-btn'>취소</span>로 필요 없는 전표를 취소합니다(🔗 <b class='dlink' onclick=\"goPage(1)\">반품취소</b> 탭으로 이동).",
   ]},
 ];
 SIM["sru2"] = { start:"wait", screens:{
@@ -20289,9 +20289,9 @@ SIM["sru2"] = { start:"wait", screens:{
       {x:94.1, y:20.0, w:5.2,  h:3.1, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 (y243~271 · 인쇄/반품완료/수정/취소 모두 활성) ──
       {x:75.0, y:23.5, w:5.7,  h:2.8, plain:true, to:"p_print", toggle:true, tip:"<b>인쇄</b> 버튼으로 반품대기 매입전표 미리 보기를 열어 인쇄합니다."},
-      {x:81.0, y:23.5, w:6.1,  h:2.8, num:"2", numCorner:true, page:3, tip:"내용 확인이 끝났으면 <b>반품완료</b>로 전표를 다음 단계로 보냅니다."},
+      {x:81.0, y:23.5, w:6.1,  h:2.8, num:"2", numCorner:true, tip:"내용 확인이 끝났으면 <b>반품완료</b>로 전표를 다음 단계로 보냅니다."},
       {x:87.1, y:23.5, w:6.1,  h:2.8, plain:true, page:4, tip:"<b>수정</b> 버튼을 누르면 반품 내용을 고치는 <b>반품수정</b> 화면으로 이동합니다."},
-      {x:93.2, y:23.5, w:6.1,  h:2.8, plain:true, page:1, tip:"필요 없는 전표면 <b>취소</b>합니다(반품취소 탭으로 이동)."},
+      {x:93.2, y:23.5, w:6.1,  h:2.8, plain:true, tip:"필요 없는 전표면 <b>취소</b>합니다(반품취소 탭으로 이동)."},
       // ── 그룹화 바 (y274~308) ──
       {x:0.6,  y:26.6, w:81.0, h:3.3, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.6, y:26.6, w:12.6, h:3.3, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -20318,7 +20318,7 @@ DESCS["sru2d"] = [
   {type:"note", text:"반품이 <b>완료</b>된 전표를 모아 보는 탭입니다. 상단 <b>탭</b>으로 상태별 목록을 봅니다."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
     "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 반품 <b>매입전표</b> 미리 보기를 열어 출력합니다.",
-    "<b>취소</b> : <span class='ui-btn'>취소</span>로 반품을 되돌립니다(반품취소 탭으로 이동).",
+    "<b>취소</b> : <span class='ui-btn'>취소</span>로 반품을 되돌립니다(🔗 <b class='dlink' onclick=\"goPage(1)\">반품취소</b> 탭으로 이동).",
     "<b>수정</b> : 반품완료 단계에서는 사용할 수 없습니다.",
   ]},
 ];
@@ -20351,7 +20351,7 @@ SIM["sru2d"] = { start:"done", screens:{
       // ── 액션 버튼 줄 (인쇄·취소 활성 / 수정 회색 비활성) ──
       {x:81.1, y:23.5, w:5.7,  h:2.8, to:"p_dprint", toggle:true, tip:"<b>인쇄</b> 버튼으로 반품 매입전표 미리 보기를 열어 인쇄합니다."},
       {x:87.1, y:23.5, w:6.1,  h:2.8, plain:true, tip:"이 단계에서는 <b>수정</b> 버튼을 사용할 수 없습니다."},
-      {x:93.2, y:23.5, w:6.1,  h:2.8, plain:true, page:1, tip:"반품을 되돌리려면 <b>취소</b>합니다(반품취소 탭으로 이동)."},
+      {x:93.2, y:23.5, w:6.1,  h:2.8, plain:true, tip:"반품을 되돌리려면 <b>취소</b>합니다(반품취소 탭으로 이동)."},
       // ── 그룹화 바 + 그리드 + 합계 ──
       {x:0.6,  y:26.6, w:81.0, h:3.3, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.6, y:26.6, w:12.6, h:3.3, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -20969,8 +20969,8 @@ SIM["7ca1"] = { start:"1", screens:{
       {x:93.4, y:23.8, w:6,    h:2.9, num:"3", numCorner:true, notint:true, tip:"조건을 정하고 <b>검색</b> 버튼으로 조회합니다."},
       {x:0.6,  y:45.8, w:98.7, h:10.4, num:"4", numCorner:true, notint:true, tip:"업무 중인 계산원의 <b>시재금액·마감정보</b>를 확인하고 행을 선택합니다."},
       {x:72,   y:29.8, w:7,    h:3,   num:"5", numCorner:true, notint:true, tip:"선택한 계산원을 <b>마감중</b> 단계로 넘깁니다."},
-      {x:65,   y:29.8, w:7,    h:3,   plain:true, page:1, tip:"<b>마감점검</b>으로 넘긴 계산원은 마감점검 탭에서 확인합니다."},
-      {x:93.8, y:29.9, w:5.9,  h:2.7, plain:true, page:4, tip:"<b>취소</b>한 계산원 마감은 취소 탭에 모입니다."},
+      {x:65,   y:29.8, w:7,    h:3,   plain:true, tip:"<b>마감점검</b>으로 넘긴 계산원은 마감점검 탭에서 확인합니다."},
+      {x:93.8, y:29.9, w:5.9,  h:2.7, plain:true, tip:"<b>취소</b>한 계산원 마감은 취소 탭에 모입니다."},
       {x:86.7, y:29.8, w:6.9,  h:2.9, yellow:true, scroll:"★1", to:"add", tip:"<b>계산원추가</b> 버튼으로 계산원 추가 패널을 엽니다."},
     ]},
   "add":{img:"images/계산원마감관리-업무중-계산원추가.png",
@@ -20993,8 +20993,8 @@ SIM["7ca1"] = { start:"1", screens:{
       {x:93.4, y:23.8, w:6,    h:2.9, num:"3", numCorner:true, notint:true, tip:"조건을 정하고 <b>검색</b> 버튼으로 조회합니다."},
       {x:0.5,  y:45.8, w:80.2, h:10.4, num:"4", numCorner:true, notint:true, tip:"업무 중인 계산원의 <b>시재금액·마감정보</b>를 확인하고 행을 선택합니다."},
       {x:72,   y:29.8, w:7,    h:3,   num:"5", numCorner:true, notint:true, tip:"선택한 계산원을 <b>마감중</b> 단계로 넘깁니다."},
-      {x:65,   y:29.8, w:7,    h:3,   plain:true, page:1, tip:"<b>마감점검</b>으로 넘긴 계산원은 마감점검 탭에서 확인합니다."},
-      {x:93.8, y:29.9, w:5.9,  h:2.7, plain:true, page:4, tip:"<b>취소</b>한 계산원 마감은 취소 탭에 모입니다."},
+      {x:65,   y:29.8, w:7,    h:3,   plain:true, tip:"<b>마감점검</b>으로 넘긴 계산원은 마감점검 탭에서 확인합니다."},
+      {x:93.8, y:29.9, w:5.9,  h:2.7, plain:true, tip:"<b>취소</b>한 계산원 마감은 취소 탭에 모입니다."},
       {x:86.7, y:29.8, w:6.9,  h:2.9, yellow:true, to:"1", tip:"<b>계산원추가</b> 버튼을 다시 누르면 패널이 닫힙니다."},
       {x:86.7, y:36.9, w:11.8, h:8,   fill:true, tip:"추가할 <b>계산원(사원)</b>과 시재금액을 입력합니다."},
       {x:87.5, y:45.1, w:5.4,  h:2.7, yellow:true, to:"1", tip:"<b>추가</b> 버튼으로 계산원을 등록하고 패널을 닫습니다."},
@@ -21047,10 +21047,10 @@ SIM["7ca2"] = { start:"1", screens:{
       {x:0.7,  y:45.7, w:98.5, h:2.5, num:"2", numCorner:true, notint:true, tip:"마감점검 중인 계산원의 <b>시재금액·마감정보</b>를 확인하고 행을 선택합니다."},
       {x:69.1, y:29.7, w:6.9,  h:3,   num:"3", numCorner:true, notint:true, tip:"점검을 마친 계산원을 <b>마감확정</b> 처리합니다."},
       {x:75.9, y:29.7, w:7.8,  h:2.8, yellow:true, scroll:"★1", to:"amt", tip:"<b>마감금액수정</b>으로 시재·권종 금액을 수정합니다."},
-      {x:54.9, y:29.9, w:6.8,  h:2.8, plain:true, page:0, tip:"<b>업무중으로</b> 버튼으로 선택한 계산원을 업무중 상태로 되돌립니다."},
-      {x:61.9, y:29.9, w:7,    h:3,   plain:true, page:2, tip:"선택한 계산원을 <b>마감중</b> 단계로 넘깁니다."},
+      {x:54.9, y:29.9, w:6.8,  h:2.8, plain:true, tip:"<b>업무중으로</b> 버튼으로 선택한 계산원을 업무중 상태로 되돌립니다."},
+      {x:61.9, y:29.9, w:7,    h:3,   plain:true, tip:"선택한 계산원을 <b>마감중</b> 단계로 넘깁니다."},
       {x:83.7, y:29.8, w:9.9,  h:2.9, yellow:true, scroll:"★2", tip:"<b>마감금액일괄수정</b>은 매장의 변경정보를 반영하는 새로고침 버튼입니다."},
-      {x:93.6, y:29.7, w:5.8,  h:2.9, plain:true, page:4, tip:"<b>취소</b>한 계산원 마감은 취소 탭에 모입니다."},
+      {x:93.6, y:29.7, w:5.8,  h:2.9, plain:true, tip:"<b>취소</b>한 계산원 마감은 취소 탭에 모입니다."},
     ]},
   "amt":{img:"images/계산원마감관리-마감점검-마감금액수정.png",
     arrows:[
@@ -21107,8 +21107,8 @@ SIM["7ca3"] = { start:"1", screens:{
       {x:0.6,  y:51.2, w:97.6, h:2.2, num:"2", numCorner:true, notint:true, tip:"마감 중인 계산원의 <b>마감금액·과부족·권종</b>을 확인하고 행을 선택합니다."},
       {x:61.9, y:29.7, w:6.8,  h:2.9, num:"3", numCorner:true, notint:true, tip:"선택한 계산원을 <b>마감점검</b> 단계로 되돌립니다."},
       {x:68.9, y:29.7, w:6.8,  h:2.9, num:"4", numCorner:true, notint:true, tip:"선택한 계산원을 <b>마감확정</b> 처리합니다."},
-      {x:55,   y:29.8, w:6.8,  h:2.8, plain:true, page:0, tip:"<b>업무중으로</b> 버튼으로 선택한 계산원을 업무중 상태로 되돌립니다."},
-      {x:93.8, y:29.8, w:5.7,  h:2.8, plain:true, page:4, tip:"<b>취소</b>한 계산원 마감은 취소 탭에 모입니다."},
+      {x:55,   y:29.8, w:6.8,  h:2.8, plain:true, tip:"<b>업무중으로</b> 버튼으로 선택한 계산원을 업무중 상태로 되돌립니다."},
+      {x:93.8, y:29.8, w:5.7,  h:2.8, plain:true, tip:"<b>취소</b>한 계산원 마감은 취소 탭에 모입니다."},
       {x:46.6, y:29.7, w:8.3,  h:3.1, yellow:true, scroll:"★1", to:"doc", tip:"<b>시재문서 열기</b>로 선택한 계산원의 시재문서를 확인합니다."},
       {x:75.8, y:29.8, w:7.8,  h:2.9, yellow:true, scroll:"★2", to:"amt", tip:"<b>마감금액수정</b>으로 시재·권종 금액을 수정합니다."},
       {x:83.7, y:29.8, w:9.9,  h:2.9, yellow:true, scroll:"★3", tip:"<b>마감금액일괄수정</b>은 매장의 변경정보를 반영하는 새로고침 버튼입니다."},
@@ -21128,8 +21128,8 @@ SIM["7ca3"] = { start:"1", screens:{
       {x:0.9,  y:45.8, w:63.3, h:2.3, num:"2", numCorner:true, notint:true, tip:"마감 중인 계산원의 <b>마감금액·과부족·권종</b>을 확인하고 행을 선택합니다."},
       {x:60.8, y:29.8, w:6.9,  h:2.8, num:"3", numCorner:true, notint:true, tip:"선택한 계산원을 <b>마감점검</b> 단계로 되돌립니다."},
       {x:67.8, y:29.8, w:6.8,  h:2.8, num:"4", numCorner:true, notint:true, tip:"선택한 계산원을 <b>마감확정</b> 처리합니다."},
-      {x:53.8, y:29.8, w:6.9,  h:2.8, plain:true, page:0, tip:"<b>업무중으로</b> 버튼으로 선택한 계산원을 업무중 상태로 되돌립니다."},
-      {x:92.6, y:29.8, w:5.6,  h:2.8, plain:true, page:4, tip:"<b>취소</b>한 계산원 마감은 취소 탭에 모입니다."},
+      {x:53.8, y:29.8, w:6.9,  h:2.8, plain:true, tip:"<b>업무중으로</b> 버튼으로 선택한 계산원을 업무중 상태로 되돌립니다."},
+      {x:92.6, y:29.8, w:5.6,  h:2.8, plain:true, tip:"<b>취소</b>한 계산원 마감은 취소 탭에 모입니다."},
       {x:45.5, y:29.8, w:8.3,  h:2.9, yellow:true, to:"1", tip:"<b>시재문서 닫기</b>로 시재문서 패널을 닫습니다."},
       {x:74.8, y:29.9, w:7.6,  h:2.8, yellow:true, to:"amt", tip:"<b>마감금액수정</b>으로 시재·권종 금액을 수정합니다."},
       {x:82.5, y:29.9, w:9.9,  h:2.8, yellow:true, tip:"<b>마감금액일괄수정</b>은 매장의 변경정보를 반영하는 새로고침 버튼입니다."},
@@ -21153,8 +21153,8 @@ SIM["7ca3"] = { start:"1", screens:{
       {x:0.6,  y:50.9, w:79.1, h:2.5, num:"2", numCorner:true, notint:true, tip:"마감 중인 계산원의 <b>마감금액·과부족·권종</b>을 확인하고 행을 선택합니다."},
       {x:61.9, y:29.7, w:6.8,  h:2.9, num:"3", numCorner:true, notint:true, tip:"선택한 계산원을 <b>마감점검</b> 단계로 되돌립니다."},
       {x:68.9, y:29.7, w:6.8,  h:2.9, num:"4", numCorner:true, notint:true, tip:"선택한 계산원을 <b>마감확정</b> 처리합니다."},
-      {x:55,   y:29.8, w:6.8,  h:2.8, plain:true, page:0, tip:"<b>업무중으로</b> 버튼으로 선택한 계산원을 업무중 상태로 되돌립니다."},
-      {x:93.8, y:29.8, w:5.7,  h:2.8, plain:true, page:4, tip:"<b>취소</b>한 계산원 마감은 취소 탭에 모입니다."},
+      {x:55,   y:29.8, w:6.8,  h:2.8, plain:true, tip:"<b>업무중으로</b> 버튼으로 선택한 계산원을 업무중 상태로 되돌립니다."},
+      {x:93.8, y:29.8, w:5.7,  h:2.8, plain:true, tip:"<b>취소</b>한 계산원 마감은 취소 탭에 모입니다."},
       {x:46.6, y:29.7, w:8.3,  h:3.1, yellow:true, to:"doc", tip:"<b>시재문서 열기</b>로 선택한 계산원의 시재문서를 확인합니다."},
       {x:75.8, y:29.8, w:7.8,  h:2.9, yellow:true, to:"1", tip:"<b>마감금액수정</b>을 다시 누르면 패널이 닫힙니다."},
       {x:83.7, y:29.8, w:9.9,  h:2.9, yellow:true, tip:"<b>마감금액일괄수정</b>은 매장의 변경정보를 반영하는 새로고침 버튼입니다."},
@@ -21766,9 +21766,9 @@ DESCS["spay1"] = [
 
   {type:"step", num:"3", title:`📋 등록 내역 확인`, body:"등록한 지급 건이 왼쪽 <b>목록</b>에 표시됩니다."},
 
-  {type:"step", num:"4", title:`📤 지급대기로 넘기기`, body:"목록에서 건을 선택하고 <span class='ui-btn'>지급대기</span> 버튼을 클릭하면 <b>지급대기</b> 탭으로 이동합니다.", subs:[
-    "<span class='ui-btn'>지급완료</span> 버튼으로 지급을 확정하면 <b>지급완료</b> 탭에서 확인합니다.",
-    "지급하지 않을 건은 <span class='ui-btn'>취소</span> 버튼으로 <b>취소</b> 탭에 모읍니다.",
+  {type:"step", num:"4", title:`📤 지급대기로 넘기기`, body:"목록에서 건을 선택하고 <span class='ui-btn'>지급대기</span> 버튼을 클릭하면 🔗 <b class='dlink' onclick=\"goPage(2)\">지급대기</b> 탭으로 이동합니다.", subs:[
+    "<span class='ui-btn'>지급완료</span> 버튼으로 지급을 확정하면 🔗 <b class='dlink' onclick=\"goPage(3)\">지급완료</b> 탭에서 확인합니다.",
+    "지급하지 않을 건은 <span class='ui-btn'>취소</span> 버튼으로 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭에 모읍니다.",
     "%% <span class='ui-tab'>발행어음목록</span> 탭에서는 발행어음 내역을 모아 봅니다.",
   ]},
 ];
@@ -21794,9 +21794,9 @@ SIM["spay1"] = { start:"1", screens:{
       {x:63.2, y:20.0, w:6.2,  h:2.9, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 조회합니다."},
       {x:69.3, y:20.0, w:5.3,  h:2.9, plain:true, option:true, optionWin:{x:22.6, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── ③ 상태 처리 버튼 줄 ──
-      {x:56.2, y:23.4, w:6.2,  h:2.8, num:"4", numCorner:true, page:2, tip:"선택한 지급 건을 <b>지급대기</b> 상태로 넘깁니다."},
-      {x:62.3, y:23.4, w:6.2,  h:2.8, plain:true, page:3, tip:"선택한 지급 건을 <b>지급완료</b>로 처리합니다."},
-      {x:68.5, y:23.4, w:6.2,  h:2.8, plain:true, page:1, tip:"선택한 지급 건을 <b>취소</b> 처리합니다."},
+      {x:56.2, y:23.4, w:6.2,  h:2.8, num:"4", numCorner:true, tip:"선택한 지급 건을 <b>지급대기</b> 상태로 넘깁니다."},
+      {x:62.3, y:23.4, w:6.2,  h:2.8, plain:true, tip:"선택한 지급 건을 <b>지급완료</b>로 처리합니다."},
+      {x:68.5, y:23.4, w:6.2,  h:2.8, plain:true, tip:"선택한 지급 건을 <b>취소</b> 처리합니다."},
       // ── 그룹화 바 ──
       {x:0.7,  y:26.9, w:56.1, h:3.0, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:56.8, y:26.9, w:12.6, h:3.0, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -21866,9 +21866,9 @@ SIM["spay1c"] = { start:"1", screens:{
 
 IMGS["spay1w"] = "images/채무지급관리-지급대기.png";
 DESCS["spay1w"] = [
-  {type:"note", text:"<b>지급대기</b> 상태의 지급 건을 확인하는 탭입니다. 선택한 건을 <b>◀채무지급입력</b>으로 되돌리거나 상태를 처리할 수 있습니다."},
+  {type:"note", text:"<b>지급대기</b> 상태의 지급 건을 확인하는 탭입니다. 선택한 건을 🔗 <b class='dlink' onclick=\"goPage(0)\">◀채무지급입력</b>으로 되돌리거나 상태를 처리할 수 있습니다."},
   {type:"step", num:"1", title:`📋 지급대기 건 확인`, body:"<b>지급대기</b> 상태의 지급 건이 목록에 표시됩니다."},
-  {type:"step", num:"2", title:`✅ 지급완료 처리`, body:"건을 선택하고 <span class='ui-btn'>지급완료</span> 버튼을 클릭하면 <b>지급완료</b> 탭으로 이동합니다."},
+  {type:"step", num:"2", title:`✅ 지급완료 처리`, body:"건을 선택하고 <span class='ui-btn'>지급완료</span> 버튼을 클릭하면 🔗 <b class='dlink' onclick=\"goPage(3)\">지급완료</b> 탭으로 이동합니다."},
 ];
 SIM["spay1w"] = { start:"1", screens:{
 
@@ -21891,9 +21891,9 @@ SIM["spay1w"] = { start:"1", screens:{
       {x:63.2, y:20.0, w:6.2,  h:2.9, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 조회합니다."},
       {x:69.3, y:20.0, w:5.3,  h:2.9, plain:true, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 상태 처리 버튼 줄 (전부 투명 · 페이지 이동) ──
-      {x:54.3, y:23.4, w:8.0,  h:2.8, plain:true, page:0, tip:"선택한 건을 <b>채무지급입력</b> 상태로 되돌립니다."},
-      {x:62.3, y:23.5, w:6.1,  h:2.9, num:"2", numCorner:true, page:3, tip:"선택한 지급 건을 <b>지급완료</b>로 처리합니다."},
-      {x:68.5, y:23.4, w:6.2,  h:2.8, plain:true, page:1, tip:"선택한 지급 건을 <b>취소</b> 처리합니다."},
+      {x:54.3, y:23.4, w:8.0,  h:2.8, plain:true, tip:"선택한 건을 <b>채무지급입력</b> 상태로 되돌립니다."},
+      {x:62.3, y:23.5, w:6.1,  h:2.9, num:"2", numCorner:true, tip:"선택한 지급 건을 <b>지급완료</b>로 처리합니다."},
+      {x:68.5, y:23.4, w:6.2,  h:2.8, plain:true, tip:"선택한 지급 건을 <b>취소</b> 처리합니다."},
       // ── 그룹화 바 ──
       {x:0.7,  y:26.9, w:56.1, h:3.0, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:56.8, y:26.9, w:12.6, h:3.0, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -21932,7 +21932,7 @@ SIM["spay1d"] = { start:"1", screens:{
       {x:63.2, y:20.0, w:6.2,  h:2.9, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 조회합니다."},
       {x:69.3, y:20.0, w:5.3,  h:2.9, plain:true, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 상태 처리 버튼 줄 (취소 1개 · 활성) ──
-      {x:68.5, y:23.4, w:6.1,  h:2.8, plain:true, page:1, tip:"선택한 건을 <b>취소</b> 처리합니다(취소 탭으로 이동)."},
+      {x:68.5, y:23.4, w:6.1,  h:2.8, plain:true, tip:"선택한 건을 <b>취소</b> 처리합니다(취소 탭으로 이동)."},
       // ── 그룹화 바 ──
       {x:0.7,  y:26.9, w:56.1, h:3.0, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:56.8, y:26.9, w:12.6, h:3.0, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -21980,7 +21980,7 @@ SIM["spay1n"] = { start:"1", screens:{
       {x:63.2, y:20.0, w:6.2,  h:2.9, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 조회합니다."},
       {x:69.3, y:20.0, w:5.3,  h:2.9, plain:true, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 상태 처리 버튼 줄 (취소 1개 · 활성) ──
-      {x:68.5, y:23.4, w:6.1,  h:2.8, plain:true, page:1, tip:"선택한 건을 <b>취소</b> 처리합니다(취소 탭으로 이동)."},
+      {x:68.5, y:23.4, w:6.1,  h:2.8, plain:true, tip:"선택한 건을 <b>취소</b> 처리합니다(취소 탭으로 이동)."},
       // ── 그룹화 바 ──
       {x:0.7,  y:26.9, w:56.1, h:3.0, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:56.8, y:26.9, w:12.6, h:3.0, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -22524,13 +22524,13 @@ DESCS["sqt2"] = [
 
   {type:"step", num:"2", title:`📄 견적 내용 확인`, body:"<b>문서번호·매출처명·공급가액</b> 등 견적 내용을 확인합니다."},
 
-  {type:"step", num:"3", title:`📤 제출완료 처리`, body:"내용 확인이 끝난 견적서를 <b>제출완료·보류·수정·취소</b>로 처리합니다.", subs:[
+  {type:"step", num:"3", title:`📤 제출완료 처리`, body:"내용 확인이 끝난 견적서를 🔗 <b class='dlink' onclick=\"goPage(3)\">제출완료</b>·<b>보류·수정·취소</b>로 처리합니다.", subs:[
     "📌 보류",
-    "잠시 미뤄 둘 견적서면 <span class='ui-btn'>보류</span> 버튼으로 보류 상태로 넘깁니다(보류 탭으로 이동).",
+    "잠시 미뤄 둘 견적서면 <span class='ui-btn'>보류</span> 버튼으로 보류 상태로 넘깁니다(🔗 <b class='dlink' onclick=\"goPage(1)\">보류</b> 탭으로 이동).",
     "📌 수정",
     "틀린 곳이 있으면 <span class='ui-btn'>수정</span> 버튼으로 수정합니다 · 수정 화면은 <b>견적서 등록</b> 창과 동일합니다.",
     "📌 취소",
-    "필요 없는 견적서면 <span class='ui-btn'>취소</span> 버튼으로 취소합니다(취소 탭으로 이동).",
+    "필요 없는 견적서면 <span class='ui-btn'>취소</span> 버튼으로 취소합니다(🔗 <b class='dlink' onclick=\"goPage(2)\">취소</b> 탭으로 이동).",
   ]},
 ];
 SIM["sqt2"] = { start:"ws", screens:{
@@ -22554,10 +22554,10 @@ SIM["sqt2"] = { start:"ws", screens:{
       {x:94.2, y:20.0, w:5.2,  h:3.1, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 (y243~271 · 인쇄/보류/제출완료/수정/취소 모두 활성) ──
       {x:68.6, y:23.5, w:6.0,  h:2.8, plain:true, to:"p_print", toggle:true, tip:"<b>인쇄</b> 버튼으로 견적서 양식 미리 보기를 열어 인쇄합니다."},
-      {x:74.9, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"잠시 미뤄 둘 견적서면 <b>보류</b> 상태로 넘깁니다(보류 탭으로 이동)."},
-      {x:81.0, y:23.5, w:6.0,  h:2.8, num:"3", numCorner:true, page:3, tip:"내용 확인이 끝났으면 <b>제출완료</b>로 넘깁니다(제출완료 탭으로 이동)."},
+      {x:74.9, y:23.5, w:6.0,  h:2.8, plain:true, tip:"잠시 미뤄 둘 견적서면 <b>보류</b> 상태로 넘깁니다(보류 탭으로 이동)."},
+      {x:81.0, y:23.5, w:6.0,  h:2.8, num:"3", numCorner:true, tip:"내용 확인이 끝났으면 <b>제출완료</b>로 넘깁니다(제출완료 탭으로 이동)."},
       {x:87.2, y:23.5, w:6.0,  h:2.8, plain:true, tip:"틀린 곳은 <b>수정</b>으로 고칩니다 · 수정 화면은 <b>견적서 등록</b> 창과 동일합니다."},
-      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, page:2, tip:"필요 없는 견적서면 <b>취소</b>합니다(취소 탭으로 이동)."},
+      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, tip:"필요 없는 견적서면 <b>취소</b>합니다(취소 탭으로 이동)."},
       // ── 그룹화 바 (y274~308) ──
       {x:0.6,  y:26.6, w:81.0, h:3.3, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.6, y:26.6, w:12.6, h:3.3, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -22584,11 +22584,11 @@ IMGS["sqt2h"] = "images/견적서조회-보류.png";
 DESCS["sqt2h"] = [
   {type:"note", text:"잠시 미뤄 둔 <b>보류</b> 견적서를 모아 보는 탭입니다."},
   {type:"step", num:"1", title:`📋 보류 견적서 확인`, body:"보류 상태의 견적서 목록에서 처리할 전표를 선택합니다."},
-  {type:"step", num:"2", title:`↩️ 작성중으로 되돌리기`, body:"<span class='ui-btn'>작성중</span> 버튼으로 보류한 견적서를 다시 <b>작성중</b> 상태로 되돌립니다(작성중 탭으로 이동)."},
+  {type:"step", num:"2", title:`↩️ 작성중으로 되돌리기`, body:"<span class='ui-btn'>작성중</span> 버튼으로 보류한 견적서를 다시 <b>작성중</b> 상태로 되돌립니다(🔗 <b class='dlink' onclick=\"goPage(0)\">작성중</b> 탭으로 이동)."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
     "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 견적서 양식 미리 보기를 열어 출력합니다.",
     "<b>수정</b> : <span class='ui-btn'>수정</span> 버튼으로 <b>견적서 수정</b> 화면이 열리며, <b>노란색 칠</b> 부분을 고친 뒤 <span class='ui-btn'>견적서수정</span>으로 저장합니다.",
-    "<b>취소</b> : 필요 없는 견적서면 <span class='ui-btn'>취소</span>합니다(취소 탭으로 이동).",
+    "<b>취소</b> : 필요 없는 견적서면 <span class='ui-btn'>취소</span>합니다(🔗 <b class='dlink' onclick=\"goPage(2)\">취소</b> 탭으로 이동).",
   ]},
 ];
 SIM["sqt2h"] = { start:"hold", screens:{
@@ -22610,9 +22610,9 @@ SIM["sqt2h"] = { start:"hold", screens:{
       {x:94.2, y:20.0, w:5.2,  h:3.1, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 (인쇄/작성중/수정/취소 모두 활성) ──
       {x:74.7, y:23.5, w:6.0,  h:2.8, plain:true, to:"p_print", toggle:true, tip:"<b>인쇄</b> 버튼으로 견적서 양식 미리 보기를 열어 인쇄합니다."},
-      {x:80.9, y:23.5, w:6.0,  h:2.8, num:"2", numCorner:true, page:0, tip:"보류한 견적서를 다시 <b>작성중</b> 상태로 되돌립니다."},
+      {x:80.9, y:23.5, w:6.0,  h:2.8, num:"2", numCorner:true, tip:"보류한 견적서를 다시 <b>작성중</b> 상태로 되돌립니다."},
       {x:87.2, y:23.5, w:6.0,  h:2.8, plain:true, to:"edit", tip:"<b>수정</b> 버튼을 누르면 견적서 수정 화면이 열립니다."},
-      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, page:2, tip:"필요 없는 견적서면 <b>취소</b>합니다(취소 탭으로 이동)."},
+      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, tip:"필요 없는 견적서면 <b>취소</b>합니다(취소 탭으로 이동)."},
       // ── 그룹화 바 + 그리드 + 합계 ──
       {x:0.6,  y:26.6, w:81.0, h:3.3, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.6, y:26.6, w:12.6, h:3.3, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -22910,8 +22910,8 @@ DESCS["sunq1"] = [
     "처리할 건을 <b>☑ 체크</b>로 선택합니다.",
   ]},
 
-  {type:"step", num:"2", title:`📤 발행중으로 넘기기`, body:"확인이 끝나면 <span class='ui-btn'>발행중</span> 버튼으로 발행을 시작합니다(발행중 탭으로 이동).", subs:[
-    "<span class='ui-btn'>발행완료</span>로 바로 완료하거나 <span class='ui-btn'>취소</span>로 취소할 수도 있습니다.",
+  {type:"step", num:"2", title:`📤 발행중으로 넘기기`, body:"확인이 끝나면 <span class='ui-btn'>발행중</span> 버튼으로 발행을 시작합니다(🔗 <b class='dlink' onclick=\"goPage(3)\">발행중</b> 탭으로 이동).", subs:[
+    "<span class='ui-btn'><b class='dlink' onclick=\"goPage(4)\">발행완료</b></span>로 바로 완료하거나 <span class='ui-btn'><b class='dlink' onclick=\"goPage(1)\">취소</b></span>로 취소할 수도 있습니다.",
   ]},
 
   {type:"note", text:"발행하지 않을 건은 <b>발행안함·취소</b>로 따로 분류합니다."},
@@ -22935,9 +22935,9 @@ SIM["sunq1"] = { start:"wait", screens:{
       {x:88.0, y:20.0, w:6.0,  h:3.1, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 건을 조회합니다."},
       {x:94.2, y:20.0, w:5.2,  h:3.1, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 (발행중·발행완료·취소) ──
-      {x:80.9, y:23.5, w:6.0,  h:2.8, num:"2", numCorner:true, page:3, tip:"확인이 끝나면 <b>발행중</b>으로 발행을 시작합니다(발행중 탭으로 이동)."},
-      {x:87.1, y:23.5, w:6.0,  h:2.8, plain:true, page:4, tip:"바로 완료할 건은 <b>발행완료</b>로 확정합니다(발행완료 탭으로 이동)."},
-      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"발행하지 않을 건은 <b>취소</b>합니다(취소 탭으로 이동)."},
+      {x:80.9, y:23.5, w:6.0,  h:2.8, num:"2", numCorner:true, tip:"확인이 끝나면 <b>발행중</b>으로 발행을 시작합니다(발행중 탭으로 이동)."},
+      {x:87.1, y:23.5, w:6.0,  h:2.8, plain:true, tip:"바로 완료할 건은 <b>발행완료</b>로 확정합니다(발행완료 탭으로 이동)."},
+      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, tip:"발행하지 않을 건은 <b>취소</b>합니다(취소 탭으로 이동)."},
       // ── 그룹화 바 + 결과내 재검색 ──
       {x:0.6,  y:26.6, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       // ── 그리드 ──
@@ -22991,7 +22991,7 @@ DESCS["sunq1n"] = [
   {type:"note", text:"<b>발행안함</b>으로 분류한 건을 모아 보는 탭입니다."},
 
   {type:"step", num:"1", title:`📋 발행안함 건 확인`, body:"발행하지 않기로 한 건 목록에서 내용을 확인합니다.", subs:[
-    "필요하면 <span class='ui-btn'>취소</span> 버튼으로 취소 상태로 넘길 수 있습니다.",
+    "필요하면 <span class='ui-btn'>취소</span> 버튼으로 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 상태로 넘길 수 있습니다.",
   ]},
 ];
 SIM["sunq1n"] = { start:"none", screens:{
@@ -23013,7 +23013,7 @@ SIM["sunq1n"] = { start:"none", screens:{
       {x:88.0, y:20.0, w:6.0,  h:3.1, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 건을 조회합니다."},
       {x:94.2, y:20.0, w:5.2,  h:3.1, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 (취소 활성) ──
-      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"발행하지 않을 건은 <b>취소</b>합니다(취소 탭으로 이동)."},
+      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, tip:"발행하지 않을 건은 <b>취소</b>합니다(취소 탭으로 이동)."},
       // ── 그룹화 바 + 그리드 + 총건 ──
       {x:0.6,  y:26.6, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:0.6,  y:29.9, w:98.7, h:63.5, num:"1", numCorner:true, notint:true, tip:"<b>발행안함</b>으로 분류한 건 목록입니다."},
@@ -23030,8 +23030,8 @@ DESCS["sunq1i"] = [
   {type:"step", num:"1", title:`📋 진행 건 확인`, body:"발행이 진행 중인 건 목록에서 내용을 확인합니다."},
 
   {type:"step", num:"2", title:`✅ 발행 마무리`, body:"발행 결과에 따라 완료·분기 처리합니다.", subs:[
-    "발행이 끝나면 <span class='ui-btn'>발행완료</span> 버튼으로 확정합니다(발행완료 탭으로 이동).",
-    "발행하지 않을 건은 <span class='ui-btn'>발행안함</span> 또는 <span class='ui-btn'>취소</span>로 넘깁니다.",
+    "발행이 끝나면 <span class='ui-btn'>발행완료</span> 버튼으로 확정합니다(🔗 <b class='dlink' onclick=\"goPage(4)\">발행완료</b> 탭으로 이동).",
+    "발행하지 않을 건은 <span class='ui-btn'><b class='dlink' onclick=\"goPage(2)\">발행안함</b></span> 또는 <span class='ui-btn'><b class='dlink' onclick=\"goPage(1)\">취소</b></span>로 넘깁니다.",
   ]},
 
   {type:"note", text:"지금은 발행중 건이 <b>0건</b>입니다."},
@@ -23055,9 +23055,9 @@ SIM["sunq1i"] = { start:"ing", screens:{
       {x:88.0, y:20.0, w:6.0,  h:3.1, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 건을 조회합니다."},
       {x:94.2, y:20.0, w:5.2,  h:3.1, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 (발행안함·발행완료·취소) ──
-      {x:80.9, y:23.5, w:6.0,  h:2.8, plain:true, page:2, tip:"발행하지 않을 건은 <b>발행안함</b>으로 넘깁니다(발행안함 탭으로 이동)."},
-      {x:87.1, y:23.5, w:6.0,  h:2.8, num:"2", numCorner:true, page:4, tip:"발행이 끝나면 <b>발행완료</b>로 확정합니다(발행완료 탭으로 이동)."},
-      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"발행하지 않을 건은 <b>취소</b>합니다(취소 탭으로 이동)."},
+      {x:80.9, y:23.5, w:6.0,  h:2.8, plain:true, tip:"발행하지 않을 건은 <b>발행안함</b>으로 넘깁니다(발행안함 탭으로 이동)."},
+      {x:87.1, y:23.5, w:6.0,  h:2.8, num:"2", numCorner:true, tip:"발행이 끝나면 <b>발행완료</b>로 확정합니다(발행완료 탭으로 이동)."},
+      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, tip:"발행하지 않을 건은 <b>취소</b>합니다(취소 탭으로 이동)."},
       // ── 그룹화 바 + 그리드 + 총건 ──
       {x:0.6,  y:26.6, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:0.6,  y:29.9, w:98.7, h:63.5, num:"1", numCorner:true, notint:true, tip:"발행이 진행 중인 건이 표시됩니다."},
@@ -23113,11 +23113,11 @@ DESCS["shsq1"] = [
     "☑ 체크로 처리할 건을 선택합니다.",
   ]},
 
-  {type:"step", num:"2", title:`📤 발행중으로 넘기기`, body:"이력제 신고를 접수하면 <span class='ui-btn'>발행중</span>으로 넘깁니다(발행중 탭으로 이동).", subs:[
+  {type:"step", num:"2", title:`📤 발행중으로 넘기기`, body:"이력제 신고를 접수하면 <span class='ui-btn'>발행중</span>으로 넘깁니다(🔗 <b class='dlink' onclick=\"goPage(3)\">발행중</b> 탭으로 이동).", subs:[
     "📌 발행완료",
-    "발행이 끝난 건은 <span class='ui-btn'>발행완료</span>로 바로 확정합니다(발행완료 탭으로 이동).",
+    "발행이 끝난 건은 <span class='ui-btn'>발행완료</span>로 바로 확정합니다(🔗 <b class='dlink' onclick=\"goPage(4)\">발행완료</b> 탭으로 이동).",
     "📌 취소",
-    "신고하지 않을 건이면 <span class='ui-btn'>취소</span>합니다(취소 탭으로 이동).",
+    "신고하지 않을 건이면 <span class='ui-btn'>취소</span>합니다(🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭으로 이동).",
   ]},
 
   {type:"note", text:"발행 진행 상태는 <b>발행중 → 발행완료</b> 순서로 이동하며, 각 탭에서 확인할 수 있습니다."},
@@ -23144,9 +23144,9 @@ SIM["shsq1"] = { start:"wait", screens:{
       // ── 총 건수 ──
       {x:1.5,  y:23.5, w:6.0,  h:2.8, plain:true, notint:true, tip:"조회된 신고 건이 <b>총 4건</b>임을 표시합니다."},
       // ── 액션 버튼 줄 ──
-      {x:81.0, y:23.5, w:6.0,  h:2.8, num:"2", numCorner:true, page:3, tip:"이력제 신고를 접수하면 <b>발행중</b>으로 넘깁니다(발행중 탭으로 이동)."},
-      {x:87.2, y:23.5, w:6.0,  h:2.8, plain:true, page:4, tip:"발행이 끝난 건은 <b>발행완료</b>로 바로 확정합니다(발행완료 탭으로 이동)."},
-      {x:93.4, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"신고하지 않을 건이면 <b>취소</b>합니다(취소 탭으로 이동)."},
+      {x:81.0, y:23.5, w:6.0,  h:2.8, num:"2", numCorner:true, tip:"이력제 신고를 접수하면 <b>발행중</b>으로 넘깁니다(발행중 탭으로 이동)."},
+      {x:87.2, y:23.5, w:6.0,  h:2.8, plain:true, tip:"발행이 끝난 건은 <b>발행완료</b>로 바로 확정합니다(발행완료 탭으로 이동)."},
+      {x:93.4, y:23.5, w:6.0,  h:2.8, plain:true, tip:"신고하지 않을 건이면 <b>취소</b>합니다(취소 탭으로 이동)."},
       // ── 그룹화 바 + 재검색 ──
       {x:0.6,  y:26.6, w:96.8, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:97.8, y:26.6, w:1.8,  h:3.2, plain:true, tip:"<b>재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -23204,7 +23204,7 @@ DESCS["shsq1n"] = [
   {type:"note", text:"<b>발행안함</b>으로 처리한(발행하지 않기로 한) 신고 건이 모이는 탭입니다."},
 
   {type:"step", num:"1", title:`📋 발행안함 신고 확인`, body:"발행하지 않기로 한 건 목록에서 내용을 확인합니다.", subs:[
-    "필요하면 <span class='ui-btn'>취소</span> 버튼으로 취소 처리할 수 있습니다.",
+    "필요하면 <span class='ui-btn'>취소</span> 버튼으로 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 처리할 수 있습니다.",
   ]},
 ];
 SIM["shsq1n"] = { start:"notissue", screens:{
@@ -23228,7 +23228,7 @@ SIM["shsq1n"] = { start:"notissue", screens:{
       // ── 총 건수 ──
       {x:1.5,  y:23.5, w:6.0,  h:2.8, plain:true, notint:true, tip:"조회된 신고 건이 <b>총 0건</b>임을 표시합니다."},
       // ── 액션 버튼 (취소 활성) ──
-      {x:93.4, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"필요하면 <b>취소</b> 버튼으로 취소 처리합니다(취소 탭으로 이동)."},
+      {x:93.4, y:23.5, w:6.0,  h:2.8, plain:true, tip:"필요하면 <b>취소</b> 버튼으로 취소 처리합니다(취소 탭으로 이동)."},
       // ── 그룹화 바 + 재검색 + 그리드 + 페이지 ──
       {x:0.6,  y:26.6, w:96.8, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:97.8, y:26.6, w:1.8,  h:3.2, plain:true, tip:"<b>재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -23247,11 +23247,11 @@ DESCS["shsq1i"] = [
     "☑ 체크로 처리할 건을 선택합니다.",
   ]},
 
-  {type:"step", num:"2", title:`✅ 발행완료로 확정`, body:"발행이 끝나면 <span class='ui-btn'>발행완료</span>로 확정합니다(발행완료 탭으로 이동).", subs:[
+  {type:"step", num:"2", title:`✅ 발행완료로 확정`, body:"발행이 끝나면 <span class='ui-btn'>발행완료</span>로 확정합니다(🔗 <b class='dlink' onclick=\"goPage(4)\">발행완료</b> 탭으로 이동).", subs:[
     "📌 발행안함",
-    "발행하지 않기로 하면 <span class='ui-btn'>발행안함</span>으로 넘깁니다(발행안함 탭으로 이동).",
+    "발행하지 않기로 하면 <span class='ui-btn'>발행안함</span>으로 넘깁니다(🔗 <b class='dlink' onclick=\"goPage(2)\">발행안함</b> 탭으로 이동).",
     "📌 취소",
-    "신고하지 않을 건이면 <span class='ui-btn'>취소</span>합니다(취소 탭으로 이동).",
+    "신고하지 않을 건이면 <span class='ui-btn'>취소</span>합니다(🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭으로 이동).",
   ]},
 ];
 SIM["shsq1i"] = { start:"issuing", screens:{
@@ -23275,9 +23275,9 @@ SIM["shsq1i"] = { start:"issuing", screens:{
       // ── 총 건수 ──
       {x:1.5,  y:23.5, w:6.0,  h:2.8, plain:true, notint:true, tip:"조회된 신고 건이 <b>총 3건</b>임을 표시합니다."},
       // ── 액션 버튼 줄 (발행안함·발행완료·취소) ──
-      {x:81.0, y:23.5, w:6.0,  h:2.8, plain:true, page:2, tip:"발행하지 않기로 하면 <b>발행안함</b>으로 넘깁니다(발행안함 탭으로 이동)."},
-      {x:87.2, y:23.5, w:6.0,  h:2.8, num:"2", numCorner:true, page:4, tip:"발행이 끝나면 <b>발행완료</b>로 확정합니다(발행완료 탭으로 이동)."},
-      {x:93.4, y:23.5, w:6.0,  h:2.8, plain:true, page:1, tip:"신고하지 않을 건이면 <b>취소</b>합니다(취소 탭으로 이동)."},
+      {x:81.0, y:23.5, w:6.0,  h:2.8, plain:true, tip:"발행하지 않기로 하면 <b>발행안함</b>으로 넘깁니다(발행안함 탭으로 이동)."},
+      {x:87.2, y:23.5, w:6.0,  h:2.8, num:"2", numCorner:true, tip:"발행이 끝나면 <b>발행완료</b>로 확정합니다(발행완료 탭으로 이동)."},
+      {x:93.4, y:23.5, w:6.0,  h:2.8, plain:true, tip:"신고하지 않을 건이면 <b>취소</b>합니다(취소 탭으로 이동)."},
       // ── 그룹화 바 + 재검색 + 그리드 + 페이지 ──
       {x:0.6,  y:26.6, w:96.8, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:97.8, y:26.6, w:1.8,  h:3.2, plain:true, tip:"<b>재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -23430,7 +23430,7 @@ DESCS["scertq1"] = [
     "<span class='ui-btn'>전송</span>·<span class='ui-btn'>확정</span>으로 증명서를 발급·전송합니다.",
     "발급 <b>전송·확정된 전표</b>는 <b>발행완료</b> 탭으로 이동합니다.",
     "📌 발급취소",
-    "발급하지 않을 건은 <span class='ui-btn'>발급취소</span>합니다(발행취소 탭으로 이동).",
+    "발급하지 않을 건은 <span class='ui-btn'>발급취소</span>합니다(🔗 <b class='dlink' onclick=\"goPage(1)\">발행취소</b> 탭으로 이동).",
   ]},
 ];
 SIM["scertq1"] = { start:"wait", screens:{
@@ -23460,7 +23460,7 @@ SIM["scertq1"] = { start:"wait", screens:{
       // ── 상단 카운트 + 액션 버튼 ──
       {x:0.4,  y:33.2, w:10.0, h:2.3, plain:true, notint:true, tip:"조회된 <b>발급 대기</b> 건수가 표시됩니다."},
       {x:87.1, y:32.4, w:6.3,  h:3.1, num:"4", numCorner:true, to:"p_issue", toggle:true, tip:"<b>발급완료</b> 버튼을 누르면 매출 증명서 <b>발급 전송</b> 창이 열립니다."},
-      {x:92.8, y:32.9, w:6.8,  h:2.7, plain:true, page:1, tip:"발급하지 않을 건은 <b>발급취소</b>합니다(발행취소로 이동)."},
+      {x:92.8, y:32.9, w:6.8,  h:2.7, plain:true, tip:"발급하지 않을 건은 <b>발급취소</b>합니다(발행취소로 이동)."},
       // ── 그룹화 바 + 찾기 ──
       {x:0.6,  y:35.6, w:88.5, h:3.4, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       // ── 그리드 (① 발급 대기 건 · 인쇄 열) ──
@@ -23565,7 +23565,7 @@ SIM["scertq1d"] = { start:"done", screens:{
       {x:95.5, y:24.9, w:4.0,  h:3.2, plain:true, notint:true, tip:"조건을 지정하고 <b>검색</b> 버튼으로 조회합니다."},
       // ── 상단 카운트 + 발급취소 ──
       {x:0.4,  y:33.2, w:10.0, h:2.3, plain:true, notint:true, tip:"조회된 <b>발행완료</b> 건수가 표시됩니다."},
-      {x:92.8, y:32.9, w:6.8,  h:2.7, plain:true, page:1, tip:"발급을 되돌리려면 <b>발급취소</b>합니다(발행취소로 이동)."},
+      {x:92.8, y:32.9, w:6.8,  h:2.7, plain:true, tip:"발급을 되돌리려면 <b>발급취소</b>합니다(발행취소로 이동)."},
       // ── 그룹화 바 + 찾기 ──
       {x:0.6,  y:35.6, w:88.5, h:3.4, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       // ── 그리드 (0건) ──
@@ -24075,9 +24075,9 @@ DESCS["stxq1"] = [
     "그리드에서 <b>회원사·발행금액·상품</b> 등을 확인하고 처리할 건을 ☑ 체크합니다.",
   ]},
 
-  {type:"step", num:"2", title:`▶ 발행 처리 시작`, body:"확인이 끝나면 <span class='ui-btn'>발행중</span> 버튼으로 발행을 시작합니다(발행중 탭으로 이동).", subs:[
+  {type:"step", num:"2", title:`▶ 발행 처리 시작`, body:"확인이 끝나면 <span class='ui-btn'>발행중</span> 버튼으로 발행을 시작합니다(🔗 <b class='dlink' onclick=\"goPage(3)\">발행중</b> 탭으로 이동).", subs:[
     "📌 분기 처리",
-    "발행하지 않을 건은 <span class='ui-btn'>발행안함</span>, 쓰지 않을 건은 <span class='ui-btn'>취소</span>로 분류합니다.",
+    "발행하지 않을 건은 <span class='ui-btn'><b class='dlink' onclick=\"goPage(2)\">발행안함</b></span>, 쓰지 않을 건은 <span class='ui-btn'><b class='dlink' onclick=\"goPage(1)\">취소</b></span>로 분류합니다.",
   ]},
 
   {type:"note", text:"발행 상태별로 <b>5개 탭</b>이 나뉘며, 상단 탭으로 각 상태 목록을 확인합니다."},
@@ -24103,9 +24103,9 @@ SIM["stxq1"] = { start:"wait", screens:{
       {x:94.2, y:20.0, w:5.2,  h:3.1, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 ──
       {x:72.1, y:23.5, w:8.6,  h:2.8, plain:true, tip:"이 단계에서 <b>엑셀저장</b> 버튼을 사용할 수 없습니다."},
-      {x:80.7, y:23.5, w:6.2,  h:2.8, num:"2", numCorner:true, page:3, tip:"<b>발행중</b> 버튼으로 발행 처리를 시작합니다(발행중 탭으로)."},
-      {x:86.9, y:23.5, w:6.2,  h:2.8, plain:true, page:2, tip:"발행하지 않을 건은 <b>발행안함</b>으로 분류합니다(발행안함 탭)."},
-      {x:93.1, y:23.5, w:6.2,  h:2.8, plain:true, page:1, tip:"쓰지 않을 건은 <b>취소</b>합니다(발행취소 탭으로 이동)."},
+      {x:80.7, y:23.5, w:6.2,  h:2.8, num:"2", numCorner:true, tip:"<b>발행중</b> 버튼으로 발행 처리를 시작합니다(발행중 탭으로)."},
+      {x:86.9, y:23.5, w:6.2,  h:2.8, plain:true, tip:"발행하지 않을 건은 <b>발행안함</b>으로 분류합니다(발행안함 탭)."},
+      {x:93.1, y:23.5, w:6.2,  h:2.8, plain:true, tip:"쓰지 않을 건은 <b>취소</b>합니다(발행취소 탭으로 이동)."},
       // ── 그룹화 바 + 결과내 재검색 ──
       {x:0.6,  y:26.6, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:94.5, y:26.6, w:4.5,  h:3.2, plain:true, tip:"<b>결과내재검색</b>을 할 수 있습니다."},
@@ -24163,7 +24163,7 @@ DESCS["stxq1n"] = [
 
   {type:"step", num:"1", title:`📋 발행안함 목록 확인`, body:"발행하지 않기로 한 세금계산서 목록을 확인합니다."},
 
-  {type:"step", num:"2", title:`✕ 취소`, body:"쓰지 않을 건은 <span class='ui-btn'>취소</span> 버튼으로 <b>발행취소</b> 탭으로 옮깁니다."},
+  {type:"step", num:"2", title:`✕ 취소`, body:"쓰지 않을 건은 <span class='ui-btn'>취소</span> 버튼으로 🔗 <b class='dlink' onclick=\"goPage(1)\">발행취소</b> 탭으로 옮깁니다."},
 ];
 SIM["stxq1n"] = { start:"none", screens:{
 
@@ -24185,7 +24185,7 @@ SIM["stxq1n"] = { start:"none", screens:{
       {x:94.2, y:20.0, w:5.2,  h:3.1, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 (엑셀저장 · 취소) ──
       {x:84.2, y:23.5, w:8.7,  h:2.8, plain:true, tip:"조회된 목록을 <b>엑셀 파일</b>로 저장합니다."},
-      {x:93.3, y:23.5, w:6.0,  h:2.8, num:"2", numCorner:true, page:1, tip:"쓰지 않을 건은 <b>취소</b>합니다(발행취소 탭으로 이동)."},
+      {x:93.3, y:23.5, w:6.0,  h:2.8, num:"2", numCorner:true, tip:"쓰지 않을 건은 <b>취소</b>합니다(발행취소 탭으로 이동)."},
       // ── 그룹화 바 + 그리드 + 합계 ──
       {x:0.6,  y:26.6, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:94.5, y:26.6, w:4.5,  h:3.2, plain:true, tip:"<b>결과내재검색</b>을 할 수 있습니다."},
@@ -24202,9 +24202,9 @@ DESCS["stxq1i"] = [
 
   {type:"step", num:"1", title:`📋 발행중 전표 확인`, body:"발행 처리 중인 전표의 <b>발행상태</b>를 확인합니다."},
 
-  {type:"step", num:"2", title:`✅ 발행 확정`, body:"확인이 끝나면 <span class='ui-btn'>발행완료</span> 버튼으로 발행을 확정합니다(발행완료 탭으로 이동).", subs:[
+  {type:"step", num:"2", title:`✅ 발행 확정`, body:"확인이 끝나면 <span class='ui-btn'>발행완료</span> 버튼으로 발행을 확정합니다(🔗 <b class='dlink' onclick=\"goPage(4)\">발행완료</b> 탭으로 이동).", subs:[
     "📌 분기 처리",
-    "발행하지 않을 건은 <span class='ui-btn'>발행안함</span>, 쓰지 않을 건은 <span class='ui-btn'>취소</span>로 처리합니다.",
+    "발행하지 않을 건은 <span class='ui-btn'><b class='dlink' onclick=\"goPage(2)\">발행안함</b></span>, 쓰지 않을 건은 <span class='ui-btn'><b class='dlink' onclick=\"goPage(1)\">취소</b></span>로 처리합니다.",
   ]},
 
   {type:"step", num:"★", ystar:true, title:`🏢 휴/폐업체크`, body:"<span class='ui-btn'>휴/폐업체크</span> 버튼으로 회원사의 <b>휴업·폐업 여부</b>를 확인합니다.", subs:[
@@ -24232,9 +24232,9 @@ SIM["stxq1i"] = { start:"issuing", screens:{
       // ── 액션 버튼 줄 (엑셀저장 · 휴폐업체크★ · 발행안함 · 발행완료① · 취소) ──
       {x:64.4, y:23.5, w:8.7,  h:2.8, plain:true, tip:"조회된 목록을 <b>엑셀 파일</b>로 저장합니다."},
       {x:73.1, y:23.5, w:7.7,  h:2.8, yellow:true, num:"★", tip:"회원사의 <b>휴업·폐업 여부</b>를 확인합니다."},
-      {x:80.8, y:23.5, w:6.2,  h:2.8, plain:true, page:2, tip:"발행하지 않을 건은 <b>발행안함</b>으로 분류합니다(발행안함 탭)."},
-      {x:87.0, y:23.5, w:6.2,  h:2.8, num:"2", numCorner:true, page:4, tip:"<b>발행완료</b> 버튼으로 발행을 확정합니다(발행완료 탭으로)."},
-      {x:93.2, y:23.5, w:6.2,  h:2.8, plain:true, page:1, tip:"쓰지 않을 건은 <b>취소</b>합니다(발행취소 탭으로 이동)."},
+      {x:80.8, y:23.5, w:6.2,  h:2.8, plain:true, tip:"발행하지 않을 건은 <b>발행안함</b>으로 분류합니다(발행안함 탭)."},
+      {x:87.0, y:23.5, w:6.2,  h:2.8, num:"2", numCorner:true, tip:"<b>발행완료</b> 버튼으로 발행을 확정합니다(발행완료 탭으로)."},
+      {x:93.2, y:23.5, w:6.2,  h:2.8, plain:true, tip:"쓰지 않을 건은 <b>취소</b>합니다(발행취소 탭으로 이동)."},
       // ── 그룹화 바 + 그리드 + 합계 ──
       {x:0.6,  y:26.6, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:94.5, y:26.6, w:4.5,  h:3.2, plain:true, tip:"<b>결과내재검색</b>을 할 수 있습니다."},
@@ -24686,9 +24686,9 @@ DESCS["ssale2"] = [
     "처리할 문서를 <b>☑ 체크</b>해 선택합니다.",
   ]},
 
-  {type:"step", num:"2", title:`⏭️ 판매대기(다음 단계)`, body:"확인이 끝나면 <span class='ui-btn'>판매대기</span>로 넘깁니다(판매(출고)대기 탭으로 이동).", subs:[
-    "바로 확정하려면 <span class='ui-btn'>판매완료</span>로 판매를 끝냅니다(판매완료 탭으로 이동).",
-    "쓰지 않을 문서면 <span class='ui-btn'>취소</span>합니다(판매취소 탭으로 이동).",
+  {type:"step", num:"2", title:`⏭️ 판매대기(다음 단계)`, body:"확인이 끝나면 <span class='ui-btn'>판매대기</span>로 넘깁니다(🔗 <b class='dlink' onclick=\"goPage(3)\">판매(출고)대기</b> 탭으로 이동).", subs:[
+    "바로 확정하려면 <span class='ui-btn'>판매완료</span>로 판매를 끝냅니다(🔗 <b class='dlink' onclick=\"goPage(4)\">판매완료</b> 탭으로 이동).",
+    "쓰지 않을 문서면 <span class='ui-btn'>취소</span>합니다(🔗 <b class='dlink' onclick=\"goPage(1)\">판매취소</b> 탭으로 이동).",
   ]},
 
   {type:"step", num:"★", ystar:true, title:`📄 문서수정관리`, body:"<span class='ui-btn'>문서수정관리</span>로 판매 문서의 세부 항목을 고칩니다.", subs:[
@@ -24725,11 +24725,11 @@ SIM["ssale2"] = { start:"sale", screens:{
       // ── 액션 버튼 줄 ──
       {x:51.2, y:23.5, w:8.0,  h:2.7, plain:true, tip:"<b>매출내역보기</b>로 선택한 문서의 매출 내역을 확인합니다."},
       {x:59.2, y:23.5, w:6.3,  h:2.7, plain:true, tip:"선택한 판매 문서를 <b>인쇄</b>합니다."},
-      {x:65.6, y:23.5, w:6.0,  h:2.7, num:"2", numCorner:true, page:3, tip:"확인이 끝났으면 <b>판매대기</b>로 넘깁니다(판매(출고)대기 탭)."},
-      {x:72.0, y:23.5, w:6.2,  h:2.7, plain:true, page:4, tip:"바로 <b>판매완료</b>로 판매를 확정합니다(판매완료 탭)."},
+      {x:65.6, y:23.5, w:6.0,  h:2.7, num:"2", numCorner:true, tip:"확인이 끝났으면 <b>판매대기</b>로 넘깁니다(판매(출고)대기 탭)."},
+      {x:72.0, y:23.5, w:6.2,  h:2.7, plain:true, tip:"바로 <b>판매완료</b>로 판매를 확정합니다(판매완료 탭)."},
       {x:78.1, y:23.5, w:8.8,  h:2.7, yellow:true, to:"m_doc", toggle:true, tip:"<b>문서수정관리</b>로 영수·배송·결제·마감 정보를 고칩니다."},
       {x:87.0, y:23.5, w:6.2,  h:2.7, plain:true, page:5, tip:"<b>수정</b> 버튼을 누르면 <b>판매정보수정</b> 화면으로 이동합니다."},
-      {x:93.1, y:23.5, w:6.1,  h:2.7, plain:true, page:1, tip:"쓰지 않을 문서면 <b>취소</b>합니다(판매취소 탭)."},
+      {x:93.1, y:23.5, w:6.1,  h:2.7, plain:true, tip:"쓰지 않을 문서면 <b>취소</b>합니다(판매취소 탭)."},
       // ── 그룹화 바 + 결과내 재검색 ──
       {x:0.6,  y:26.5, w:80.9, h:3.4, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.5, y:26.5, w:12.6, h:3.4, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -24819,7 +24819,7 @@ DESCS["ssale2g"] = [
   {type:"step", num:"1", title:`📋 점검 문서 확인`, body:"판매가를 점검할 문서 목록에서 <b>☑ 체크</b>로 문서를 선택합니다."},
 
   {type:"step", num:"2", title:`✅ 판매완료 & 검수(출하)요청`, body:"판매가 점검이 끝나면 <span class='ui-btn'>판매완료 & 검수(출하)요청</span>으로 넘깁니다.", subs:[
-    "판매가 확정되고 <b>판매완료</b> 탭으로 이동합니다.",
+    "판매가 확정되고 🔗 <b class='dlink' onclick=\"goPage(4)\">판매완료</b> 탭으로 이동합니다.",
   ]},
 
   {type:"bullet", title:`📄 문서 수정`, subs:[
@@ -24851,7 +24851,7 @@ SIM["ssale2g"] = { start:"check", screens:{
       // ── 액션 버튼 줄 ──
       {x:49.6, y:23.5, w:8.0,  h:2.7, plain:true, tip:"<b>매출내역보기</b>로 선택한 문서의 매출 내역을 확인합니다."},
       {x:57.6, y:23.5, w:6.1,  h:2.7, plain:true, tip:"선택한 판매 문서를 <b>인쇄</b>합니다."},
-      {x:64.1, y:23.5, w:13.7, h:2.7, num:"2", numCorner:true, page:4, tip:"점검이 끝나면 <b>판매완료 & 검수(출하)요청</b>으로 확정합니다."},
+      {x:64.1, y:23.5, w:13.7, h:2.7, num:"2", numCorner:true, tip:"점검이 끝나면 <b>판매완료 & 검수(출하)요청</b>으로 확정합니다."},
       {x:78.2, y:23.5, w:8.8,  h:2.7, plain:true, toggle:true, to:"m_doc", tip:"<b>문서수정관리</b>로 영수·배송·결제·마감 정보를 고칩니다."},
       {x:87.0, y:23.5, w:6.2,  h:2.7, plain:true, page:5, tip:"<b>수정</b> 버튼을 누르면 <b>판매정보수정</b> 화면으로 이동합니다."},
       {x:93.1, y:23.5, w:6.1,  h:2.7, plain:true, tip:"이 단계에서는 <b>취소</b> 버튼을 사용할 수 없습니다."},
@@ -24896,8 +24896,8 @@ DESCS["ssale2w"] = [
   {type:"step", num:"1", title:`📋 대기 문서 확인`, body:"출고를 기다리는 문서 목록에서 <b>☑ 체크</b>로 문서를 선택합니다."},
 
   {type:"step", num:"2", title:`✅ 판매완료(다음 단계)`, body:"출고 준비가 끝나면 <span class='ui-btn'>판매완료 & 검수(출하)요청</span>으로 넘깁니다.", subs:[
-    "판매가 확정되고 <b>판매완료</b> 탭으로 이동합니다.",
-    "<span class='ui-btn'>판매입력</span>으로 되돌리거나 <span class='ui-btn'>판매가점검</span>으로 보낼 수 있습니다.",
+    "판매가 확정되고 🔗 <b class='dlink' onclick=\"goPage(4)\">판매완료</b> 탭으로 이동합니다.",
+    "<span class='ui-btn'><b class='dlink' onclick=\"goPage(0)\">판매입력</b></span>으로 되돌리거나 <span class='ui-btn'><b class='dlink' onclick=\"goPage(2)\">판매가점검</b></span>으로 보낼 수 있습니다.",
   ]},
 
   {type:"step", num:"★", ystar:true, title:`🔗 매출정보 통합`, body:"<span class='ui-btn'>매출정보 통합</span>으로 여러 판매 문서의 매출을 하나로 묶습니다.", subs:[
@@ -24930,12 +24930,12 @@ SIM["ssale2w"] = { start:"wait", screens:{
       {x:27.5, y:23.5, w:8.0,  h:2.7, plain:true, tip:"<b>매출내역보기</b>로 선택한 문서의 매출 내역을 확인합니다."},
       {x:35.5, y:23.5, w:6.2,  h:2.7, plain:true, tip:"선택한 판매 문서를 <b>인쇄</b>합니다."},
       {x:41.7, y:23.5, w:8.4,  h:2.7, yellow:true, to:"m_merge", toggle:true, tip:"<b>매출정보 통합</b>으로 여러 문서의 매출을 하나로 묶습니다."},
-      {x:50.1, y:23.5, w:6.2,  h:2.7, plain:true, page:0, tip:"<b>판매입력</b>으로 문서를 되돌립니다(판매입력 탭)."},
-      {x:56.3, y:23.5, w:7.7,  h:2.7, plain:true, page:2, tip:"<b>판매가점검</b> 탭으로 문서를 보냅니다."},
-      {x:64.0, y:23.5, w:13.8, h:2.7, num:"2", numCorner:true, page:4, tip:"출고 준비가 끝나면 <b>판매완료 & 검수(출하)요청</b>으로 확정합니다."},
+      {x:50.1, y:23.5, w:6.2,  h:2.7, plain:true, tip:"<b>판매입력</b>으로 문서를 되돌립니다(판매입력 탭)."},
+      {x:56.3, y:23.5, w:7.7,  h:2.7, plain:true, tip:"<b>판매가점검</b> 탭으로 문서를 보냅니다."},
+      {x:64.0, y:23.5, w:13.8, h:2.7, num:"2", numCorner:true, tip:"출고 준비가 끝나면 <b>판매완료 & 검수(출하)요청</b>으로 확정합니다."},
       {x:78.2, y:23.5, w:8.8,  h:2.7, plain:true, toggle:true, to:"m_doc", tip:"<b>문서수정관리</b>로 영수·배송·결제·마감 정보를 고칩니다."},
       {x:87.0, y:23.5, w:6.2,  h:2.7, plain:true, page:5, tip:"<b>수정</b> 버튼을 누르면 <b>판매정보수정</b> 화면으로 이동합니다."},
-      {x:93.1, y:23.5, w:6.1,  h:2.7, plain:true, page:1, tip:"쓰지 않을 문서면 <b>취소</b>합니다(판매취소 탭)."},
+      {x:93.1, y:23.5, w:6.1,  h:2.7, plain:true, tip:"쓰지 않을 문서면 <b>취소</b>합니다(판매취소 탭)."},
       // ── 그룹화 바 + 그리드 + 합계 ──
       {x:0.6,  y:26.5, w:80.9, h:3.4, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.5, y:26.5, w:12.6, h:3.4, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -25019,7 +25019,7 @@ SIM["ssale2d"] = { start:"done", screens:{
       {x:72.0, y:23.5, w:6.1,  h:2.7, plain:true, tip:"<b>판매반품</b> 버튼을 누르면 <b>판매 반품 조회</b>의 반품완료 탭으로 이동합니다."},
       {x:78.1, y:23.5, w:8.8,  h:2.7, plain:true, toggle:true, to:"m_doc", tip:"<b>문서수정관리</b>로 영수·배송·결제·마감 정보를 고칩니다."},
       {x:87.0, y:23.5, w:6.2,  h:2.7, plain:true, tip:"이 단계에서는 <b>수정</b> 버튼을 사용할 수 없습니다."},
-      {x:93.1, y:23.5, w:6.1,  h:2.7, plain:true, page:1, tip:"쓰지 않을 문서면 <b>취소</b>합니다(판매취소 탭)."},
+      {x:93.1, y:23.5, w:6.1,  h:2.7, plain:true, tip:"쓰지 않을 문서면 <b>취소</b>합니다(판매취소 탭)."},
       // ── 그룹화 바 + 그리드 + 합계 ──
       {x:0.6,  y:26.5, w:80.9, h:3.4, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.5, y:26.5, w:12.6, h:3.4, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -25062,7 +25062,7 @@ DESCS["ssr2"] = [
     "우측 상단 <b>통합검색</b>·<b>상세검색</b>으로 문서번호·매출처 등 특정 문서를 찾습니다.",
   ]},
 
-  {type:"step", num:"2", title:`✅ 반품대기(회수 진행)`, body:"확인이 끝나면 <span class='ui-btn'>반품대기</span>로 넘깁니다(반품(회수)대기 탭으로 이동).", subs:[
+  {type:"step", num:"2", title:`✅ 반품대기(회수 진행)`, body:"확인이 끝나면 <span class='ui-btn'>반품대기</span>로 넘깁니다(🔗 <b class='dlink' onclick=\"goPage(2)\">반품(회수)대기</b> 탭으로 이동).", subs:[
     "📌 수정·취소",
     "틀린 곳은 <span class='ui-btn'>수정</span>으로 고치고, 쓰지 않을 문서면 <span class='ui-btn'>취소</span>합니다(반품취소 탭으로 이동).",
   ]},
@@ -25101,7 +25101,7 @@ SIM["ssr2"] = { start:"in", screens:{
       // ── 액션 버튼 줄 ──
       {x:49.4, y:23.5, w:8.3,  h:2.8, yellow:true, to:"detail", tip:"<b>반품내역보기</b>로 선택 문서의 결제·상품 내역을 우측에 표시합니다."},
       {x:57.8, y:23.5, w:6.0,  h:2.8, plain:true, to:"p_print", toggle:true, tip:"<b>인쇄 ▾</b>로 거래명세서 등 인쇄 양식 메뉴를 엽니다."},
-      {x:64.0, y:23.5, w:6.1,  h:2.8, num:"2", numCorner:true, page:2, tip:"확인이 끝나면 <b>반품대기</b>로 넘깁니다(반품(회수)대기 탭으로 이동)."},
+      {x:64.0, y:23.5, w:6.1,  h:2.8, num:"2", numCorner:true, tip:"확인이 끝나면 <b>반품대기</b>로 넘깁니다(반품(회수)대기 탭으로 이동)."},
       {x:70.3, y:23.5, w:8.7,  h:2.8, plain:true, to:"p_recv", toggle:true, tip:"<b>회원영수관리 ▾</b>로 회원영수·회원영수취소 메뉴를 엽니다."},
       {x:79.2, y:23.5, w:7.6,  h:2.8, plain:true, tip:"<b>결제구분변경</b>으로 선택한 문서의 결제 방법을 변경합니다."},
       {x:87.0, y:23.5, w:6.0,  h:2.8, plain:true, tip:"<b>수정</b> 버튼으로 반품 문서 내용을 고칩니다."},
@@ -25135,7 +25135,7 @@ SIM["ssr2"] = { start:"in", screens:{
       // ── 액션 버튼 줄 (좌측으로 이동) ──
       {x:30.8, y:23.5, w:8.3,  h:2.8, to:"in", tip:"<b>반품내역닫기</b>를 클릭하면 우측 상세 패널이 닫힙니다."},
       {x:39.3, y:23.5, w:6.0,  h:2.8, plain:true, tip:"<b>인쇄 ▾</b>로 거래명세서 등 인쇄 양식 메뉴를 엽니다."},
-      {x:45.5, y:23.5, w:6.0,  h:2.8, plain:true, page:2, tip:"확인이 끝나면 <b>반품대기</b>로 넘깁니다(반품(회수)대기 탭으로 이동)."},
+      {x:45.5, y:23.5, w:6.0,  h:2.8, plain:true, tip:"확인이 끝나면 <b>반품대기</b>로 넘깁니다(반품(회수)대기 탭으로 이동)."},
       {x:51.7, y:23.5, w:8.7,  h:2.8, plain:true, tip:"<b>회원영수관리 ▾</b>로 회원영수·회원영수취소 메뉴를 엽니다."},
       {x:60.6, y:23.5, w:7.6,  h:2.8, plain:true, tip:"<b>결제구분변경</b>으로 선택한 문서의 결제 방법을 변경합니다."},
       {x:68.5, y:23.5, w:6.0,  h:2.8, plain:true, tip:"<b>수정</b> 버튼으로 반품 문서 내용을 고칩니다."},
@@ -25247,7 +25247,7 @@ IMGS["ssr2w"] = "images/판매반품조회-반품대기.png";
 DESCS["ssr2w"] = [
   {type:"note", text:"반품대기로 넘긴 문서가 모여 <b>상품 회수</b>를 기다리는 탭입니다."},
 
-  {type:"step", num:"1", title:`✅ 반품완료(완료하기)`, body:"상품 회수가 끝나면 <span class='ui-btn'>반품완료</span> 버튼으로 확정합니다(반품완료 탭으로 이동).", subs:[
+  {type:"step", num:"1", title:`✅ 반품완료(완료하기)`, body:"상품 회수가 끝나면 <span class='ui-btn'>반품완료</span> 버튼으로 확정합니다(🔗 <b class='dlink' onclick=\"goPage(3)\">반품완료</b> 탭으로 이동).", subs:[
     "수정 · 취소 · 결제구분변경은 반품입력 탭과 같은 방식으로 처리합니다.",
   ]},
 ];
@@ -25272,7 +25272,7 @@ SIM["ssr2w"] = { start:"wait", screens:{
       // ── 액션 버튼 줄 (① 반품완료) ──
       {x:49.4, y:23.5, w:8.3,  h:2.8, plain:true, tip:"<b>반품내역보기</b>로 선택 문서의 결제·상품 내역을 우측에 표시합니다."},
       {x:57.8, y:23.5, w:6.0,  h:2.8, plain:true, tip:"<b>인쇄 ▾</b>로 거래명세서 등 인쇄 양식 메뉴를 엽니다."},
-      {x:64.1, y:23.5, w:6.0,  h:2.8, num:"1", numCorner:true, page:3, tip:"회수가 끝나면 <b>반품완료</b>로 확정합니다(반품완료 탭으로 이동)."},
+      {x:64.1, y:23.5, w:6.0,  h:2.8, num:"1", numCorner:true, tip:"회수가 끝나면 <b>반품완료</b>로 확정합니다(반품완료 탭으로 이동)."},
       {x:70.3, y:23.5, w:8.7,  h:2.8, plain:true, tip:"<b>회원영수관리 ▾</b>로 회원영수·회원영수취소 메뉴를 엽니다."},
       {x:79.2, y:23.5, w:7.6,  h:2.8, plain:true, tip:"<b>결제구분변경</b>으로 선택한 문서의 결제 방법을 변경합니다."},
       {x:87.0, y:23.5, w:6.0,  h:2.8, plain:true, tip:"<b>수정</b> 버튼으로 반품 문서 내용을 고칩니다."},
@@ -25620,12 +25620,12 @@ DESCS["shw1"] = [
   {type:"step", num:"1", title:`📅 회수일 지정`, body:"조회할 <b>회수일</b>(시작~종료)을 지정합니다."},
   {type:"step", num:"2", title:`🔍 검색`, body:"<span class='ui-btn'>검색</span> 버튼으로 회수 문서를 조회합니다."},
   {type:"step", num:"3", title:`📋 회수 주문서 확인`, body:"목록에서 회수 주문서 내역을 확인하고 <b>☑ 체크</b>로 처리할 문서를 선택합니다."},
-  {type:"step", num:"4", title:`📦 회수(반품)요청`, body:"확인이 끝나면 <span class='ui-btn'>회수(반품)요청</span>으로 넘깁니다(회수요청 탭으로 이동)."},
+  {type:"step", num:"4", title:`📦 회수(반품)요청`, body:"확인이 끝나면 <span class='ui-btn'>회수(반품)요청</span>으로 넘깁니다(🔗 <b class='dlink' onclick=\"goPage(2)\">회수요청</b> 탭으로 이동)."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
     "<b>작업관리</b> : <span class='ui-btn'>작업관리</span>로 쇼핑몰 주문수집·오픈마켓 주문등록 메뉴를 엽니다.",
     "<b>수정</b> : <span class='ui-btn'>수정</span> 버튼으로 <b>회수주문서수정</b> 화면으로 이동합니다.",
     "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 회수지시서 미리보기를 엽니다.",
-    "<b>취소</b> : 쓰지 않을 문서면 <span class='ui-btn'>취소</span>합니다(취소 탭으로 이동).",
+    "<b>취소</b> : 쓰지 않을 문서면 <span class='ui-btn'>취소</span>합니다(🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭으로 이동).",
   ]},
 ];
 SIM["shw1"] = { start:"in", screens:{
@@ -25660,9 +25660,9 @@ SIM["shw1"] = { start:"in", screens:{
       // ── 액션 툴바 (검색 패널 아래) ──
       {x:64.7, y:45.7, w:6.1,  h:2.9, plain:true, toggle:true, to:"p_print", tip:"선택한 회수 문서의 <b>회수지시서</b> 미리보기를 엽니다."},
       {x:70.9, y:45.7, w:7.6,  h:2.8, yellow:true, toggle:true, to:"p_work", tip:"<b>작업관리</b>로 쇼핑몰 주문수집·오픈마켓 주문등록 메뉴를 엽니다."},
-      {x:78.7, y:45.7, w:8.4,  h:3.2, num:"4", numCorner:true, page:2, tip:"확인이 끝나면 <b>회수(반품)요청</b>으로 넘깁니다(회수요청 탭으로 이동)."},
+      {x:78.7, y:45.7, w:8.4,  h:3.2, num:"4", numCorner:true, tip:"확인이 끝나면 <b>회수(반품)요청</b>으로 넘깁니다(회수요청 탭으로 이동)."},
       {x:87.2, y:45.8, w:6.1,  h:2.8, yellow:true, page:6, tip:"<b>수정</b> 버튼을 누르면 <b>회수주문서수정</b> 화면으로 이동합니다."},
-      {x:93.3, y:45.8, w:6.1,  h:2.8, plain:true, page:1, tip:"쓰지 않을 문서면 <b>취소</b>합니다(취소 탭으로 이동)."},
+      {x:93.3, y:45.8, w:6.1,  h:2.8, plain:true, tip:"쓰지 않을 문서면 <b>취소</b>합니다(취소 탭으로 이동)."},
       // ── 그룹화 바 + 결과내 재검색 ──
       {x:0.6,  y:49.0, w:82.5, h:2.9, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:83.5, y:49.0, w:10.5, h:2.9, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -25707,7 +25707,7 @@ IMGS["shw1c"] = "images/회수조회-취소.png";
 DESCS["shw1c"] = [
   {type:"note", text:"<b>취소</b>한 회수 문서를 모아 보는 탭입니다."},
   {type:"step", num:"1", title:`📋 취소 문서 확인`, body:"취소한 회수 문서 목록에서 내용을 확인합니다."},
-  {type:"step", num:"2", title:`↩️ 회수입력으로 복구`, body:"<span class='ui-btn'>회수입력</span> 버튼으로 취소한 문서를 회수입력 상태로 되돌립니다.", subs:[
+  {type:"step", num:"2", title:`↩️ 회수입력으로 복구`, body:"<span class='ui-btn'>회수입력</span> 버튼으로 취소한 문서를 🔗 <b class='dlink' onclick=\"goPage(0)\">회수입력</b> 상태로 되돌립니다.", subs:[
     "이 탭에서는 <span class='ui-btn'>수정</span> · <span class='ui-btn'>취소</span> 버튼을 사용할 수 없습니다.",
   ]},
 ];
@@ -25738,7 +25738,7 @@ SIM["shw1c"] = { start:"cancel", screens:{
       // ── 액션 툴바 (인쇄·작업관리·회수입력·수정회색·취소회색) ──
       {x:67.1, y:45.6, w:6.1,  h:3.1, plain:true, tip:"선택한 회수 문서를 <b>인쇄</b>합니다."},
       {x:73.2, y:45.6, w:7.7,  h:3,   plain:true, toggle:true, to:"p_work", tip:"<b>작업관리</b>로 쇼핑몰 주문수집·오픈마켓 주문등록 메뉴를 엽니다."},
-      {x:80.9, y:45.6, w:6.2,  h:3.3, num:"2", numCorner:true, page:0, tip:"<b>회수입력</b> 버튼으로 취소한 문서를 회수입력 상태로 복구합니다."},
+      {x:80.9, y:45.6, w:6.2,  h:3.3, num:"2", numCorner:true, tip:"<b>회수입력</b> 버튼으로 취소한 문서를 회수입력 상태로 복구합니다."},
       {x:87.2, y:45.6, w:6.0,  h:2.9, plain:true, tip:"이 단계에서는 <b>수정</b> 버튼을 사용할 수 없습니다."},
       {x:93.3, y:45.6, w:6.0,  h:2.9, plain:true, tip:"이 단계에서는 <b>취소</b> 버튼을 사용할 수 없습니다."},
       // ── 그룹화 바 + 그리드 ──
@@ -25762,7 +25762,7 @@ IMGS["shw1q"] = "images/회수(반품요청).png";
 DESCS["shw1q"] = [
   {type:"note", text:"<b>회수(반품)요청</b>한 문서가 모이는 탭입니다."},
   {type:"step", num:"1", title:`📋 요청 문서 확인`, body:"회수(반품)요청한 문서 목록에서 내용을 확인합니다."},
-  {type:"step", num:"2", title:`✅ 회수완료 처리`, body:"요청 내용을 확인한 뒤 <span class='ui-btn'>회수완료</span> 버튼으로 회수를 확정합니다(완료 탭으로 이동).", subs:[
+  {type:"step", num:"2", title:`✅ 회수완료 처리`, body:"요청 내용을 확인한 뒤 <span class='ui-btn'>회수완료</span> 버튼으로 회수를 확정합니다(🔗 <b class='dlink' onclick=\"goPage(4)\">완료</b> 탭으로 이동).", subs:[
     "<span class='ui-btn'>인쇄</span>로 회수지시서를 출력하고, <span class='ui-btn'>수정</span>으로 문서를 고칩니다.",
     "잘못 요청한 문서면 <span class='ui-btn'>취소</span>합니다.",
   ]},
@@ -25790,9 +25790,9 @@ SIM["shw1q"] = { start:"req", screens:{
       // ── 액션 툴바 (인쇄·작업관리·회수완료·수정·취소) ──
       {x:67.0, y:23.6, w:6.0,  h:2.8, plain:true, tip:"선택한 회수 문서를 <b>인쇄</b>합니다."},
       {x:73.2, y:23.6, w:7.6,  h:2.8, plain:true, toggle:true, to:"p_work", tip:"<b>작업관리</b>로 쇼핑몰 주문수집·오픈마켓 주문등록 메뉴를 엽니다."},
-      {x:80.9, y:23.5, w:6.2,  h:3.2, num:"2", numCorner:true, page:4, tip:"요청 확인이 끝나면 <b>회수완료</b>로 확정합니다(완료 탭으로 이동)."},
+      {x:80.9, y:23.5, w:6.2,  h:3.2, num:"2", numCorner:true, tip:"요청 확인이 끝나면 <b>회수완료</b>로 확정합니다(완료 탭으로 이동)."},
       {x:87.2, y:23.6, w:6.0,  h:2.8, plain:true, page:6, tip:"<b>수정</b> 버튼을 누르면 <b>회수주문서수정</b> 화면으로 이동합니다."},
-      {x:93.3, y:23.6, w:6.0,  h:2.8, plain:true, page:1, tip:"잘못 요청한 문서면 <b>취소</b>합니다(취소 탭으로 이동)."},
+      {x:93.3, y:23.6, w:6.0,  h:2.8, plain:true, tip:"잘못 요청한 문서면 <b>취소</b>합니다(취소 탭으로 이동)."},
       // ── 그룹화 바 + 그리드 ──
       {x:0.6,  y:26.8, w:82.5, h:2.9, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:83.5, y:26.8, w:10.5, h:2.9, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -26055,11 +26055,11 @@ DESCS["sord2"] = [
   ]},
 
   {type:"step", num:"2", title:`🚚 계획으로이동`, body:"확인이 끝나면 <span class='ui-btn'>계획으로이동</span>으로 다음 단계로 보냅니다.", subs:[
-    "주문서가 <b>출고(매입)계획</b> 탭으로 이동합니다.",
+    "주문서가 🔗 <b class='dlink' onclick=\"goPage(3)\">출고(매입)계획</b> 탭으로 이동합니다.",
     "📌 수정 · 취소",
-    "<span class='ui-btn'>수정</span>으로 주문서를 고치고, 쓰지 않을 주문서는 <span class='ui-btn'>취소</span>합니다.",
+    "<span class='ui-btn'>수정</span>으로 주문서를 고치고, 쓰지 않을 주문서는 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b>합니다.",
     "📌 반려(점검)",
-    "점검이 필요하면 <span class='ui-btn'>반려(점검)</span>로 보냅니다.",
+    "점검이 필요하면 🔗 <b class='dlink' onclick=\"goPage(2)\">반려(점검)</b>로 보냅니다.",
     "📌 인쇄",
     "<span class='ui-btn'>인쇄 ▾</span>에서 기본인쇄·동선기준인쇄·거래명세서 등 <b>양식</b>을 골라 인쇄합니다.",
   ]},
@@ -26095,10 +26095,10 @@ SIM["sord2"] = { start:"in", screens:{
       // ── 툴바 ──
       {x:56.6, y:23.6, w:8.4,  h:2.8, yellow:true, to:"detail", toggle:true, tip:"우측에 <b>처리이력·상품내역</b> 패널을 열어 확인합니다."},
       {x:65.1, y:23.6, w:6.1,  h:2.8, plain:true, to:"p_print", toggle:true, tip:"<b>인쇄 ▾</b>에서 양식을 골라 주문서를 인쇄합니다."},
-      {x:71.4, y:23.6, w:6.9,  h:2.8, plain:true, page:2, tip:"점검이 필요하면 <b>반려(점검)</b>로 보냅니다."},
-      {x:78.3, y:23.6, w:8.4,  h:2.8, num:"2", numCorner:true, page:3, tip:"확인이 끝나면 <b>출고(매입)계획</b> 단계로 보냅니다."},
+      {x:71.4, y:23.6, w:6.9,  h:2.8, plain:true, tip:"점검이 필요하면 <b>반려(점검)</b>로 보냅니다."},
+      {x:78.3, y:23.6, w:8.4,  h:2.8, num:"2", numCorner:true, tip:"확인이 끝나면 <b>출고(매입)계획</b> 단계로 보냅니다."},
       {x:87.0, y:23.6, w:6.1,  h:2.8, plain:true, page:9, tip:"<b>수정</b> 버튼을 누르면 <b>주문서수정</b> 화면으로 이동합니다."},
-      {x:93.2, y:23.6, w:4.7,  h:2.8, plain:true, page:1, tip:"쓰지 않을 주문서는 <b>취소</b>합니다."},
+      {x:93.2, y:23.6, w:4.7,  h:2.8, plain:true, tip:"쓰지 않을 주문서는 <b>취소</b>합니다."},
       // ── 그룹화 바 + 결과내 재검색 ──
       {x:0.6,  y:26.5, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.6, y:26.5, w:12.6, h:3.2, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -26118,10 +26118,10 @@ SIM["sord2"] = { start:"in", screens:{
       // ── 툴바 (좌측으로 이동) ──
       {x:27.0, y:23.6, w:8.4,  h:2.8, yellow:true, to:"in", toggle:true, tip:"<b>주문내역닫기</b>로 우측 패널을 닫습니다."},
       {x:35.5, y:23.6, w:6.1,  h:2.8, plain:true, to:"p_print", toggle:true, tip:"<b>인쇄 ▾</b>에서 양식을 골라 주문서를 인쇄합니다."},
-      {x:41.8, y:23.6, w:6.9,  h:2.8, plain:true, page:2, tip:"점검이 필요하면 <b>반려(점검)</b>로 보냅니다."},
-      {x:48.7, y:23.6, w:8.4,  h:2.8, num:"2", numCorner:true, page:3, tip:"확인이 끝나면 <b>출고(매입)계획</b> 단계로 보냅니다."},
+      {x:41.8, y:23.6, w:6.9,  h:2.8, plain:true, tip:"점검이 필요하면 <b>반려(점검)</b>로 보냅니다."},
+      {x:48.7, y:23.6, w:8.4,  h:2.8, num:"2", numCorner:true, tip:"확인이 끝나면 <b>출고(매입)계획</b> 단계로 보냅니다."},
       {x:57.4, y:23.6, w:6.1,  h:2.8, plain:true, page:9, tip:"<b>수정</b> 버튼을 누르면 <b>주문서수정</b> 화면으로 이동합니다."},
-      {x:63.6, y:23.6, w:6.1,  h:2.8, plain:true, page:1, tip:"쓰지 않을 주문서는 <b>취소</b>합니다."},
+      {x:63.6, y:23.6, w:6.1,  h:2.8, plain:true, tip:"쓰지 않을 주문서는 <b>취소</b>합니다."},
       // ── 좌측 그리드(축소) ──
       {x:0.6,  y:26.5, w:69.0, h:3.2, plain:true, notint:true, tip:"머리글을 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:0.6,  y:29.9, w:69.0, h:58.8, plain:true, notint:true, tip:"주문서 목록입니다 · 행을 선택하면 우측에 <b>내역</b>이 표시됩니다."},
@@ -26242,8 +26242,8 @@ DESCS["sord2r"] = [
   {type:"step", num:"1", title:`📋 반려 주문서 확인`, body:"반려(점검)한 주문서 목록에서 내용을 확인합니다."},
 
   {type:"step", num:"2", title:`↩️ 주문서입력으로 복구`, body:"점검이 끝나면 <span class='ui-btn'>주문서입력</span> 버튼으로 되돌립니다.", subs:[
-    "주문서가 <b>주문서입력</b> 탭으로 복구됩니다.",
-    "필요하면 <span class='ui-btn'>수정</span>으로 내용을 고치거나 <span class='ui-btn'>취소</span>합니다.",
+    "주문서가 🔗 <b class='dlink' onclick=\"goPage(0)\">주문서입력</b> 탭으로 복구됩니다.",
+    "필요하면 <span class='ui-btn'>수정</span>으로 내용을 고치거나 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b>합니다.",
   ]},
 ];
 SIM["sord2r"] = { start:"rej", screens:{
@@ -26270,9 +26270,9 @@ SIM["sord2r"] = { start:"rej", screens:{
       // ── 툴바 (주문내역보기·인쇄·주문서입력·수정·취소) ──
       {x:64.2, y:23.6, w:8.4,  h:2.8, plain:true, tip:"우측에 <b>처리이력·상품내역</b> 패널을 열어 확인합니다."},
       {x:72.7, y:23.6, w:6.1,  h:2.8, plain:true, to:"p_print", toggle:true, tip:"<b>인쇄 ▾</b>에서 양식을 골라 주문서를 인쇄합니다."},
-      {x:78.9, y:23.6, w:7.7,  h:2.8, num:"2", numCorner:true, page:0, tip:"<b>주문서입력</b> 버튼으로 반려한 주문서를 복구합니다."},
+      {x:78.9, y:23.6, w:7.7,  h:2.8, num:"2", numCorner:true, tip:"<b>주문서입력</b> 버튼으로 반려한 주문서를 복구합니다."},
       {x:87.0, y:23.6, w:6.1,  h:2.8, plain:true, page:9, tip:"<b>수정</b> 버튼을 누르면 <b>주문서수정</b> 화면으로 이동합니다."},
-      {x:93.2, y:23.6, w:4.7,  h:2.8, plain:true, page:1, tip:"쓰지 않을 주문서는 <b>취소</b>합니다."},
+      {x:93.2, y:23.6, w:4.7,  h:2.8, plain:true, tip:"쓰지 않을 주문서는 <b>취소</b>합니다."},
       // ── 그룹화 바 + 그리드 + 합계 ──
       {x:0.6,  y:26.5, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.6, y:26.5, w:12.6, h:3.2, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -26302,8 +26302,8 @@ DESCS["sord2p"] = [
   {type:"step", num:"1", title:`📋 주문서 확인`, body:"출고(매입)계획 단계 주문서 목록에서 내용을 확인합니다."},
 
   {type:"step", num:"2", title:`📦 포장시작`, body:"준비가 끝나면 <span class='ui-btn'>포장시작</span>으로 다음 단계로 보냅니다.", subs:[
-    "주문서가 <b>포장중</b> 탭으로 이동합니다.",
-    "필요하면 <span class='ui-btn'>반려(점검)</span>로 보내거나 <span class='ui-btn'>수정</span> · <span class='ui-btn'>취소</span>합니다.",
+    "주문서가 🔗 <b class='dlink' onclick=\"goPage(4)\">포장중</b> 탭으로 이동합니다.",
+    "필요하면 🔗 <b class='dlink' onclick=\"goPage(2)\">반려(점검)</b>로 보내거나 <span class='ui-btn'>수정</span> · 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b>합니다.",
   ]},
 
   {type:"step", num:"★", ystar:true, title:`⚙️ 작업관리`, body:"작업그룹·API 주문수집 등 <b>출고 준비 도구</b>를 제공합니다.", subs:[
@@ -26335,10 +26335,10 @@ SIM["sord2p"] = { start:"plan", screens:{
       {x:50.9, y:23.6, w:8.4,  h:2.8, plain:true, tip:"우측에 <b>처리이력·상품내역</b> 패널을 열어 확인합니다."},
       {x:59.4, y:23.6, w:6.1,  h:2.8, plain:true, to:"p_print", toggle:true, tip:"<b>인쇄 ▾</b>에서 양식을 골라 주문서를 인쇄합니다."},
       {x:65.6, y:23.6, w:8.0,  h:2.8, yellow:true, to:"p_work", toggle:true, tip:"<b>작업관리 ▾</b>에서 작업그룹·주문수집 도구를 실행합니다."},
-      {x:73.7, y:23.6, w:6.9,  h:2.8, plain:true, page:2, tip:"점검이 필요하면 <b>반려(점검)</b>로 보냅니다."},
-      {x:80.7, y:23.6, w:6.1,  h:2.8, num:"2", numCorner:true, page:4, tip:"준비가 끝나면 <b>포장시작</b>으로 포장중 단계로 보냅니다."},
+      {x:73.7, y:23.6, w:6.9,  h:2.8, plain:true, tip:"점검이 필요하면 <b>반려(점검)</b>로 보냅니다."},
+      {x:80.7, y:23.6, w:6.1,  h:2.8, num:"2", numCorner:true, tip:"준비가 끝나면 <b>포장시작</b>으로 포장중 단계로 보냅니다."},
       {x:87.0, y:23.6, w:6.1,  h:2.8, plain:true, page:9, tip:"<b>수정</b> 버튼을 누르면 <b>주문서수정</b> 화면으로 이동합니다."},
-      {x:93.2, y:23.6, w:4.7,  h:2.8, plain:true, page:1, tip:"쓰지 않을 주문서는 <b>취소</b>합니다."},
+      {x:93.2, y:23.6, w:4.7,  h:2.8, plain:true, tip:"쓰지 않을 주문서는 <b>취소</b>합니다."},
       // ── 그룹화 바 + 그리드 + 합계 ──
       {x:0.6,  y:26.5, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.6, y:26.5, w:12.6, h:3.2, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -26379,7 +26379,7 @@ DESCS["sord2k"] = [
   {type:"step", num:"1", title:`📋 주문서 확인`, body:"포장중 단계 주문서 목록에서 내용을 확인합니다."},
 
   {type:"step", num:"2", title:`📮 출고대기중`, body:"포장이 끝나면 <span class='ui-btn'>출고대기중</span>으로 넘깁니다.", subs:[
-    "주문서가 <b>출고대기중</b> 탭으로 이동합니다.",
+    "주문서가 🔗 <b class='dlink' onclick=\"goPage(5)\">출고대기중</b> 탭으로 이동합니다.",
     "작업관리·인쇄로 포장 작업을 보조합니다.",
   ]},
 ];
@@ -26408,9 +26408,9 @@ SIM["sord2k"] = { start:"pack", screens:{
       {x:56.3, y:23.6, w:8.4,  h:2.8, plain:true, tip:"우측에 <b>처리이력·상품내역</b> 패널을 열어 확인합니다."},
       {x:64.7, y:23.6, w:6.1,  h:2.8, plain:true, to:"p_print", toggle:true, tip:"<b>인쇄 ▾</b>에서 양식을 골라 주문서를 인쇄합니다."},
       {x:70.9, y:23.6, w:8.0,  h:2.8, plain:true, tip:"<b>작업관리 ▾</b>에서 작업그룹·주문수집 도구를 실행합니다."},
-      {x:79.2, y:23.6, w:7.7,  h:2.8, num:"2", numCorner:true, page:5, tip:"포장이 끝나면 <b>출고대기중</b>으로 넘깁니다."},
+      {x:79.2, y:23.6, w:7.7,  h:2.8, num:"2", numCorner:true, tip:"포장이 끝나면 <b>출고대기중</b>으로 넘깁니다."},
       {x:87.0, y:23.6, w:6.1,  h:2.8, plain:true, page:9, tip:"<b>수정</b> 버튼을 누르면 <b>주문서수정</b> 화면으로 이동합니다."},
-      {x:93.2, y:23.6, w:4.7,  h:2.8, plain:true, page:1, tip:"쓰지 않을 주문서는 <b>취소</b>합니다."},
+      {x:93.2, y:23.6, w:4.7,  h:2.8, plain:true, tip:"쓰지 않을 주문서는 <b>취소</b>합니다."},
       // ── 그룹화 바 + 그리드 + 합계 ──
       {x:0.6,  y:26.5, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.6, y:26.5, w:12.6, h:3.2, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -26440,7 +26440,7 @@ DESCS["sord2w"] = [
   {type:"step", num:"1", title:`📋 주문서 확인`, body:"출고대기중 단계 주문서 목록에서 내용을 확인합니다."},
 
   {type:"step", num:"2", title:`🚛 배송시작`, body:"출고 준비가 끝나면 <span class='ui-btn'>배송시작</span>으로 넘깁니다.", subs:[
-    "주문서가 <b>출고완료(배송)</b> 탭으로 이동합니다.",
+    "주문서가 🔗 <b class='dlink' onclick=\"goPage(6)\">출고완료(배송)</b> 탭으로 이동합니다.",
     "작업관리·인쇄로 출고 작업을 보조합니다.",
   ]},
 ];
@@ -26469,9 +26469,9 @@ SIM["sord2w"] = { start:"wait", screens:{
       {x:57.8, y:23.6, w:8.4,  h:2.8, plain:true, tip:"우측에 <b>처리이력·상품내역</b> 패널을 열어 확인합니다."},
       {x:66.3, y:23.6, w:6.1,  h:2.8, plain:true, to:"p_print", toggle:true, tip:"<b>인쇄 ▾</b>에서 양식을 골라 주문서를 인쇄합니다."},
       {x:72.4, y:23.6, w:8.0,  h:2.8, plain:true, tip:"<b>작업관리 ▾</b>에서 작업그룹·주문수집 도구를 실행합니다."},
-      {x:80.8, y:23.6, w:6.1,  h:2.8, num:"2", numCorner:true, page:6, tip:"출고 준비가 끝나면 <b>배송시작</b>으로 넘깁니다."},
+      {x:80.8, y:23.6, w:6.1,  h:2.8, num:"2", numCorner:true, tip:"출고 준비가 끝나면 <b>배송시작</b>으로 넘깁니다."},
       {x:87.0, y:23.6, w:6.1,  h:2.8, plain:true, page:9, tip:"<b>수정</b> 버튼을 누르면 <b>주문서수정</b> 화면으로 이동합니다."},
-      {x:93.2, y:23.6, w:4.7,  h:2.8, plain:true, page:1, tip:"쓰지 않을 주문서는 <b>취소</b>합니다."},
+      {x:93.2, y:23.6, w:4.7,  h:2.8, plain:true, tip:"쓰지 않을 주문서는 <b>취소</b>합니다."},
       // ── 그룹화 바 + 그리드 + 합계 ──
       {x:0.6,  y:26.5, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.6, y:26.5, w:12.6, h:3.2, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -26501,7 +26501,7 @@ DESCS["sord2d"] = [
   {type:"step", num:"1", title:`📋 주문서 확인`, body:"출고완료(배송) 단계 주문서 목록에서 내용을 확인합니다."},
 
   {type:"step", num:"2", title:`✅ 주문서완료`, body:"배송이 끝나면 <span class='ui-btn'>주문서완료</span>로 마무리합니다.", subs:[
-    "주문서가 <b>주문서완료</b> 탭으로 이동합니다.",
+    "주문서가 🔗 <b class='dlink' onclick=\"goPage(7)\">주문서완료</b> 탭으로 이동합니다.",
     "작업관리·인쇄로 배송 관련 작업을 보조합니다.",
   ]},
 ];
@@ -26530,9 +26530,9 @@ SIM["sord2d"] = { start:"ship", screens:{
       {x:56.3, y:23.6, w:8.4,  h:2.8, plain:true, tip:"우측에 <b>처리이력·상품내역</b> 패널을 열어 확인합니다."},
       {x:64.7, y:23.6, w:6.1,  h:2.8, plain:true, to:"p_print", toggle:true, tip:"<b>인쇄 ▾</b>에서 양식을 골라 주문서를 인쇄합니다."},
       {x:70.9, y:23.6, w:8.0,  h:2.8, plain:true, tip:"<b>작업관리 ▾</b>에서 작업그룹·주문수집 도구를 실행합니다."},
-      {x:79.3, y:23.6, w:7.7,  h:2.8, num:"2", numCorner:true, page:7, tip:"배송이 끝나면 <b>주문서완료</b>로 마무리합니다."},
+      {x:79.3, y:23.6, w:7.7,  h:2.8, num:"2", numCorner:true, tip:"배송이 끝나면 <b>주문서완료</b>로 마무리합니다."},
       {x:87.0, y:23.6, w:6.1,  h:2.8, plain:true, page:9, tip:"<b>수정</b> 버튼을 누르면 <b>주문서수정</b> 화면으로 이동합니다."},
-      {x:93.2, y:23.6, w:4.7,  h:2.8, plain:true, page:1, tip:"쓰지 않을 주문서는 <b>취소</b>합니다."},
+      {x:93.2, y:23.6, w:4.7,  h:2.8, plain:true, tip:"쓰지 않을 주문서는 <b>취소</b>합니다."},
       // ── 그룹화 바 + 그리드 + 합계 ──
       {x:0.6,  y:26.5, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.6, y:26.5, w:12.6, h:3.2, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
@@ -26793,7 +26793,7 @@ SIM["sfo6"] = { start:"1", screens:{
 DESCS["sfo7"] = [
   {type:"note", text:"<b>취소</b> 탭에서는 취소한 발주서를 확인하고 필요하면 다시 되돌립니다. 상단 <b>탭</b>으로 상태별 목록을 봅니다."},
   {type:"step", num:"1", title:`✅ 취소 발주서 확인`, body:"취소한 <b>발주서 목록</b>에서 되돌릴 발주서를 선택합니다."},
-  {type:"step", num:"2", title:`◀ 발주서입력으로 복구`, body:"취소한 발주서를 <span class='ui-btn'>발주서입력</span>으로 다시 발주서입력 단계로 복구합니다."},
+  {type:"step", num:"2", title:`◀ 발주서입력으로 복구`, body:"취소한 발주서를 <span class='ui-btn'>발주서입력</span>으로 다시 🔗 <b class='dlink' onclick=\"goPage(0)\">발주서입력</b> 단계로 복구합니다."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
     "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 선택한 발주서를 출력합니다.",
     "<b>수정</b> : 복구할 때 <span class='ui-btn'>수정</span>도 함께 할 수 있습니다.",
@@ -26817,7 +26817,7 @@ SIM["sfo7"] = { start:"1", screens:{
       {x:88.0, y:20.2, w:6.1,  h:3.0, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 발주서를 조회합니다."},
       {x:94.1, y:20.2, w:5.2,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       {x:0.6, y:23.8, w:6.1, h:2.8, plain:true, tip:"선택한 발주서를 <b>인쇄</b>합니다."},
-      {x:73.3, y:22.8, w:20.3, h:4.1, num:"2", numCorner:true, page:0, tip:"<b>발주서입력</b> 버튼으로 취소한 발주서를 다시 발주서입력 단계로 <b>복구</b>합니다(<b>수정</b>도 가능)."},
+      {x:73.3, y:22.8, w:20.3, h:4.1, num:"2", numCorner:true, tip:"<b>발주서입력</b> 버튼으로 취소한 발주서를 다시 발주서입력 단계로 <b>복구</b>합니다(<b>수정</b>도 가능)."},
       {x:93.3, y:23.8, w:6.1, h:2.8, plain:true, tip:"이 단계에서는 <b>취소</b>가 불가능합니다."},
       {x:0.6,  y:26.7, w:98.6, h:3.1, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:0.8,  y:34.6, w:98.4, h:2.4, plain:true, notint:true, tip:"취소한 <b>취소</b> 발주서 목록입니다."},
@@ -26830,7 +26830,7 @@ DESCS["sop2c"] = [
   {type:"note", text:"<b>취소</b> 탭에서는 취소한 발주계획 목록을 확인하고 필요하면 다시 되돌릴 수 있습니다."},
   {type:"step", num:"1", title:`✅ 취소 문서 확인`, body:"취소한 발주계획 문서를 목록에서 확인합니다."},
   {type:"step", num:"2", title:`◀ 작성중으로 복구`, subs:[
-    "<span class='ui-btn'>◀ 작성중</span> 버튼으로 취소한 발주계획을 다시 <b>작성중</b> 단계로 되돌립니다.",
+    "<span class='ui-btn'>◀ 작성중</span> 버튼으로 취소한 발주계획을 다시 🔗 <b class='dlink' onclick=\"goPage(0)\">작성중</b> 단계로 되돌립니다.",
     "이 탭에서는 <span class='ui-btn'>수정</span>·<span class='ui-btn'>취소</span>가 불가능합니다.",
   ]},
 ];
@@ -26846,7 +26846,7 @@ SIM["sop2c"] = { start:"1", screens:{
       {x:72.9, y:20.2, w:15.1, h:3.0, plain:true, notint:true, tip:"<b>통합검색</b>으로 문서번호·담당자 등 특정 문서를 찾습니다."},
       {x:88.0, y:20.2, w:6.1,  h:3.0, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 발주계획을 조회합니다."},
       {x:94.1, y:20.2, w:5.2,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
-      {x:80.6, y:23.8, w:6.2,  h:2.8, num:"2", numCorner:true, page:0, tip:"<b>◀ 작성중</b> 버튼으로 취소한 발주계획을 다시 작성중 단계로 되돌립니다."},
+      {x:80.6, y:23.8, w:6.2,  h:2.8, num:"2", numCorner:true, tip:"<b>◀ 작성중</b> 버튼으로 취소한 발주계획을 다시 작성중 단계로 되돌립니다."},
       {x:87.2, y:23.8, w:5.5,  h:2.8, plain:true, tip:"이 탭에서는 <b>수정</b>이 불가능합니다."},
       {x:93.1, y:23.8, w:5.5,  h:2.8, plain:true, tip:"이 탭에서는 <b>취소</b>가 불가능합니다."},
       {x:0.6,  y:26.6, w:80.2, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
