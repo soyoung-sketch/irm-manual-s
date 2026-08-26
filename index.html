@@ -16842,8 +16842,19 @@ SIM["spr1"] = { start:"1", screens:{
       {x:2.8,  y:26.8, w:94.1, h:19.7, yellow:true, num:"1", numCorner:true, tip:"바코드 앞자리로 사용할 <b>기준코드</b>를 선택합니다."},
       {x:2.8,  y:47.8, w:70.8, h:19.7, yellow:true, num:"3", numCorner:true, tip:"기준코드로 만들어진 <b>바코드정보</b>가 표시됩니다."},
       {x:74.1, y:47.8, w:22.9, h:19.7, yellow:true, num:"4", numCorner:true, tip:"<b>선택</b> 버튼으로 이미 만들어 둔 바코드 중에서 지정합니다."},
-      {x:30.4, y:69.4, w:19.1, h:19.7, yellow:true, num:"2", numCorner:true, close:true, tip:"<b>바코드생성</b> 버튼을 클릭하면 바코드가 만들어져 등록됩니다."},
+      {x:30.4, y:69.4, w:19.1, h:19.7, yellow:true, num:"2", numCorner:true, to:"p_gen2", tip:"<b>바코드생성</b> 버튼을 클릭하면 바코드정보에 바코드가 생성됩니다."},
       {x:50.2, y:69.4, w:19.1, h:19.7, plain:true, close:true, tip:"생성하지 않고 <b>닫기</b>합니다."},
+    ]},
+  // [바코드생성] 클릭 후 — 생성된 숫자 강조
+  "p_gen2":{img:"images/바코드생성.png", win:{x:22, y:36, w:56},
+    btns:[
+      {x:92.8, y:0.8,  w:6.6,  h:18,   plain:true, close:true, tip:"<b>✕</b>를 클릭하면 창이 닫힙니다."},
+      {x:2.8,  y:26.8, w:94.1, h:19.7, yellow:true, num:"1", numCorner:true, tip:"바코드 앞자리로 사용할 <b>기준코드</b>를 선택합니다."},
+      {x:30.4, y:69.4, w:19.1, h:19.7, yellow:true, num:"2", numCorner:true, tip:"<b>바코드생성</b> 버튼을 클릭하면 바코드정보에 바코드가 생성됩니다."},
+      {x:2.8,  y:47.8, w:70.8, h:19.7, yellow:true, num:"3", numCorner:true, tip:"기준코드로 만들어진 <b>바코드정보</b>가 표시됩니다."},
+      {x:31,   y:50.3, w:33,   h:14.7, fill:true, tip:"생성된 <b>바코드 숫자</b>입니다."},
+      {x:74.1, y:47.8, w:22.9, h:19.7, yellow:true, num:"4", numCorner:true, tip:"<b>선택</b> 버튼으로 이미 만들어 둔 바코드 중에서 지정합니다."},
+      {x:50.2, y:69.4, w:19.1, h:19.7, plain:true, close:true, tip:"<b>닫기</b>로 창을 닫습니다."},
     ]},
 } };
 
