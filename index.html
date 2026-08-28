@@ -7728,7 +7728,7 @@ const DESCS = {
     {type:"note", text:"매장에서 <b>자가 사용</b>한 상품을 등록하여 재고에 반영하는 화면입니다."},
     {type:"note", blue:true, text:"진행 순서 : <b>기본 정보 입력</b> → <b>상품추가</b> → <b>상품 선택·단가·수량 입력</b> → <b>신규등록</b>"},
     {type:"step", num:"1", title:`📝 기본 정보 입력`, subs:[
-      "사용사업장·사용유형·사용일·부서명·담당자를 입력해 전표의 기본 정보를 채워주세요. (필수)",
+      "사용일·부서명·담당자·사용유형을 입력해 전표의 기본 정보를 채워주세요. (필수)",
     ]},
     {type:"step", num:"2", title:`➕ 상품추가`, subs:[
       `<span class='ui-btn'>➕ 상품추가(F2)</span> 버튼을 클릭하면 상품 목록에 신규 라인이 생성됩니다.`,
@@ -11341,14 +11341,19 @@ const SIM = {
               {x:17.2, y:32.9, w:82, h:2.3, lite:true, num:"1", tip:"마감완료된 전표의 <b>매출금액·지급금액</b>을 확인합니다."},
             ]} } },
   // 매장관리Ⅱ · 자가사용 등록 (ANNOTS → SIM 표준 전환)
-  "8sa1": { start:"1", cat:{x:5.3, y:47.1, w:11.2, h:2.6}, screens:{ "1":{img:"images/자가사용등록.png", btns:[
-              {x:17.0, y:9.5, w:64.0, h:8.3, num:"1", numCorner:true, notint:true, tip:"<b>사용사업장·사용유형·사용일·부서명·담당자</b>(필수)를 입력합니다."},
-              {x:17.0, y:17.9, w:7.8, h:3.3, num:"2", numCorner:true, tip:"<span class='ui-btn'>상품추가(F2)</span> 버튼을 누르면 상품 목록에 신규 라인이 생성됩니다."},
-              {x:17.0, y:26.3, w:82.5, h:2.9, dash:true, noev:true},
-              {x:22.5, y:23.0, w:57.6, h:7.0, num:"3", numCorner:true, front:true, search:true, searchWin:{x:20, y:22, w:78}, tip:"<span class='ui-btn'>···</span> 버튼으로 <b>상품을 선택</b>하고 <b>매입단가·수량</b>을 입력합니다."},
-              {x:64, y:23.5, w:6.3, h:3, fill:true, purple:true, tip:"추가된 상품의 <b>매입(지정)단가</b>를 입력하는 칸입니다."},
-              {x:75.2, y:23.3, w:4.9, h:3.1, fill:true, lpurple:true, tip:"자가사용할 <b>수량</b>을 입력하는 칸입니다."},
-              {x:79.6, y:6.3, w:7.2, h:3.2, num:"4", numCorner:true, tip:"<span class='ui-btn'>신규등록(F5)</span> 버튼을 눌러 자가사용 전표를 저장합니다."},
+  "8sa1": { start:"1", screens:{ "1":{img:"images/자가사용등록.png", btns:[
+              {x:9.5,  y:6.2,  w:7.6,  h:2.9, lite:true},   // 리본 메뉴 위치 (재고관리 > 자가 사용 관리 > 자가사용 등록)
+              {x:0.1,  y:16.8, w:3.7,  h:2.6, plain:true, tip:"<b>HOME</b> 탭을 클릭하면 프로그램 시작 화면으로 돌아갑니다."},
+              {x:3.8,  y:16.8, w:7.4,  h:2.6, plain:true, tip:"현재 열려 있는 <b>자가사용 등록</b> 탭이며 <b>⊗</b>를 클릭하면 닫힙니다."},
+              {x:0.5,  y:23.3, w:62.4, h:8.1, num:"1", numCorner:true, notint:true, tip:"<b>사용일·부서명·담당자·사용유형</b>(필수)과 비고를 입력합니다."},
+              {x:0.5,  y:31.6, w:8.0,  h:2.5, num:"2", numCorner:true, tip:"<span class='ui-btn'>상품추가(F2)</span> 버튼을 누르면 상품 목록에 신규 라인이 생성됩니다."},
+              {x:0.5,  y:36.7, w:98.6, h:3.2, dash:true, noev:true},
+              {x:0.5,  y:36.8, w:84.5, h:3.0, num:"3", numCorner:true, front:true, search:true, searchWin:{x:20, y:22, w:78}, tip:"<span class='ui-btn'>···</span> 버튼으로 <b>상품을 선택</b>하고 <b>매입단가·수량</b>을 입력합니다."},
+              {x:47.1, y:36.8, w:5.4,  h:3.0, fill:true, purple:true, tip:"추가된 상품의 <b>매입(지정)단가</b>를 입력하는 칸입니다."},
+              {x:58.2, y:36.8, w:4.9,  h:3.0, fill:true, lpurple:true, tip:"자가사용할 <b>수량</b>을 입력하는 칸입니다."},
+              {x:79.6, y:20.1, w:7.2,  h:2.8, num:"4", numCorner:true, tip:"<span class='ui-btn'>신규등록(F5)</span> 버튼을 눌러 자가사용 전표를 저장합니다."},
+              {x:86.9, y:20.1, w:7.3,  h:2.8, plain:true, tip:"<b>닫기(Esc)</b> 버튼으로 자가사용 등록 화면을 닫습니다."},
+              {x:94.4, y:20.1, w:5.0,  h:2.8, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
             ]} } },
   "8so1": {
     start: "1",
