@@ -15718,24 +15718,24 @@ SIM["soutmergec"] = { start:"1", screens:{
 IMGS["soutmemo"] = "images/관리자메모.png";
 DESCS["soutmemo"] = [
   {type:"note", text:"매출처에 등록된 <b>관리자 메모</b>를 한자리에 모아 조회하는 화면입니다."},
-  {type:"step", num:"1", title:`🔍 매출처 검색`, body:"조회할 매출처를 지정해 메모를 불러옵니다.", subs:[
-    "<span class='ui-btn'>…</span> 버튼을 클릭해 <b>매출처 목록</b>에서 조회할 매출처를 선택합니다.",
-    "<span class='ui-btn'>✕</span> 버튼을 클릭하면 지정한 매출처가 해제되어 <b>전체 메모</b>를 조회합니다.",
-    "---",
-    "<span class='ui-btn'>🔍 검색</span> 버튼을 클릭하면 지정한 조건으로 메모가 조회됩니다.",
+  {type:"step", num:"1", title:`🔍 매출처 검색`, body:"특정 매출처의 메모를 불러옵니다.", subs:[
+    "<span style='display:block'><span class='ui-btn'>…</span> 버튼을 클릭해 <b>매출처 목록</b>에서 조회할 매출처를 선택하고<br><b>검색</b> 버튼을 눌러주세요.</span>",
+    "⬇",
+    "<span style='display:block'>지정한 매출처의 <b>메모</b>가 조회됩니다.</span>",
   ]},
   {type:"step", num:"2", title:`✅ 메모 목록 확인`, subs:[
-    "<b>구분</b>과 메모를 남긴 <b>작성자</b>를 확인합니다.",
-    "메모가 등록된 <b>거래처코드·거래처명</b>으로 어느 매출처의 메모인지 확인합니다.",
-    "<b>관리자 메모</b>에서 작성된 메모 내용을, <b>작성일</b>에서 등록 시각을 확인합니다.",
-    "%%화면 위아래의 총 건수에서 조회된 메모 수를 확인할 수 있습니다.",
+    "<b>구분</b>으로 메모 출처를 확인합니다.",
+    "%%ex) 발주서 라고 써있으면 발주서를 작성하면서 남긴 메모입니다.",
+    "메모내용과 메모를 남긴 <b>작성자</b>, 거래처코드·거래처명, <b>작성일</b>을 확인할 수 있습니다.",
   ]},
-  {type:"step", num:"★", ystar:true, title:`📝 긴 메모 표시`, subs:[
-    "메모가 길면 <b>자동으로 줄바꿈</b>되고 행 높이가 늘어나 전체 내용이 잘리지 않고 표시됩니다.",
-  ]},
-  {type:"bullet", title:`👥 매출처 목록`, body:"<span class='ui-btn'>…</span> 버튼으로 열리는 창입니다.", subs:[
-    "<b>통합검색·상세검색</b>으로 매출처를 조회합니다.",
-    "매출처를 선택한 후 <span class='ui-btn'>✓ 선택</span> 버튼을 클릭하면 조회 조건에 지정됩니다.",
+  {type:"step", num:"★", title:`👥 매출처 목록 선택하기`, subs:[
+    "<span class='ui-btn'>…</span> 버튼으로 창을 열어주세요.",
+    "⬇",
+    "<span style='display:block'>1. 통합검색창에 매출처명을 입력해 검색하거나<br><span class='ui-btn'>상세검색</span> 버튼을 눌러 조건검색을 할 수 있습니다.</span>",
+    "⬇",
+    "2. 검색된 매출처 목록입니다. 매출처를 선택해주세요.",
+    "⬇",
+    "3. <span class='ui-btn'>✓ 선택</span> 버튼을 클릭해주세요.",
   ]},
   {type:"note", text:"💡 등록된 메모를 모아 보는 <b>조회 전용</b> 화면입니다."},
 ];
@@ -15744,11 +15744,10 @@ SIM["soutmemo"] = { start:"1", screens:{
     btns:[
       {x:39.6, y:10.2, w:5.8,  h:3.9,  lite:true},   // 리본 메뉴 위치(매출처 관리 > 관리자 메모)
       {x:65.1, y:19.9, w:34.3, h:3.0,  num:"1", numCorner:true, tip:"조회할 <b>매출처</b>를 지정하고 <b>검색</b> 버튼을 클릭합니다."},
-      {x:73.0, y:20.3, w:1.2,  h:2.2,  plain:true, front:true, to:"p_out", toggle:true, tip:"<b>매출처 목록</b>에서 조회할 매출처를 선택합니다."},
+      {x:73.0, y:20.3, w:1.2,  h:2.2,  plain:true, front:true, scroll:"★1", to:"p_out", toggle:true, tip:"<b>매출처 목록</b>에서 조회할 매출처를 선택합니다."},
       {x:74.2, y:20.3, w:0.9,  h:2.2,  plain:true, front:true, tip:"지정한 <b>매출처를 해제</b>합니다."},
       {x:0.6,  y:22.9, w:98.8, h:16.7, num:"2", numCorner:true, notint:true, tip:"작성자·거래처와 <b>메모 내용</b>·작성일을 확인합니다."},
       {x:0.6,  y:25.6, w:2.7,  h:13.9, plain:true, front:true, tip:"메모 <b>행을 선택</b>합니다."},
-      {x:33.8, y:25.6, w:56.3, h:13.9, yellow:true, front:true, scroll:"★1", tip:"긴 메모는 <b>자동 줄바꿈</b>되어 전체 내용이 표시됩니다."},
       {x:91.1, y:94.1, w:8.3,  h:2.4,  plain:true, tip:"한 쪽에 표시할 <b>건수</b>를 선택합니다."},
     ]},
   "p_out":{img:"images/fax전송-매출처회원추가버튼-매출처목록.png", win:{x:8, y:22, w:84},
