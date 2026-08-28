@@ -14655,36 +14655,34 @@ DESCS["shome"] = [
 IMGS["sgrade"] = "images/등급관리.png";
 DESCS["sgrade"] = [
   {type:"note", text:"회원 <b>등급별 적립 혜택</b>과 <b>적립 제외 상품</b>을 관리하는 화면입니다."},
-  {type:"step", num:"1", title:`✔️ 등급 선택`, body:"관리할 회원 등급을 선택합니다.", subs:[
-    "등록된 회원 등급(<b>BASIC · SILVER · GOLD · PLATINUM</b>) 중 하나를 클릭합니다.",
-    "선택한 등급의 적립 설정이 오른쪽 혜택설정에 표시됩니다.",
-    "%%적용구분·적립률·적립제외상품수·비고를 목록에서 한눈에 비교할 수 있습니다.",
+  {type:"step", num:"1", title:`✔️ 등급 선택`, body:"관리할 회원 등급을 확인하고 설정이 필요한 경우 선택합니다.", subs:[
+    "선택한 등급의 적립 설정이 오른쪽 <b>혜택설정</b>에 표시됩니다.",
   ]},
   {type:"step", num:"2", title:`💰 혜택 설정`, body:"등급별 적립 기준과 적립률을 설정합니다.", subs:[
-    "<b>적용구분</b>에서 결제금액 또는 판매금액을 선택해 적립 기준을 정합니다.",
-    "<b>포인트 · 카드 · 현/영 · 외상</b> 적립률(%)을 각각 입력합니다.",
-    "%%<b>비고</b> 칸에 등급 설명이나 관리 메모를 남길 수 있습니다.",
+    "<b>적용구분</b>으로 적립 기준을 정합니다.",
+    "<b>적립률(%)</b>을 설정합니다.",
   ]},
-  {type:"step", num:"3", title:`💾 저장`, subs:[
+  {type:"step", num:"3", title:`📦 적립제외상품 설정`, subs:[
+    "<b>추가하기</b> : <span class='ui-btn'>+ 상품추가</span> 버튼을 눌러 추가합니다.",
+    "<b>삭제하기</b> : 상품을 선택하고 <span class='ui-btn'>✕ 선택삭제</span> 버튼을 눌러 삭제합니다.",
+  ]},
+  {type:"step", num:"4", title:`💾 저장`, subs:[
     "적립률이나 제외 상품을 변경한 후 <span class='ui-btn'>수정</span> 버튼을 클릭해 저장합니다.",
   ]},
   {type:"step", num:"★", ystar:true, title:`🧮 결제금액 기준 적립`, subs:[
     "적용구분을 <b>결제금액</b>으로 지정하면 판매금액에서 <b>상품 할인금액과 쿠폰 할인금액을 뺀 실제 결제금액</b>을 기준으로 적립됩니다.",
   ]},
-  {type:"step", num:"★", ystar:true, title:`📦 적립 제외상품 관리`, subs:[
-    "<span class='ui-btn'>+ 상품추가</span> 버튼을 클릭해 적립에서 제외할 상품을 검색·등록하면 해당 등급에서는 포인트가 적립되지 않습니다.",
-    "필요 없어진 상품은 체크한 후 <span class='ui-btn'>✕ 선택삭제</span> 버튼으로 제거합니다.",
-    "%%등급마다 따로 지정하며, 지정하지 않아도 등급 설정은 저장됩니다.",
-  ]},
-  {type:"bullet", title:`📋 기타 버튼`, subs:[
+  {type:"step", num:"★", title:`📋 기타 버튼`, subs:[
     "<span class='ui-btn'>🔍 새로고침</span> : 등급 목록을 최신 상태로 다시 불러옵니다.",
     "<span class='ui-btn'>⚙ 옵션</span> : 문서저장·도움말 메뉴를 표시합니다.",
     "<span class='ui-btn'>초기화</span> : 수정한 내용을 취소하고 이전 상태로 되돌립니다.",
   ]},
-  {type:"bullet", title:`🔍 상품 통합검색`, body:"<span class='ui-btn'>+ 상품추가</span> 버튼으로 열리는 창입니다.", subs:[
-    "분류·매입처·상품 상태 등 상세 조건을 지정하거나, 통합검색·상품선택으로 상품을 직접 지정합니다.",
-    "<span class='ui-btn'>검색</span> 버튼으로 조회한 후 등록할 상품을 체크합니다.",
-    "<span class='ui-btn'>✓ 선택</span> 버튼을 클릭하면 적립 제외 상품으로 등록됩니다.",
+  {type:"step", num:"★", ystar:true, title:`🔍 상품 통합검색`, body:"<span class='ui-btn'>+ 상품추가</span> 버튼으로 열리는 창입니다.", subs:[
+    "검색조건을 설정합니다.",
+    "⬇",
+    "<span class='ui-btn'>검색</span> 버튼을 눌러 조회합니다.",
+    "⬇",
+    "상품 선택 후 <span class='ui-btn'>선택</span> 버튼을 클릭해 선택을 마무리합니다.",
   ]},
 ];
 SIM["sgrade"] = { start:"1", screens:{
@@ -14695,17 +14693,16 @@ SIM["sgrade"] = { start:"1", screens:{
     btns:[
       {x:39.6, y:6.1,  w:5.9,  h:3.9, lite:true},   // 리본 메뉴 위치(등급 관리)
       {x:0.6,  y:23.2, w:65.3, h:72.4, num:"1", numCorner:true, notint:true, tip:"관리할 <b>회원 등급</b>을 선택하면 우측 혜택설정에 적립 설정이 표시됩니다."},
-      {x:53.3, y:20.1, w:6.5,  h:2.8, plain:true, front:true, tip:"<b>새로고침</b> 버튼으로 등급 목록을 다시 불러옵니다."},
-      {x:59.8, y:20.1, w:6.1,  h:2.8, plain:true, front:true, tip:"<b>옵션</b> 버튼으로 문서저장·도움말 메뉴를 표시합니다."},
+      {x:53.3, y:20.1, w:6.5,  h:2.8, plain:true, front:true, scroll:"★2", tip:"<b>새로고침</b> 버튼으로 등급 목록을 다시 불러옵니다."},
+      {x:59.8, y:20.1, w:6.1,  h:2.8, plain:true, front:true, scroll:"★2", tip:"<b>옵션</b> 버튼으로 문서저장·도움말 메뉴를 표시합니다."},
       {x:65.9, y:20.1, w:33.4, h:18.8, num:"2", numCorner:true, numInset:true, notint:true, tip:"적용구분과 <b>적립률</b>(포인트·카드·현/영·외상)을 설정합니다."},
-      {x:73.4, y:29.4, w:19.7, h:1.8, yellow:true, front:true, tip:"<b>결제금액</b> 기준은 판매금액에서 상품·쿠폰 할인금액을 뺀 실제 결제금액입니다."},
-      {x:66.2, y:39.7, w:33,   h:47.1, notint:true, noline:true, tip:"포인트 적립에서 <b>제외할 상품</b>을 등록·관리합니다."},
-      {x:66.4, y:41.9, w:32.4, h:3.1, lite:true},
-      {x:83,   y:42.2, w:8,    h:2.7, yellow:true, front:true, to:"p1", toggle:true, tip:"<b>상품추가</b> 버튼을 클릭해 적립 제외 상품을 검색·등록합니다."},
-      {x:91,   y:42.2, w:7.9,  h:2.7, yellow:true, front:true, tip:"상품을 체크한 후 <b>선택삭제</b> 버튼으로 목록에서 제거합니다."},
+      {x:73.4, y:29.4, w:19.7, h:1.8, yellow:true, front:true, scroll:"★1", tip:"<b>결제금액</b> 기준은 판매금액에서 상품·쿠폰 할인금액을 뺀 실제 결제금액입니다."},
+      {x:66.4, y:38.8, w:32.6, h:16.3, num:"3", numCorner:true, notint:true, tip:"포인트 적립에서 <b>제외할 상품</b>을 등록·관리합니다."},
+      {x:83,   y:42.2, w:8,    h:2.7, yellow:true, front:true, scroll:"★3", to:"p1", toggle:true, tip:"<b>상품추가</b> 버튼을 클릭해 적립 제외 상품을 검색·등록합니다."},
+      {x:91,   y:42.2, w:7.9,  h:2.7, plain:true, front:true, scroll:"3", tip:"상품을 체크한 후 <b>선택삭제</b> 버튼으로 목록에서 제거합니다."},
       {x:66.4, y:87.5, w:32.4, h:5.2, plain:true, tip:"등급에 대한 설명이나 <b>관리 메모</b>를 입력합니다."},
-      {x:85.1, y:92.9, w:6.9,  h:2.8, num:"3", numCorner:true, tip:"변경한 적립 설정을 <b>수정</b> 버튼으로 저장합니다."},
-      {x:92,   y:92.9, w:6.9,  h:2.8, plain:true, tip:"<b>초기화</b> 버튼으로 수정한 내용을 취소하고 이전 상태로 되돌립니다."},
+      {x:85.1, y:92.9, w:6.9,  h:2.8, num:"4", numCorner:true, tip:"변경한 적립 설정을 <b>수정</b> 버튼으로 저장합니다."},
+      {x:92,   y:92.9, w:6.9,  h:2.8, plain:true, scroll:"★2", tip:"<b>초기화</b> 버튼으로 수정한 내용을 취소하고 이전 상태로 되돌립니다."},
     ]},
   "p1":{img:"images/상품통합검색.png", win:{x:0, y:36.8, w:100},
     btns:[
