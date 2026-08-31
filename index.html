@@ -14854,14 +14854,14 @@ IMGS["semppda"] = "images/사원관리-pda메뉴권한.png";
 IMGS["sempbiz"] = "images/사원관리-관리사업장.png";
 // 4개 탭 공통 요소 (리본 칠 · 탭바 · ①조회조건 · 사원증인쇄 · 재검색 · ②사원목록)
 // 4개 탭 공통 요소 (리본 칠 · 탭바 · ①조회조건 · 사원증인쇄 · 재검색 · ②사원목록)
-const _EMP_BASE = () => ([
+const _EMP_BASE = (printStar) => ([
   {x:87.6, y:8.8,  w:6.8,  h:2.8, lite:true},
   {x:56.2, y:19.7, w:4.6,  h:2.6, plain:true, page:0},
   {x:60.9, y:19.7, w:6.1,  h:2.6, plain:true, page:1},
   {x:67.2, y:19.7, w:6.4,  h:2.6, plain:true, page:2},
   {x:73.7, y:19.7, w:5.6,  h:2.6, plain:true, page:3},
   {x:3.3,  y:22.7, w:44.2, h:3.2, num:"1", numCorner:true, tip:"<b>사원구분·상태</b>로 조회할 사원을 선택합니다."},
-  {x:47.5, y:22.7, w:8.5,  h:3.2, yellow:true, front:true, to:"p_card", toggle:true, tip:"<b>사원증 인쇄</b> 크기를 선택해 인쇄합니다."},
+  {x:47.5, y:22.7, w:8.5,  h:3.2, yellow:true, front:true, scroll:printStar, to:"p_card", toggle:true, tip:"<b>사원증 인쇄</b> 크기를 선택해 인쇄합니다."},
   {x:38.2, y:26.8, w:17.5, h:2.4, plain:true, front:true, tip:"조회된 목록 안에서 <b>재검색</b>합니다."},
   {x:0.5,  y:29.9, w:55.5, h:25.3, num:"2", numCorner:true, notint:true, tip:"<b>사원</b>을 선택하면 우측에 상세정보가 표시됩니다."},
 ]);
@@ -14875,7 +14875,7 @@ const _EMP_CARDPOP = () => ({ "p_card":{img:"images/사원관리-사원증인쇄
   ]} });
 SIM["semp"] = { start:"1", screens: Object.assign({
   "1":{img:"images/사원관리.png",
-    btns:[ ..._EMP_BASE(),
+    btns:[ ..._EMP_BASE("★2"),
       {x:56.9, y:23.3, w:17.3, h:27.7, plain:true, tip:"<b>사원 사진</b>을 등록합니다."},
       {x:62.3, y:48.8, w:6,    h:2.2, plain:true, front:true, tip:"사원 사진을 <b>등록</b>합니다."},
       {x:68.5, y:48.8, w:5.7,  h:2.2, plain:true, front:true, tip:"등록한 사진을 <b>삭제</b>합니다."},
@@ -14883,13 +14883,13 @@ SIM["semp"] = { start:"1", screens: Object.assign({
       {x:56.9, y:51.3, w:42.2, h:21.6, plain:true, tip:"연락처·주소·생일·입사일 등 <b>상세 정보</b>를 입력합니다."},
       {x:56.9, y:73.2, w:42.2, h:8.9, plain:true, tip:"사용할 시스템의 <b>접근권한</b>과 기본메뉴를 지정합니다."},
       {x:56.9, y:82.6, w:42.2, h:8.9, plain:true, tip:"<b>사원구분</b>과 근무 상태를 지정합니다."},
-      {x:56.9, y:92.1, w:5.4,  h:3.1, yellow:true, front:true, tip:"입력값을 초기화하고 <b>새 사원</b>을 등록합니다."},
+      {x:56.9, y:92.1, w:5.4,  h:3.1, yellow:true, front:true, scroll:"★1", tip:"입력값을 초기화하고 <b>새 사원</b>을 등록합니다."},
       {x:91.7, y:92.1, w:5.9,  h:3.1, num:"3", numCorner:true, tip:"입력한 내용을 <b>저장</b>합니다."},
     ]},
 }, _EMP_CARDPOP()) };
 SIM["sempe"] = { start:"1", screens: Object.assign({
   "1":{img:"images/사원관리-전자결재정보.png",
-    btns:[ ..._EMP_BASE(),
+    btns:[ ..._EMP_BASE("★2"),
       {x:56.9, y:23.3, w:42.2, h:22.9, num:"3", numCorner:true, notint:true, tip:"<b>서명 이미지</b>와 결재 비밀번호·보안등급을 설정합니다."},
       {x:73.3, y:35.2, w:5.3,  h:2.5, plain:true, front:true, tip:"서명 이미지를 <b>등록</b>합니다."},
       {x:79.3, y:35.2, w:5.9,  h:2.5, plain:true, front:true, tip:"등록한 서명을 <b>삭제</b>합니다."},
@@ -14901,13 +14901,13 @@ SIM["sempe"] = { start:"1", screens: Object.assign({
 }, _EMP_CARDPOP()) };
 SIM["semppda"] = { start:"1", screens: Object.assign({
   "1":{img:"images/사원관리-pda메뉴권한.png",
-    btns:[ ..._EMP_BASE(),
+    btns:[ ..._EMP_BASE("★1"),
       {x:56.9, y:28.7, w:42.2, h:42.7, num:"3", numCorner:true, notint:true, tip:"PDA에서 사용할 <b>메뉴 권한</b>을 체크합니다."},
     ]},
 }, _EMP_CARDPOP()) };
 SIM["sempbiz"] = { start:"1", screens: Object.assign({
   "1":{img:"images/사원관리-관리사업장.png",
-    btns:[ ..._EMP_BASE(),
+    btns:[ ..._EMP_BASE("★1"),
       {x:56.9, y:25.1, w:42.2, h:69.7, num:"3", numCorner:true, notint:true, tip:"사원이 <b>관리할 사업장</b>을 지정합니다."},
       {x:88.1, y:28,   w:4.6,  h:2.3, plain:true, front:true, to:"p_biz", toggle:true, tip:"<b>사업장 선택</b> 창을 엽니다."},
       {x:93.1, y:28,   w:4.5,  h:2.3, plain:true, front:true, tip:"지정한 사업장을 <b>삭제</b>합니다."},
