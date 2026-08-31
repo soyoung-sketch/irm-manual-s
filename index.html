@@ -15075,9 +15075,10 @@ DESCS["sfax"] = [
   ]},
   {type:"step", num:"3", title:`📎 전송문서 첨부`, body:"팩스로 보낼 문서를 첨부합니다.", subs:[
     "<span class='ui-btn'>📁 폴더선택</span> <span class='ui-btn'>📄 파일선택</span> 버튼으로 전송할 문서를 불러옵니다.",
+    "<span style='display:block'><b>업로드가능확장자</b> :<br>pdf, tif, jpg, bmp, hwp, xlsx, xls, doc, docx, txt</span>",
+    "---",
     "첨부한 문서의 <b>파일명·파일경로·파일크기</b>를 확인할 수 있습니다.",
-    "<b>스캔</b> 장비를 선택해 문서를 바로 스캔해서 첨부할 수도 있습니다.",
-    "<span class='ui-btn'>✕ 전체삭제</span> <span class='ui-btn'>✓ 선택삭제</span> 버튼으로 첨부한 문서를 제거합니다.",
+    "<span style='display:block'><span class='ui-btn'>✕ 전체삭제</span> <span class='ui-btn'>✓ 선택삭제</span> 버튼으로<br>첨부한 문서 중 필요하지 않은 파일을 제거합니다.</span>",
   ]},
   {type:"step", num:"4", title:`📤 추가 입력 후 전송`, body:"발신 정보를 입력하고 팩스를 보냅니다.", subs:[
     "<b>발신번호</b>와 <b>전송제목</b>을 입력합니다.",
@@ -15085,9 +15086,6 @@ DESCS["sfax"] = [
     "<b>전송용도</b> : 일반 안내는 업무용, 광고성은 광고용을 선택합니다.",
     "---",
     "<span class='ui-btn'>⬇ 메세지 전송</span> 버튼을 클릭하면 지정한 대상에게 팩스가 전송됩니다.",
-  ]},
-  {type:"step", num:"★", ystar:true, title:`📄 업로드 가능 확장자`, subs:[
-    "<b>pdf · tif · jpg · bmp · hwp · xlsx · xls · doc · docx · txt</b> 형식의 문서를 첨부할 수 있습니다.",
   ]},
   {type:"bullet", title:`👥 매출처·매입처 회원 목록`, body:"<span class='ui-btn'>+ 매출처회원추가</span> <span class='ui-btn'>+ 매입처회원추가</span> 버튼으로 열리는 창입니다.", subs:[
     "<b>통합검색·상세검색</b>으로 회원을 조회합니다.",
@@ -15106,7 +15104,7 @@ SIM["sfax"] = { start:"1", screens:{
       {x:6.3,  y:31.3, w:43.8, h:17.9, num:"2", numCorner:true, notint:true, tip:"추가된 받는사람의 <b>회사명·이름·팩스번호</b>를 확인합니다."},
       {x:43.8, y:46.6, w:6.3,  h:2.7, plain:true, front:true, tip:"선택한 받는사람을 목록에서 <b>삭제</b>합니다."},
       {x:0.9,  y:50,   w:49.2, h:16.8, num:"3", numCorner:true, notint:true, tip:"팩스로 보낼 <b>문서를 첨부</b>하거나 스캔합니다."},
-      {x:14.5, y:61.4, w:22.8, h:1.4, yellow:true, front:true, tip:"첨부 가능한 <b>파일 형식</b>입니다."},
+      {x:14.5, y:61.4, w:22.8, h:1.4, lite:true, yellow:true, front:true, scroll:"3", tip:"첨부 가능한 <b>파일 형식</b>입니다."},
       {x:0.9,  y:74.8, w:49.2, h:12.9, notint:true, tip:"발신번호·전송제목과 <b>전송시간·전송용도</b>를 지정합니다."},
       {x:40.6, y:89.2, w:9.5,  h:3.4, num:"4", numCorner:true, tip:"<b>메세지 전송</b> 버튼을 클릭하면 팩스가 전송됩니다."},
     ]},
