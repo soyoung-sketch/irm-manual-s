@@ -1096,6 +1096,8 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .sim-chk.on { background:rgba(29,78,216,0.10); }
 .sim-chk.on::after { content:"✓"; color:#1d4ed8; font-weight:900; font-size:12px; line-height:1; }
 .sim-chk.ro { pointer-events:none; }
+.sim-chk.icon { border:none; background:none; pointer-events:none; }
+.sim-chk.icon::after { content:"✓"; color:#e2241a; font-weight:900; font-size:15px; line-height:1; text-shadow:0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff; }
 .sim-dbltip { position:absolute; display:inline-flex; align-items:center; gap:4px; color:#e2241a; font-size:13px; font-weight:800; pointer-events:none; z-index:20; white-space:nowrap; text-shadow:0 1px 2px rgba(255,255,255,0.7); }
 .sim-dbltip svg { width:12px; height:15px; flex-shrink:0; filter:drop-shadow(0 1px 1px rgba(255,255,255,0.6)); }
 .sim-pick { position:absolute; box-sizing:border-box; z-index:12; cursor:pointer; border-radius:2px; transition:background 0.1s; }
@@ -14735,7 +14737,6 @@ DESCS["sempmenu"] = [
     "선택한 사원의 <b>메뉴 권한</b>이 우측에 표시됩니다.",
   ]},
   {type:"step", num:"3", title:`☑️ 메뉴 숨김 설정`, subs:[
-    "<b>메뉴정보</b>에서 <b>▸</b>를 클릭해 하위 메뉴를 펼칩니다.",
     "<span style='display:block'>숨길 메뉴의 <b>메뉴 숨김</b> 칸을 체크하면<br>선택한 사원에게 해당 메뉴가 보이지 않습니다.</span>",
   ]},
   {type:"step", num:"4", title:`💾 저장`, subs:[
@@ -14795,7 +14796,7 @@ SIM["sempmenu"] = { start:"1", screens:{
       {x:79.3, y:24,   w:13.1, h:2.8,  yellow:true, front:true, scroll:"★1", to:"p_emp", toggle:true, tip:"다른 사원의 <b>메뉴 권한</b>을 그대로 적용합니다."},
       {x:93.1, y:23.9, w:5.3,  h:2.8,  num:"4", numCorner:true, front:true, tip:"설정한 메뉴 권한을 <b>저장</b>합니다."},
       {x:91.2, y:26.7, w:7.5,  h:20.6, num:"3", numCorner:true, numInset:true, numInsetTop:true, notint:true, tip:"숨길 메뉴의 <b>메뉴 숨김</b> 칸을 체크합니다."},
-      {x:94.2, y:35.5, w:1.6,  h:1.8,  chk:"m1", front:true},
+      {x:94.2, y:35.5, w:1.6,  h:1.8,  chk:"m1", chkIcon:true, front:true},
     ]},
   // 972x617 → win.w = 972/1530*100 = 63.5
   "p_emp":{img:"images/사원메뉴설정-사원검색.png", win:{x:18, y:22, w:63.5},
@@ -28000,7 +28001,7 @@ function simOverlayHTML(pg, sid) {
       }
       return;
     }
-    if (b.chk) { h += `<div class="sim-chk${b.chkRO?' ro':''}${b.chkOn?' on':''}" id="simchk-${b.chk}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;"${b.chkRO?'':` onclick="simChkToggle('${b.chk}')"`}></div>`; return; }
+    if (b.chk) { h += `<div class="sim-chk${b.chkRO?' ro':''}${b.chkOn?' on':''}${b.chkIcon?' icon':''}" id="simchk-${b.chk}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;"${b.chkRO?'':` onclick="simChkToggle('${b.chk}')"`}></div>`; return; }
     if (b.hint) { h += `<div class="sim-dbltip" style="left:${b.x}%;top:${b.y}%;"><svg viewBox="0 0 320 512" fill="#e2241a"><path d="M0 55.2V426c0 12.2 9.9 22 22 22c6.3 0 12.4-2.7 16.6-7.5L121.2 346l58.1 116.3c7.9 15.8 27.1 22.2 42.9 14.3s22.2-27.1 14.3-42.9L179.8 320H297.9c12.2 0 22.1-9.9 22.1-22.1c0-6.3-2.7-12.3-7.4-16.5L38.6 37.9C34.3 34.1 28.9 32 23.2 32C10.4 32 0 42.4 0 55.2z"/></svg>${b.hint}</div>`; return; }
     if (b.trace) { h += `<svg class="sim-trace" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;" viewBox="0 0 100 100" preserveAspectRatio="none"><path pathLength="100" d="M1.5,1.5 L1.5,98.5 L98.5,98.5 L98.5,1.5 L1.5,1.5"/></svg>`; return; }
     const ico = b.num ? `<span class="sim-num${b.numRight?' r':''}${b.numTop?' tc':''}${cornerCls(b)}${b.numHi?' hi':''}${b.yellow?' yn':''}">${b.num}</span>` : "";
@@ -28148,7 +28149,7 @@ function winOverlayHTML(pg, sid) {
       }
       return;
     }
-    if (b.chk) { h += `<div class="sim-chk${b.chkRO?' ro':''}${b.chkOn?' on':''}" id="simchk-${b.chk}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;"${b.chkRO?'':` onclick="simChkToggle('${b.chk}')"`}></div>`; return; }
+    if (b.chk) { h += `<div class="sim-chk${b.chkRO?' ro':''}${b.chkOn?' on':''}${b.chkIcon?' icon':''}" id="simchk-${b.chk}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;"${b.chkRO?'':` onclick="simChkToggle('${b.chk}')"`}></div>`; return; }
     if (b.hint) { h += `<div class="sim-dbltip" style="left:${b.x}%;top:${b.y}%;"><svg viewBox="0 0 320 512" fill="#e2241a"><path d="M0 55.2V426c0 12.2 9.9 22 22 22c6.3 0 12.4-2.7 16.6-7.5L121.2 346l58.1 116.3c7.9 15.8 27.1 22.2 42.9 14.3s22.2-27.1 14.3-42.9L179.8 320H297.9c12.2 0 22.1-9.9 22.1-22.1c0-6.3-2.7-12.3-7.4-16.5L38.6 37.9C34.3 34.1 28.9 32 23.2 32C10.4 32 0 42.4 0 55.2z"/></svg>${b.hint}</div>`; return; }
     const ico = b.num ? `<span class="sim-num${b.numRight?' r':''}${b.numTop?' tc':''}${cornerCls(b)}${b.numHi?' hi':''}${b.yellow?' yn':''}">${b.num}</span>` : "";
     const tip = (b.tip||b.label) ? `<span class="sim-tip${tipCls(b.x,b.w,b.y)}${b.tipNowrap?' nowrap':''}${(b.tipHi||(b.num&&!b.numRight&&!b.numCorner&&!b.tipNumR&&!b.tipDn))?' tip-hinum':''}${b.tipNumR?' tip-numr':''}${b.tipDn?' tip-below tip-forcedn':''}">${b.tip||b.label}</span>` : '';
