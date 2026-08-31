@@ -14721,6 +14721,64 @@ SIM["sgrade"] = { start:"1", screens:{
       {x:97.3, y:0,    w:2.7,  h:6.3, plain:true, close:true},
     ]},
 } };
+// ── S버전 전용 페이지: 사원 메뉴 설정 · 버튼 권한 관리 (화면 이미지 준비중 — 받으면 img/좌표 교체) ──
+IMGS["sempmenu"] = "images/사원메뉴설정.png";
+IMGS["sbtnauth"] = "images/화면준비중.png";
+DESCS["sempmenu"] = [
+  {type:"note", text:"사원별로 프로그램에서 사용할 <b>메뉴를 설정</b>하는 화면입니다."},
+  {type:"step", num:"1", title:`🔍 사원 조회`, subs:[
+    "<b>근무중 · 퇴사</b>를 선택해 조회할 사원을 지정합니다.",
+    "<span class='ui-btn'>찾기</span> 버튼으로 조회된 목록 안에서 <b>결과내 재검색</b>을 할 수 있습니다.",
+  ]},
+  {type:"step", num:"2", title:`✔️ 사원 선택`, subs:[
+    "목록에서 메뉴를 설정할 <b>사원</b>을 선택합니다.",
+    "선택한 사원의 <b>메뉴 권한</b>이 우측에 표시됩니다.",
+  ]},
+  {type:"step", num:"3", title:`☑️ 메뉴 숨김 설정`, subs:[
+    "<b>메뉴정보</b>에서 <b>▸</b>를 클릭해 하위 메뉴를 펼칩니다.",
+    "<span style='display:block'>숨길 메뉴의 <b>메뉴 숨김</b> 칸을 체크하면<br>선택한 사원에게 해당 메뉴가 보이지 않습니다.</span>",
+  ]},
+  {type:"step", num:"4", title:`💾 저장`, subs:[
+    "<span class='ui-btn'>+ 저장</span> 버튼을 클릭하면 설정한 메뉴 권한이 저장됩니다.",
+  ]},
+  {type:"step", num:"★", ystar:true, title:`👥 선택된 사원의 권한으로 적용`, body:"다른 사원의 메뉴 권한을 그대로 가져옵니다.", subs:[
+    "<span class='ui-btn'>🔍 선택된 사원의 권한으로 적용</span> 버튼을 클릭하면 <b>사원검색</b> 창이 열립니다.",
+    "⬇",
+    "1. 기준으로 삼을 <b>사원</b>을 선택해주세요.",
+    "⬇",
+    "2. <span class='ui-btn'>✓ 선택</span> 버튼을 클릭하면 그 사원의 메뉴 권한이 적용됩니다.",
+  ]},
+];
+DESCS["sbtnauth"] = [
+  {type:"note", text:"사원별로 화면에서 사용할 <b>버튼 권한</b>을 관리하는 화면입니다."},
+  {type:"note", blue:true, text:"🚧 화면 안내는 <b>준비중</b>입니다. 화면 이미지가 준비되면 상세 설명이 추가됩니다."},
+];
+SIM["sempmenu"] = { start:"1", screens:{
+  "1":{img:"images/사원메뉴설정.png",
+    btns:[
+      {x:53.8, y:22.9, w:18.5, h:7,    num:"1", numCorner:true, notint:true, tip:"<b>근무중·퇴사</b>를 선택하고 결과내 재검색으로 사원을 조회합니다."},
+      {x:53.4, y:26.7, w:18.8, h:3.8, fill:true, tip:"검색어를 입력하고 <b>찾기</b>를 클릭하면 조회된 목록 안에서 다시 검색합니다."},
+      {x:0.3,  y:30.5, w:71.9, h:22.9, notint:true, scroll:"2", tip:"조회된 <b>사원 목록</b>입니다."},
+      {x:0.6,  y:38.8, w:71.6, h:2.5,  num:"2", numCorner:true, front:true, tip:"메뉴를 설정할 <b>사원</b>을 선택하면 우측에 메뉴 권한이 표시됩니다."},
+      {x:79.3, y:24,   w:13.1, h:2.8,  yellow:true, front:true, scroll:"★1", to:"p_emp", toggle:true, tip:"다른 사원의 <b>메뉴 권한</b>을 그대로 적용합니다."},
+      {x:93.1, y:23.9, w:5.3,  h:2.8,  num:"4", numCorner:true, front:true, tip:"설정한 메뉴 권한을 <b>저장</b>합니다."},
+      {x:91.2, y:26.7, w:7.5,  h:20.6, num:"3", numCorner:true, notint:true, tip:"숨길 메뉴의 <b>메뉴 숨김</b> 칸을 체크합니다."},
+      {x:94.2, y:35.5, w:1.6,  h:1.8,  chk:"m1", front:true},
+    ]},
+  // 972x617 → win.w = 972/1530*100 = 63.5
+  "p_emp":{img:"images/사원메뉴설정-사원검색.png", win:{x:18, y:22, w:63.5},
+    btns:[
+      {x:95.8, y:0,    w:4.1,  h:4.8, plain:true, close:true, tip:"<b>✕</b>를 클릭하면 사원검색 창이 닫힙니다."},
+      {x:1,    y:23.6, w:98.3, h:3.6, yellow:true, num:"1", numCorner:true, scroll:"★1", tip:"기준으로 삼을 <b>사원</b>을 선택합니다."},
+      {x:87.2, y:6.1,  w:12.1, h:4.8, yellow:true, num:"2", numCorner:true, scroll:"★1", noLink:true, close:true, tip:"<b>선택</b> 버튼을 클릭하면 그 사원의 메뉴 권한이 적용됩니다."},
+    ]},
+} };
+SIM["sbtnauth"] = { start:"1", screens:{
+  "1":{img:"images/화면준비중.png",
+    btns:[
+      {x:33, y:52, w:34, h:12, fill:true, fillText:"버튼 권한 관리<br>화면 이미지 준비중입니다", noev:true},
+    ]},
+} };
 // ── S버전 전용 페이지: 사업장 관리 4탭 (기초관리 > 사업장관리) ──
 IMGS["sbiz"]     = "images/사업장관리.png";
 IMGS["sbizacc"]  = "images/사업장관리-사업장 계좌정보.png";
@@ -26790,6 +26848,12 @@ const S_DEF = [
     {sub:{ id:"s-biz", title:"사업장 관리",
       subtitles:{ "sbiz":"사업장 기본정보·도장·영수증 메시지", "sbizacc":"사업장 계좌정보 관리", "sbizlink":"실시간 계좌연동 환경설정", "sbiztax":"세금계산서 발행연동" },
       pages:["sbiz","sbizacc","sbizlink","sbiztax"], pageLabels:["기본정보","사업장 계좌정보","실시간 계좌연동","세금계산서 발행연동"], tips:{} }},
+    {sub:{ id:"s-empmenu", title:"사원 메뉴 설정",
+      subtitles:{ "sempmenu":"사원별 사용 메뉴 설정·권한 복사" },
+      pages:["sempmenu"], tips:{} }},
+    {sub:{ id:"s-btnauth", title:"버튼 권한 관리",
+      subtitles:{ "sbtnauth":"사원별 버튼 사용 권한 관리 (준비중)" },
+      pages:["sbtnauth"], tips:{} }},
   ]},
   { chapter:"S 3", title:"매입관리", icon:"📥", ribbon:"images/매입관리.png", items:[
     {g:"발주관리"}, {sub:{ id:"s-order", title:"발주서 등록", subtitles:{ "sod1":"매입처·상품을 지정해 발주서 등록" }, pages:["sod1"], tips:{} }},{sub:{ id:"s-inquiry", title:"발주서 조회", subtitles:{ "sfo1":"등록한 발주서 확인·발주대기 처리", "sfo2":"1차 컨펌한 발주서 확인·발주 전송", "sfo3":"2차 컨펌한 발주서 확인·입고대기 처리", "sfo4":"입고 대기 발주서 확인·검수·입고완료", "sfo5":"처리 완료 발주서 확인·인쇄", "sfo6":"SCM 매입처가 반려한 발주서 확인·재전송", "sfo7":"취소한 발주서 확인·발주서입력으로 복구" }, pages:["sfo1","sfo2","sfo3","sfo4","sfo5","sfo6","sfo7"], pageLabels:["발주서입력","발주대기","발주완료","입고대기","입고완료","입고반려","취소"], tips:{} }},{sub:{ id:"s-status", title:"발주현황", subtitles:{ "sph1":"발주 내역을 조회·집계" }, pages:["sph1"], tips:{} }},{sub:{ id:"s-plan", title:"발주계획 입력", subtitles:{ "sop1":"입고예정일·상품·매입처를 지정해 발주계획 등록" }, pages:["sop1"], tips:{} }},{sub:{ id:"s-planq", title:"발주계획 조회", subtitles:{ "sop2":"등록한 발주계획 확인·수정·작성완료", "sop2d":"작성완료된 발주계획 확인", "sop2c":"취소한 발주계획 확인·작성중으로 복구" }, pages:["sop2","sop2d","sop2c"], pageLabels:["작성중","작성완료","취소"], tips:{} }},{sub:{ id:"s-noin", title:"미 입고 현황", subtitles:{ "snr1":"입고되지 않은 발주 내역 조회" }, pages:["snr1"], tips:{} }},{sub:{ id:"s-planv2", title:"발주계획v2", subtitles:{ "sopv1":"재고 부족 품목 확인 후 발주서 생성" }, pages:["sopv1"], tips:{} }},
@@ -26945,7 +27009,8 @@ const S_RIBBON_CAT = {
     "sub:s-my":      {x:85.4, y:36.2, w:8.3, h:16.7},  // 내정보 관리
     "sub:s-emp":     {x:85.4, y:52.3, w:8.3, h:16.7},  // 사업장 사원 관리
     "sub:s-biz":     {x:85.4, y:68.9, w:8.3, h:16.7},  // 사업장 관리
-    // 준비중: 사원메뉴설정 {x:93.8, y:36.4, w:5.8, h:25.1} / 버튼 권한 관리 {x:93.8, y:60.6, w:5.8, h:25.1}
+    "sub:s-empmenu": {x:93.8, y:36.4, w:5.8, h:25.1},  // 사원 메뉴 설정
+    "sub:s-btnauth": {x:93.8, y:60.6, w:5.8, h:25.1},  // 버튼 권한 관리
   },
   "s-ch3": { // 매입관리
     "sub:4-2":    {x:0,    y:22.1, w:6.7,  h:23.5},  // 발주서 등록
