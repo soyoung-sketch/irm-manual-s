@@ -15009,44 +15009,47 @@ DESCS["sempbiz"] = [
 IMGS["smy"] = "images/내정보관리.png";
 DESCS["smy"] = [
   {type:"note", text:"로그인한 사원의 <b>개인정보를 확인·수정</b>하는 화면입니다."},
-  {type:"step", num:"1", title:`👤 개인정보 확인`, subs:[
-    "<b>아이디·이름·핸드폰</b> 등 등록된 개인정보를 확인합니다.",
-    "<span class='ui-btn'>✓ 비밀번호 변경</span> 버튼으로 로그인 비밀번호를 변경할 수 있습니다.",
+  {type:"step", num:"1", title:`📋 기본 메뉴 선택`, body:"프로그램 실행 시 기본으로 표시할 메뉴를 선택합니다.", subs:[
+    "<b>IRM · SHOP · WMS · AMS</b> 중에서 선택할 수 있습니다.",
   ]},
-  {type:"step", num:"2", title:`🏢 근무 정보 확인`, subs:[
-    "<b>이메일</b>을 입력하고, 근무지·부서·직위·입사일·사업장 전화번호를 확인합니다.",
+  {type:"step", num:"2", title:`🔐 비밀번호 변경`, body:"<span class='ui-btn'>✓ 비밀번호 변경</span> 버튼을 클릭하면 변경 창이 열립니다.", subs:[
+    "<b>현재 비밀번호</b>를 입력합니다.",
+    "⬇",
+    "새로 사용할 <b>비밀번호</b>를 입력하고 <b>비밀번호 확인</b>에 한 번 더 입력합니다.",
+    "⬇",
+    "<span class='ui-btn'>확인</span> 버튼을 클릭하면 비밀번호가 변경됩니다.",
   ]},
-  {type:"step", num:"★", ystar:true, title:`🖼️ 사진 등록`, subs:[
+  {type:"step", num:"3", title:`🖼️ 사진 등록`, subs:[
     "<span class='ui-btn'>✏ 등록</span> 버튼으로 개인 사진을 등록하고, <span class='ui-btn'>✕ 삭제</span> 버튼으로 제거합니다.",
     "%%최대 100 × 100 px · 용량 1MB 미만의 이미지만 등록할 수 있습니다.",
   ]},
-  {type:"bullet", title:`🔐 비밀번호 변경`, body:"<span class='ui-btn'>✓ 비밀번호 변경</span> 버튼으로 열리는 창입니다.", subs:[
-    "<b>현재 비밀번호</b>를 입력합니다.",
-    "새로 사용할 <b>비밀번호</b>를 입력하고 <b>비밀번호 확인</b>에 한 번 더 입력합니다.",
-    "<span class='ui-btn'>확인</span> 버튼을 클릭하면 비밀번호가 변경됩니다.",
+  {type:"step", num:"4", title:`✉️ 이메일 입력`, subs:[
+    "사원의 <b>이메일</b>을 입력합니다.",
   ]},
-  {type:"bullet", title:`📋 기본 메뉴`, subs:[
-    "프로그램 실행 시 기본으로 표시할 <b>메뉴</b>를 선택합니다.",
+  {type:"step", num:"5", title:`🎂 생일 · 결혼기념일`, subs:[
+    "<b>생일</b>과 <b>결혼기념일</b>을 지정합니다.",
+    "%%생일·결혼기념일 입력은 선택사항입니다.",
   ]},
 ];
 SIM["smy"] = { start:"1", screens:{
   "1":{img:"images/내정보관리.png",
     btns:[
-      {x:87.6, y:6.1,  w:6.8,  h:2.8, lite:true},   // 리본 메뉴 위치
-      {x:85.8, y:24.1, w:13.2, h:2.4, plain:true, tip:"프로그램 실행 시 기본으로 표시할 <b>메뉴</b>를 선택합니다."},
-      {x:1.2,  y:29.3, w:43.6, h:20.2, num:"1", numCorner:true, notint:true, tip:"아이디·이름·핸드폰 등 <b>개인정보</b>를 확인합니다."},
-      {x:13.9, y:36.2, w:9,    h:2.6, plain:true, front:true, to:"p_pw", toggle:true, tip:"<b>비밀번호 변경</b> 창을 엽니다."},
-      {x:43.9, y:29.2, w:41,   h:20.3, yellow:true, notint:true, scroll:"★1", tip:"<b>개인 사진</b>을 등록합니다. (100×100 px · 1MB 미만)"},
-      {x:69.3, y:46.6, w:6,    h:2.7, plain:true, front:true, scroll:"★1", tip:"개인 사진을 <b>등록</b>합니다."},
-      {x:75.5, y:46.6, w:6.3,  h:2.7, plain:true, front:true, scroll:"★1", tip:"등록한 사진을 <b>삭제</b>합니다."},
-      {x:1.2,  y:49.9, w:97.9, h:10.3, num:"2", numCorner:true, notint:true, tip:"이메일을 입력하고 <b>근무지·부서·직위·입사일</b>을 확인합니다."},
+      {x:87.6, y:6.1,  w:6.8,  h:2.8,  lite:true},   // 리본 메뉴 위치
+      {x:85.2, y:23.5, w:13.7, h:3.9,  num:"1", numCorner:true, tip:"프로그램 실행 시 기본으로 표시할 <b>기본 메뉴</b>를 선택합니다."},
+      {x:13.8, y:36.2, w:9.2,  h:2.8,  num:"2", numCorner:true, front:true, to:"p_pw", toggle:true, tip:"<b>비밀번호 변경</b> 창을 엽니다."},
+      {x:54.4, y:29,   w:31.6, h:20.7, num:"3", numCorner:true, notint:true, tip:"<b>개인 사진</b>을 등록합니다. (100×100 px · 1MB 미만)"},
+      {x:69.3, y:46.6, w:6,    h:2.7,  plain:true, front:true, scroll:"3", tip:"개인 사진을 <b>등록</b>합니다."},
+      {x:75.5, y:46.6, w:6.3,  h:2.7,  plain:true, front:true, scroll:"3", tip:"등록한 사진을 <b>삭제</b>합니다."},
+      {x:13.8, y:49.8, w:22.7, h:3.1,  num:"4", numCorner:true, tip:"사원의 <b>이메일</b>을 입력합니다."},
+      {x:1.6,  y:59.8, w:71.2, h:3.9,  num:"5", numCorner:true, notint:true, tip:"<b>생일·결혼기념일</b>을 지정합니다 (선택사항)."},
     ]},
-  "p_pw":{img:"images/내정보관리-비밀번호변경.png", win:{x:9, y:20, w:82},
+  // 858x596 → 기존 대비 2/3 축소 (w 82 → 54.7), 화면 중앙 정렬
+  "p_pw":{img:"images/내정보관리-비밀번호변경.png", win:{x:22.7, y:20, w:54.7},
     btns:[
-      {x:32,   y:28.3, w:61.6, h:13.7, yellow:true, num:"1", numCorner:true, tip:"<b>현재 비밀번호</b>를 입력합니다."},
-      {x:32,   y:47.9, w:61.6, h:32, yellow:true, num:"2", numCorner:true, tip:"새 <b>비밀번호</b>를 입력하고 확인란에 한 번 더 입력합니다."},
-      {x:45.6, y:87.7, w:16,   h:10.5, yellow:true, num:"3", numCorner:true, close:true, tip:"<b>확인</b> 버튼을 클릭하면 비밀번호가 변경됩니다."},
-      {x:63.5, y:87.7, w:15.3, h:10.5, plain:true, close:true, tip:"<b>취소</b> 버튼으로 변경을 취소합니다."},
+      {x:31.3, y:27.2, w:61.5, h:13.9, yellow:true, num:"1", numCorner:true, tip:"<b>현재 비밀번호</b>를 입력합니다."},
+      {x:31.3, y:48.1, w:61.6, h:30.7, yellow:true, num:"2", numCorner:true, tip:"새 <b>비밀번호</b>를 입력하고 확인란에 한 번 더 입력합니다."},
+      {x:44.5, y:89,   w:17,   h:11,   yellow:true, num:"3", numCorner:true, close:true, tip:"<b>확인</b> 버튼을 클릭하면 비밀번호가 변경됩니다."},
+      {x:63,   y:89,   w:17,   h:11,   plain:true, close:true, tip:"<b>취소</b> 버튼으로 변경을 취소합니다."},
     ]},
 } };
 // ── S버전 전용 페이지: FAX 전송 (기초관리 > 홍보관리) ──
