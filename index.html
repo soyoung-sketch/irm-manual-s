@@ -14723,7 +14723,7 @@ SIM["sgrade"] = { start:"1", screens:{
 } };
 // ── S버전 전용 페이지: 사원 메뉴 설정 · 버튼 권한 관리 (화면 이미지 준비중 — 받으면 img/좌표 교체) ──
 IMGS["sempmenu"] = "images/사원메뉴설정.png";
-IMGS["sbtnauth"] = "images/화면준비중.png";
+IMGS["sbtnauth"] = "images/버튼권한관리.png";
 DESCS["sempmenu"] = [
   {type:"note", text:"사원별로 프로그램에서 사용할 <b>메뉴를 설정</b>하는 화면입니다."},
   {type:"step", num:"1", title:`🔍 사원 조회`, subs:[
@@ -14750,8 +14750,40 @@ DESCS["sempmenu"] = [
   ]},
 ];
 DESCS["sbtnauth"] = [
-  {type:"note", text:"사원별로 화면에서 사용할 <b>버튼 권한</b>을 관리하는 화면입니다."},
-  {type:"note", blue:true, text:"🚧 화면 안내는 <b>준비중</b>입니다. 화면 이미지가 준비되면 상세 설명이 추가됩니다."},
+  {type:"note", text:"사원별로 각 화면에서 사용할 <b>버튼 권한</b>을 설정하는 화면입니다."},
+  {type:"step", num:"1", title:`✔️ 사원 선택`, subs:[
+    "권한을 설정할 <b>사원</b>을 선택합니다.",
+    "<span class='ui-btn'>찾기</span> 버튼으로 조회된 목록 안에서 <b>결과내 재검색</b>을 할 수 있습니다.",
+  ]},
+  {type:"step", num:"2", title:`🗂️ 메뉴 선택`, subs:[
+    "<b>메뉴정보</b>에서 <b>▸</b>를 클릭해 하위 메뉴를 펼칩니다.",
+    "권한을 설정할 <b>메뉴</b>를 선택하면 우측에 해당 화면의 버튼 목록이 표시됩니다.",
+  ]},
+  {type:"step", num:"3", title:`☑️ 버튼 권한 설정`, subs:[
+    "<span style='display:block'>선택한 메뉴의 <b>아이템명</b>(버튼)마다 <b>적용</b>을 체크하면<br>해당 사원이 그 버튼을 사용할 수 있습니다.</span>",
+    "%%<b>권한</b> 열에서 버튼의 공개 여부를 확인합니다.",
+  ]},
+  {type:"step", num:"4", title:`💾 저장`, subs:[
+    "<span class='ui-btn'>+ 저장</span> 버튼을 클릭하면 설정한 버튼 권한이 저장됩니다.",
+  ]},
+  {type:"step", num:"★", ystar:true, title:`👥 사원권한적용`, body:"다른 사원에게 같은 버튼 권한을 한 번에 적용합니다.", subs:[
+    "<span class='ui-btn'>+ 사원권한적용</span> 버튼을 클릭하면 <b>사원권한적용</b> 창이 열립니다.",
+    "⬇",
+    "1. <span class='ui-btn'>찾기</span>로 사원을 조회합니다.",
+    "⬇",
+    "2. 권한을 적용할 <b>사원</b>을 체크합니다.",
+    "⬇",
+    "3. <span class='ui-btn'>✓ 적용</span> 버튼을 클릭하면 체크한 사원에게 권한이 적용됩니다.",
+  ]},
+  {type:"step", num:"★", ystar:true, title:`🏅 직급권한적용`, body:"같은 직위의 사원에게 버튼 권한을 한 번에 적용합니다.", subs:[
+    "<span class='ui-btn'>+ 직급권한적용</span> 버튼을 클릭하면 <b>직위일괄적용</b> 창이 열립니다.",
+    "⬇",
+    "1. <span class='ui-btn'>찾기</span>로 직위를 조회합니다.",
+    "⬇",
+    "2. 권한을 적용할 <b>직위</b>를 체크합니다.",
+    "⬇",
+    "3. <span class='ui-btn'>✓ 적용</span> 버튼을 클릭하면 해당 직위의 사원에게 권한이 적용됩니다.",
+  ]},
 ];
 SIM["sempmenu"] = { start:"1", screens:{
   "1":{img:"images/사원메뉴설정.png",
@@ -14774,9 +14806,32 @@ SIM["sempmenu"] = { start:"1", screens:{
     ]},
 } };
 SIM["sbtnauth"] = { start:"1", screens:{
-  "1":{img:"images/화면준비중.png",
+  "1":{img:"images/버튼권한관리.png",
     btns:[
-      {x:33, y:52, w:34, h:12, fill:true, fillText:"버튼 권한 관리<br>화면 이미지 준비중입니다", noev:true},
+      {x:0.7,  y:36.2, w:50,   h:2.7,  num:"1", numCorner:true, front:true, tip:"버튼 권한을 설정할 <b>사원</b>을 선택합니다."},
+      {x:51.1, y:19.9, w:23.6, h:45.6, num:"2", numCorner:true, notint:true, tip:"권한을 설정할 <b>메뉴</b>를 선택하면 우측에 버튼 목록이 표시됩니다."},
+      {x:75.4, y:32.1, w:3.4,  h:8.2,  num:"3", numCorner:true, tip:"버튼마다 <b>적용</b>을 체크해 사용 권한을 설정합니다."},
+      {x:94,   y:29,   w:5.5,  h:3,    num:"4", numCorner:true, tip:"설정한 버튼 권한을 <b>저장</b>합니다."},
+      {x:36.1, y:23.3, w:6.8,  h:2.8,  yellow:true, front:true, scroll:"★1", to:"p_emp", toggle:true, tip:"<b>사원권한적용</b> 창에서 다른 사원에게 같은 권한을 적용합니다."},
+      {x:43.2, y:23.3, w:7.2,  h:2.8,  yellow:true, front:true, scroll:"★2", to:"p_pos", toggle:true, tip:"<b>직급권한적용</b> 창에서 직위별로 권한을 일괄 적용합니다."},
+    ]},
+  // 700x500 → win.w = 700/1530*100 = 45.8
+  "p_emp":{img:"images/버튼권한관리-사원권한적용.png", win:{x:27, y:22, w:45.8},
+    btns:[
+      {x:94.2, y:0,    w:5.8,  h:5.9, plain:true, close:true, tip:"<b>✕</b>를 클릭하면 창이 닫힙니다."},
+      {x:58.4, y:12.7, w:40.9, h:7.9, yellow:true, num:"1", numCorner:true, scroll:"★1", tip:"검색어를 입력하고 <b>찾기</b>로 사원을 조회합니다."},
+      {x:0.9,  y:46,   w:98,   h:4.8, yellow:true, num:"2", numCorner:true, scroll:"★1", tip:"권한을 적용할 <b>사원</b>을 체크합니다."},
+      {x:75.4, y:92.9, w:11.7, h:6,   yellow:true, num:"3", numCorner:true, scroll:"★1", noLink:true, close:true, tip:"<b>적용</b> 버튼을 클릭하면 체크한 사원에게 권한이 적용됩니다."},
+      {x:87.3, y:92.9, w:11.7, h:6,   plain:true, close:true, tip:"<b>닫기</b> 버튼으로 창을 닫습니다."},
+    ]},
+  // 550x550 → win.w = 550/1530*100 = 36
+  "p_pos":{img:"images/버튼권한관리-직급권한적용.png", win:{x:32, y:20, w:36},
+    btns:[
+      {x:93.2, y:0,    w:6.6,  h:5.5, plain:true, close:true, tip:"<b>✕</b>를 클릭하면 창이 닫힙니다."},
+      {x:3.1,  y:13.8, w:93.8, h:6.4, yellow:true, num:"1", numCorner:true, scroll:"★2", tip:"검색어를 입력하고 <b>찾기</b>로 직위를 조회합니다."},
+      {x:1.4,  y:26.7, w:97.5, h:4.5, yellow:true, num:"2", numCorner:true, scroll:"★2", tip:"권한을 적용할 <b>직위</b>를 체크합니다."},
+      {x:63.7, y:93.2, w:17.2, h:5.4, yellow:true, num:"3", numCorner:true, scroll:"★2", noLink:true, close:true, tip:"<b>적용</b> 버튼을 클릭하면 해당 직위의 사원에게 권한이 적용됩니다."},
+      {x:81.6, y:93.2, w:17.2, h:5.4, plain:true, close:true, tip:"<b>닫기</b> 버튼으로 창을 닫습니다."},
     ]},
 } };
 // ── S버전 전용 페이지: 사업장 관리 4탭 (기초관리 > 사업장관리) ──
@@ -26852,7 +26907,7 @@ const S_DEF = [
       subtitles:{ "sempmenu":"사원별 사용 메뉴 설정·권한 복사" },
       pages:["sempmenu"], tips:{} }},
     {sub:{ id:"s-btnauth", title:"버튼 권한 관리",
-      subtitles:{ "sbtnauth":"사원별 버튼 사용 권한 관리 (준비중)" },
+      subtitles:{ "sbtnauth":"사원별 버튼 사용 권한 설정·일괄 적용" },
       pages:["sbtnauth"], tips:{} }},
   ]},
   { chapter:"S 3", title:"매입관리", icon:"📥", ribbon:"images/매입관리.png", items:[
