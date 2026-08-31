@@ -14735,13 +14735,14 @@ const _BIZ_BASE = (saveNum) => ([
   {x:46.8, y:23.7, w:10.3, h:2.5, plain:true, page:2},
   {x:57.3, y:23.7, w:8.8,  h:2.5, plain:true, page:3},
   {x:0.9,  y:23.3, w:33.5, h:51.0, num:"1", numCorner:true, notint:true, tip:"사업장코드·사업장명·<b>사업장구분</b>과 사업자 정보·대표 발신정보를 입력합니다."},
-  {x:76.8, y:20.2, w:9.2,  h:2.7, yellow:true, front:true, to:"p_etc", toggle:true, tip:"<b>기타 사업장 정보</b> 창을 엽니다."},
+  {x:76.8, y:20.2, w:9.2,  h:2.7, yellow:true, front:true, scroll:"★1", to:"p_etc", toggle:true, tip:"<b>기타 사업장 정보</b> 창을 엽니다."},
   {x:86.2, y:20.2, w:6.3,  h:2.7, num:saveNum, numCorner:true, numInset:true, front:true, tip:"입력한 내용을 <b>저장</b>합니다."},
   {x:92.8, y:20.2, w:6.5,  h:2.7, plain:true, front:true, tip:"화면을 <b>닫습니다</b>."},
 ]);
 // 기타 사업장 정보 팝업 (4개 탭 공통)
 const _BIZ_ETCPOP = () => ({ "p_etc":{img:"images/사업장관리-기타사업장정보버튼.png", win:{x:2, y:25, w:96},
   btns:[
+    {x:97.2, y:0.3,  w:2.8,  h:5.2, plain:true, close:true, tip:"<b>✕</b>를 클릭하면 기타 사업장 정보 창이 닫힙니다."},
     {x:0.5,  y:11.1, w:49.5, h:86.1, yellow:true, num:"1", numCorner:true, notint:true, tip:"등록된 <b>사업장 정보</b>를 조회합니다."},
     {x:50.7, y:11.1, w:48.8, h:86.1, yellow:true, num:"2", numCorner:true, notint:true, tip:"사업장에 속한 <b>사원 정보</b>를 조회합니다."},
   ]} });
@@ -14778,11 +14779,9 @@ SIM["sbiztax"] = { start:"1", screens: Object.assign({
 // 4개 탭 공통 카드 (① 사업장 정보 입력 · 저장 · ★기타 사업장 정보)
 const _BIZ_CARD1 = () => ([
   {type:"step", num:"1", title:`🏢 사업장 정보 입력`, subs:[
-    "<b>사업장코드·사업장명</b>을 입력하고 <b>사업장구분</b>(본사·물류센터·공장·매장·창고 등)을 선택합니다.",
-    "<b>사업자번호·대표자명·업태·종목</b>과 주소·전화번호를 입력합니다.",
-    "---",
-    "문자·팩스 발송에 사용할 <b>핸드폰·팩스번호·이메일</b>을 입력합니다.",
-    "<b>사용상태</b>를 사용중 또는 사용안함으로 지정합니다.",
+    "<b>[필수]</b> <b>사업장명</b>을 입력해주세요.",
+    "하단의 정보를 입력해주세요.",
+    "<b>사용상태</b>(사용중 또는 사용안함)를 지정해주세요.",
   ]},
 ]);
 const _BIZ_CARDSAVE = (n) => ({type:"step", num:n, title:`💾 저장`, subs:[
@@ -14796,9 +14795,9 @@ const _BIZ_CARDETC = () => ({type:"step", num:"★", ystar:true, title:`🗂️ 
 DESCS["sbiz"] = [
   {type:"note", text:"사업장의 <b>기본정보</b>를 등록하고 도장·영수증 메시지를 설정하는 화면입니다."},
   ..._BIZ_CARD1(),
-  {type:"step", num:"2", title:`🧾 도장·영수증 메시지 설정`, subs:[
-    "<span class='ui-btn'>✏ 등록</span> 버튼으로 영수증·문서에 찍힐 <b>사업장 도장(사인)</b> 이미지를 등록합니다.",
-    "%%<span class='ui-btn'>✕ 삭제</span> 버튼을 클릭하면 등록한 도장이 제거됩니다.",
+  {type:"step", num:"2", title:`🧾 기본정보 설정`, subs:[
+    "<span style='display:block'><b>도장(사인) 등록하기</b> : <span class='ui-btn'>✏ 등록</span> 버튼으로 영수증·문서에 찍힐<br><b>사업장 도장(사인)</b> 이미지를 등록합니다.</span>",
+    "%%<span class='ui-btn'>✕ 삭제</span> 버튼을 클릭하면 등록한 도장(사인)이 제거됩니다.",
     "---",
     "영수증 하단에 인쇄할 <b>안내 문구</b>를 입력합니다.",
     "반품·교환 안내, 포인트 유효기간, 송금 계좌, 문의 번호 등을 작성할 수 있습니다.",
