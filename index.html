@@ -15087,7 +15087,7 @@ DESCS["sfax"] = [
     "---",
     "<span class='ui-btn'>⬇ 메세지 전송</span> 버튼을 클릭하면 지정한 대상에게 팩스가 전송됩니다.",
   ]},
-  {type:"bullet", title:`👥 매출처·매입처 회원 목록`, body:"<span class='ui-btn'>+ 매출처회원추가</span> <span class='ui-btn'>+ 매입처회원추가</span> 버튼으로 열리는 창입니다.", subs:[
+  {type:"step", num:"★", title:`👥 매출처·매입처 회원 목록`, body:"<span class='ui-btn'>+ 매출처회원추가</span> <span class='ui-btn'>+ 매입처회원추가</span> 버튼으로 열리는 창입니다.", subs:[
     "<b>통합검색·상세검색</b>으로 회원을 조회합니다.",
     "<b>멀티선택모드</b>를 체크하면 여러 회원을 한 번에 선택할 수 있습니다.",
     "회원을 선택한 후 <span class='ui-btn'>✓ 선택</span> 버튼을 클릭하면 받는사람 목록에 추가됩니다.",
@@ -15099,8 +15099,8 @@ SIM["sfax"] = { start:"1", screens:{
       {x:76,   y:6,    w:4.1,  h:8, lite:true},   // 리본 메뉴 위치
       {x:0.9,  y:25.3, w:49.2, h:5.6, num:"1", numCorner:true, notint:true, tip:"팩스번호를 직접 입력하거나 <b>회원 목록</b>에서 받는사람을 추가합니다."},
       {x:43.8, y:25.3, w:6.4,  h:2.7, plain:true, front:true, tip:"입력한 팩스번호를 <b>받는사람 목록</b>에 추가합니다."},
-      {x:33.1, y:28.4, w:8.5,  h:2.5, plain:true, front:true, to:"p_out", toggle:true, tip:"<b>매출처 회원 목록</b>에서 받는사람을 선택합니다."},
-      {x:41.8, y:28.4, w:8.3,  h:2.5, plain:true, front:true, to:"p_in",  toggle:true, tip:"<b>매입처 회원 목록</b>에서 받는사람을 선택합니다."},
+      {x:33.1, y:28.4, w:8.5,  h:2.5, plain:true, front:true, scroll:"★1", to:"p_out", toggle:true, tip:"<b>매출처 회원 목록</b>에서 받는사람을 선택합니다."},
+      {x:41.8, y:28.4, w:8.3,  h:2.5, plain:true, front:true, scroll:"★1", to:"p_in",  toggle:true, tip:"<b>매입처 회원 목록</b>에서 받는사람을 선택합니다."},
       {x:6.3,  y:31.3, w:43.8, h:17.9, num:"2", numCorner:true, notint:true, tip:"추가된 받는사람의 <b>회사명·이름·팩스번호</b>를 확인합니다."},
       {x:43.8, y:46.6, w:6.3,  h:2.7, plain:true, front:true, tip:"선택한 받는사람을 목록에서 <b>삭제</b>합니다."},
       {x:0.9,  y:50,   w:49.2, h:16.8, num:"3", numCorner:true, notint:true, tip:"팩스로 보낼 <b>문서를 첨부</b>하거나 스캔합니다."},
