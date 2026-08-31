@@ -15163,7 +15163,7 @@ DESCS["ssmsq"] = [
     "---",
     "발송된 <b>메시지 내용</b>으로 어떤 문구가 전송됐는지 확인합니다.",
   ]},
-  {type:"bullet", title:`📅 기간 빠른 선택`, body:"날짜 입력창을 클릭하면 표시되는 버튼입니다.", subs:[
+  {type:"step", num:"★", title:`📅 기간 빠른 선택`, body:"날짜 입력창을 클릭하면 표시되는 버튼입니다.", subs:[
     "<span class='ui-btn'>+ 오늘</span> <span class='ui-btn'>1 전일</span> <span class='ui-btn'>7 7일</span> <span class='ui-btn'>31 30일</span> 버튼으로 조회 기간을 빠르게 지정합니다.",
     "<span class='ui-btn'>↻ 초기화</span> 버튼으로 지정한 기간을 초기화합니다.",
   ]},
@@ -15172,7 +15172,8 @@ SIM["ssmsq"] = { start:"1", screens:{
   "1":{img:"images/sms전송조회.png",
     btns:[
       {x:80.1, y:6,    w:7.5,  h:4, lite:true},   // 리본 메뉴 위치
-      {x:71.8, y:20.9, w:27.2, h:2.7, num:"1", numCorner:true, to:"p_date", toggle:true, tip:"<b>등록일</b> 기간을 지정하고 <b>검색</b>하면 전송 내역이 조회됩니다."},   // 옛 1(등록일)+2(검색) 병합 → ①
+      {x:71.8, y:20.9, w:27.2, h:2.7, num:"1", numCorner:true, tip:"<b>등록일</b> 기간을 지정하고 <b>검색</b>하면 전송 내역이 조회됩니다."},   // 옛 1(등록일)+2(검색) 병합 → ①
+      {x:92,   y:20.8, w:1.3,  h:2.8, front:true, scroll:"★1", to:"p_date", toggle:true, tip:"<b>···</b> 버튼으로 오늘·전일·7일·30일 기간을 빠르게 지정합니다."},
       {x:1.2,  y:24.3, w:78.8, h:69, num:"2", numCorner:true, notint:true, tip:"전송구분·발신번호·제목 등 <b>전송 내역</b>을 확인하고 볼 건을 클릭합니다."},
       {x:80.5, y:24.3, w:18.6, h:69, num:"3", numCorner:true, numInset:true, notint:true, tip:"선택한 전송 건의 <b>수신 대상</b>과 <b>메시지 내용</b>을 확인합니다."},   // 옛 4(수신대상)+5(전송내용) 병합 → ③
     ]},
