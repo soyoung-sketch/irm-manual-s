@@ -1009,6 +1009,7 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .sim-num.corner.hi { top:-27px; }
 .sim-badge { position:absolute; background:#e2241a; color:#fff; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:11.5px; font-weight:700; white-space:nowrap; box-shadow:0 0 0 2px #fff, 0 2px 7px rgba(0,0,0,0.35); z-index:1001; pointer-events:none; }
 .sim-badge.yellow { background:#f59e0b; }
+.sim-badge.green { background:#16a34a; }
 .sim-callout { position:absolute; transform:translate(11px, -50%); width:max-content; max-width:280px; background:#fff; color:var(--navy); font-size:11.5px; font-weight:600; line-height:1.4; padding:5px 11px; border:1px solid rgba(13,27,62,0.30); border-radius:15px; box-shadow:0 2px 8px rgba(13,27,62,0.16); cursor:pointer; z-index:1001; display:flex; align-items:center; gap:6px; transition:box-shadow 0.12s, transform 0.12s, border-color 0.12s; }
 .sim-callout:hover { border-color:var(--navy); box-shadow:0 3px 12px rgba(13,27,62,0.26); transform:translate(13px, -50%); }
 .sim-callout::before { content:""; position:absolute; right:100%; top:50%; transform:translateY(-50%); border:6px solid transparent; border-right-color:rgba(13,27,62,0.30); }
@@ -17593,51 +17594,61 @@ SIM["sjp2b"] = { start:"1", screens:{
 IMGS["ssms"] = "images/SMS전송.png";
 DESCS["ssms"] = [
   {type:"note", text:"검색 조건에 맞는 회원을 발송 대상에 추가한 후 <b>SMS·MMS</b> 메시지를 작성하여 <b>즉시 또는 예약 발송</b>하는 화면입니다."},
-  {type:"step", num:"1", title:`🔍 검색회원 추가`, body:"문자를 보낼 회원의 검색 조건을 설정한 후 <span class='ui-btn'>검색회원추가</span> 버튼을 클릭합니다.", subs:[
-    "매출처·매입처, 회원구분, 가입기간, 방문 여부, 구매금액 등의 조건을 설정할 수 있습니다.",
-    "<b>수신거부 제외</b>를 선택하면 문자 수신을 거부한 회원을 제외하고 추가합니다.",
-    "조건에 해당하는 회원은 아래 <b>발송 대상 목록</b>에 추가됩니다.",
-    "%%검색 결과를 확인하는 기능이 아니라, 조건에 맞는 회원을 바로 발송 대상 목록에 추가하는 기능입니다.",
+  {type:"step", num:"1", title:`🔍 문자 발송할 회원목록 만들기`, body:"회원 검색 및 추가로 문자를 발송할 목록을 설정합니다.", subs:[
+    "📌 검색하기",
+    "<span class='ui-btn'>회원검색</span> 버튼을 눌러주세요.",
+    "⬇",
+    "검색 조건을 설정해 주세요.",
+    "⬇",
+    "<span class='ui-btn'>검색회원추가</span> 버튼을 클릭합니다.",
+    "%%<b>수신거부 제외</b>를 선택하면 문자 수신을 거부한 회원을 제외하고 추가합니다.",
   ]},
   {type:"step", num:"2", title:`👤 발송 대상 확인`, body:"추가된 회원의 회원코드, 가입자명, 전화번호를 확인합니다.", subs:[
     "목록에 등록된 회원이 <b>문자 발송 대상</b>입니다.",
-    "발송하지 않을 회원은 선택을 해제하거나 상단 <span class='ui-btn'>삭제</span> 버튼으로 목록에서 제거합니다.",
-    "특정 회원만 추가하려면 상단 <span class='ui-btn'>회원추가</span> 버튼을 이용할 수 있습니다.",
+    "<span style='display:block'>발송하지 않을 회원은 선택을 해제하거나<br>상단 <span class='ui-btn'>삭제</span> 버튼으로 목록에서 제거합니다.</span>",
+    "<span style='display:block'>검색된 조건의 회원 외에 특정 회원을 더 추가하려면<br>상단의 <span class='ui-btn'>회원추가</span> 버튼을 이용할 수 있습니다.</span>",
   ]},
-  {type:"step", num:"3", title:`📤 메시지 작성 및 전송`, body:"발송 형식과 용도를 선택해 문자 내용을 작성한 후 <span class='ui-btn'>문자 메시지 전송</span> 버튼을 클릭합니다.", subs:[
-    "<b>SMS / MMS</b> 중 발송 형식을 선택합니다.",
+  {type:"step", num:"3", title:`📤 메시지 작성 및 전송`, body:"발송 형식과 용도를 선택해 문자 메시지를 전송합니다.", subs:[
     "일반 안내는 <b>업무용</b>, 광고성 문자는 <b>광고용</b>을 선택합니다.",
-    "MMS 발송 시 제목을 입력하고, 메시지 내용을 작성합니다.",
-    "작성 중인 메시지의 <b>글자 수·사용 용량</b>은 입력창 상단에서 확인할 수 있습니다.",
-    "%%광고용 문자 발송 시에는 광고 문구와 수신거부 안내가 포함되어 있는지 확인합니다.",
-    "---",
+    "⬇",
+    "제목을 입력하고, 메시지 내용을 작성합니다.",
+    "%%우측의 <b>메시지 템플릿</b>에서 원하는 템플릿의 선택 버튼을 더블클릭해서 적용할 수 있습니다.",
+    "⬇",
+    "<span style='display:block'>광고용 문자 발송 시에는 광고 문구와<br>수신거부 안내가 포함되어 있는지 확인합니다.</span>",
+    "⬇",
     "<b>실시간</b>을 선택하면 메시지를 바로 발송합니다.",
-    "<b>예약전송</b>을 선택하면 예약일과 전송시각을 지정해 그 시간에 발송합니다.",
+    "%%<b>예약전송</b>을 선택하면 예약일과 전송시각을 지정해 그 시간에 발송합니다.",
+    "⬇",
     "화면 하단에서 <b>보내는 번호</b>를 확인한 후 전송합니다.",
+    "⬇",
+    "<span class='ui-btn'>문자 메시지 전송</span> 버튼을 클릭합니다.",
+    "---",
     "입력한 내용을 모두 지우고 새로 작성하려면 <span class='ui-btn'>다시작성</span> 버튼을 클릭합니다.",
   ]},
-  {type:"step", num:"★", ystar:true, title:`🔤 회원 정보 치환 문구`, body:"회원마다 다른 내용이 자동으로 채워지도록 변수를 넣을 수 있습니다.", subs:[
-    "<span class='ui-btn'>회원명 추가</span> 버튼을 클릭하면 <b>제목</b>에 회원명 변수가 삽입됩니다.",
-    "<span class='ui-btn'>미수금 추가</span> 버튼을 클릭하면 <b>메시지 내용</b>에 미수금 변수가 삽입됩니다.",
-    "발송할 때 변수 자리에 회원별 <b>이름·미수금액</b>이 자동으로 표시됩니다.",
+  {type:"step", num:"★", ystar:true, title:`🔤 회원 정보 치환 문구`, body:"변수를 넣을 수 있습니다.", subs:[
+    "<span class='ui-btn'>회원명 추가</span> 버튼을 클릭하면 <b>회원명 변수</b>가 삽입됩니다.",
+    "<span class='ui-btn'>미수금 추가</span> 버튼을 클릭하면 <b>미수금 변수</b>가 삽입됩니다.",
+    "---",
+    "<span style='display:block'>발송할 때 변수 자리에 회원별 <b>이름·미수금액</b>이<br>자동으로 표시됩니다.</span>",
   ]},
   {type:"step", num:"★", ystar:true, title:`🗂️ 메시지 템플릿`, body:"자주 사용하는 문자 내용을 미리 등록하고 불러와 사용할 수 있습니다.", subs:[
-    "<span class='ui-btn'>➕ 추가</span> 버튼을 클릭하면 새로운 템플릿 카드가 등록됩니다.",
-    "템플릿 카드의 <span class='ui-btn'>선택</span>을 클릭하면 제목·내용이 <b>메시지 작성란에 적용</b>됩니다.",
-    "<span class='ui-btn'>사진첨부</span> 버튼으로 템플릿창의 <b>레이아웃</b>을 설정합니다.",
+    "<span class='ui-btn'>➕ 추가</span> : 새로운 템플릿 카드가 등록됩니다.",
+    "<span style='display:block'><b>적용하기</b> : 템플릿 카드의 선택 버튼을 <b style='color:#e2241a'>더블클릭</b>하면<br>제목·내용이 메시지 작성란에 적용됩니다.</span>",
+    "---",
+    "<span style='display:block'><b>레이아웃 설정</b> : 템플릿창의 레이아웃을 설정합니다.<br><img src='images/탬플릿레이아웃.png' alt='레이아웃 설정 도구' style='display:block;width:100%;max-width:232px;margin-top:5px;border:1px solid var(--border);border-radius:4px;'></span>",
+    "---",
     "<span class='ui-btn'>❌ 삭제</span> : 선택한 템플릿을 삭제합니다.",
     "<span class='ui-btn'>⬆ 위로</span> <span class='ui-btn'>⬇ 아래</span> : 위·아래로 넘겨가며 템플릿을 봅니다.",
   ]},
   {type:"note", text:"💡 <b>링크 메시지 작성</b> 탭은 준비중입니다.<br>💡 발송 전에는 <b>대상 회원 수·전화번호·메시지 내용·발송 시점</b>을 다시 확인해주세요."},
 ];
-// 이미지가 리본 포함 전체 창(1526×1029)으로 교체됨 — 좌표는 기존 배치를 새 이미지 기준으로 환산
 SIM["ssms"] = { start:"1", screens:{
   "1":{img:"images/SMS전송.png",
     arrows:[
-      {pts:[[43.7,27.6],[40.5,27.6],[40.5,38.5],[37,38.5]], blue:true},     // 파란 화살표 (미수금추가→메시지 내용)
-      {pts:[[43.7,24.4],[42,24.4],[42,34.4],[37,34.4]], yellow:true},       // 노란 화살표 (회원명추가→제목)
+      {pts:[[43.8,27.2],[42,27.2],[42,45.9],[36.3,45.9]], blue:true},       // 파란 화살표 (미수금추가 → 삽입된 미수금 변수)
+      {pts:[[43.8,24.5],[40.5,24.5],[40.5,50.1],[35.6,50.1]], yellow:true}, // 노란 화살표 (회원명추가 → 삽입된 회원명 변수)
       {pts:[[90.5,26],[90.5,29.6],[66.8,29.6],[66.8,45.2]], yellow:true},   // 노란 화살표 (템플릿추가→레코드)
-      {pts:[[59.4,77.5],[49.9,77.5],[49.9,45.1],[41.4,45.1]], color:"#16a34a"}, // 초록 화살표 (템플릿 선택→제목·내용 적용)
+      {pts:[[64.5,90.6],[49.9,90.6],[49.9,34.4],[43.5,34.4]], color:"#16a34a"}, // 초록 화살표 (템플릿 선택 더블클릭 → 제목·내용 적용)
     ],
     btns:[
       {x:71.5, y:6,    w:4.5,  h:8, lite:true},   // 리본 메뉴 위치
@@ -17664,20 +17675,27 @@ SIM["ssms"] = { start:"1", screens:{
       {x:12.1, y:34.6, w:10.7, h:2.6, lite:true},
       {x:10.3, y:38.1, w:7.1,  h:2.7, lite:true},
       // 투명
-      {x:36,   y:93.3, w:6.7,  h:3.2, plain:true},
+      {x:36,   y:93.3, w:6.7,  h:3.2, plain:true, scroll:"3", tip:"<b>다시작성</b> 버튼으로 입력한 내용을 모두 지우고 새로 작성합니다."},
+      {x:14.0, y:20.3, w:5.4,  h:2.3, plain:true, scroll:"2", tip:"<b>회원추가</b> 버튼으로 특정 회원을 목록에 더 추가합니다."},
+      {x:19.7, y:20.3, w:5.8,  h:2.3, plain:true, scroll:"2", tip:"<b>삭제</b> 버튼으로 선택한 회원을 발송 대상에서 제거합니다."},
       // 노란 칠
-      {x:26.5, y:33,   w:16.4, h:2.9, lite:true, yellow:true},   // 제목 (회원명 변수 삽입 위치)
-      {x:43.8, y:23.3, w:9.6,  h:2.5, lite:true, yellow:true, tip:"<b>회원명 변수</b>를 추가하면 회원별 이름이 자동으로 표시됩니다."},
-      {x:54.6, y:26.4, w:16.3, h:2.7, lite:true, yellow:true, tip:"템플릿창의 <b>레이아웃</b>을 설정합니다."},
-      {x:59.3, y:32.4, w:14.5, h:28.3, lite:true, yellow:true},
-      // 선택해서 적용된 템플릿 (초록)
-      {x:59.3, y:64.6, w:14.5, h:27.7, green:true, notint:true, tip:"카드의 <b>선택</b>을 클릭하면 제목·내용이 메시지 작성란에 적용됩니다."},
-      // 노란 라인
-      {x:87.9, y:23.7, w:5.4,  h:2.7, yellow:true},
-      {x:54,   y:19.5, w:46,   h:77.6, yellow:true, notint:true, tip:"자주 쓰는 문자 내용을 <b>템플릿</b>으로 등록·불러와 사용합니다."},
-      // 파란 칠
-      {x:43.8, y:26.1, w:9.6,  h:2.5, lite:true, blue:true, tip:"<b>미수금 변수</b>를 추가하면 회원별 미수금이 자동으로 표시됩니다."},
-      {x:26.5, y:36.5, w:16.4, h:4, lite:true, blue:true},   // 메시지 내용 (미수금 변수 삽입 위치)
+      // 변수명 추가 버튼 — 노란 라인(회원명) / 파란 라인(미수금), ★1 치환 문구 카드와 연결
+      {x:43.8, y:23.3, w:9.6,  h:2.5, yellow:true, scroll:"★1", tip:"<b>회원명 추가</b> 버튼을 클릭하면 회원명 변수가 삽입됩니다."},
+      {x:43.8, y:26.1, w:9.6,  h:2.5, blue:true,   scroll:"★1", tip:"<b>미수금 추가</b> 버튼을 클릭하면 미수금 변수가 삽입됩니다."},
+      // 메시지 내용에 삽입된 변수 칠 (화살표와 연결)
+      {x:27,   y:44.7, w:8.8,  h:2.3, lite:true, blue:true,   scroll:"★1", tip:"삽입된 <b>미수금 변수</b>입니다 · 발송할 때 회원별 미수금액이 표시됩니다."},
+      {x:27.1, y:48.9, w:8,    h:2.4, lite:true, yellow:true, scroll:"★1", tip:"삽입된 <b>회원명 변수</b>입니다 · 발송할 때 회원별 이름이 표시됩니다."},
+      // 메시지 템플릿 영역 — ★2 카드와 연결
+      {x:54,   y:19.5, w:46,   h:77.6, yellow:true, notint:true, scroll:"★2", tip:"자주 쓰는 문자 내용을 <b>템플릿</b>으로 등록·불러와 사용합니다."},
+      {x:54.6, y:26.4, w:16.3, h:2.7, lite:true, yellow:true, scroll:"★2", tip:"템플릿창의 <b>레이아웃</b>을 설정합니다."},
+      {x:59.3, y:32.4, w:14.5, h:28.3, lite:true, yellow:true, scroll:"★2", tip:"등록된 <b>템플릿 카드</b>의 제목과 메시지 내용을 확인합니다."},
+      {x:76.7, y:23.7, w:5.4,  h:2.7, yellow:true, scroll:"★2", tip:"<b>위로</b> 버튼으로 이전 템플릿을 넘겨 봅니다."},
+      {x:82.3, y:23.7, w:5.4,  h:2.7, yellow:true, scroll:"★2", tip:"<b>아래</b> 버튼으로 다음 템플릿을 넘겨 봅니다."},
+      {x:87.9, y:23.7, w:5.4,  h:2.7, yellow:true, scroll:"★2", tip:"<b>추가</b> 버튼으로 새 템플릿 카드를 등록합니다."},
+      {x:93.5, y:23.7, w:5.4,  h:2.7, yellow:true, scroll:"★2", tip:"<b>삭제</b> 버튼으로 선택한 템플릿을 삭제합니다."},
+      // 템플릿 선택 — 초록 라인 + 더블클릭 배지
+      {x:64.5, y:89,   w:7.4,  h:3.3, green:true, scroll:"★2", tip:"<b>선택</b>을 더블클릭하면 제목·내용이 메시지 작성란에 적용됩니다."},
+      {x:65.4, y:92.6, w:5.6,  h:2.3, badge:"더블클릭", green:true},
     ]},
 } };
 // ── S버전 전용 페이지: 즐겨찾기 편집 ──
@@ -27835,7 +27853,7 @@ function simOverlayHTML(pg, sid) {
     }
     if (b.pdaFab) { const _pl=b.pdaLabel||"PDA로<br>매입등록하기"; h += `<div class="pda-fab${window._pdaDown?" down":""}" data-pk="${b.pdaKey||''}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;" onclick="event.stopPropagation();if(window._pdaDown){pdaFabUp();}else{pdaOpen(this.dataset.pk);}"><div class="pda-fab-dn" onclick="event.stopPropagation();pdaFabDown()" title="아래로 내려두기">▼</div><div class="pda-fab-circle"><div class="pda-fab-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.4"/><line x1="10" y1="18.6" x2="14" y2="18.6"/></svg></div><div class="pda-fab-txt">${_pl}</div></div><div class="pda-fab-up">📱 PDA ▲ 올리기</div></div>`; return; }
     if (b.pic) { h += `<div class="sim-pic" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;"><img src="${b.pic}" alt=""></div>`; return; }
-    if (b.badge) { h += `<div class="sim-badge${b.yellow?' yellow':''}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;">${b.badge}</div>`; return; }
+    if (b.badge) { h += `<div class="sim-badge${b.yellow?' yellow':''}${b.green?' green':''}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;">${b.badge}</div>`; return; }
     if (b.dot) { h += `<div class="sim-dot" style="left:${b.x}%;top:${b.y + b.h/2}%;height:${b.h}%;">${b.dot}</div>`; return; }
     if (b.info) { h += `<div class="sim-info${b.black?' black':''}${b.sm?' sm':''}${b.left?' left':''}${b.top?' top':''}${b.prep?' prep':''}${b.mult?' mult':''}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;"><span class="si-txt">${b.info}</span></div>`; return; }
     if (b.fill) {
@@ -27988,7 +28006,7 @@ function winOverlayHTML(pg, sid) {
       h += `<div class="sim-callout${b.calloutHover?' hovswap':''}${cact?'':' noact'}${b.tailR?' tail-r':''}" style="left:${b.x}%;top:${b.y + (b.h||0)/2}%;"${cact?` onclick="${cact}"`:''}>${cbody}</div>`; return;
     }
     if (b.pic) { h += `<div class="sim-pic" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;"><img src="${b.pic}" alt=""></div>`; return; }
-    if (b.badge) { h += `<div class="sim-badge${b.yellow?' yellow':''}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;">${b.badge}</div>`; return; }
+    if (b.badge) { h += `<div class="sim-badge${b.yellow?' yellow':''}${b.green?' green':''}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;">${b.badge}</div>`; return; }
     if (b.dot) { h += `<div class="sim-dot" style="left:${b.x}%;top:${b.y + b.h/2}%;height:${b.h}%;">${b.dot}</div>`; return; }
     if (b.info) { h += `<div class="sim-info${b.black?' black':''}${b.sm?' sm':''}${b.left?' left':''}${b.top?' top':''}${b.prep?' prep':''}${b.mult?' mult':''}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;"><span class="si-txt">${b.info}</span></div>`; return; }
     if (b.fill) {
