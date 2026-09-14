@@ -18237,8 +18237,9 @@ DESCS["sop1"] = [
   {type:"step", num:"3", title:`🔍 상품을 선택해주세요`, subs:[
     "상품코드의 <span class='ui-btn'>···</span> 버튼을 클릭해 <b>상품 통합검색창</b>에서 발주할 상품을 선택합니다.",
   ]},
-  {type:"step", num:"4", title:`✏️ 수량을 입력해주세요`, subs:[
-    "발주할 <b>수량</b>을 입력합니다 (공급가·부가세·매입합계가 자동 계산).",
+  {type:"step", num:"4", title:`✏️ 수량·매입처를 입력해주세요`, subs:[
+    "선택한 상품이 행에 채워지면 발주할 <b>수량</b>을 입력합니다 (공급가·부가세·매입합계가 자동 계산).",
+    "매입처코드 우측 <span class='ui-btn'>···</span> 버튼을 클릭해 <b>매입처 목록</b>에서 매입처를 선택합니다.",
   ]},
   {type:"step", num:"5", title:`💾 발주계획을 등록해주세요`, subs:[
     "등록할 상품을 체크하고 <span class='ui-btn'>신규등록(F5)</span> 버튼을 클릭합니다.",
@@ -18265,7 +18266,7 @@ SIM["sop1"] = { start:"1", screens:{
       {x:32.8, y:31.3, w:8.9,  h:2.9, plain:true, xls:true, tip:"<b>엑셀업로드</b>로 여러 상품을 한 번에 가져옵니다."},
       {x:41.8, y:31.3, w:7.7,  h:2.9, yellow:true, scroll:"★1", tip:"<b>바코드인쇄</b>를 클릭하면 바코드 인쇄관리 화면으로 이동합니다."},
       {x:77.0, y:31.3, w:22.3, h:2.9, plain:true, tip:"선택한 상품의 매입·판매 <b>단가</b>와 이력 표시 여부를 확인합니다."},
-      {x:0.7,  y:36.9, w:98.5, h:3.1, num:"4", numCorner:true, notint:true, tip:"첫 행은 미리 생성돼 있으며 발주할 <b>수량</b>을 입력합니다."},
+      {x:0.7,  y:36.9, w:98.5, h:3.1, num:"4", numCorner:true, notint:true, tip:"첫 행은 미리 생성돼 있으며 <b>수량</b>과 <b>매입처</b>를 입력합니다."},
       {x:37.8, y:36.8, w:4.9,  h:3.2, fill:true, scroll:"4", tip:"발주할 <b>수량</b>을 직접 입력합니다 · 입력하면 공급가·부가세·매입합계가 자동 계산됩니다."},
       {x:87.7, y:36.8, w:1.5,  h:3.2, fill:true, front:true, scroll:"4", to:"p_in", toggle:true, tip:"매입처코드의 <b>···</b> 버튼을 클릭하면 매입처 목록 창이 열립니다."},
       {x:9.0,  y:37.0, w:1.1,  h:2.6, num:"3", numCorner:true, front:true, search:true, searchDone:"2", tip:"상품코드의 <b>···</b> 버튼으로 상품 통합검색창을 열어 발주할 상품을 선택합니다."},
