@@ -18011,9 +18011,9 @@ SIM["sfo2"] = { start:"1", screens:{
 
 IMGS["sfo3"] = "images/발주완료.png";
 DESCS["sfo3"] = [
-  {type:"note", text:"등록한 발주서를 <b>발주대기 → 발주완료 → 입고</b> 단계로 처리하는 화면입니다. 상단 <b>탭</b>으로 상태별 목록을 봅니다."},
-  {type:"step", num:"1", title:`✅ 발주서 선택`, body:"2차 컨펌이 끝난 <b>발주완료</b> 목록에서 처리할 발주서를 선택합니다."},
-  {type:"step", num:"2", title:`🚚 입고대기로 넘김`, body:"최종 컨펌이 끝나면 <span class='ui-btn'>입고대기</span>로 넘겨 입고 단계로 보냅니다(🔗 <b class='dlink' onclick=\"goPage(3)\">입고대기</b> 탭으로 이동)."},
+  {type:"note", text:"등록한 발주서를 <b>발주완료 → 입고</b> 단계로 처리하는 화면입니다."},
+  {type:"step", num:"1", title:`✅ 발주서 선택`, body:"<b>발주완료</b> 목록에서 발주서를 검토합니다."},
+  {type:"step", num:"2", title:`🚚 입고대기로 전송`, body:"최종 컨펌이 끝나면 <span class='ui-btn'>입고대기</span>로 전송합니다. (🔗 <b class='dlink' onclick=\"goPage(3)\">입고대기</b> 바로가기)"},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
     "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 선택한 발주서를 출력합니다.",
     "<b>재전송</b> : <span class='ui-btn'>발주서 재전송</span>으로 매입처에 발주서를 다시 보냅니다.",
@@ -18039,12 +18039,12 @@ SIM["sfo3"] = { start:"1", screens:{
       {x:94.1, y:20.2, w:5.2,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       {x:62.7, y:23.8, w:6.0,  h:2.8, plain:true, scroll:"★1", tip:"선택한 발주서를 <b>인쇄</b>합니다."},
       {x:69.0, y:23.8, w:11.9, h:2.8, plain:true, scroll:"★1", tip:"매입처에 발주서를 다시 보내는 <b>발주서 재전송</b>입니다."},
-      {x:81.1, y:23.3, w:5.8,  h:3.0, num:"2", numCorner:true, tip:"최종 컨펌이 끝나면 <b>입고대기</b>로 넘겨 입고 단계로 보냅니다."},
+      {x:81.1, y:23.3, w:5.8,  h:3.0, num:"2", numCorner:true, tip:"최종 컨펌이 끝나면 <b>입고대기</b>로 전송합니다."},
       {x:87.1, y:23.8, w:6.1,  h:2.8, plain:true, scroll:"★1", tip:"이 단계에서는 <b>수정</b>이 불가능합니다."},
       {x:93.3, y:23.8, w:6.1,  h:2.8, plain:true, scroll:"★1", tip:"쓰지 않을 발주서면 <b>취소</b>합니다."},
       {x:0.6,  y:26.7, w:98.6, h:3.1, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:0,    y:34.6, w:99.3, h:2.5, plain:true, notint:true, tip:"2차 컨펌이 끝난 <b>발주완료</b> 발주서 목록입니다."},
-      {x:0, y:34.6, w:99.3, h:2.5, num:"1", numCorner:true, notint:true, tip:"2차 컨펌한 <b>발주완료</b> 목록에서 처리할 발주서를 선택합니다."},
+      {x:0, y:34.6, w:99.3, h:2.5, num:"1", numCorner:true, notint:true, tip:"<b>발주완료</b> 목록에서 발주서를 검토합니다."},
     ]},
 } };
 
