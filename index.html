@@ -18089,7 +18089,7 @@ SIM["sfo4"] = { start:"1", screens:{
 
 IMGS["sfo5"] = "images/입고완료.png";
 DESCS["sfo5"] = [
-  {type:"note", text:"발주부터 입고까지 <b>모든 처리가 끝난</b> 최종 목록 화면입니다. 상단 <b>탭</b>으로 상태별 목록을 봅니다."},
+  {type:"note", text:"발주부터 입고까지 <b>모든 처리가 끝난</b> 최종 목록 화면입니다."},
   {type:"step", num:"1", title:`✅ 발주서 선택`, body:"입고가 완료된 <b>입고완료</b> 목록에서 확인할 발주서를 선택합니다."},
   {type:"step", num:"2", title:`🖨️ 입고완료 인쇄`, body:"<span class='ui-btn'>인쇄</span> 버튼을 누르면 세 가지 인쇄 방식이 나옵니다.", subs:[
     "📌 <b>기본 발주서</b> · <b>매장별 인쇄</b> · <b>XDock 인쇄</b> 중 골라 인쇄합니다.",
@@ -18116,8 +18116,8 @@ SIM["sfo5"] = { start:"1", screens:{
       {x:88.0, y:20.2, w:6.1,  h:3.0, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 발주서를 조회합니다."},
       {x:94.1, y:20.2, w:5.2,  h:3.0, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       {x:80.6, y:23.8, w:6.0,  h:2.8, num:"2", numCorner:true, to:"p_print", toggle:true, tip:"<b>인쇄</b> 버튼을 누르면 세 가지 인쇄 방식이 나옵니다."},
-      {x:87.2, y:23.8, w:6.1,  h:2.8, plain:true, tip:"이 단계에서는 <b>수정</b>이 불가능합니다."},
-      {x:93.3, y:23.8, w:6.1,  h:2.8, plain:true, tip:"이 단계에서는 <b>취소</b>가 불가능합니다."},
+      {x:87.2, y:23.8, w:6.1,  h:2.8, plain:true, scroll:"★1", tip:"이 단계에서는 <b>수정</b>이 불가능합니다."},
+      {x:93.3, y:23.8, w:6.1,  h:2.8, plain:true, scroll:"★1", tip:"이 단계에서는 <b>취소</b>가 불가능합니다."},
       {x:0.6,  y:26.7, w:98.6, h:3.1, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:0.8,  y:34.8, w:98.4, h:2.2, plain:true, notint:true, tip:"모든 처리가 끝난 <b>입고완료</b> 발주서 목록입니다."},
       {x:0.8,  y:34.8, w:98.4, h:2.2, num:"1", numCorner:true, notint:true, tip:"입고가 완료된 <b>입고완료</b> 목록에서 확인할 발주서를 선택합니다."},
