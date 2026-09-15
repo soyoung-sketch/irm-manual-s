@@ -23368,7 +23368,7 @@ DESCS["sopv1"] = [
 
   {type:"step", num:"3", title:`<span class="hl-red2">이미 발주된 품목 확인하기</span>`, body:"이미 <b>발주수량이 존재</b>하면 <b>빨간색</b>으로 표시됩니다.", subs:[]},
 
-  {type:"step", num:"4", title:`📝 발주하기`, body:"<span class='hl-red'><b style='font-weight:800;color:#0D1B3E'>핑크색 라인의 상품</b></span>을 선택하고 <span class='ui-btn'>＋ 발주서 만들기</span> 버튼을 클릭합니다.", subs:[
+  {type:"step", num:"4", title:`📝 발주하기`, body:"<b>매입처</b>를 선택하고 <span class='ui-btn'>＋ 발주서 만들기</span> 버튼을 클릭합니다.", subs:[
     "⬇ 🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-order',true)\">발주서 등록</b> 화면으로 이동합니다.",
     "발주한 것은 <span style='background:#e2241a;color:#fff;padding:1px 6px;border-radius:4px'><b>빨간색</b></span>으로 바뀝니다 (🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-inquiry',true);setTimeout(function(){goPage(1)},80)\">발주서 조회 › 발주대기</b>에서 확인).",
   ]},
@@ -23390,7 +23390,7 @@ SIM["sopv1"] = { start:"1", screens:{
       {x:1.0,  y:37.3, w:10.0, h:2.0,  plain:true, notint:true, tip:"검색된 품목 <b>총 건수</b>가 표시됩니다."},
       {x:81.9, y:36.2, w:6.0,  h:2.9,  plain:true, tip:"<b>엑셀저장</b>으로 조회된 목록을 엑셀로 내려받습니다."},
       // ④ 발주서 만들기 (라인+num:4 → 발주서 등록)
-      {x:88.1, y:36.2, w:9.1,  h:2.9,  num:"4", numCorner:true, tip:"핑크 상품 선택·수량 입력 후 <b>발주서 만들기</b>를 누릅니다."},
+      {x:88.1, y:36.2, w:9.1,  h:2.9,  num:"4", numCorner:true, tip:"매입처를 선택하고 <b>발주서 만들기</b>를 누릅니다."},
       // ── 그룹화 바 · 결과내 재검색 ──
       {x:1.2,  y:39.4, w:77.5, h:3.4,  plain:true, notint:true, tip:"머리글을 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:79.3, y:40.1, w:12.6, h:2.1,  plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록에서 다시 찾습니다."},
