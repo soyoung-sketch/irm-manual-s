@@ -19530,12 +19530,14 @@ DESCS["spu2"] = [
 
   {type:"step", num:"2", title:`📄 문서 선택`, body:"목록에서 처리할 <b>매입 문서</b>를 <b>☑ 체크</b>로 선택합니다."},
 
-  {type:"step", num:"3", title:`✅ 입고대기(완료하기)`, body:"확인이 끝나면 <span class='ui-btn'>입고대기</span>로 넘깁니다(🔗 <b class='dlink' onclick=\"goPage(2)\">금액확인</b> 탭으로 이동).", subs:[
+  {type:"step", num:"3", title:`✅ 입고대기로 전송`, subs:[
+    "📌 입고대기",
+    "확인이 끝나면 <span class='ui-btn'>입고대기</span> 버튼을 눌러주세요. (전표가 🔗 <b class='dlink' onclick=\"goPage(2)\">금액확인</b> 탭으로 이동합니다.)",
     "📌 수정하기",
-    "<span class='ui-btn'>수정</span> 버튼으로 문서를 고칩니다 · <b>매입처는 수정할 수 없습니다</b>.",
-    "매입처를 바꿔야 하면 <span class='ui-btn'>＋재주문</span>으로 다시 등록합니다(매입처 수정 가능).",
+    "<span class='ui-btn'>수정</span> 버튼으로 문서를 고칠 수 있습니다. (<b>매입처는 수정불가</b>)",
+    "매입처를 바꿔야 하는 경우엔 <span class='ui-btn'>＋재주문</span> 버튼을 클릭해 다시 등록해주세요.",
     "📌 취소",
-    "쓰지 않을 문서면 <span class='ui-btn'>취소</span>합니다(🔗 <b class='dlink' onclick=\"goPage(1)\">매입취소</b> 탭으로 이동).",
+    "쓰지 않을 문서면 <span class='ui-btn'>취소</span>합니다 (취소된 문서는 🔗 <b class='dlink' onclick=\"goPage(1)\">매입취소</b>에서 확인할 수 있습니다).",
   ]},
 
   {type:"step", num:"★", ystar:true, title:`📝 관리자 메모`, body:"수정 화면 우측에 이 매입 건에 남긴 <b>관리자 메모</b>가 작성자·작성일과 함께 표시됩니다.", subs:[
@@ -19567,10 +19569,10 @@ SIM["spu2"] = { start:"in", screens:{
       {x:50.7, y:23.5, w:6.1,  h:2.8, plain:true, to:"p_print", toggle:true, tip:"<b>인쇄</b> 버튼으로 매입전표 인쇄 미리보기를 엽니다."},
       {x:56.8, y:23.5, w:10.8, h:2.8, plain:true, tip:"선택한 상품의 <b>매입처를 지정</b>합니다."},
       {x:67.6, y:23.5, w:6.9,  h:2.8, yellow:true, page:5, tip:"여러 매입 전표를 하나로 합치는 <b>매입전표합치기</b> 탭으로 이동합니다."},
-      {x:74.5, y:23.5, w:6.1,  h:2.8, num:"3", numCorner:true, tip:"확인이 끝났으면 <b>입고대기</b>로 넘깁니다(금액확인 탭으로 이동)."},
+      {x:74.5, y:23.5, w:6.1,  h:2.8, num:"3", numCorner:true, tip:"확인이 끝나면 <b>입고대기</b> 버튼을 누릅니다 · 전표가 금액확인 탭으로 이동합니다."},
       {x:80.6, y:23.5, w:6.5,  h:2.8, plain:true, scroll:"3", to:"reorder", tip:"선택한 전표의 내용을 그대로 복제 후 수정하여 <b>재등록</b>할 수 있습니다."},
       {x:87.1, y:23.5, w:6.2,  h:2.8, plain:true, scroll:"3", to:"edit", tip:"<b>수정</b> 버튼으로 문서를 고칩니다 · 매입처는 수정할 수 없습니다."},
-      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, scroll:"3", tip:"쓰지 않을 문서면 <b>취소</b>합니다(매입취소 탭으로 이동)."},
+      {x:93.3, y:23.5, w:6.0,  h:2.8, plain:true, scroll:"3", tip:"쓰지 않을 문서면 <b>취소</b>합니다 · 취소된 문서는 매입취소에서 확인합니다."},
       // ── 그룹화 바 + 결과내 재검색 ──
       {x:0.6,  y:26.6, w:81.0, h:3.2, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:81.6, y:26.6, w:12.6, h:3.2, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
