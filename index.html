@@ -19994,8 +19994,8 @@ DESCS["sru2c"] = [
   {type:"step", num:"1", title:`📋 반품취소 전표 선택`, body:"반품이 취소된 전표 목록에서 처리할 전표를 선택합니다."},
   {type:"step", num:"2", title:`◀ 반품입력으로 되돌리기`, body:"<span class='ui-btn'>◀반품입력</span>으로 취소한 전표를 다시 <b>반품입력</b> 상태로 되돌립니다(🔗 <b class='dlink' onclick=\"goPage(0)\">반품입력</b> 탭으로 이동)."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
-    "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 반품취소 <b>매입전표</b> 미리 보기를 열어 출력합니다.",
-    "<b>수정</b> : <span class='ui-btn'>수정</span>으로 취소 상태에서도 🔗 <b class='dlink' onclick=\"goPage(4)\">반품수정</b> 화면으로 이동합니다.",
+    "<b>인쇄</b> : 선택한 반품전표의 <b>매입전표</b>를 출력합니다.",
+    "<b>수정</b> : 전표 내용을 수정할 수 있습니다. 🔗 <b class='dlink' onclick=\"goPage(4)\">반품수정</b> 바로가기",
   ]},
 ];
 SIM["sru2c"] = { start:"cancel", screens:{
@@ -20101,9 +20101,9 @@ IMGS["sru2d"] = "images/매입반품조회-반품완료.png";
 DESCS["sru2d"] = [
   {type:"note", text:"반품이 <b>완료</b>된 전표를 모아 보는 탭입니다."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
-    "<b>인쇄</b> : <span class='ui-btn'>인쇄</span>로 반품 <b>매입전표</b> 미리 보기를 열어 출력합니다.",
-    "<b>취소</b> : <span class='ui-btn'>취소</span>로 반품을 되돌립니다(🔗 <b class='dlink' onclick=\"goPage(1)\">반품취소</b> 탭으로 이동).",
-    "<b>수정</b> : 반품완료 단계에서는 사용할 수 없습니다.",
+    "<b>인쇄</b> : 선택한 반품전표의 <b>매입전표</b>를 출력합니다.",
+    "<b>수정</b> : 전표 내용을 수정할 수 있습니다. 🔗 <b class='dlink' onclick=\"goPage(4)\">반품수정</b> 바로가기",
+    "<b>취소</b> : 필요 없는 전표를 취소합니다 🔗 <b class='dlink' onclick=\"goPage(1)\">반품취소</b> 바로가기",
   ]},
 ];
 
