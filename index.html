@@ -19168,14 +19168,13 @@ SIM["smc1"] = { start:"0", screens:{
 
 IMGS["smc2"] = "images/월매입마감조회.png";
 DESCS["smc2"] = [
-  {type:"note", text:"월 매입 마감정보를 <b>확인부터 마감완료까지</b> 처리하는 화면입니다."},
+  {type:"note", text:"월 매입 마감정보를 확인하고 <b>마감완료</b>하는 화면입니다."},
   {type:"step", num:"1", title:`🔍 조회하기`, body:"조회 조건을 지정하고 <span class='ui-btn'>검색</span>합니다.", subs:[
-    "<b>담당자</b>로 검색하기",
-    "<b>시작·종료일</b> 설정해서 검색하기",
-    "<b>매입처 선택</b>해서 검색하기",
+    "<b>조회기간</b>을 설정해주세요.",
+    "<span style='color:#e2241a'>*종료일을 매월 말일로 설정해야 조회가 가능합니다.</span>",
   ]},
-  {type:"step", num:"2", title:`✅ 마감정보 선택`, body:"<b>작성중</b> 목록에서 마감할 매입처 마감정보 행을 확인하고 선택합니다."},
-  {type:"step", num:"3", title:`📤 마감완료`, body:"확인이 끝났으면 <span class='ui-btn'>마감완료</span>로 마감을 확정합니다(🔗 <b class='dlink' onclick=\"goPage(3)\">마감완료</b> 탭으로 이동)."},
+  {type:"step", num:"2", title:`✅ 마감정보 확인`, body:"<b>작성중</b> 목록에서 마감할 매입처 마감정보 행을 확인하고 선택합니다."},
+  {type:"step", num:"3", title:`📤 마감완료`, body:"확인이 끝났으면 <span class='ui-btn'>마감완료</span> 버튼을 눌러서 마감을 확정합니다(🔗 <b class='dlink' onclick=\"goPage(3)\">마감완료</b> 탭으로 이동)."},
   {type:"step", num:"★", ystar:true, title:`📌 가능한 작업`, subs:[
     "<b>마감안함</b> : <span class='ui-btn'>마감안함</span>으로 마감하지 않음 처리합니다(🔗 <b class='dlink' onclick=\"goPage(2)\">마감안함</b> 탭으로 이동).",
     "<b>취소</b> : <span class='ui-btn'>취소</span>로 마감을 취소합니다 · 취소한 내역은 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭으로 이동합니다.",
@@ -19187,7 +19186,7 @@ SIM["smc2"] = { start:"1", screens:{
   "1":{img:"images/월매입마감조회.png",
     btns:[
       // ── 리본 (매입관리 > 매입 마감 관리 > 월 매입 마감 조회) ──
-      {x:49.8, y:5.9,  w:8.7,  h:3.2, lite:true, tip:"현재 <b>월 매입 마감 조회</b> 화면입니다 (매입관리 &gt; 매입 마감 관리)."},
+      {x:57.9, y:5.9,  w:8.7,  h:3.2, lite:true, tip:"현재 <b>월 매입 마감 조회</b> 화면입니다 (매입관리 &gt; 매입 마감 관리)."},
       // ── 상단 문서탭 ──
       // ── 상태 탭 바 (전부 투명) ──
       {x:0.8,  y:20.0, w:6.2,  h:3.1, plain:true, tip:"현재 <b>작성중</b> 탭입니다 · 마감 전 매입 마감정보 목록입니다."},
