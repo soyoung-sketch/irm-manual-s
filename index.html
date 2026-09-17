@@ -613,6 +613,18 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
   transition:box-shadow 0.15s, border-color 0.15s;
 }
 .desc-bullet:hover { border-color:#94a3b8; box-shadow:0 3px 10px rgba(0,0,0,0.08); }
+/* ── Q&A 카드 ── */
+.desc-qa { flex-shrink:0; background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.04); transition:box-shadow 0.15s, border-color 0.15s; }
+.desc-qa:hover { border-color:#94a3b8; box-shadow:0 3px 10px rgba(0,0,0,0.08); }
+.desc-qa-row { display:flex; gap:10px; align-items:flex-start; padding:12px 16px; }
+.desc-qa-row.q { background:linear-gradient(135deg,#EFF6FF 0%,#E0F2FE 100%); border-bottom:1px solid #DBEAFE; }
+.desc-qa-badge { flex-shrink:0; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13.5px; font-weight:800; color:#fff; line-height:1; margin-top:1px; }
+.desc-qa-row.q .desc-qa-badge { background:#2563EB; box-shadow:0 2px 6px rgba(37,99,235,0.3); }
+.desc-qa-row.a .desc-qa-badge { background:var(--accent); box-shadow:0 2px 6px rgba(249,115,22,0.3); }
+.desc-qa-text { flex:1; min-width:0; }
+.desc-qa-row.q .desc-qa-text { font-size:14.5px; font-weight:700; color:var(--navy); line-height:1.6; }
+.desc-qa-row.a .desc-qa-text { font-size:14px; color:#475569; line-height:1.75; }
+.desc-qa-row.a .desc-qa-text > .desc-sub-list { margin-top:10px; }
 .desc-section {
   display:flex;
   border:1px solid var(--border);
@@ -18752,7 +18764,7 @@ DESCS["scm1"] = [
     "<b>레이아웃</b> : 목록에 표시할 <b>사용자 컬럼</b>을 설정하거나 초기화합니다.",
   ]},
   {type:"note", text:"완료된 전표는 <b class='dlink' onclick=\"openSub('s-ch3','s-scm2',true)\">수수료 매출 마감 조회</b> 카테고리에서 확인하실 수 있습니다."},
-  {type:"bullet", title:`❓ Q. 특정 상품을 기본 수수료율과 다르게 적용하고자 할 때엔 어떻게 하나요?`, body:"<span style='display:block'><b>A. 행사를 등록해주세요.</b><br>해당 상품에만 행사를 걸어서 수수료율을 다르게 적용할 수 있습니다.</span>", subs:[
+  {type:"qa", q:"특정 상품을 기본 수수료율과 다르게 적용하고자 할 때엔 어떻게 하나요?", a:"<b style='color:#0D1B3E'>행사를 등록해주세요.</b><br>해당 상품에만 행사를 걸어서 수수료율을 다르게 적용할 수 있습니다.", subs:[
     "📌 행사상품 등록하는 방법",
     "<b>매장관리 &gt; 행사상품등록</b>에서 행사를 등록해주세요. 🔗 <b class='dlink' onclick=\"openSub('s-ch5','s-ev',true)\">행사 상품 등록</b> 바로가기",
     "<span style='display:block'><span style='color:#e2241a;font-weight:600'>(틀리지 않도록 주의)</span> <b>행사판매단가</b>를 설정하고 &gt; <b>행사이익(수수료율)</b>을 설정해주세요.<br>(행사매입단가가 자동반영 됩니다.)</span>",
@@ -27464,6 +27476,15 @@ function renderSection() {
           html += `</ul>`;
         }
         html += `</div></div>`;
+      } else if (item.type === 'qa') {
+        html += `<div class="desc-qa"><div class="desc-qa-row q"><span class="desc-qa-badge">Q</span><div class="desc-qa-text">${item.q||''}</div></div>`;
+        html += `<div class="desc-qa-row a"><span class="desc-qa-badge">A</span><div class="desc-qa-text">${item.a||''}`;
+        if (item.subs && item.subs.length) {
+          html += `<ul class="desc-sub-list">`;
+          item.subs.forEach(s => s === '---' ? html += `<li class="sub-divider"></li>` : s === '⬇' ? html += `<li class="sub-arrow">⬇</li>` : html += _subLi(s));
+          html += `</ul>`;
+        }
+        html += `</div></div></div>`;
       } else if (item.type === 'bullet') {
         // style:"plain" 이라도 pv-* 블록(자체 카드)이 아닌 경우에는 카드 유지
         const isPvBlock = item.style === 'plain' && item.title &&
@@ -28558,6 +28579,14 @@ function printManual(btn) {
     .p-icon-col img { width: 65mm; height: 65mm; object-fit: contain; }
     /* ── 설명 카드 (실제 화면 desc-* 와 동일, 크기만 축소) ── */
     .desc-bullet { background:#fff; border:1px solid #e2e8f0; border-radius:7px; padding:6px 9px; box-shadow:0 1px 3px rgba(0,0,0,0.04); flex-shrink:0; }
+    .desc-qa { background:#fff; border:1px solid #e2e8f0; border-radius:7px; overflow:hidden; flex-shrink:0; }
+    .desc-qa-row { display:flex; gap:6px; align-items:flex-start; padding:5px 9px; }
+    .desc-qa-row.q { background:#EFF6FF; border-bottom:1px solid #DBEAFE; }
+    .desc-qa-badge { flex-shrink:0; width:15px; height:15px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:7.5pt; font-weight:800; color:#fff; }
+    .desc-qa-row.q .desc-qa-badge { background:#2563EB; }
+    .desc-qa-row.a .desc-qa-badge { background:#F97316; }
+    .desc-qa-text { flex:1; min-width:0; font-size:7.5pt; line-height:1.55; color:#475569; }
+    .desc-qa-row.q .desc-qa-text { font-weight:700; color:#0D1B3E; font-size:8pt; }
     .desc-bullet[data-style="plain"] { background:transparent !important; border:none !important; padding:0 !important; box-shadow:none !important; width:100% !important; display:block !important; }
     .desc-bullet-title { font-size:10pt; font-weight:700; color:#0D1B3E; margin-bottom:3px; display:flex; align-items:center; gap:5px; }
     .desc-bullet-title::before { content:""; display:inline-block; width:3px; height:12px; background:linear-gradient(to bottom,#F97316,#3B82F6); border-radius:2px; flex-shrink:0; }
@@ -28662,6 +28691,14 @@ function printManual(btn) {
         h += `<div class="desc-step-num${item.orange?' orange':item.red?' red':item.ystar?' ystar':''}">${item.num}</div>`;
         h += `<div class="desc-step-body"><strong>${item.title}</strong>`;
         if (item.body) h += `<div style="color:#64748b;font-size:7pt;margin-top:3px;line-height:1.55">${item.body}</div>`;
+        if (item.subs && item.subs.length) {
+          h += `<ul class="desc-sub-list">`;
+          item.subs.forEach(s => s === '---' ? h += `<li class="sub-divider"></li>` : s === '⬇' ? h += `<li class="sub-arrow">⬇</li>` : h += `<li>${s}</li>`);
+          h += `</ul>`;
+        }
+        h += `</div></div></div>`;
+      } else if (item.type === 'qa') {
+        h += `<div class="desc-qa"><div class="desc-qa-row q"><span class="desc-qa-badge">Q</span><div class="desc-qa-text">${item.q||''}</div></div><div class="desc-qa-row a"><span class="desc-qa-badge">A</span><div class="desc-qa-text">${item.a||''}`;
         if (item.subs && item.subs.length) {
           h += `<ul class="desc-sub-list">`;
           item.subs.forEach(s => s === '---' ? h += `<li class="sub-divider"></li>` : s === '⬇' ? h += `<li class="sub-arrow">⬇</li>` : h += `<li>${s}</li>`);
