@@ -20108,10 +20108,10 @@ DESCS["sru2d"] = [
 ];
 
 DESCS["sru2m"] = [
-  {type:"note", text:"반품 전표의 내용을 <b>고치는 수정 화면</b>입니다. 반품 조회의 <span class='ui-btn'>수정</span> 버튼으로 들어와 <b>번호 순서</b>대로 고칩니다."},
-  {type:"step", num:"1", title:`✏️ 수정 가능한 항목`, body:"<b>노란색 칠</b>이 된 부분이 수정할 수 있는 항목입니다. 필요한 값을 고칩니다."},
-  {type:"step", num:"2", title:`🛒 새 반품 상품 추가`, body:"아래 영역에서 <b>새로 반품할 상품</b>을 추가할 수 있습니다."},
-  {type:"step", num:"3", title:`💾 반품수정 완료`, body:"<span class='ui-btn'>반품수정</span> 버튼을 누르면 변경 내용을 반영하고 <b>이전 화면</b>으로 돌아갑니다."},
+  {type:"note", text:"반품 전표의 내용을 <b>고치는 수정 화면</b>입니다."},
+  {type:"step", num:"1", title:`✏️ 수정하기`, body:"<b>노란색 칠</b>이 된 부분이 수정할 수 있는 항목입니다. 필요한 값을 고칩니다."},
+  {type:"step", num:"2", title:`🛒 새 반품 상품 추가`, body:"<span class='ui-btn'>+ 상품추가(F2)</span> 버튼을 누르면 <b>새로 반품할 상품</b>을 추가할 수 있습니다."},
+  {type:"step", num:"3", title:`💾 수정완료하기`, body:"<span class='ui-btn'>반품수정</span> 버튼을 누르면 변경 내용을 반영하고 <b>이전 화면</b>으로 돌아갑니다."},
 ];
 SIM["sru2d"] = { start:"done", screens:{
 
@@ -20169,7 +20169,7 @@ SIM["sru2m"] = { start:"m", screens:{
       {x:32.7, y:23,   w:10.5, h:2.8, fill:true, tip:"수정 가능한 <b>입력 항목</b>입니다."},
       {x:61.1, y:39.6, w:4.6,  h:9,   fill:true, tip:"수정 가능한 <b>입력 항목</b>입니다."},
       // ② 새 반품 상품 추가 (btn7)
-      {x:0.9,  y:48.6, w:98.2, h:3,   num:"2", numCorner:true, notint:true, tip:"이 영역에서 <b>새로 반품할 상품</b>을 추가할 수 있습니다."},
+      {x:0.9,  y:48.6, w:98.2, h:3,   num:"2", numCorner:true, notint:true, tip:"<b>+ 상품추가(F2)</b> 버튼으로 새로 반품할 상품을 추가할 수 있습니다."},
     ]},
 } };
 
