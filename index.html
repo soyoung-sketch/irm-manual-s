@@ -21525,19 +21525,21 @@ IMGS["spay1"] = "images/채무지급관리-채무지급입력.png";
 DESCS["spay1"] = [
   {type:"note", text:"채무 지급 건을 등록하고 상태별로 처리하는 화면입니다. 상단 5개 탭이 지급 건의 <b>처리 상태</b>를 나눕니다."},
 
-  {type:"step", num:"1", title:`✍️ 지급 정보 입력`, body:"우측 <b>채무지급등록</b> 패널에서 지급 정보를 입력합니다.", subs:[
-    "<b>매입처명·담당자·지급일·결제구분·결제금액</b>은 반드시 입력해야 하는 필수 항목입니다.",
-    "⬇ <span class='ui-btn'>검색</span> 버튼으로 매입처를 조회해 선택합니다.",
-    "결제구분을 선택하면 그에 맞는 <b>계좌 정보</b> 입력란이 표시됩니다.",
-  ]},
-
-  {type:"step", num:"2", title:`➕ 지급 등록`, body:"작성을 마치면 <span class='ui-btn'>지급입력</span> 버튼을 클릭해 지급 건을 등록합니다.", subs:[
+  {type:"step", num:"1", title:`✍️ 채무지급 입력하기`, subs:[
+    "<span class='ui-btn'>···</span> 버튼을 클릭해 <b>매입처</b>를 선택해주세요.",
+    "⬇",
+    "<b>담당자·지급일·결제구분</b>을 선택해주세요.",
+    "⬇",
+    "<b>결제금액</b>을 입력해주세요.",
+    "⬇",
+    "<span class='ui-btn'>＋지급입력</span> 버튼을 클릭해주세요.",
+    "---",
     "입력 내용을 처음부터 다시 쓰려면 <span class='ui-btn'>다시작성</span> 버튼을 클릭합니다.",
   ]},
 
-  {type:"step", num:"3", title:`📋 등록 내역 확인`, body:"등록한 지급 건이 왼쪽 <b>목록</b>에 표시됩니다."},
+  {type:"step", num:"2", title:`📋 등록 내역 확인`, body:"등록한 지급 건이 왼쪽 <b>목록</b>에 표시됩니다."},
 
-  {type:"step", num:"4", title:`📤 지급대기로 넘기기`, body:"목록에서 건을 선택하고 <span class='ui-btn'>지급대기</span> 버튼을 클릭하면 🔗 <b class='dlink' onclick=\"goPage(2)\">지급대기</b> 탭으로 이동합니다.", subs:[
+  {type:"step", num:"3", title:`📤 지급대기로 넘기기`, body:"목록에서 건을 선택하고 <span class='ui-btn'>지급대기</span> 버튼을 클릭하면 🔗 <b class='dlink' onclick=\"goPage(2)\">지급대기</b> 탭으로 이동합니다.", subs:[
     "<span class='ui-btn'>지급완료</span> 버튼으로 지급을 확정하면 🔗 <b class='dlink' onclick=\"goPage(3)\">지급완료</b> 탭에서 확인합니다.",
     "지급하지 않을 건은 <span class='ui-btn'>취소</span> 버튼으로 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭에 모읍니다.",
     "%% <span class='ui-tab'>발행어음목록</span> 탭에서는 발행어음 내역을 모아 봅니다.",
@@ -21563,20 +21565,20 @@ SIM["spay1"] = { start:"1", screens:{
       {x:63.2, y:20.0, w:6.2,  h:2.9, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 조회합니다."},
       {x:69.3, y:20.0, w:5.3,  h:2.9, plain:true, option:true, optionWin:{x:22.6, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── ③ 상태 처리 버튼 줄 ──
-      {x:56.2, y:23.4, w:6.2,  h:2.8, num:"4", numCorner:true, tip:"선택한 지급 건을 <b>지급대기</b> 상태로 넘깁니다."},
-      {x:62.3, y:23.4, w:6.2,  h:2.8, plain:true, scroll:"4", tip:"선택한 지급 건을 <b>지급완료</b>로 처리합니다."},
-      {x:68.5, y:23.4, w:6.2,  h:2.8, plain:true, scroll:"4", tip:"선택한 지급 건을 <b>취소</b> 처리합니다."},
+      {x:56.2, y:23.4, w:6.2,  h:2.8, num:"3", numCorner:true, tip:"선택한 지급 건을 <b>지급대기</b> 상태로 넘깁니다."},
+      {x:62.3, y:23.4, w:6.2,  h:2.8, plain:true, scroll:"3", tip:"선택한 지급 건을 <b>지급완료</b>로 처리합니다."},
+      {x:68.5, y:23.4, w:6.2,  h:2.8, plain:true, scroll:"3", tip:"선택한 지급 건을 <b>취소</b> 처리합니다."},
       // ── 그룹화 바 ──
       {x:0.7,  y:26.9, w:56.1, h:3.0, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
       {x:56.8, y:26.9, w:12.6, h:3.0, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
       {x:69.7, y:26.9, w:4.5,  h:3.0, plain:true, tip:"검색어를 입력하고 <b>찾기</b>를 클릭합니다."},
       // ── 그리드 ──
       {x:0.7,  y:30.1, w:73.9, h:2.6, plain:true, notint:true, tip:"<b>지급일·문서번호·매입처명·결제구분·입금은행</b> 등 열로 구성됩니다."},
-      {x:0,    y:32.7, w:74.6, h:2.3,  num:"3", numCorner:true, notint:true, tip:"등록한 지급 건이 이 <b>목록</b>에 표시됩니다."},
+      {x:0,    y:32.7, w:74.6, h:2.3,  num:"2", numCorner:true, notint:true, tip:"등록한 지급 건이 이 <b>목록</b>에 표시됩니다."},
       // ── 우측 채무지급등록 패널 ──
       {x:74.7, y:20.0, w:24.6, h:2.9, plain:true, notint:true, tip:"<b>채무지급등록</b> 패널에서 지급 정보를 입력합니다."},
       // ── ① 입력 필드 영역 ──
-      {x:74.6, y:19.9, w:24.4, h:47.9, num:"1", numCorner:true, notint:true, tip:"필수 항목(<b>매입처명·담당자·지급일·결제구분·결제금액</b>)을 입력합니다."},
+      {x:74.6, y:19.9, w:24.4, h:51.0, num:"1", numCorner:true, notint:true, tip:"필수 항목(<b>매입처명·담당자·지급일·결제구분·결제금액</b>)을 입력합니다."},
       {x:74.9, y:23.1, w:23.9, h:2.7, front:true, plain:true, notint:true, tip:"지급 <b>사업장명</b>은 본사로 자동 표시됩니다."},
       {x:74.9, y:25.9, w:23.9, h:2.4, front:true, plain:true, notint:true, tip:"지급할 <b>매입처명</b>을 넣는 필수 항목이며 <b>✕</b>로 지웁니다."},
       {x:92.9, y:28.9, w:5.8,  h:2.4, front:true, plain:true, scroll:"1", tip:"<b>검색</b> 버튼으로 매입처를 조회해 선택합니다."},
@@ -21588,8 +21590,7 @@ SIM["spay1"] = { start:"1", screens:{
       {x:74.9, y:47.7, w:23.9, h:2.7, front:true, plain:true, notint:true, tip:"결제 후 <b>남은금액(=)</b>이 표시됩니다."},
       {x:74.9, y:50.8, w:23.9, h:2.7, front:true, plain:true, notint:true, tip:"<b>비고</b>에 지급 관련 메모를 입력합니다."},
       // ── ② 등록 버튼 줄 ──
-      {x:87.2, y:67.8, w:5.7,  h:2.7, num:"2", numCorner:true, front:true, plain:true, tip:"<b>지급입력</b> 버튼으로 작성한 지급 건을 등록합니다."},
-      {x:92.9, y:53.8, w:5.8,  h:2.4, front:true, plain:true, scroll:"2", tip:"<b>다시작성</b> 버튼으로 입력 내용을 처음부터 다시 작성합니다."},
+      {x:93.4, y:66.9, w:6.3,  h:2.1, front:true, plain:true, scroll:"1", tip:"<b>다시작성</b> 버튼으로 입력 내용을 처음부터 다시 작성합니다."},
     ]},
 
 } };
