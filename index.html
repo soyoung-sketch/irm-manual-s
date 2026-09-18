@@ -22269,13 +22269,8 @@ DESCS["sqt2"] = [
 
   {type:"step", num:"2", title:`📄 견적 내용 확인`, body:"<b>문서번호·매출처명·공급가액</b> 등 견적 내용을 확인합니다."},
 
-  {type:"step", num:"3", title:`📤 제출완료 처리`, body:"내용 확인이 끝난 견적서를 🔗 <b class='dlink' onclick=\"goPage(3)\">제출완료</b>·<b>보류·수정·취소</b>로 처리합니다.", subs:[
-    "📌 보류",
-    "잠시 미뤄 둘 견적서면 <span class='ui-btn'>보류</span> 버튼으로 보류 상태로 넘깁니다(🔗 <b class='dlink' onclick=\"goPage(1)\">보류</b> 탭으로 이동).",
-    "📌 수정",
-    "틀린 곳이 있으면 <span class='ui-btn'>수정</span> 버튼으로 수정합니다 · 수정 화면은 <b>견적서 등록</b> 창과 동일합니다.",
-    "📌 취소",
-    "필요 없는 견적서면 <span class='ui-btn'>취소</span> 버튼으로 취소합니다(🔗 <b class='dlink' onclick=\"goPage(2)\">취소</b> 탭으로 이동).",
+  {type:"step", num:"3", title:`📤 제출완료하기`, body:"내용 확인이 끝난 견적서는 <span class='ui-btn'>제출완료</span> 버튼을 눌러 제출완료합니다. 🔗 <b class='dlink' onclick=\"goPage(3)\">제출완료 탭</b> 바로가기", subs:[
+    "<b>보류·수정·취소</b>가 가능합니다.",
   ]},
 ];
 SIM["sqt2"] = { start:"ws", screens:{
