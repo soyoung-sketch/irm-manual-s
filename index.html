@@ -21711,12 +21711,18 @@ SIM["spay1d"] = { start:"1", screens:{
 
 IMGS["spay1n"] = "images/채무지급관리-발행어음목록.png";
 DESCS["spay1n"] = [
-  {type:"note", text:"<b>발행어음</b> 내역을 확인하고 어음 지급을 등록하는 탭입니다."},
-  {type:"step", num:"1", title:`✍️ 발행어음 정보 입력`, body:"우측 <b>채무지급등록</b> 패널에서 발행어음 지급 정보를 입력합니다.", subs:[
-    "노란색으로 표시된 항목이 <b>입력·수정</b> 대상입니다.",
+  {type:"note", text:"<b>발행어음</b> 내역을 확인 및 지급하는 탭입니다."},
+  {type:"step", num:"1", title:`✍️ 발행어음 등록하기`, subs:[
+    "<b>결제구분</b>을 <b>어음</b>으로 선택해주세요.",
+    "⬇",
+    "<b>어음만기일</b>을 설정해주세요.",
+    "⬇",
+    "<b>결제금액</b>을 입력해주세요.",
+    "⬇",
+    "<span class='ui-btn'>＋지급입력</span> 버튼을 눌러주세요.",
   ]},
-  {type:"step", num:"2", title:`➕ 지급 등록`, body:"작성을 마치면 <span class='ui-btn'>지급입력</span> 버튼으로 발행어음 지급을 등록합니다."},
-  {type:"step", num:"3", title:`📋 발행어음 내역 확인`, body:"등록된 <b>발행어음 지급</b>은 <b>채무지급등록 &gt; 채무지급이력 &gt; </b><b class='dlink' onclick=\"openSub('s-ch3','s-dpay',true);goPage(3)\">지급완료</b> 시 <b>발행어음목록</b>에 표시됩니다."},
+  {type:"step", num:"2", title:`📋 등록 내역 확인`, body:"등록한 지급 건이 왼쪽 <b>목록</b>에 표시됩니다."},
+  {type:"bullet", title:`📋 발행어음 내역 확인`, body:"등록된 <b>발행어음 지급</b>은 <b>채무지급등록 &gt; 채무지급이력 &gt; </b><b class='dlink' onclick=\"openSub('s-ch3','s-dpay',true);goPage(3)\">지급완료</b> 시 <b>발행어음목록</b>에 표시됩니다."},
 ];
 SIM["spay1n"] = { start:"1", screens:{
 
@@ -21727,8 +21733,7 @@ SIM["spay1n"] = { start:"1", screens:{
       {x:82.5, y:37.8, w:16.4, h:2.7, fill:true, tip:"수정 가능한 <b>입력 항목</b>입니다."},
       {x:82.5, y:41.4, w:16.4, h:2.9, fill:true, tip:"수정 가능한 <b>입력 항목</b>입니다."},
       {x:82.5, y:47.4, w:16.4, h:3,   fill:true, tip:"수정 가능한 <b>입력 항목</b>입니다."},
-      {x:87,   y:56.7, w:6,    h:2.6, num:"2", numCorner:true, front:true, line:true, tip:"<b>지급입력</b> 버튼으로 발행어음 지급을 등록합니다."},
-      {x:0.8,  y:32.8, w:73.8, h:2.2, num:"3", numCorner:true, notint:true, tip:"<b>발행어음</b> 내역이 목록에 표시됩니다."},
+      {x:0.8,  y:32.8, w:73.8, h:2.2, num:"2", numCorner:true, notint:true, tip:"등록한 지급 건이 <b>목록</b>에 표시됩니다."},
       {x:63.1, y:6.0,  w:3.8,  h:7.8, lite:true, tip:"현재 <b>채무 지급 관리</b> 화면입니다 (매입관리 &gt; 매입채무 관리)."},   // 리본 카테고리
       // ── 문서탭 ──
       // ── 상태 탭 바 (전부 투명 · 페이지 이동) ──
@@ -21750,7 +21755,7 @@ SIM["spay1n"] = { start:"1", screens:{
       // ── 그리드 ──
       {x:0.7,  y:30.1, w:73.9, h:2.6, plain:true, notint:true, tip:"<b>지급일·문서번호·매입처명·결제구분·어음만기</b> 등 열로 구성됩니다."},
       // ── 우측 채무지급등록 패널 ──
-      {x:74.6, y:20,   w:24.3, h:36.7, num:"1", numCorner:true, notint:true, tip:"<b>채무지급등록</b> 패널에서 발행어음 지급 정보를 입력합니다."},
+      {x:74.6, y:20,   w:24.3, h:39.9, num:"1", numCorner:true, notint:true, tip:"<b>결제구분·어음만기일·결제금액</b>을 입력하고 지급입력 버튼을 누릅니다."},
     ]},
 
 } };
