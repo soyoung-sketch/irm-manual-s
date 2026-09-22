@@ -22133,7 +22133,7 @@ SIM["sbox1"] = { start:"1", screens:{
 /* ═══════════════════════ 미판매 상품 (ssale3) ═══════════════════════ */
 IMGS["ssale3"] = "images/미판매상품.png";
 DESCS["ssale3"] = [
-  {type:"note", text:"지정한 기간 동안 <b>팔리지 않은 상품</b>을 조회하는 화면입니다."},
+  {type:"note", text:"<b>팔리지 않은 상품</b>을 조회하는 화면입니다."},
 
   {type:"step", num:"1", title:`🗓️ 기간 지정 후 검색`, body:"우측 상단에서 조회할 기간을 지정합니다.", subs:[
     "<b>월</b>과 <b>일</b>을 선택해 기간을 지정합니다.",
@@ -23318,7 +23318,7 @@ SIM["sfree1"] = { start:"free", screens:{
 /* ═══════════════════════ 판매 반품 등록 (ssr1) ═══════════════════════ */
 IMGS["ssr1"] = "images/판매반품등록.png";
 DESCS["ssr1"] = [
-  {type:"note", text:"판매한 상품을 회수(반품) 처리하는 <b>판매 반품</b>을 등록하는 화면입니다."},
+  {type:"note", text:"판매한 상품을 회수(반품) 처리하는 <b>판매 반품</b>등록 화면입니다."},
   {type:"step", num:"1", title:`🏢 매출처 선택`, body:"반품 매출처를 먼저 지정합니다 (필수).", subs:[
     "매출처 칸의 <span class='ui-btn'>···</span> 버튼을 클릭하면 <b>매출처 목록</b> 창이 열립니다.",
     "단일 선택은 <b>더블클릭</b>, 여러 개는 <b>멀티선택모드</b>를 켠 뒤 선택합니다.",
@@ -25544,8 +25544,8 @@ SIM["shw1r"] = { start:"1", screens:{
 IMGS["shw1e"] = "images/회수조회-수정.png";
 DESCS["shw1e"] = [
   {type:"note", text:"회수 주문서 내용을 <b>고치는 수정 화면</b>입니다. 회수 조회의 <span class='ui-btn'>수정</span> 버튼으로 들어옵니다."},
-  {type:"step", num:"1", title:`✏️ 전표 수정`, body:"전표를 수정하고 <b>문서수정</b> 버튼을 눌러주세요."},
-  {type:"step", num:"2", title:`💾 문서수정(F5)`, body:"내용을 고친 뒤 <span class='ui-btn'>문서수정(F5)</span> 버튼을 누르면 저장하고 <b>이전 화면</b>으로 돌아갑니다."},
+  {type:"step", num:"1", title:`✏️ 전표 수정`, body:"전표의 원하는 내용을 수정할 수 있습니다."},
+  {type:"step", num:"2", title:`💾 문서수정(F5)`, body:"내용을 수정한 뒤 <span class='ui-btn'>문서수정(F5)</span> 버튼을 누르면 저장하고 <b>이전 화면</b>으로 돌아갑니다."},
 ];
 SIM["shw1e"] = { start:"1", screens:{
   "1":{img:"images/회수조회-수정.png",
@@ -25653,15 +25653,15 @@ SIM["shw2"] = { start:"1", screens:{
 /* ═══════════════════════ 페이지 0 · 주문서입력 (sord2) ═══════════════════════ */
 IMGS["sord2"] = "images/주문서조회-주문서입력.png";
 DESCS["sord2"] = [
-  {type:"note", text:"주문 등록에서 등록한 주문서를 <b>확인부터 주문서완료까지</b> 단계별로 처리하는 화면입니다. 상단 9개 탭이 주문서의 <b>처리 상태</b>를 나눕니다."},
+  {type:"note", text:"주문 등록에서 등록한 주문서를 <b>확인부터 주문완료까지</b> 단계별로 처리하는 화면입니다. 상단 9개 탭이 주문서의 <b>처리 상태</b>를 나눕니다."},
   {type:"note", text:"📌 처리 흐름 : <b>주문서입력 → 출고(매입)계획 → 포장중 → 출고대기중 → 출고완료(배송) → 주문서완료</b>"},
 
-  {type:"step", num:"1", title:`🔍 주문서 확인`, body:"주문 등록에서 등록한 주문서가 <b>주문서입력</b> 탭에 올라옵니다.", subs:[
-    "우측 상단 <b>통합검색</b>으로 문서번호·매출처 등 특정 주문서를 찾습니다.",
-    "처리할 주문서를 <b>☑ 체크</b>해 선택합니다.",
+  {type:"step", num:"1", title:`🔍 주문서 확인`, body:"<b>주문서등록</b>에서 등록한 주문서를 확인할 수 있습니다.", subs:[
+    "우측 상단 <b>검색창</b>을 이용해 특정 주문서를 검색할 수 있습니다.",
+    "처리할 주문서를 확인하고 <b>☑ 체크</b>해 선택합니다.",
   ]},
 
-  {type:"step", num:"2", title:`🚚 계획으로이동`, body:"확인이 끝나면 <span class='ui-btn'>계획으로이동</span>으로 다음 단계로 보냅니다.", subs:[
+  {type:"step", num:"2", title:`🚚 계획으로이동`, body:"확인이 끝나면 <span class='ui-btn'>계획으로이동</span>버튼을 클릭해 다음 단계로 보냅니다.", subs:[
     "주문서가 🔗 <b class='dlink' onclick=\"goPage(3)\">출고(매입)계획</b> 탭으로 이동합니다.",
     "📌 수정 · 취소",
     "🔗 <b class='dlink' onclick=\"goPage(9)\">수정</b>으로 주문서를 고치고, 쓰지 않을 주문서는 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b>합니다.",
@@ -25767,8 +25767,8 @@ SIM["sord2"] = { start:"in", screens:{
 IMGS["sord2e"] = "images/주문서조회-수정버튼-주문서수정.png";
 DESCS["sord2e"] = [
   {type:"note", text:"주문서 내용을 <b>고치는 수정 화면</b>입니다. 주문서 조회의 <span class='ui-btn'>수정</span> 버튼으로 들어옵니다."},
-  {type:"step", num:"1", title:`✏️ 전표 수정`, body:"전표를 수정하고 <b>문서수정</b> 버튼을 눌러주세요."},
-  {type:"step", num:"2", title:`💾 문서수정(F5)`, body:"내용을 고친 뒤 <span class='ui-btn'>문서수정(F5)</span> 버튼을 누르면 저장하고 <b>이전 화면</b>으로 돌아갑니다."},
+  {type:"step", num:"1", title:`✏️ 전표 수정`, body:"전표의 원하는 내용을 수정할 수 있습니다."},
+  {type:"step", num:"2", title:`💾 문서수정(F5)`, body:"내용을 수정한 뒤 <span class='ui-btn'>문서수정(F5)</span> 버튼을 누르면 저장하고 <b>이전 화면</b>으로 돌아갑니다."},
 ];
 SIM["sord2e"] = { start:"1", screens:{
   "1":{img:"images/주문서조회-수정버튼-주문서수정.png",
@@ -25903,9 +25903,9 @@ DESCS["sord2p"] = [
 
   {type:"step", num:"1", title:`📋 주문서 확인`, body:"출고(매입)계획 단계 주문서 목록에서 내용을 확인합니다."},
 
-  {type:"step", num:"2", title:`📦 포장시작`, body:"준비가 끝나면 <span class='ui-btn'>포장시작</span>으로 다음 단계로 보냅니다.", subs:[
+  {type:"step", num:"2", title:`📦 포장시작`, body:"준비가 끝나면 <span class='ui-btn'>포장시작</span>버튼을 클릭해 다음단계로 보냅니다.", subs:[
     "주문서가 🔗 <b class='dlink' onclick=\"goPage(4)\">포장중</b> 탭으로 이동합니다.",
-    "필요하면 🔗 <b class='dlink' onclick=\"goPage(2)\">반려(점검)</b>로 보내거나 🔗 <b class='dlink' onclick=\"goPage(9)\">수정</b> · 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b>합니다.",
+    "필요하면 🔗 <b class='dlink' onclick=\"goPage(2)\">반려(점검)</b>으로 보내거나 🔗 <b class='dlink' onclick=\"goPage(9)\">수정</b> · 🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b>합니다.",
   ]},
 
   {type:"step", num:"★", ystar:true, title:`⚙️ 작업관리`, body:"작업그룹·API 주문수집 등 <b>출고 준비 도구</b>를 제공합니다.", subs:[
@@ -26265,20 +26265,20 @@ SIM["sord2a"] = { start:"all", screens:{
 /* ═══════════════════════ 주문서 등록 (sord1) ═══════════════════════ */
 IMGS["sord1"] = "images/주문서등록.png";
 DESCS["sord1"] = [
-  {type:"note", text:"매출처에 주문할 <b>주문서</b>를 입력하는 화면입니다."},
-  {type:"step", num:"1", title:`🏢 매출처 선택`, body:"주문할 매출처를 먼저 지정합니다 (필수).", subs:[
+  {type:"note", text:"<b>주문서</b>를 입력하는 화면입니다."},
+  {type:"step", num:"1", title:`🏢 매출처 선택`, body:"매출처를 먼저 지정합니다 (필수).", subs:[
     "매출처 칸의 <span class='ui-btn'>···</span> 버튼을 클릭하면 <b>매출처 목록</b> 창이 열립니다.",
     "단일 선택은 <b>더블클릭</b>, 여러 개는 <b>멀티선택모드</b>를 켠 뒤 선택합니다.",
     "%% 매출처를 선택하면 주소·수취인명과 <b>미수금·마지막 판매일</b>이 함께 표시됩니다.",
   ]},
-  {type:"step", num:"2", title:`📝 주문 정보 확인`, body:"<b>출고예정일·부서명·작성일·담당자</b>를 확인·지정합니다 (모두 필수 항목)."},
-  {type:"step", num:"3", title:`🛒 주문할 상품 추가`, body:"상품코드의 <span class='ui-btn'>···</span> 버튼으로 <b>상품 통합검색창</b>을 열어 주문할 상품을 선택합니다.", subs:[
+  {type:"step", num:"2", title:`📝 정보 확인`, body:"<b>출고예정일·부서명·작성일·담당자</b>를 확인·지정합니다 (모두 필수 항목)."},
+  {type:"step", num:"3", title:`🛒 상품 추가`, body:"상품코드의 <span class='ui-btn'>···</span> 버튼으로 <b>상품 통합검색창</b>을 열어 상품을 선택합니다.", subs:[
     "📌 문서불러오기",
     "<span class='ui-btn'>문서불러오기</span>로 다른 카테고리의 주문서 정보를 불러옵니다.",
     "📌 엑셀업로드",
     "<span class='ui-btn'>엑셀업로드</span>로 지정 탬플릿 엑셀을 이용해 여러 상품을 한꺼번에 등록합니다.",
   ]},
-  {type:"step", num:"4", title:`🔢 수량 입력`, body:"주문할 <b>수량</b>을 입력하면 공급가·부가세·합계금액이 자동 계산됩니다."},
+  {type:"step", num:"4", title:`🔢 수량 입력`, body:"<b>수량</b>을 입력하면 공급가·부가세·합계금액이 자동 계산됩니다."},
   {type:"step", num:"5", title:`💳 결제정보 지정`, body:"결제정보 칸의 <span class='ui-btn'>···</span> 버튼을 클릭하면 <b>결제</b> 창이 열립니다.", subs:[
     "<b>결제방법</b>(현금결제·카드결제 등)을 선택합니다.",
     "<b>남은 금액 입력</b>을 체크하면 <b>결제금액</b>이 자동 입력됩니다.",
