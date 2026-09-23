@@ -25015,7 +25015,7 @@ SIM["svsl1"] = { start:"s0", screens:{
       // ── ① 기간 ──
       {x:56.0, y:23.3, w:24.4, h:2.9, num:"1", numCorner:true, notint:true, tip:"<b>시작일~종료일</b>로 조회할 기간을 지정합니다."},
       // ── ★ 매입처선택 (팝업) ──
-      {x:87,   y:23.8, w:7,    h:2.9, yellow:true, front:true, to:"p_in", toggle:true, tip:"<b>매입처선택</b>으로 특정 매입처만 골라 조회합니다."},
+      {x:87,   y:23.8, w:7,    h:2.9, yellow:true, front:true, to:"p_in", toggle:true, scroll:"★1", tip:"<b>매입처선택</b>으로 특정 매입처만 골라 조회합니다."},
       // ── ② 검색 ──
       {x:94,   y:23.9, w:5.3,  h:2.9, num:"2", numCorner:true, front:true, tip:"<b>검색</b> 버튼으로 선택한 기간의 현황을 조회합니다."},
       // ── 매입처 목록 박스 ──
@@ -25044,6 +25044,7 @@ SIM["svsl1"] = { start:"s0", screens:{
   // ── 매입처 목록 팝업 (매입처선택 버튼) ──
   "p_in":{img:"images/fax전송-매입처회원추가버튼-매입처목록.png", win:{x:8, y:22, w:84},
     btns:[
+      {x:96.5, y:0.6,  w:3.0,  h:3.6,  plain:true, front:true, close:true, tip:"<b>✕</b>를 클릭하면 창이 닫힙니다."},
       {x:67.6, y:6.3,  w:31.8, h:3.8,  yellow:true, num:"1", numCorner:true, tip:"<b>통합검색·상세검색</b>으로 매입처를 조회합니다."},
       {x:89.7, y:12.5, w:9.6,  h:2.6,  fill:true, tipNowrap:true, tip:"여러 매입처를 한 번에 고르려면 <b>멀티선택모드</b>를 먼저 체크합니다."},
       {x:0.6,  y:16.7, w:98.8, h:74.6, yellow:true, num:"2", numCorner:true, notint:true, noLink:true, tip:"목록에서 매입처를 선택해주세요."},
