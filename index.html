@@ -1258,6 +1258,11 @@ mark { background:#FEF08A; border-radius:2px; padding:0 2px; }
 /* 영상 재생 창 */
 #vid-modal { position:fixed; inset:0; z-index:99990; display:none; align-items:center; justify-content:center; padding:24px; background:rgba(13,27,62,0.72); backdrop-filter:blur(2px); }
 #vid-modal.open { display:flex; }
+/* 영상이 열려 있는 동안 페이지 위 표시(박스·번호·칠·말풍선·화살표·팝업·PDA 버튼)는 전부 숨김 — 겹침 순서와 무관하게 영상 위로 비치지 않게 */
+body.vid-open #simWrap .sim-spot, body.vid-open #simWrap .sim-num, body.vid-open #simWrap .sim-fill, body.vid-open #simWrap .sim-fillov,
+body.vid-open #simWrap .sim-tip, body.vid-open #simWrap .sim-aline, body.vid-open #simWrap .sim-ahead, body.vid-open #simWrap .sim-poly,
+body.vid-open #simWrap .sim-win, body.vid-open #simWrap .sim-badge, body.vid-open #simWrap .sim-chk, body.vid-open .pda-fab,
+body.vid-open .card-img-wrap .sim-spot, body.vid-open .card-img-wrap .sim-num { visibility:hidden !important; }
 .vm-box { width:min(1120px, 94vw); background:#0f172a; border-radius:14px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.45); }
 .vm-head { display:flex; align-items:center; gap:12px; padding:13px 16px; background:#fff; }
 .vm-chip { font-size:11px; font-weight:700; color:#C2410C; background:#FFF7ED; border:1px solid #FED7AA; padding:3px 9px; border-radius:20px; white-space:nowrap; }
@@ -26835,12 +26840,14 @@ function openVideo(v, showGoto) {
   vid.poster = v.poster || "";
   vid.src = v.src;
   document.getElementById("vid-modal").classList.add("open");
+  document.body.classList.add("vid-open");
   vid.play().catch(() => {});
 }
 function closeVideo() {
   const vid = document.getElementById("vmVideo");
   vid.pause(); vid.removeAttribute("src"); vid.load(); // 닫으면 재생·다운로드 중지
   document.getElementById("vid-modal").classList.remove("open");
+  document.body.classList.remove("vid-open");
 }
 function gotoVideoPage() {
   const v = _curVideo; closeVideo();
