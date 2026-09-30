@@ -1228,6 +1228,75 @@ mark { background:#FEF08A; border-radius:2px; padding:0 2px; }
 .s-cropped2.s-topcrop { margin-top:-2.53%; }
 .s-cropped2 .sim-img, .s-cropped2 .screen-img { clip-path: inset(0 0 0 16.86%); }
 .s-cropped2.s-topcrop .sim-img, .s-cropped2.s-topcrop .screen-img { clip-path: inset(2.77% 0 0 16.86%); }
+
+/* ── 동영상 강의 ── */
+/* 사이드바 상단 배너: 모아보기 페이지로 이동 */
+.vid-banner { display:flex; align-items:center; gap:11px; width:100%; margin:4px 0 10px; padding:11px 12px; border:none; border-radius:12px; cursor:pointer; text-align:left; font-family:inherit; color:#fff; white-space:nowrap; overflow:hidden;
+  background:linear-gradient(135deg,#F97316 0%,#EA580C 100%); box-shadow:0 4px 14px rgba(249,115,22,0.28); transition:transform 0.15s, box-shadow 0.15s; }
+.vid-banner:hover { transform:translateY(-1px); box-shadow:0 6px 18px rgba(249,115,22,0.4); }
+.vid-banner.active { box-shadow:0 0 0 2px #fff, 0 6px 18px rgba(249,115,22,0.4); }
+.vid-banner-icon { width:34px; height:34px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.vid-banner-icon svg { width:14px; height:14px; margin-left:2px; fill:#EA580C; }
+.vid-banner-text { flex:1; min-width:0; transition:opacity 0.15s; }
+.vid-banner-title { font-size:14px; font-weight:800; letter-spacing:-0.2px; }
+.vid-banner-sub { font-size:11px; font-weight:500; color:rgba(255,255,255,0.85); margin-top:1px; }
+.vid-banner-arrow { font-size:16px; opacity:0.85; flex-shrink:0; }
+#sidebar.collapsed .vid-banner { padding:6px; justify-content:center; gap:0; margin:4px 0 8px; }
+#sidebar.collapsed .vid-banner-text, #sidebar.collapsed .vid-banner-arrow { opacity:0; width:0; overflow:hidden; }
+
+/* 상단 < > 왼쪽: 동영상 강의 보기 버튼 (영상이 있는 페이지에서만 표시) */
+#video-btn { display:none; align-items:center; gap:7px; height:36px; padding:0 16px 0 9px; margin-right:10px; flex-shrink:0;
+  border:1px solid #D9DFE8; border-radius:20px; background:linear-gradient(180deg,#FFFFFF 0%,#F1F4F9 100%); color:var(--navy);
+  box-shadow:0 1px 0 #fff inset, 0 3px 0 #CBD3DF, 0 6px 14px rgba(13,27,62,0.18);
+  font-family:inherit; font-size:13px; font-weight:700; letter-spacing:-0.2px; cursor:pointer; white-space:nowrap;
+  transition:transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
+#video-btn svg { width:26px; height:26px; display:block; filter:drop-shadow(0 2px 2px rgba(249,115,22,0.28)); transition:transform 0.2s; }
+#video-btn:hover { transform:translateY(-1px); border-color:#F6C9A6; box-shadow:0 1px 0 #fff inset, 0 4px 0 #CBD3DF, 0 10px 20px rgba(249,115,22,0.24); }
+#video-btn:hover svg { transform:rotate(-8deg) scale(1.08); }
+#video-btn:active { transform:translateY(2px); box-shadow:0 1px 0 #fff inset, 0 1px 0 #CBD3DF, 0 2px 6px rgba(13,27,62,0.16); }
+
+/* 영상 재생 창 */
+#vid-modal { position:fixed; inset:0; z-index:400; display:none; align-items:center; justify-content:center; padding:24px; background:rgba(13,27,62,0.72); backdrop-filter:blur(2px); }
+#vid-modal.open { display:flex; }
+.vm-box { width:min(1120px, 94vw); background:#0f172a; border-radius:14px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.45); }
+.vm-head { display:flex; align-items:center; gap:12px; padding:13px 16px; background:#fff; }
+.vm-chip { font-size:11px; font-weight:700; color:#C2410C; background:#FFF7ED; border:1px solid #FED7AA; padding:3px 9px; border-radius:20px; white-space:nowrap; }
+.vm-title { flex:1; min-width:0; font-size:15px; font-weight:800; color:var(--navy); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.vm-goto { border:1px solid var(--border); background:var(--bg); color:var(--navy); border-radius:8px; padding:6px 11px; font-family:inherit; font-size:12px; font-weight:600; cursor:pointer; white-space:nowrap; }
+.vm-goto:hover { border-color:var(--blue); background:var(--blue-pale); }
+.vm-close { width:32px; height:32px; border:none; border-radius:8px; background:var(--bg); color:var(--navy); font-size:20px; line-height:1; cursor:pointer; flex-shrink:0; }
+.vm-close:hover { background:#E2E8F0; }
+.vm-box video { display:block; width:100%; aspect-ratio:16/9; background:#000; }
+
+/* 모아보기 페이지 */
+.vg-wrap { max-width:1180px; margin:0 auto; padding:30px 32px 48px; }
+.vg-kicker { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:800; letter-spacing:1px; color:#C2410C; background:#FFF7ED; border:1px solid #FED7AA; padding:4px 10px; border-radius:20px; }
+.vg-title { font-size:26px; font-weight:900; color:var(--navy); margin:12px 0 6px; letter-spacing:-0.5px; }
+.vg-desc { font-size:14px; color:var(--text-muted); line-height:1.6; }
+.vg-search { position:relative; margin:22px 0 8px; max-width:560px; }
+.vg-search input { width:100%; height:48px; border:1.5px solid var(--border); border-radius:12px; background:#fff; padding:0 16px 0 46px; font-family:inherit; font-size:15px; color:var(--navy); outline:none; transition:border-color 0.15s, box-shadow 0.15s; }
+.vg-search input:focus { border-color:var(--accent); box-shadow:0 0 0 4px rgba(249,115,22,0.12); }
+.vg-search svg { position:absolute; left:16px; top:50%; transform:translateY(-50%); width:18px; height:18px; stroke:var(--text-muted); }
+.vg-count { font-size:12px; color:var(--text-muted); margin-bottom:16px; }
+.vg-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:20px; }
+.vg-card { background:#fff; border:1px solid var(--border); border-radius:14px; overflow:hidden; cursor:pointer; transition:transform 0.15s, box-shadow 0.15s, border-color 0.15s; display:flex; flex-direction:column; }
+.vg-card:hover { transform:translateY(-3px); box-shadow:0 10px 26px rgba(13,27,62,0.12); border-color:#FDBA74; }
+.vg-thumb { position:relative; aspect-ratio:16/9; background:#EEF2F7; overflow:hidden; }
+.vg-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.vg-play { position:absolute; left:50%; top:50%; width:58px; height:58px; margin:-29px 0 0 -29px; border-radius:50%; background:rgba(249,115,22,0.92); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(0,0,0,0.25); transition:transform 0.15s; }
+.vg-play svg { width:22px; height:22px; margin-left:4px; fill:#fff; }
+.vg-card:hover .vg-play { transform:scale(1.08); }
+.vg-num { position:absolute; left:10px; top:10px; font-size:12px; font-weight:800; color:#fff; background:var(--navy); padding:3px 9px; border-radius:6px; }
+.vg-dur { position:absolute; right:10px; bottom:10px; font-size:12px; font-weight:700; color:#fff; background:rgba(15,23,42,0.78); padding:2px 8px; border-radius:6px; }
+.vg-body { padding:14px 16px 16px; display:flex; flex-direction:column; gap:6px; flex:1; }
+.vg-cat { font-size:11.5px; font-weight:700; color:var(--text-muted); }
+.vg-name { font-size:16px; font-weight:800; color:var(--navy); }
+.vg-text { font-size:13px; color:var(--text-muted); line-height:1.55; flex:1; }
+.vg-link { align-self:flex-start; margin-top:4px; border:none; background:none; padding:0; font-family:inherit; font-size:12.5px; font-weight:700; color:var(--blue); cursor:pointer; }
+.vg-link:hover { text-decoration:underline; }
+.vg-empty { grid-column:1 / -1; padding:48px 20px; text-align:center; color:var(--text-muted); font-size:14px; background:#fff; border:1px dashed var(--border); border-radius:14px; }
+mark.vg-hl { background:#FFEDD5; color:inherit; border-radius:3px; padding:0 1px; }
+@media (max-width:640px){ .vg-wrap { padding:20px 16px 36px; } .vg-title { font-size:22px; } #video-btn .vbtn-label { display:none; } }
 </style>
 </head>
 <body>
@@ -1279,6 +1348,23 @@ mark { background:#FEF08A; border-radius:2px; padding:0 2px; }
       </div>
       <div class="bc" id="topbar-bc"><span id="bcMain">IRM 간편 매뉴얼</span></div>
     </div>
+    <button id="video-btn" onclick="playSectionVideo()" title="이 메뉴의 동영상 강의 보기">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <defs>
+          <linearGradient id="vbBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB45C"/><stop offset="1" stop-color="#F9731A"/></linearGradient>
+          <linearGradient id="vbLens" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#6D5BF0"/></linearGradient>
+          <linearGradient id="vbGloss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+        </defs>
+        <ellipse cx="15" cy="27.5" rx="10" ry="1.8" fill="#0D1B3E" opacity="0.10"/>
+        <path d="M21.5 13.2l6-3.6c.8-.5 1.8.1 1.8 1v10.8c0 .9-1 1.5-1.8 1l-6-3.6z" fill="url(#vbLens)"/>
+        <rect x="2.5" y="8" width="21" height="17" rx="5.5" fill="url(#vbBody)"/>
+        <path d="M8 8h10.5a5.5 5.5 0 0 1 5.5 5.5v.5H2.5v-.5A5.5 5.5 0 0 1 8 8z" fill="url(#vbGloss)"/>
+        <path d="M11 12.6v8.8c0 .8.9 1.3 1.6.9l7-4.4c.6-.4.6-1.4 0-1.8l-7-4.4c-.7-.4-1.6.1-1.6.9z" fill="#fff"/>
+        <circle cx="6.6" cy="11.6" r="1.1" fill="#fff" opacity="0.85"/>
+        <path d="M27 3.2l.7 1.6 1.6.7-1.6.7-.7 1.6-.7-1.6-1.6-.7 1.6-.7z" fill="#FFD23F"/>
+      </svg>
+      <span class="vbtn-label">동영상 강의 보기</span>
+    </button>
     <div id="sim-nav">
       <button id="sim-back" class="sim-nav-btn" title="이전 단계" onclick="simBack()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -1303,6 +1389,19 @@ mark { background:#FEF08A; border-radius:2px; padding:0 2px; }
     </div>
   </div>
   <div id="content"></div>
+</div>
+
+<!-- 동영상 강의 재생 창 -->
+<div id="vid-modal" onclick="if(event.target===this)closeVideo()">
+  <div class="vm-box">
+    <div class="vm-head">
+      <span class="vm-chip" id="vmChip"></span>
+      <div class="vm-title" id="vmTitle"></div>
+      <button class="vm-goto" id="vmGoto" onclick="gotoVideoPage()">매뉴얼 페이지 보기 →</button>
+      <button class="vm-close" onclick="closeVideo()" title="닫기 (Esc)" aria-label="닫기">×</button>
+    </div>
+    <video id="vmVideo" controls preload="metadata" playsinline></video>
+  </div>
 </div>
 
 <!-- AI 검색 채팅 패널 -->
@@ -22826,16 +22925,16 @@ SIM["sunq1d"] = { start:"done", screens:{
 /* ═══════════════════════ 페이지 1 · 대기 (shsq1) ═══════════════════════ */
 IMGS["shsq1"] = "images/이력제신고조회-대기.png";
 DESCS["shsq1"] = [
-  {type:"note", text:"이력제 신고 작성에서 등록한 신고 건을 <b>발행중부터 발행완료까지</b> 단계별로 처리하는 화면입니다. 상단 5개 탭이 신고의 <b>처리 상태</b>를 나눕니다."},
+  {type:"note", text:"이력제 신고 작성에서 등록한 신고 건을 <b>발행중부터 발행완료까지</b> 단계별로 처리하는 화면입니다. "},
 
   {type:"step", num:"1", title:`🔍 대기 신고 확인`, body:"이력제 신고 작성에서 등록한 건이 <b>대기</b> 탭에 올라옵니다.", subs:[
-    "우측 상단 <b>상품검색</b>으로 상품·신고 건을 찾습니다.",
+    "우측 상단 <b>상품검색</b>으로 상품·신고 건을 찾을 수 있습니다.",
     "☑ 체크로 처리할 건을 선택합니다.",
   ]},
 
-  {type:"step", num:"2", title:`📤 발행중으로 넘기기`, body:"이력제 신고를 접수하면 <span class='ui-btn'>발행중</span>으로 넘깁니다(🔗 <b class='dlink' onclick=\"goPage(3)\">발행중</b> 탭으로 이동).", subs:[
+  {type:"step", num:"2", title:`📤 발행중으로 넘기기`, body:"대기중 상품을 <span class='ui-btn'>발행중</span>으로 넘깁니다(🔗 <b class='dlink' onclick=\"goPage(3)\">발행중</b> 탭으로 이동).", subs:[
     "📌 발행완료",
-    "발행이 끝난 건은 <span class='ui-btn'>발행완료</span>로 바로 확정합니다(🔗 <b class='dlink' onclick=\"goPage(4)\">발행완료</b> 탭으로 이동).",
+    "<span class='ui-btn'>발행완료</span>로 바로 확정도 가능 합니다(🔗 <b class='dlink' onclick=\"goPage(4)\">발행완료</b> 탭으로 이동).",
     "📌 취소",
     "신고하지 않을 건이면 <span class='ui-btn'>취소</span>합니다(🔗 <b class='dlink' onclick=\"goPage(1)\">취소</b> 탭으로 이동).",
   ]},
@@ -26707,6 +26806,101 @@ const SECTIONS_S = (function(){
 })();
 let VER = "s"; // S버전 전용 파일
 function NAVSECS(){ return VER === "s" ? SECTIONS_S : SECTIONS; }
+
+// ========== 동영상 강의 ==========
+// 모아보기 페이지는 이 배열 순서대로 나열됩니다. subId = 영상을 연결할 메뉴(sub) id → 해당 페이지 상단에 [동영상 강의 보기] 버튼 표시
+// tags = 모아보기 검색에 걸릴 추가 키워드
+const VIDEOS = [
+  { subId:"s-fav", title:"즐겨찾기 설정 방법", cat:"즐겨찾기 › 즐겨찾기 편집", src:"videos/favorites.mp4", poster:"videos/favorites.jpg", dur:"2:20",
+    desc:"자주 쓰는 메뉴를 추가하고, 그룹으로 정리하고, 아이콘 크기·순서를 바꿔 HOME 상단에서 바로 실행하는 방법을 알려드려요.",
+    tags:["즐겨찾기","즐겨찾기편집","HOME","홈","메뉴","추가","그룹","그룹추가","그룹삭제","이름변경","크기","크게","작게","아이콘","순서","위로","아래","사용안함","삭제"] },
+  { subId:"2-1-s2", title:"상품등록 방법", cat:"기초관리 › 상품관리", src:"videos/product-register.mp4", poster:"videos/product-register.jpg", dur:"3:53",
+    desc:"바코드 체크부터 매입처·필수 항목, 규격·단위, 판매가, 이미지·고시정보, 신규등록까지 순서대로 알려드려요.",
+    tags:["상품","등록","바코드","바코드체크","스캐너","매입처","상품명","필수","규격","단위","내품수","박스","판매가","매입가","기준단위","이미지","고시정보","신규등록"] },
+];
+let _curVideo = null;
+function videoForSub(sub) { return sub ? VIDEOS.find(v => v.subId === sub.id) : null; }
+function setVideoBtn(sub) {
+  const b = document.getElementById("video-btn"); if (!b) return;
+  b.style.display = videoForSub(sub) ? "flex" : "none";
+}
+function playSectionVideo() { if (curSection) openVideo(videoForSub(curSection.sub), false); }
+function openVideo(v, showGoto) {
+  if (!v) return;
+  _curVideo = v;
+  document.getElementById("vmChip").textContent = v.cat;
+  document.getElementById("vmTitle").textContent = v.title;
+  document.getElementById("vmGoto").style.display = showGoto ? "" : "none";
+  const vid = document.getElementById("vmVideo");
+  vid.poster = v.poster || "";
+  vid.src = v.src;
+  document.getElementById("vid-modal").classList.add("open");
+  vid.play().catch(() => {});
+}
+function closeVideo() {
+  const vid = document.getElementById("vmVideo");
+  vid.pause(); vid.removeAttribute("src"); vid.load(); // 닫으면 재생·다운로드 중지
+  document.getElementById("vid-modal").classList.remove("open");
+}
+function gotoVideoPage() {
+  const v = _curVideo; closeVideo();
+  if (!v) return;
+  const ch = NAVSECS().find(c => (c.subs||[]).some(s => s.id === v.subId));
+  if (ch) { document.getElementById("vidBanner")?.classList.remove("active"); openSub(ch.id, v.subId); }
+}
+document.addEventListener("keydown", e => { if (e.key === "Escape" && document.getElementById("vid-modal")?.classList.contains("open")) closeVideo(); });
+
+// 좌측 배너 → 모아보기 페이지
+function showVideoGallery() {
+  resetTopbarToBC();
+  setBackBtn(true, null);
+  document.getElementById("bcMain").textContent = "동영상 강의 모아보기";
+  document.querySelectorAll(".sub-list").forEach(s => s.classList.remove("open"));
+  document.querySelectorAll(".ch-btn").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll(".sub-btn").forEach(b => b.classList.remove("active"));
+  document.getElementById("vidBanner")?.classList.add("active");
+  simNavSetup(null); // 시뮬레이터 < > 버튼은 모아보기에서 숨김
+  document.getElementById("content").innerHTML = `<div class="vg-wrap">
+    <span class="vg-kicker">▶ VIDEO LECTURES</span>
+    <div class="vg-title">동영상 강의 모아보기</div>
+    <div class="vg-desc">IRM 사용법을 영상으로 쉽게 배워보세요. 번호 순서대로 보시면 처음부터 차근차근 익힐 수 있어요.</div>
+    <div class="vg-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+      <input type="text" id="vgSearch" placeholder="동영상 찾기 (예: 상품등록, 바코드, 판매가)" oninput="renderVideoGrid(this.value)" autocomplete="off">
+    </div>
+    <div class="vg-count" id="vgCount"></div>
+    <div class="vg-grid" id="vgGrid"></div>
+  </div>`;
+  renderVideoGrid("");
+  { const _m = document.getElementById("main"); if (_m) _m.scrollTop = 0; }
+}
+function renderVideoGrid(q) {
+  const esc = s => s.replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+  const qn = (q || "").trim().toLowerCase().replace(/\s+/g, "");
+  const hl = s => {
+    if (!qn) return esc(s);
+    const re = new RegExp(qn.split("").map(c => c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("\\s*"), "gi");
+    return esc(s).replace(re, m => `<mark class="vg-hl">${m}</mark>`);
+  };
+  const list = VIDEOS.map((v, i) => ({ v, i })).filter(({ v }) => !qn ||
+    [v.title, v.cat, v.desc].concat(v.tags || []).join(" ").toLowerCase().replace(/\s+/g, "").includes(qn));
+  document.getElementById("vgCount").textContent = qn ? `검색 결과 ${list.length}개` : `전체 ${VIDEOS.length}개 강의`;
+  document.getElementById("vgGrid").innerHTML = list.length ? list.map(({ v, i }) => `
+    <div class="vg-card" onclick="openVideo(VIDEOS[${i}], true)">
+      <div class="vg-thumb">
+        ${v.poster ? `<img src="${v.poster}" alt="" loading="lazy">` : ``}
+        <span class="vg-num">${String(i + 1).padStart(2, "0")}</span>
+        <span class="vg-play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
+        ${v.dur ? `<span class="vg-dur">${v.dur}</span>` : ``}
+      </div>
+      <div class="vg-body">
+        <div class="vg-cat">${hl(v.cat)}</div>
+        <div class="vg-name">${hl(v.title)}</div>
+        <div class="vg-text">${hl(v.desc)}</div>
+        <button class="vg-link" onclick="event.stopPropagation();_curVideo=VIDEOS[${i}];gotoVideoPage()">매뉴얼 페이지 보기 →</button>
+      </div>
+    </div>`).join("") : `<div class="vg-empty">"${esc(q.trim())}"에 맞는 동영상 강의가 없어요.<br>다른 단어로 찾아보세요.</div>`;
+}
 // S버전: 크롭 경계에 말풍선이 잘리면 안쪽으로 밀어줌
 document.addEventListener("mouseover", e => {
   if (VER !== "s" || !e.target.closest) return;
@@ -27049,6 +27243,18 @@ let curPageIdx = 0;
 function buildNav() {
   const nav = document.getElementById("navArea");
   nav.innerHTML = "";
+  if (VIDEOS.length) {
+    const vb = document.createElement("button");
+    vb.className = "vid-banner";
+    vb.id = "vidBanner";
+    vb.innerHTML = `<span class="vid-banner-icon"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
+      <span class="vid-banner-text"><div class="vid-banner-title">동영상 강의 모아보기</div><div class="vid-banner-sub">영상으로 쉽게 배워요 · ${VIDEOS.length}개 강의</div></span>
+      <span class="vid-banner-arrow">›</span>`;
+    vb.onclick = showVideoGallery;
+    vb.addEventListener("mouseenter", () => showTooltip(vb, "동영상 강의 모아보기"));
+    vb.addEventListener("mouseleave", hideTooltip);
+    nav.appendChild(vb);
+  }
   NAVSECS().forEach(ch => { if (ch.hidden) return;
     const btn = document.createElement("button");
     btn.className = "ch-btn";
@@ -27175,6 +27381,8 @@ function setBackBtn(show, ch=null) {
 }
 
 function resetTopbarToBC() {
+  setVideoBtn(null);
+  document.getElementById("vidBanner")?.classList.remove("active");
   document.getElementById("topbar-bc").style.display = "";
   document.getElementById("topbar-tag").style.display = "none";
   document.getElementById("topbar-title").style.display = "none";
@@ -27316,6 +27524,8 @@ function showSection(ch, sub, pageIdx) {
 
 function renderSection() {
   const {ch, sub} = curSection;
+  setVideoBtn(sub);
+  document.getElementById("vidBanner")?.classList.remove("active");
   document.getElementById("topbar-bc").style.display = "none";
   const tag = document.getElementById("topbar-tag");
   tag.style.display = "flex";
@@ -28255,6 +28465,8 @@ function doSearch(q) {
   const qn = q.replace(/\s+/g, "");  // 띄어쓰기 무시 검색
   _lastSearchQ = q;
   { const bb = document.getElementById("searchBackBtn"); if (bb) bb.style.display = "none"; }
+  setVideoBtn(null);
+  document.getElementById("vidBanner")?.classList.remove("active");
 
   let results = [];
   NAVSECS().forEach(ch => { if (ch.hidden) return;
