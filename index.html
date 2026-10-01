@@ -26822,9 +26822,15 @@ const VIDEOS = [
   { subId:"2-1-s2", title:"상품등록 방법", cat:"기초관리 › 상품관리", src:"videos/product-register.mp4", poster:"videos/product-register.jpg", dur:"3:53",
     desc:"바코드 체크부터 매입처·필수 항목, 규격·단위, 판매가, 이미지·고시정보, 신규등록까지 순서대로 알려드려요.",
     tags:["상품","등록","바코드","바코드체크","스캐너","매입처","상품명","필수","규격","단위","내품수","박스","판매가","매입가","기준단위","이미지","고시정보","신규등록"] },
+  { subId:"s-ev", alsoSubs:["s-evq", "s-hj", "s-cx"], title:"기본행사 관리 방법", cat:"매장관리 › 기본행사 관리", src:"videos/event-basic.mp4", poster:"videos/event-basic.jpg", dur:"5:43",
+    desc:"행사 상품 등록부터 행사 상품 조회의 준비중 · 행사중 · 완료 처리, 행사 중 상품 현황과 행사매입 초과수량까지 알려드려요.",
+    tags:["행사", "기본행사", "행사상품등록", "행사상품조회", "행사시작", "진행완료", "준비중으로", "종료일변경", "행사복사", "수정", "취소", "행사중상품현황", "행사매입초과수량", "초과수량", "매입검색", "매출검색", "수량차이"] },
+  { subId:"s-dge", alsoSubs:["s-dgq"], title:"할인그룹 관리 방법", cat:"매장관리 › 할인그룹 관리", src:"videos/discount-group.mp4", poster:"videos/discount-group.jpg", dur:"6:16",
+    desc:"행사구분 일치 · 포함 · 구간(금액) · 구간(수량)으로 할인그룹을 등록하고, 할인 그룹 조회에서 행사시작 · 진행완료 · 준비중으로 · 취소하는 방법을 알려드려요.",
+    tags:["할인", "할인그룹", "할인그룹등록", "할인그룹조회", "일치", "포함", "포함수량", "구간", "구간금액", "구간수량", "상품복사", "할인금액", "행사시작", "진행완료", "준비중으로", "취소", "수정"] },
 ];
 let _curVideo = null;
-function videoForSub(sub) { return sub ? VIDEOS.find(v => v.subId === sub.id) : null; }
+function videoForSub(sub) { return sub ? VIDEOS.find(v => v.subId === sub.id || (v.alsoSubs || []).includes(sub.id)) : null; }
 function setVideoBtn(sub) {
   const b = document.getElementById("video-btn"); if (!b) return;
   b.style.display = videoForSub(sub) ? "flex" : "none";
