@@ -26828,6 +26828,9 @@ const VIDEOS = [
   { subId:"s-dge", alsoSubs:["s-dgq"], title:"할인그룹 관리 방법", cat:"매장관리 › 할인그룹 관리", src:"videos/discount-group.mp4", poster:"videos/discount-group.jpg", dur:"6:16",
     desc:"행사구분 일치 · 포함 · 구간(금액) · 구간(수량)으로 할인그룹을 등록하고, 할인 그룹 조회에서 행사시작 · 진행완료 · 준비중으로 · 취소하는 방법을 알려드려요.",
     tags:["할인", "할인그룹", "할인그룹등록", "할인그룹조회", "일치", "포함", "포함수량", "구간", "구간금액", "구간수량", "상품복사", "할인금액", "행사시작", "진행완료", "준비중으로", "취소", "수정"] },
+  { subId:"s-cp", alsoSubs:["s-cq", "s-cn"], title:"할인쿠폰 관리 방법", cat:"매장관리 › 쿠폰 관리", src:"videos/discount-coupon.mp4", poster:"videos/discount-coupon.jpg", dur:"5:14",
+    desc:"할인쿠폰을 등록하고, 할인쿠폰 조회에서 행사시작 · 진행완료 · 수정 · 준비중으로 · 취소하는 방법과 할인쿠폰 현황에서 사용 현황을 확인하는 방법을 알려드려요.",
+    tags:["쿠폰", "할인쿠폰", "할인쿠폰등록", "할인쿠폰조회", "할인쿠폰현황", "쿠폰명", "발행쿠폰수", "할인구분", "할인금액", "회원지정", "구매금액", "중복사용", "쿠폰번호", "행사시작", "진행완료", "준비중으로", "취소", "수정", "사용현황"] },
 ];
 let _curVideo = null;
 function videoForSub(sub) { return sub ? VIDEOS.find(v => v.subId === sub.id || (v.alsoSubs || []).includes(sub.id)) : null; }
