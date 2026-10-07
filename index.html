@@ -1299,6 +1299,24 @@ body.vid-open .card-img-wrap .sim-spot, body.vid-open .card-img-wrap .sim-num { 
 .vg-text { font-size:13px; color:var(--text-muted); line-height:1.55; flex:1; }
 .vg-link { align-self:flex-start; margin-top:4px; border:none; background:none; padding:0; font-family:inherit; font-size:12.5px; font-weight:700; color:var(--blue); cursor:pointer; }
 .vg-link:hover { text-decoration:underline; }
+.vg-chaps { display:flex; flex-wrap:wrap; gap:6px; margin-top:2px; }
+.vg-chap, .vid-mini { display:inline-flex; align-items:center; gap:5px; border:1px solid #FED7AA; background:#FFF7ED; color:#C2410C; border-radius:20px; padding:5px 12px; font-family:inherit; font-size:12px; font-weight:700; cursor:pointer; text-align:left; line-height:1.3; }
+.vg-chap:hover, .vid-mini:hover { background:#FFEDD5; border-color:#FDBA74; }
+.vid-mini { white-space:nowrap; flex-shrink:0; }
+.vm-body { display:flex; background:#0f172a; }
+.vm-body video { flex:1; min-width:0; width:auto; }
+.vm-chaps { display:none; position:relative; width:270px; flex-shrink:0; background:#fff; border-left:1px solid var(--border); }
+.vm-box.has-chaps { width:min(1420px, 96vw); }
+.vm-box.has-chaps .vm-chaps { display:block; }
+.vm-chaps-in { position:absolute; inset:0; overflow-y:auto; padding:8px; }
+.vm-chaps-h { font-size:11px; font-weight:800; color:var(--text-muted); padding:6px 8px 8px; }
+.vm-chap { display:flex; gap:8px; width:100%; border:none; background:none; border-radius:8px; padding:7px 8px; font-family:inherit; font-size:12.5px; font-weight:700; color:var(--navy); text-align:left; cursor:pointer; line-height:1.35; }
+.vm-chap.inner { font-weight:500; color:#475569; padding-left:16px; }
+.vm-chap:hover { background:var(--bg); }
+.vm-chap.on { background:#FFF7ED; color:#C2410C; }
+.vm-chap-t { flex-shrink:0; width:38px; font-variant-numeric:tabular-nums; color:#94A3B8; font-weight:600; }
+.vm-chap.on .vm-chap-t { color:#EA580C; }
+@media (max-width:860px){ .vm-body { flex-direction:column; } .vm-body video { flex:none; width:100%; } .vm-box.has-chaps .vm-chaps { width:auto; height:168px; border-left:none; border-top:1px solid var(--border); } }
 .vg-empty { grid-column:1 / -1; padding:48px 20px; text-align:center; color:var(--text-muted); font-size:14px; background:#fff; border:1px dashed var(--border); border-radius:14px; }
 mark.vg-hl { background:#FFEDD5; color:inherit; border-radius:3px; padding:0 1px; }
 @media (max-width:640px){ .vg-wrap { padding:20px 16px 36px; } .vg-title { font-size:22px; } #video-btn .vbtn-label { display:none; } }
@@ -1405,7 +1423,10 @@ mark.vg-hl { background:#FFEDD5; color:inherit; border-radius:3px; padding:0 1px
       <button class="vm-goto" id="vmGoto" onclick="gotoVideoPage()">매뉴얼 페이지 보기 →</button>
       <button class="vm-close" onclick="closeVideo()" title="닫기 (Esc)" aria-label="닫기">×</button>
     </div>
-    <video id="vmVideo" controls preload="metadata" playsinline></video>
+    <div class="vm-body">
+      <video id="vmVideo" controls preload="metadata" playsinline></video>
+      <div class="vm-chaps"><div class="vm-chaps-in" id="vmChaps"></div></div>
+    </div>
   </div>
 </div>
 
@@ -26816,66 +26837,120 @@ function NAVSECS(){ return VER === "s" ? SECTIONS_S : SECTIONS; }
 // 모아보기 페이지는 이 배열 순서대로 나열됩니다. subId = 영상을 연결할 메뉴(sub) id → 해당 페이지 상단에 [동영상 강의 보기] 버튼 표시
 // tags = 모아보기 검색에 걸릴 추가 키워드
 const VIDEOS = [
-  { subId:"s-fav", title:"즐겨찾기 설정 방법", cat:"즐겨찾기 › 즐겨찾기 편집", src:"videos/favorites.mp4", poster:"videos/favorites.jpg", dur:"2:20",
+  { id:"favorites", subId:"s-fav", alsoSubs:[], title:"즐겨찾기 설정 방법", cat:"즐겨찾기 › 즐겨찾기 편집", src:"videos/favorites.mp4", poster:"videos/favorites.jpg", dur:"2:20",
     desc:"자주 쓰는 메뉴를 추가하고, 그룹으로 정리하고, 아이콘 크기·순서를 바꿔 HOME 상단에서 바로 실행하는 방법을 알려드려요.",
-    tags:["즐겨찾기","즐겨찾기편집","HOME","홈","메뉴","추가","그룹","그룹추가","그룹삭제","이름변경","크기","크게","작게","아이콘","순서","위로","아래","사용안함","삭제"] },
-  { subId:"2-1-s2", alsoSubs:[], title:"상품등록 방법", cat:"기초관리 › 상품관리", src:"videos/product-register.mp4", poster:"videos/product-register.jpg", dur:"3:44",
+    tags:["즐겨찾기", "즐겨찾기편집", "HOME", "홈", "메뉴", "추가", "그룹", "그룹추가", "그룹삭제", "이름변경", "크기", "크게", "작게", "아이콘", "순서", "위로", "아래", "사용안함", "삭제"] },
+  { id:"product-register", subId:"2-1-s2", alsoSubs:[], title:"상품등록 방법", cat:"기초관리 › 상품관리", src:"videos/product-register.mp4", poster:"videos/product-register.jpg", dur:"3:44",
     desc:"바코드 체크부터 매입처·필수 항목, 규격·단위, 판매가, 이미지·고시정보, 신규등록까지 순서대로 알려드려요.",
     tags:["상품", "등록", "바코드", "바코드체크", "스캐너", "매입처", "상품명", "필수", "규격", "단위", "내품수", "박스", "판매가", "매입가", "기준단위", "이미지", "고시정보", "신규등록"] },
-  { subId:"s-ev", alsoSubs:["s-evq", "s-hj", "s-cx"], title:"기본행사 관리 방법", cat:"매장관리 › 기본행사 관리", src:"videos/event-basic.mp4", poster:"videos/event-basic.jpg", dur:"5:43",
+  { id:"event-basic", subId:"s-ev", alsoSubs:["s-evq", "s-hj", "s-cx"], title:"기본행사 관리 방법", cat:"매장관리 › 기본행사 관리", src:"videos/event-basic.mp4", poster:"videos/event-basic.jpg", dur:"5:43",
     desc:"행사 상품 등록부터 행사 상품 조회의 준비중 · 행사중 · 완료 처리, 행사 중 상품 현황과 행사매입 초과수량까지 알려드려요.",
-    tags:["행사", "기본행사", "행사상품등록", "행사상품조회", "행사시작", "진행완료", "준비중으로", "종료일변경", "행사복사", "수정", "취소", "행사중상품현황", "행사매입초과수량", "초과수량", "매입검색", "매출검색", "수량차이"] },
-  { subId:"s-dge", alsoSubs:["s-dgq"], title:"할인그룹 관리 방법", cat:"매장관리 › 할인그룹 관리", src:"videos/discount-group.mp4", poster:"videos/discount-group.jpg", dur:"6:16",
+    tags:["행사", "기본행사", "행사상품등록", "행사상품조회", "행사시작", "진행완료", "준비중으로", "종료일변경", "행사복사", "수정", "취소", "행사중상품현황", "행사매입초과수량", "초과수량", "매입검색", "매출검색", "수량차이"],
+    chapters:[
+      { t:0.0, title:"행사 상품 등록", subs:["s-ev"], tags:["행사등록", "행사상품등록"] },
+      { t:98.18, title:"행사 상품 조회", subs:["s-evq"], tags:["행사조회", "행사시작", "종료일변경", "진행완료"] },
+      { t:180.55, title:"완료 · 취소된 행사 복사", tags:["행사복사", "준비중으로", "행사취소"] },
+      { t:278.04, title:"행사 중 상품 현황", subs:["s-hj"], tags:["행사중상품현황"] },
+      { t:288.47, title:"행사매입 초과수량", subs:["s-cx"], tags:["초과수량", "행사매입"] } ] },
+  { id:"discount-group", subId:"s-dge", alsoSubs:["s-dgq"], title:"할인그룹 관리 방법", cat:"매장관리 › 할인그룹 관리", src:"videos/discount-group.mp4", poster:"videos/discount-group.jpg", dur:"6:16",
     desc:"행사구분 일치 · 포함 · 구간(금액) · 구간(수량)으로 할인그룹을 등록하고, 할인 그룹 조회에서 행사시작 · 진행완료 · 준비중으로 · 취소하는 방법을 알려드려요.",
-    tags:["할인", "할인그룹", "할인그룹등록", "할인그룹조회", "일치", "포함", "포함수량", "구간", "구간금액", "구간수량", "상품복사", "할인금액", "행사시작", "진행완료", "준비중으로", "취소", "수정"] },
-  { subId:"s-cp", alsoSubs:["s-cq", "s-cn"], title:"할인쿠폰 관리 방법", cat:"매장관리 › 쿠폰 관리", src:"videos/discount-coupon.mp4", poster:"videos/discount-coupon.jpg", dur:"4:39",
+    tags:["할인", "할인그룹", "할인그룹등록", "할인그룹조회", "일치", "포함", "포함수량", "구간", "구간금액", "구간수량", "상품복사", "할인금액", "행사시작", "진행완료", "준비중으로", "취소", "수정"],
+    chapters:[
+      { t:0.0, title:"할인 그룹 등록 — 일치", subs:["s-dge"], tags:["할인그룹등록", "일치"] },
+      { t:70.62, title:"할인 그룹 등록 — 포함", tags:["포함"] },
+      { t:119.82, title:"할인 그룹 등록 — 구간(금액)", tags:["구간금액"] },
+      { t:181.28, title:"할인 그룹 등록 — 구간(수량)", tags:["구간수량"] },
+      { t:240.62, title:"할인 그룹 조회", subs:["s-dgq"], tags:["할인그룹조회", "행사시작", "진행완료"] },
+      { t:290.52, title:"할인 그룹 수정 · 준비중으로 · 취소", tags:["할인그룹수정", "준비중으로", "취소"] } ] },
+  { id:"discount-coupon", subId:"s-cp", alsoSubs:["s-cq", "s-cn"], title:"할인쿠폰 관리 방법", cat:"매장관리 › 쿠폰 관리", src:"videos/discount-coupon.mp4", poster:"videos/discount-coupon.jpg", dur:"4:39",
     desc:"할인쿠폰을 등록하고, 할인쿠폰 조회에서 행사시작 · 진행완료 · 수정 · 준비중으로 · 취소하는 방법과 할인쿠폰 현황에서 사용 현황을 확인하는 방법을 알려드려요.",
-    tags:["쿠폰", "할인쿠폰", "할인쿠폰등록", "할인쿠폰조회", "할인쿠폰현황", "쿠폰명", "발행쿠폰수", "할인구분", "할인금액", "회원지정", "구매금액", "중복사용", "쿠폰번호", "행사시작", "진행완료", "준비중으로", "취소", "수정", "사용현황"] },
-  { subId:"s-pg", alsoSubs:[], title:"판매가 변경 목록 관리 방법", cat:"매장관리 › 기본관리", src:"videos/price-change.mp4", poster:"videos/price-change.jpg", dur:"1:58",
-    desc:"판매가가 바뀐 상품을 변경정보에서 확인하고, 바코드를 인쇄하거나 인쇄안함으로 정리하는 방법과 인쇄완료 · 인쇄안함 탭을 알려드려요.",
-    tags:["판매가", "판매가변경", "판매가변경목록", "변경정보", "인쇄", "바코드인쇄", "인쇄완료", "인쇄안함", "템플릿", "POP", "POP제작관리"] },
-  { subId:"7-1c", alsoSubs:[], title:"가격표 관리 방법", cat:"매장관리 › 기본관리", src:"videos/price-tag.mp4", poster:"videos/price-tag.jpg", dur:"1:23",
-    desc:"PDA로 만든 위치별 가격표를 확인하고, 담긴 상품의 바코드를 인쇄하는 방법과 작업완료 · 취소 탭을 알려드려요.",
-    tags:["가격표", "가격표관리", "PDA", "위치", "바코드인쇄", "POP생성", "작업완료", "취소", "작성중"] },
-  { subId:"s-sf", alsoSubs:[], title:"검색 폴더 관리 방법", cat:"매장관리 › 기본관리", src:"videos/search-folder.mp4", poster:"videos/search-folder.jpg", dur:"1:43",
-    desc:"대그룹 · 소그룹 검색 폴더를 만들고 상품을 담아, 상품 통합검색에서 폴더로 빠르게 찾는 방법을 알려드려요.",
-    tags:["검색폴더", "검색폴더관리", "폴더", "대그룹", "소그룹", "상품추가", "상품통합검색", "카테고리"] },
-  { subId:"s-sa", alsoSubs:["s-emp"], title:"사원 관리 방법", cat:"매장관리 › 기본관리", src:"videos/employee.mp4", poster:"videos/employee.jpg", dur:"2:41",
-    desc:"사원을 등록 · 수정하고 사원증을 인쇄하는 방법과 전자결재 정보 · PDA 메뉴권한 · 관리 사업장 설정을 알려드려요.",
-    tags:["사원", "사원관리", "사업장사원관리", "사원등록", "사원정보", "사진", "사원증", "사원증인쇄", "전자결재", "PDA메뉴권한", "관리사업장", "퇴사자", "근무중"] },
-  { subId:"s-ps", alsoSubs:[], title:"포스화면 상품관리 방법", cat:"매장관리 › 기본관리", src:"videos/pos-screen.mp4", poster:"videos/pos-screen.jpg", dur:"3:46",
-    desc:"포스 화면의 PLU 상품 버튼 배치와 PLU 키보드 설정, 터치화면 카테고리, 사업장 상품(봉투 · 대물), 포스화면 배너를 관리하는 방법을 알려드려요.",
-    tags:["포스", "포스화면", "포스화면상품관리", "PLU", "PLU상품관리", "PLU키보드설정", "터치화면", "카테고리", "사업장상품관리", "봉투", "대물", "배너", "포스화면배너관리"] },
-  { subId:"s-px", alsoSubs:[], title:"포스 취소 및 보류내역 확인 방법", cat:"매장관리 › 기본관리", src:"videos/pos-cancel-hold.mp4", poster:"videos/pos-cancel-hold.jpg", dur:"1:18",
-    desc:"포스에서 선택취소 · 전체취소한 판매와 보류한 판매를 기간별로 조회하는 방법을 알려드려요.",
-    tags:["포스", "취소", "보류", "포스취소", "보류내역", "선택취소", "전체취소", "취소내역"] },
-  { subId:"s-bk", alsoSubs:[], title:"은행거래내역 조회 방법", cat:"매장관리 › 은행거래내역", src:"videos/bank-transactions.mp4", poster:"videos/bank-transactions.jpg", dur:"0:46",
-    desc:"매장 계좌를 선택하고 기간을 지정해 은행 입출금 거래 내역을 조회하는 방법을 알려드려요.",
-    tags:["은행", "은행거래", "은행거래내역", "계좌", "입출금", "거래내역", "실시간조회"] },
-  { subId:"7-4a", alsoSubs:["7-4b", "7-4c", "7-4d"], title:"계산원 마감 관리 방법", cat:"매장관리 › 계산원 마감 관리", src:"videos/cashier-close.mp4", poster:"videos/cashier-close.jpg", dur:"4:54",
+    tags:["쿠폰", "할인쿠폰", "할인쿠폰등록", "할인쿠폰조회", "할인쿠폰현황", "쿠폰명", "발행쿠폰수", "할인구분", "할인금액", "회원지정", "구매금액", "중복사용", "쿠폰번호", "행사시작", "진행완료", "준비중으로", "취소", "수정", "사용현황"],
+    chapters:[
+      { t:0.0, title:"할인쿠폰 등록", subs:["s-cp"], tags:["쿠폰등록"] },
+      { t:83.95, title:"할인쿠폰 등록 — 설정을 바꿔 하나 더", tags:["기간설정안함", "정율", "사용불가"] },
+      { t:145.08, title:"할인쿠폰 조회", subs:["s-cq"], tags:["쿠폰조회", "행사시작", "진행완료", "쿠폰수정"] },
+      { t:218.97, title:"할인쿠폰 취소 · 준비중으로", tags:["쿠폰취소", "준비중으로"] },
+      { t:241.38, title:"할인쿠폰 현황", subs:["s-cn"], tags:["쿠폰현황"] } ] },
+  { id:"store-basic", subId:"s-pg", alsoSubs:["7-1c", "s-sf", "s-sa", "s-emp", "s-ps", "s-px", "s-bk"], title:"기본관리 메뉴 사용 방법", cat:"매장관리 › 기본관리", src:"videos/store-basic.mp4", poster:"videos/store-basic.jpg", dur:"12:39",
+    desc:"판매가 변경 목록 · 가격표 관리 · 검색 폴더 관리 · 사원 관리 · 포스화면 상품관리 · 포스 취소 및 보류내역 · 은행거래내역, 기본관리 메뉴 일곱 가지를 차례로 알려드려요.",
+    tags:["기본관리", "판매가변경목록", "판매가", "판매가변경", "변경정보", "가격변경", "가격표관리", "가격표", "PDA", "작성중", "가격표인쇄", "검색폴더관리", "검색폴더", "폴더", "대그룹", "소그룹", "사원관리", "사원", "사업장사원관리", "사원등록", "직원", "포스화면상품관리", "포스", "포스화면", "PLU", "PLU상품관리", "포스취소및보류내역", "포스취소", "보류", "보류내역", "선택취소", "전체취소", "취소내역", "은행거래내역", "은행", "은행거래", "계좌", "입출금", "실시간조회"],
+    chapters:[
+      { t:8.44, title:"판매가 변경 목록", subs:["s-pg"], tags:["판매가", "판매가변경", "판매가변경목록", "변경정보", "가격변경"] },
+      { t:28.79, title:"판매가 변경 목록 — 바코드 인쇄", tags:["바코드인쇄"], inner:1 },
+      { t:60.46, title:"판매가 변경 목록 — 인쇄완료 · 인쇄안함", tags:["인쇄완료", "인쇄안함"], inner:1 },
+      { t:110.16, title:"판매가 변경 목록 — POP 제작관리", tags:["POP제작관리"], inner:1 },
+      { t:115.1, title:"가격표 관리", subs:["7-1c"], tags:["가격표", "가격표관리", "PDA", "작성중", "가격표인쇄"] },
+      { t:187.94, title:"검색 폴더 관리", subs:["s-sf"], tags:["검색폴더", "검색폴더관리", "폴더", "대그룹", "소그룹"] },
+      { t:210.19, title:"검색 폴더 — 대그룹 · 소그룹 만들기", tags:["대그룹", "소그룹"], inner:1 },
+      { t:225.4, title:"검색 폴더 — 상품 담기", tags:["상품추가"], inner:1 },
+      { t:247.39, title:"검색 폴더 — 상품 통합검색 창에서 쓰기", tags:["상품통합검색", "대분류", "소분류"], inner:1 },
+      { t:280.4, title:"사원 관리", subs:["s-sa", "s-emp"], tags:["사원", "사원관리", "사업장사원관리", "사원등록", "직원"] },
+      { t:344.51, title:"사원 정보 수정", tags:["사원수정"], inner:1 },
+      { t:362.31, title:"사원 목록 보기 — 사원구분 · 퇴사자", tags:["사원구분", "퇴사자"], inner:1 },
+      { t:371.76, title:"사원증 인쇄", tags:["사원증", "사원증인쇄"], inner:1 },
+      { t:397.36, title:"전자결재 정보 · PDA 메뉴권한 · 관리 사업장", tags:["전자결재", "PDA메뉴권한", "메뉴권한", "관리사업장"], inner:1 },
+      { t:430.64, title:"포스화면 상품관리", subs:["s-ps"], tags:["포스", "포스화면", "포스화면상품관리", "PLU", "PLU상품관리"] },
+      { t:478.43, title:"PLU 키보드 설정", tags:["PLU키보드"], inner:1 },
+      { t:512.93, title:"터치화면 카테고리 관리", tags:["터치화면", "카테고리"], inner:1 },
+      { t:555.82, title:"PLU 상품관리 — 카테고리에 상품 버튼 넣기", tags:["상품버튼"], inner:1 },
+      { t:580.2, title:"사업장 상품관리 — 봉투 · 대물", tags:["봉투", "종량제", "대물"], inner:1 },
+      { t:610.06, title:"포스화면 배너관리", tags:["배너", "배너관리"], inner:1 },
+      { t:645.6, title:"포스 취소 및 보류내역", subs:["s-px"], tags:["포스취소", "보류", "보류내역", "선택취소", "전체취소", "취소내역"] },
+      { t:693.49, title:"보류 목록", tags:["보류목록"], inner:1 },
+      { t:714.7, title:"은행거래내역", subs:["s-bk"], tags:["은행", "은행거래", "은행거래내역", "계좌", "입출금", "실시간조회"] } ] },
+  { id:"cashier-close", subId:"7-4a", alsoSubs:["7-4b", "7-4c", "7-4d"], title:"계산원 마감 관리 방법", cat:"매장관리 › 계산원 관리", src:"videos/cashier-close.mp4", poster:"videos/cashier-close.jpg", dur:"4:54",
     desc:"계산원 마감 관리에서 업무중 · 마감중 · 마감확정 · 취소 · 마감점검 단계를 처리하고, 계산원 과부족 현황 · 계산원별 매출현황 · 마감코드 체크목록을 확인하는 방법을 알려드려요.",
-    tags:["계산원", "계산원마감", "마감", "업무중", "마감중", "마감확정", "마감점검", "계산원추가", "시재문서", "마감금액수정", "과부족", "계산원과부족현황", "계산원별매출현황", "마감코드", "마감코드체크목록"] },
-  { subId:"8-8a", alsoSubs:["8-8b", "8-8c", "8-8d"], title:"경비 사용 관리 방법", cat:"매장관리 › 경비 사용관리", src:"videos/expense.mp4", poster:"videos/expense.jpg", dur:"3:23",
+    tags:["계산원", "계산원마감", "마감", "업무중", "마감중", "마감확정", "마감점검", "계산원추가", "시재문서", "마감금액수정", "과부족", "계산원과부족현황", "계산원별매출현황", "마감코드", "마감코드체크목록"],
+    chapters:[
+      { t:0.0, title:"계산원 마감 관리 — 업무중 · 마감중", subs:["7-4a"], tags:["계산원마감", "업무중", "계산원추가"] },
+      { t:70.45, title:"계산원 마감 관리 — 시재문서 · 마감확정 · 마감점검", tags:["시재문서", "마감확정", "마감점검", "마감금액수정"] },
+      { t:144.63, title:"계산원 과부족 현황", subs:["7-4b"], tags:["과부족", "과부족현황"] },
+      { t:187.5, title:"계산원별 매출현황", subs:["7-4c"], tags:["계산원별매출", "매출현황"] },
+      { t:252.25, title:"마감코드 체크목록", subs:["7-4d"], tags:["마감코드", "체크목록"] } ] },
+  { id:"store-settle", subId:"x-incentive-close", alsoSubs:["x-incentive-list"], title:"정산관리 메뉴 사용 방법", cat:"매장관리 › 정산관리", src:"videos/store-settle.mp4", poster:"videos/store-settle.jpg", dur:"2:53",
+    desc:"인센티브 마감관리에서 담당자별 인센티브를 확인 · 수정 · 지급 입력하는 방법과, 인센티브 마감목록에서 마감 내역을 확인하는 방법을 알려드려요.",
+    tags:["정산관리", "인센티브마감관리", "인센티브", "인센티브마감", "일괄수정", "지급입력", "정산", "인센티브마감목록", "마감대기", "마감완료", "작성중"],
+    chapters:[
+      { t:10.54, title:"인센티브 마감관리", subs:["x-incentive-close"], tags:["인센티브", "인센티브마감", "인센티브마감관리", "일괄수정", "지급입력", "정산"] },
+      { t:115.8, title:"인센티브 마감목록", subs:["x-incentive-list"], tags:["인센티브마감목록", "마감대기", "마감완료", "작성중"] } ] },
+  { id:"expense", subId:"8-8a", alsoSubs:["8-8b", "8-8c", "8-8d"], title:"경비 사용 관리 방법", cat:"매장관리 › 경비 사용관리", src:"videos/expense.mp4", poster:"videos/expense.jpg", dur:"3:23",
     desc:"제예금 현황에서 통장 잔액을 확인하고, 현금 출납장 · 회계 전표 · 계정별 원장으로 현금 내역과 전표를 관리하는 방법을 알려드려요.",
-    tags:["경비", "경비사용", "제예금", "제예금현황", "현금출납장", "회계전표", "전표", "계정별원장", "차변", "대변", "계정과목"] },
-  { subId:"x-incentive-close", alsoSubs:[], title:"인센티브 마감 관리 방법", cat:"매장관리 › 정산관리", src:"videos/incentive-close.mp4", poster:"videos/incentive-close.jpg", dur:"1:56",
-    desc:"담당자별 인센티브를 확인하고 포인트 차감 · 일괄수정 · 지급입력하는 방법을 알려드려요.",
-    tags:["인센티브", "인센티브마감", "인센티브마감관리", "정산", "지급입력", "일괄수정", "포인트차감"] },
-  { subId:"x-incentive-list", alsoSubs:[], title:"인센티브 마감목록 확인 방법", cat:"매장관리 › 정산관리", src:"videos/incentive-list.mp4", poster:"videos/incentive-list.jpg", dur:"1:02",
-    desc:"인센티브 마감 내역을 작성중 · 마감대기 · 마감완료 상태별로 확인하는 방법을 알려드려요.",
-    tags:["인센티브", "인센티브마감목록", "정산", "작성중", "마감대기", "마감완료"] },
-  { subId:"7-3a", alsoSubs:[], title:"바코드 인쇄관리 방법", cat:"매장관리 › 바코드 인쇄관리", src:"videos/barcode-print.mp4", poster:"videos/barcode-print.jpg", dur:"2:13",
-    desc:"상품 · 쿠폰 · 로케이션 바코드를 담고 템플릿을 골라 미리보기한 뒤 인쇄하는 방법을 알려드려요.",
-    tags:["바코드", "바코드인쇄", "바코드인쇄관리", "템플릿", "미리보기", "쿠폰바코드", "로케이션바코드", "프린터"] },
-  { subId:"7-3b", alsoSubs:[], title:"바코드 템플릿 관리 방법", cat:"매장관리 › 바코드 인쇄관리", src:"videos/barcode-template.mp4", poster:"videos/barcode-template.jpg", dur:"4:54",
-    desc:"바코드 라벨 템플릿을 추가하고, 디자인 창에서 바코드 · 글자 · 이미지 · 도형을 배치해 저장한 뒤 목록을 관리하는 방법을 알려드려요.",
-    tags:["바코드", "바코드템플릿", "템플릿", "라벨", "디자인", "바코드추가", "라인추가", "복사", "삭제"] },
-  { subId:"7-3g-s43", alsoSubs:["7-3h"], title:"POP 인쇄 관리 방법", cat:"매장관리 › POP 인쇄관리", src:"videos/pop-print.mp4", poster:"videos/pop-print.jpg", dur:"3:54",
+    tags:["경비", "경비사용", "제예금", "제예금현황", "현금출납장", "회계전표", "전표", "계정별원장", "차변", "대변", "계정과목"],
+    chapters:[
+      { t:0.0, title:"제예금 현황", subs:["8-8a"], tags:["제예금", "예금"] },
+      { t:54.22, title:"현금 출납장", subs:["8-8b"], tags:["현금출납장", "출납"] },
+      { t:65.52, title:"회계 전표", subs:["8-8c"], tags:["회계전표", "전표", "전표등록"] },
+      { t:130.72, title:"계정별 원장", subs:["8-8d"], tags:["계정별원장", "원장", "계정과목"] } ] },
+  { id:"store-barcode", subId:"7-3a", alsoSubs:["7-3b"], title:"바코드 인쇄관리 메뉴 사용 방법", cat:"매장관리 › 바코드 인쇄관리", src:"videos/store-barcode.mp4", poster:"videos/store-barcode.jpg", dur:"7:01",
+    desc:"상품 · 쿠폰 · 로케이션 바코드를 인쇄하는 방법과, 바코드 템플릿에서 라벨 모양을 직접 디자인하는 방법을 알려드려요.",
+    tags:["바코드인쇄관리", "바코드", "바코드인쇄", "상품바코드", "바코드템플릿", "템플릿", "라벨", "라벨디자인"],
+    chapters:[
+      { t:9.34, title:"바코드 인쇄관리", subs:["7-3a"], tags:["바코드", "바코드인쇄", "바코드인쇄관리", "상품바코드"] },
+      { t:54.12, title:"쿠폰 바코드 인쇄", tags:["쿠폰바코드"], inner:1 },
+      { t:97.22, title:"로케이션 바코드 인쇄", tags:["로케이션바코드"], inner:1 },
+      { t:131.34, title:"바코드 템플릿", subs:["7-3b"], tags:["바코드템플릿", "템플릿", "라벨", "라벨디자인"] },
+      { t:190.49, title:"바코드 템플릿 — 텍스트 · 바코드 · QR코드 · 이미지", tags:["QR코드", "텍스트", "이미지"], inner:1 },
+      { t:265.94, title:"바코드 템플릿 — 수식 · 도형", tags:["수식", "도형"], inner:1 },
+      { t:312.36, title:"바코드 템플릿 — 편집 도구", tags:["그룹화", "복제", "실행취소"], inner:1 },
+      { t:368.19, title:"바코드 템플릿 — 저장 · 목록 관리", tags:["템플릿저장", "라인추가"], inner:1 } ] },
+  { id:"pop-print", subId:"7-3g-s43", alsoSubs:["7-3h"], title:"POP 인쇄 관리 방법", cat:"매장관리 › POP 인쇄관리", src:"videos/pop-print.mp4", poster:"videos/pop-print.jpg", dur:"3:54",
     desc:"상품 POP를 미리보고 인쇄하는 방법과 POP 스킨 템플릿에서 스킨을 만들고 디자인하는 방법을 알려드려요.",
-    tags:["POP", "POP인쇄", "POP인쇄관리", "POP스킨", "스킨템플릿", "스킨추가", "디자인", "카테고리관리", "POP초기화"] },
-  { subId:"8b-3a", alsoSubs:["8b-3c", "8b-3d", "8b-3e", "8b-3f"], title:"로케이션 관리 방법", cat:"매장관리 › 로케이션 관리", src:"videos/location.mp4", poster:"videos/location.jpg", dur:"4:19",
+    tags:["POP", "POP인쇄", "POP인쇄관리", "POP스킨", "스킨템플릿", "스킨추가", "디자인", "카테고리관리", "POP초기화"],
+    chapters:[
+      { t:0.0, title:"POP 인쇄 관리", subs:["7-3g-s43"], tags:["POP인쇄", "피오피"] },
+      { t:53.42, title:"POP 스킨 템플릿", subs:["7-3h"], tags:["POP스킨", "스킨템플릿", "카테고리관리"] },
+      { t:105.35, title:"스킨추가 — 제목 띠 만들기", tags:["스킨추가", "디자인"] },
+      { t:156.18, title:"스킨추가 — 상품명 · 판매가 넣기", tags:["스킨저장"] },
+      { t:208.35, title:"새 스킨으로 POP 인쇄", tags:["POP미리보기"] } ] },
+  { id:"location", subId:"8b-3a", alsoSubs:["8b-3c", "8b-3d", "8b-3e", "8b-3f"], title:"로케이션 관리 방법", cat:"매장관리 › 로케이션 관리", src:"videos/location.mp4", poster:"videos/location.jpg", dur:"4:19",
     desc:"위치 분류를 만들고 로케이션에 상품을 등록 · 이동하는 방법과 로케이션 상품목록 · 미지정 상품목록 · 포장 모니터 관리를 알려드려요.",
-    tags:["로케이션", "로케이션관리", "위치", "로케이션상품등록", "위치이동", "로케이션상품목록", "미지정상품", "포장모니터"] },
+    tags:["로케이션", "로케이션관리", "위치", "로케이션상품등록", "위치이동", "로케이션상품목록", "미지정상품", "포장모니터"],
+    chapters:[
+      { t:0.0, title:"로케이션 관리 — 위치 분류 만들기", subs:["8b-3a"], tags:["로케이션", "위치분류"] },
+      { t:65.45, title:"로케이션 상품 등록", subs:["8b-3c"], tags:["로케이션상품등록", "위치이동", "상품추가"] },
+      { t:147.65, title:"로케이션 상품목록", subs:["8b-3d"], tags:["로케이션상품목록"] },
+      { t:184.22, title:"미지정 상품목록", subs:["8b-3e"], tags:["미지정상품", "미지정"] },
+      { t:201.95, title:"포장 모니터 관리", subs:["8b-3f"], tags:["포장모니터"] } ] },
 ];
 let _curVideo = null;
 function videoForSub(sub) { return sub ? VIDEOS.find(v => v.subId === sub.id || (v.alsoSubs || []).includes(sub.id)) : null; }
@@ -26883,31 +26958,61 @@ function setVideoBtn(sub) {
   const b = document.getElementById("video-btn"); if (!b) return;
   b.style.display = videoForSub(sub) ? "flex" : "none";
 }
-function playSectionVideo() { if (curSection) openVideo(videoForSub(curSection.sub), false); }
-function openVideo(v, showGoto) {
+// 묶음 영상: 이 페이지(sub)에 해당하는 챕터의 시작 시각(초). 없으면 0(처음부터)
+function videoStartFor(v, subId) { const c = v && (v.chapters || []).find(c => (c.subs || []).includes(subId)); return c ? c.t : 0; }
+function playSubVideo(subId) { const v = videoForSub({ id: subId }); if (v) openVideo(v, false, videoStartFor(v, subId)); }
+function playSectionVideo() { if (curSection) playSubVideo(curSection.sub.id); }
+function vidFmt(t) { t = Math.floor(t); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); }
+function seekVideo(t) { const vid = document.getElementById("vmVideo"); vid.currentTime = t; vid.play().catch(() => {}); }
+function markChapter(t) {
+  const chs = (_curVideo && _curVideo.chapters) || [];
+  let k = -1;
+  chs.forEach((c, i) => { if (c.t <= t + 0.3) k = i; });
+  document.querySelectorAll("#vmChaps .vm-chap").forEach((b, i) => {
+    const on = i === k;
+    if (b.classList.contains("on") !== on) { b.classList.toggle("on", on); if (on) b.scrollIntoView({ block: "nearest" }); }
+  });
+}
+function openVideo(v, showGoto, startAt) {
   if (!v) return;
+  startAt = startAt || 0;
   _curVideo = v;
   document.getElementById("vmChip").textContent = v.cat;
   document.getElementById("vmTitle").textContent = v.title;
   document.getElementById("vmGoto").style.display = showGoto ? "" : "none";
   const vid = document.getElementById("vmVideo");
-  vid.poster = v.poster || "";
-  vid.src = v.src;
+  vid.poster = startAt ? "" : (v.poster || "");
+  vid.src = v.src + (startAt ? "#t=" + startAt : "");
+  if (startAt) vid.addEventListener("loadedmetadata", () => { if (Math.abs(vid.currentTime - startAt) > 1) vid.currentTime = startAt; }, { once: true });
+  // 목차(챕터): 누르면 그 부분부터 재생, 재생 중인 챕터 표시
+  const chs = v.chapters || [];
+  document.querySelector("#vid-modal .vm-box").classList.toggle("has-chaps", chs.length > 1);
+  document.getElementById("vmChaps").innerHTML = chs.length > 1 ? `<div class="vm-chaps-h">목차 · 누르면 그 부분부터 재생돼요</div>` + chs.map(c =>
+    `<button class="vm-chap${c.inner ? " inner" : ""}" onclick="seekVideo(${c.t})"><span class="vm-chap-t">${vidFmt(c.t)}</span><span>${c.title}</span></button>`).join("") : "";
+  vid.ontimeupdate = () => markChapter(vid.currentTime);
+  markChapter(startAt);
   document.getElementById("vid-modal").classList.add("open");
   document.body.classList.add("vid-open");
   vid.play().catch(() => {});
 }
 function closeVideo() {
   const vid = document.getElementById("vmVideo");
+  vid.ontimeupdate = null;
   vid.pause(); vid.removeAttribute("src"); vid.load(); // 닫으면 재생·다운로드 중지
   document.getElementById("vid-modal").classList.remove("open");
   document.body.classList.remove("vid-open");
 }
 function gotoVideoPage() {
-  const v = _curVideo; closeVideo();
+  const v = _curVideo;
+  const t = document.getElementById("vmVideo").currentTime || 0;
+  closeVideo();
   if (!v) return;
-  const ch = NAVSECS().find(c => (c.subs||[]).some(s => s.id === v.subId));
-  if (ch) { document.getElementById("vidBanner")?.classList.remove("active"); openSub(ch.id, v.subId); }
+  // 묶음 영상은 지금 보고 있던 챕터의 페이지로
+  let sid = v.subId;
+  (v.chapters || []).forEach(c => { if (t > 0 && c.t <= t + 0.3 && (c.subs || []).length) sid = c.subs[0]; });
+  let ch = NAVSECS().find(c => (c.subs||[]).some(s => s.id === sid));
+  if (!ch) { sid = v.subId; ch = NAVSECS().find(c => (c.subs||[]).some(s => s.id === sid)); }
+  if (ch) { document.getElementById("vidBanner")?.classList.remove("active"); openSub(ch.id, sid); }
 }
 document.addEventListener("keydown", e => { if (e.key === "Escape" && document.getElementById("vid-modal")?.classList.contains("open")) closeVideo(); });
 
@@ -26943,8 +27048,11 @@ function renderVideoGrid(q) {
     const re = new RegExp(qn.split("").map(c => c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("\\s*"), "gi");
     return esc(s).replace(re, m => `<mark class="vg-hl">${m}</mark>`);
   };
+  const norm = t => (t || "").toLowerCase().replace(/\s+/g, "");
+  // 챕터 검색: 제목(안쪽 챕터는 "—" 뒤 부분)과 검색어(tags)
+  const chapHit = c => !!qn && norm([c.inner && c.title.includes(" — ") ? c.title.split(" — ").slice(1).join(" ") : c.title].concat(c.tags || []).join(" ")).includes(qn);
   const list = VIDEOS.map((v, i) => ({ v, i })).filter(({ v }) => !qn ||
-    [v.title, v.cat, v.desc].concat(v.tags || []).join(" ").toLowerCase().replace(/\s+/g, "").includes(qn));
+    norm([v.title, v.cat, v.desc].concat(v.tags || []).join(" ")).includes(qn) || (v.chapters || []).some(chapHit));
   document.getElementById("vgCount").textContent = qn ? `검색 결과 ${list.length}개` : `전체 ${VIDEOS.length}개 강의`;
   document.getElementById("vgGrid").innerHTML = list.length ? list.map(({ v, i }) => `
     <div class="vg-card" onclick="openVideo(VIDEOS[${i}], true)">
@@ -26958,6 +27066,8 @@ function renderVideoGrid(q) {
         <div class="vg-cat">${hl(v.cat)}</div>
         <div class="vg-name">${hl(v.title)}</div>
         <div class="vg-text">${hl(v.desc)}</div>
+        ${(v.chapters || []).some(chapHit) ? `<div class="vg-chaps">` + v.chapters.filter(chapHit).slice(0, 4).map(c =>
+          `<button class="vg-chap" onclick="event.stopPropagation();openVideo(VIDEOS[${i}], true, ${c.t})">▶ ${esc(c.title)}부터 보기</button>`).join("") + `</div>` : ``}
         <button class="vg-link" onclick="event.stopPropagation();_curVideo=VIDEOS[${i}];gotoVideoPage()">매뉴얼 페이지 보기 →</button>
       </div>
     </div>`).join("") : `<div class="vg-empty">"${esc(q.trim())}"에 맞는 동영상 강의가 없어요.<br>다른 단어로 찾아보세요.</div>`;
@@ -28552,6 +28662,7 @@ function doSearch(q) {
       html += `<img src="${IMGS[firstPg]}" style="width:120px;border-radius:5px;border:1px solid var(--border);flex-shrink:0">`;
     }
     html += `<div><div class="sr-title">${title}</div><div style="font-size:11px;color:var(--text-muted);margin-top:3px">${r.sub.pages.length}페이지</div></div>
+      ${videoForSub(r.sub) ? `<button class="vid-mini" style="margin-left:auto" onclick="event.stopPropagation();playSubVideo('${r.sub.id}')">▶ 동영상 강의 보기</button>` : ``}
       </div>
     </div>`;
   });
@@ -28679,7 +28790,7 @@ function aiChatSend() {
     if (results.length) {
       body = `"<b>${aiEsc(q)}</b>" 관련 메뉴를 <b>${results.length}건</b> 찾았어요. 클릭하면 설명을 보여드릴게요. 👇`;
       results.forEach(r => {
-        body += `<div class="ai-result" onclick="aiShowDesc('${r.ch.id}','${r.sub.id}')">📄 <span>${r.ch.title} · ${aiEsc(r.title)}</span></div>`;
+        body += `<div class="ai-result" onclick="aiShowDesc('${r.ch.id}','${r.sub.id}')">📄 <span>${r.ch.title} · ${aiEsc(r.title)}</span>${videoForSub(r.sub) ? `<button class="vid-mini" style="margin-left:auto;padding:3px 9px;font-size:11px" title="동영상 강의 보기" onclick="event.stopPropagation();playSubVideo('${r.sub.id}')">▶ 동영상 강의</button>` : ``}</div>`;
       });
     } else {
       body = `"<b>${aiEsc(q)}</b>" 관련 메뉴를 찾지 못했어요. 😅<br>조금 더 구체적인 키워드(예: <b>재고조정</b>, <b>매대진열</b>, <b>경비</b>, <b>보고서</b>)로 다시 검색해보세요.`;
@@ -28717,6 +28828,7 @@ function aiShowDesc(chId, subId) {
   if (d && d.length) body += aiDescHtml(d);
   else body += `<div class="ai-d-sub" style="color:var(--text-muted)">이 페이지는 설명이 준비 중입니다.</div>`;
   body += `<button class="ai-goto" onclick="aiGo('${chId}','${subId}')">이 페이지로 이동 →</button>`;
+  if (videoForSub(sub)) body += ` <button class="vid-mini" style="margin-top:8px" onclick="playSubVideo('${subId}')">▶ 동영상 강의 보기</button>`;
   aiAppendMsg("bot", body);
 }
 function aiGo(chId, subId) { openSub(chId, subId); }
