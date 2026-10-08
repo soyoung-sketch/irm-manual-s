@@ -26936,6 +26936,21 @@ const VIDEOS = [
       { t:266.1, title:"사업장 관리 — 계좌정보 · 연동 설정", tags:["사업장계좌", "계좌연동", "세금계산서연동"] },
       { t:321.65, title:"사원메뉴설정", subs:["s-empmenu"], tags:["사원메뉴설정", "메뉴숨김", "메뉴권한"] },
       { t:354.55, title:"버튼 권한 관리", subs:["s-btnauth"], tags:["버튼권한", "사원권한적용", "직급권한적용"] } ] },
+  { id:"purchase-fee", subId:"s-scm1", alsoSubs:["s-scm2"], title:"판매분수수료 관리 방법", cat:"매입관리 › 판매분수수료 관리", src:"videos/purchase-fee.mp4", poster:"videos/purchase-fee.jpg", dur:"2:58",
+    desc:"수수료 매출 마감에서 입점사의 수수료를 정산해 지급을 입력하고, 수수료 매출 마감 조회에서 마감대기 · 마감완료로 처리하는 방법을 알려드려요.",
+    tags:["판매분수수료관리", "판매분수수료", "수수료", "수수료매출마감", "입점사", "일괄수정", "지급입력", "마감대기", "마감완료"],
+    chapters:[
+      { t:0.0, title:"수수료 매출 마감", subs:["s-scm1"], tags:["수수료매출마감", "마감월", "매출상세정보"] },
+      { t:63.65, title:"수수료 매출 마감 — 기간 일괄 수정 · 지급입력", tags:["기간일괄수정", "수수료율", "지급입력"] },
+      { t:107.45, title:"수수료 매출 마감 조회", subs:["s-scm2"], tags:["수수료매출마감조회", "마감대기", "마감완료", "상세정보"] } ] },
+  { id:"purchase-debt", subId:"s-vtr", alsoSubs:["s-wl1", "s-wl2", "s-dpay", "s-dps"], title:"매입채무 관리 방법", cat:"매입관리 › 매입채무 관리", src:"videos/purchase-debt.mp4", poster:"videos/purchase-debt.jpg", dur:"3:31",
+    desc:"매입처별 거래내역에서 줄 금액을 확인하고, 매입처 원장과 채무 지급 관리 · 채무 지급 현황으로 지급을 처리하고 확인하는 방법을 알려드려요.",
+    tags:["매입채무관리", "매입채무", "채무", "매입처별거래내역", "매입처원장", "채무지급관리", "채무지급현황", "지급"],
+    chapters:[
+      { t:0.0, title:"매입처별 거래내역", subs:["s-vtr"], tags:["매입처별거래내역", "미지급금", "거래내역"] },
+      { t:68.88, title:"매입처 원장 (결제 · 상품)", subs:["s-wl1", "s-wl2"], tags:["매입처원장", "결제원장", "상품원장"] },
+      { t:102.98, title:"채무 지급 관리", subs:["s-dpay"], tags:["채무지급관리", "지급등록"] },
+      { t:161.42, title:"채무 지급 현황", subs:["s-dps"], tags:["채무지급현황", "지급현황"] } ] },
   { id:"event-basic", subId:"s-ev", alsoSubs:["s-evq", "s-hj", "s-cx"], title:"기본행사 관리 방법", cat:"매장관리 › 기본행사 관리", src:"videos/event-basic.mp4", poster:"videos/event-basic.jpg", dur:"5:40",
     desc:"행사 상품 등록부터 행사 상품 조회의 준비중 · 행사중 · 완료 처리, 행사 중 상품 현황과 행사매입 초과수량까지 알려드려요.",
     tags:["행사", "기본행사", "행사상품등록", "행사상품조회", "행사시작", "진행완료", "준비중으로", "종료일변경", "행사복사", "수정", "취소", "행사중상품현황", "행사매입초과수량", "초과수량", "매입검색", "매출검색", "수량차이"],
@@ -27044,6 +27059,26 @@ const VIDEOS = [
       { t:146.55, title:"로케이션 상품목록", subs:["8b-3d"], tags:["로케이션상품목록"] },
       { t:182.65, title:"미지정 상품목록", subs:["8b-3e"], tags:["미지정상품", "미지정"] },
       { t:199.78, title:"포장 모니터 관리", subs:["8b-3f"], tags:["포장모니터"] } ] },
+  { id:"stock-status", subId:"9-1a", alsoSubs:["9-1b"], title:"재고 관리 방법", cat:"재고관리 › 재고관리", src:"videos/stock-status.mp4", poster:"videos/stock-status.jpg", dur:"2:28",
+    desc:"상품 재고 현황 · 상품 수불 내역 · 유효일별 남은재고에서 재고와 입출고 내역, 유효일을 확인하는 방법을 알려드려요.",
+    tags:["재고관리", "재고", "상품재고현황", "상품수불내역", "수불", "유효일", "남은재고"],
+    chapters:[
+      { t:0.0, title:"상품 재고 현황", subs:["9-1a"], tags:["상품재고현황", "재고조회", "기준일"] },
+      { t:57.32, title:"상품 수불 내역", subs:["9-1b"], tags:["상품수불내역", "입출고", "수불"] },
+      { t:89.08, title:"유효일별 남은재고", tags:["유효일", "유효일별남은재고", "입고분"] } ] },
+  { id:"stock-adjust", subId:"9-3a", alsoSubs:["9-3b", "9-3c"], title:"재고조정 관리 방법", cat:"재고관리 › 재고조정 관리", src:"videos/stock-adjust.mp4", poster:"videos/stock-adjust.jpg", dur:"3:44",
+    desc:"재고조정 등록으로 전산 재고를 실제 재고에 맞추고, 재고조정 조회 · 재고조정 현황에서 내역을 확인하는 방법을 알려드려요.",
+    tags:["재고조정관리", "재고조정", "재고조정등록", "재고조정조회", "재고조정현황", "실재고", "조정수량"],
+    chapters:[
+      { t:0.0, title:"재고조정 등록", subs:["9-3a"], tags:["재고조정등록", "상품추가", "조정수량"] },
+      { t:108.18, title:"재고조정 조회", subs:["9-3b"], tags:["재고조정조회", "조정내역"] },
+      { t:183.32, title:"재고조정 현황", subs:["9-3c"], tags:["재고조정현황"] } ] },
+  { id:"hq-basic", subId:"x-hq-basic", alsoSubs:[], title:"본사 기본관리 메뉴 사용 방법", cat:"본사관리 › 기본관리", src:"videos/hq-basic.mp4", poster:"videos/hq-basic.jpg", dur:"4:06",
+    desc:"본사 관리의 기본관리 메뉴 — 사업장을 등록하고 관리하는 사업장 관리와, 사원을 등록하고 권한을 관리하는 사원 관리를 차례로 알려드려요.",
+    tags:["기본관리", "사업장관리", "본사관리", "사업장등록", "신규작성", "사원관리", "사원등록", "사원증인쇄", "접근권한"],
+    chapters:[
+      { t:9.44, title:"사업장 관리", subs:["x-hq-basic"], tags:["본사관리", "사업장관리", "사업장등록", "신규작성"] },
+      { t:89.87, title:"사원 관리", tags:["사원관리", "사원등록", "사원증인쇄", "접근권한"] } ] },
 ];
 let _curVideo = null;
 function videoForSub(sub) { return sub ? VIDEOS.find(v => v.subId === sub.id || (v.alsoSubs || []).includes(sub.id)) : null; }
