@@ -27361,7 +27361,9 @@ function ytLoadApi() {
   _ytApi.catch(() => { _ytApi = null; });
   return _ytApi;
 }
-function ytParams(start) { return `start=${Math.floor(start || 0)}&autoplay=1&rel=0&modestbranding=1&playsinline=1`; }
+// 영상 안에 자막이 이미 들어 있어서 유튜브 자막(자동 자막 포함)은 꺼진 채로 시작
+function ytParams(start) { return `start=${Math.floor(start || 0)}&autoplay=1&rel=0&modestbranding=1&playsinline=1&cc_load_policy=0&iv_load_policy=3`; }
+function ytNoCaptions(p) { try { p.unloadModule("captions"); } catch (_) {} try { p.unloadModule("cc"); } catch (_) {} }
 function ytPlain(id, start) {
   _yt = null; _ytStart = start || 0;
   document.getElementById("vmYt").innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?${ytParams(start)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="동영상 강의"></iframe>`;
@@ -27373,8 +27375,10 @@ function ytOpen(v, start) {
   ytLoadApi().then(() => {
     if (_curVideo !== v || !document.getElementById("vmYtPlayer")) return;
     _yt = new YT.Player("vmYtPlayer", { host: "https://www.youtube-nocookie.com", videoId: v.yt,
-      playerVars: { start: Math.floor(start || 0), autoplay: 1, rel: 0, modestbranding: 1, playsinline: 1 },
-      events: { onReady: e => { try { e.target.playVideo(); } catch (_) {} } } });
+      playerVars: { start: Math.floor(start || 0), autoplay: 1, rel: 0, modestbranding: 1, playsinline: 1, cc_load_policy: 0, iv_load_policy: 3 },
+      events: { onReady: e => { ytNoCaptions(e.target); try { e.target.playVideo(); } catch (_) {} },
+                onApiChange: e => ytNoCaptions(e.target),
+                onStateChange: e => { if (e.data === 1 && !e.target._ccOff) { e.target._ccOff = 1; ytNoCaptions(e.target); } } } });
     clearInterval(_ytTimer);
     _ytTimer = setInterval(() => { try { if (_yt && _yt.getCurrentTime) markChapter(_yt.getCurrentTime()); } catch (_) {} }, 500);
   }).catch(() => { if (_curVideo === v) ytPlain(v.yt, start); });
