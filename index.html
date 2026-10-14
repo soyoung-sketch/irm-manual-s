@@ -1305,6 +1305,10 @@ body.vid-open .card-img-wrap .sim-spot, body.vid-open .card-img-wrap .sim-num { 
 .vid-mini { white-space:nowrap; flex-shrink:0; }
 .vm-body { display:flex; background:#0f172a; }
 .vm-body video { flex:1; min-width:0; width:auto; }
+.vm-yt { display:none; flex:1; min-width:0; aspect-ratio:16/9; background:#000; }
+.vm-yt iframe, .vm-yt > div { display:block; width:100%; height:100%; border:0; }
+.vm-box.yt video { display:none; }
+.vm-box.yt .vm-yt { display:block; }
 .vm-chaps { display:none; position:relative; width:270px; flex-shrink:0; background:#fff; border-left:1px solid var(--border); }
 .vm-box.has-chaps { width:min(1420px, 96vw); }
 .vm-box.has-chaps .vm-chaps { display:block; }
@@ -1440,6 +1444,7 @@ mark.vg-hl { background:#FFEDD5; color:inherit; border-radius:3px; padding:0 1px
     </div>
     <div class="vm-body">
       <video id="vmVideo" controls preload="metadata" playsinline></video>
+      <div class="vm-yt" id="vmYt"></div>
       <div class="vm-chaps"><div class="vm-chaps-in" id="vmChaps"></div></div>
     </div>
   </div>
@@ -26852,7 +26857,7 @@ function NAVSECS(){ return VER === "s" ? SECTIONS_S : SECTIONS; }
 // 모아보기 페이지는 이 배열 순서대로 나열됩니다. subId = 영상을 연결할 메뉴(sub) id → 해당 페이지 상단에 [동영상 강의 보기] 버튼 표시
 // tags = 모아보기 검색에 걸릴 추가 키워드
 const VIDEOS = [
-  { id:"favorites", subId:"s-fav", alsoSubs:[], title:"즐겨찾기 설정 방법", cat:"즐겨찾기 › 즐겨찾기 편집", src:"videos/favorites.mp4", poster:"videos/favorites.jpg", dur:"2:20",
+  { id:"favorites", subId:"s-fav", alsoSubs:[], title:"즐겨찾기 설정 방법", cat:"즐겨찾기 › 즐겨찾기 편집", src:"videos/favorites.mp4", poster:"videos/favorites.jpg", dur:"2:20", yt:"889vj-KmXBE",
     desc:"자주 쓰는 메뉴를 추가하고, 그룹으로 정리하고, 아이콘 크기·순서를 바꿔 HOME 상단에서 바로 실행하는 방법을 알려드려요.",
     tags:["즐겨찾기", "즐겨찾기편집", "HOME", "홈", "메뉴", "추가", "그룹", "그룹추가", "그룹삭제", "이름변경", "크기", "크게", "작게", "아이콘", "순서", "위로", "아래", "사용안함", "삭제"] },
   { id:"base-products", subId:"7-1", alsoSubs:["2-1-s2", "2-11", "s-rst", "2-11b", "2-11c", "2-11d"], title:"상품관리 메뉴 사용 방법", cat:"기초관리 › 상품관리", src:"videos/base-products.mp4", poster:"videos/base-products.jpg", dur:"14:49",
@@ -27073,7 +27078,7 @@ const VIDEOS = [
       { t:176.57, title:"미수금 입금 — 수금취소 · 수금정보삭제", tags:["수금취소", "수금정보삭제"] },
       { t:198.13, title:"미수금 입금조회", subs:["5-mr1"], tags:["미수금입금조회", "입금표", "수금삭제"] },
       { t:230.8, title:"매출처 원장(결제 · 상품)", subs:["5-al1", "5-al2"], tags:["매출처원장", "결제원장", "상품원장"] } ] },
-  { id:"event-basic", subId:"s-ev", alsoSubs:["s-evq", "s-hj", "s-cx"], title:"기본행사 관리 방법", cat:"매장관리 › 기본행사 관리", src:"videos/event-basic.mp4", poster:"videos/event-basic.jpg", dur:"5:36",
+  { id:"event-basic", subId:"s-ev", alsoSubs:["s-evq", "s-hj", "s-cx"], title:"기본행사 관리 방법", cat:"매장관리 › 기본행사 관리", src:"videos/event-basic.mp4", poster:"videos/event-basic.jpg", dur:"5:36", yt:"QwbbgTWCHIs",
     desc:"행사 상품 등록부터 행사 상품 조회의 준비중 · 행사중 · 완료 처리, 행사 중 상품 현황과 행사매입 초과수량까지 알려드려요.",
     tags:["행사", "기본행사", "행사상품등록", "행사상품조회", "행사시작", "진행완료", "준비중으로", "종료일변경", "행사복사", "수정", "취소", "행사중상품현황", "행사매입초과수량", "초과수량", "매입검색", "매출검색", "수량차이"],
     chapters:[
@@ -27082,7 +27087,7 @@ const VIDEOS = [
       { t:178.18, title:"완료 · 취소된 행사 복사", tags:["행사복사", "준비중으로", "행사취소"] },
       { t:274.34, title:"행사 중 상품 현황", subs:["s-hj"], tags:["행사중상품현황"] },
       { t:284.4, title:"행사매입 초과수량", subs:["s-cx"], tags:["초과수량", "행사매입"] } ] },
-  { id:"discount-group", subId:"s-dge", alsoSubs:["s-dgq"], title:"할인그룹 관리 방법", cat:"매장관리 › 할인그룹 관리", src:"videos/discount-group.mp4", poster:"videos/discount-group.jpg", dur:"6:04",
+  { id:"discount-group", subId:"s-dge", alsoSubs:["s-dgq"], title:"할인그룹 관리 방법", cat:"매장관리 › 할인그룹 관리", src:"videos/discount-group.mp4", poster:"videos/discount-group.jpg", dur:"6:04", yt:"tp7s9vEnF-Q",
     desc:"행사구분 일치 · 포함 · 구간(금액) · 구간(수량)으로 할인그룹을 등록하고, 할인 그룹 조회에서 행사시작 · 진행완료 · 준비중으로 · 취소하는 방법을 알려드려요.",
     tags:["할인", "할인그룹", "할인그룹등록", "할인그룹조회", "일치", "포함", "포함수량", "구간", "구간금액", "구간수량", "상품복사", "할인금액", "행사시작", "진행완료", "준비중으로", "취소", "수정"],
     chapters:[
@@ -27092,7 +27097,7 @@ const VIDEOS = [
       { t:176.55, title:"할인 그룹 등록 — 구간(수량)", tags:["구간수량"] },
       { t:235.52, title:"할인 그룹 조회", subs:["s-dgq"], tags:["할인그룹조회", "행사시작", "진행완료"] },
       { t:281.32, title:"할인 그룹 수정 · 준비중으로 · 취소", tags:["할인그룹수정", "준비중으로", "취소"] } ] },
-  { id:"discount-coupon", subId:"s-cp", alsoSubs:["s-cq", "s-cn"], title:"할인쿠폰 관리 방법", cat:"매장관리 › 쿠폰 관리", src:"videos/discount-coupon.mp4", poster:"videos/discount-coupon.jpg", dur:"4:32",
+  { id:"discount-coupon", subId:"s-cp", alsoSubs:["s-cq", "s-cn"], title:"할인쿠폰 관리 방법", cat:"매장관리 › 쿠폰 관리", src:"videos/discount-coupon.mp4", poster:"videos/discount-coupon.jpg", dur:"4:32", yt:"DISWMdu8Ei8",
     desc:"할인쿠폰을 등록하고, 할인쿠폰 조회에서 행사시작 · 진행완료 · 수정 · 준비중으로 · 취소하는 방법과 할인쿠폰 현황에서 사용 현황을 확인하는 방법을 알려드려요.",
     tags:["쿠폰", "할인쿠폰", "할인쿠폰등록", "할인쿠폰조회", "할인쿠폰현황", "쿠폰명", "발행쿠폰수", "할인구분", "할인금액", "회원지정", "구매금액", "중복사용", "쿠폰번호", "행사시작", "진행완료", "준비중으로", "취소", "수정", "사용현황"],
     chapters:[
@@ -27101,7 +27106,7 @@ const VIDEOS = [
       { t:142.42, title:"할인쿠폰 조회", subs:["s-cq"], tags:["쿠폰조회", "행사시작", "진행완료", "쿠폰수정"] },
       { t:213.97, title:"할인쿠폰 취소 · 준비중으로", tags:["쿠폰취소", "준비중으로"] },
       { t:236.38, title:"할인쿠폰 현황", subs:["s-cn"], tags:["쿠폰현황"] } ] },
-  { id:"store-basic", subId:"s-pg", alsoSubs:["7-1c", "s-sf", "s-sa", "s-emp", "s-ps", "s-px", "s-bk"], title:"기본관리 메뉴 사용 방법", cat:"매장관리 › 기본관리", src:"videos/store-basic.mp4", poster:"videos/store-basic.jpg", dur:"12:12",
+  { id:"store-basic", subId:"s-pg", alsoSubs:["7-1c", "s-sf", "s-sa", "s-emp", "s-ps", "s-px", "s-bk"], title:"기본관리 메뉴 사용 방법", cat:"매장관리 › 기본관리", src:"videos/store-basic.mp4", poster:"videos/store-basic.jpg", dur:"12:12", yt:"mEJ8rcAVtUk",
     desc:"판매가 변경 목록 · 가격표 관리 · 검색 폴더 관리 · 사원 관리 · 포스화면 상품관리 · 포스 취소 및 보류내역 · 은행거래내역, 기본관리 메뉴 일곱 가지를 차례로 알려드려요.",
     tags:["기본관리", "판매가변경목록", "판매가", "판매가변경", "변경정보", "가격변경", "가격표관리", "가격표", "PDA", "작성중", "가격표인쇄", "검색폴더관리", "검색폴더", "폴더", "대그룹", "소그룹", "사원관리", "사원", "사업장사원관리", "사원등록", "직원", "포스화면상품관리", "포스", "포스화면", "PLU", "PLU상품관리", "포스취소및보류내역", "포스취소", "보류", "보류내역", "선택취소", "전체취소", "취소내역", "은행거래내역", "은행", "은행거래", "계좌", "입출금", "실시간조회"],
     chapters:[
@@ -27128,7 +27133,7 @@ const VIDEOS = [
       { t:621.44, title:"포스 취소 및 보류내역", subs:["s-px"], tags:["포스취소", "보류", "보류내역", "선택취소", "전체취소", "취소내역"] },
       { t:668.49, title:"보류 목록", tags:["보류목록"], inner:1 },
       { t:689.2, title:"은행거래내역", subs:["s-bk"], tags:["은행", "은행거래", "은행거래내역", "계좌", "입출금", "실시간조회"] } ] },
-  { id:"cashier-close", subId:"7-4a", alsoSubs:["7-4b", "7-4c", "7-4d"], title:"계산원 마감 관리 방법", cat:"매장관리 › 계산원 관리", src:"videos/cashier-close.mp4", poster:"videos/cashier-close.jpg", dur:"4:46",
+  { id:"cashier-close", subId:"7-4a", alsoSubs:["7-4b", "7-4c", "7-4d"], title:"계산원 마감 관리 방법", cat:"매장관리 › 계산원 관리", src:"videos/cashier-close.mp4", poster:"videos/cashier-close.jpg", dur:"4:46", yt:"KoZYfvQohOo",
     desc:"계산원 마감 관리에서 업무중 · 마감중 · 마감확정 · 취소 · 마감점검 단계를 처리하고, 계산원 과부족 현황 · 계산원별 매출현황 · 마감코드 체크목록을 확인하는 방법을 알려드려요.",
     tags:["계산원", "계산원마감", "마감", "업무중", "마감중", "마감확정", "마감점검", "계산원추가", "시재문서", "마감금액수정", "과부족", "계산원과부족현황", "계산원별매출현황", "마감코드", "마감코드체크목록"],
     chapters:[
@@ -27137,13 +27142,13 @@ const VIDEOS = [
       { t:140.2, title:"계산원 과부족 현황", subs:["7-4b"], tags:["과부족", "과부족현황"] },
       { t:181.67, title:"계산원별 매출현황", subs:["7-4c"], tags:["계산원별매출", "매출현황"] },
       { t:244.02, title:"마감코드 체크목록", subs:["7-4d"], tags:["마감코드", "체크목록"] } ] },
-  { id:"store-settle", subId:"x-incentive-close", alsoSubs:["x-incentive-list"], title:"정산관리 메뉴 사용 방법", cat:"매장관리 › 정산관리", src:"videos/store-settle.mp4", poster:"videos/store-settle.jpg", dur:"2:50",
+  { id:"store-settle", subId:"x-incentive-close", alsoSubs:["x-incentive-list"], title:"정산관리 메뉴 사용 방법", cat:"매장관리 › 정산관리", src:"videos/store-settle.mp4", poster:"videos/store-settle.jpg", dur:"2:50", yt:"oyLAmgFhM7M",
     desc:"인센티브 마감관리에서 담당자별 인센티브를 확인 · 수정 · 지급 입력하는 방법과, 인센티브 마감목록에서 마감 내역을 확인하는 방법을 알려드려요.",
     tags:["정산관리", "인센티브마감관리", "인센티브", "인센티브마감", "일괄수정", "지급입력", "정산", "인센티브마감목록", "마감대기", "마감완료", "작성중"],
     chapters:[
       { t:10.54, title:"인센티브 마감관리", subs:["x-incentive-close"], tags:["인센티브", "인센티브마감", "인센티브마감관리", "일괄수정", "지급입력", "정산"] },
       { t:115.24, title:"인센티브 마감목록", subs:["x-incentive-list"], tags:["인센티브마감목록", "마감대기", "마감완료", "작성중"] } ] },
-  { id:"expense", subId:"8-8a", alsoSubs:["8-8b", "8-8c", "8-8d"], title:"경비 사용 관리 방법", cat:"매장관리 › 경비 사용관리", src:"videos/expense.mp4", poster:"videos/expense.jpg", dur:"3:12",
+  { id:"expense", subId:"8-8a", alsoSubs:["8-8b", "8-8c", "8-8d"], title:"경비 사용 관리 방법", cat:"매장관리 › 경비 사용관리", src:"videos/expense.mp4", poster:"videos/expense.jpg", dur:"3:12", yt:"TLp5Wv6j3eg",
     desc:"제예금 현황에서 통장 잔액을 확인하고, 현금 출납장 · 회계 전표 · 계정별 원장으로 현금 내역과 전표를 관리하는 방법을 알려드려요.",
     tags:["경비", "경비사용", "제예금", "제예금현황", "현금출납장", "회계전표", "전표", "계정별원장", "차변", "대변", "계정과목"],
     chapters:[
@@ -27151,7 +27156,7 @@ const VIDEOS = [
       { t:49.72, title:"현금 출납장", subs:["8-8b"], tags:["현금출납장", "출납"] },
       { t:60.38, title:"회계 전표", subs:["8-8c"], tags:["회계전표", "전표", "전표등록"] },
       { t:123.32, title:"계정별 원장", subs:["8-8d"], tags:["계정별원장", "원장", "계정과목"] } ] },
-  { id:"store-barcode", subId:"7-3a", alsoSubs:["7-3b"], title:"바코드 인쇄관리 메뉴 사용 방법", cat:"매장관리 › 바코드 인쇄관리", src:"videos/store-barcode.mp4", poster:"videos/store-barcode.jpg", dur:"6:45",
+  { id:"store-barcode", subId:"7-3a", alsoSubs:["7-3b"], title:"바코드 인쇄관리 메뉴 사용 방법", cat:"매장관리 › 바코드 인쇄관리", src:"videos/store-barcode.mp4", poster:"videos/store-barcode.jpg", dur:"6:45", yt:"muGEjZEkHiw",
     desc:"상품 · 쿠폰 · 로케이션 바코드를 인쇄하는 방법과, 바코드 템플릿에서 라벨 모양을 직접 디자인하는 방법을 알려드려요.",
     tags:["바코드인쇄관리", "바코드", "바코드인쇄", "상품바코드", "바코드템플릿", "템플릿", "라벨", "라벨디자인"],
     chapters:[
@@ -27163,7 +27168,7 @@ const VIDEOS = [
       { t:251.41, title:"바코드 템플릿 — 수식 · 도형", tags:["수식", "도형"], inner:1 },
       { t:297.03, title:"바코드 템플릿 — 편집 도구", tags:["그룹화", "복제", "실행취소"], inner:1 },
       { t:353.09, title:"바코드 템플릿 — 저장 · 목록 관리", tags:["템플릿저장", "라인추가"], inner:1 } ] },
-  { id:"pop-print", subId:"7-3g-s43", alsoSubs:["7-3h"], title:"POP 인쇄 관리 방법", cat:"매장관리 › POP 인쇄관리", src:"videos/pop-print.mp4", poster:"videos/pop-print.jpg", dur:"3:46",
+  { id:"pop-print", subId:"7-3g-s43", alsoSubs:["7-3h"], title:"POP 인쇄 관리 방법", cat:"매장관리 › POP 인쇄관리", src:"videos/pop-print.mp4", poster:"videos/pop-print.jpg", dur:"3:46", yt:"YdrYetiiKyo",
     desc:"상품 POP를 미리보고 인쇄하는 방법과 POP 스킨 템플릿에서 스킨을 만들고 디자인하는 방법을 알려드려요.",
     tags:["POP", "POP인쇄", "POP인쇄관리", "POP스킨", "스킨템플릿", "스킨추가", "디자인", "카테고리관리", "POP초기화"],
     chapters:[
@@ -27341,7 +27346,55 @@ function videoStartFor(v, subId) { const c = v && (v.chapters || []).find(c => (
 function playSubVideo(subId) { const v = videoForSub({ id: subId }); if (v) openVideo(v, false, videoStartFor(v, subId)); }
 function playSectionVideo() { if (curSection) playSubVideo(curSection.sub.id); }
 function vidFmt(t) { t = Math.floor(t); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); }
-function seekVideo(t) { const vid = document.getElementById("vmVideo"); vid.currentTime = t; vid.play().catch(() => {}); }
+// ---- 유튜브 재생 (VIDEOS 의 yt). API 를 못 쓰면 평범한 iframe
+let _yt = null, _ytTimer = null, _ytApi = null, _ytStart = 0;
+function ytLoadApi() {
+  if (_ytApi) return _ytApi;
+  _ytApi = new Promise((ok, bad) => {
+    if (window.YT && window.YT.Player) return ok();
+    const prev = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = () => { if (prev) prev(); ok(); };
+    const sc = document.createElement("script"); sc.src = "https://www.youtube.com/iframe_api"; sc.async = true;
+    sc.onerror = () => bad(); document.head.appendChild(sc);
+    setTimeout(() => (window.YT && window.YT.Player) ? ok() : bad(), 6000);
+  });
+  _ytApi.catch(() => { _ytApi = null; });
+  return _ytApi;
+}
+function ytParams(start) { return `start=${Math.floor(start || 0)}&autoplay=1&rel=0&modestbranding=1&playsinline=1`; }
+function ytPlain(id, start) {
+  _yt = null; _ytStart = start || 0;
+  document.getElementById("vmYt").innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?${ytParams(start)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="동영상 강의"></iframe>`;
+}
+function ytOpen(v, start) {
+  const box = document.getElementById("vmYt");
+  box.innerHTML = `<div id="vmYtPlayer"></div>`;
+  _ytStart = start || 0;
+  ytLoadApi().then(() => {
+    if (_curVideo !== v || !document.getElementById("vmYtPlayer")) return;
+    _yt = new YT.Player("vmYtPlayer", { host: "https://www.youtube-nocookie.com", videoId: v.yt,
+      playerVars: { start: Math.floor(start || 0), autoplay: 1, rel: 0, modestbranding: 1, playsinline: 1 },
+      events: { onReady: e => { try { e.target.playVideo(); } catch (_) {} } } });
+    clearInterval(_ytTimer);
+    _ytTimer = setInterval(() => { try { if (_yt && _yt.getCurrentTime) markChapter(_yt.getCurrentTime()); } catch (_) {} }, 500);
+  }).catch(() => { if (_curVideo === v) ytPlain(v.yt, start); });
+}
+function ytClose() {
+  clearInterval(_ytTimer); _ytTimer = null;
+  try { if (_yt && _yt.destroy) _yt.destroy(); } catch (_) {}
+  _yt = null; document.getElementById("vmYt").innerHTML = "";
+}
+function videoTime() {
+  if (_curVideo && _curVideo.yt) { try { if (_yt && _yt.getCurrentTime) return _yt.getCurrentTime(); } catch (_) {} return _ytStart; }
+  return document.getElementById("vmVideo").currentTime || 0;
+}
+function seekVideo(t) {
+  if (_curVideo && _curVideo.yt) {
+    if (_yt && _yt.seekTo) { try { _yt.seekTo(t, true); _yt.playVideo(); markChapter(t); return; } catch (_) {} }
+    ytPlain(_curVideo.yt, t); markChapter(t); return;
+  }
+  const vid = document.getElementById("vmVideo"); vid.currentTime = t; vid.play().catch(() => {});
+}
 function markChapter(t) {
   const chs = (_curVideo && _curVideo.chapters) || [];
   let k = -1;
@@ -27359,30 +27412,37 @@ function openVideo(v, showGoto, startAt) {
   document.getElementById("vmTitle").textContent = v.title;
   document.getElementById("vmGoto").style.display = showGoto ? "" : "none";
   const vid = document.getElementById("vmVideo");
-  vid.poster = startAt ? "" : (v.poster || "");
-  vid.src = v.src + (startAt ? "#t=" + startAt : "");
-  if (startAt) vid.addEventListener("loadedmetadata", () => { if (Math.abs(vid.currentTime - startAt) > 1) vid.currentTime = startAt; }, { once: true });
+  const useYt = !!v.yt;
+  document.querySelector("#vid-modal .vm-box").classList.toggle("yt", useYt);
+  ytClose();
+  if (useYt) { vid.ontimeupdate = null; vid.pause(); vid.removeAttribute("src"); vid.load(); }
+  else {
+    vid.poster = startAt ? "" : (v.poster || "");
+    vid.src = v.src + (startAt ? "#t=" + startAt : "");
+    if (startAt) vid.addEventListener("loadedmetadata", () => { if (Math.abs(vid.currentTime - startAt) > 1) vid.currentTime = startAt; }, { once: true });
+  }
   // 목차(챕터): 누르면 그 부분부터 재생, 재생 중인 챕터 표시
   const chs = v.chapters || [];
   document.querySelector("#vid-modal .vm-box").classList.toggle("has-chaps", chs.length > 1);
   document.getElementById("vmChaps").innerHTML = chs.length > 1 ? `<div class="vm-chaps-h">목차 · 누르면 그 부분부터 재생돼요</div>` + chs.map(c =>
     `<button class="vm-chap${c.inner ? " inner" : ""}" onclick="seekVideo(${c.t})"><span class="vm-chap-t">${vidFmt(c.t)}</span><span>${c.title}</span></button>`).join("") : "";
-  vid.ontimeupdate = () => markChapter(vid.currentTime);
+  if (!useYt) vid.ontimeupdate = () => markChapter(vid.currentTime);
   markChapter(startAt);
   document.getElementById("vid-modal").classList.add("open");
   document.body.classList.add("vid-open");
-  vid.play().catch(() => {});
+  if (useYt) ytOpen(v, startAt); else vid.play().catch(() => {});
 }
 function closeVideo() {
   const vid = document.getElementById("vmVideo");
   vid.ontimeupdate = null;
   vid.pause(); vid.removeAttribute("src"); vid.load(); // 닫으면 재생·다운로드 중지
+  ytClose();
   document.getElementById("vid-modal").classList.remove("open");
   document.body.classList.remove("vid-open");
 }
 function gotoVideoPage() {
   const v = _curVideo;
-  const t = document.getElementById("vmVideo").currentTime || 0;
+  const t = videoTime();
   closeVideo();
   if (!v) return;
   // 묶음 영상은 지금 보고 있던 챕터의 페이지로
