@@ -1291,6 +1291,9 @@ body.vid-open .card-img-wrap .sim-spot, body.vid-open .card-img-wrap .sim-num { 
 .vg-play { position:absolute; left:50%; top:50%; width:58px; height:58px; margin:-29px 0 0 -29px; border-radius:50%; background:rgba(249,115,22,0.92); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(0,0,0,0.25); transition:transform 0.15s; }
 .vg-play svg { width:22px; height:22px; margin-left:4px; fill:#fff; }
 .vg-card:hover .vg-play { transform:scale(1.08); }
+.vg-group .vg-thumb::after { content:""; position:absolute; inset:0; background:rgba(13,27,62,0.28); }
+.vg-gbadge { position:absolute; right:10px; bottom:10px; z-index:1; font-size:12px; font-weight:800; color:#fff; background:rgba(13,27,62,0.85); padding:4px 10px; border-radius:20px; }
+.vg-group .vg-num { z-index:1; }
 .vg-num { position:absolute; left:10px; top:10px; font-size:12px; font-weight:800; color:#fff; background:var(--navy); padding:3px 9px; border-radius:6px; }
 .vg-dur { position:absolute; right:10px; bottom:10px; font-size:12px; font-weight:700; color:#fff; background:rgba(15,23,42,0.78); padding:2px 8px; border-radius:6px; }
 .vg-body { padding:14px 16px 16px; display:flex; flex-direction:column; gap:6px; flex:1; }
@@ -26890,6 +26893,28 @@ const VIDEOS = [
       { t:714.34, title:"원산지 · 제조사 · 브랜드 관리", subs:["2-11b"], tags:["원산지", "원산지관리", "제조사", "제조사관리", "브랜드", "브랜드관리"] },
       { t:795.66, title:"제조사 관리", subs:["2-11c"], tags:["제조사", "제조사등록", "변경이력"], inner:1 },
       { t:843.26, title:"브랜드 관리", subs:["2-11d"], tags:["브랜드", "브랜드등록"], inner:1 } ] },
+  { id:"base-franchise", subId:"2-flow", alsoSubs:[], title:"가맹점 상품등록하기", cat:"기초관리 › 가맹점 상품등록", src:"videos/base-franchise.mp4", poster:"videos/base-franchise.jpg", dur:"5:00",
+    desc:"가맹점에서 본사 상품의 바코드로 단위(내품수)와 바코드를 한꺼번에 불러와 내 매장 상품을 만드는 방법과, 본사 상품을 더 작은 단위로 나눠 파는 방법을 알려드려요.",
+    tags:["가맹점상품등록", "가맹점", "본사상품", "본사바코드", "바코드체크", "신규상품", "내품수", "단위", "본사상품을더작은단위로판매하기", "소분판매", "작은단위", "낱개", "배수"],
+    group:"가맹점 상품등록",
+    chapters:[
+      { t:11.3, title:"가맹점 상품등록", subs:["2-flow"], tags:["가맹점상품등록", "가맹점", "본사상품", "본사바코드", "바코드체크", "신규상품", "내품수", "단위"] },
+      { t:57.19, title:"가맹점 상품등록 — 본사 단위·바코드 불러오기", tags:["불러오기", "배수", "반영내품수"], inner:1 },
+      { t:112.92, title:"가맹점 상품등록 — 저장 · 사업장 상품관리 확인", tags:["신규등록", "저장", "사용안함", "전체상품", "상품목록"], inner:1 },
+      { t:154.0, title:"본사 상품을 더 작은 단위로 판매하기", tags:["소분판매", "작은단위", "낱개", "배수"] },
+      { t:174.62, title:"더 작은 단위 — 낱개 바코드 먼저 등록", tags:["낱개바코드", "바코드추가", "바코드생성"], inner:1 },
+      { t:210.22, title:"더 작은 단위 — 본사 바코드 · 배수로 불러오기", tags:["본사바코드", "배수", "반영내품수"], inner:1 },
+      { t:258.0, title:"더 작은 단위 — 저장 · 확인", tags:["신규등록", "상품상세"], inner:1 } ] },
+  { id:"base-franchise-faq", subId:"2-flow", alsoSubs:[], title:"가맹점 상품등록 — 자주 묻는 질문", cat:"기초관리 › 가맹점 상품등록", src:"videos/base-franchise-faq.mp4", poster:"videos/base-franchise-faq.jpg", dur:"6:18",
+    desc:"불러오기 창이 안 뜰 때, 사용 권한이 없다고 나올 때, 저장했는데 본사 상품이 그대로 판매될 때, 실수로 불러왔을 때, 가격을 고쳐 저장했는데 바뀌지 않을 때 — 가맹점 상품등록에서 자주 묻는 질문 다섯 가지를 알려드려요.",
+    tags:["가맹점상품등록자주묻는질문", "질문1—불러오기창이안뜰때", "불러오기창", "가맹점계정", "본사바코드", "중량상품", "질문2—사용권한이없다고나올때", "사용권한", "버튼권한관리", "가맹점상품허용", "본사상품만", "질문3—저장했는데본사상품이그대로판매될때", "저장", "신규등록", "사용안함", "매입판매상태", "질문4—실수로불러왔을때", "실수", "다시작성", "단위삭제", "바코드삭제", "상품상태관리", "매입중", "질문5—가격을고쳐저장했는데바뀌지않을때", "가격", "판매정보수정", "가격반영"],
+    group:"가맹점 상품등록",
+    chapters:[
+      { t:9.04, title:"질문 1 — 불러오기 창이 안 뜰 때", subs:["2-flow"], tags:["불러오기창", "가맹점계정", "본사바코드", "중량상품"] },
+      { t:80.7, title:"질문 2 — 사용 권한이 없다고 나올 때", tags:["사용권한", "버튼권한관리", "가맹점상품허용", "본사상품만"] },
+      { t:150.6, title:"질문 3 — 저장했는데 본사 상품이 그대로 판매될 때", tags:["저장", "신규등록", "사용안함", "매입판매상태"] },
+      { t:240.27, title:"질문 4 — 실수로 불러왔을 때", tags:["실수", "다시작성", "단위삭제", "바코드삭제", "상품상태관리", "매입중"] },
+      { t:347.07, title:"질문 5 — 가격을 고쳐 저장했는데 바뀌지 않을 때", tags:["가격", "판매정보수정", "가격반영"] } ] },
   { id:"base-supplier", subId:"s-inreg", alsoSubs:["s-in", "3-7", "3-7b"], title:"매입처 관리 메뉴 사용 방법", cat:"기초관리 › 매입처 관리", src:"videos/base-supplier.mp4", poster:"videos/base-supplier.jpg", dur:"4:46",
     desc:"매입처 등록 · 매입처 목록 · 카테고리 · 관리자 메모, 기초관리의 매입처 관리 메뉴를 차례로 알려드려요.",
     tags:["매입처관리", "매입처", "거래처", "매입처등록", "사업자등록번호", "은행정보", "매입처목록", "상세검색", "매입처카테고리", "관리자메모"],
@@ -27488,12 +27513,19 @@ function showVideoGallery() {
 const VG_FOLDERS = ["즐겨찾기", "기초관리", "매입관리", "매출관리", "매장관리", "재고관리", "통계/출력", "본사관리"];
 const VG_ICON = { "즐겨찾기":"⭐", "기초관리":"🗂️", "매입관리":"📥", "매출관리":"📤", "매장관리":"🏪", "재고관리":"📦", "통계/출력":"📊", "본사관리":"🏢" };
 let _vgFolder = null;
+let _vgGroup = null;   // 탭 폴더 안의 하위 폴더(VIDEOS 의 group)
 function vgFolderOf(v) {
   const t = (v.cat || "").split("›")[0].replace(/[|\s]/g, "");
   return VG_FOLDERS.find(f => f.replace(/\s/g, "") === t) || "기초관리";
 }
+function vgOpenGroup(g) {
+  _vgGroup = g;
+  const inp = document.getElementById("vgSearch"); if (inp) inp.value = "";
+  renderVideoGrid("");
+  { const _m = document.getElementById("main"); if (_m) _m.scrollTop = 0; }
+}
 function vgOpenFolder(f) {
-  _vgFolder = f;
+  _vgFolder = f; _vgGroup = null;
   const inp = document.getElementById("vgSearch"); if (inp) inp.value = "";
   renderVideoGrid("");
   { const _m = document.getElementById("main"); if (_m) _m.scrollTop = 0; }
@@ -27511,7 +27543,8 @@ function renderVideoFolders() {
 }
 function renderVideoGrid(q) {
   if (!(q || "").trim() && _vgFolder === null) { renderVideoFolders(); return; }
-  { const _c = document.getElementById("vgCrumb"); if (_c) _c.innerHTML = (q || "").trim() ? `<button class="vg-back" onclick="vgOpenFolder(null)">← 전체 폴더</button>` : `<button class="vg-back" onclick="vgOpenFolder(null)">← 전체 폴더</button><span class="vg-crumb-name">${VG_ICON[_vgFolder] || ""} ${_vgFolder}</span>`; }
+  { const _c = document.getElementById("vgCrumb"); if (_c) _c.innerHTML = (q || "").trim() ? `<button class="vg-back" onclick="vgOpenFolder(null)">← 전체 폴더</button>` : (_vgGroup ? `<button class="vg-back" onclick="vgOpenGroup(null)">← ${_vgFolder}</button><span class="vg-crumb-name">📁 ${_vgGroup}</span>`
+         : `<button class="vg-back" onclick="vgOpenFolder(null)">← 전체 폴더</button><span class="vg-crumb-name">${VG_ICON[_vgFolder] || ""} ${_vgFolder}</span>`); }
   const esc = s => s.replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
   const qn = (q || "").trim().toLowerCase().replace(/\s+/g, "");
   const hl = s => {
@@ -27522,10 +27555,30 @@ function renderVideoGrid(q) {
   const norm = t => (t || "").toLowerCase().replace(/\s+/g, "");
   // 챕터 검색: 제목(안쪽 챕터는 "—" 뒤 부분)과 검색어(tags)
   const chapHit = c => !!qn && norm([c.inner && c.title.includes(" — ") ? c.title.split(" — ").slice(1).join(" ") : c.title].concat(c.tags || []).join(" ")).includes(qn);
-  const list = VIDEOS.map((v, i) => ({ v, i })).filter(({ v }) => qn || vgFolderOf(v) === _vgFolder).filter(({ v }) => !qn ||
+  let list = VIDEOS.map((v, i) => ({ v, i })).filter(({ v }) => qn || vgFolderOf(v) === _vgFolder).filter(({ v }) => !qn ||
     norm([v.title, v.cat, v.desc].concat(v.tags || []).join(" ")).includes(qn) || (v.chapters || []).some(chapHit));
+  if (!qn && _vgGroup) list = list.filter(({ v }) => v.group === _vgGroup);
+  else if (!qn) {   // 하위 폴더: 같은 group 은 첫 영상 자리에 폴더 카드 하나로
+    const seen = new Set();
+    list = list.filter(({ v }) => !v.group || (!seen.has(v.group) && seen.add(v.group))).map(x => x.v.group ? { ...x, grp: x.v.group } : x);
+  }
   document.getElementById("vgCount").textContent = qn ? `검색 결과 ${list.length}개` : `강의 ${list.length}개`;
-  document.getElementById("vgGrid").innerHTML = list.length ? list.map(({ v, i }, k) => `
+  const grpCard = (g, k) => { const ms = VIDEOS.filter(x => x.group === g && vgFolderOf(x) === _vgFolder); const p = ms.find(x => x.poster);
+    return `
+    <div class="vg-card vg-group" onclick="vgOpenGroup('${g.replace(/'/g, "\\'")}')">
+      <div class="vg-thumb">
+        ${p ? `<img src="${p.poster}" alt="" loading="lazy">` : ``}
+        <span class="vg-num">${String(k + 1).padStart(2, "0")}</span>
+        <span class="vg-gbadge">📁 영상 ${ms.length}개</span>
+      </div>
+      <div class="vg-body">
+        <div class="vg-cat">${esc(ms[0].cat)}</div>
+        <div class="vg-name">📁 ${esc(g)}</div>
+        <div class="vg-text">${ms.map(x => "· " + esc(x.title)).join("<br>")}</div>
+        <button class="vg-link" onclick="event.stopPropagation();vgOpenGroup('${g.replace(/'/g, "\\'")}')">폴더 열기 →</button>
+      </div>
+    </div>`; };
+  document.getElementById("vgGrid").innerHTML = list.length ? list.map(({ v, i, grp }, k) => grp ? grpCard(grp, k) : `
     <div class="vg-card" onclick="openVideo(VIDEOS[${i}], true)">
       <div class="vg-thumb">
         ${v.poster ? `<img src="${v.poster}" alt="" loading="lazy">` : ``}
