@@ -1312,6 +1312,12 @@ body.vid-open .card-img-wrap .sim-spot, body.vid-open .card-img-wrap .sim-num { 
 .vm-yt iframe, .vm-yt > div { display:block; width:100%; height:100%; border:0; }
 .vm-box.yt video { display:none; }
 .vm-box.yt .vm-yt { display:block; }
+.vm-yt > .vm-ytfb { position:relative; width:100%; height:100%; background:#000 center/cover no-repeat; display:flex !important; align-items:center; justify-content:center; }
+.vm-ytfb::before { content:""; position:absolute; inset:0; background:rgba(13,27,62,0.86); }
+.vm-ytfb-in { position:relative; text-align:center; color:#fff; padding:0 24px; max-width:560px; }
+.vm-ytfb-msg { font-size:16px; font-weight:600; line-height:1.6; margin-bottom:18px; text-shadow:0 1px 3px rgba(0,0,0,0.6); }
+.vm-ytfb-btn { display:inline-flex; align-items:center; gap:8px; background:#ff0000; color:#fff; font-weight:800; font-size:15px; padding:12px 22px; border-radius:24px; text-decoration:none; }
+.vm-ytfb-btn:hover { background:#d90000; }
 .vm-chaps { display:none; position:relative; width:270px; flex-shrink:0; background:#fff; border-left:1px solid var(--border); }
 .vm-box.has-chaps { width:min(1420px, 96vw); }
 .vm-box.has-chaps .vm-chaps { display:block; }
@@ -27376,7 +27382,19 @@ function playSubVideo(subId) { const v = videoForSub({ id: subId }); if (v) open
 function playSectionVideo() { if (curSection) playSubVideo(curSection.sub.id); }
 function vidFmt(t) { t = Math.floor(t); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); }
 // ---- 유튜브 재생 (VIDEOS 의 yt). API 를 못 쓰면 평범한 iframe
-let _yt = null, _ytTimer = null, _ytApi = null, _ytStart = 0;
+let _yt = null, _ytTimer = null, _ytApi = null, _ytStart = 0, _ytFb = false;
+const YT_FILE = location.protocol === "file:";   // PC 파일로 열면 유튜브가 퍼가기를 막음(오류 153)
+function ytWatchUrl(id, t) { return `https://www.youtube.com/watch?v=${id}` + (t ? `&t=${Math.floor(t)}s` : ""); }
+function ytFallback(v, start) {   // 유튜브를 여기서 재생할 수 없을 때: 포스터 + [YouTube에서 보기]
+  clearInterval(_ytTimer); _ytTimer = null;
+  try { if (_yt && _yt.destroy) _yt.destroy(); } catch (_) {}
+  _yt = null; _ytFb = true; _ytStart = start || 0;
+  const msg = YT_FILE ? "PC에 저장된 파일로 매뉴얼을 열면 영상이 이 창에서 재생되지 않아요.<br>아래 버튼을 누르면 유튜브에서 바로 볼 수 있어요."
+                      : "이 창에서 영상을 불러오지 못했어요.<br>아래 버튼을 누르면 유튜브에서 바로 볼 수 있어요.";
+  document.getElementById("vmYt").innerHTML = `<div class="vm-ytfb" style="background-image:url('${v.poster || ""}')"><div class="vm-ytfb-in">
+    <div class="vm-ytfb-msg">${msg}</div>
+    <a class="vm-ytfb-btn" id="vmYtFbBtn" href="${ytWatchUrl(v.yt, start)}" target="_blank" rel="noopener">▶ YouTube에서 보기</a></div></div>`;
+}
 function ytLoadApi() {
   if (_ytApi) return _ytApi;
   _ytApi = new Promise((ok, bad) => {
@@ -27399,6 +27417,8 @@ function ytPlain(id, start) {
 }
 function ytOpen(v, start) {
   const box = document.getElementById("vmYt");
+  _ytFb = false;
+  if (YT_FILE) { ytFallback(v, start); return; }
   box.innerHTML = `<div id="vmYtPlayer"></div>`;
   _ytStart = start || 0;
   ytLoadApi().then(() => {
@@ -27407,6 +27427,7 @@ function ytOpen(v, start) {
       playerVars: { start: Math.floor(start || 0), autoplay: 1, rel: 0, modestbranding: 1, playsinline: 1, cc_load_policy: 0, iv_load_policy: 3 },
       events: { onReady: e => { ytNoCaptions(e.target); try { e.target.playVideo(); } catch (_) {} },
                 onApiChange: e => ytNoCaptions(e.target),
+                onError: () => { if (_curVideo === v) ytFallback(v, videoTime()); },
                 onStateChange: e => { if (e.data === 1 && !e.target._ccOff) { e.target._ccOff = 1; ytNoCaptions(e.target); } } } });
     clearInterval(_ytTimer);
     _ytTimer = setInterval(() => { try { if (_yt && _yt.getCurrentTime) markChapter(_yt.getCurrentTime()); } catch (_) {} }, 500);
@@ -27415,7 +27436,7 @@ function ytOpen(v, start) {
 function ytClose() {
   clearInterval(_ytTimer); _ytTimer = null;
   try { if (_yt && _yt.destroy) _yt.destroy(); } catch (_) {}
-  _yt = null; document.getElementById("vmYt").innerHTML = "";
+  _yt = null; _ytFb = false; document.getElementById("vmYt").innerHTML = "";
 }
 function videoTime() {
   if (_curVideo && _curVideo.yt) { try { if (_yt && _yt.getCurrentTime) return _yt.getCurrentTime(); } catch (_) {} return _ytStart; }
@@ -27423,6 +27444,11 @@ function videoTime() {
 }
 function seekVideo(t) {
   if (_curVideo && _curVideo.yt) {
+    if (_ytFb) {   // 대체 화면: 그 시각부터 유튜브 새 창으로
+      _ytStart = t; markChapter(t);
+      const b = document.getElementById("vmYtFbBtn"); if (b) b.href = ytWatchUrl(_curVideo.yt, t);
+      window.open(ytWatchUrl(_curVideo.yt, t), "_blank", "noopener"); return;
+    }
     if (_yt && _yt.seekTo) { try { _yt.seekTo(t, true); _yt.playVideo(); markChapter(t); return; } catch (_) {} }
     ytPlain(_curVideo.yt, t); markChapter(t); return;
   }
