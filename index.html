@@ -26923,6 +26923,306 @@ SIM["sfp3"] = { start:"1", wide:true, screens:{
 } };
 
 /* ▲ MPAGES:fprod */
+/* ▼ MPAGES:incentive */
+// ── S버전 전용 페이지: 매장관리 › 정산관리 인센티브 (영상 캡처, 2026-10-19) ──
+IMGS["sic1"] = "images/인센티브마감-1.png";
+DESCS["sic1"] = [
+  {type:"note", text:"영업담당별 인센티브를 확인하고 <b>지급을 입력</b>하는 화면입니다. 인센티브 설정과 포스 영업담당 지정이 먼저 되어 있어야 합니다. 🔗 <b class='dlink' onclick=\"goPage(1)\">인센티브 설정</b> 🔗 <b class='dlink' onclick=\"goPage(2)\">포스 영업담당</b>"},
+  {type:"step", num:"1", title:"🔍 담당자 검색", body:"<b>마감월</b>을 확인하고 <span class='ui-btn'>검색</span> 버튼을 클릭하면 그 달의 담당자가 나옵니다."},
+  {type:"step", num:"2", title:"👤 담당자 선택", subs:["마감할 담당자의 <b>선택</b>을 클릭하면 가운데 매출상세정보에 매출 내역이 나옵니다.", "%%매출상세정보를 오른쪽으로 넘기면 매출마다 인센티브·수수료·지급액이 나옵니다."]},
+  {type:"step", num:"3", title:"☑️ 지급할 매출 체크", body:"지급할 <b>매출</b>을 모두 체크합니다."},
+  {type:"step", num:"4", title:"💳 지급 입력", subs:["오른쪽에서 지급액을 확인하고 <span class='ui-btn'>지급입력</span> 버튼을 클릭한 뒤 <span class='ui-btn'>예</span>를 클릭합니다.", "<span class='ui-btn'>확인</span>을 클릭하면 화면이 비워져 다음 담당자를 바로 마감할 수 있습니다.", "%%지급 확정은 <b>인센티브 마감목록</b>에서 합니다. 🔗 <b class='dlink' onclick=\"openSub('s-ch5','s-incl',true)\">인센티브 마감목록</b>"]},
+  {type:"step", num:"★", ystar:true, title:"🧮 인센티브 계산", subs:["상품별로 정한 <b>모드</b>에 따라 매출마다 인센티브가 계산되어 있습니다.", "카드·기타로 결제한 비율만큼 <b>수수료</b>가 계산되고, 인센티브에서 수수료를 뺀 금액이 <b>지급액</b>입니다.", "오른쪽 <b>지급금액 확인</b>에서 담당자의 인센티브와 지급액 합계를 한눈에 봅니다."]},
+  {type:"step", num:"★", ystar:true, title:"✏️ 수수료율 한 번에 바꾸기", subs:["바꿀 매출에 먼저 체크합니다.", "위쪽에서 <b>카드수수료</b>나 <b>기타</b>에 체크하고 비율을 입력한 뒤 <span class='ui-btn'>일괄수정</span> 버튼을 클릭합니다.", "적용할지 묻는 창에서 <span class='ui-btn'>예</span>를 클릭하면 체크한 매출에만 비율이 적용됩니다."]},
+];
+SIM["sic1"] = { start:"1", wide:true, ribbon:"images/매장관리-리본2.png", screens:{
+  "1":{img:"images/인센티브마감-1.png",
+    btns:[
+      {x:11.88, y:26.07, w:5.62, h:2.23, tip:"<b>마감월</b>을 확인합니다."},
+      {x:17.71, y:26.07, w:3.02, h:2.23, num:"1", numCorner:true, tip:"<b>검색</b> 버튼을 클릭하면 그 달의 담당자가 나옵니다."},
+      {x:0.73, y:42.64, w:2.24, h:1.94, num:"2", to:"2", tip:"마감할 담당자의 <b>선택</b>을 클릭합니다."},
+    ]},
+  "2":{img:"images/인센티브마감-2.png",
+    btns:[
+      {x:11.88, y:26.07, w:5.62, h:2.23, tip:"<b>마감월</b>을 확인합니다."},
+      {x:17.71, y:26.07, w:3.02, h:2.23, plain:true, tip:"<b>검색</b> 버튼으로 담당자를 다시 불러옵니다."},
+      {x:0.73, y:42.64, w:17.92, h:1.94, plain:true, notint:true, tag:"선택한 <b>담당자</b>입니다."},
+      {x:21.72, y:38.18, w:55.57, h:53.39, plain:true, notint:true, tag:"이 담당자의 <b>매출 내역</b>입니다."},
+      {x:21.93, y:35.66, w:1.15, h:55.91, num:"3", numCorner:true, to:"6", tip:"지급할 <b>매출</b>을 모두 체크합니다."},
+      {x:52.76, y:26.16, w:24.32, h:5.62, yellow:true, scroll:"★2", to:"4", tip:"<b>수수료율</b>을 한 번에 바꿀 수 있습니다."},
+      {x:77.92, y:32.46, w:21.25, h:14.24, yellow:true, scroll:"★1", tip:"담당자의 <b>인센티브·수수료·지급액</b> 합계입니다."},
+      {x:21.88, y:94.57, w:55.42, h:1.65, plain:true, to:"3", tip:"오른쪽으로 넘기면 <b>인센티브·수수료·지급액</b>이 나옵니다."},
+      {x:77.92, y:51.16, w:21.25, h:20.06, plain:true, notint:true, tag:"지급 입력에 들어갈 <b>담당자·마감일·등록일</b>입니다."},
+      {x:89.9, y:71.41, w:4.48, h:2.33, plain:true, tip:"매출을 체크한 뒤 <b>지급입력</b>을 클릭합니다."},
+    ]},
+  "3":{img:"images/인센티브마감-3.png",
+    btns:[
+      {x:33.65, y:35.66, w:42.71, h:2.42, yellow:true, scroll:"★1", tip:"모드에 따라 계산된 <b>인센티브·수수료·지급액</b>입니다."},
+      {x:52.76, y:26.16, w:24.32, h:5.62, yellow:true, scroll:"★2", to:"4", tip:"<b>수수료율</b>을 한 번에 바꿀 수 있습니다."},
+      {x:77.92, y:32.46, w:21.25, h:14.24, yellow:true, scroll:"★1", tip:"담당자의 <b>인센티브·수수료·지급액</b> 합계입니다."},
+      {x:21.88, y:94.57, w:55.42, h:1.65, plain:true, to:"2", tip:"왼쪽으로 넘기면 <b>체크 칸</b>이 나옵니다."},
+    ]},
+  "4":{img:"images/인센티브마감-4.png",
+    btns:[
+      {x:21.93, y:40.41, w:54.43, h:4.36, tip:"수수료율을 바꿀 <b>매출</b>에 먼저 체크합니다."},
+      {x:52.76, y:26.36, w:19.01, h:5.43, tip:"<b>카드수수료·기타</b>에 체크하고 비율을 입력합니다."},
+      {x:72.08, y:26.36, w:5.0, h:5.43, to:"4q", tip:"<b>일괄수정</b> 버튼을 클릭합니다."},
+    ]},
+  "4q":{img:"images/인센티브마감-4q.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, to:"5", tip:"<b>예</b>를 클릭하면 체크한 매출에 비율이 적용됩니다."},
+      {x:59.74, y:54.46, w:4.17, h:2.52, plain:true, to:"4", tip:"적용하지 않고 창을 <b>닫습니다</b>."},
+    ]},
+  "5":{img:"images/인센티브마감-5.png",
+    btns:[
+      {x:21.77, y:40.41, w:54.58, h:4.36, plain:true, notint:true, tag:"체크한 매출에만 <b>수수료율</b>이 바뀌었습니다."},
+      {x:52.76, y:26.36, w:19.01, h:2.33, plain:true, tip:"<b>기타</b> 수수료율도 같은 방법으로 바꿉니다."},
+      {x:77.92, y:32.46, w:21.25, h:14.24, yellow:true, scroll:"★1", tip:"담당자의 <b>인센티브·수수료·지급액</b> 합계입니다."},
+      {x:21.88, y:94.57, w:55.42, h:1.65, plain:true, to:"2", tip:"왼쪽으로 넘기면 <b>체크 칸</b>이 나옵니다."},
+    ]},
+  "6":{img:"images/인센티브마감-6.png",
+    btns:[
+      {x:21.93, y:35.66, w:1.15, h:55.91, plain:true, tip:"지급할 <b>매출</b>이 모두 체크되어 있습니다."},
+      {x:77.92, y:32.46, w:21.25, h:14.24, yellow:true, scroll:"★1", tip:"담당자의 <b>인센티브·수수료·지급액</b> 합계입니다."},
+      {x:89.9, y:71.41, w:4.48, h:2.33, num:"4", numCorner:true, to:"6q", tip:"지급액을 확인하고 <b>지급입력</b> 버튼을 클릭합니다."},
+    ]},
+  "6q":{img:"images/인센티브마감-6q.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"4", numCorner:true, to:"7", tip:"<b>예</b>를 클릭하면 지급이 입력됩니다."},
+      {x:59.74, y:54.46, w:4.17, h:2.52, plain:true, to:"6", tip:"입력하지 않고 창을 <b>닫습니다</b>."},
+    ]},
+  "7":{img:"images/인센티브마감-7.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"4", numCorner:true, to:"1", tip:"<b>확인</b>을 클릭하면 화면이 비워져 다음 담당자를 마감할 수 있습니다."},
+    ]},
+} };
+IMGS["sic2"] = "images/인센티브설정-biz.png";
+DESCS["sic2"] = [
+  {type:"note", text:"인센티브를 마감하려면 먼저 <b>사업장</b>과 <b>사원</b>에 인센티브를 설정합니다. 상품마다 다르게 줄 때는 사업장 상품관리에서 정합니다."},
+  {type:"step", num:"1", title:"🏢 사업장에 인센티브 사용", subs:["기초관리의 <b>사업장 관리</b>에서 사업장을 고르고 인센티브의 <b>사용</b>을 선택합니다.", "%%<b>안함</b>을 선택하면 인센티브를 쓰지 않아 입력 칸이 막힙니다.", "<b>카드·기타 수수료율</b>을 정하면 카드·기타로 결제된 금액의 그 비율만큼 인센티브에서 빠집니다.", "<span class='ui-btn'>수정</span> 버튼을 클릭하고 저장할지 묻는 창에서 <span class='ui-btn'>예</span>, 저장 완료 창에서 <span class='ui-btn'>확인</span>을 클릭합니다."]},
+  {type:"step", num:"2", title:"👤 사원을 지급 대상으로", subs:["<b>사업장 사원 관리</b>에서 인센티브를 줄 사원을 선택합니다.", "접근권한의 <b>인센티브 지급 대상</b>에 체크하고 <span class='ui-btn'>수정</span> 버튼으로 저장합니다.", "%%체크한 사원만 인센티브를 받고, 포스에서 영업담당으로 고를 수 있습니다. 🔗 <b class='dlink' onclick=\"goPage(2)\">포스 영업담당</b>"]},
+  {type:"step", num:"★", ystar:true, title:"📦 상품별 인센티브", subs:["<b>사업장 상품관리</b>에서 상품을 선택하면 아래 판매가 정보에 단위별 인센티브가 나옵니다.", "인센티브의 <b>모드</b> 칸을 클릭해 주는 방식을 고릅니다.", "%%<b>매장</b>은 사업장 관리의 인센티브를 그대로 따르고, <b>정액·정율·마진</b>은 이 상품만 따로 정합니다. <b>제외</b>를 고르면 인센티브에서 빠집니다.", "옆 인센티브 칸에 정액이면 금액, 정율·마진이면 비율을 입력하고 <span class='ui-btn'>판매정보 수정</span> 버튼으로 저장합니다.", "%%정율은 판매금액에, 마진은 마진 금액에 비율을 곱해 인센티브를 계산합니다."]},
+];
+SIM["sic2"] = { start:"biz", noRibCrop:true, screens:{
+  "biz":{img:"images/인센티브설정-biz.png",
+    btns:[
+      {x:0.62, y:29.46, w:72.81, h:1.94, tip:"인센티브를 설정할 <b>사업장</b>을 선택합니다."},
+      {x:80.83, y:52.13, w:8.33, h:2.52, num:"1", tip:"인센티브의 <b>사용</b>을 선택합니다."},
+      {x:74.79, y:56.01, w:23.12, h:2.52, tip:"<b>카드·기타 수수료율</b>을 입력합니다."},
+      {x:98.85, y:19.38, w:0.83, h:77.52, plain:true, to:"bizsave", tip:"아래로 내리면 <b>수정</b> 버튼이 나옵니다."},
+    ]},
+  "bizsave":{img:"images/인센티브설정-bizsave.png",
+    btns:[
+      {x:80.83, y:35.76, w:8.33, h:2.52, tip:"인센티브의 <b>사용</b>을 선택합니다."},
+      {x:74.79, y:39.63, w:23.12, h:2.52, tip:"<b>카드·기타 수수료율</b>을 입력합니다."},
+      {x:93.75, y:91.76, w:4.17, h:2.52, num:"1", numCorner:true, to:"bizq", tip:"<b>수정</b> 버튼을 클릭해 저장합니다."},
+    ]},
+  "bizq":{img:"images/인센티브설정-bizq.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"1", numCorner:true, to:"bizok", tip:"<b>예</b>를 클릭합니다."},
+      {x:59.74, y:54.46, w:4.17, h:2.52, plain:true, to:"bizsave", tip:"저장하지 않고 창을 <b>닫습니다</b>."},
+    ]},
+  "bizok":{img:"images/인센티브설정-bizok.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"1", numCorner:true, to:"emp", tip:"<b>확인</b>을 클릭하면 저장이 끝납니다."},
+    ]},
+  "emp":{img:"images/인센티브설정-emp.png",
+    btns:[
+      {x:0.73, y:61.43, w:64.11, h:2.03, tip:"인센티브를 줄 <b>사원</b>을 선택합니다."},
+      {x:71.51, y:83.04, w:17.55, h:2.13, tip:"접근권한의 <b>인센티브 지급 대상</b>에 체크합니다."},
+      {x:93.75, y:92.44, w:4.17, h:2.62, num:"2", numCorner:true, to:"empq", tip:"<b>수정</b> 버튼을 클릭해 저장합니다."},
+    ]},
+  "empq":{img:"images/인센티브설정-empq.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"2", numCorner:true, to:"empok", tip:"<b>예</b>를 클릭합니다."},
+      {x:59.74, y:54.46, w:4.17, h:2.52, plain:true, to:"emp", tip:"저장하지 않고 창을 <b>닫습니다</b>."},
+    ]},
+  "empok":{img:"images/인센티브설정-empok.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"2", numCorner:true, to:"prod", tip:"<b>확인</b>을 클릭하면 저장이 끝납니다."},
+    ]},
+  "prod":{img:"images/인센티브설정-prod.png",
+    btns:[
+      {x:0.62, y:51.74, w:94.79, h:1.94, tip:"인센티브를 따로 정할 <b>상품</b>을 선택합니다."},
+      {x:39.06, y:78.97, w:34.38, h:13.57, plain:true, notint:true, tag:"선택한 상품의 <b>단위별</b> 판매가 정보입니다."},
+      {x:73.49, y:78.97, w:6.09, h:13.57, yellow:true, scroll:"★1", to:"prodm", tip:"단위별 <b>인센티브</b>와 주는 방식(모드)입니다."},
+      {x:92.97, y:75.48, w:6.25, h:2.71, plain:true, tip:"<b>판매정보 수정</b> 버튼으로 저장합니다."},
+    ]},
+  "prodm":{img:"images/인센티브설정-prodm.png",
+    btns:[
+      {x:73.49, y:83.91, w:2.97, h:2.62, tip:"<b>모드</b> 칸을 클릭합니다."},
+      {x:73.49, y:86.53, w:2.97, h:11.34, front:true, to:"prod2", tip:"<b>매장·정액·정율·마진·제외</b> 중에서 고릅니다."},
+    ]},
+  "prod2":{img:"images/인센티브설정-prod2.png",
+    btns:[
+      {x:73.49, y:83.91, w:2.97, h:2.62, tip:"고른 <b>모드</b>입니다."},
+      {x:76.51, y:83.91, w:3.07, h:2.62, tip:"정액이면 금액, 정율·마진이면 비율을 <b>인센티브</b> 칸에 입력합니다."},
+      {x:92.97, y:75.48, w:6.25, h:2.71, to:"prod", tip:"<b>판매정보 수정</b> 버튼으로 저장합니다."},
+    ]},
+} };
+IMGS["sic3"] = "images/포스영업담당-1.png";
+DESCS["sic3"] = [
+  {type:"note", text:"포스에서 <b>영업담당</b>을 정해 두면 그 매출의 인센티브가 영업담당 사원에게 돌아갑니다. 인센티브는 이 영업담당을 기준으로 정산됩니다."},
+  {type:"step", num:"1", title:"🟠 영업담당 유지", body:"포스 화면 위쪽의 주황색 <b>유지</b> 버튼을 클릭합니다."},
+  {type:"step", num:"2", title:"👤 사원 선택", subs:["영업담당 유지 창에서 <b>사원</b>을 클릭하면 그 사원이 영업담당으로 정해집니다.", "%%담당을 뺄 때는 <span class='ui-btn'>유지 끄기</span> 버튼을 클릭합니다. 위쪽 버튼이 회색으로 바뀌고 영업담당 칸도 비워집니다.", "%%다시 정할 때도 이 창에서 사원을 고르면 됩니다."]},
+  {type:"step", num:"3", title:"🛒 판매", subs:["상품을 담을 때마다 합계 칸에 <b>인센티브</b>가 더해집니다.", "<span class='ui-btn'>PAY</span> 버튼을 클릭하고 결제 창에서 <span class='ui-btn'>현금결제</span> 버튼을 클릭하면 결제가 끝납니다.", "%%결제 후에도 영업담당은 다음 거래까지 그대로 남습니다."]},
+  {type:"step", num:"★", ystar:true, title:"🔁 전표 담당 바꾸기", subs:["<span class='ui-btn'>매출검색</span> 버튼을 클릭하면 거래조회 화면에 전표마다 영업담당이 나옵니다.", "담당을 바꿀 전표를 클릭하고 거래 상세 창에서 <span class='ui-btn'>담당 변경</span> 버튼을 클릭합니다.", "새로 붙일 영업담당을 고르고 <span class='ui-btn'>예</span>를 클릭하면 서버와 포스에 함께 반영됩니다."]},
+  {type:"step", num:"★", ystar:true, title:"☑️ 여러 전표 한꺼번에", subs:["바꿀 전표를 체크하고 <span class='ui-btn'>담당 일괄변경</span> 버튼을 클릭합니다.", "붙일 영업담당을 고르고 <span class='ui-btn'>예</span>를 클릭하면 체크한 전표의 담당이 한꺼번에 바뀝니다."]},
+];
+SIM["sic3"] = { start:"1", noRibCrop:true, screens:{
+  "1":{img:"images/포스영업담당-1.png",
+    btns:[
+      {x:23.15, y:1.49, w:13.95, h:4.46, num:"1", numCorner:true, to:"2", tip:"주황색 <b>유지</b> 버튼을 클릭합니다."},
+      {x:0.84, y:73.82, w:14.3, h:2.79, plain:true, tip:"지금 정해진 <b>영업담당</b>입니다."},
+      {x:71.97, y:1.49, w:9.07, h:4.46, yellow:true, scroll:"★1", to:"s1", tip:"<b>매출검색</b>으로 전표의 담당을 바꿀 수 있습니다."},
+    ]},
+  "2":{img:"images/포스영업담당-2.png",
+    btns:[
+      {x:4.81, y:48.93, w:68.97, h:7.06, num:"2", numCorner:true, to:"3", tip:"영업담당으로 정할 <b>사원</b>을 클릭합니다."},
+      {x:76.64, y:40.85, w:18.55, h:9.1, plain:true, tip:"사원을 고르면 영업담당 <b>유지</b>가 켜집니다."},
+      {x:76.64, y:52.37, w:18.55, h:9.1, plain:true, tip:"<b>유지 끄기</b>를 클릭하면 영업담당이 빠집니다."},
+      {x:76.64, y:75.21, w:18.55, h:9.1, plain:true, to:"1", tip:"창을 <b>닫습니다</b>."},
+    ]},
+  "3":{img:"images/포스영업담당-3.png",
+    btns:[
+      {x:0.49, y:12.07, w:49.02, h:25.07, plain:true, notint:true, tag:"담은 <b>상품</b>입니다."},
+      {x:32.22, y:80.97, w:16.74, h:2.51, tip:"상품을 담을 때마다 <b>인센티브</b>가 더해집니다."},
+      {x:0.84, y:73.82, w:14.3, h:2.79, tip:"이 매출의 인센티브는 <b>영업담당</b>에게 돌아갑니다."},
+      {x:83.12, y:89.88, w:7.81, h:9.66, num:"3", numCorner:true, to:"pay", tip:"<b>PAY</b> 버튼을 클릭합니다."},
+    ]},
+  "pay":{img:"images/포스영업담당-pay.png",
+    btns:[
+      {x:33.33, y:58.12, w:27.62, h:6.87, num:"3", numCorner:true, to:"4", tip:"<b>현금결제</b> 버튼을 클릭하면 결제가 끝납니다."},
+    ]},
+  "4":{img:"images/포스영업담당-4.png",
+    btns:[
+      {x:0.84, y:73.82, w:14.3, h:2.79, tip:"결제 후에도 <b>영업담당</b>이 다음 거래까지 남습니다."},
+      {x:23.15, y:1.49, w:13.95, h:4.46, plain:true, to:"2", tip:"<b>유지</b> 버튼으로 영업담당을 바꿉니다."},
+      {x:71.97, y:1.49, w:9.07, h:4.46, yellow:true, scroll:"★1", to:"s1", tip:"<b>매출검색</b>으로 전표의 담당을 바꿀 수 있습니다."},
+    ]},
+  "s1":{img:"images/포스영업담당-s1.png",
+    btns:[
+      {x:8.72, y:30.45, w:64.3, h:6.69, to:"s2", tip:"담당을 바꿀 <b>전표</b>를 클릭합니다."},
+      {x:64.85, y:31.2, w:8.02, h:2.97, plain:true, front:true, tip:"전표마다 <b>영업담당</b>이 나옵니다."},
+      {x:1.6, y:30.36, w:6.42, h:14.39, yellow:true, scroll:"★2", to:"b1", tip:"여러 전표는 <b>체크</b>해서 한꺼번에 바꿉니다."},
+      {x:75.03, y:69.45, w:23.29, h:7.99, plain:true, tip:"전표를 체크하면 <b>담당 일괄변경</b>을 쓸 수 있습니다."},
+    ]},
+  "s2":{img:"images/포스영업담당-s2.png",
+    btns:[
+      {x:29.71, y:27.86, w:6.83, h:2.6, plain:true, tip:"지금 전표의 <b>담당</b>입니다."},
+      {x:80.2, y:64.25, w:15.06, h:8.08, to:"s2b", tip:"<b>담당 변경</b> 버튼을 클릭합니다."},
+    ]},
+  "s2b":{img:"images/포스영업담당-s2b.png",
+    btns:[
+      {x:4.74, y:56.82, w:68.97, h:7.06, to:"s3", tip:"새로 붙일 <b>영업담당</b>을 고릅니다."},
+      {x:76.71, y:75.3, w:18.55, h:9.01, plain:true, to:"s2", tip:"창을 <b>닫습니다</b>."},
+    ]},
+  "s3":{img:"images/포스영업담당-s3.png",
+    btns:[
+      {x:40.03, y:58.87, w:20.5, h:9.84, to:"s3ok", tip:"<b>예</b>를 클릭하면 서버와 포스에 함께 반영됩니다."},
+      {x:62.55, y:58.87, w:19.87, h:9.84, plain:true, to:"s2", tip:"바꾸지 않고 창을 <b>닫습니다</b>."},
+    ]},
+  "s3ok":{img:"images/포스영업담당-s3ok.png",
+    btns:[
+      {x:38.21, y:58.87, w:23.43, h:9.84, to:"s5", tip:"<b>확인</b>을 클릭합니다."},
+    ]},
+  "s5":{img:"images/포스영업담당-s5.png",
+    btns:[
+      {x:64.85, y:31.2, w:8.02, h:2.97, plain:true, front:true, tip:"전표의 <b>담당</b>이 바뀌었습니다."},
+      {x:1.6, y:30.36, w:6.42, h:14.39, yellow:true, scroll:"★2", to:"b1", tip:"여러 전표는 <b>체크</b>해서 한꺼번에 바꿉니다."},
+    ]},
+  "b1":{img:"images/포스영업담당-b1.png",
+    btns:[
+      {x:1.6, y:30.36, w:6.42, h:14.39, tip:"바꿀 <b>전표</b>를 체크합니다."},
+      {x:75.03, y:69.45, w:23.29, h:7.99, to:"b1d", tip:"<b>담당 일괄변경</b> 버튼을 클릭합니다."},
+    ]},
+  "b1d":{img:"images/포스영업담당-b1d.png",
+    btns:[
+      {x:4.74, y:48.93, w:68.97, h:6.96, to:"bq", tip:"체크한 전표에 붙일 <b>영업담당</b>을 고릅니다."},
+      {x:76.71, y:75.3, w:18.55, h:9.01, plain:true, to:"b1", tip:"창을 <b>닫습니다</b>."},
+    ]},
+  "bq":{img:"images/포스영업담당-bq.png",
+    btns:[
+      {x:40.03, y:58.87, w:20.5, h:9.84, to:"b2", tip:"<b>예</b>를 클릭합니다."},
+      {x:62.55, y:58.87, w:19.87, h:9.84, plain:true, to:"b1", tip:"바꾸지 않고 창을 <b>닫습니다</b>."},
+    ]},
+  "b2":{img:"images/포스영업담당-b2.png",
+    btns:[
+      {x:64.85, y:31.2, w:8.02, h:10.77, plain:true, tip:"체크한 전표의 <b>담당</b>이 한꺼번에 바뀌었습니다."},
+    ]},
+} };
+IMGS["sil1"] = "images/인센티브마감목록-1.png";
+DESCS["sil1"] = [
+  {type:"note", text:"지급 입력한 인센티브를 상태별로 확인하고 <b>마감</b>하는 화면입니다. 마감은 작성중, 마감대기, 마감완료 순서로 진행됩니다."},
+  {type:"step", num:"1", title:"📝 마감대기로 넘기기", subs:["<b>작성중</b> 탭에서 마감할 내역을 체크하고 <span class='ui-btn'>마감대기</span> 버튼을 클릭한 뒤 <span class='ui-btn'>예</span>를 클릭합니다.", "%%넘긴 내역은 <b>마감대기</b> 탭으로 옮겨집니다."]},
+  {type:"step", num:"2", title:"✅ 마감완료", subs:["<b>마감대기</b> 탭에서 확정할 내역을 체크하고 <span class='ui-btn'>마감완료</span> 버튼을 클릭한 뒤 <span class='ui-btn'>예</span>를 클릭합니다.", "%%확정된 내역은 <b>마감완료</b> 탭으로 옮겨집니다."]},
+  {type:"step", num:"★", ystar:true, title:"↩️ 마감 취소", subs:["마감완료한 내역도 선택하고 <span class='ui-btn'>취소</span> 버튼을 클릭하면 마감이 취소됩니다.", "취소한 내역은 <b>인센티브 마감관리</b>에서 다시 편집할 수 있습니다. 🔗 <b class='dlink' onclick=\"openSub('s-ch5','s-incc',true)\">인센티브 마감관리</b>", "%%<b>취소</b> 탭에서 취소한 마감 내역을 봅니다."]},
+  {type:"step", num:"★", ystar:true, title:"⚠️ 지급안함 주의", subs:["*마감대기 내역에 <b>지급안함</b>을 클릭하면 되돌릴 수 없습니다.", "취소한 건은 다시 편집할 수 있지만, 지급안함으로 처리한 건은 <b>복구할 수 없습니다</b>."]},
+];
+SIM["sil1"] = { start:"1", wide:true, ribbon:"images/매장관리-리본2.png", screens:{
+  "1":{img:"images/인센티브마감목록-1.png",
+    btns:[
+      {x:0.62, y:20.06, w:4.9, h:2.91, plain:true, tip:"<b>작성중</b> 탭으로 이동합니다.", to:"1"},
+      {x:5.62, y:20.06, w:4.79, h:2.91, plain:true, tip:"<b>취소</b> 탭으로 이동합니다.", to:"4"},
+      {x:10.57, y:20.06, w:4.9, h:2.91, plain:true, tip:"<b>마감대기</b> 탭으로 이동합니다.", to:"2"},
+      {x:15.57, y:20.06, w:4.79, h:2.91, plain:true, tip:"<b>지급안함</b>으로 처리한 내역입니다."},
+      {x:20.57, y:20.06, w:4.9, h:2.91, plain:true, tip:"<b>마감완료</b> 탭으로 이동합니다.", to:"3"},
+      {x:0.68, y:37.4, w:1.35, h:2.03, tip:"마감할 <b>내역</b>을 체크합니다."},
+      {x:2.08, y:37.4, w:58.59, h:2.03, plain:true, notint:true, tag:"지급 입력한 <b>내역</b>입니다."},
+      {x:84.95, y:23.64, w:4.74, h:2.52, num:"1", to:"1q", tip:"<b>마감대기</b> 버튼을 클릭합니다."},
+      {x:94.69, y:23.64, w:4.69, h:2.52, plain:true, tip:"선택한 내역의 <b>상세정보</b>를 봅니다."},
+    ]},
+  "1q":{img:"images/인센티브마감목록-1q.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"1", numCorner:true, to:"2", tip:"예를 클릭하면 <b>마감대기</b> 탭으로 넘어갑니다."},
+      {x:59.74, y:54.46, w:4.17, h:2.52, plain:true, to:"1", tip:"넘기지 않고 창을 <b>닫습니다</b>."},
+    ]},
+  "2":{img:"images/인센티브마감목록-2.png",
+    btns:[
+      {x:0.62, y:20.06, w:4.9, h:2.91, plain:true, tip:"<b>작성중</b> 탭으로 이동합니다.", to:"1"},
+      {x:5.62, y:20.06, w:4.79, h:2.91, plain:true, tip:"<b>취소</b> 탭으로 이동합니다.", to:"4"},
+      {x:10.57, y:20.06, w:4.9, h:2.91, plain:true, tip:"<b>마감대기</b> 탭으로 이동합니다.", to:"2"},
+      {x:15.57, y:20.06, w:4.79, h:2.91, plain:true, tip:"<b>지급안함</b>으로 처리한 내역입니다."},
+      {x:20.57, y:20.06, w:4.9, h:2.91, plain:true, tip:"<b>마감완료</b> 탭으로 이동합니다.", to:"3"},
+      {x:0.68, y:37.4, w:1.35, h:2.03, tip:"마감을 확정할 <b>내역</b>을 체크합니다."},
+      {x:80.1, y:23.64, w:4.69, h:2.52, yellow:true, scroll:"★2", tip:"<b>지급안함</b>은 되돌릴 수 없습니다."},
+      {x:84.95, y:23.64, w:4.74, h:2.52, num:"2", to:"2q", tip:"<b>마감완료</b> 버튼을 클릭합니다."},
+      {x:89.84, y:23.64, w:4.69, h:2.52, plain:true, tip:"마감대기 내역을 <b>취소</b>합니다."},
+      {x:94.69, y:23.64, w:4.69, h:2.52, plain:true, tip:"선택한 내역의 <b>상세정보</b>를 봅니다."},
+    ]},
+  "2q":{img:"images/인센티브마감목록-2q.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"2", numCorner:true, to:"3", tip:"예를 클릭하면 <b>마감완료</b> 탭으로 넘어갑니다."},
+      {x:59.74, y:54.46, w:4.17, h:2.52, plain:true, to:"2", tip:"마감하지 않고 창을 <b>닫습니다</b>."},
+    ]},
+  "3":{img:"images/인센티브마감목록-3.png",
+    btns:[
+      {x:0.62, y:20.06, w:4.9, h:2.91, plain:true, tip:"<b>작성중</b> 탭으로 이동합니다.", to:"1"},
+      {x:5.62, y:20.06, w:4.79, h:2.91, plain:true, tip:"<b>취소</b> 탭으로 이동합니다.", to:"4"},
+      {x:10.57, y:20.06, w:4.9, h:2.91, plain:true, tip:"<b>마감대기</b> 탭으로 이동합니다.", to:"2"},
+      {x:15.57, y:20.06, w:4.79, h:2.91, plain:true, tip:"<b>지급안함</b>으로 처리한 내역입니다."},
+      {x:20.57, y:20.06, w:4.9, h:2.91, plain:true, tip:"<b>마감완료</b> 탭으로 이동합니다.", to:"3"},
+      {x:2.08, y:37.4, w:58.59, h:2.03, plain:true, notint:true, tag:"마감이 끝난 <b>내역</b>입니다."},
+      {x:89.84, y:23.64, w:4.69, h:2.52, yellow:true, scroll:"★1", to:"3q", tip:"마감완료한 내역도 <b>취소</b>할 수 있습니다."},
+      {x:94.69, y:23.64, w:4.69, h:2.52, plain:true, tip:"선택한 내역의 <b>상세정보</b>를 봅니다."},
+    ]},
+  "3q":{img:"images/인센티브마감목록-3q.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, to:"4", tip:"<b>예</b>를 클릭하면 마감이 취소됩니다."},
+      {x:59.74, y:54.46, w:4.17, h:2.52, plain:true, to:"3", tip:"취소하지 않고 창을 <b>닫습니다</b>."},
+    ]},
+  "4":{img:"images/인센티브마감목록-4.png",
+    btns:[
+      {x:0.62, y:20.06, w:4.9, h:2.91, plain:true, tip:"<b>작성중</b> 탭으로 이동합니다.", to:"1"},
+      {x:5.62, y:20.06, w:4.79, h:2.91, plain:true, tip:"<b>취소</b> 탭으로 이동합니다.", to:"4"},
+      {x:10.57, y:20.06, w:4.9, h:2.91, plain:true, tip:"<b>마감대기</b> 탭으로 이동합니다.", to:"2"},
+      {x:15.57, y:20.06, w:4.79, h:2.91, plain:true, tip:"<b>지급안함</b>으로 처리한 내역입니다."},
+      {x:20.57, y:20.06, w:4.9, h:2.91, plain:true, tip:"<b>마감완료</b> 탭으로 이동합니다.", to:"3"},
+      {x:0.68, y:37.4, w:60.0, h:16.47, plain:true, notint:true, tag:"취소한 <b>마감 내역</b>입니다."},
+    ]},
+} };
+
+/* ▲ MPAGES:incentive */
 const S_DEF = [
   { chapter:"S 1", title:"즐겨찾기", icon:"⭐", items:[
     {sub:{ id:"s-home", title:"HOME", subtitles:{ "shome":"S버전 메인 화면" }, pages:["shome"], tips:{} }},
@@ -27058,6 +27358,7 @@ const S_DEF = [
     {g:"기본관리"}, {sub:{ id:"s-pg", title:"판매가 변경 목록", subtitles:{ "spgc1":"변경정보 확인·인쇄·인쇄안함", "spgc1a":"인쇄안함 목록", "spgc1b":"인쇄완료 목록" }, pages:["spgc1","spgc1a","spgc1b"], pageLabels:["변경정보","인쇄안함","인쇄완료"], tips:{} }},{ref:"7-1c"},{sub:{ id:"s-sf", title:"검색 폴더 관리", subtitles:{ "ssf1":"대그룹·소그룹 카테고리 + 상품 담기" }, pages:["ssf1"], tips:{} }},{sub:{ id:"s-sa", title:"사업장 사원 관리", subtitles:{ "ssa1":"사원정보 등록·수정·사원증 인쇄", "ssa1e":"전자결제 정보", "ssa1p":"PDA 메뉴권한", "ssa1m":"관리 사업장" }, pages:["ssa1","ssa1e","ssa1p","ssa1m"], pageLabels:["사원정보","전자결제 정보","PDA 메뉴권한","관리 사업장"], tips:{} }},{sub:{ id:"s-ps", title:"포스화면 상품관리", subtitles:{ "sps1k":"PLU 키보드 설정", "sps1c":"터치화면 카테고리 관리", "sps1b":"사업장 상품관리(봉투·대물)", "sps1n":"포스화면 배너관리" }, pages:["sps1k","sps1c","sps1b","sps1n"], pageLabels:["PLU 키보드 설정","터치화면 카테고리 관리","사업장 상품관리","포스화면 배너관리"], tips:{} }},{sub:{ id:"s-px", title:"포스 취소 및 보류내역", subtitles:{ "spx1":"선택취소/전체취소 목록", "spx1b":"보류 목록" }, pages:["spx1","spx1b"], pageLabels:["선택취소/전체취소 목록","보류 목록"], tips:{} }},
     {g:"은행거래내역"}, {sub:{ id:"s-bk", title:"은행거래내역", subtitles:{ "sbank1":"계좌·기간별 은행 거래 내역 조회" }, pages:["sbank1"], tips:{} }},
     {g:"계산원 마감 관리"}, {ref:"7-4a"},{ref:"7-4b"},{ref:"7-4c"},{ref:"7-4d"},
+    /* ▼ MPAGES-SDEF:incentive */ {g:"정산관리"}, {sub:{ id:"s-incc", title:"인센티브 마감관리", subtitles:{ "sic1":"담당자별 인센티브 확인·지급 입력", "sic2":"사업장·사원·상품별 인센티브 설정", "sic3":"포스에서 영업담당 지정·전표 담당 변경" }, pages:["sic1","sic2","sic3"], pageLabels:["인센티브 마감관리","인센티브 설정","포스 영업담당"], tips:{} }},{sub:{ id:"s-incl", title:"인센티브 마감목록", subtitles:{ "sil1":"지급 입력 내역 마감대기·마감완료" }, pages:["sil1"], pageLabels:["인센티브 마감목록"], tips:{} }}, /* ▲ MPAGES-SDEF:incentive */
     {g:"바코드 인쇄관리"}, 
     {sub:{ id:"7-3a", title:"바코드 인쇄관리",
   subtitles:{ "sbc1":"상품 바코드 인쇄하기", "sbc2":"할인쿠폰 바코드 인쇄하기", "sbc3":"로케이션 바코드 인쇄하기" },
@@ -27445,7 +27746,7 @@ const VIDEOS = [
       { t:140.2, title:"계산원 과부족 현황", subs:["7-4b"], tags:["과부족", "과부족현황"] },
       { t:181.67, title:"계산원별 매출현황", subs:["7-4c"], tags:["계산원별매출", "매출현황"] },
       { t:244.02, title:"마감코드 체크목록", subs:["7-4d"], tags:["마감코드", "체크목록"] } ] },
-  { id:"store-incentive", subId:"x-incentive-close", alsoSubs:["x-incentive-list"], title:"인센티브 관리 방법", cat:"매장관리 › 인센티브관리", src:"videos/store-incentive.mp4", poster:"videos/store-incentive.jpg", dur:"6:37", yt:"sbW14VhLQ5M",
+  { id:"store-incentive", subId:"s-incc", alsoSubs:["s-incl"], title:"인센티브 관리 방법", cat:"매장관리 › 인센티브관리", src:"videos/store-incentive.mp4", poster:"videos/store-incentive.jpg", dur:"6:37", yt:"sbW14VhLQ5M",
     desc:"사업장 인센티브 설정 · 사원의 인센티브 지급 대상 권한 · 상품별 인센티브 · 포스의 영업담당 지정 · 인센티브 마감과 마감목록까지, 인센티브를 주고 마감하는 방법을 알려드려요. 마감대기 건의 [지급안함]은 되돌릴 수 없으니 주의하세요.",
     tags:["인센티브관리", "인센티브", "정산관리", "영업담당", "인센티브지급대상", "상품별인센티브", "인센티브마감", "인센티브마감관리", "인센티브마감목록", "마감대기", "마감완료", "지급안함", "일괄수정", "지급입력"],
     chapters:[
@@ -27453,8 +27754,8 @@ const VIDEOS = [
       { t:52.65, title:"사원에게 인센티브 권한 주기", tags:["사업장사원관리", "인센티브지급대상", "접근권한"] },
       { t:80.52, title:"상품별 인센티브", tags:["사업장상품관리", "모드", "정액", "정율", "마진", "제외"] },
       { t:129.32, title:"포스에서 담당 영업사원 정하기", tags:["포스", "영업담당", "영업담당유지", "담당변경", "담당일괄변경"] },
-      { t:219.28, title:"인센티브 마감 — 인센티브 마감관리", subs:["x-incentive-close"], tags:["인센티브마감관리", "일괄수정", "지급입력"] },
-      { t:327.32, title:"인센티브 마감목록 · 지급안함 주의", subs:["x-incentive-list"], tags:["인센티브마감목록", "마감대기", "마감완료", "취소", "지급안함"] } ] },
+      { t:219.28, title:"인센티브 마감 — 인센티브 마감관리", subs:["s-incc"], tags:["인센티브마감관리", "일괄수정", "지급입력"] },
+      { t:327.32, title:"인센티브 마감목록 · 지급안함 주의", subs:["s-incl"], tags:["인센티브마감목록", "마감대기", "마감완료", "취소", "지급안함"] } ] },
   { id:"expense", subId:"8-8a", alsoSubs:["8-8b", "8-8c", "8-8d"], title:"경비 사용 관리 방법", cat:"매장관리 › 경비 사용관리", src:"videos/expense.mp4", poster:"videos/expense.jpg", dur:"3:12", yt:"kTSOL-XoF84",
     desc:"제예금 현황에서 통장 잔액을 확인하고, 현금 출납장 · 회계 전표 · 계정별 원장으로 현금 내역과 전표를 관리하는 방법을 알려드려요.",
     tags:["경비", "경비사용", "제예금", "제예금현황", "현금출납장", "회계전표", "전표", "계정별원장", "차변", "대변", "계정과목"],
@@ -28074,6 +28375,8 @@ const S_RIBBON_CAT = {
     "sub:7-4b":  {x:55.5, y:40.2, w:8.4, h:12.9}, // 계산원 과부족 현황
     "sub:7-4c":  {x:55.5, y:55.7, w:8.4, h:12.9}, // 계산원별 매출현황
     "sub:7-4d":  {x:55.5, y:71.4, w:8.4, h:12.9}, // 마감코드 체크목록
+    "sub:s-incc":    {x:64.4, y:43.5, w:7.4, h:15.3},
+    "sub:s-incl":    {x:64.4, y:64.7, w:7.4, h:15.3},
     "sub:7-3a":  {x:64.5, y:45,   w:7.6, h:12.9}, // 바코드 인쇄관리
     "sub:7-3b":  {x:64.5, y:65.6, w:7.6, h:12.9}, // 바코드 템플릿
     "sub:7-3g":  {x:72.9, y:44.9, w:7.6, h:12.9}, // POP 인쇄 관리
@@ -28597,7 +28900,7 @@ function renderSection() {
       // 리본 표시: 크롭 대상(전체버전 캡처) 또는 sRibbon 플래그(S 전용 캡처 — 크롭 없이 리본만)
       const sRibbon = ch.ribbon && (sCrop || SIM[pg].sRibbon || (ch.sRibbonAll && !SIM[pg].noRibCrop));
       const ribCrop = !sCrop && (ch.sRibbonAll || SIM[pg].ribCrop) && !SIM[pg].noRibCrop; // S 전용 캡처: 이미지 안 상단 카테고리(타이틀바~리본)를 잘라 스와이프 리본과 중복 제거
-      html += (sRibbon ? sRibbonHTML(ch.ribbon, pg, ch.id, sub.id) : ``) +
+      html += (sRibbon ? sRibbonHTML(SIM[pg].ribbon || ch.ribbon, pg, ch.id, sub.id) : ``) +
         (sCrop ? `<div class="s-clip">` : ``) +
         `<div class="img-pin-wrap sim-wrap${sCrop ? ' s-cropped' : ''}${sCrop && sRibbon ? (SIM[pg].shortTop ? ' s-topcrop2' : ' s-topcrop') : ''}${ribCrop ? ' s-ribcrop' : ''}${ribCrop && SIM[pg].wide ? ' s-wide' : ''}" id="simWrap" style="position:relative;width:100%;">`+
         simScreenHTML(pg, SIM[pg].start) + `</div>` + (sCrop ? `</div>` : ``);
