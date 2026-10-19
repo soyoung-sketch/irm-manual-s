@@ -1214,6 +1214,8 @@ mark { background:#FEF08A; border-radius:2px; padding:0 2px; }
 .s-ribcrop { margin-top:-11.05%; }
 .s-ribcrop .sim-img { clip-path: inset(16.35% 0 0 0); }
 .s-ribcrop #simOverlay .sim-litebtn, .s-ribcrop #simOverlay .sim-lite { display:none; }
+.s-ribcrop.s-wide { margin-top:-8.80%; } /* 녹화 캡처 1920x1032: 169px/1920 */
+.s-ribcrop.s-wide .sim-img { clip-path: inset(16.38% 0 0 0); } /* 169px/1032 */
 .s-ribbon-wrap::-webkit-scrollbar { display:none; }
 .s-ribbon-wrap.scrollx { cursor:grab; }
 .s-ribbon-wrap.scrollx.dragging { cursor:grabbing; }
@@ -26657,6 +26659,270 @@ SIM["273"] = { start:"1", screens:{
 
 attachSharedPopups();
 // S버전 카테고리 정의 — ref: 전체버전 sub id / title: S버전 표기명 / tab: 시작 탭 index / g: 그룹 / prep: 준비중 항목
+/* ▼ MPAGES:fprod */
+// ── S버전 전용 페이지: 가맹점 상품등록 (영상 캡처, 2026-10-19) ──
+IMGS["sfp1"] = "images/가맹점상품등록-1.png";
+DESCS["sfp1"] = [
+  {type:"note", text:"가맹점에서 <b>본사 상품의 바코드</b>로 내 매장 상품을 만드는 화면입니다. 본사 상품의 단위(내품수)와 바코드를 한꺼번에 불러옵니다."},
+  {type:"step", num:"1", title:"🔍 바코드 체크", body:"<b>바코드 체크</b> 칸에 본사 상품의 바코드를 입력하고 <span class='ui-btn'>✓</span> 버튼을 클릭합니다."},
+  {type:"step", num:"2", title:"🆕 신규 상품으로 등록", subs:["'본사에 이미 등록된 정보가 있습니다' 창에서 <span class='ui-btn'>아니오</span>를 클릭합니다.", "%%<span class='ui-btn'>예</span>는 본사 상품 정보를 보여 주기만 하고, 본사 상품은 수정할 수 없습니다.", "'신규 상품으로 등록하시겠습니까?' 창에서 <span class='ui-btn'>예</span>를 클릭합니다.", "*본사 상품과 별개인 <b>내 매장 전용 상품</b>이 만들어지며, 본사가 가격·정보를 바꿔도 반영되지 않습니다."]},
+  {type:"step", num:"3", title:"📥 본사 단위·바코드 불러오기", subs:["'본사 상품의 내품수와 바코드를 내 상품으로 불러오시겠습니까?' 창에서 <span class='ui-btn'>예</span>를 클릭합니다.", "%%<span class='ui-btn'>아니오</span>를 누르면 이 바코드만 선택한 내품수에 추가합니다.", "불러오기 창에서 필요 없는 행은 체크를 풀고 <span class='ui-btn'>불러오기</span> 버튼을 클릭합니다.", "불러올 내품수와 바코드를 확인하고 <span class='ui-btn'>예</span>를 클릭하면 불러온 개수가 안내됩니다.", "%%가격은 본사의 매입가·판매가를 그대로 가져옵니다."]},
+  {type:"step", num:"★", ystar:true, title:"✖️ 배수 · 반영 내품수", subs:["<b>배수</b>를 입력하면 본사 내품수에 곱해 <b>반영 내품수</b>가 다시 계산됩니다.", "배수가 1이면 본사 내품수 그대로이며, 반영 내품수는 행마다 직접 고칠 수 있습니다.", "%%비고에는 내 상품에 이미 있는 내품수인지 등 현재 상태가 표시됩니다."]},
+  {type:"step", num:"4", title:"✏️ 상품명 · 필수 항목 입력", body:"<b>상품명</b>을 입력하고 대분류 등 <b>필수</b> 표시가 있는 항목을 선택합니다."},
+  {type:"step", num:"★", ystar:true, title:"💰 불러온 판매가 · 바코드", subs:["<b>판매가 관리</b>와 <b>바코드관리</b>에 본사의 가격과 바코드가 내품수별로 들어옵니다.", "%%불러온 내용은 저장해야 반영됩니다."]},
+  {type:"step", num:"5", title:"💾 신규등록", subs:["<span class='ui-btn'>신규등록(F5)</span> 버튼을 클릭하고 저장 확인 창에서 <span class='ui-btn'>예</span>를 클릭합니다.", "*저장하면 같은 바코드의 본사 상품은 내 매장에서 <b>사용 안 함</b>으로 바뀝니다."]},
+  {type:"note", red:true, text:"⚠️ 가맹점에서 등록한 상품은 다른 사업장과 <b>공유되지 않고</b> 등록한 가맹점에서만 사용합니다."},
+];
+SIM["sfp1"] = { start:"1", wide:true, screens:{
+  "1":{img:"images/가맹점상품등록-1.png",
+    btns:[
+      {x:32.03, y:25.97, w:10.31, h:2.52, num:"1", numCorner:true, to:"q1", tip:"본사 상품의 <b>바코드</b>를 입력하고 ✓를 클릭합니다."},
+      {x:0.42, y:31.49, w:42.03, h:52.62, plain:true, notint:true, tag:"<b>상품명·분류</b> 등 상품 정보를 입력합니다."},
+      {x:43.39, y:38.76, w:55.83, h:13.57, plain:true, notint:true, tag:"상품의 <b>단위(내품수)</b>를 관리합니다."},
+      {x:43.39, y:57.17, w:55.83, h:11.14, plain:true, notint:true, tag:"단위별 <b>판매가</b>를 관리합니다."},
+      {x:43.39, y:76.55, w:55.83, h:19.38, plain:true, notint:true, tag:"단위별 <b>바코드</b>를 관리합니다."},
+      {x:82.92, y:20.06, w:5.26, h:2.81, plain:true, tip:"<b>신규등록(F5)</b>으로 상품을 저장합니다."},
+      {x:88.39, y:20.06, w:5.31, h:2.81, plain:true, tip:"입력한 내용을 지우고 <b>다시작성(F6)</b>합니다."},
+      {x:94.01, y:20.06, w:4.95, h:2.81, plain:true, tip:"상품등록 화면을 <b>닫습니다</b>."},
+    ]},
+  "q1":{img:"images/가맹점상품등록-q1.png",
+    btns:[
+      {x:59.69, y:54.26, w:4.27, h:2.91, num:"2", numCorner:true, to:"q2", tip:"내 매장 상품을 새로 만들 때는 <b>아니오</b>를 클릭합니다."},
+      {x:55.52, y:54.26, w:3.91, h:2.91, plain:true, tip:"<b>예</b>는 본사 상품 정보를 보여 주기만 합니다."},
+    ]},
+  "q2":{img:"images/가맹점상품등록-q2.png",
+    btns:[
+      {x:55.52, y:54.26, w:3.91, h:2.91, num:"2", numCorner:true, to:"q3", tip:"<b>예</b>를 클릭해 신규 상품으로 등록합니다."},
+      {x:59.69, y:54.26, w:4.27, h:2.91, plain:true, to:"1", tip:"등록하지 않고 <b>돌아갑니다</b>."},
+    ]},
+  "q3":{img:"images/가맹점상품등록-q3.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.06, h:2.81, num:"3", numCorner:true, to:"imp", tip:"<b>예</b>를 클릭하면 본사 내품수와 바코드를 한꺼번에 불러옵니다."},
+      {x:59.74, y:54.46, w:4.22, h:2.81, plain:true, tip:"<b>아니오</b>는 이 바코드만 선택한 내품수에 추가합니다."},
+    ]},
+  "imp":{img:"images/가맹점상품등록-불러오기.png",
+    btns:[
+      {x:35.57, y:28.59, w:9.06, h:2.23, yellow:true, scroll:"★1", tip:"본사 내품수에 곱할 <b>배수</b>를 입력합니다."},
+      {x:29.06, y:34.01, w:41.88, h:2.13, plain:true, notint:true, tag:"본사 상품의 <b>내품수·바코드·가격</b>이 행마다 표시됩니다."},
+      {x:29.06, y:31.49, w:1.46, h:4.65, plain:true, tip:"체크를 푼 행은 <b>불러오지 않습니다</b>."},
+      {x:56.67, y:31.49, w:5.36, h:4.65, yellow:true, scroll:"★1", tip:"<b>반영 내품수</b>는 행마다 직접 고칠 수 있습니다."},
+      {x:62.03, y:31.49, w:8.91, h:4.65, plain:true, tip:"<b>비고</b>에 내 상품의 현재 상태가 표시됩니다."},
+      {x:59.38, y:73.64, w:5.68, h:2.71, num:"3", numCorner:true, to:"impok", tip:"<b>불러오기</b> 버튼을 클릭합니다."},
+      {x:65.26, y:73.64, w:5.73, h:2.71, plain:true, to:"1", tip:"불러오지 않고 창을 <b>닫습니다</b>."},
+    ]},
+  "impok":{img:"images/가맹점상품등록-불러오기확인.png",
+    btns:[
+      {x:55.42, y:54.36, w:4.27, h:2.81, num:"3", numCorner:true, to:"done", tip:"불러올 내용을 확인하고 <b>예</b>를 클릭합니다."},
+      {x:59.9, y:54.36, w:4.17, h:2.81, plain:true, to:"imp", tip:"불러오기 창으로 <b>돌아갑니다</b>."},
+    ]},
+  "done":{img:"images/가맹점상품등록-불러옴.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.06, h:2.81, num:"3", numCorner:true, to:"2", tip:"불러온 개수를 확인하고 <b>확인</b>을 클릭합니다."},
+    ]},
+  "2":{img:"images/가맹점상품등록-2.png",
+    btns:[
+      {x:6.09, y:34.01, w:15.16, h:2.42, num:"4", numCorner:true, tip:"<b>상품명</b>을 입력합니다."},
+      {x:1.04, y:44.28, w:20.21, h:2.42, tip:"필수 표시 항목인 <b>대분류</b>를 선택합니다."},
+      {x:1.04, y:55.91, w:20.21, h:2.33, tip:"필수 표시 항목인 <b>효능군</b>을 선택합니다."},
+      {x:21.35, y:55.91, w:20.83, h:2.33, tip:"필수 표시 항목인 <b>등급</b>을 선택합니다."},
+      {x:43.39, y:57.17, w:55.83, h:11.14, yellow:true, scroll:"★2", tip:"본사 <b>매입가·판매가</b>가 들어와 있습니다."},
+      {x:43.39, y:76.55, w:55.83, h:19.38, yellow:true, scroll:"★2", tip:"본사 <b>바코드</b>가 내품수별로 들어와 있습니다."},
+      {x:43.39, y:38.76, w:55.83, h:13.57, plain:true, notint:true, tag:"상품의 <b>단위(내품수)</b>를 관리합니다."},
+      {x:82.92, y:20.06, w:5.26, h:2.81, num:"5", numCorner:true, to:"save", tip:"<b>신규등록(F5)</b> 버튼을 클릭해 저장합니다."},
+      {x:88.39, y:20.06, w:5.31, h:2.81, plain:true, tip:"입력한 내용을 지우고 <b>다시작성(F6)</b>합니다."},
+      {x:94.01, y:20.06, w:4.95, h:2.81, plain:true, tip:"상품등록 화면을 <b>닫습니다</b>."},
+    ]},
+  "save":{img:"images/가맹점상품등록-저장.png",
+    btns:[
+      {x:55.52, y:54.26, w:3.91, h:2.91, num:"5", numCorner:true, to:"2", tip:"<b>예</b>를 클릭하면 저장됩니다."},
+      {x:59.69, y:54.26, w:4.27, h:2.91, plain:true, to:"2", tip:"저장하지 않고 <b>돌아갑니다</b>."},
+    ]},
+} };
+IMGS["sfp2"] = "images/가맹점상품관리-1.png";
+DESCS["sfp2"] = [
+  {type:"note", text:"저장한 상품을 <b>사업장 상품관리</b>에서 확인합니다. 가맹점으로 로그인하면 상품 목록 위에 탭 3개가 표시됩니다."},
+  {type:"step", num:"1", title:"🔍 상품 검색", body:"판매상태를 <b>판매</b>로 두고 상품명을 입력한 뒤 <span class='ui-btn'>검색</span> 버튼을 클릭합니다."},
+  {type:"step", num:"2", title:"📋 내 매장 상품 확인", subs:["본사 상품은 빠지고 <b>내가 등록한 상품</b>만 나옵니다.", "%%<b>매장판매·판매상태</b>를 전체로 바꿔 검색하면 본사 상품도 함께 나옵니다."]},
+  {type:"step", num:"★", ystar:true, title:"🗂️ 가맹점 탭 3개", subs:["<b>전체상품</b> 탭은 본사 상품과 내 매장에서 등록한 상품을 모두 보여 줍니다.", "<b>상품목록</b> 탭은 내 매장에서 직접 등록한 상품만 보여 줍니다.", "<b>본사 상품목록</b> 탭은 본사에서 등록한 상품만 보여 주며, 가맹점은 판매 상태·판매가만 바꿀 수 있습니다."]},
+  {type:"step", num:"★", ystar:true, title:"🚫 본사 상품은 사용 안 함", subs:["같은 바코드의 본사 상품은 <b>매입상태·판매상태</b>가 <b>안함</b>으로 바뀌어 내 매장의 판매 대상에서 빠집니다.", "%%다른 매장에는 영향이 없고, 본사 상품의 재고는 그대로 남습니다.", "%%판매·매입·POS에서 같은 바코드를 스캔하면 <b>내 상품</b>이 먼저 잡힙니다."]},
+];
+SIM["sfp2"] = { start:"1", wide:true, screens:{
+  "1":{img:"images/가맹점상품관리-1.png",
+    btns:[
+      {x:10.31, y:19.86, w:6.15, h:3.0, yellow:true, scroll:"★1", tip:"본사 상품과 내 매장에서 등록한 상품을 모두 보여 주는 <b>전체상품</b> 탭입니다."},
+      {x:16.46, y:19.86, w:6.3, h:3.0, yellow:true, scroll:"★1", tip:"내 매장에서 직접 등록한 상품만 보여 주는 <b>상품목록</b> 탭입니다."},
+      {x:22.76, y:19.86, w:6.25, h:3.0, yellow:true, scroll:"★1", tip:"본사에서 등록한 상품만 보여 주는 <b>본사 상품목록</b> 탭입니다."},
+      {x:83.59, y:23.84, w:11.88, h:14.44, tip:"검색할 <b>상품명</b>을 입력합니다."},
+      {x:73.28, y:35.08, w:9.9, h:2.71, tip:"판매상태를 <b>판매</b>로 둡니다."},
+      {x:73.44, y:35.47, w:2.71, h:2.13, plain:true, front:true, to:"2", tip:"매장판매·판매상태를 <b>전체</b>로 바꿔 검색하면 본사 상품도 나옵니다."},
+      {x:67.5, y:37.79, w:9.84, h:2.23, plain:true, tip:"매장판매도 <b>전체</b>로 바꾸면 본사 상품이 함께 나옵니다."},
+      {x:95.62, y:23.84, w:3.65, h:2.71, num:"1", numCorner:true, tip:"<b>검색</b> 버튼을 클릭합니다."},
+      {x:0.42, y:49.52, w:98.8, h:2.03, num:"2", numCorner:true, numInset:true, tip:"내가 등록한 <b>내 매장 상품</b>만 나옵니다."},
+    ]},
+  "2":{img:"images/가맹점상품관리-2.png",
+    btns:[
+      {x:10.31, y:19.86, w:6.15, h:3.0, yellow:true, scroll:"★1", tip:"본사 상품과 내 매장에서 등록한 상품을 모두 보여 주는 <b>전체상품</b> 탭입니다."},
+      {x:16.46, y:19.86, w:6.3, h:3.0, yellow:true, scroll:"★1", tip:"내 매장에서 직접 등록한 상품만 보여 주는 <b>상품목록</b> 탭입니다."},
+      {x:22.76, y:19.86, w:6.25, h:3.0, yellow:true, scroll:"★1", tip:"본사에서 등록한 상품만 보여 주는 <b>본사 상품목록</b> 탭입니다."},
+      {x:83.59, y:23.84, w:11.88, h:14.44, tip:"검색할 <b>상품명</b>을 입력합니다."},
+      {x:73.28, y:35.08, w:9.9, h:2.71, tip:"매장판매·판매상태를 <b>전체</b>로 두고 검색한 결과입니다."},
+      {x:67.5, y:37.79, w:9.84, h:2.23, plain:true, tip:"매장판매를 <b>전체</b>로 두고 검색한 결과입니다."},
+      {x:76.3, y:35.47, w:2.6, h:2.13, plain:true, front:true, to:"1", tip:"판매상태를 <b>판매</b>로 바꿔 검색하면 내 상품만 나옵니다."},
+      {x:95.62, y:23.84, w:3.65, h:2.71, num:"1", numCorner:true, tip:"<b>검색</b> 버튼을 클릭합니다."},
+      {x:0.42, y:49.52, w:98.8, h:2.03, num:"2", numCorner:true, numInset:true, tip:"내가 등록한 <b>내 매장 상품</b>입니다."},
+      {x:0.42, y:51.65, w:52.6, h:1.94, plain:true, notint:true, tag:"같은 바코드의 <b>본사 상품</b>입니다."},
+      {x:53.12, y:51.65, w:6.25, h:1.94, yellow:true, front:true, scroll:"★2", tip:"본사 상품의 매입·판매 상태가 <b>안함</b>으로 바뀌어 있습니다."},
+    ]},
+} };
+IMGS["sfp4"] = "images/가맹점FAQ-q1.png";
+DESCS["sfp4"] = [
+  {type:"note", text:"가맹점 상품등록에서 <b>자주 묻는 질문</b>입니다. 카드의 🔗 화면 보기를 누르면 왼쪽에 해당 화면이 나옵니다."},
+  {type:"qa", q:"불러오기 창이 안 떠요.", a:"<b style='color:#0D1B3E'>가맹점 계정으로 로그인했는지, 입력한 바코드가 본사 상품의 바코드인지 확인합니다.</b>", subs:["내 매장이나 다른 상품에 이미 붙은 바코드는 불러오기 대상이 아니며, '이미 등록된 정보가 있습니다' 알림이 나옵니다. 🔗 <b class='dlink' onclick=\"simGo('sfp4','q1')\">화면 보기</b>", "%%사업장 상품관리에서 등록 사업장이 <b>본사</b>로 나오는 상품이 본사 상품입니다.", "%%중량 상품은 본사 단위 불러오기를 지원하지 않습니다."]},
+  {type:"qa", q:"'사용 권한이 없습니다'가 떠요.", a:"<b style='color:#0D1B3E'>버튼 권한이 없거나, 본사에서 가맹점 상품 등록을 막아 둔 경우입니다.</b>", subs:["📌 버튼 권한", "기초관리의 <b>버튼 권한 관리</b>에서 사원과 상품등록 메뉴를 고르고 <b>신규등록</b>의 적용에 체크한 뒤 저장합니다. 🔗 <b class='dlink' onclick=\"simGo('sfp4','q2a')\">화면 보기</b>", "📌 본사 설정", "본사 관리의 <b>사업장 관리</b>에서 해당 가맹점을 선택하고, 가맹/외주 공급설정 탭에서 상품취급을 <b>가맹점 상품 허용</b>으로 바꾼 뒤 사업장정보 탭의 수정 버튼으로 저장합니다. 🔗 <b class='dlink' onclick=\"simGo('sfp4','q2b')\">화면 보기</b>", "%%설정을 바꿀 권한이 없다면 본사 관리자에게 문의합니다."]},
+  {type:"qa", q:"불러온 뒤 저장했는데 본사 상품이 그대로 판매돼요.", a:"<b style='color:#0D1B3E'>신규등록(F5)으로 저장까지 마쳤는지 확인합니다.</b> 불러오기만 하고 닫으면 아무것도 반영되지 않습니다.", subs:["저장하기 전에는 사업장 상품관리에서 본사 상품이 아직 <b>매입중·판매중</b>으로 나옵니다. 🔗 <b class='dlink' onclick=\"simGo('sfp4','q3')\">화면 보기</b>", "저장하면 본사 상품의 매입·판매 상태가 <b>안함</b>으로 바뀌어 판매 대상에서 빠집니다. 🔗 <b class='dlink' onclick=\"goPage(1)\">사업장 상품관리 확인</b>"]},
+  {type:"qa", q:"실수로 불러왔어요.", a:"<b style='color:#0D1B3E'>저장하기 전인지, 저장한 뒤인지에 따라 정리하는 방법이 다릅니다.</b>", subs:["📌 저장 전", "<span class='ui-btn'>단위삭제</span>·<span class='ui-btn'>바코드삭제</span>로 불러온 것을 지우거나 <span class='ui-btn'>다시작성(F6)</span>으로 처음부터 다시 작성합니다. 🔗 <b class='dlink' onclick=\"simGo('sfp4','q4a')\">화면 보기</b>", "📌 저장 후", "사업장 상품관리에서 <b>매장판매·판매상태</b>를 전체로 바꾸고 상품명으로 검색합니다. 🔗 <b class='dlink' onclick=\"goPage(1)\">사업장 상품관리 확인</b>", "%%판매상태가 판매면 안함으로 바뀐 본사 상품은 목록에 나오지 않습니다.", "목록에서 상품을 고르고 <span class='ui-btn'>보기</span> 버튼으로 상품상세를 엽니다.", "내가 만든 상품은 매입·판매 상태를 <b>안함</b>으로, 본사 상품은 <b>매입중·판매중</b>으로 바꿔 저장합니다. 🔗 <b class='dlink' onclick=\"simGo('sfp4','q4b')\">화면 보기</b>", "*본사 상품의 상태는 자동으로 되돌아가지 않습니다."]},
+  {type:"qa", q:"가격을 고쳐 저장했는데 바뀌지 않아요.", a:"<b style='color:#0D1B3E'>2026년 10월 14일 이후 서버에서는 가맹점이 상품등록·상품상세정보에서 고친 가격이 바로 반영됩니다.</b>", subs:["그 전 버전에서 이런 일이 있었다면 사업장 상품관리의 <span class='ui-btn'>판매정보 수정</span>으로 저장하거나 관리자에게 문의합니다. 🔗 <b class='dlink' onclick=\"simGo('sfp4','q5')\">화면 보기</b>"]},
+];
+SIM["sfp4"] = { start:"q1", wide:true, screens:{
+  "q1":{img:"images/가맹점FAQ-q1.png",
+    btns:[
+      {x:41.25, y:45.54, w:20.83, h:5.43, tip:"다른 상품에 이미 붙은 <b>바코드</b>라는 알림입니다."},
+      {x:55.47, y:54.26, w:4.22, h:2.91, plain:true, tip:"<b>확인</b>을 클릭해 알림을 닫습니다."},
+      {x:84.27, y:78.0, w:12.86, h:12.11, plain:true, notint:true, tag:"<b>바코드 정보 추가</b> 창입니다."},
+    ]},
+  "q2a":{img:"images/가맹점FAQ-q2a.png",
+    btns:[
+      {x:0.52, y:32.56, w:59.9, h:1.74, plain:true, notint:true, tip:"권한을 줄 <b>사원</b>을 고릅니다."},
+      {x:65.1, y:30.43, w:4.9, h:1.55, plain:true, tip:"메뉴에서 <b>상품등록</b>을 고릅니다."},
+      {x:81.04, y:35.08, w:18.44, h:1.55, tip:"<b>신규등록</b>의 적용에 체크합니다."},
+      {x:95.21, y:29.26, w:4.32, h:2.81, tip:"<b>저장</b> 버튼을 클릭합니다."},
+    ]},
+  "q2b":{img:"images/가맹점FAQ-q2b.png", noRib:true,
+    btns:[
+      {x:0.73, y:36.82, w:72.71, h:1.94, plain:true, tip:"상품 등록을 허용할 <b>가맹점</b>을 선택합니다."},
+      {x:77.97, y:20.35, w:6.72, h:2.81, plain:true, tip:"<b>가맹/외주 공급설정</b> 탭입니다."},
+      {x:74.48, y:28.1, w:23.7, h:2.91, tip:"상품취급을 <b>가맹점 상품 허용</b>으로 바꿉니다."},
+    ]},
+  "q3":{img:"images/가맹점FAQ-q3.png",
+    btns:[
+      {x:0.42, y:49.52, w:52.5, h:2.03, plain:true, notint:true, tag:"불러온 <b>본사 상품</b>입니다."},
+      {x:53.02, y:49.52, w:6.25, h:2.03, front:true, tip:"저장 전에는 본사 상품이 아직 <b>매입중·판매중</b>입니다."},
+    ]},
+  "q4a":{img:"images/가맹점FAQ-q4a.png",
+    btns:[
+      {x:88.39, y:20.06, w:5.57, h:3.0, tip:"<b>다시작성(F6)</b>으로 처음부터 다시 작성합니다."},
+      {x:93.7, y:36.05, w:5.47, h:2.81, tip:"불러온 <b>단위</b>를 지웁니다."},
+      {x:93.7, y:73.93, w:5.47, h:2.81, tip:"불러온 <b>바코드</b>를 지웁니다."},
+    ]},
+  "q4b":{img:"images/가맹점FAQ-q4b.png", noRib:true,
+    btns:[
+      {x:23.02, y:59.11, w:19.06, h:3.1, tip:"본사 상품은 매입상태를 <b>매입중</b>으로 바꿉니다."},
+      {x:42.55, y:59.11, w:18.91, h:3.1, tip:"판매상태를 <b>판매중</b>으로 바꿉니다."},
+      {x:92.5, y:12.02, w:5.57, h:3.0, tip:"<b>저장(F5)</b>으로 저장합니다."},
+    ]},
+  "q5":{img:"images/소분판매-list.png",
+    btns:[
+      {x:92.86, y:75.19, w:6.67, h:3.39, tip:"<b>판매정보 수정</b>으로 가격을 저장합니다."},
+    ]},
+} };
+IMGS["sfp3"] = "images/소분판매-1.png";
+DESCS["sfp3"] = [
+  {type:"note", text:"본사 상품을 <b>낱개처럼 더 작은 단위</b>로 팔 때 쓰는 방법입니다. 낱개 바코드를 먼저 등록하고, 본사 바코드로 큰 단위를 불러옵니다."},
+  {type:"step", num:"1", title:"🏷️ 낱개 바코드 먼저 등록", subs:["바코드관리의 <span class='ui-btn'>바코드추가</span> 버튼을 클릭하고 <span class='ui-btn'>생성</span> 버튼을 클릭합니다.", "바코드 생성 창에서 기준코드를 고르고 <span class='ui-btn'>바코드생성</span> 버튼을 클릭한 뒤 <span class='ui-btn'>선택</span> 버튼을 클릭합니다.", "새 바코드가 들어가면 <span class='ui-btn'>추가</span> 버튼을 클릭합니다.", "%%낱개 바코드를 먼저 등록해 두면 내품수 1이 새 바코드로 정해져 섞일 염려가 없습니다."]},
+  {type:"step", num:"2", title:"➕ 본사 바코드 추가", subs:["다시 <span class='ui-btn'>바코드추가</span> 버튼을 클릭하고 바코드 칸에 본사 상품의 바코드를 입력한 뒤 <span class='ui-btn'>추가</span> 버튼을 클릭합니다.", "본사 상품의 내품수와 바코드를 불러올지 묻는 창에서 <span class='ui-btn'>예</span>를 클릭합니다."]},
+  {type:"step", num:"3", title:"📥 배수 넣고 불러오기", subs:["배수를 입력해 반영 내품수를 확인하고 <span class='ui-btn'>불러오기</span> 버튼을 클릭합니다.", "%%배수에 숫자를 넣으면 본사 내품수에 곱한 값이 반영 내품수가 됩니다.", "확인 창에서 <span class='ui-btn'>예</span>, 안내 창에서 <span class='ui-btn'>확인</span>을 클릭합니다."]},
+  {type:"step", num:"★", ystar:true, title:"✏️ 반영 내품수 직접 수정", subs:["<b>반영 내품수</b>는 행마다 직접 고칠 수 있습니다."]},
+  {type:"step", num:"4", title:"💰 낱개 가격 입력", subs:["<b>판매가 관리</b>에서 낱개(내품수 1)의 판매가를 입력합니다.", "%%불러온 단위의 매입가·판매가는 본사 단위 값을 그대로 가져오므로 필요하면 함께 고칩니다."]},
+  {type:"step", num:"5", title:"💾 신규등록", body:"<span class='ui-btn'>신규등록(F5)</span> 버튼을 클릭해 저장하고 사업장 상품관리에서 확인합니다."},
+  {type:"step", num:"★", ystar:true, title:"🔍 결과 확인", subs:["낱개에는 <b>새 바코드</b>, 큰 단위에는 <b>본사 바코드</b>가 붙은 내 상품이 만들어집니다.", "<b>판매가 관리</b>와 사업장 상품관리의 판매가 정보에 낱개와 새 단위가 함께 나옵니다.", "사업장 상품관리에서 새 상품과 본사 상품이 함께 나오며, 본사 상품은 매입·판매 상태가 <b>안함</b>으로 바뀝니다.", "새 상품의 <span class='ui-btn'>보기</span> 버튼을 클릭하면 상품상세 화면에서도 확인할 수 있습니다."]},
+];
+SIM["sfp3"] = { start:"1", wide:true, screens:{
+  "1":{img:"images/소분판매-1.png",
+    btns:[
+      {x:6.09, y:34.01, w:15.16, h:2.42, plain:true, tip:"<b>상품명</b>과 대분류는 평소처럼 입력합니다."},
+      {x:43.39, y:76.55, w:55.83, h:19.38, plain:true, notint:true, tag:"단위별 <b>바코드</b>를 관리합니다."},
+      {x:87.97, y:73.84, w:5.62, h:2.81, num:"1", numCorner:true, to:"add", tip:"<b>바코드추가</b> 버튼을 클릭합니다."},
+    ]},
+  "add":{img:"images/소분판매-add.png",
+    btns:[
+      {x:87.4, y:81.4, w:9.38, h:2.91, plain:true, tip:"낱개 바코드를 붙일 <b>내품수</b>입니다."},
+      {x:87.4, y:84.59, w:6.2, h:2.71, plain:true, tip:"낱개로 팔 때 쓸 <b>새 바코드</b>가 들어갑니다."},
+      {x:93.7, y:84.59, w:3.07, h:2.71, num:"1", numCorner:true, to:"gen", tip:"<b>생성</b> 버튼을 클릭해 새 바코드를 만듭니다."},
+      {x:93.28, y:87.79, w:3.49, h:2.81, plain:true, to:"1", tip:"바코드 정보 추가 창을 <b>닫습니다</b>."},
+    ]},
+  "gen":{img:"images/소분판매-gen.png",
+    btns:[
+      {x:82.4, y:80.14, w:16.98, h:3.1, plain:true, tip:"<b>기준코드</b>를 고릅니다."},
+      {x:84.64, y:86.63, w:4.27, h:3.1, num:"1", numCorner:true, to:"gen2", tip:"<b>바코드생성</b> 버튼을 클릭해 새 바코드를 만듭니다."},
+      {x:89.01, y:86.63, w:4.27, h:3.1, plain:true, to:"add", tip:"바코드 생성 창을 <b>닫습니다</b>."},
+    ]},
+  "gen2":{img:"images/소분판매-gen2.png",
+    btns:[
+      {x:82.34, y:83.04, w:11.88, h:3.29, plain:true, tip:"새 <b>바코드</b>가 만들어졌습니다."},
+      {x:94.27, y:83.04, w:5.1, h:3.29, num:"1", numCorner:true, to:"add2", tip:"<b>선택</b> 버튼을 클릭해 만든 바코드를 넣습니다."},
+      {x:89.01, y:86.63, w:4.27, h:3.1, plain:true, to:"add", tip:"바코드 생성 창을 <b>닫습니다</b>."},
+    ]},
+  "add2":{img:"images/소분판매-add2.png",
+    btns:[
+      {x:87.4, y:84.59, w:6.2, h:2.71, plain:true, tip:"생성한 <b>새 바코드</b>가 들어왔습니다."},
+      {x:89.84, y:87.79, w:3.39, h:2.81, num:"1", numCorner:true, to:"u1", tip:"<b>추가</b> 버튼을 클릭합니다."},
+    ]},
+  "u1":{img:"images/소분판매-u1.png",
+    btns:[
+      {x:43.39, y:79.17, w:55.83, h:2.81, plain:true, notint:true, tag:"내품수 1에 <b>새 바코드</b>가 들어갔습니다."},
+      {x:87.97, y:73.84, w:5.62, h:2.81, num:"2", numCorner:true, to:"add3", tip:"다시 <b>바코드추가</b>를 클릭해 본사 바코드를 넣습니다."},
+    ]},
+  "add3":{img:"images/소분판매-add3.png",
+    btns:[
+      {x:87.4, y:84.59, w:6.2, h:2.71, tip:"본사 상품의 <b>바코드</b>를 입력합니다."},
+      {x:89.84, y:87.79, w:3.39, h:2.81, num:"2", numCorner:true, to:"q", tip:"<b>추가</b> 버튼을 클릭합니다."},
+    ]},
+  "q":{img:"images/소분판매-q.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.22, h:2.71, num:"2", numCorner:true, to:"imp", tip:"한꺼번에 가져오려면 <b>예</b>를 클릭합니다."},
+      {x:59.69, y:54.46, w:4.32, h:2.71, plain:true, tip:"<b>아니오</b>는 이 바코드만 선택한 내품수에 추가합니다."},
+    ]},
+  "imp":{img:"images/소분판매-imp.png",
+    btns:[
+      {x:27.24, y:31.98, w:9.22, h:2.33, tip:"본사 내품수에 곱할 <b>배수</b>를 입력합니다."},
+      {x:20.73, y:37.4, w:41.77, h:2.13, plain:true, notint:true, tag:"본사 상품의 <b>내품수·바코드·가격</b>이 행마다 표시됩니다."},
+      {x:48.33, y:34.88, w:5.36, h:4.65, yellow:true, front:true, scroll:"★1", tip:"<b>반영 내품수</b>는 행마다 직접 고칠 수 있습니다."},
+      {x:51.04, y:76.94, w:5.73, h:2.91, num:"3", numCorner:true, to:"impok", tip:"<b>불러오기</b> 버튼을 클릭합니다."},
+      {x:56.98, y:76.94, w:5.73, h:2.91, plain:true, to:"u1", tip:"불러오지 않고 창을 <b>닫습니다</b>."},
+    ]},
+  "impok":{img:"images/소분판매-impok.png",
+    btns:[
+      {x:55.42, y:54.36, w:4.32, h:2.81, num:"3", numCorner:true, to:"done", tip:"바뀌는 내품수를 확인하고 <b>예</b>를 클릭합니다."},
+      {x:59.74, y:54.36, w:4.27, h:2.81, plain:true, to:"imp", tip:"불러오기 창으로 <b>돌아갑니다</b>."},
+    ]},
+  "done":{img:"images/소분판매-done.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"3", numCorner:true, to:"after", tip:"불러온 개수를 확인하고 <b>확인</b>을 클릭합니다."},
+    ]},
+  "after":{img:"images/소분판매-after.png",
+    btns:[
+      {x:43.39, y:62.6, w:55.83, h:2.52, num:"4", numCorner:true, numInset:true, tip:"낱개(내품수 1)의 <b>판매가</b>를 입력합니다."},
+      {x:43.39, y:65.41, w:55.83, h:2.42, yellow:true, scroll:"★2", tip:"본사 단위가 <b>반영 내품수</b>로 들어왔습니다."},
+      {x:43.39, y:79.17, w:55.83, h:5.72, yellow:true, scroll:"★2", tip:"낱개에는 새 바코드, 큰 단위에는 <b>본사 바코드</b>가 붙습니다."},
+      {x:82.92, y:20.06, w:5.47, h:2.91, num:"5", numCorner:true, to:"list", tip:"<b>신규등록(F5)</b> 버튼을 클릭해 저장합니다."},
+    ]},
+  "list":{img:"images/소분판매-list.png",
+    btns:[
+      {x:0.42, y:49.42, w:95.89, h:2.03, plain:true, notint:true, tag:"새로 만든 <b>내 상품</b>입니다."},
+      {x:0.42, y:51.55, w:54.06, h:1.84, plain:true, notint:true, tag:"같은 바코드의 <b>본사 상품</b>입니다."},
+      {x:54.58, y:51.55, w:6.09, h:1.84, yellow:true, front:true, scroll:"★2", tip:"본사 상품의 매입·판매 상태가 <b>안함</b>으로 바뀌었습니다."},
+      {x:39.06, y:83.91, w:47.97, h:5.91, yellow:true, scroll:"★2", tip:"<b>판매가 정보</b>에 낱개와 새 단위가 함께 나옵니다."},
+      {x:96.35, y:49.42, w:3.12, h:2.03, plain:true, front:true, to:"detail", tip:"<b>보기</b> 버튼으로 상품상세 화면을 엽니다."},
+    ]},
+  "detail":{img:"images/소분판매-detail.png", noRib:true,
+    btns:[
+      {x:63.91, y:51.55, w:34.17, h:6.01, plain:true, notint:true, tag:"단위별 <b>판매가</b>입니다."},
+      {x:63.91, y:75.78, w:34.17, h:5.62, yellow:true, scroll:"★2", tip:"낱개에는 새 바코드, 큰 단위에는 <b>본사 바코드</b>가 붙어 있습니다."},
+      {x:98.18, y:0.0, w:1.82, h:2.23, plain:true, to:"list", tip:"상품상세 창을 <b>닫습니다</b>."},
+    ]},
+} };
+
+/* ▲ MPAGES:fprod */
 const S_DEF = [
   { chapter:"S 1", title:"즐겨찾기", icon:"⭐", items:[
     {sub:{ id:"s-home", title:"HOME", subtitles:{ "shome":"S버전 메인 화면" }, pages:["shome"], tips:{} }},
@@ -26686,6 +26952,7 @@ const S_DEF = [
     {sub:{ id:"2-1-s2", title:"상품등록",
   subtitles:{ "spr1":"상품 기본정보·단위·판매가·바코드 등록", "spr2":"상품 이미지 등록", "spr3":"상품군별 고시정보 입력" },
   pages:["spr1","spr2","spr3"], pageLabels:["규격관리","이미지","고시정보"], tips:{} }},
+    {sub:{ id:"s-fprod", title:"가맹점 상품등록", subtitles:{ "sfp1":"본사 바코드로 내 매장 상품 만들기", "sfp2":"등록한 상품·본사 상품 상태 확인", "sfp3":"본사 상품을 낱개 등 더 작은 단위로 판매", "sfp4":"가맹점 상품등록 자주 묻는 질문 5가지" }, pages:["sfp1","sfp2","sfp3","sfp4"], pageLabels:["본사 바코드로 등록","사업장 상품관리 확인","더 작은 단위로 판매","자주 묻는 질문"], tips:{} }},
     {sub:{ id:"2-11", title:"카테고리 관리",
   subtitles:{ "sprcat":"상품 카테고리 대·중·소·세분류 관리" },
   pages:["sprcat"], tips:{} }},
@@ -26904,28 +27171,28 @@ const VIDEOS = [
       { t:714.34, title:"원산지 · 제조사 · 브랜드 관리", subs:["2-11b"], tags:["원산지", "원산지관리", "제조사", "제조사관리", "브랜드", "브랜드관리"] },
       { t:795.66, title:"제조사 관리", subs:["2-11c"], tags:["제조사", "제조사등록", "변경이력"], inner:1 },
       { t:843.26, title:"브랜드 관리", subs:["2-11d"], tags:["브랜드", "브랜드등록"], inner:1 } ] },
-  { id:"base-franchise", subId:"2-flow", alsoSubs:[], title:"가맹점 상품등록하기", cat:"기초관리 › 가맹점 상품등록", src:"videos/base-franchise.mp4", poster:"videos/base-franchise.jpg", dur:"5:00", yt:"e2-d2ox04yQ",
+  { id:"base-franchise", subId:"s-fprod", alsoSubs:[], title:"가맹점 상품등록하기", cat:"기초관리 › 가맹점 상품등록", src:"videos/base-franchise.mp4", poster:"videos/base-franchise.jpg", dur:"5:00", yt:"e2-d2ox04yQ",
     desc:"가맹점에서 본사 상품의 바코드로 단위(내품수)와 바코드를 한꺼번에 불러와 내 매장 상품을 만드는 방법과, 본사 상품을 더 작은 단위로 나눠 파는 방법을 알려드려요.",
     tags:["가맹점상품등록", "가맹점", "본사상품", "본사바코드", "바코드체크", "신규상품", "내품수", "단위", "본사상품을더작은단위로판매하기", "소분판매", "작은단위", "낱개", "배수"],
     group:"가맹점 상품등록",
     chapters:[
-      { t:11.3, title:"가맹점 상품등록", subs:["2-flow"], tags:["가맹점상품등록", "가맹점", "본사상품", "본사바코드", "바코드체크", "신규상품", "내품수", "단위"] },
+      { t:11.3, title:"가맹점 상품등록", subs:["s-fprod"], tags:["가맹점상품등록", "가맹점", "본사상품", "본사바코드", "바코드체크", "신규상품", "내품수", "단위"] },
       { t:57.19, title:"가맹점 상품등록 — 본사 단위·바코드 불러오기", tags:["불러오기", "배수", "반영내품수"], inner:1 },
       { t:112.92, title:"가맹점 상품등록 — 저장 · 사업장 상품관리 확인", tags:["신규등록", "저장", "사용안함", "전체상품", "상품목록"], inner:1 },
-      { t:154.0, title:"본사 상품을 더 작은 단위로 판매하기", tags:["소분판매", "작은단위", "낱개", "배수"] },
+      { t:154.0, title:"본사 상품을 더 작은 단위로 판매하기", subs:["s-fprod"], tags:["소분판매", "작은단위", "낱개", "배수"] },
       { t:174.62, title:"더 작은 단위 — 낱개 바코드 먼저 등록", tags:["낱개바코드", "바코드추가", "바코드생성"], inner:1 },
       { t:210.22, title:"더 작은 단위 — 본사 바코드 · 배수로 불러오기", tags:["본사바코드", "배수", "반영내품수"], inner:1 },
       { t:258.0, title:"더 작은 단위 — 저장 · 확인", tags:["신규등록", "상품상세"], inner:1 } ] },
-  { id:"base-franchise-faq", subId:"2-flow", alsoSubs:[], title:"가맹점 상품등록 — 자주 묻는 질문", cat:"기초관리 › 가맹점 상품등록", src:"videos/base-franchise-faq.mp4", poster:"videos/base-franchise-faq.jpg", dur:"6:23", yt:"kYjnKW-H454",
+  { id:"base-franchise-faq", subId:"s-fprod", alsoSubs:[], title:"가맹점 상품등록 — 자주 묻는 질문", cat:"기초관리 › 가맹점 상품등록", src:"videos/base-franchise-faq.mp4", poster:"videos/base-franchise-faq.jpg", dur:"6:23", yt:"kYjnKW-H454",
     desc:"불러오기 창이 안 뜰 때, 사용 권한이 없다고 나올 때, 저장했는데 본사 상품이 그대로 판매될 때, 실수로 불러왔을 때, 가격을 고쳐 저장했는데 바뀌지 않을 때 — 가맹점 상품등록에서 자주 묻는 질문 다섯 가지를 알려드려요.",
     tags:["가맹점상품등록자주묻는질문", "질문1—불러오기창이안뜰때", "불러오기창", "가맹점계정", "본사바코드", "중량상품", "질문2—사용권한이없다고나올때", "사용권한", "버튼권한관리", "가맹점상품허용", "본사상품만", "질문3—저장했는데본사상품이그대로판매될때", "저장", "신규등록", "사용안함", "매입판매상태", "질문4—실수로불러왔을때", "실수", "다시작성", "단위삭제", "바코드삭제", "상품상태관리", "매입중", "질문5—가격을고쳐저장했는데바뀌지않을때", "가격", "판매정보수정", "가격반영"],
     group:"가맹점 상품등록",
     chapters:[
-      { t:9.04, title:"질문 1 — 불러오기 창이 안 뜰 때", subs:["2-flow"], tags:["불러오기창", "가맹점계정", "본사바코드", "중량상품"] },
-      { t:80.7, title:"질문 2 — 사용 권한이 없다고 나올 때", tags:["사용권한", "버튼권한관리", "가맹점상품허용", "본사상품만"] },
-      { t:150.6, title:"질문 3 — 저장했는데 본사 상품이 그대로 판매될 때", tags:["저장", "신규등록", "사용안함", "매입판매상태"] },
-      { t:240.27, title:"질문 4 — 실수로 불러왔을 때", tags:["실수", "다시작성", "단위삭제", "바코드삭제", "상품상태관리", "매입중"] },
-      { t:351.84, title:"질문 5 — 가격을 고쳐 저장했는데 바뀌지 않을 때", tags:["가격", "판매정보수정", "가격반영"] } ] },
+      { t:9.04, title:"질문 1 — 불러오기 창이 안 뜰 때", subs:["s-fprod"], tags:["불러오기창", "가맹점계정", "본사바코드", "중량상품"] },
+      { t:80.7, title:"질문 2 — 사용 권한이 없다고 나올 때", subs:["s-fprod"], tags:["사용권한", "버튼권한관리", "가맹점상품허용", "본사상품만"] },
+      { t:150.6, title:"질문 3 — 저장했는데 본사 상품이 그대로 판매될 때", subs:["s-fprod"], tags:["저장", "신규등록", "사용안함", "매입판매상태"] },
+      { t:240.27, title:"질문 4 — 실수로 불러왔을 때", subs:["s-fprod"], tags:["실수", "다시작성", "단위삭제", "바코드삭제", "상품상태관리", "매입중"] },
+      { t:351.84, title:"질문 5 — 가격을 고쳐 저장했는데 바뀌지 않을 때", subs:["s-fprod"], tags:["가격", "판매정보수정", "가격반영"] } ] },
   { id:"base-supplier", subId:"s-inreg", alsoSubs:["s-in", "3-7", "3-7b"], title:"매입처 관리 메뉴 사용 방법", cat:"기초관리 › 매입처 관리", src:"videos/base-supplier.mp4", poster:"videos/base-supplier.jpg", dur:"4:46", yt:"RZ8pHn8FOhE",
     desc:"매입처 등록 · 매입처 목록 · 카테고리 · 관리자 메모, 기초관리의 매입처 관리 메뉴를 차례로 알려드려요.",
     tags:["매입처관리", "매입처", "거래처", "매입처등록", "사업자등록번호", "은행정보", "매입처목록", "상세검색", "매입처카테고리", "관리자메모"],
@@ -27654,7 +27921,9 @@ const S_RIBBON_CAT = {
   "s-ch2": { // 기초관리 (기초관리상단.png 1568×170 기준)
     // ── 상품관리 ──
     "sub:7-1":       {x:0,    y:36.1, w:4,   h:49.2},  // 사업장 상품관리
+    "sfp2":          {x:0,    y:36.1, w:4,   h:49.2},
     "sub:2-1":       {x:4,    y:36.1, w:7.1, h:16.7},  // 상품등록
+    "sub:s-fprod":   {x:4,    y:36.1, w:7.1, h:16.7},
     "sub:2-11":      {x:4,    y:52.2, w:7.1, h:16.7},  // 카테고리 관리
     "sub:s-rst":     {x:4,    y:68.8, w:7.1, h:16.7},  // 제한상품 관리
     "sub:2-11b":     {x:11.1, y:36.3, w:6.5, h:16.7},  // 원산지 관리
@@ -28330,7 +28599,7 @@ function renderSection() {
       const ribCrop = !sCrop && (ch.sRibbonAll || SIM[pg].ribCrop) && !SIM[pg].noRibCrop; // S 전용 캡처: 이미지 안 상단 카테고리(타이틀바~리본)를 잘라 스와이프 리본과 중복 제거
       html += (sRibbon ? sRibbonHTML(ch.ribbon, pg, ch.id, sub.id) : ``) +
         (sCrop ? `<div class="s-clip">` : ``) +
-        `<div class="img-pin-wrap sim-wrap${sCrop ? ' s-cropped' : ''}${sCrop && sRibbon ? (SIM[pg].shortTop ? ' s-topcrop2' : ' s-topcrop') : ''}${ribCrop ? ' s-ribcrop' : ''}" id="simWrap" style="position:relative;width:100%;">`+
+        `<div class="img-pin-wrap sim-wrap${sCrop ? ' s-cropped' : ''}${sCrop && sRibbon ? (SIM[pg].shortTop ? ' s-topcrop2' : ' s-topcrop') : ''}${ribCrop ? ' s-ribcrop' : ''}${ribCrop && SIM[pg].wide ? ' s-wide' : ''}" id="simWrap" style="position:relative;width:100%;">`+
         simScreenHTML(pg, SIM[pg].start) + `</div>` + (sCrop ? `</div>` : ``);
     } else if (imgSrc) {
       html += `<div class="img-pin-wrap" style="position:relative;width:100%;">`+
