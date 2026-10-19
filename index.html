@@ -27578,22 +27578,22 @@ DESCS["shq2"] = [
   {type:"step", num:"1", title:"🏪 사업장 체크", body:"<b>사업장명</b>에서 조회할 사업장에 체크합니다."},
   {type:"step", num:"2", title:"📅 검색일", body:"<b>검색일</b>에서 조회할 기간을 정합니다."},
   {type:"step", num:"3", title:"🔍 조회", subs:["통합검색 칸 끝 <span class='ui-btn'>···</span> 버튼을 클릭합니다.", "%%판매일별로 마진금액·합계금액·마진율이 나옵니다."]},
-  {type:"step", num:"★", ystar:true, title:"🧩 표 모양 바꾸기", subs:["위쪽 <b>항목</b>을 표에 끌어다 놓으면 그 항목을 표에서 볼 수 있습니다.", "항목을 옮긴 뒤에는 <span class='ui-btn'>···</span> 버튼으로 다시 조회해야 놓은 순서대로 묶여 나옵니다.", "%%묶음마다 합계도 함께 볼 수 있습니다."]},
+  {type:"step", num:"★", ystar:true, title:"🧩 표 커스텀 (드래그) <span class=\"gif-play\" onclick=\"playGif('images/표커스텀.gif')\">사용법 재생</span>", body:"보고 싶은 정보만 골라 표를 구성합니다.", subs:["상단의 칩을 <b>클릭 앤 드래그</b>로 표에 가져오면 열이 추가됩니다.", "반대로 표 밖으로 빼면 해당 열을 빼고 원하는 항목만 남길 수 있습니다.", "%%칩을 옮긴 뒤 <span class='ui-btn'>···</span> 버튼으로 다시 조회하면 가져온 순서대로 묶이고, 묶음마다 합계가 함께 나옵니다."]},
   {type:"note", text:"분류·담당자·매출처 같은 조건으로 찾으려면 🔗 <b class='dlink' onclick=\"goPage(1)\">상세검색</b> 화면을 엽니다."},
 ];
 SIM["shq2"] = { start:"1", ribbon:"images/본사-매출관리리본.png", screens:{
   "1":{img:"images/본사2-판매현황.png",
     btns:[
-      {x:43.52, y:20.06, w:8.44, h:2.91, plain:true, tip:"<b>레이아웃관리</b>로 표 모양을 저장하고 불러옵니다."},
+      {x:43.52, y:20.06, w:8.44, h:2.91, plain:true, tip:"<b>레이아웃관리</b>로 커스텀한 표를 저장·불러옵니다."},
       {x:94.24, y:20.06, w:5.24, h:2.91, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       {x:88.02, y:20.06, w:6.15, h:2.91, plain:true, page:1, tip:"<b>상세검색</b>을 클릭하면 조건 칸이 열립니다."},
       {x:0.65, y:23.35, w:14.79, h:10.56, num:"1", numCorner:true, tip:"조회할 <b>사업장</b>에 체크합니다."},
       {x:52.23, y:20.06, w:19.76, h:2.91, num:"2", numCorner:true, tip:"<b>검색일</b>에서 조회할 기간을 정합니다."},
       {x:76.51, y:20.06, w:11.45, h:2.91, num:"3", numCorner:true, front:true, tip:"통합검색 칸 끝 <b>···</b> 버튼을 클릭하면 조회됩니다."},
-      {x:16.16, y:23.45, w:83.05, h:6.2, yellow:true, scroll:"★1", tip:"항목을 표에 끌어다 놓으면 <b>표 모양</b>이 바뀝니다."},
+      {x:16.16, y:23.45, w:83.05, h:6.2, yellow:true, scroll:"★1", notint:true, tip:"칩을 표로 <b>끌어오면 열이 추가</b>되고 표 밖으로 빼면 사라집니다."},
       {x:16.3, y:29.94, w:18.19, h:2.91, plain:true, tip:"<b>마진금액·합계금액·마진율</b>이 표에 나옵니다."},
       {x:16.16, y:33.04, w:53.53, h:63.47, plain:true, notint:true, tip:"조회한 <b>판매 내역</b>이 판매일별로 나옵니다."},
-      {x:16.3, y:35.37, w:30.37, h:2.71, yellow:true, front:true, scroll:"★1", tip:"끌어다 놓은 <b>항목</b> 순서대로 묶여서 나옵니다."},
+      {x:16.3, y:35.37, w:30.37, h:2.71, yellow:true, front:true, scroll:"★1", tip:"표로 끌어온 <b>칩</b> 순서대로 묶여서 나옵니다."},
       {x:16.16, y:46.12, w:53.47, h:2.52, fill:true, front:true, scroll:"★1", tip:"묶음마다 <b>합계</b>가 함께 나옵니다."},
     ]},
 } };
@@ -27608,7 +27608,7 @@ DESCS["shq2s"] = [
 SIM["shq2s"] = { start:"1", ribbon:"images/본사-매출관리리본.png", screens:{
   "1":{img:"images/본사2-판매현황-상세검색.png",
     btns:[
-      {x:43.52, y:20.06, w:8.44, h:2.91, plain:true, tip:"<b>레이아웃관리</b>로 표 모양을 저장하고 불러옵니다."},
+      {x:43.52, y:20.06, w:8.44, h:2.91, plain:true, tip:"<b>레이아웃관리</b>로 커스텀한 표를 저장·불러옵니다."},
       {x:94.24, y:20.06, w:5.24, h:2.91, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       {x:88.02, y:20.06, w:6.15, h:2.91, plain:true, page:0, tip:"<b>닫기</b>를 클릭하면 조건 칸이 닫힙니다."},
       {x:0.65, y:23.35, w:14.79, h:10.56, plain:true, tip:"조회할 <b>사업장</b>에 체크합니다."},
@@ -27623,7 +27623,7 @@ SIM["shq2s"] = { start:"1", ribbon:"images/본사-매출관리리본.png", scree
       {x:72.32, y:27.03, w:26.77, h:18.8, fill:true, front:true, scroll:"2", tip:"찾을 <b>값</b>을 입력합니다."},
       {x:87.11, y:23.93, w:6.22, h:2.62, plain:true, front:true, search:true, tip:"<b>상품선택</b>으로 상품 통합검색창을 열어 상품을 고릅니다."},
       {x:93.39, y:23.84, w:6.02, h:2.91, num:"3", numCorner:true, front:true, tip:"<b>검색</b>을 클릭하면 조건에 맞는 판매 내역이 나옵니다."},
-      {x:16.16, y:49.22, w:83.05, h:6.3, plain:true, tip:"항목을 표에 끌어다 놓으면 <b>표 모양</b>이 바뀝니다."},
+      {x:16.16, y:49.22, w:83.05, h:6.3, plain:true, tip:"칩을 표로 <b>끌어오면 열이 추가</b>되고 표 밖으로 빼면 사라집니다."},
       {x:16.16, y:58.82, w:30.69, h:8.04, plain:true, notint:true, tip:"조건에 맞는 <b>판매 내역</b>만 나옵니다."},
     ]},
 } };
@@ -27809,7 +27809,7 @@ const S_DEF = [
       ]},
     {ref:"12-4", title:"매입통계"},
   ]},
-    /* ▼ MPAGES-SDEF:hq */ { chapter:"S 8", title:"본사관리", icon:"🏢", ribbon:"images/본사-기본관리리본.png", sRibbonAll:true, items:[{g:"기본관리"}, {sub:{ id:"s-hqbiz", title:"사업장 관리(본사)", subtitles:{ "shq1":"본사에서 사업장 등록·수정·순서 변경" }, pages:["shq1"], tips:{} }},{g:"매출현황"}, {sub:{ id:"s-hqsale", title:"판매 현황", subtitles:{ "shq2":"사업장·검색일로 판매 내역 조회·표 모양 바꾸기", "shq2s":"분류·담당자·매출처 등 조건으로 판매 내역 찾기" }, pages:["shq2","shq2s"], pageLabels:["판매 현황","상세검색"], tips:{} }},]}, /* ▲ MPAGES-SDEF:hq */
+    /* ▼ MPAGES-SDEF:hq */ { chapter:"S 8", title:"본사관리", icon:"🏢", ribbon:"images/본사-기본관리리본.png", sRibbonAll:true, items:[{g:"기본관리"}, {sub:{ id:"s-hqbiz", title:"사업장 관리(본사)", subtitles:{ "shq1":"본사에서 사업장 등록·수정·순서 변경" }, pages:["shq1"], tips:{} }},{g:"매출현황"}, {sub:{ id:"s-hqsale", title:"판매 현황", subtitles:{ "shq2":"사업장·검색일로 판매 내역 조회·표 커스텀", "shq2s":"분류·담당자·매출처 등 조건으로 판매 내역 찾기" }, pages:["shq2","shq2s"], pageLabels:["판매 현황","상세검색"], tips:{} }},]}, /* ▲ MPAGES-SDEF:hq */
   /* ── 환경설정 챕터 숨김 (2026-07-14 요청) — 복구 시 이 주석 해제 ──
   { chapter:"S 8", title:"환경설정", icon:"⚙️", items:[
     {g:"코드관리"}, {ref:"env11"},{ref:"10-3b"},{ref:"env12"},{ref:"env15"},{prep:"공통 사업장 상품 관리"},{ref:"env19", title:"포스 버튼관리"},
@@ -28063,7 +28063,7 @@ const VIDEOS = [
       { t:38.35, title:"영업 일보", tags:["영업일보", "인쇄미리보기"] },
       { t:68.82, title:"월별 현황", tags:["월별현황", "달력"] },
       { t:96.82, title:"판매 현황", subs:["6-6c"], tags:["판매현황", "상세검색"] },
-      { t:142.55, title:"판매 현황 — 표 모양 바꾸기", tags:["표구성", "항목추가"] },
+      { t:142.55, title:"판매 현황 — 표 커스텀", tags:["표커스텀", "표구성", "항목추가"] },
       { t:171.68, title:"결제수단별 현황", subs:["6-6b"], tags:["결제수단별현황", "결제수단"] },
       { t:194.65, title:"매입처별 매출현황", subs:["s-vsl"], tags:["매입처별매출현황", "매입처선택", "드릴다운"] } ] },
   { id:"sales-history", subId:"s-uni", alsoSubs:["s-unq", "s-hsw", "s-hsq"], title:"이력신고 관리 방법", cat:"매출관리 › 이력신고관리", src:"videos/sales-history.mp4", poster:"videos/sales-history.jpg", dur:"3:32", yt:"iMwcIaHvvg8",
@@ -28349,11 +28349,11 @@ const VIDEOS = [
       { t:899.21, title:"할인쿠폰 취소 · 준비중으로", tags:["쿠폰취소", "준비중으로"], inner:1 },
       { t:921.62, title:"할인쿠폰 현황", subs:["s-cn"], tags:["쿠폰현황"], inner:1 } ] },
   { id:"hq-stat", subId:"s-hqsale", alsoSubs:[], title:"본사 통계 — 판매 현황 조회 방법", cat:"본사관리 › 통계", src:"videos/hq-stat.mp4", poster:"videos/hq-stat.jpg", dur:"1:27", yt:"c1sT588TaeU",
-    desc:"본사 관리의 통계 메뉴 — 판매 현황에서 사업장과 기간, 상세 조건으로 판매 내역을 조회하고, 항목을 끌어다 놓아 표 모양을 바꾸는 방법을 알려드려요.",
+    desc:"본사 관리의 통계 메뉴 — 판매 현황에서 사업장과 기간, 상세 조건으로 판매 내역을 조회하고, 항목을 끌어다 놓아 표를 커스텀하는 방법을 알려드려요.",
     tags:["통계", "본사관리", "판매현황", "상세검색", "표구성", "항목추가"],
     chapters:[
       { t:0.0, title:"판매 현황 — 조회 · 상세검색", subs:["s-hqsale"], tags:["판매현황", "상세검색"] },
-      { t:52.08, title:"판매 현황 — 표 모양 바꾸기", tags:["표구성", "항목추가"] } ] },
+      { t:52.08, title:"판매 현황 — 표 커스텀", tags:["표커스텀", "표구성", "항목추가"] } ] },
 ];
 let _curVideo = null;
 function videoForSub(sub) { return sub ? VIDEOS.find(v => v.subId === sub.id || (v.alsoSubs || []).includes(sub.id)) : null; }
