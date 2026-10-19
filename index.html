@@ -27551,6 +27551,254 @@ SIM["sap4"] = { start:"1", wide:true, sRibbon:true, ribCrop:true, ribbon:"images
 } };
 
 /* ▲ MPAGES:autoorder */
+/* ▼ MPAGES:expense */
+// ── S버전 전용 페이지: 매장관리 › 경비 사용관리 (영상 캡처, 2026-10-19) ──
+IMGS["sexb1"] = "images/경비-제예금현황-1.png";
+DESCS["sexb1"] = [
+  {type:"note", text:"통장 <b>잔액</b>과 계좌별 입출금 내역을 확인하는 화면입니다."},
+  {type:"step", num:"1", title:"🔄 계좌별 잔액 조회", subs:["<b>조회기간</b>을 정하고 <span class='ui-btn'>새로고침</span> 버튼을 클릭합니다.", "%%계좌별 집계 탭에 계좌마다 잔액이 나옵니다."]},
+  {type:"step", num:"2", title:"📄 세부내역", subs:["<b>세부내역</b> 탭을 클릭하고 <span class='ui-btn'>새로고침</span> 버튼을 클릭합니다.", "%%이전잔액이 나오고, 거래가 있으면 그 아래로 날짜별 입출금 내역이 이어집니다."]},
+  {type:"step", num:"★", ystar:true, title:"➕ 차변 · ➖ 대변", body:"<b>차변</b>은 들어온 금액, <b>대변</b>은 나간 금액입니다."},
+  {type:"step", num:"★", ystar:true, title:"🖨️ 인쇄", body:"<span class='ui-btn'>인쇄</span> 버튼을 클릭하면 미리 보기 창에서 인쇄할 내용을 확인할 수 있습니다."},
+];
+SIM["sexb1"] = { start:"1", wide:true, ribbon:"images/매장관리-리본2.png", screens:{
+  "1":{img:"images/경비-제예금현황-1.png",
+    btns:[
+      {x:4.32, y:20.06, w:13.12, h:2.91, tip:"<b>조회기간</b>을 정합니다."},
+      {x:17.5, y:20.06, w:4.84, h:2.91, num:"1", numCorner:true, to:"2", tip:"조회기간을 정하고 <b>새로고침</b> 버튼을 클릭합니다."},
+      {x:89.74, y:20.06, w:4.58, h:2.91, plain:true, tip:"<b>인쇄</b> 버튼으로 미리 보기 창을 엽니다."},
+      {x:94.58, y:20.06, w:4.74, h:2.91, plain:true, tip:"제예금 현황 화면을 <b>닫습니다</b>."},
+      {x:0.83, y:23.84, w:4.38, h:2.33, plain:true, to:"2", tip:"<b>계좌별 집계</b> 탭으로 이동합니다."},
+      {x:5.36, y:23.84, w:3.44, h:2.33, plain:true, to:"3", tip:"<b>세부내역</b> 탭으로 이동합니다."},
+    ]},
+  "2":{img:"images/경비-제예금현황-2.png",
+    btns:[
+      {x:4.32, y:20.06, w:13.12, h:2.91, plain:true, tip:"<b>조회기간</b>을 정합니다."},
+      {x:17.5, y:20.06, w:4.84, h:2.91, plain:true, tip:"<b>새로고침</b>으로 다시 조회합니다."},
+      {x:89.74, y:20.06, w:4.58, h:2.91, plain:true, tip:"<b>인쇄</b> 버튼으로 미리 보기 창을 엽니다."},
+      {x:94.58, y:20.06, w:4.74, h:2.91, plain:true, tip:"제예금 현황 화면을 <b>닫습니다</b>."},
+      {x:0.83, y:23.84, w:4.38, h:2.33, plain:true, to:"2", tip:"<b>계좌별 집계</b> 탭으로 이동합니다."},
+      {x:5.36, y:23.84, w:3.44, h:2.33, num:"2", to:"3", tip:"<b>세부내역</b> 탭을 클릭합니다."},
+      {x:1.25, y:32.85, w:43.54, h:6.88, plain:true, notint:true, tag:"계좌마다 <b>잔액</b>이 나옵니다."},
+      {x:29.17, y:30.72, w:10.42, h:9.01, yellow:true, scroll:"★1", front:true, tip:"<b>차변·대변</b>은 들어온 금액·나간 금액입니다."},
+    ]},
+  "3":{img:"images/경비-제예금현황-3.png",
+    btns:[
+      {x:4.32, y:20.06, w:13.12, h:2.91, plain:true, tip:"<b>조회기간</b>을 정합니다."},
+      {x:17.5, y:20.06, w:4.84, h:2.91, num:"2", numCorner:true, to:"4", tip:"<b>새로고침</b> 버튼을 클릭합니다."},
+      {x:89.74, y:20.06, w:4.58, h:2.91, plain:true, tip:"<b>인쇄</b> 버튼으로 미리 보기 창을 엽니다."},
+      {x:94.58, y:20.06, w:4.74, h:2.91, plain:true, tip:"제예금 현황 화면을 <b>닫습니다</b>."},
+      {x:0.83, y:23.84, w:4.38, h:2.33, plain:true, to:"2", tip:"<b>계좌별 집계</b> 탭으로 이동합니다."},
+      {x:5.36, y:23.84, w:3.44, h:2.33, plain:true, to:"3", tip:"<b>세부내역</b> 탭으로 이동합니다."},
+    ]},
+  "4":{img:"images/경비-제예금현황-4.png",
+    btns:[
+      {x:4.32, y:20.06, w:13.12, h:2.91, plain:true, tip:"<b>조회기간</b>을 정합니다."},
+      {x:17.5, y:20.06, w:4.84, h:2.91, plain:true, tip:"<b>새로고침</b>으로 다시 조회합니다."},
+      {x:89.74, y:20.06, w:4.58, h:2.91, yellow:true, scroll:"★2", to:"prev", tip:"<b>인쇄</b> 버튼으로 미리 보기 창을 엽니다."},
+      {x:94.58, y:20.06, w:4.74, h:2.91, plain:true, tip:"제예금 현황 화면을 <b>닫습니다</b>."},
+      {x:0.83, y:23.84, w:4.38, h:2.33, plain:true, to:"2", tip:"<b>계좌별 집계</b> 탭으로 이동합니다."},
+      {x:5.36, y:23.84, w:3.44, h:2.33, plain:true, to:"3", tip:"<b>세부내역</b> 탭으로 이동합니다."},
+      {x:1.15, y:36.14, w:30.1, h:1.84, plain:true, notint:true, tag:"<b>이전잔액</b> 아래로 날짜별 입출금 내역이 이어집니다."},
+    ]},
+  "prev":{img:"images/경비-제예금현황-prev.png", noRib:true,
+    btns:[
+      {x:28.28, y:9.21, w:42.45, h:87.69, plain:true, notint:true, tag:"인쇄할 내용을 <b>미리 보기</b>로 확인합니다."},
+      {x:97.92, y:0.0, w:2.08, h:2.13, plain:true, to:"4", tip:"미리 보기 창을 <b>닫습니다</b>."},
+    ]},
+} };
+IMGS["sexc1"] = "images/경비-현금출납장-1.png";
+DESCS["sexc1"] = [
+  {type:"note", text:"현금이 들어오고 나간 내역을 날짜별로 보는 화면입니다."},
+  {type:"step", num:"1", title:"🔄 현금 내역 조회", body:"<b>조회기간</b>을 정하고 <span class='ui-btn'>새로고침</span> 버튼을 클릭합니다."},
+  {type:"step", num:"★", ystar:true, title:"💵 잔액", body:"<b>잔액</b> 칸에서 거래마다 남은 현금을 확인할 수 있습니다."},
+];
+SIM["sexc1"] = { start:"1", wide:true, ribbon:"images/매장관리-리본2.png", screens:{
+  "1":{img:"images/경비-현금출납장-1.png",
+    btns:[
+      {x:4.32, y:20.06, w:13.12, h:2.91, tip:"<b>조회기간</b>을 정합니다."},
+      {x:17.6, y:20.06, w:4.69, h:2.91, num:"1", numCorner:true, to:"2", tip:"<b>새로고침</b> 버튼을 클릭합니다."},
+      {x:89.74, y:20.06, w:4.58, h:2.91, plain:true, tip:"<b>인쇄</b> 버튼으로 현금 출납장을 출력합니다."},
+      {x:94.58, y:20.06, w:4.74, h:2.91, plain:true, tip:"현금 출납장 화면을 <b>닫습니다</b>."},
+    ]},
+  "2":{img:"images/경비-현금출납장-2.png",
+    btns:[
+      {x:4.32, y:20.06, w:13.12, h:2.91, plain:true, tip:"<b>조회기간</b>을 정합니다."},
+      {x:17.6, y:20.06, w:4.69, h:2.91, plain:true, tip:"<b>새로고침</b>으로 다시 조회합니다."},
+      {x:89.74, y:20.06, w:4.58, h:2.91, plain:true, tip:"<b>인쇄</b> 버튼으로 현금 출납장을 출력합니다."},
+      {x:94.58, y:20.06, w:4.74, h:2.91, plain:true, tip:"현금 출납장 화면을 <b>닫습니다</b>."},
+      {x:0.52, y:25.58, w:46.25, h:14.15, plain:true, notint:true, tag:"날짜별 현금 <b>입출금 내역</b>입니다."},
+      {x:33.85, y:23.74, w:5.0, h:15.99, yellow:true, scroll:"★1", front:true, tip:"거래마다 남은 현금 <b>잔액</b>입니다."},
+    ]},
+} };
+IMGS["sexj1"] = "images/경비-회계전표-1.png";
+DESCS["sexj1"] = [
+  {type:"note", text:"회계 전표를 등록하고 목록을 보는 화면입니다. 조회기간·매입처·매출처를 정하고 <span class='ui-btn'>새로고침</span> 버튼을 클릭하면 원하는 전표만 볼 수 있습니다."},
+  {type:"step", num:"1", title:"➕ 신규등록", body:"<span class='ui-btn'>신규등록</span> 버튼을 클릭하면 회계일반 입력 창이 열립니다."},
+  {type:"step", num:"2", title:"↕️ 구분", body:"<b>구분</b>에서 입금인지 출금인지 고릅니다."},
+  {type:"step", num:"3", title:"📒 계정과목", body:"계정과목 옆 <span class='ui-btn'>···</span> 버튼을 클릭하고 계정목록 창에서 사용할 <b>계정과목</b>을 더블클릭합니다."},
+  {type:"step", num:"4", title:"💰 계좌 · 금액", subs:["계좌가 필요한 계정과목이면 <b>계좌정보</b> 칸이 생기며, 여기서 계좌를 고릅니다.", "<b>금액</b>을 입력하고 <span class='ui-btn'>추가</span> 버튼을 클릭하면 아래 차변·대변에 들어갑니다."]},
+  {type:"step", num:"5", title:"💾 등록", subs:["차변·대변 금액이 같은지 확인하고 <span class='ui-btn'>등록</span> 버튼을 클릭합니다.", "저장 알림 창에서 <span class='ui-btn'>예</span>를 클릭하면 이어서 다음 전표를 쓸 수 있습니다.", "전표를 다 썼으면 <span class='ui-btn'>닫기</span> 버튼을 클릭합니다. 목록에서 새로 등록한 전표를 확인할 수 있습니다."]},
+  {type:"step", num:"★", ystar:true, title:"⚖️ 차변 · 대변", body:"추가한 금액은 아래 <b>차변·대변</b>에 함께 들어갑니다. 등록하기 전에 두 금액이 같은지 확인합니다."},
+];
+SIM["sexj1"] = { start:"1", wide:true, ribbon:"images/매장관리-리본2.png", screens:{
+  "1":{img:"images/경비-회계전표-1.png",
+    btns:[
+      {x:4.32, y:20.35, w:37.6, h:5.04, plain:true, tip:"<b>조회기간·매입처·매출처</b>를 정합니다."},
+      {x:42.08, y:20.06, w:4.17, h:2.91, plain:true, tip:"<b>새로고침</b>으로 원하는 전표만 봅니다."},
+      {x:46.35, y:20.06, w:5.62, h:2.91, plain:true, tip:"목록을 <b>엑셀저장</b>합니다."},
+      {x:84.9, y:20.06, w:4.9, h:2.91, num:"1", numCorner:true, to:"2", tip:"<b>신규등록</b> 버튼을 클릭합니다."},
+      {x:89.95, y:20.06, w:4.32, h:2.91, plain:true, tip:"선택한 전표를 <b>삭제</b>합니다."},
+      {x:94.58, y:20.06, w:4.74, h:2.91, plain:true, tip:"회계 전표 화면을 <b>닫습니다</b>."},
+      {x:0.52, y:28.49, w:56.77, h:8.14, plain:true, notint:true, tag:"등록된 <b>전표</b> 목록입니다."},
+    ]},
+  "2":{img:"images/경비-회계전표-2.png", noRib:true,
+    btns:[
+      {x:63.96, y:18.8, w:4.06, h:2.62, plain:true, tip:"입력 칸을 비우고 <b>새 전표</b>를 씁니다."},
+      {x:68.33, y:18.8, w:4.17, h:2.62, plain:true, tip:"<b>등록</b> 버튼으로 전표를 저장합니다."},
+      {x:72.86, y:18.8, w:4.27, h:2.62, plain:true, tip:"회계일반 입력 창을 <b>닫습니다</b>."},
+      {x:26.2, y:21.8, w:8.39, h:2.42, num:"2", numRight:true, to:"3", tip:"<b>구분</b>에서 입금인지 출금인지 고릅니다."},
+    ]},
+  "3":{img:"images/경비-회계전표-3.png", noRib:true,
+    btns:[
+      {x:63.96, y:18.8, w:4.06, h:2.62, plain:true, tip:"입력 칸을 비우고 <b>새 전표</b>를 씁니다."},
+      {x:68.33, y:18.8, w:4.17, h:2.62, plain:true, tip:"<b>등록</b> 버튼으로 전표를 저장합니다."},
+      {x:72.86, y:18.8, w:4.27, h:2.62, plain:true, tip:"회계일반 입력 창을 <b>닫습니다</b>."},
+      {x:26.2, y:21.8, w:8.39, h:2.42, tip:"고른 <b>구분</b>입니다."},
+      {x:33.75, y:24.71, w:0.83, h:2.62, num:"3", to:"acc", tip:"계정과목 옆 <b>···</b> 버튼을 클릭합니다."},
+    ]},
+  "acc":{img:"images/경비-회계전표-acc.png", noRib:true,
+    btns:[
+      {x:54.01, y:24.03, w:33.49, h:1.94, num:"3", numCorner:true, to:"4", tip:"사용할 <b>계정과목</b>을 더블클릭합니다."},
+    ]},
+  "4":{img:"images/경비-회계전표-4.png", noRib:true,
+    btns:[
+      {x:63.96, y:18.8, w:4.06, h:2.62, plain:true, tip:"입력 칸을 비우고 <b>새 전표</b>를 씁니다."},
+      {x:68.33, y:18.8, w:4.17, h:2.62, plain:true, tip:"<b>등록</b> 버튼으로 전표를 저장합니다."},
+      {x:72.86, y:18.8, w:4.27, h:2.62, plain:true, tip:"회계일반 입력 창을 <b>닫습니다</b>."},
+      {x:26.2, y:24.71, w:33.02, h:2.62, tip:"고른 <b>계정과목</b>입니다."},
+      {x:26.04, y:36.43, w:33.07, h:2.62, num:"4", to:"5", tip:"계좌정보 칸이 생기면 <b>계좌</b>를 고릅니다."},
+    ]},
+  "5":{img:"images/경비-회계전표-5.png", noRib:true,
+    btns:[
+      {x:63.96, y:18.8, w:4.06, h:2.62, plain:true, tip:"입력 칸을 비우고 <b>새 전표</b>를 씁니다."},
+      {x:68.33, y:18.8, w:4.17, h:2.62, plain:true, tip:"<b>등록</b> 버튼으로 전표를 저장합니다."},
+      {x:72.86, y:18.8, w:4.27, h:2.62, plain:true, tip:"회계일반 입력 창을 <b>닫습니다</b>."},
+      {x:26.04, y:30.72, w:33.18, h:2.81, tip:"고른 <b>계좌정보</b>입니다."},
+      {x:63.7, y:30.81, w:13.44, h:2.71, tip:"<b>금액</b>을 입력합니다."},
+      {x:45.26, y:33.91, w:4.22, h:2.62, num:"4", to:"6", tip:"<b>추가</b> 버튼을 클릭하면 차변·대변에 들어갑니다."},
+    ]},
+  "6":{img:"images/경비-회계전표-6.png", noRib:true,
+    btns:[
+      {x:63.96, y:18.8, w:4.06, h:2.62, plain:true, tip:"입력 칸을 비우고 <b>새 전표</b>를 씁니다."},
+      {x:68.33, y:18.8, w:4.17, h:2.62, num:"5", numCorner:true, to:"q", tip:"차변·대변 금액이 같은지 확인하고 <b>등록</b> 버튼을 클릭합니다."},
+      {x:72.86, y:18.8, w:4.27, h:2.62, plain:true, tip:"회계일반 입력 창을 <b>닫습니다</b>."},
+      {x:22.76, y:45.83, w:54.37, h:1.94, yellow:true, scroll:"★1", front:true, tip:"<b>차변·대변</b> 금액이 같은지 확인합니다."},
+    ]},
+  "q":{img:"images/경비-회계전표-q.png", noRib:true,
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"5", numCorner:true, to:"8", tip:"<b>예</b>를 클릭하면 이어서 다음 전표를 쓸 수 있습니다."},
+    ]},
+  "8":{img:"images/경비-회계전표-8.png", noRib:true,
+    btns:[
+      {x:63.96, y:18.8, w:4.06, h:2.62, plain:true, tip:"입력 칸을 비우고 <b>새 전표</b>를 씁니다."},
+      {x:68.33, y:18.8, w:4.17, h:2.62, plain:true, tip:"<b>등록</b> 버튼으로 전표를 저장합니다."},
+      {x:72.86, y:18.8, w:4.27, h:2.62, num:"5", numCorner:true, to:"7", tip:"전표를 다 썼으면 <b>닫기</b> 버튼을 클릭합니다."},
+      {x:26.2, y:21.8, w:8.39, h:2.42, plain:true, to:"3", tip:"이어서 다음 전표의 <b>구분</b>을 고릅니다."},
+    ]},
+  "7":{img:"images/경비-회계전표-7.png",
+    btns:[
+      {x:4.32, y:20.35, w:37.6, h:5.04, plain:true, tip:"<b>조회기간·매입처·매출처</b>를 정합니다."},
+      {x:42.08, y:20.06, w:4.17, h:2.91, plain:true, tip:"<b>새로고침</b>으로 원하는 전표만 봅니다."},
+      {x:46.35, y:20.06, w:5.62, h:2.91, plain:true, tip:"목록을 <b>엑셀저장</b>합니다."},
+      {x:84.9, y:20.06, w:4.9, h:2.91, plain:true, tip:"<b>신규등록</b>으로 새 전표를 씁니다."},
+      {x:89.95, y:20.06, w:4.32, h:2.91, plain:true, tip:"선택한 전표를 <b>삭제</b>합니다."},
+      {x:94.58, y:20.06, w:4.74, h:2.91, plain:true, tip:"회계 전표 화면을 <b>닫습니다</b>."},
+      {x:0.52, y:36.63, w:56.77, h:2.03, plain:true, notint:true, tag:"새로 등록한 <b>전표</b>입니다."},
+    ]},
+} };
+IMGS["sexl1"] = "images/경비-계정별원장-1.png";
+DESCS["sexl1"] = [
+  {type:"note", text:"<b>계정과목</b>별 거래 내역을 날짜별로 보는 화면입니다."},
+  {type:"step", num:"1", title:"📒 계정과목 고르기", body:"계정과목 옆 <span class='ui-btn'>···</span> 버튼을 클릭하고 조회할 <b>계정과목</b>을 더블클릭합니다."},
+  {type:"step", num:"2", title:"🔄 조회", subs:["<span class='ui-btn'>새로고침</span> 버튼을 클릭하면 선택한 계정과목의 거래 내역이 날짜별로 나옵니다.", "%%맨 아래 <b>월계·누계</b>에서 합계를 확인합니다."]},
+  {type:"step", num:"★", ystar:true, title:"🏢 매입처별로 보기", subs:["매입처 옆 <span class='ui-btn'>···</span> 버튼을 클릭하고 매입처 목록 창에서 원하는 <b>매입처</b>를 더블클릭합니다.", "계정과목도 바꾸려면 <span class='ui-btn'>···</span> 버튼을 다시 클릭합니다.", "지금 선택된 계정과목만 나오므로 <span class='ui-btn'>검색</span> 버튼을 클릭하고 바꿀 <b>계정과목</b>을 더블클릭합니다.", "<span class='ui-btn'>새로고침</span> 버튼을 다시 클릭하면 매입처·계정과목에 맞는 거래 내역만 나옵니다."]},
+  {type:"step", num:"★", ystar:true, title:"📥 엑셀저장", body:"조회한 내역은 <span class='ui-btn'>엑셀저장</span> 버튼을 클릭해 엑셀 파일로 받을 수 있습니다."},
+];
+SIM["sexl1"] = { start:"1", wide:true, ribbon:"images/매장관리-리본2.png", screens:{
+  "1":{img:"images/경비-계정별원장-1.png",
+    btns:[
+      {x:4.32, y:20.35, w:15.05, h:2.33, plain:true, tip:"<b>조회기간</b>을 정합니다."},
+      {x:85.05, y:20.06, w:4.58, h:2.91, plain:true, tip:"<b>새로고침</b>으로 다시 조회합니다."},
+      {x:89.79, y:20.06, w:4.43, h:2.91, plain:true, tip:"조회한 내역을 <b>엑셀저장</b>합니다."},
+      {x:94.58, y:20.06, w:4.74, h:2.91, plain:true, tip:"계정별 원장 화면을 <b>닫습니다</b>."},
+      {x:28.8, y:20.35, w:0.89, h:2.33, num:"1", to:"acc", tip:"계정과목 옆 <b>···</b> 버튼을 클릭합니다."},
+    ]},
+  "acc":{img:"images/경비-계정별원장-acc.png", noRib:true,
+    btns:[
+      {x:54.01, y:24.03, w:33.49, h:1.94, num:"1", numCorner:true, to:"2", tip:"조회할 <b>계정과목</b>을 더블클릭합니다."},
+    ]},
+  "2":{img:"images/경비-계정별원장-2.png",
+    btns:[
+      {x:4.32, y:20.35, w:15.05, h:2.33, plain:true, tip:"<b>조회기간</b>을 정합니다."},
+      {x:85.05, y:20.06, w:4.58, h:2.91, num:"2", numCorner:true, to:"3", tip:"<b>새로고침</b> 버튼을 클릭합니다."},
+      {x:89.79, y:20.06, w:4.43, h:2.91, plain:true, tip:"조회한 내역을 <b>엑셀저장</b>합니다."},
+      {x:94.58, y:20.06, w:4.74, h:2.91, plain:true, tip:"계정별 원장 화면을 <b>닫습니다</b>."},
+      {x:22.92, y:20.35, w:23.18, h:2.33, tip:"고른 <b>계정과목</b>입니다."},
+    ]},
+  "3":{img:"images/경비-계정별원장-3.png",
+    btns:[
+      {x:4.32, y:20.35, w:15.05, h:2.33, plain:true, tip:"<b>조회기간</b>을 정합니다."},
+      {x:85.05, y:20.06, w:4.58, h:2.91, plain:true, tip:"<b>새로고침</b>으로 다시 조회합니다."},
+      {x:89.79, y:20.06, w:4.43, h:2.91, yellow:true, scroll:"★2", tip:"조회한 내역을 <b>엑셀저장</b>으로 받습니다."},
+      {x:94.58, y:20.06, w:4.74, h:2.91, plain:true, tip:"계정별 원장 화면을 <b>닫습니다</b>."},
+      {x:0.52, y:36.14, w:51.56, h:14.44, plain:true, notint:true, tag:"선택한 계정과목의 <b>거래 내역</b>입니다."},
+      {x:0.52, y:50.58, w:51.56, h:3.97, plain:true, notint:true, tag:"<b>월계·누계</b>로 합계를 확인합니다."},
+      {x:7.81, y:23.45, w:0.73, h:2.33, yellow:true, scroll:"★1", to:"vwin", tip:"매입처별로 보려면 매입처 옆 <b>···</b> 버튼을 클릭합니다."},
+    ]},
+  "vwin":{img:"images/경비-계정별원장-vwin.png", noRib:true,
+    btns:[
+      {x:13.96, y:38.57, w:71.46, h:1.94, yellow:true, scroll:"★1", to:"5", tip:"원하는 <b>매입처</b>를 더블클릭합니다."},
+    ]},
+  "5":{img:"images/경비-계정별원장-5.png",
+    btns:[
+      {x:4.32, y:20.35, w:15.05, h:2.33, plain:true, tip:"<b>조회기간</b>을 정합니다."},
+      {x:85.05, y:20.06, w:4.58, h:2.91, plain:true, tip:"<b>새로고침</b>으로 다시 조회합니다."},
+      {x:89.79, y:20.06, w:4.43, h:2.91, plain:true, tip:"조회한 내역을 <b>엑셀저장</b>합니다."},
+      {x:94.58, y:20.06, w:4.74, h:2.91, plain:true, tip:"계정별 원장 화면을 <b>닫습니다</b>."},
+      {x:4.32, y:23.45, w:14.79, h:2.33, tip:"고른 <b>매입처</b>가 들어갔습니다."},
+      {x:28.8, y:20.35, w:0.89, h:2.33, yellow:true, scroll:"★1", to:"acc2", tip:"계정과목도 바꾸려면 <b>···</b> 버튼을 다시 클릭합니다."},
+    ]},
+  "acc2":{img:"images/경비-계정별원장-acc2.png", noRib:true,
+    btns:[
+      {x:54.01, y:18.99, w:33.49, h:1.94, plain:true, notint:true, tag:"지금 선택된 <b>계정과목</b>만 나옵니다."},
+      {x:83.33, y:10.47, w:4.17, h:2.52, yellow:true, scroll:"★1", to:"acc3", tip:"<b>검색</b> 버튼을 클릭하면 전체 계정과목이 나옵니다."},
+    ]},
+  "acc3":{img:"images/경비-계정별원장-acc3.png", noRib:true,
+    btns:[
+      {x:54.01, y:37.5, w:33.49, h:1.74, yellow:true, scroll:"★1", to:"4", tip:"바꿀 <b>계정과목</b>을 더블클릭합니다."},
+    ]},
+  "4":{img:"images/경비-계정별원장-4.png",
+    btns:[
+      {x:4.32, y:20.35, w:15.05, h:2.33, plain:true, tip:"<b>조회기간</b>을 정합니다."},
+      {x:85.05, y:20.06, w:4.58, h:2.91, yellow:true, scroll:"★1", to:"6", tip:"<b>새로고침</b> 버튼을 다시 클릭합니다."},
+      {x:89.79, y:20.06, w:4.43, h:2.91, plain:true, tip:"조회한 내역을 <b>엑셀저장</b>합니다."},
+      {x:94.58, y:20.06, w:4.74, h:2.91, plain:true, tip:"계정별 원장 화면을 <b>닫습니다</b>."},
+      {x:22.92, y:20.35, w:23.54, h:2.33, tip:"바꾼 <b>계정과목</b>입니다."},
+    ]},
+  "6":{img:"images/경비-계정별원장-6.png",
+    btns:[
+      {x:4.32, y:20.35, w:15.05, h:2.33, plain:true, tip:"<b>조회기간</b>을 정합니다."},
+      {x:85.05, y:20.06, w:4.58, h:2.91, plain:true, tip:"<b>새로고침</b>으로 다시 조회합니다."},
+      {x:89.79, y:20.06, w:4.43, h:2.91, yellow:true, scroll:"★2", tip:"조회한 내역을 <b>엑셀저장</b>으로 받습니다."},
+      {x:94.58, y:20.06, w:4.74, h:2.91, plain:true, tip:"계정별 원장 화면을 <b>닫습니다</b>."},
+      {x:4.32, y:23.45, w:14.79, h:2.33, plain:true, notint:true, tag:"고른 <b>매입처</b>입니다."},
+      {x:22.92, y:20.35, w:23.54, h:2.33, plain:true, notint:true, tag:"바꾼 <b>계정과목</b>입니다."},
+      {x:0.52, y:36.24, w:51.56, h:6.1, plain:true, notint:true, tag:"매입처·계정과목에 맞는 <b>거래 내역</b>만 나옵니다."},
+    ]},
+} };
+
+/* ▲ MPAGES:expense */
 const S_DEF = [
   { chapter:"S 1", title:"즐겨찾기", icon:"⭐", items:[
     {sub:{ id:"s-home", title:"HOME", subtitles:{ "shome":"S버전 메인 화면" }, pages:["shome"], tips:{} }},
@@ -27688,6 +27936,7 @@ const S_DEF = [
     {g:"은행거래내역"}, {sub:{ id:"s-bk", title:"은행거래내역", subtitles:{ "sbank1":"계좌·기간별 은행 거래 내역 조회" }, pages:["sbank1"], tips:{} }},
     {g:"계산원 마감 관리"}, {ref:"7-4a"},{ref:"7-4b"},{ref:"7-4c"},{ref:"7-4d"},
     /* ▼ MPAGES-SDEF:incentive */ {g:"정산관리"}, {sub:{ id:"s-incc", title:"인센티브 마감관리", subtitles:{ "sic1":"담당자별 인센티브 확인·지급 입력", "sic2":"사업장·사원·상품별 인센티브 설정", "sic3":"포스에서 영업담당 지정·전표 담당 변경" }, pages:["sic1","sic2","sic3"], pageLabels:["인센티브 마감관리","인센티브 설정","포스 영업담당"], tips:{} }},{sub:{ id:"s-incl", title:"인센티브 마감목록", subtitles:{ "sil1":"지급 입력 내역 마감대기·마감완료" }, pages:["sil1"], pageLabels:["인센티브 마감목록"], tips:{} }}, /* ▲ MPAGES-SDEF:incentive */
+    /* ▼ MPAGES-SDEF:expense */ {g:"경비 사용관리"}, {sub:{ id:"s-exb", title:"제예금 현황", subtitles:{ "sexb1":"계좌별 잔액·세부 입출금 내역 확인" }, pages:["sexb1"], tips:{} }},{sub:{ id:"s-exc", title:"현금 출납장", subtitles:{ "sexc1":"날짜별 현금 입출금 내역·잔액 확인" }, pages:["sexc1"], tips:{} }},{sub:{ id:"s-exj", title:"회계 전표", subtitles:{ "sexj1":"신규등록으로 회계 전표 등록" }, pages:["sexj1"], tips:{} }},{sub:{ id:"s-exl", title:"계정별 원장", subtitles:{ "sexl1":"계정과목·매입처별 거래 내역 조회" }, pages:["sexl1"], tips:{} }}, /* ▲ MPAGES-SDEF:expense */
     {g:"바코드 인쇄관리"}, 
     {sub:{ id:"7-3a", title:"바코드 인쇄관리",
   subtitles:{ "sbc1":"상품 바코드 인쇄하기", "sbc2":"할인쿠폰 바코드 인쇄하기", "sbc3":"로케이션 바코드 인쇄하기" },
@@ -28085,14 +28334,14 @@ const VIDEOS = [
       { t:129.32, title:"포스에서 담당 영업사원 정하기", tags:["포스", "영업담당", "영업담당유지", "담당변경", "담당일괄변경"] },
       { t:219.28, title:"인센티브 마감 — 인센티브 마감관리", subs:["s-incc"], tags:["인센티브마감관리", "일괄수정", "지급입력"] },
       { t:327.32, title:"인센티브 마감목록 · 지급안함 주의", subs:["s-incl"], tags:["인센티브마감목록", "마감대기", "마감완료", "취소", "지급안함"] } ] },
-  { id:"expense", subId:"8-8a", alsoSubs:["8-8b", "8-8c", "8-8d"], title:"경비 사용 관리 방법", cat:"매장관리 › 경비 사용관리", src:"videos/expense.mp4", poster:"videos/expense.jpg", dur:"3:12", yt:"kTSOL-XoF84",
+  { id:"expense", subId:"s-exb", alsoSubs:["s-exc", "s-exj", "s-exl"], title:"경비 사용 관리 방법", cat:"매장관리 › 경비 사용관리", src:"videos/expense.mp4", poster:"videos/expense.jpg", dur:"3:12", yt:"kTSOL-XoF84",
     desc:"제예금 현황에서 통장 잔액을 확인하고, 현금 출납장 · 회계 전표 · 계정별 원장으로 현금 내역과 전표를 관리하는 방법을 알려드려요.",
     tags:["경비", "경비사용", "제예금", "제예금현황", "현금출납장", "회계전표", "전표", "계정별원장", "차변", "대변", "계정과목"],
     chapters:[
-      { t:0.0, title:"제예금 현황", subs:["8-8a"], tags:["제예금", "예금"] },
-      { t:49.72, title:"현금 출납장", subs:["8-8b"], tags:["현금출납장", "출납"] },
-      { t:60.38, title:"회계 전표", subs:["8-8c"], tags:["회계전표", "전표", "전표등록"] },
-      { t:123.32, title:"계정별 원장", subs:["8-8d"], tags:["계정별원장", "원장", "계정과목"] } ] },
+      { t:0.0, title:"제예금 현황", subs:["s-exb"], tags:["제예금", "예금"] },
+      { t:49.72, title:"현금 출납장", subs:["s-exc"], tags:["현금출납장", "출납"] },
+      { t:60.38, title:"회계 전표", subs:["s-exj"], tags:["회계전표", "전표", "전표등록"] },
+      { t:123.32, title:"계정별 원장", subs:["s-exl"], tags:["계정별원장", "원장", "계정과목"] } ] },
   { id:"store-barcode", subId:"7-3a", alsoSubs:["7-3b"], title:"바코드 인쇄관리 메뉴 사용 방법", cat:"매장관리 › 바코드 인쇄관리", src:"videos/store-barcode.mp4", poster:"videos/store-barcode.jpg", dur:"6:45", yt:"ztqsPDn_QuA",
     desc:"상품 · 쿠폰 · 로케이션 바코드를 인쇄하는 방법과, 바코드 템플릿에서 라벨 모양을 직접 디자인하는 방법을 알려드려요.",
     tags:["바코드인쇄관리", "바코드", "바코드인쇄", "상품바코드", "바코드템플릿", "템플릿", "라벨", "라벨디자인"],
@@ -28709,6 +28958,10 @@ const S_RIBBON_CAT = {
     "sub:7-4d":  {x:55.5, y:71.4, w:8.4, h:12.9}, // 마감코드 체크목록
     "sub:s-incc":    {x:64.4, y:43.5, w:7.4, h:15.3},
     "sub:s-incl":    {x:64.4, y:64.7, w:7.4, h:15.3},
+    "sub:s-exb":     {x:72.1, y:38.8, w:4.6, h:13.5},
+    "sub:s-exc":     {x:72.1, y:54.1, w:4.6, h:13.5},
+    "sub:s-exj":     {x:72.1, y:69.4, w:4.6, h:13.5},
+    "sub:s-exl":     {x:76.8, y:54.1, w:4.9, h:13.5},
     "sub:7-3a":  {x:64.5, y:45,   w:7.6, h:12.9}, // 바코드 인쇄관리
     "sub:7-3b":  {x:64.5, y:65.6, w:7.6, h:12.9}, // 바코드 템플릿
     "sub:7-3g":  {x:72.9, y:44.9, w:7.6, h:12.9}, // POP 인쇄 관리
