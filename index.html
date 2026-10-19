@@ -27223,6 +27223,334 @@ SIM["sil1"] = { start:"1", wide:true, ribbon:"images/매장관리-리본2.png", 
 } };
 
 /* ▲ MPAGES:incentive */
+/* ▼ MPAGES:autoorder */
+// ── S버전 전용 페이지: 매입관리 › 자동발주관리 (영상 캡처, 2026-10-19) ──
+IMGS["sap1"] = "images/발주계획상품관리-1.png";
+DESCS["sap1"] = [
+  {type:"note", text:"자동으로 발주할 상품을 목록에 담고, 상품마다 <b>발주 계획수량</b>을 정하는 화면입니다."},
+  {type:"step", num:"1", title:"➕ 상품 추가", body:"<span class='ui-btn'>발주계획 상품추가</span> 버튼을 클릭합니다."},
+  {type:"step", num:"2", title:"☑️ 상품 선택", subs:["상품 통합검색 창에서 <span class='ui-btn'>검색</span> 버튼을 클릭해 상품을 찾고, 발주계획에 넣을 상품을 모두 체크합니다.", "<span class='ui-btn'>선택</span> 버튼을 클릭하고 알림 창에서 <span class='ui-btn'>예</span>를 클릭하면 상품이 목록에 추가됩니다.", "%%추가한 상품은 <b>매입처별</b>로 묶여서 나옵니다."]},
+  {type:"step", num:"3", title:"📈 제안값 반영", body:"<span class='ui-btn'>제안값 반영</span> 버튼을 클릭하면 발주 계획수량의 적정·최대 칸이 <b>제안수량</b>과 같은 숫자로 채워집니다."},
+  {type:"step", num:"4", title:"💾 발주계획 등록", body:"수량을 다 정했으면 <span class='ui-btn'>발주계획등록</span> 버튼을 클릭해 등록합니다."},
+  {type:"step", num:"★", ystar:true, title:"📊 제안수량", subs:["<b>제안수량</b>은 프로그램이 매주 월요일 새벽에 데이터를 집계해 제안하는 적정 재고입니다.", "적정·최대 칸에 상품마다 제안된 수량이 나옵니다."]},
+  {type:"step", num:"★", ystar:true, title:"✏️ 계획수량 직접 입력", subs:["제안값을 그대로 쓰지 않을 때는 제안수량을 보고 발주 계획수량을 <b>직접 입력</b>합니다.", "다른 상품도 같은 방법으로 입력합니다."]},
+];
+SIM["sap1"] = { start:"1", wide:true, sRibbon:true, ribCrop:true, ribbon:"images/매입관리-리본2.png", screens:{
+  "1":{img:"images/발주계획상품관리-1.png",
+    btns:[
+      {x:67.19, y:23.35, w:8.18, h:2.62, plain:true, tip:"<b>제안값 반영</b>으로 계획수량을 제안수량과 같게 채웁니다."},
+      {x:75.57, y:23.35, w:7.66, h:2.62, num:"1", numCorner:true, to:"srch", tip:"<b>발주계획 상품추가</b> 버튼을 클릭합니다."},
+      {x:83.44, y:23.35, w:7.97, h:2.62, plain:true, tip:"체크한 상품을 목록에서 <b>삭제</b>합니다."},
+      {x:91.61, y:23.35, w:7.66, h:2.62, plain:true, tip:"<b>발주계획등록</b>으로 정한 수량을 등록합니다."},
+      {x:0.52, y:31.01, w:98.75, h:60.08, plain:true, notint:true, tag:"자동으로 발주할 <b>상품</b>을 담아 두는 목록입니다."},
+    ]},
+  "srch":{img:"images/발주계획상품관리-srch.png", noRib:true,
+    btns:[
+      {x:85.62, y:13.76, w:3.8, h:2.81, num:"2", numCorner:true, to:"srch2", tip:"<b>검색</b> 버튼을 클릭해 상품을 찾습니다."},
+    ]},
+  "srch2":{img:"images/발주계획상품관리-srch2.png", noRib:true,
+    btns:[
+      {x:10.42, y:47.58, w:78.12, h:6.2, tip:"발주계획에 넣을 <b>상품</b>을 모두 체크합니다."},
+      {x:10.42, y:78.1, w:78.12, h:6.1, tip:"발주계획에 넣을 <b>상품</b>을 모두 체크합니다."},
+      {x:10.26, y:90.12, w:4.9, h:2.62, num:"2", numCorner:true, to:"q", tip:"<b>선택</b> 버튼을 클릭합니다."},
+    ]},
+  "q":{img:"images/발주계획상품관리-q.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"2", numCorner:true, to:"2", tip:"<b>예</b>를 클릭하면 선택한 상품이 목록에 추가됩니다."},
+      {x:59.74, y:54.46, w:4.17, h:2.52, plain:true, to:"1", tip:"추가하지 않고 창을 <b>닫습니다</b>."},
+    ]},
+  "2":{img:"images/발주계획상품관리-2.png",
+    btns:[
+      {x:67.19, y:23.35, w:8.18, h:2.62, num:"3", numCorner:true, to:"3", tip:"<b>제안값 반영</b> 버튼을 클릭합니다."},
+      {x:75.57, y:23.35, w:7.66, h:2.62, plain:true, tip:"<b>발주계획 상품추가</b>로 상품을 더 담습니다."},
+      {x:83.44, y:23.35, w:7.97, h:2.62, plain:true, tip:"체크한 상품을 목록에서 <b>삭제</b>합니다."},
+      {x:91.61, y:23.35, w:7.66, h:2.62, plain:true, tip:"<b>발주계획등록</b>으로 정한 수량을 등록합니다."},
+      {x:0.52, y:39.15, w:98.75, h:20.74, plain:true, notint:true, tag:"추가한 상품은 <b>매입처별</b>로 묶여서 나옵니다."},
+      {x:44.58, y:31.01, w:7.66, h:28.88, yellow:true, scroll:"★1", tip:"매주 월요일 새벽에 집계해 제안하는 <b>적정 재고</b>입니다."},
+    ]},
+  "3":{img:"images/발주계획상품관리-3.png",
+    btns:[
+      {x:67.19, y:23.35, w:8.18, h:2.62, plain:true, tip:"<b>제안값 반영</b>으로 계획수량을 제안수량과 같게 채웁니다."},
+      {x:75.57, y:23.35, w:7.66, h:2.62, plain:true, tip:"<b>발주계획 상품추가</b>로 상품을 더 담습니다."},
+      {x:83.44, y:23.35, w:7.97, h:2.62, plain:true, tip:"체크한 상품을 목록에서 <b>삭제</b>합니다."},
+      {x:91.61, y:23.35, w:7.66, h:2.62, num:"4", numCorner:true, tip:"수량을 다 정했으면 <b>발주계획등록</b> 버튼을 클릭합니다."},
+      {x:44.58, y:31.01, w:7.66, h:28.88, yellow:true, scroll:"★1", tip:"매주 월요일 새벽에 집계해 제안하는 <b>적정 재고</b>입니다."},
+      {x:66.3, y:41.57, w:5.99, h:9.01, yellow:true, scroll:"★2", front:true, to:"4", tip:"제안값을 그대로 쓰지 않을 때는 계획수량을 <b>직접 입력</b>합니다."},
+    ]},
+  "4":{img:"images/발주계획상품관리-4.png",
+    btns:[
+      {x:67.19, y:23.35, w:8.18, h:2.62, plain:true, tip:"<b>제안값 반영</b>으로 계획수량을 제안수량과 같게 채웁니다."},
+      {x:75.57, y:23.35, w:7.66, h:2.62, plain:true, tip:"<b>발주계획 상품추가</b>로 상품을 더 담습니다."},
+      {x:83.44, y:23.35, w:7.97, h:2.62, plain:true, tip:"체크한 상품을 목록에서 <b>삭제</b>합니다."},
+      {x:91.61, y:23.35, w:7.66, h:2.62, num:"4", numCorner:true, tip:"수량을 다 정했으면 <b>발주계획등록</b> 버튼을 클릭합니다."},
+      {x:44.58, y:31.01, w:7.66, h:28.88, yellow:true, scroll:"★1", tip:"매주 월요일 새벽에 집계해 제안하는 <b>적정 재고</b>입니다."},
+      {x:66.3, y:41.57, w:2.97, h:2.03, yellow:true, scroll:"★2", front:true, to:"5", tip:"제안수량을 보고 계획수량을 <b>직접 입력</b>합니다."},
+    ]},
+  "5":{img:"images/발주계획상품관리-5.png",
+    btns:[
+      {x:67.19, y:23.35, w:8.18, h:2.62, plain:true, tip:"<b>제안값 반영</b>으로 계획수량을 제안수량과 같게 채웁니다."},
+      {x:75.57, y:23.35, w:7.66, h:2.62, plain:true, tip:"<b>발주계획 상품추가</b>로 상품을 더 담습니다."},
+      {x:83.44, y:23.35, w:7.97, h:2.62, plain:true, tip:"체크한 상품을 목록에서 <b>삭제</b>합니다."},
+      {x:91.61, y:23.35, w:7.66, h:2.62, num:"4", numCorner:true, tip:"수량을 다 정했으면 <b>발주계획등록</b> 버튼을 클릭합니다."},
+      {x:44.58, y:31.01, w:7.66, h:28.88, yellow:true, scroll:"★1", tip:"매주 월요일 새벽에 집계해 제안하는 <b>적정 재고</b>입니다."},
+      {x:63.65, y:41.57, w:8.65, h:18.31, plain:true, notint:true, tag:"상품마다 정한 <b>발주 계획수량</b>입니다."},
+    ]},
+} };
+IMGS["sap2"] = "images/계획대기상품목록-1.png";
+DESCS["sap2"] = [
+  {type:"note", text:"발주계획 상품관리에서 아직 설정하지 않은 <b>나머지 상품</b>이 나오는 화면입니다. 🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-apl',true)\">발주계획 상품관리</b>"},
+  {type:"step", num:"★", ystar:true, title:"✏️ 계획수량 직접 입력", subs:["목록을 오른쪽으로 넘기면 상품별 <b>발주 계획수량</b>과 <b>재고수량</b>을 볼 수 있습니다.", "여기에서도 품절재고수·적정재고수·최대재고수 칸에 <b>발주 계획수량</b>을 직접 입력할 수 있습니다."]},
+];
+SIM["sap2"] = { start:"1", wide:true, sRibbon:true, ribCrop:true, ribbon:"images/매입관리-리본2.png", screens:{
+  "1":{img:"images/계획대기상품목록-1.png",
+    btns:[
+      {x:0.52, y:31.01, w:98.75, h:60.08, plain:true, notint:true, tag:"발주계획에 아직 넣지 않은 <b>나머지 상품</b>입니다."},
+      {x:0.68, y:91.86, w:98.65, h:1.55, plain:true, to:"2", tip:"목록을 <b>오른쪽</b>으로 넘기면 발주 계획수량이 나옵니다."},
+    ]},
+  "2":{img:"images/계획대기상품목록-2.png",
+    btns:[
+      {x:40.62, y:30.91, w:8.91, h:4.94, plain:true, tip:"매주 월요일 새벽에 집계해 제안하는 <b>제안수량</b>입니다."},
+      {x:59.38, y:38.18, w:16.2, h:52.91, yellow:true, scroll:"★1", to:"3", tip:"품절·적정·최대 재고수 칸에 <b>발주 계획수량</b>을 직접 입력합니다."},
+      {x:75.68, y:30.91, w:22.92, h:4.94, plain:true, tip:"상품별 <b>재고수량</b>입니다."},
+    ]},
+  "3":{img:"images/계획대기상품목록-3.png",
+    btns:[
+      {x:40.62, y:30.91, w:8.91, h:4.94, plain:true, tip:"매주 월요일 새벽에 집계해 제안하는 <b>제안수량</b>입니다."},
+      {x:59.38, y:46.71, w:16.2, h:1.74, yellow:true, scroll:"★1", tip:"<b>발주 계획수량</b>을 직접 입력했습니다."},
+      {x:75.68, y:30.91, w:22.92, h:4.94, plain:true, tip:"상품별 <b>재고수량</b>입니다."},
+    ]},
+} };
+IMGS["sap3"] = "images/당일자동발주-1.png";
+DESCS["sap3"] = [
+  {type:"note", text:"자동으로 발주할 <b>매입처</b>를 등록해 두면 재고가 자동으로 발주됩니다. 매입처를 선택하면 그 매입처에 발주할 상품이 오른쪽에 나옵니다."},
+  {type:"step", num:"1", title:"🏢 매입처 추가", subs:["<span class='ui-btn'>매입처 추가</span> 버튼을 클릭하고 매입처 목록 창에서 자동으로 발주할 매입처를 <b>더블클릭</b>합니다.", "저장 완료 창에서 <span class='ui-btn'>확인</span>을 클릭하면 왼쪽 목록에 매입처가 들어갑니다."]},
+  {type:"step", num:"2", title:"⚙️ 상태 · 발주횟수", subs:["자동 발주를 하려면 상태를 <b>중지</b>에서 <b>사용</b>으로 바꿉니다.", "<b>발주횟수</b> 칸을 클릭해 발주할 횟수를 정합니다."]},
+  {type:"step", num:"3", title:"📦 발주상품 추가", subs:["매입처를 선택하고 <span class='ui-btn'>발주상품추가</span> 버튼을 클릭합니다.", "상품 통합검색 창에서 발주할 상품을 체크하고 <span class='ui-btn'>선택</span> 버튼을 클릭합니다.", "저장 완료 창에서 <span class='ui-btn'>확인</span>을 클릭하면 오른쪽 상품정보 목록에 상품이 들어갑니다."]},
+  {type:"step", num:"★", ystar:true, title:"↕️ 상품 순서 바꾸기", body:"옮길 상품을 선택하고 <span class='ui-btn'>위로</span>·<span class='ui-btn'>아래</span> 버튼을 클릭합니다."},
+  {type:"bullet", title:"🗂️ 발주서를 사업장별로 나누기", body:"<b>발주서 : 사업장 분리 관리</b> 탭에서 발주서 그룹을 만들고 사업장을 넣습니다. 🔗 <b class='dlink' onclick=\"goPage(1)\">발주서 : 사업장 분리 관리</b>"},
+];
+SIM["sap3"] = { start:"1", wide:true, sRibbon:true, ribCrop:true, ribbon:"images/매입관리-리본2.png", screens:{
+  "1":{img:"images/당일자동발주-1.png",
+    btns:[
+      {x:29.53, y:23.45, w:6.56, h:2.71, num:"1", numCorner:true, to:"vwin", tip:"<b>매입처 추가</b> 버튼을 클릭합니다."},
+      {x:36.3, y:23.45, w:6.56, h:2.71, plain:true, tip:"선택한 매입처를 <b>삭제</b>합니다."},
+      {x:43.65, y:23.45, w:3.49, h:2.71, plain:true, page:0, tip:"<b>상품정보</b> 탭으로 이동합니다."},
+      {x:47.24, y:23.45, w:8.23, h:2.71, plain:true, page:1, tip:"<b>발주서 : 사업장 분리 관리</b> 탭으로 이동합니다."},
+      {x:77.19, y:26.94, w:6.51, h:2.91, plain:true, tip:"<b>발주상품추가</b>로 매입처에 발주할 상품을 넣습니다."},
+      {x:83.85, y:26.94, w:6.61, h:2.91, plain:true, tip:"체크한 상품을 <b>연동상품삭제</b>로 뺍니다."},
+      {x:90.62, y:26.94, w:4.17, h:2.91, plain:true, tip:"선택한 상품의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:94.9, y:26.94, w:4.22, h:2.91, plain:true, tip:"선택한 상품의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:0.57, y:36.05, w:41.93, h:1.94, plain:true, to:"2", tip:"매입처를 선택하면 <b>발주할 상품</b>이 나옵니다."},
+    ]},
+  "2":{img:"images/당일자동발주-2.png",
+    btns:[
+      {x:29.53, y:23.45, w:6.56, h:2.71, num:"1", numCorner:true, to:"vwin", tip:"<b>매입처 추가</b> 버튼을 클릭합니다."},
+      {x:36.3, y:23.45, w:6.56, h:2.71, plain:true, tip:"선택한 매입처를 <b>삭제</b>합니다."},
+      {x:43.65, y:23.45, w:3.49, h:2.71, plain:true, page:0, tip:"<b>상품정보</b> 탭으로 이동합니다."},
+      {x:47.24, y:23.45, w:8.23, h:2.71, plain:true, page:1, tip:"<b>발주서 : 사업장 분리 관리</b> 탭으로 이동합니다."},
+      {x:77.19, y:26.94, w:6.51, h:2.91, plain:true, tip:"<b>발주상품추가</b>로 매입처에 발주할 상품을 넣습니다."},
+      {x:83.85, y:26.94, w:6.61, h:2.91, plain:true, tip:"체크한 상품을 <b>연동상품삭제</b>로 뺍니다."},
+      {x:90.62, y:26.94, w:4.17, h:2.91, plain:true, tip:"선택한 상품의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:94.9, y:26.94, w:4.22, h:2.91, plain:true, tip:"선택한 상품의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:0.57, y:36.05, w:41.93, h:1.94, plain:true, notint:true, tag:"선택한 <b>매입처</b>입니다."},
+      {x:43.85, y:32.75, w:37.76, h:3.97, plain:true, notint:true, tag:"선택한 매입처에 <b>발주할 상품</b>입니다."},
+    ]},
+  "vwin":{img:"images/당일자동발주-vwin.png", noRib:true,
+    btns:[
+      {x:0.42, y:42.73, w:98.8, h:1.94, num:"1", numCorner:true, to:"vok", tip:"자동으로 발주할 <b>매입처</b>를 더블클릭합니다."},
+    ]},
+  "vok":{img:"images/당일자동발주-vok.png", noRib:true,
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"1", numCorner:true, to:"3", tip:"<b>확인</b>을 클릭하면 매입처가 목록에 들어갑니다."},
+    ]},
+  "3":{img:"images/당일자동발주-3.png",
+    btns:[
+      {x:29.53, y:23.45, w:6.56, h:2.71, plain:true, tip:"<b>매입처 추가</b>로 자동 발주할 매입처를 더 넣습니다."},
+      {x:36.3, y:23.45, w:6.56, h:2.71, plain:true, tip:"선택한 매입처를 <b>삭제</b>합니다."},
+      {x:43.65, y:23.45, w:3.49, h:2.71, plain:true, page:0, tip:"<b>상품정보</b> 탭으로 이동합니다."},
+      {x:47.24, y:23.45, w:8.23, h:2.71, plain:true, page:1, tip:"<b>발주서 : 사업장 분리 관리</b> 탭으로 이동합니다."},
+      {x:77.19, y:26.94, w:6.51, h:2.91, plain:true, tip:"<b>발주상품추가</b>로 매입처에 발주할 상품을 넣습니다."},
+      {x:83.85, y:26.94, w:6.61, h:2.91, plain:true, tip:"체크한 상품을 <b>연동상품삭제</b>로 뺍니다."},
+      {x:90.62, y:26.94, w:4.17, h:2.91, plain:true, tip:"선택한 상품의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:94.9, y:26.94, w:4.22, h:2.91, plain:true, tip:"선택한 상품의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:0.57, y:34.11, w:35.68, h:2.03, plain:true, notint:true, tag:"목록에 들어간 <b>매입처</b>입니다."},
+      {x:36.3, y:34.11, w:6.2, h:2.03, num:"2", to:"5", tip:"자동 발주를 하려면 상태를 <b>사용</b>으로 바꿉니다."},
+    ]},
+  "5":{img:"images/당일자동발주-5.png",
+    btns:[
+      {x:29.53, y:23.45, w:6.56, h:2.71, plain:true, tip:"<b>매입처 추가</b>로 자동 발주할 매입처를 더 넣습니다."},
+      {x:36.3, y:23.45, w:6.56, h:2.71, plain:true, tip:"선택한 매입처를 <b>삭제</b>합니다."},
+      {x:43.65, y:23.45, w:3.49, h:2.71, plain:true, page:0, tip:"<b>상품정보</b> 탭으로 이동합니다."},
+      {x:47.24, y:23.45, w:8.23, h:2.71, plain:true, page:1, tip:"<b>발주서 : 사업장 분리 관리</b> 탭으로 이동합니다."},
+      {x:77.19, y:26.94, w:6.51, h:2.91, plain:true, tip:"<b>발주상품추가</b>로 매입처에 발주할 상품을 넣습니다."},
+      {x:83.85, y:26.94, w:6.61, h:2.91, plain:true, tip:"체크한 상품을 <b>연동상품삭제</b>로 뺍니다."},
+      {x:90.62, y:26.94, w:4.17, h:2.91, plain:true, tip:"선택한 상품의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:94.9, y:26.94, w:4.22, h:2.91, plain:true, tip:"선택한 상품의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:21.25, y:34.11, w:2.97, h:2.03, num:"2", to:"6", tip:"<b>발주횟수</b> 칸을 클릭해 발주할 횟수를 정합니다."},
+      {x:36.3, y:34.11, w:6.2, h:2.03, plain:true, tip:"상태가 <b>사용</b>으로 바뀌었습니다."},
+    ]},
+  "6":{img:"images/당일자동발주-6.png",
+    btns:[
+      {x:29.53, y:23.45, w:6.56, h:2.71, plain:true, tip:"<b>매입처 추가</b>로 자동 발주할 매입처를 더 넣습니다."},
+      {x:36.3, y:23.45, w:6.56, h:2.71, plain:true, tip:"선택한 매입처를 <b>삭제</b>합니다."},
+      {x:43.65, y:23.45, w:3.49, h:2.71, plain:true, page:0, tip:"<b>상품정보</b> 탭으로 이동합니다."},
+      {x:47.24, y:23.45, w:8.23, h:2.71, plain:true, page:1, tip:"<b>발주서 : 사업장 분리 관리</b> 탭으로 이동합니다."},
+      {x:77.19, y:26.94, w:6.51, h:2.91, num:"3", numCorner:true, to:"srch", tip:"<b>발주상품추가</b> 버튼을 클릭합니다."},
+      {x:83.85, y:26.94, w:6.61, h:2.91, plain:true, tip:"체크한 상품을 <b>연동상품삭제</b>로 뺍니다."},
+      {x:90.62, y:26.94, w:4.17, h:2.91, plain:true, tip:"선택한 상품의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:94.9, y:26.94, w:4.22, h:2.91, plain:true, tip:"선택한 상품의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:0.57, y:34.11, w:41.93, h:2.03, tip:"상품을 넣을 <b>매입처</b>를 선택합니다."},
+    ]},
+  "srch":{img:"images/당일자동발주-srch.png", noRib:true,
+    btns:[
+      {x:10.42, y:47.58, w:78.12, h:6.1, tip:"발주할 <b>상품</b>을 체크합니다."},
+      {x:10.26, y:90.12, w:4.9, h:2.62, num:"3", numCorner:true, to:"srchok", tip:"<b>선택</b> 버튼을 클릭합니다."},
+    ]},
+  "srchok":{img:"images/당일자동발주-srchok.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"3", numCorner:true, to:"7", tip:"<b>확인</b>을 클릭하면 상품정보 목록에 상품이 들어갑니다."},
+    ]},
+  "7":{img:"images/당일자동발주-7.png",
+    btns:[
+      {x:29.53, y:23.45, w:6.56, h:2.71, plain:true, tip:"<b>매입처 추가</b>로 자동 발주할 매입처를 더 넣습니다."},
+      {x:36.3, y:23.45, w:6.56, h:2.71, plain:true, tip:"선택한 매입처를 <b>삭제</b>합니다."},
+      {x:43.65, y:23.45, w:3.49, h:2.71, plain:true, page:0, tip:"<b>상품정보</b> 탭으로 이동합니다."},
+      {x:47.24, y:23.45, w:8.23, h:2.71, plain:true, page:1, tip:"<b>발주서 : 사업장 분리 관리</b> 탭으로 이동합니다."},
+      {x:77.19, y:26.94, w:6.51, h:2.91, plain:true, tip:"<b>발주상품추가</b>로 매입처에 발주할 상품을 넣습니다."},
+      {x:83.85, y:26.94, w:6.61, h:2.91, plain:true, tip:"체크한 상품을 <b>연동상품삭제</b>로 뺍니다."},
+      {x:90.62, y:26.94, w:4.17, h:2.91, yellow:true, scroll:"★1", to:"8", tip:"옮길 상품을 선택하고 <b>위로·아래</b>로 순서를 바꿉니다."},
+      {x:94.9, y:26.94, w:4.22, h:2.91, yellow:true, scroll:"★1", to:"8", tip:"옮길 상품을 선택하고 <b>위로·아래</b>로 순서를 바꿉니다."},
+      {x:43.85, y:32.75, w:37.76, h:5.81, plain:true, notint:true, tag:"발주상품으로 들어간 <b>상품</b>입니다."},
+    ]},
+  "8":{img:"images/당일자동발주-8.png",
+    btns:[
+      {x:29.53, y:23.45, w:6.56, h:2.71, plain:true, tip:"<b>매입처 추가</b>로 자동 발주할 매입처를 더 넣습니다."},
+      {x:36.3, y:23.45, w:6.56, h:2.71, plain:true, tip:"선택한 매입처를 <b>삭제</b>합니다."},
+      {x:43.65, y:23.45, w:3.49, h:2.71, plain:true, page:0, tip:"<b>상품정보</b> 탭으로 이동합니다."},
+      {x:47.24, y:23.45, w:8.23, h:2.71, plain:true, page:1, tip:"<b>발주서 : 사업장 분리 관리</b> 탭으로 이동합니다."},
+      {x:77.19, y:26.94, w:6.51, h:2.91, plain:true, tip:"<b>발주상품추가</b>로 매입처에 발주할 상품을 넣습니다."},
+      {x:83.85, y:26.94, w:6.61, h:2.91, plain:true, tip:"체크한 상품을 <b>연동상품삭제</b>로 뺍니다."},
+      {x:90.62, y:26.94, w:4.17, h:2.91, yellow:true, scroll:"★1", to:"8", tip:"옮길 상품을 선택하고 <b>위로·아래</b>로 순서를 바꿉니다."},
+      {x:94.9, y:26.94, w:4.22, h:2.91, yellow:true, scroll:"★1", to:"8", tip:"옮길 상품을 선택하고 <b>위로·아래</b>로 순서를 바꿉니다."},
+      {x:43.85, y:34.59, w:37.76, h:1.94, plain:true, notint:true, tag:"순서를 바꿀 <b>상품</b>입니다."},
+    ]},
+} };
+IMGS["sap4"] = "images/발주서사업장분리-1.png";
+DESCS["sap4"] = [
+  {type:"note", text:"발주서를 사업장별로 나눌 때 쓰는 탭입니다. 왼쪽에서 <b>발주서 그룹</b>을 만들고, 오른쪽에서 그룹에 넣을 사업장을 추가합니다. 🔗 <b class='dlink' onclick=\"goPage(0)\">상품정보 탭</b>"},
+  {type:"step", num:"1", title:"➕ 발주서 그룹 만들기", subs:["<b>발주서 그룹</b> 칸에 그룹 이름을 입력하고 초록색 <b>+</b> 버튼을 클릭합니다.", "저장 완료 창에서 <span class='ui-btn'>확인</span>을 클릭하면 아래 목록에 그룹이 만들어집니다."]},
+  {type:"step", num:"2", title:"🏪 사업장 추가", subs:["만든 그룹을 선택하고 <span class='ui-btn'>사업장 추가</span> 버튼을 클릭합니다.", "사업장 선택 창에서 사업장 칸을 클릭해 그룹에 넣을 사업장을 체크하고 <span class='ui-btn'>확인</span>을 클릭한 뒤 <span class='ui-btn'>추가</span> 버튼을 클릭합니다.", "알림 창에서 <span class='ui-btn'>예</span>, 등록 완료 창에서 <span class='ui-btn'>확인</span>을 클릭하면 오른쪽 목록에 사업장이 그룹별로 들어갑니다."]},
+  {type:"step", num:"★", ystar:true, title:"🗑️ 사업장 빼기", subs:["필요 없는 사업장을 체크하고 <span class='ui-btn'>사업장 삭제</span> 버튼을 클릭합니다.", "알림 창에서 <span class='ui-btn'>예</span>, 삭제 완료 창에서 <span class='ui-btn'>확인</span>을 클릭하면 체크한 사업장이 그룹에서 빠집니다."]},
+];
+SIM["sap4"] = { start:"1", wide:true, sRibbon:true, ribCrop:true, ribbon:"images/매입관리-리본2.png", screens:{
+  "1":{img:"images/발주서사업장분리-1.png",
+    btns:[
+      {x:43.65, y:23.45, w:3.49, h:2.71, plain:true, page:0, tip:"<b>상품정보</b> 탭으로 이동합니다."},
+      {x:47.24, y:23.45, w:8.23, h:2.71, plain:true, page:1, tip:"<b>발주서 : 사업장 분리 관리</b> 탭으로 이동합니다."},
+      {x:77.19, y:26.94, w:6.51, h:2.91, plain:true, tip:"<b>사업장 추가</b>로 그룹에 사업장을 넣습니다."},
+      {x:83.85, y:26.94, w:6.61, h:2.91, plain:true, tip:"체크한 사업장을 그룹에서 <b>삭제</b>합니다."},
+      {x:90.62, y:26.94, w:8.49, h:2.91, plain:true, tip:"선택한 사업장의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:47.92, y:26.94, w:7.5, h:2.91, num:"1", numCorner:true, to:"2", tip:"<b>발주서 그룹</b> 칸에 그룹 이름을 입력합니다."},
+      {x:43.85, y:30.04, w:15.1, h:64.92, plain:true, notint:true, tag:"만든 <b>발주서 그룹</b>이 나옵니다."},
+      {x:59.74, y:30.04, w:39.38, h:64.92, plain:true, notint:true, tag:"그룹에 넣은 <b>사업장</b>이 나옵니다."},
+    ]},
+  "2":{img:"images/발주서사업장분리-2.png",
+    btns:[
+      {x:43.65, y:23.45, w:3.49, h:2.71, plain:true, page:0, tip:"<b>상품정보</b> 탭으로 이동합니다."},
+      {x:47.24, y:23.45, w:8.23, h:2.71, plain:true, page:1, tip:"<b>발주서 : 사업장 분리 관리</b> 탭으로 이동합니다."},
+      {x:77.19, y:26.94, w:6.51, h:2.91, plain:true, tip:"<b>사업장 추가</b>로 그룹에 사업장을 넣습니다."},
+      {x:83.85, y:26.94, w:6.61, h:2.91, plain:true, tip:"체크한 사업장을 그룹에서 <b>삭제</b>합니다."},
+      {x:90.62, y:26.94, w:8.49, h:2.91, plain:true, tip:"선택한 사업장의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:47.92, y:26.94, w:7.5, h:2.91, tip:"그룹 이름을 <b>입력</b>합니다."},
+      {x:55.52, y:26.94, w:0.94, h:2.91, num:"1", to:"2ok", tip:"초록색 <b>+</b> 버튼을 클릭합니다."},
+    ]},
+  "2ok":{img:"images/발주서사업장분리-2ok.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"1", numCorner:true, to:"2b", tip:"<b>확인</b>을 클릭하면 아래 목록에 그룹이 만들어집니다."},
+    ]},
+  "2b":{img:"images/발주서사업장분리-2b.png",
+    btns:[
+      {x:43.65, y:23.45, w:3.49, h:2.71, plain:true, page:0, tip:"<b>상품정보</b> 탭으로 이동합니다."},
+      {x:47.24, y:23.45, w:8.23, h:2.71, plain:true, page:1, tip:"<b>발주서 : 사업장 분리 관리</b> 탭으로 이동합니다."},
+      {x:77.19, y:26.94, w:6.51, h:2.91, plain:true, tip:"<b>사업장 추가</b>로 그룹에 사업장을 넣습니다."},
+      {x:83.85, y:26.94, w:6.61, h:2.91, plain:true, tip:"체크한 사업장을 그룹에서 <b>삭제</b>합니다."},
+      {x:90.62, y:26.94, w:8.49, h:2.91, plain:true, tip:"선택한 사업장의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:43.85, y:32.56, w:15.1, h:1.94, num:"2", to:"2c", tip:"만든 <b>그룹</b>을 선택합니다."},
+    ]},
+  "2c":{img:"images/발주서사업장분리-2c.png",
+    btns:[
+      {x:43.65, y:23.45, w:3.49, h:2.71, plain:true, page:0, tip:"<b>상품정보</b> 탭으로 이동합니다."},
+      {x:47.24, y:23.45, w:8.23, h:2.71, plain:true, page:1, tip:"<b>발주서 : 사업장 분리 관리</b> 탭으로 이동합니다."},
+      {x:77.19, y:26.94, w:6.51, h:2.91, num:"2", numCorner:true, to:"3", tip:"<b>사업장 추가</b> 버튼을 클릭합니다."},
+      {x:83.85, y:26.94, w:6.61, h:2.91, plain:true, tip:"체크한 사업장을 그룹에서 <b>삭제</b>합니다."},
+      {x:90.62, y:26.94, w:8.49, h:2.91, plain:true, tip:"선택한 사업장의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:43.85, y:32.56, w:15.1, h:1.94, tip:"선택한 <b>그룹</b>입니다."},
+    ]},
+  "3":{img:"images/발주서사업장분리-3.png",
+    btns:[
+      {x:69.11, y:39.05, w:22.76, h:5.23, num:"2", numCorner:true, to:"3b", tip:"<b>사업장</b> 칸을 클릭합니다."},
+      {x:87.5, y:45.06, w:4.38, h:2.13, plain:true, to:"2c", tip:"사업장 선택 창을 <b>닫습니다</b>."},
+    ]},
+  "3b":{img:"images/발주서사업장분리-3b.png",
+    btns:[
+      {x:69.11, y:48.64, w:22.76, h:4.46, tip:"그룹에 넣을 <b>사업장</b>을 체크합니다."},
+      {x:84.17, y:53.78, w:3.18, h:2.13, num:"2", to:"4", tip:"<b>확인</b> 버튼을 클릭합니다."},
+    ]},
+  "4":{img:"images/발주서사업장분리-4.png",
+    btns:[
+      {x:69.11, y:39.05, w:22.76, h:5.23, tip:"체크한 <b>사업장</b>이 들어갔습니다."},
+      {x:82.92, y:45.06, w:4.38, h:2.13, num:"2", numCorner:true, to:"4q", tip:"<b>추가</b> 버튼을 클릭합니다."},
+      {x:87.5, y:45.06, w:4.38, h:2.13, plain:true, to:"2c", tip:"사업장 선택 창을 <b>닫습니다</b>."},
+    ]},
+  "4q":{img:"images/발주서사업장분리-4q.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"2", numCorner:true, to:"4ok", tip:"<b>예</b>를 클릭합니다."},
+      {x:59.74, y:54.46, w:4.17, h:2.52, plain:true, to:"4", tip:"추가하지 않고 창을 <b>닫습니다</b>."},
+    ]},
+  "4ok":{img:"images/발주서사업장분리-4ok.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, num:"2", numCorner:true, to:"5", tip:"<b>확인</b>을 클릭하면 사업장이 그룹에 들어갑니다."},
+    ]},
+  "5":{img:"images/발주서사업장분리-5.png",
+    btns:[
+      {x:43.65, y:23.45, w:3.49, h:2.71, plain:true, page:0, tip:"<b>상품정보</b> 탭으로 이동합니다."},
+      {x:47.24, y:23.45, w:8.23, h:2.71, plain:true, page:1, tip:"<b>발주서 : 사업장 분리 관리</b> 탭으로 이동합니다."},
+      {x:77.19, y:26.94, w:6.51, h:2.91, plain:true, tip:"<b>사업장 추가</b>로 그룹에 사업장을 넣습니다."},
+      {x:83.85, y:26.94, w:6.61, h:2.91, yellow:true, scroll:"★1", to:"6q", tip:"체크한 사업장을 <b>사업장 삭제</b>로 그룹에서 뺍니다."},
+      {x:90.62, y:26.94, w:8.49, h:2.91, plain:true, tip:"선택한 사업장의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:59.64, y:32.66, w:39.48, h:6.88, plain:true, notint:true, tag:"그룹별로 들어간 <b>사업장</b>입니다."},
+      {x:60.31, y:37.6, w:1.04, h:1.94, yellow:true, scroll:"★1", front:true, to:"6", tip:"필요 없는 <b>사업장</b>을 체크합니다."},
+    ]},
+  "6":{img:"images/발주서사업장분리-6.png",
+    btns:[
+      {x:43.65, y:23.45, w:3.49, h:2.71, plain:true, page:0, tip:"<b>상품정보</b> 탭으로 이동합니다."},
+      {x:47.24, y:23.45, w:8.23, h:2.71, plain:true, page:1, tip:"<b>발주서 : 사업장 분리 관리</b> 탭으로 이동합니다."},
+      {x:77.19, y:26.94, w:6.51, h:2.91, plain:true, tip:"<b>사업장 추가</b>로 그룹에 사업장을 넣습니다."},
+      {x:83.85, y:26.94, w:6.61, h:2.91, yellow:true, scroll:"★1", to:"6q", tip:"체크한 사업장을 <b>사업장 삭제</b>로 그룹에서 뺍니다."},
+      {x:90.62, y:26.94, w:8.49, h:2.91, plain:true, tip:"선택한 사업장의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:59.64, y:37.6, w:39.48, h:1.94, plain:true, notint:true, tag:"체크한 <b>사업장</b>입니다."},
+    ]},
+  "6q":{img:"images/발주서사업장분리-6q.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, plain:true, to:"6ok", tip:"<b>예</b>를 클릭합니다."},
+      {x:59.74, y:54.46, w:4.17, h:2.52, plain:true, to:"6", tip:"삭제하지 않고 창을 <b>닫습니다</b>."},
+    ]},
+  "6ok":{img:"images/발주서사업장분리-6ok.png",
+    btns:[
+      {x:55.47, y:54.46, w:4.17, h:2.52, plain:true, to:"7", tip:"<b>확인</b>을 클릭하면 체크한 사업장이 그룹에서 빠집니다."},
+    ]},
+  "7":{img:"images/발주서사업장분리-7.png",
+    btns:[
+      {x:43.65, y:23.45, w:3.49, h:2.71, plain:true, page:0, tip:"<b>상품정보</b> 탭으로 이동합니다."},
+      {x:47.24, y:23.45, w:8.23, h:2.71, plain:true, page:1, tip:"<b>발주서 : 사업장 분리 관리</b> 탭으로 이동합니다."},
+      {x:77.19, y:26.94, w:6.51, h:2.91, plain:true, tip:"<b>사업장 추가</b>로 그룹에 사업장을 넣습니다."},
+      {x:83.85, y:26.94, w:6.61, h:2.91, plain:true, tip:"체크한 사업장을 그룹에서 <b>삭제</b>합니다."},
+      {x:90.62, y:26.94, w:8.49, h:2.91, plain:true, tip:"선택한 사업장의 순서를 <b>위로·아래</b>로 바꿉니다."},
+      {x:59.64, y:32.66, w:39.48, h:4.94, plain:true, notint:true, tag:"그룹에 남은 <b>사업장</b>입니다."},
+    ]},
+} };
+
+/* ▲ MPAGES:autoorder */
 const S_DEF = [
   { chapter:"S 1", title:"즐겨찾기", icon:"⭐", items:[
     {sub:{ id:"s-home", title:"HOME", subtitles:{ "shome":"S버전 메인 화면" }, pages:["shome"], tips:{} }},
@@ -27336,6 +27664,7 @@ const S_DEF = [
   ]},
   { chapter:"S 3", title:"매입관리", icon:"📥", ribbon:"images/매입관리.png", items:[
     {g:"발주관리"}, {sub:{ id:"s-order", title:"발주서 등록", subtitles:{ "sod1":"매입처·상품을 지정해 발주서 등록" }, pages:["sod1"], tips:{} }},{sub:{ id:"s-inquiry", title:"발주서 조회", subtitles:{ "sfo1":"등록한 발주서 확인·발주대기 처리", "sfo2":"1차 컨펌한 발주서 확인·발주 전송", "sfo3":"2차 컨펌한 발주서 확인·입고대기 처리", "sfo4":"입고 대기 발주서 확인·검수·입고완료", "sfo5":"처리 완료 발주서 확인·인쇄", "sfo6":"SCM 매입처가 반려한 발주서 확인·재전송", "sfo7":"취소한 발주서 확인·발주서입력으로 복구" }, pages:["sfo1","sfo2","sfo3","sfo4","sfo5","sfo6","sfo7"], pageLabels:["발주서입력","발주대기","발주완료","입고대기","입고완료","입고반려","취소"], tips:{} }},{sub:{ id:"s-status", title:"발주현황", subtitles:{ "sph1":"발주 내역을 조회·집계" }, pages:["sph1"], tips:{} }},{sub:{ id:"s-plan", title:"발주계획 입력", subtitles:{ "sop1":"입고예정일·상품·매입처를 지정해 발주계획 등록" }, pages:["sop1"], tips:{} }},{sub:{ id:"s-planq", title:"발주계획 조회", subtitles:{ "sop2":"등록한 발주계획 확인·수정·작성완료", "sop2d":"작성완료된 발주계획 확인", "sop2c":"취소한 발주계획 확인·작성중으로 복구" }, pages:["sop2","sop2d","sop2c"], pageLabels:["작성중","작성완료","취소"], tips:{} }},{sub:{ id:"s-noin", title:"미 입고 현황", subtitles:{ "snr1":"입고되지 않은 발주 내역 조회" }, pages:["snr1"], tips:{} }},{sub:{ id:"s-planv2", title:"발주계획v2", subtitles:{ "sopv1":"재고 부족 품목 확인 후 발주서 생성" }, pages:["sopv1"], tips:{} }},
+    /* ▼ MPAGES-SDEF:autoorder */ {g:"자동발주관리"}, {sub:{ id:"s-apl", title:"발주계획 상품관리", subtitles:{ "sap1":"자동 발주할 상품 담기·발주 계획수량 정하기" }, pages:["sap1"], tips:{} }},{sub:{ id:"s-apw", title:"계획 대기 상품목록", subtitles:{ "sap2":"발주계획에 넣지 않은 나머지 상품 확인" }, pages:["sap2"], tips:{} }},{sub:{ id:"s-apd", title:"당일 자동 발주관리", subtitles:{ "sap3":"자동 발주할 매입처·발주상품 등록", "sap4":"발주서 그룹별 사업장 나누기" }, pages:["sap3","sap4"], pageLabels:["상품정보","발주서 : 사업장 분리 관리"], tips:{} }}, /* ▲ MPAGES-SDEF:autoorder */
     {g:"매입관리"}, {sub:{ id:"s-preg", title:"매입 등록", subtitles:{ "spu1":"매입처·상품을 지정해 매입 등록" }, pages:["spu1"], tips:{} }},{sub:{ id:"s-pq",  title:"매입 조회",         subtitles:{ "spu2":"등록한 매입 문서 확인·입고대기 처리", "spu2c":"취소한 문서 확인·매입입력 복구", "spu2a":"문서별 금액 확인·매입완료 확정", "spu2h":"보류(점검요청)한 문서 확인", "spu2d":"완료된 문서 확인·식별표/전표 인쇄", "spum1":"같은 매입처 전표를 하나로 병합" }, pages:["spu2","spu2c","spu2a","spu2h","spu2d","spum1"], pageLabels:["매입입력","매입취소","금액확인","매입보류","매입완료","전표합치기"], tips:{} }},{sub:{ id:"s-pst", title:"매입 현황",         subtitles:{ "spu3":"매입 내역 피벗 현황 조회" }, pages:["spu3"], tips:{} }},{sub:{ id:"s-rreg", title:"매입 반품 등록", subtitles:{ "sru1":"반품 상품·사유를 지정해 반품 등록" }, pages:["sru1"], tips:{} }},{sub:{ id:"s-rq", title:"매입 반품 조회", subtitles:{ "sru2i":"반품입력 전표 확인·상태 넘기기", "sru2c":"반품취소 전표 확인·반품입력 복구", "sru2":"반품 전표 확인·반품 완료 처리", "sru2d":"반품완료 전표 인쇄·취소", "sru2m":"반품 내용 수정" }, pages:["sru2i","sru2c","sru2","sru2d","sru2m"], pageLabels:["반품입력","반품취소","반품대기","반품완료","반품수정"], sTab:0, editReturn:"sru2m", tips:{} }},{sub:{ id:"s-mpv", title:"매입단가 변경현황",  subtitles:{ "spu4":"상품별 매입단가 변경 이력 조회" }, pages:["spu4"], tips:{} }},
     {g:"판매분수수료 관리"}, {sub:{ id:"s-scm1", title:"수수료 매출 마감", subtitles:{ "scm1":"판매분수수료 확인·수정 후 매출 확정" }, pages:["scm1"], tips:{} }},{sub:{ id:"s-scm2", title:"수수료 매출 마감 조회", subtitles:{ "scm2":"완료 전표 확인·마감대기 처리", "scm2c":"취소한 전표 목록", "scm2w":"마감대기 전표 확인·마감완료 확정", "scm2d":"마감이 끝난 전표 목록", "scm2p":"지급안함 처리 전표" }, pages:["scm2","scm2c","scm2w","scm2d","scm2p"], pageLabels:["작성중","취소","마감대기","마감완료","지급안함"], tips:{} }},
     {g:"매입 마감 관리"}, {sub:{ id:"s-mc",   title:"월 매입 마감",       subtitles:{ "smc1":"계산서 발행금액을 입력해 월 매입 마감 진행" }, pages:["smc1"], tips:{} }},{sub:{ id:"s-mcq", title:"월 매입 마감 조회", subtitles:{ "smc2":"작성중 마감정보 확인·마감완료 처리", "smc2c":"마감을 취소한 내역 확인", "smc2n":"마감하지 않은 내역 확인", "smc2d":"마감완료된 내역 확인·마감안함 되돌리기" }, pages:["smc2","smc2c","smc2n","smc2d"], pageLabels:["작성중","취소","마감안함","마감완료"], tips:{} }},{sub:{ id:"s-bon", title:"장려금 관리", subtitles:{ "sbon1":"매입처 장려금 입금 등록·취소·삭제", "sbon1d":"입금삭제한 내역 확인·조회" }, pages:["sbon1","sbon1d"], pageLabels:["장려금 입금","입금 삭제"], tips:{} }},{sub:{ id:"s-bonq", title:"장려금 입금 현황",    subtitles:{ "sbon2":"장려금 입금 내역 피벗 현황 조회" }, pages:["sbon2"], tips:{} }},
@@ -27598,14 +27927,14 @@ const VIDEOS = [
       { t:106.26, title:"채무 지급 관리", subs:["s-dpay"], tags:["채무지급관리", "지급등록"], inner:1 },
       { t:164.7, title:"채무 지급 현황", subs:["s-dps"], tags:["채무지급현황", "지급현황"], inner:1 },
       { t:209.8, title:"세금계산서 조회", tags:["세금계산서", "세금계산서조회", "조회기준", "작성일자", "발급일자", "전송일자"] } ] },
-  { id:"purchase-auto", subId:"x-purchase-auto", alsoSubs:[], title:"자동발주 관리 방법", cat:"매입관리 › 자동발주관리", src:"videos/purchase-auto.mp4", poster:"videos/purchase-auto.jpg", dur:"3:51", yt:"pXfqjwtveOs",
+  { id:"purchase-auto", subId:"s-apl", alsoSubs:["s-apw", "s-apd"], title:"자동발주 관리 방법", cat:"매입관리 › 자동발주관리", src:"videos/purchase-auto.mp4", poster:"videos/purchase-auto.jpg", dur:"3:51", yt:"pXfqjwtveOs",
     desc:"발주계획 상품관리에서 제안수량을 보고 발주 계획수량을 정하고, 계획 대기 상품목록과 당일 자동 발주관리로 매입처별 자동 발주를 설정하는 방법을 알려드려요.",
     tags:["자동발주관리", "자동발주", "발주계획상품관리", "제안수량", "제안값반영", "발주계획수량", "적정재고", "계획대기상품목록", "당일자동발주관리"],
     chapters:[
-      { t:0.0, title:"발주계획 상품관리", subs:["x-purchase-auto"], tags:["발주계획상품관리", "발주계획상품추가"] },
+      { t:0.0, title:"발주계획 상품관리", subs:["s-apl"], tags:["발주계획상품관리", "발주계획상품추가"] },
       { t:44.18, title:"발주계획 상품관리 — 제안수량 · 제안값 반영 · 직접 입력", tags:["제안수량", "제안값반영", "발주계획수량", "적정재고"] },
-      { t:90.48, title:"계획 대기 상품목록", tags:["계획대기상품목록", "미계획상품"] },
-      { t:111.18, title:"당일 자동 발주관리", tags:["당일자동발주관리", "매입처추가", "발주상품추가"] },
+      { t:90.48, title:"계획 대기 상품목록", subs:["s-apw"], tags:["계획대기상품목록", "미계획상품"] },
+      { t:111.18, title:"당일 자동 발주관리", subs:["s-apd"], tags:["당일자동발주관리", "매입처추가", "발주상품추가"] },
       { t:176.72, title:"당일 자동 발주관리 — 발주서 : 사업장 분리 관리", tags:["사업장분리관리", "발주서그룹"] } ] },
   { id:"sales-quote", subId:"s-qt", alsoSubs:["s-qtq", "s-qts"], title:"견적서 관리 방법", cat:"매출관리 › 견적서 관리", src:"videos/sales-quote.mp4", poster:"videos/sales-quote.jpg", dur:"5:29", yt:"Sj7Rff1pNiU",
     desc:"견적서 등록으로 매출처에 보낼 견적서를 작성하고, 견적서 조회에서 인쇄 · 보류 · 수정 · 제출완료까지 처리한 뒤, 견적서 현황으로 내역을 확인하는 방법을 알려드려요.",
@@ -28268,6 +28597,9 @@ const S_RIBBON_CAT = {
     "sub:4-op1":  {x:6.7,  y:22.1, w:7.4,  h:21.4},  // 발주계획 입력
     "sub:4-1":    {x:6.7,  y:43.5, w:7.4,  h:19.6},  // 발주계획 조회
     "sub:4-3b":   {x:6.7,  y:63.1, w:7.4,  h:18.6},  // 미 입고 현황
+    "sub:s-apl":     {x:19.2, y:26.4, w:7.2, h:15.7},
+    "sub:s-apw":     {x:19.2, y:45.7, w:7.2, h:15.7},
+    "sub:s-apd":     {x:19.2, y:65,   w:7.2, h:15.7},
     "sub:4-4":    {x:14.1, y:23,   w:5.9,  h:20.5},  // 매입 등록
     "sub:4-5":    {x:14.1, y:42.6, w:5.9,  h:20.5},  // 매입 조회
     "sub:4-6b":   {x:14.1, y:61.2, w:5.9,  h:20.5},  // 매입 현황
