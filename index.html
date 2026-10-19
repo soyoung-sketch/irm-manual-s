@@ -1278,6 +1278,11 @@ body.vid-open .card-img-wrap .sim-spot, body.vid-open .card-img-wrap .sim-num { 
 .vg-kicker { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:800; letter-spacing:1px; color:#C2410C; background:#FFF7ED; border:1px solid #FED7AA; padding:4px 10px; border-radius:20px; }
 .vg-title { font-size:26px; font-weight:900; color:var(--navy); margin:12px 0 6px; letter-spacing:-0.5px; }
 .vg-desc { font-size:14px; color:var(--text-muted); line-height:1.6; }
+.vg-head { display:flex; align-items:flex-end; justify-content:space-between; gap:16px 24px; flex-wrap:wrap; }
+.vg-head-text { flex:1 1 420px; min-width:0; }
+.vg-ytch { flex:none; display:inline-flex; align-items:center; gap:8px; height:42px; padding:0 18px 0 14px; border-radius:21px; background:#FF0000; color:#fff; font-size:14px; font-weight:800; text-decoration:none; white-space:nowrap; box-shadow:0 2px 8px rgba(255,0,0,0.25); transition:background 0.15s, box-shadow 0.15s; cursor:pointer; }
+.vg-ytch:hover { background:#D90000; box-shadow:0 4px 14px rgba(255,0,0,0.32); }
+.vg-ytch svg { width:22px; height:16px; flex:none; }
 .vg-search { position:relative; margin:22px 0 8px; max-width:560px; }
 .vg-search input { width:100%; height:48px; border:1.5px solid var(--border); border-radius:12px; background:#fff; padding:0 16px 0 46px; font-family:inherit; font-size:15px; color:var(--navy); outline:none; transition:border-color 0.15s, box-shadow 0.15s; }
 .vg-search input:focus { border-color:var(--accent); box-shadow:0 0 0 4px rgba(249,115,22,0.12); }
@@ -27524,9 +27529,11 @@ function showVideoGallery() {
   document.getElementById("vidBanner")?.classList.add("active");
   simNavSetup(null); // 시뮬레이터 < > 버튼은 모아보기에서 숨김
   document.getElementById("content").innerHTML = `<div class="vg-wrap">
+    <div class="vg-head"><div class="vg-head-text">
     <span class="vg-kicker">▶ VIDEO LECTURES</span>
     <div class="vg-title">동영상 강의 모아보기</div>
     <div class="vg-desc">IRM 사용법을 영상으로 쉽게 배워보세요. 폴더를 누르면 메뉴별 강의가 나오고, 찾는 내용은 바로 검색할 수 있어요.</div>
+    </div><a class="vg-ytch" href="https://www.youtube.com/@Iregen-manual" target="_blank" rel="noopener"><svg viewBox="0 0 22 16" aria-hidden="true"><rect width="22" height="16" rx="4.5" fill="#fff"/><path d="M9 4.6v6.8l5.8-3.4z" fill="#FF0000"/></svg>유튜브 채널 보러가기</a></div>
     <div class="vg-search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
       <input type="text" id="vgSearch" placeholder="동영상 찾기 (예: 상품등록, 바코드, 판매가)" oninput="renderVideoGrid(this.value)" autocomplete="off">
