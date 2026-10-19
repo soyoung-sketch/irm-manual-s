@@ -27809,7 +27809,7 @@ const S_DEF = [
       ]},
     {ref:"12-4", title:"매입통계"},
   ]},
-    /* ▼ MPAGES-SDEF:hq */ { chapter:"S 8", title:"본사관리", icon:"🏢", ribbon:"images/본사-기본관리리본.png", sRibbonAll:true, items:[{g:"기본관리"}, {sub:{ id:"s-hqbiz", title:"사업장 관리(본사)", subtitles:{ "shq1":"본사에서 사업장 등록·수정·순서 변경" }, pages:["shq1"], tips:{} }},{g:"매출현황"}, {sub:{ id:"s-hqsale", title:"판매 현황", subtitles:{ "shq2":"사업장·검색일로 판매 내역 조회·표 커스텀", "shq2s":"분류·담당자·매출처 등 조건으로 판매 내역 찾기" }, pages:["shq2","shq2s"], pageLabels:["판매 현황","상세검색"], tips:{} }},]}, /* ▲ MPAGES-SDEF:hq */
+    /* ▼ MPAGES-SDEF:hq */ { chapter:"S 8", title:"본사관리", icon:"🏢", ribbon:"images/본사-기본관리리본.png", sRibbonAll:true, items:[{g:"기본관리"}, {sub:{ id:"s-hqbiz", title:"사업장 관리(본사)", subtitles:{ "shq1":"본사에서 사업장 등록·수정·순서 변경" }, pages:["shq1"], tips:{} }},{sref:"s-emp", id:"s-emp-hq"},{g:"상품관리"}, {sref:"7-1", id:"7-1-hq"},{sref:"2-1-s2", id:"2-1-s2-hq"},{sref:"2-11", id:"2-11-hq"},{sref:"s-rst", id:"s-rst-hq"},{sref:"2-11b", id:"2-11b-hq"},{sref:"2-11c", id:"2-11c-hq"},{sref:"2-11d", id:"2-11d-hq"},{g:"행사 관리"}, {sref:"s-ev", id:"s-ev-hq", ribbon:"images/본사-가맹점관리리본.png"},{sref:"s-evq", id:"s-evq-hq", ribbon:"images/본사-가맹점관리리본.png"},{sref:"s-hj", id:"s-hj-hq", ribbon:"images/본사-가맹점관리리본.png"},{g:"할인 그룹 관리"}, {sref:"s-dge", id:"s-dge-hq", ribbon:"images/본사-가맹점관리리본.png"},{sref:"s-dgq", id:"s-dgq-hq", ribbon:"images/본사-가맹점관리리본.png"},{g:"할인 쿠폰 관리"}, {sref:"s-cp", id:"s-cp-hq", ribbon:"images/본사-가맹점관리리본.png"},{sref:"s-cq", id:"s-cq-hq", ribbon:"images/본사-가맹점관리리본.png"},{sref:"s-cn", id:"s-cn-hq", ribbon:"images/본사-가맹점관리리본.png"},{g:"현황정보"}, {sub:{ id:"s-hqsale", title:"판매 현황", sRib:"images/본사-통계리본.png", subtitles:{ "shq2":"사업장·검색일로 판매 내역 조회·표 커스텀", "shq2s":"분류·담당자·매출처 등 조건으로 판매 내역 찾기" }, pages:["shq2","shq2s"], pageLabels:["판매 현황","상세검색"], tips:{} }},]}, /* ▲ MPAGES-SDEF:hq */
   /* ── 환경설정 챕터 숨김 (2026-07-14 요청) — 복구 시 이 주석 해제 ──
   { chapter:"S 8", title:"환경설정", icon:"⚙️", items:[
     {g:"코드관리"}, {ref:"env11"},{ref:"10-3b"},{ref:"env12"},{ref:"env15"},{prep:"공통 사업장 상품 관리"},{ref:"env19", title:"포스 버튼관리"},
@@ -27821,12 +27821,15 @@ const S_DEF = [
 const SECTIONS_S = (function(){
   const allSubs = {};
   SECTIONS.forEach(ch => (ch.subs||[]).forEach(sub => { if (!sub.type) allSubs[sub.id] = sub; }));
+  const sSubs = {}; S_DEF.forEach(d => (d.items||[]).forEach(it => { if (it.sub) sSubs[it.sub.id] = it.sub; }));
   let prepN = 0, cloneN = 0;
   return S_DEF.map((def, ci) => ({
     id: "s-ch"+(ci+1), chapter: def.chapter, title: def.title, icon: def.icon, ribbon: def.ribbon, sRibbonAll: def.sRibbonAll,
     subs: def.items.map(it => {
       if (it.g) return { id: "s-g"+(ci+1)+"-"+(++cloneN), type: "divider", title: it.g };
       if (it.sub) return it.sub; // S버전 전용 페이지 (전체버전에 없는 화면)
+      if (it.sref) { const bs = sSubs[it.sref] || allSubs[it.sref]; // 다른 장의 같은 화면을 이 장에서도(새 id)
+        if (bs) return Object.assign({}, bs, { id: it.id || (bs.id + "-x"), title: it.title || bs.title, sRib: it.ribbon || bs.sRib, baseId: bs.id }); }
       if (it.prep) return { id: "s-prep-"+(++prepN), title: it.prep, subtitles:{}, pages:["sprep"], tips:{} };
       const base = allSubs[it.ref];
       if (!base) { console.warn("S버전 ref 미발견:", it.ref); return { id: "s-miss-"+(++prepN), title: (it.title||it.ref), subtitles:{}, pages:["sprep"], tips:{} }; }
@@ -28292,17 +28295,17 @@ const VIDEOS = [
       { t:60.28, title:"매입처별 상품매출", tags:["매입처별상품매출", "상품별"] },
       { t:68.55, title:"매입처별 매출(일)", tags:["매입처별매출일", "판매일별"] },
       { t:72.98, title:"매입처구분별 매출(월)", tags:["매입처구분별매출", "월별매출"] } ] },
-  { id:"hq-basic", subId:"s-hqbiz", alsoSubs:["s-emp"], title:"본사 기본관리 메뉴 사용 방법", cat:"본사관리 › 기본관리", src:"videos/hq-basic.mp4", poster:"videos/hq-basic.jpg", dur:"3:58", yt:"g03aZUbXHLY",
+  { id:"hq-basic", subId:"s-hqbiz", alsoSubs:["s-emp-hq"], title:"본사 기본관리 메뉴 사용 방법", cat:"본사관리 › 기본관리", src:"videos/hq-basic.mp4", poster:"videos/hq-basic.jpg", dur:"3:58", yt:"g03aZUbXHLY",
     desc:"본사 관리의 기본관리 메뉴 — 사업장을 등록하고 관리하는 사업장 관리와, 사원을 등록하고 권한을 관리하는 사원 관리를 차례로 알려드려요.",
     tags:["기본관리", "사업장관리", "본사관리", "사업장등록", "신규작성", "사원관리", "사원등록", "사원증인쇄", "접근권한"],
     chapters:[
       { t:9.44, title:"사업장 관리", subs:["s-hqbiz"], tags:["본사관리", "사업장관리", "사업장등록", "신규작성"] },
-      { t:89.87, title:"사원 관리", subs:["s-emp"], tags:["사원관리", "사원등록", "사원증인쇄", "접근권한"] } ] },
-  { id:"hq-products", subId:"7-1", alsoSubs:["2-1-s2", "2-11", "s-rst", "2-11b", "2-11c", "2-11d"], title:"본사 상품관리 메뉴 사용 방법", cat:"본사관리 › 상품관리", src:"videos/hq-products.mp4", poster:"videos/hq-products.jpg", dur:"14:49", yt:"MWRTRH2eXMg",
+      { t:89.87, title:"사원 관리", subs:["s-emp-hq"], tags:["사원관리", "사원등록", "사원증인쇄", "접근권한"] } ] },
+  { id:"hq-products", subId:"7-1-hq", alsoSubs:["2-1-s2-hq", "2-11-hq", "s-rst-hq", "2-11b-hq", "2-11c-hq", "2-11d-hq"], title:"본사 상품관리 메뉴 사용 방법", cat:"본사관리 › 상품관리", src:"videos/hq-products.mp4", poster:"videos/hq-products.jpg", dur:"14:49", yt:"MWRTRH2eXMg",
     desc:"본사 관리의 상품관리 메뉴 — 사업장 상품관리 · 상품등록 · 카테고리 관리 · 제한상품 관리 · 원산지 · 제조사 · 브랜드 관리를 차례로 알려드려요.",
     tags:["상품관리", "사업장상품관리", "상품목록", "상품조회", "상품수정", "판매가", "상품등록", "상품", "신규등록", "바코드체크", "매입처", "규격", "고시정보", "카테고리관리", "카테고리", "대분류", "중분류", "소분류", "세분류", "제한상품관리", "제한상품", "제한수량", "판매제한", "제한시작", "원산지·제조사·브랜드관리", "원산지", "원산지관리", "제조사", "제조사관리", "브랜드", "브랜드관리"],
     chapters:[
-      { t:7.77, title:"사업장 상품관리", subs:["7-1"], tags:["사업장상품관리", "상품목록", "상품조회", "상품수정", "판매가"] },
+      { t:7.77, title:"사업장 상품관리", subs:["7-1-hq"], tags:["사업장상품관리", "상품목록", "상품조회", "상품수정", "판매가"] },
       { t:43.96, title:"사업장 상품관리 — 상품수정", tags:["상품수정", "상품보기"], inner:1 },
       { t:83.62, title:"사업장 상품관리 — 엑셀저장", tags:["엑셀저장", "엑셀"], inner:1 },
       { t:105.89, title:"사업장 상품관리 — 매입처 지정", tags:["매입처지정"], inner:1 },
@@ -28311,43 +28314,43 @@ const VIDEOS = [
       { t:199.41, title:"사업장 상품관리 — 판매가 수정", tags:["판매가수정", "판매가"], inner:1 },
       { t:231.66, title:"사업장 상품관리 — 행사 추가", tags:["행사추가", "행사"], inner:1 },
       { t:276.01, title:"사업장 상품관리 — 매입가 · 판매가 변경내역", tags:["매입가변경내역", "판매가변경내역", "상품상태"], inner:1 },
-      { t:307.77, title:"상품등록", subs:["2-1-s2"], tags:["상품등록", "상품", "신규등록", "바코드체크", "매입처", "규격", "판매가", "고시정보"] },
+      { t:307.77, title:"상품등록", subs:["2-1-s2-hq"], tags:["상품등록", "상품", "신규등록", "바코드체크", "매입처", "규격", "판매가", "고시정보"] },
       { t:321.88, title:"상품등록 — 바코드 체크", tags:["바코드체크", "바코드생성"], inner:1 },
       { t:354.55, title:"상품등록 — 매입처 · 상품명", tags:["매입처", "상품명"], inner:1 },
       { t:376.01, title:"상품등록 — 필수 항목 · 상품 상태 정보", tags:["필수항목", "상품상태", "매입상태", "판매상태"], inner:1 },
       { t:400.65, title:"상품등록 — 규격 · 단위추가", tags:["규격", "단위", "내품수", "단위추가"], inner:1 },
       { t:421.41, title:"상품등록 — 판매가 관리 · 규격별 바코드", tags:["판매가", "매입가", "바코드추가"], inner:1 },
       { t:464.31, title:"상품등록 — 이미지 · 고시정보 · 신규등록", tags:["이미지", "고시정보", "신규등록"], inner:1 },
-      { t:507.44, title:"카테고리 관리", subs:["2-11"], tags:["카테고리", "카테고리관리", "대분류", "중분류", "소분류", "세분류"] },
+      { t:507.44, title:"카테고리 관리", subs:["2-11-hq"], tags:["카테고리", "카테고리관리", "대분류", "중분류", "소분류", "세분류"] },
       { t:525.12, title:"카테고리 — 대분류 · 중분류 · 소분류 등록", tags:["대분류등록", "중분류등록"], inner:1 },
       { t:564.16, title:"카테고리 — 순서 변경 · 삭제", tags:["카테고리순서", "카테고리삭제"], inner:1 },
       { t:600.29, title:"카테고리 — 사업장 상품관리에서 확인", tags:["카테고리검색"], inner:1 },
-      { t:622.21, title:"제한상품 관리", subs:["s-rst"], tags:["제한상품", "제한상품관리", "제한수량", "판매제한", "제한시작"] },
+      { t:622.21, title:"제한상품 관리", subs:["s-rst-hq"], tags:["제한상품", "제한상품관리", "제한수량", "판매제한", "제한시작"] },
       { t:650.13, title:"제한상품 — 제한 수량 입력 · 제한 시작", tags:["제한수량", "제한시작"], inner:1 },
       { t:687.8, title:"제한상품 — 진행완료", tags:["진행완료", "제한완료"], inner:1 },
-      { t:714.3, title:"원산지 · 제조사 · 브랜드 관리", subs:["2-11b"], tags:["원산지", "원산지관리", "제조사", "제조사관리", "브랜드", "브랜드관리"] },
-      { t:795.63, title:"제조사 관리", subs:["2-11c"], tags:["제조사", "제조사등록", "변경이력"], inner:1 },
-      { t:843.23, title:"브랜드 관리", subs:["2-11d"], tags:["브랜드", "브랜드등록"], inner:1 } ] },
-  { id:"hq-franchise", subId:"s-ev", alsoSubs:["s-evq", "s-hj", "s-cx", "s-dge", "s-dgq", "s-cp", "s-cq", "s-cn"], title:"본사 가맹점관리 메뉴 사용 방법", cat:"본사관리 › 가맹점관리", src:"videos/hq-franchise.mp4", poster:"videos/hq-franchise.jpg", dur:"15:59", yt:"0uFQRCtm9aM",
+      { t:714.3, title:"원산지 · 제조사 · 브랜드 관리", subs:["2-11b-hq"], tags:["원산지", "원산지관리", "제조사", "제조사관리", "브랜드", "브랜드관리"] },
+      { t:795.63, title:"제조사 관리", subs:["2-11c-hq"], tags:["제조사", "제조사등록", "변경이력"], inner:1 },
+      { t:843.23, title:"브랜드 관리", subs:["2-11d-hq"], tags:["브랜드", "브랜드등록"], inner:1 } ] },
+  { id:"hq-franchise", subId:"s-ev-hq", alsoSubs:["s-evq-hq", "s-hj-hq", "s-dge-hq", "s-dgq-hq", "s-cp-hq", "s-cq-hq", "s-cn-hq"], title:"본사 가맹점관리 메뉴 사용 방법", cat:"본사관리 › 가맹점관리", src:"videos/hq-franchise.mp4", poster:"videos/hq-franchise.jpg", dur:"15:59", yt:"0uFQRCtm9aM",
     desc:"본사 관리의 가맹점관리 메뉴 — 행사 상품을 등록하는 행사 관리와, 할인 그룹 관리 · 할인 쿠폰 관리를 차례로 알려드려요.",
     tags:["가맹점관리", "행사관리", "본사관리", "행사상품등록", "행사상품조회", "할인그룹관리", "할인그룹", "할인그룹등록", "할인그룹조회", "할인쿠폰관리", "할인쿠폰", "쿠폰등록", "쿠폰조회", "쿠폰현황"],
     chapters:[
-      { t:10.94, title:"행사 관리", subs:["s-ev"], tags:["본사관리", "가맹점관리", "행사관리", "행사상품등록", "행사상품조회"] },
-      { t:101.99, title:"행사 상품 조회", subs:["s-evq"], tags:["행사조회", "행사시작", "종료일변경", "진행완료"], inner:1 },
+      { t:10.94, title:"행사 관리", subs:["s-ev-hq"], tags:["본사관리", "가맹점관리", "행사관리", "행사상품등록", "행사상품조회"] },
+      { t:101.99, title:"행사 상품 조회", subs:["s-evq-hq"], tags:["행사조회", "행사시작", "종료일변경", "진행완료"], inner:1 },
       { t:184.15, title:"완료 · 취소된 행사 복사", tags:["행사복사", "준비중으로", "행사취소"], inner:1 },
-      { t:280.31, title:"행사 중 상품 현황", subs:["s-hj"], tags:["행사중상품현황"], inner:1 },
-      { t:290.38, title:"행사매입 초과수량", subs:["s-cx"], tags:["초과수량", "행사매입"], inner:1 },
-      { t:337.34, title:"할인 그룹 관리", subs:["s-dge"], tags:["할인그룹", "할인그룹등록", "할인그룹조회"] },
+      { t:280.31, title:"행사 중 상품 현황", subs:["s-hj-hq"], tags:["행사중상품현황"], inner:1 },
+      { t:290.38, title:"행사매입 초과수량", tags:["초과수량", "행사매입"], inner:1 },
+      { t:337.34, title:"할인 그룹 관리", subs:["s-dge-hq"], tags:["할인그룹", "할인그룹등록", "할인그룹조회"] },
       { t:399.92, title:"할인 그룹 등록 — 포함", tags:["포함"], inner:1 },
       { t:448.66, title:"할인 그룹 등록 — 구간(금액)", tags:["구간금액"], inner:1 },
       { t:509.19, title:"할인 그룹 등록 — 구간(수량)", tags:["구간수량"], inner:1 },
-      { t:568.16, title:"할인 그룹 조회", subs:["s-dgq"], tags:["할인그룹조회", "행사시작", "진행완료"], inner:1 },
+      { t:568.16, title:"할인 그룹 조회", subs:["s-dgq-hq"], tags:["할인그룹조회", "행사시작", "진행완료"], inner:1 },
       { t:613.96, title:"할인 그룹 수정 · 준비중으로 · 취소", tags:["할인그룹수정", "준비중으로", "취소"], inner:1 },
-      { t:690.67, title:"할인 쿠폰 관리", subs:["s-cp"], tags:["할인쿠폰", "쿠폰등록", "쿠폰조회", "쿠폰현황"] },
+      { t:690.67, title:"할인 쿠폰 관리", subs:["s-cp-hq"], tags:["할인쿠폰", "쿠폰등록", "쿠폰조회", "쿠폰현황"] },
       { t:766.79, title:"할인쿠폰 등록 — 설정을 바꿔 하나 더", tags:["기간설정안함", "정율", "사용불가"], inner:1 },
-      { t:827.66, title:"할인쿠폰 조회", subs:["s-cq"], tags:["쿠폰조회", "행사시작", "진행완료", "쿠폰수정"], inner:1 },
+      { t:827.66, title:"할인쿠폰 조회", subs:["s-cq-hq"], tags:["쿠폰조회", "행사시작", "진행완료", "쿠폰수정"], inner:1 },
       { t:899.21, title:"할인쿠폰 취소 · 준비중으로", tags:["쿠폰취소", "준비중으로"], inner:1 },
-      { t:921.62, title:"할인쿠폰 현황", subs:["s-cn"], tags:["쿠폰현황"], inner:1 } ] },
+      { t:921.62, title:"할인쿠폰 현황", subs:["s-cn-hq"], tags:["쿠폰현황"], inner:1 } ] },
   { id:"hq-stat", subId:"s-hqsale", alsoSubs:[], title:"본사 통계 — 판매 현황 조회 방법", cat:"본사관리 › 통계", src:"videos/hq-stat.mp4", poster:"videos/hq-stat.jpg", dur:"1:27", yt:"c1sT588TaeU",
     desc:"본사 관리의 통계 메뉴 — 판매 현황에서 사업장과 기간, 상세 조건으로 판매 내역을 조회하고, 항목을 끌어다 놓아 표를 커스텀하는 방법을 알려드려요.",
     tags:["통계", "본사관리", "판매현황", "상세검색", "표구성", "항목추가"],
@@ -28860,10 +28863,25 @@ const S_RIBBON_CAT = {
     "st39": {x:76.4, y:61.2, w:10.2, h:21.9},   // 매입처구분별 매출(월)
   },
   /* ▼ MPAGES-RIB:hq */
-  "s-ch8": { // 본사관리 — 본사-기본관리리본.png(1530×140) / 판매 현황은 본사-매출관리리본.png(1720×140)
-    "sub:s-hqbiz":   {x:0.3,  y:31,   w:6,   h:18},
-    "shq2":          {x:41.6, y:27,   w:5,   h:15},
-    "shq2s":         {x:41.6, y:27,   w:5,   h:15},
+  "s-ch8": { // 본사관리 — 메뉴별 리본(기본관리·가맹점관리·통계 탭)
+    "sub:s-hqbiz": {x:0.3, y:31, w:6, h:18},
+    "sub:s-emp-hq": {x:0.1, y:57.1, w:5.9, h:17.1},
+    "sub:7-1-hq": {x:6.9, y:25.7, w:3.9, h:54.3},
+    "sub:2-1-s2-hq": {x:11.1, y:25.7, w:4.9, h:15.7},
+    "sub:2-11-hq": {x:11.1, y:44.3, w:6.7, h:15.7},
+    "sub:s-rst-hq": {x:11.1, y:62.9, w:7.3, h:15.7},
+    "sub:2-11b-hq": {x:18.5, y:25.7, w:5.8, h:15.7},
+    "sub:2-11c-hq": {x:18.5, y:44.3, w:5.8, h:15.7},
+    "sub:2-11d-hq": {x:18.5, y:62.9, w:5.8, h:15.7},
+    "sub:s-ev-hq": {x:0.1, y:26.1, w:3.9, h:55.1},
+    "sub:s-evq-hq": {x:4.6, y:31.9, w:8.2, h:17.4},
+    "sub:s-hj-hq": {x:4.6, y:59.4, w:8.2, h:17.4},
+    "sub:s-dge-hq": {x:13.4, y:31.9, w:7.2, h:17.4},
+    "sub:s-dgq-hq": {x:13.4, y:59.4, w:7.2, h:17.4},
+    "sub:s-cp-hq": {x:21.4, y:26.1, w:6.8, h:15.9},
+    "sub:s-cq-hq": {x:21.4, y:44.9, w:6.8, h:17.4},
+    "sub:s-cn-hq": {x:21.4, y:65.2, w:6.8, h:15.9},
+    "sub:s-hqsale": {x:0.1, y:28, w:5.4, h:22.4},
   },
   /* ▲ MPAGES-RIB:hq */
 };
@@ -29327,7 +29345,7 @@ function renderSection() {
       // 리본 표시: 크롭 대상(전체버전 캡처) 또는 sRibbon 플래그(S 전용 캡처 — 크롭 없이 리본만)
       const sRibbon = ch.ribbon && (sCrop || SIM[pg].sRibbon || (ch.sRibbonAll && !SIM[pg].noRibCrop));
       const ribCrop = !sCrop && (ch.sRibbonAll || SIM[pg].ribCrop) && !SIM[pg].noRibCrop; // S 전용 캡처: 이미지 안 상단 카테고리(타이틀바~리본)를 잘라 스와이프 리본과 중복 제거
-      html += (sRibbon ? sRibbonHTML(SIM[pg].ribbon || ch.ribbon, pg, ch.id, sub.id) : ``) +
+      html += (sRibbon ? sRibbonHTML(sub.sRib || SIM[pg].ribbon || ch.ribbon, pg, ch.id, sub.id) : ``) +
         (sCrop ? `<div class="s-clip">` : ``) +
         `<div class="img-pin-wrap sim-wrap${sCrop ? ' s-cropped' : ''}${sCrop && sRibbon ? (SIM[pg].shortTop ? ' s-topcrop2' : ' s-topcrop') : ''}${ribCrop ? ' s-ribcrop' : ''}${ribCrop && SIM[pg].wide ? ' s-wide' : ''}" id="simWrap" style="position:relative;width:100%;">`+
         simScreenHTML(pg, SIM[pg].start) + `</div>` + (sCrop ? `</div>` : ``);
