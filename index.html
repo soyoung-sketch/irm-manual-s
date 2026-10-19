@@ -26925,7 +26925,7 @@ SIM["sfp3"] = { start:"1", wide:true, screens:{
 // ── S버전 전용 페이지: 매장관리 › 정산관리 인센티브 (영상 캡처, 2026-10-19) ──
 IMGS["sic1"] = "images/인센티브마감-1.png";
 DESCS["sic1"] = [
-  {type:"note", text:"영업담당별 인센티브를 확인하고 <b>지급을 입력</b>하는 화면입니다. 인센티브 설정과 포스 영업담당 지정이 먼저 되어 있어야 합니다. 🔗 <b class='dlink' onclick=\"goPage(1)\">인센티브 설정</b> 🔗 <b class='dlink' onclick=\"goPage(2)\">포스 영업담당</b>"},
+  {type:"note", text:"영업담당별 인센티브를 확인하고 <b>지급을 입력</b>하는 화면입니다. 인센티브 설정과 포스 영업담당 지정이 먼저 되어 있어야 합니다. 🔗 <b class='dlink' onclick=\"openSub('s-ch5','s-incs',true)\">인센티브 설정</b> 🔗 <b class='dlink' onclick=\"openSub('s-ch5','s-incs',true);setTimeout(function(){goPage(1)},80)\">포스 영업담당</b>"},
   {type:"step", num:"1", title:"🔍 담당자 검색", body:"<b>마감월</b>을 확인하고 <span class='ui-btn'>검색</span> 버튼을 클릭하면 그 달의 담당자가 나옵니다."},
   {type:"step", num:"2", title:"👤 담당자 선택", subs:["마감할 담당자의 <b>선택</b>을 클릭하면 가운데 매출상세정보에 매출 내역이 나옵니다.", "%%매출상세정보를 오른쪽으로 넘기면 매출마다 인센티브·수수료·지급액이 나옵니다."]},
   {type:"step", num:"3", title:"☑️ 지급할 매출 체크", body:"지급할 <b>매출</b>을 모두 체크합니다."},
@@ -26998,7 +26998,7 @@ IMGS["sic2"] = "images/인센티브설정-biz.png";
 DESCS["sic2"] = [
   {type:"note", text:"인센티브를 마감하려면 먼저 <b>사업장</b>과 <b>사원</b>에 인센티브를 설정합니다. 상품마다 다르게 줄 때는 사업장 상품관리에서 정합니다."},
   {type:"step", num:"1", title:"🏢 사업장에 인센티브 사용", subs:["기초관리의 <b>사업장 관리</b>에서 사업장을 고르고 인센티브의 <b>사용</b>을 선택합니다.", "%%<b>안함</b>을 선택하면 인센티브를 쓰지 않아 입력 칸이 막힙니다.", "<b>카드·기타 수수료율</b>을 정하면 카드·기타로 결제된 금액의 그 비율만큼 인센티브에서 빠집니다.", "<span class='ui-btn'>수정</span> 버튼을 클릭하고 저장할지 묻는 창에서 <span class='ui-btn'>예</span>, 저장 완료 창에서 <span class='ui-btn'>확인</span>을 클릭합니다."]},
-  {type:"step", num:"2", title:"👤 사원을 지급 대상으로", subs:["<b>사업장 사원 관리</b>에서 인센티브를 줄 사원을 선택합니다.", "접근권한의 <b>인센티브 지급 대상</b>에 체크하고 <span class='ui-btn'>수정</span> 버튼으로 저장합니다.", "%%체크한 사원만 인센티브를 받고, 포스에서 영업담당으로 고를 수 있습니다. 🔗 <b class='dlink' onclick=\"goPage(2)\">포스 영업담당</b>"]},
+  {type:"step", num:"2", title:"👤 사원을 지급 대상으로", subs:["<b>사업장 사원 관리</b>에서 인센티브를 줄 사원을 선택합니다.", "접근권한의 <b>인센티브 지급 대상</b>에 체크하고 <span class='ui-btn'>수정</span> 버튼으로 저장합니다.", "%%체크한 사원만 인센티브를 받고, 포스에서 영업담당으로 고를 수 있습니다. 🔗 <b class='dlink' onclick=\"goPage(1)\">포스 영업담당</b>"]},
   {type:"step", num:"★", ystar:true, title:"📦 상품별 인센티브", subs:["<b>사업장 상품관리</b>에서 상품을 선택하면 아래 판매가 정보에 단위별 인센티브가 나옵니다.", "인센티브의 <b>모드</b> 칸을 클릭해 주는 방식을 고릅니다.", "%%<b>매장</b>은 사업장 관리의 인센티브를 그대로 따르고, <b>정액·정율·마진</b>은 이 상품만 따로 정합니다. <b>제외</b>를 고르면 인센티브에서 빠집니다.", "옆 인센티브 칸에 정액이면 금액, 정율·마진이면 비율을 입력하고 <span class='ui-btn'>판매정보 수정</span> 버튼으로 저장합니다.", "%%정율은 판매금액에, 마진은 마진 금액에 비율을 곱해 인센티브를 계산합니다."]},
 ];
 SIM["sic2"] = { start:"biz", noRibCrop:true, screens:{
@@ -28141,7 +28141,7 @@ const S_DEF = [
     {g:"기본관리"}, {sub:{ id:"s-pg", title:"판매가 변경 목록", subtitles:{ "spgc1":"변경정보 확인·인쇄·인쇄안함", "spgc1a":"인쇄안함 목록", "spgc1b":"인쇄완료 목록" }, pages:["spgc1","spgc1a","spgc1b"], pageLabels:["변경정보","인쇄안함","인쇄완료"], tips:{} }},{ref:"7-1c"},{sub:{ id:"s-sf", title:"검색 폴더 관리", subtitles:{ "ssf1":"대그룹·소그룹 카테고리 + 상품 담기" }, pages:["ssf1"], tips:{} }},{sub:{ id:"s-sa", title:"사업장 사원 관리", subtitles:{ "ssa1":"사원정보 등록·수정·사원증 인쇄", "ssa1e":"전자결제 정보", "ssa1p":"PDA 메뉴권한", "ssa1m":"관리 사업장" }, pages:["ssa1","ssa1e","ssa1p","ssa1m"], pageLabels:["사원정보","전자결제 정보","PDA 메뉴권한","관리 사업장"], tips:{} }},{sub:{ id:"s-ps", title:"포스화면 상품관리", subtitles:{ "sps1k":"PLU 키보드 설정", "sps1c":"터치화면 카테고리 관리", "sps1b":"사업장 상품관리(봉투·대물)", "sps1n":"포스화면 배너관리" }, pages:["sps1k","sps1c","sps1b","sps1n"], pageLabels:["PLU 키보드 설정","터치화면 카테고리 관리","사업장 상품관리","포스화면 배너관리"], tips:{} }},{sub:{ id:"s-px", title:"포스 취소 및 보류내역", subtitles:{ "spx1":"선택취소/전체취소 목록", "spx1b":"보류 목록" }, pages:["spx1","spx1b"], pageLabels:["선택취소/전체취소 목록","보류 목록"], tips:{} }},
     {g:"은행거래내역"}, {sub:{ id:"s-bk", title:"은행거래내역", subtitles:{ "sbank1":"계좌·기간별 은행 거래 내역 조회" }, pages:["sbank1"], tips:{} }},
     {g:"계산원 마감 관리"}, {ref:"7-4a"},{ref:"7-4b"},{ref:"7-4c"},{ref:"7-4d"},
-    /* ▼ MPAGES-SDEF:incentive */ {g:"정산관리"}, {sub:{ id:"s-incc", title:"인센티브 마감관리", subtitles:{ "sic1":"담당자별 인센티브 확인·지급 입력", "sic2":"사업장·사원·상품별 인센티브 설정", "sic3":"포스에서 영업담당 지정·전표 담당 변경" }, pages:["sic1","sic2","sic3"], pageLabels:["인센티브 마감관리","인센티브 설정","포스 영업담당"], tips:{} }},{sub:{ id:"s-incl", title:"인센티브 마감목록", subtitles:{ "sil1":"지급 입력 내역 마감대기·마감완료" }, pages:["sil1"], pageLabels:["인센티브 마감목록"], tips:{} }}, /* ▲ MPAGES-SDEF:incentive */
+    /* ▼ MPAGES-SDEF:incentive */ {g:"정산관리"}, {sub:{ id:"s-incs", title:"인센티브 설정", subtitles:{ "sic2":"사업장·사원·상품별 인센티브 설정", "sic3":"포스에서 영업담당 지정·전표 담당 변경" }, pages:["sic2","sic3"], pageLabels:["인센티브 설정","포스 영업담당"], tips:{} }},{sub:{ id:"s-incc", title:"인센티브 마감관리", subtitles:{ "sic1":"담당자별 인센티브 확인·지급 입력" }, pages:["sic1"], tips:{} }},{sub:{ id:"s-incl", title:"인센티브 마감목록", subtitles:{ "sil1":"지급 입력 내역 마감대기·마감완료" }, pages:["sil1"], pageLabels:["인센티브 마감목록"], tips:{} }}, /* ▲ MPAGES-SDEF:incentive */
     /* ▼ MPAGES-SDEF:expense */ {g:"경비 사용관리"}, {sub:{ id:"s-exb", title:"제예금 현황", subtitles:{ "sexb1":"계좌별 잔액·세부 입출금 내역 확인" }, pages:["sexb1"], tips:{} }},{sub:{ id:"s-exc", title:"현금 출납장", subtitles:{ "sexc1":"날짜별 현금 입출금 내역·잔액 확인" }, pages:["sexc1"], tips:{} }},{sub:{ id:"s-exj", title:"회계 전표", subtitles:{ "sexj1":"신규등록으로 회계 전표 등록" }, pages:["sexj1"], tips:{} }},{sub:{ id:"s-exl", title:"계정별 원장", subtitles:{ "sexl1":"계정과목·매입처별 거래 내역 조회" }, pages:["sexl1"], tips:{} }}, /* ▲ MPAGES-SDEF:expense */
     {g:"바코드 인쇄관리"}, 
     {sub:{ id:"7-3a", title:"바코드 인쇄관리",
@@ -28532,14 +28532,14 @@ const VIDEOS = [
       { t:140.2, title:"계산원 과부족 현황", subs:["7-4b"], tags:["과부족", "과부족현황"] },
       { t:181.67, title:"계산원별 매출현황", subs:["7-4c"], tags:["계산원별매출", "매출현황"] },
       { t:244.02, title:"마감코드 체크목록", subs:["7-4d"], tags:["마감코드", "체크목록"] } ] },
-  { id:"store-incentive", subId:"s-incc", alsoSubs:["s-incl"], title:"인센티브 관리 방법", cat:"매장관리 › 인센티브관리", src:"videos/store-incentive.mp4", poster:"videos/store-incentive.jpg", dur:"6:37", yt:"sbW14VhLQ5M",
+  { id:"store-incentive", subId:"s-incs", alsoSubs:["s-incc", "s-incl"], title:"인센티브 관리 방법", cat:"매장관리 › 인센티브관리", src:"videos/store-incentive.mp4", poster:"videos/store-incentive.jpg", dur:"6:37", yt:"sbW14VhLQ5M",
     desc:"사업장 인센티브 설정 · 사원의 인센티브 지급 대상 권한 · 상품별 인센티브 · 포스의 영업담당 지정 · 인센티브 마감과 마감목록까지, 인센티브를 주고 마감하는 방법을 알려드려요. 마감대기 건의 [지급안함]은 되돌릴 수 없으니 주의하세요.",
     tags:["인센티브관리", "인센티브", "정산관리", "영업담당", "인센티브지급대상", "상품별인센티브", "인센티브마감", "인센티브마감관리", "인센티브마감목록", "마감대기", "마감완료", "지급안함", "일괄수정", "지급입력"],
     chapters:[
-      { t:0.0, title:"사업장에 인센티브 설정", tags:["사업장관리", "인센티브사용", "카드수수료율", "기타수수료율"] },
-      { t:52.65, title:"사원에게 인센티브 권한 주기", tags:["사업장사원관리", "인센티브지급대상", "접근권한"] },
-      { t:80.52, title:"상품별 인센티브", tags:["사업장상품관리", "모드", "정액", "정율", "마진", "제외"] },
-      { t:129.32, title:"포스에서 담당 영업사원 정하기", tags:["포스", "영업담당", "영업담당유지", "담당변경", "담당일괄변경"] },
+      { t:0.0, title:"사업장에 인센티브 설정", subs:["s-incs"], tags:["사업장관리", "인센티브사용", "카드수수료율", "기타수수료율"] },
+      { t:52.65, title:"사원에게 인센티브 권한 주기", subs:["s-incs"], tags:["사업장사원관리", "인센티브지급대상", "접근권한"] },
+      { t:80.52, title:"상품별 인센티브", subs:["s-incs"], tags:["사업장상품관리", "모드", "정액", "정율", "마진", "제외"] },
+      { t:129.32, title:"포스에서 담당 영업사원 정하기", subs:["s-incs"], tags:["포스", "영업담당", "영업담당유지", "담당변경", "담당일괄변경"] },
       { t:219.28, title:"인센티브 마감 — 인센티브 마감관리", subs:["s-incc"], tags:["인센티브마감관리", "일괄수정", "지급입력"] },
       { t:327.32, title:"인센티브 마감목록 · 지급안함 주의", subs:["s-incl"], tags:["인센티브마감목록", "마감대기", "마감완료", "취소", "지급안함"] } ] },
   { id:"expense", subId:"s-exb", alsoSubs:["s-exc", "s-exj", "s-exl"], title:"경비 사용 관리 방법", cat:"매장관리 › 경비 사용관리", src:"videos/expense.mp4", poster:"videos/expense.jpg", dur:"3:12", yt:"kTSOL-XoF84",
