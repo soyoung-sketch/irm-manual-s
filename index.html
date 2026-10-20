@@ -1859,7 +1859,7 @@ const IMGS = {
   "8so2d": "images/소분작업조회-4.png",
   "8so2e": "images/소분작업조회-수정.png",
   "8so3": "images/소분작업현황.png",
-  "8so4": "images/소분상품관리.png",
+  "8so4": "images/소분상품관리-볼펜1EA.png",
   "8so5": "images/소요량별소분.png",
   "8so6": "images/소분작업 입고현황-1.png",
   "8so7": "images/소분작업 출고현황-1.png",
@@ -1880,7 +1880,7 @@ const IMGS = {
   "8cc1": "images/로케이션관리-1.png",
   "8cc2": "images/로케이션엑셀등록-1.png",
   "8cc3": "images/로케이션상품등록-1.png",
-  "8cc4": "images/로케이션상품목록-1.png",
+  "8cc4": "images/로케이션상품목록-1-제목.png",
   "8cc5": "images/미지정상품목록-1.png",
   "8cc6": "images/포장모니터관리.png",
   "9ia1": "images/상품재고현황.png",
@@ -11723,7 +11723,7 @@ const SIM = {
     sRibbon: true,
     ribCrop: true,
     screens: {
-      "1": {img:"images/소분상품관리.png",
+      "1": {img:"images/소분상품관리-볼펜1EA.png",
               arrows:[
                 {pts:[[88.1,20.3],[88.1,16.7],[23.5,16.7],[23.5,22.9]]},
                 {pts:[[38.5,70.1],[38.5,73.2],[75.1,73.2],[75.1,70.7],[75.1,70.4]]},
@@ -12604,7 +12604,7 @@ const SIM = {
     cat: {x:5.4, y:41.6, w:11.1, h:2.7},
     screens: {
       // 로케이션 상품목록
-      "1": {img:"images/로케이션상품목록-1.png", btns:[
+      "1": {img:"images/로케이션상품목록-1-제목.png", btns:[
                 {x:17.3, y:17.5, w:82.2, h:72, num:"1", notint:true, tip:"로케이션에 등록된 <b>상품 목록</b>을 확인합니다."},
                 {x:81.4, y:14.1, w:12.8, h:2.9, num:"2", tip:"검색어를 입력하고 찾기를 누르면 일치하는 <b>상품</b>만 표시됩니다."},
                 {x:80.1, y:24.7, w:14.8, h:5.8, yellow:true, scroll:"★1", tip:"<b>최대·안전·최소 재고수</b>를 설정할 수 있습니다."},
@@ -15820,7 +15820,7 @@ SIM["soutcat"] = { start:"1", screens:{
 // ── S버전 전용 페이지: 통합 목록 조회 ──
 IMGS["soutmerge"]  = "images/통합목록조회.png";
 IMGS["soutmergeb"] = "images/통합목록조회-취소.png";
-IMGS["soutmergec"] = "images/통합목록조회-전체.png";
+IMGS["soutmergec"] = "images/통합목록조회-전체-5건.png";
 DESCS["soutmerge"] = [
   {type:"note", text:"여러 매출처를 <b>하나의 통합회원</b>으로 묶은 이력을 조회하고, 필요하면 <b>통합을 취소</b>하는 화면입니다."},
   {type:"step", num:"1", title:`🔍 통합 목록 검색`, subs:[
@@ -15862,7 +15862,7 @@ DESCS["soutmergec"] = [
   {type:"note", text:"<b>전체 통합 이력</b>을 조회하는 탭입니다."},
   {type:"step", num:"1", title:`✅ 전체 이력 확인`, subs:[
     "통합일자·사업장·매출처·담당자와 <b>적립금·포인트</b>를 확인합니다.",
-    "조회된 내역이 없으면 목록이 비어 있는 상태로 표시됩니다.",
+    "<span class='ui-tab'>통합회원</span> 탭의 통합 건과 <span class='ui-tab'>취소</span> 탭의 취소 건이 <b>한 목록</b>에 함께 표시됩니다.",
   ]},
   {type:"step", num:"2", title:`👥 통합된 매출처 확인`, subs:[
     "목록에서 통합 건을 선택하면 <b>합쳐진 매출처</b>의 정보와 적립금·포인트가 표시됩니다.",
@@ -15923,7 +15923,7 @@ SIM["soutmergeb"] = { start:"1", screens:{
     ]},
 } };
 SIM["soutmergec"] = { start:"1", screens:{
-  "1":{img:"images/통합목록조회-전체.png",
+  "1":{img:"images/통합목록조회-전체-5건.png",
     btns:[
       {x:32.0, y:11.6, w:6.9,  h:2.6, lite:true},   // 리본 메뉴 위치
       // 화면 내 탭바
@@ -19296,7 +19296,7 @@ SIM["sru1"] = { start:"1", screens:{
 } };
 
 
-IMGS["smc1"] = "images/월매입마감.png";
+IMGS["smc1"] = "images/월매입마감-상단맞춤.png";
 DESCS["smc1"] = [
   {type:"note", red:true, text:"⚠️ 수수료 매출 마감을 마친 뒤 월 매입 마감을 진행해야 합니다."},
   {type:"note", text:"매입처별 <b>월 매입 내역</b>을 확인하고 계산서 발행금액을 입력하여 월 매입 마감을 진행하는 화면입니다."},
@@ -19318,10 +19318,10 @@ DESCS["smc1"] = [
   {type:"note", text:"저장된 문서는 <b class='dlink' onclick=\"openSub('s-ch3','s-mcq',true)\">월 매입 마감 조회</b> 카테고리에서 확인하실 수 있습니다."},
 ];
 SIM["smc1"] = { start:"1", screens:{
-  "0":{img:"images/월매입마감1.png",
+  "0":{img:"images/월매입마감1-상단맞춤.png",
     arrows:[{pts:[[13.9,27.2],[9.5,27.2],[9.5,29]]},{pts:[[13.5,47.9],[13.5,62.7],[31.1,62.7]]}],
     btns:[
-      {x:44.4, y:5.9,  w:5.4,  h:7.1, lite:true},
+      {x:52.6, y:5.9,  w:5.4,  h:7.1, lite:true},
       {x:91.8, y:20.1, w:7.3,  h:2.7, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       {x:14.3, y:25.9, w:14.8, h:2.7, num:"1", numCorner:true, tip:"마감할 <b>매입월</b>을 선택한 후 <b>검색</b> 버튼을 클릭해 매입처를 조회합니다."},
       {x:0.6,  y:28.8, w:28.5, h:54.0, notint:true, tip:"<b>노란색</b> 매입처를 <b>더블클릭</b>하면 오른쪽 매입정보창에 상세정보가 표시됩니다."},
@@ -19333,10 +19333,10 @@ SIM["smc1"] = { start:"1", screens:{
       {x:45.3, y:94.0, w:45.9, h:3.0, fill:true, yellow:true, scroll:"★1", tip:"차액이 <b>0원</b>인지 확인한 후 저장하는 것을 권장합니다."},
       {x:11.6, y:61,   w:6.7,  h:3,   fill:true, red:true, solid:true, radius:5, front:true, tipUp:true, fillText:"<b style='color:#fff'>더블클릭</b>"},   // btn1 더블클릭 라벨 (화살표 위)
     ]},
-  "1":{img:"images/월매입마감.png",
+  "1":{img:"images/월매입마감-상단맞춤.png",
     arrows:[{pts:[[25.2,55],[30.9,55]]},{pts:[[46.3,57.8],[46.3,63.3]]}],
     btns:[
-      {x:44.4, y:5.9,  w:5.4,  h:7.1, lite:true},   // 리본 월 매입 마감 위치
+      {x:52.5, y:5.9,  w:5.4,  h:7.1, lite:true},   // 리본 월 매입 마감 위치
       {x:91.8, y:20.1, w:7.3,  h:2.7, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       {x:14.3, y:25.9, w:14.8, h:2.7, num:"1", numCorner:true, tip:"마감할 <b>매입월</b>을 선택한 후 <b>검색</b> 버튼을 클릭해 매입처를 조회합니다."},
       {x:0.6,  y:28.8, w:28.5, h:65.8, notint:true, tip:"<b>노란색</b> 매입처를 <b>더블클릭</b>하면 오른쪽 매입정보창에 상세정보가 표시됩니다."},
@@ -22198,7 +22198,7 @@ SIM["swl2"] = { start:"1", screens:{
 } };
 
 
-IMGS["stax1"] = "images/세금계산서조회.png";
+IMGS["stax1"] = "images/세금계산서조회-새캡처-채움.png";
 DESCS["stax1"] = [
   {type:"note", text:"⚠️ <b>계좌연동설정 &gt; 인증등록(홈택스) &gt; 인증키 수신</b>을 실행한 뒤 사용해야 합니다."},
   {type:"step", num:"1", title:`🔍 세금계산서 조회하기`, subs:[
@@ -22213,19 +22213,21 @@ DESCS["stax1"] = [
 ];
 SIM["stax1"] = { start:"1", screens:{
 
-  // ═══════════ 세금계산서 조회 (단일 화면 · 1528×1032 · 0건) ═══════════
-  "1":{img:"images/세금계산서조회.png",
+  // ═══════════ 세금계산서 조회 (단일 화면 · 1498×1032 · IRM v1.8.1.4 새 캡처 · 목록 7건 채움) ═══════════
+  "1":{img:"images/세금계산서조회-새캡처-채움.png",
     btns:[
-      // ── 문서탭 (y172~199 · 리본은 기초관리 탭이 열려 있어 lite 박스 없음) ──
-      // ── ① 조회줄 (조회기준 라벨 x830 ~ 검색 버튼 x1523 · y206~235) ──
-      {x:53.9, y:19.8, w:45.8, h:3.1, num:"1", numCorner:true, tip:"<b>조회기준</b>을 선택하고 <b>시작일~종료일</b>을 지정한 후 <b>검색</b> 버튼을 클릭합니다."},
-      {x:94.7, y:20.0, w:5.0,  h:2.8, front:true, plain:true, tip:"조건에 맞는 <b>세금계산서를 조회</b>합니다."},
-      // ── 그룹화 바 + 결과내 재검색 (y240~271 · 같은 줄 y·h 통일) ──
-      {x:0.2,  y:23.3, w:81.8, h:3.0, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
-      {x:82.0, y:23.3, w:12.6, h:3.0, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
-      {x:94.9, y:23.3, w:4.5,  h:3.0, plain:true, tip:"검색어를 입력하고 <b>찾기</b>를 클릭합니다."},
-      // ── ② 그리드 (헤더 y273~300 · 필터행 y300~323 · 데이터 ~y954) ──
-      {x:0.2,  y:26.5, w:99.5, h:66.0, num:"2", numCorner:true, notint:true, tip:"발급된 <b>세금계산서 목록</b>이 표시되며 지금은 <b>0건</b>입니다."},
+      // ── 리본 (매입관리 > 매입채무 관리 > 세금계산서 조회 · 아이콘+글자 x1287~1343 → 칸 x1282~1349 · y66~150) ──
+      {x:85.6, y:6.4,  w:4.5,  h:8.1, lite:true, tip:"현재 <b>세금계산서 조회</b> 화면입니다 (매입관리 &gt; 매입채무 관리)."},
+      // ── 문서탭 (y172~199) ──
+      // ── ① 조회줄 (조회기준 라벨 x800 ~ 검색 버튼 x1418~1494 · y206~235) ──
+      {x:53.1, y:19.8, w:46.7, h:3.1, num:"1", numCorner:true, tip:"<b>조회기준</b>을 선택하고 <b>시작일~종료일</b>을 지정한 후 <b>검색</b> 버튼을 클릭합니다."},
+      {x:94.7, y:20.0, w:5.1,  h:2.8, front:true, plain:true, tip:"조건에 맞는 <b>세금계산서를 조회</b>합니다."},
+      // ── 그룹화 바 + 결과내 재검색(x1223~1416) + 찾기(x1420~1490) (y240~271 · 같은 줄 y·h 통일) ──
+      {x:0.2,  y:23.3, w:81.4, h:3.0, plain:true, notint:true, tip:"머리글을 이 영역으로 끌어오면 해당 <b>열 기준으로 그룹화</b>됩니다."},
+      {x:81.6, y:23.3, w:12.9, h:3.0, plain:true, notint:true, tip:"<b>결과내 재검색</b>으로 조회된 목록 안에서 다시 찾습니다."},
+      {x:94.8, y:23.3, w:4.7,  h:3.0, plain:true, tip:"검색어를 입력하고 <b>찾기</b>를 클릭합니다."},
+      // ── ② 그리드 (테두리 x3~1494 · 헤더 y273~300 · 필터행 y300~323 · 데이터 7행 y325~471 ~y954) ──
+      {x:0.2,  y:26.5, w:99.5, h:66.0, num:"2", numCorner:true, notint:true, tip:"발급된 <b>세금계산서 목록</b>이 표시됩니다."},
       // ── 하단 합계줄 (y954~988) ──
       {x:0.2,  y:92.4, w:99.5, h:3.3, plain:true, notint:true, tip:"조회된 세금계산서의 <b>공급가액·세액·합계금액</b> 합계가 표시됩니다."},
     ]},
@@ -27749,7 +27751,7 @@ const S_DEF = [
     {g:"견적서 관리"}, {sub:{ id:"s-qt",  title:"견적서 등록", subtitles:{ "sqt1":"매출처·상품을 지정해 견적서 등록" }, pages:["sqt1"], tips:{} }},{sub:{ id:"s-qtq", title:"견적서 조회", subtitles:{ "sqt2":"작성중 견적서 확인·제출완료 처리", "sqt2h":"보류 견적서 확인·작성중 복귀", "sqt2c":"취소 견적서 확인·인쇄", "sqt2d":"제출완료 견적서 인쇄" }, pages:["sqt2","sqt2h","sqt2c","sqt2d"], pageLabels:["작성중","보류","취소","제출완료"], tips:{} }},{sub:{ id:"s-qts", title:"견적서 현황", subtitles:{ "sqt3":"견적 내역 피벗 현황 조회" }, pages:["sqt3"], tips:{} }},
     {g:"주문서 관리"}, {sub:{ id:"s-ordq", title:"주문서 조회", subtitles:{ "sord2":"등록한 주문서 확인·출고(매입)계획으로 이동", "sord2c":"취소한 주문서 확인 (수정·취소 비활성)", "sord2r":"반려(점검)한 주문서 확인·주문서입력으로 복구", "sord2p":"작업관리·포장시작으로 포장 단계 진행", "sord2k":"포장 완료 후 출고대기중으로 이동", "sord2w":"배송시작으로 출고완료(배송) 처리", "sord2d":"배송 완료 후 주문서완료로 마무리", "sord2f":"완료된 주문서 확인 (처리 종료)", "sord2a":"진행 중인 모든 주문서를 한눈에 확인", "sord2e":"주문서 내용 수정" }, pages:["sord2","sord2c","sord2r","sord2p","sord2k","sord2w","sord2d","sord2f","sord2a","sord2e"], pageLabels:["주문서입력","취소","반려(점검)","출고(매입)계획","포장중","출고대기중","출고완료(배송)","주문서완료","전체(진행중)","수정"], editReturn:"sord2e", tips:{} }},{sub:{ id:"s-ord", title:"주문서 등록", subtitles:{ "sord1":"매출처·상품을 지정해 주문서 등록" }, pages:["sord1"], tips:{} }},{sub:{ id:"s-bar", title:"문서 바코드 관리", subtitles:{ "sbar1":"주문서 바코드 인쇄 상품 관리" }, pages:["sbar1"], tips:{} }},{sub:{ id:"s-hwq", title:"회수 조회", subtitles:{ "shw1":"등록한 회수 주문서 확인·회수(반품)요청 처리", "shw1c":"취소한 문서 확인·회수입력 복구", "shw1q":"요청 문서 확인·회수완료 처리", "shw1i":"회수가 진행 중인 문서 확인", "shw1d":"완료된 문서 확인·회수지시서 인쇄", "shw1r":"반려된 회수 문서 확인", "shw1e":"회수 주문서 내용 수정" }, pages:["shw1","shw1c","shw1q","shw1i","shw1d","shw1r","shw1e"], pageLabels:["회수입력","취소","회수(반품)요청","회수중","회수(반품)완료","반려","수정"], sTab:2, editReturn:"shw1e", tips:{} }},{sub:{ id:"s-hw", title:"회수 등록", subtitles:{ "shw2":"회수(반품) 주문서 등록" }, pages:["shw2"], tips:{} }},{sub:{ id:"s-box", title:"박스상품 인쇄관리", subtitles:{ "sbox1":"주문서 박스 인쇄 상품 관리" }, pages:["sbox1"], tips:{} }},
     {g:"판매관리"}, {sub:{ id:"s-sale", title:"판매 등록", subtitles:{ "ssale1":"매출처·상품을 지정해 판매 등록" }, pages:["ssale1"], tips:{} }},{sub:{ id:"s-saleq", title:"판매 조회", subtitles:{ "ssale2":"등록한 판매 문서 확인·판매대기 처리", "ssale2c":"취소한 판매 문서 확인", "ssale2g":"판매가 점검·판매완료 처리", "ssale2w":"출고 대기 문서 확인·매출정보 통합", "ssale2d":"판매가 끝난 문서 확인·반품", "ssale2e":"판매 문서 내용 수정" }, pages:["ssale2","ssale2c","ssale2g","ssale2w","ssale2d","ssale2e"], pageLabels:["판매입력","판매취소","판매가점검","판매(출고)대기","판매완료","수정"], editReturn:"ssale2e", tips:{} }},{sub:{ id:"s-nosale", title:"미판매 상품", subtitles:{ "ssale3":"기간 내 판매되지 않은 상품 조회" }, pages:["ssale3"], tips:{} }},{sub:{ id:"s-srb", title:"판매 반품 등록", subtitles:{ "ssr1":"판매 반품 주문서 등록" }, pages:["ssr1"], tips:{} }},{sub:{ id:"s-srq", title:"판매 반품 조회", subtitles:{ "ssr2":"등록한 반품 문서 확인·반품대기 처리", "ssr2c":"취소한 반품 문서 확인", "ssr2w":"회수 대기 문서 확인·반품완료 확정", "ssr2d":"완료된 반품 문서 확인·명세서 인쇄" }, pages:["ssr2","ssr2c","ssr2w","ssr2d"], pageLabels:["반품입력","반품취소","반품(회수)대기","반품완료"], tips:{} }},
-    {g:"매출현황"}, {ref:"12-1", title:"시간대 매출현황", tab:0, pages:["st02","st04","st05"], pageLabels:["시간대 매출현황","영업 일보","월별 현황"]},{ref:"12-1", title:"영업 일보", tab:3},{ref:"12-1", title:"월별 현황", tab:4},{ref:"6-6c", title:"판매 현황", pages:["273"]},{ref:"6-6b"},{sub:{ id:"s-vsl", title:"매입처별 매출현황", subtitles:{ "svsl1":"기간·매입처로 조회 → 매입처별 잔고·재고·매출 확인", "svsl1b":"매입처 행 더블클릭 → 상품별 매출·마진 확인", "svsl1c":"상품 행 더블클릭 → 판매일·요일별 매출 확인", "svsl1d":"일자 행 더블클릭 → 전표별 매출·결제·상품 상세" }, pages:["svsl1","svsl1b","svsl1c","svsl1d"], pageLabels:["매입처별 현황","매입처 상품 매출현황","매입처 일자별 매출현황","상품 일 매출현황"], tips:{} }},
+    {g:"매출현황"}, {ref:"12-1", title:"시간대 매출현황", tab:1},{ref:"12-1", title:"영업 일보", tab:3},{ref:"12-1", title:"월별 현황", tab:4},{ref:"6-6c", title:"판매 현황", pages:["273"]},{ref:"6-6b"},{sub:{ id:"s-vsl", title:"매입처별 매출현황", subtitles:{ "svsl1":"기간·매입처로 조회 → 매입처별 잔고·재고·매출 확인", "svsl1b":"매입처 행 더블클릭 → 상품별 매출·마진 확인", "svsl1c":"상품 행 더블클릭 → 판매일·요일별 매출 확인", "svsl1d":"일자 행 더블클릭 → 전표별 매출·결제·상품 상세" }, pages:["svsl1","svsl1b","svsl1c","svsl1d"], pageLabels:["매입처별 현황","매입처 상품 매출현황","매입처 일자별 매출현황","상품 일 매출현황"], tips:{} }},
     {g:"배송관리"}, {prep:"배송조회"},{prep:"배송 회수 조회"},{prep:"기사별 배송현황"},
     {g:"이력신고관리"}, {sub:{ id:"s-uni", title:"유니패스 신고", subtitles:{ "suni1":"유니패스 수입신고 자료 생성·신고" }, pages:["suni1"], tips:{} }},{sub:{ id:"s-unq", title:"유니패스 조회", subtitles:{ "sunq1":"신고 건 확인·발행중으로 넘기기", "sunq1c":"취소한 발행 건 확인", "sunq1n":"발행안함으로 분류한 건 확인", "sunq1i":"발행 진행 중인 건 확인·완료 처리", "sunq1d":"발행 완료된 건 확인" }, pages:["sunq1","sunq1c","sunq1n","sunq1i","sunq1d"], pageLabels:["발행대기","취소","발행안함","발행중","발행완료"], tips:{} }},{sub:{ id:"s-hsw", title:"이력제 신고 작성", subtitles:{ "shsw1":"수입 농·축·수산물 이력제 신고서 작성" }, pages:["shsw1"], tips:{} }},{sub:{ id:"s-hsq", title:"이력제 신고 조회", subtitles:{ "shsq1":"작성한 신고 건 확인·발행중 처리", "shsq1c":"취소한 신고 건 확인", "shsq1n":"발행하지 않기로 한 건 확인", "shsq1i":"발행 중인 건 확인·발행완료 처리", "shsq1d":"발행이 완료된 신고 건 확인" }, pages:["shsq1","shsq1c","shsq1n","shsq1i","shsq1d"], pageLabels:["대기","취소","발행안함","발행중","발행완료"], tips:{} }},
     {g:"증명서/영수증 관리"}, {sub:{ id:"s-cert", title:"매출 증명서 발급", subtitles:{ "scert1":"전표를 지정해 매출 증명서 발급" }, pages:["scert1"], tips:{} }},{sub:{ id:"s-certq", title:"매출 증명서 조회", subtitles:{ "scertq1":"발급 대기 건 확인·발급완료 처리", "scertq1c":"발급취소된 증명서 확인", "scertq1d":"발급완료된 증명서 확인·인쇄" }, pages:["scertq1","scertq1c","scertq1d"], pageLabels:["발행대기","발행취소","발행완료"], tips:{} }},{sub:{ id:"s-free", title:"면과세 매출현황", subtitles:{ "sfree1":"월별 면·과세 매출 합계 조회" }, pages:["sfree1"], tips:{} }},{sub:{ id:"s-txb", title:"세금계산서 일괄 작성", subtitles:{ "stxb1":"매출처별 세금계산서 일괄 발행" }, pages:["stxb1"], tips:{} }},{sub:{ id:"s-txq", title:"세금계산서 발행 조회", subtitles:{ "stxq1":"발행 대기 건 확인·발행중으로 처리", "stxq1c":"발행을 취소한 세금계산서 확인", "stxq1n":"발행 안 함으로 분류한 건 확인", "stxq1i":"발행 처리 중 건 확인·발행완료 확정", "stxq1d":"발행 완료된 세금계산서 확인·인쇄" }, pages:["stxq1","stxq1c","stxq1n","stxq1i","stxq1d"], pageLabels:["발행대기","발행취소","발행안함","발행중","발행완료"], tips:{} }},
@@ -28722,7 +28724,9 @@ const S_RIBBON_CAT = {
     "sub:6-pm3":  {x:21.8, y:64.1, w:4.6, h:18.9},  // 미판매 상품
     "sub:6-rb":   {x:27.5, y:23,   w:6.3, h:31.6},  // 판매 반품 등록
     "sub:6-rq":   {x:27.5, y:54.6, w:6.3, h:27.2},  // 판매 반품 조회
+    "st01":       {x:34.6, y:22.2, w:6.6, h:23},    // 일 매출현황(옛 시간대별 매출현황 화면의 탭) → 시간대 매출현황 자리
     "st02":       {x:34.6, y:22.2, w:6.6, h:23},    // 시간대 매출현황
+    "st03":       {x:34.6, y:22.2, w:6.6, h:23},    // 월 매출현황(옛 시간대별 매출현황 화면의 탭) → 시간대 매출현황 자리
     "st04":       {x:34.6, y:45.2, w:6.6, h:18.9},  // 영업 일보
     "st05":       {x:34.6, y:64.1, w:6.6, h:18.9},  // 월별 현황
     "sub:6-6c":   {x:41.7, y:22.2, w:7.1, h:23},    // 판매 현황
