@@ -27798,6 +27798,190 @@ SIM["7cd3"] = { start:"1", screens:{
 } };
 
 /* ▲ MPAGES:cashier-code */
+/* ▼ MPAGES:disposal */
+// ── 재고관리 › 폐기처리 현황 (사용자 새 캡처 1496x1029, 2026-10-20) — 옛 정의(cat 크롭 그림)를 덮음 ──
+IMGS["8da3"] = "images/폐기처리현황-새캡처-1.png";
+DESCS["8da3"] = [
+  {type:"note", text:"폐기로 처리된 내역을 원하는 기준으로 묶어 <b>수량·합계금액</b>을 집계하는 화면입니다."},
+  {type:"step", num:"1", title:"🔍 조회", subs:["<b>통합검색</b> 입력창에 검색어를 넣고 <span class='ui-btn'>···</span> 버튼을 클릭하면 모든 정보를 한 번에 검색합니다.", "조건을 자세히 정하려면 <span class='ui-btn'>상세검색</span> 버튼으로 조건 칸을 열어 부서·담당자·분류·기간·사유 유형 등을 지정합니다."]},
+  {type:"step", num:"2", title:"🧩 표 커스텀 (드래그) <span class=\"gif-play\" onclick=\"playGif('images/표커스텀.gif')\">사용법 재생</span>", body:"보고 싶은 정보만 골라 표를 구성합니다.", subs:["상단의 칩을 <b>클릭 앤 드래그</b>로 표에 가져오면 열이 추가됩니다.", "반대로 표 밖으로 빼면 해당 열을 빼고 원하는 항목만 남길 수 있습니다.", "%%표로 끌어온 칩 순서대로 묶이고, 묶음마다 합계가 함께 나옵니다."]},
+  {type:"step", num:"3", title:"📋 목록 확인", subs:["묶은 기준별로 집계된 <b>수량·합계금액</b>을 확인합니다.", "%%맨 아래 Grand Total 줄에 전체 합계가 나옵니다."]},
+  {type:"step", num:"★", ystar:true, title:"⚙ 레이아웃관리 <span class=\"gif-play\" onclick=\"playGif('images/레이아웃관리.gif')\">사용법 재생</span>", body:"커스텀한 표를 <b>레이아웃</b>으로 저장해두고 사용할 수 있습니다."},
+  {type:"note", text:"조회 전용 화면으로, 🔗 <b class='dlink' onclick=\"openSub('s-ch6','8-5b',true)\">폐기처리 조회</b> 에서 <b>완료</b>된 전표가 집계됩니다."},
+];
+SIM["8da3"] = { start:"1", screens:{
+  "1":{img:"images/폐기처리현황-새캡처-1.png",
+    btns:[
+      {x:21.46, y:11.37, w:7.09, h:2.92, lite:true, tip:"현재 <b>폐기처리 현황</b> 화면입니다 (재고관리 &gt; 폐기 처리 관리)."},
+      {x:0.67, y:20.21, w:6.28, h:2.72, plain:true, tip:"현재 <b>폐기처리현황</b> 탭입니다."},
+      {x:6.95, y:20.21, w:6.28, h:2.72, plain:true, page:1, tip:"<b>일 현황(상품)</b> 탭으로 이동합니다."},
+      {x:13.24, y:20.21, w:6.28, h:2.72, plain:true, page:2, tip:"<b>월 현황(상품)</b> 탭으로 이동합니다."},
+      {x:19.52, y:20.21, w:6.28, h:2.72, plain:true, page:3, tip:"<b>월 현황(분류)</b> 탭으로 이동합니다."},
+      {x:61.97, y:23.91, w:8.42, h:2.82, yellow:true, num:"★", scroll:"★1", to:"lay", toggle:true, tip:"<b>레이아웃관리</b>로 구성한 화면을 저장·불러오기·삭제합니다 · 클릭하면 관리 창이 열립니다."},
+      {x:75.33, y:23.91, w:17.98, h:2.82, num:"1", numTop:true, tip:"통합검색 입력창의 <b>···</b> 버튼으로 모든 정보를 한 번에 검색합니다."},
+      {x:87.03, y:23.91, w:6.28, h:2.82, plain:true, front:true, tip:"<b>상세검색</b>을 클릭하면 조회 조건 칸이 열립니다."},
+      {x:93.32, y:23.91, w:5.35, h:2.82, plain:true, option:true, optionWin:{x:47, y:27.0, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
+      {x:1.27, y:27.21, w:97.39, h:3.5, num:"2", numTop:true, notint:true, tip:"칩을 표로 <b>끌어오면 열이 추가</b>되고 표 밖으로 빼면 사라집니다."},
+      {x:1.54, y:31.1, w:10.36, h:2.53, plain:true, tip:"<b>수량·합계금액</b>이 집계 값으로 표에 나옵니다."},
+      {x:37.37, y:31.1, w:15.71, h:2.53, fill:true, scroll:"2", tip:"칩을 끌어다 놓으면 그 항목이 <b>열</b>로 펼쳐집니다."},
+      {x:1.27, y:33.92, w:51.8, h:44.7, num:"3", numTop:true, notint:true, tip:"묶은 기준별로 집계된 <b>수량·합계금액</b>입니다."},
+      {x:1.54, y:36.35, w:35.7, h:2.72, plain:true, front:true, tip:"표로 끌어온 <b>칩</b> 순서대로 묶여서 나옵니다."},
+      {x:10.9, y:49.66, w:42.18, h:2.62, fill:true, front:true, scroll:"2", tip:"묶음마다 <b>합계</b>가 함께 나옵니다."},
+      {x:1.27, y:75.9, w:51.8, h:2.62, plain:true, front:true, tip:"<b>Grand Total</b> 줄에 전체 합계가 나옵니다."},
+    ]},
+  "lay":{img:"images/소분작업 입고현황-4.png", win:{x:54.2, y:26.9, w:24},
+    btns:[
+      {x:89, y:0, w:10.5, h:7.3, plain:true, close:true, tip:"<b>✕</b>를 클릭하면 창이 닫힙니다."},
+      {x:17.1, y:45.3, w:71.6, h:13.2, yellow:true, to:"laySave", tip:"현재 구성을 새 이름으로 <b>저장</b>합니다."},
+      {x:17, y:60.5, w:71.7, h:13.4, yellow:true, to:"layLoad", tip:"저장된 레이아웃을 불러옵니다."},
+      {x:17, y:75.6, w:71.8, h:13.2, plain:true, close:true, tip:"레이아웃 관리를 닫습니다."},
+    ]},
+  "laySave":{img:"images/소분작업 입고현황-5.png", win:{x:54.2, y:26.9, w:24},
+    btns:[
+      {x:89, y:0, w:10.5, h:7.3, plain:true, close:true, tip:"<b>✕</b>를 클릭하면 창이 닫힙니다."},
+      {x:18.4, y:41.4, w:63.3, h:4.4, yellow:true, tip:"<b>관리</b>할 레이아웃 이름을 입력합니다."},
+      {x:18.6, y:57.8, w:30.5, h:11.1, plain:true, close:true, tip:"입력한 이름으로 레이아웃을 <b>저장</b>합니다."},
+      {x:51, y:58, w:30.3, h:10.9, plain:true, to:"lay", tip:"이전으로 돌아갑니다."},
+    ]},
+  "layLoad":{img:"images/소분작업 입고현황-6.png", win:{x:54.2, y:26.9, w:24},
+    btns:[
+      {x:89, y:0, w:10.5, h:7.3, plain:true, close:true, tip:"<b>✕</b>를 클릭하면 창이 닫힙니다."},
+      {x:3.9, y:24.9, w:92.5, h:4.5, yellow:true, pick:"r1", tip:"test01 선택"},
+      {x:3.7, y:29.3, w:92.5, h:4.3, yellow:true, pick:"r2", tip:"test02 선택"},
+      {x:3.6, y:33.6, w:92.5, h:4.1, yellow:true, pick:"r3", tip:"test03 선택"},
+      {x:3.7, y:88.4, w:26.9, h:8.8, delMap:{r1:"layDel", r2:"layDel", r3:"layDel"}, plain:true, tip:"선택한 레이아웃을 <b>삭제</b>합니다."},
+      {x:41.6, y:88.5, w:26.7, h:8.7, plain:true, close:true, tip:"선택한 레이아웃을 <b>적용</b>합니다."},
+      {x:69.3, y:88.6, w:26.9, h:8.6, plain:true, to:"lay", tip:"이전으로 돌아갑니다."},
+    ]},
+  "layDel":{img:"images/소분작업 입고현황-7.png", win:{x:54.2, y:26.9, w:24},
+    btns:[
+      {x:89, y:0, w:10.5, h:7.3, plain:true, close:true, tip:"<b>✕</b>를 클릭하면 창이 닫힙니다."},
+      {x:3.7, y:24.8, w:92.4, h:4.4, yellow:true, pick:"r1", tip:"test02 선택"},
+      {x:3.7, y:29.3, w:92.3, h:4.2, yellow:true, pick:"r2", tip:"test03 선택"},
+      {x:3.6, y:88.6, w:27.1, h:8.6, delMap:{r1:"layDel8", r2:"layDel9"}, plain:true, tip:"선택한 레이아웃을 <b>삭제</b>합니다."},
+      {x:41.1, y:88.5, w:27.1, h:8.6, plain:true, close:true, tip:"선택한 레이아웃을 <b>적용</b>합니다."},
+      {x:69.4, y:88.5, w:26.7, h:8.8, plain:true, to:"lay", tip:"이전으로 돌아갑니다."},
+    ]},
+  "layDel8":{img:"images/소분작업 입고현황-8.png", win:{x:54.2, y:26.9, w:24},
+    btns:[
+      {x:89, y:0, w:10.5, h:7.3, plain:true, close:true, tip:"<b>✕</b>를 클릭하면 창이 닫힙니다."},
+      {x:4, y:24.8, w:92, h:4.4, yellow:true, pick:"r1", tip:"test03 선택"},
+      {x:3.6, y:88.6, w:27.1, h:8.6, delMap:{r1:"close"}, plain:true, tip:"선택한 레이아웃을 <b>삭제</b>합니다."},
+      {x:41.1, y:88.5, w:27.1, h:8.6, plain:true, close:true, tip:"선택한 레이아웃을 <b>적용</b>합니다."},
+      {x:69.4, y:88.5, w:26.7, h:8.8, plain:true, to:"lay", tip:"이전으로 돌아갑니다."},
+    ]},
+  "layDel9":{img:"images/소분작업 입고현황-9.png", win:{x:54.2, y:26.9, w:24},
+    btns:[
+      {x:89, y:0, w:10.5, h:7.3, plain:true, close:true, tip:"<b>✕</b>를 클릭하면 창이 닫힙니다."},
+      {x:4, y:24.8, w:92, h:4.4, yellow:true, pick:"r1", tip:"test02 선택"},
+      {x:3.6, y:88.6, w:27.1, h:8.6, delMap:{r1:"close"}, plain:true, tip:"선택한 레이아웃을 <b>삭제</b>합니다."},
+      {x:41.1, y:88.5, w:27.1, h:8.6, plain:true, close:true, tip:"선택한 레이아웃을 <b>적용</b>합니다."},
+      {x:69.4, y:88.5, w:26.7, h:8.8, plain:true, to:"lay", tip:"이전으로 돌아갑니다."},
+    ]},
+} };
+IMGS["8da3b"] = "images/폐기처리현황-새캡처-2.png";
+DESCS["8da3b"] = [
+  {type:"note", text:"폐기처리된 <b>상품</b>을 승인일 기준 하루 단위로 조회하는 화면입니다."},
+  {type:"step", num:"1", title:"🔍 조회 조건 입력", subs:["부서명·담당자·분류를 고르고 <b>확정일</b> 기간을 정합니다.", "<b>사유 유형</b>에서 조회할 사유에 체크합니다.", "%%유통기한경과·상태불량·파손·소분로스·정육작업로스·고객반품·고객반품(미회수)·도난폐기 중 필요한 사유만 남겨 조회할 수 있습니다.", "📌 상품으로 찾기", "드롭다운을 <b>상품선택</b> 모드로 바꾸고 <span class='ui-btn'>상품선택</span> 버튼으로 상품 통합검색창을 열어 조회할 상품을 담습니다.", "%%<b>검색폴더</b>를 골라 폴더에 담아 둔 상품을 불러올 수도 있습니다."]},
+  {type:"step", num:"2", title:"🔎 검색", body:"<span class='ui-btn'>검색</span> 버튼을 클릭하면 조건에 맞는 내역이 조회됩니다."},
+  {type:"step", num:"3", title:"📋 결과 확인", subs:["<b>승인일</b>별로 사유·분류·상품과 수량·공급가액·부가세·면세금액 등이 나옵니다.", "%%조회된 건수와 금액 합계도 함께 나옵니다."]},
+  {type:"step", num:"★", ystar:true, title:"🗂️ 항목별 그룹 조회", subs:["<span style='display:block'>열 머리글을 <b>클릭 앤 드래그</b>로 끌어다 놓으면<br>해당 항목 기준으로 묶어서 조회됩니다.</span>"]},
+];
+SIM["8da3b"] = { start:"1", screens:{
+  "1":{img:"images/폐기처리현황-새캡처-2.png",
+    btns:[
+      {x:21.46, y:11.37, w:7.09, h:2.92, lite:true, tip:"현재 <b>폐기처리 현황</b> 화면입니다 (재고관리 &gt; 폐기 처리 관리)."},
+      {x:0.67, y:20.21, w:6.28, h:2.72, plain:true, page:0, tip:"<b>폐기처리현황</b> 탭으로 이동합니다."},
+      {x:6.95, y:20.21, w:6.28, h:2.72, plain:true, tip:"현재 <b>일 현황(상품)</b> 탭입니다."},
+      {x:13.24, y:20.21, w:6.28, h:2.72, plain:true, page:2, tip:"<b>월 현황(상품)</b> 탭으로 이동합니다."},
+      {x:19.52, y:20.21, w:6.28, h:2.72, plain:true, page:3, tip:"<b>월 현황(분류)</b> 탭으로 이동합니다."},
+      {x:27.27, y:23.13, w:71.93, h:26.72, num:"1", numCorner:true, notint:true, tip:"부서명·분류·확정일·사유 유형 등 조회 <b>조건</b>을 정합니다."},
+      {x:32.75, y:23.91, w:16.44, h:5.34, plain:true, front:true, tip:"조회할 <b>부서·담당자</b>를 고릅니다."},
+      {x:32.75, y:29.25, w:16.44, h:10.88, plain:true, front:true, tip:"<b>대분류~세분류</b>를 골라 분류별로 조회합니다."},
+      {x:32.75, y:40.14, w:16.44, h:2.62, fill:true, front:true, scroll:"1", tip:"조회할 <b>확정일</b> 기간을 정합니다."},
+      {x:50.07, y:23.91, w:19.99, h:25.85, plain:true, front:true, notint:true, tip:"체크한 <b>사유 유형</b>만 조회됩니다."},
+      {x:71.19, y:23.91, w:15.57, h:2.92, plain:true, front:true, tip:"드롭다운을 <b>상품선택</b> 모드로 바꾸면 상품 통합검색으로 상품을 지정할 수 있습니다."},
+      {x:86.76, y:23.91, w:6.15, h:2.92, plain:true, front:true, search:true, tip:"<b>상품선택</b>으로 상품 통합검색창을 열어 조회할 상품을 담습니다."},
+      {x:92.91, y:23.91, w:6.15, h:2.92, num:"2", numTop:true, front:true, tip:"<b>검색</b>으로 조건에 맞는 내역을 조회합니다."},
+      {x:71.19, y:26.82, w:27.87, h:20.21, plain:true, front:true, notint:true, tip:"담은 <b>상품</b>만 조회됩니다."},
+      {x:71.19, y:47.04, w:27.87, h:2.33, plain:true, front:true, tip:"<b>검색폴더</b>에 담아 둔 상품을 불러옵니다."},
+      {x:1.2, y:47.04, w:4.28, h:2.33, plain:true, tip:"조회된 <b>건수</b>입니다."},
+      {x:0.87, y:49.95, w:96.06, h:3.4, yellow:true, scroll:"★1", tip:"열 머리글을 <b>클릭 앤 드래그</b>로 끌어다 놓으면 항목별로 묶어서 조회됩니다."},
+      {x:96.93, y:49.95, w:2.14, h:3.4, plain:true, tip:"<b>결과내 재검색</b>으로 목록 안에서 다시 찾습니다."},
+      {x:0.87, y:53.35, w:98.2, h:42.76, num:"3", numTop:true, notint:true, tip:"조건에 맞는 폐기 <b>상품</b> 내역이 나옵니다."},
+      {x:9.96, y:53.35, w:6.35, h:2.62, plain:true, front:true, tip:"폐기가 승인된 <b>날짜</b>입니다."},
+      {x:16.31, y:53.35, w:10.83, h:2.62, plain:true, front:true, tip:"<b>사유</b>가 대분류 &gt; 소분류로 나옵니다."},
+      {x:0.87, y:91.55, w:98.2, h:2.82, plain:true, front:true, tip:"조회된 내역의 <b>합계</b>입니다."},
+    ]},
+} };
+IMGS["8da3c"] = "images/폐기처리현황-새캡처-3.png";
+DESCS["8da3c"] = [
+  {type:"note", text:"폐기처리된 <b>상품</b>을 승인월 기준 월 단위로 모아 조회하는 화면입니다."},
+  {type:"step", num:"1", title:"🔍 조회 조건 입력", subs:["부서명·담당자·분류를 고르고 <b>확정일</b>에서 조회할 월을 정합니다.", "<b>사유 유형</b>에서 조회할 사유에 체크합니다.", "%%유통기한경과·상태불량·파손·소분로스·정육작업로스·고객반품·고객반품(미회수)·도난폐기 중 필요한 사유만 남겨 조회할 수 있습니다.", "📌 상품으로 찾기", "드롭다운을 <b>상품선택</b> 모드로 바꾸고 <span class='ui-btn'>상품선택</span> 버튼으로 상품 통합검색창을 열어 조회할 상품을 담습니다.", "%%<b>검색폴더</b>를 골라 폴더에 담아 둔 상품을 불러올 수도 있습니다."]},
+  {type:"step", num:"2", title:"🔎 검색", body:"<span class='ui-btn'>검색</span> 버튼을 클릭하면 조건에 맞는 내역이 조회됩니다."},
+  {type:"step", num:"3", title:"📋 결과 확인", subs:["<b>승인월</b>별로 사유·분류·상품과 수량·공급가액·부가세·면세금액·합계금액 등이 나옵니다.", "%%조회된 건수와 금액 합계도 함께 나옵니다."]},
+  {type:"step", num:"★", ystar:true, title:"🗂️ 항목별 그룹 조회", subs:["<span style='display:block'>열 머리글을 <b>클릭 앤 드래그</b>로 끌어다 놓으면<br>해당 항목 기준으로 묶어서 조회됩니다.</span>"]},
+];
+SIM["8da3c"] = { start:"1", screens:{
+  "1":{img:"images/폐기처리현황-새캡처-3.png",
+    btns:[
+      {x:21.46, y:11.37, w:7.09, h:2.92, lite:true, tip:"현재 <b>폐기처리 현황</b> 화면입니다 (재고관리 &gt; 폐기 처리 관리)."},
+      {x:0.67, y:20.21, w:6.28, h:2.72, plain:true, page:0, tip:"<b>폐기처리현황</b> 탭으로 이동합니다."},
+      {x:6.95, y:20.21, w:6.28, h:2.72, plain:true, page:1, tip:"<b>일 현황(상품)</b> 탭으로 이동합니다."},
+      {x:13.24, y:20.21, w:6.28, h:2.72, plain:true, tip:"현재 <b>월 현황(상품)</b> 탭입니다."},
+      {x:19.52, y:20.21, w:6.28, h:2.72, plain:true, page:3, tip:"<b>월 현황(분류)</b> 탭으로 이동합니다."},
+      {x:27.27, y:23.13, w:71.93, h:26.72, num:"1", numCorner:true, notint:true, tip:"부서명·분류·확정일·사유 유형 등 조회 <b>조건</b>을 정합니다."},
+      {x:32.75, y:23.91, w:16.44, h:5.34, plain:true, front:true, tip:"조회할 <b>부서·담당자</b>를 고릅니다."},
+      {x:32.75, y:29.25, w:16.44, h:10.88, plain:true, front:true, tip:"<b>대분류~세분류</b>를 골라 분류별로 조회합니다."},
+      {x:32.75, y:40.14, w:16.44, h:2.62, fill:true, front:true, scroll:"1", tip:"조회할 <b>확정일</b> 월을 정합니다."},
+      {x:50.07, y:23.91, w:19.99, h:25.85, plain:true, front:true, notint:true, tip:"체크한 <b>사유 유형</b>만 조회됩니다."},
+      {x:71.19, y:23.91, w:15.57, h:2.92, plain:true, front:true, tip:"드롭다운을 <b>상품선택</b> 모드로 바꾸면 상품 통합검색으로 상품을 지정할 수 있습니다."},
+      {x:86.76, y:23.91, w:6.15, h:2.92, plain:true, front:true, search:true, tip:"<b>상품선택</b>으로 상품 통합검색창을 열어 조회할 상품을 담습니다."},
+      {x:92.91, y:23.91, w:6.15, h:2.92, num:"2", numTop:true, front:true, tip:"<b>검색</b>으로 조건에 맞는 내역을 조회합니다."},
+      {x:71.19, y:26.82, w:27.87, h:20.21, plain:true, front:true, notint:true, tip:"담은 <b>상품</b>만 조회됩니다."},
+      {x:71.19, y:47.04, w:27.87, h:2.33, plain:true, front:true, tip:"<b>검색폴더</b>에 담아 둔 상품을 불러옵니다."},
+      {x:1.2, y:47.04, w:4.28, h:2.33, plain:true, tip:"조회된 <b>건수</b>입니다."},
+      {x:0.87, y:49.95, w:96.06, h:3.4, yellow:true, scroll:"★1", tip:"열 머리글을 <b>클릭 앤 드래그</b>로 끌어다 놓으면 항목별로 묶어서 조회됩니다."},
+      {x:96.93, y:49.95, w:2.14, h:3.4, plain:true, tip:"<b>결과내 재검색</b>으로 목록 안에서 다시 찾습니다."},
+      {x:0.87, y:53.35, w:98.2, h:42.76, num:"3", numTop:true, notint:true, tip:"조건에 맞는 폐기 <b>상품</b>이 월별로 모여 나옵니다."},
+      {x:10.9, y:53.35, w:4.81, h:2.62, plain:true, front:true, tip:"폐기가 승인된 <b>월</b>입니다."},
+      {x:15.71, y:53.35, w:10.7, h:2.62, plain:true, front:true, tip:"<b>사유</b>가 대분류 &gt; 소분류로 나옵니다."},
+      {x:0.87, y:91.55, w:98.2, h:2.82, plain:true, front:true, tip:"조회된 내역의 <b>합계</b>입니다."},
+    ]},
+} };
+IMGS["8da3d"] = "images/폐기처리현황-새캡처-4.png";
+DESCS["8da3d"] = [
+  {type:"note", text:"폐기 금액을 <b>분류</b>별로 모아 사유 유형마다 비교하는 화면입니다."},
+  {type:"step", num:"1", title:"🔍 조회 조건 입력", subs:["부서명·담당자·분류를 고르고 <b>확정일</b>에서 조회할 월을 정합니다.", "<b>전체 사업장</b>에 체크하면 모든 사업장을 함께 조회합니다.", "<b>사유 유형</b>에서 조회할 사유에 체크합니다.", "%%유통기한경과·상태불량·파손·소분로스·정육작업로스·고객반품·고객반품(미회수)·도난폐기 중 필요한 사유만 남겨 조회할 수 있습니다.", "📌 상품으로 찾기", "드롭다운을 <b>상품선택</b> 모드로 바꾸고 <span class='ui-btn'>상품선택</span> 버튼으로 상품 통합검색창을 열어 조회할 상품을 담습니다.", "%%<b>검색폴더</b>를 골라 폴더에 담아 둔 상품을 불러올 수도 있습니다."]},
+  {type:"step", num:"2", title:"🔎 검색", body:"<span class='ui-btn'>검색</span> 버튼을 클릭하면 조건에 맞는 내역이 조회됩니다."},
+  {type:"step", num:"3", title:"📋 결과 확인", subs:["<b>사업장·분류</b>별로 사유 유형마다 금액과 합계가 나옵니다.", "%%구분(사업장명·대분류·중분류) 옆으로 사유별 금액 열이 묶여서 나옵니다."]},
+];
+SIM["8da3d"] = { start:"1", screens:{
+  "1":{img:"images/폐기처리현황-새캡처-4.png",
+    btns:[
+      {x:21.46, y:11.37, w:7.09, h:2.92, lite:true, tip:"현재 <b>폐기처리 현황</b> 화면입니다 (재고관리 &gt; 폐기 처리 관리)."},
+      {x:0.67, y:20.21, w:6.28, h:2.72, plain:true, page:0, tip:"<b>폐기처리현황</b> 탭으로 이동합니다."},
+      {x:6.95, y:20.21, w:6.28, h:2.72, plain:true, page:1, tip:"<b>일 현황(상품)</b> 탭으로 이동합니다."},
+      {x:13.24, y:20.21, w:6.28, h:2.72, plain:true, page:2, tip:"<b>월 현황(상품)</b> 탭으로 이동합니다."},
+      {x:19.52, y:20.21, w:6.28, h:2.72, plain:true, tip:"현재 <b>월 현황(분류)</b> 탭입니다."},
+      {x:27.27, y:23.13, w:71.93, h:23.13, num:"1", numCorner:true, notint:true, tip:"부서명·분류·확정일·사유 유형 등 조회 <b>조건</b>을 정합니다."},
+      {x:32.75, y:23.91, w:16.44, h:5.34, plain:true, front:true, tip:"조회할 <b>부서·담당자</b>를 고릅니다."},
+      {x:32.75, y:29.25, w:16.44, h:10.88, plain:true, front:true, tip:"<b>대분류~세분류</b>를 골라 분류별로 조회합니다."},
+      {x:32.75, y:40.14, w:16.44, h:2.62, fill:true, front:true, scroll:"1", tip:"조회할 <b>확정일</b> 월을 정합니다."},
+      {x:50.07, y:23.91, w:19.99, h:22.25, plain:true, front:true, notint:true, tip:"체크한 <b>사유 유형</b>만 조회됩니다."},
+      {x:71.19, y:23.91, w:15.57, h:2.92, plain:true, front:true, tip:"드롭다운을 <b>상품선택</b> 모드로 바꾸면 상품 통합검색으로 상품을 지정할 수 있습니다."},
+      {x:86.76, y:23.91, w:6.15, h:2.92, plain:true, front:true, search:true, tip:"<b>상품선택</b>으로 상품 통합검색창을 열어 조회할 상품을 담습니다."},
+      {x:92.91, y:23.91, w:6.15, h:2.92, num:"2", numTop:true, front:true, tip:"<b>검색</b>으로 조건에 맞는 내역을 조회합니다."},
+      {x:71.19, y:26.82, w:27.87, h:16.52, plain:true, front:true, notint:true, tip:"담은 <b>상품</b>만 조회됩니다."},
+      {x:71.19, y:43.34, w:27.87, h:2.33, plain:true, front:true, tip:"<b>검색폴더</b>에 담아 둔 상품을 불러옵니다."},
+      {x:32.62, y:43.34, w:5.88, h:2.33, plain:true, front:true, tip:"<b>전체 사업장</b>에 체크하면 모든 사업장을 함께 조회합니다."},
+      {x:0.87, y:46.36, w:98.2, h:49.76, num:"3", numCorner:true, notint:true, tip:"분류별로 <b>사유 유형</b>마다 금액이 나옵니다."},
+      {x:0.87, y:46.36, w:25.33, h:5.25, plain:true, front:true, tip:"<b>사업장·분류</b>별로 한 줄씩 나옵니다."},
+      {x:26.2, y:46.36, w:20.05, h:5.25, plain:true, front:true, tip:"<b>사유 유형</b>별 금액과 합계가 열로 나옵니다."},
+    ]},
+} };
+
+/* ▲ MPAGES:disposal */
 attachSharedPopups();
 // S버전 카테고리 정의 — ref: 전체버전 sub id / title: S버전 표기명 / tab: 시작 탭 index / g: 그룹 / prep: 준비중 항목
 const S_DEF = [
