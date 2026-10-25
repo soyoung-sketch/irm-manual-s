@@ -1387,6 +1387,8 @@ body.print .pos-clickme { display:none; }
 .vg-tab.on { background:var(--navy); border-color:var(--navy); color:#fff; }
 .vg-tab-n { margin-left:6px; font-size:12px; font-weight:700; opacity:0.7; }
 .vg-tabs.searching .vg-tab { opacity:0.55; }
+.nav-irm-head { font-size:11px; font-weight:800; letter-spacing:0.6px; color:rgba(255,255,255,0.55); padding:10px 12px 6px; white-space:nowrap; overflow:hidden; }
+#sidebar.collapsed .nav-irm-head { opacity:0; height:0; padding:0; }
 /* ▲ POS-MERGE CSS */
 </style>
 </head>
@@ -31044,7 +31046,10 @@ function buildNav() {
     nav.appendChild(vb);
   }
   let _posHead = false;   // POS-MERGE: 사이드바 'POS 설명서' 머리글
+  let _irmHead = false;   // POS-MERGE ENGINE v2: 사이드바 'IRM(ERP) 설명서' 머리글
   NAVSECS().forEach(ch => { if (ch.hidden) return;
+    if (!posCh(ch) && !_irmHead) { _irmHead = true;
+      const _ih = document.createElement("div"); _ih.className = "nav-irm-head"; _ih.textContent = "IRM(ERP) 설명서"; nav.appendChild(_ih); }
     if (posCh(ch) && !_posHead) { _posHead = true;
       const _sep = document.createElement("div"); _sep.className = "nav-pos-sep"; nav.appendChild(_sep);
       const _hd = document.createElement("div"); _hd.className = "nav-pos-head"; _hd.textContent = "POS 설명서"; nav.appendChild(_hd); }
