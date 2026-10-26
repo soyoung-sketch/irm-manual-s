@@ -29641,14 +29641,14 @@ SIM["ssale2p"] = { start:"1", screens:{
     btns:[
       {x:24.4, y:9.2, w:5, h:2.4, lite:true, tip:"현재 <b>판매 조회</b> 화면입니다 (매출관리 &gt; 판매 관리)."},
       {x:8.38, y:23.16, w:13.36, h:1.74, plain:true, notint:true, tip:"로그인한 <b>매장</b>의 확정 판매만 고칩니다."},
-      {x:8.19, y:25.0, w:63.46, h:3.49, num:"1", numCorner:true, notint:true, tip:"<b>판매 기간</b>과 상품을 정하고 조회합니다."},
+      {x:5.89, y:25.0, w:65.75, h:3.49, num:"1", numCorner:true, notint:true, tip:"<b>판매 기간</b>과 상품을 정하고 조회합니다."},
       {x:35.36, y:25.29, w:29.4, h:2.91, plain:true, front:true, search:true, searchWin:{x:8.2, y:28.6, w:84}, tip:"돋보기로 <b>상품 통합검색</b> 창을 열어 상품을 고릅니다 · 상품코드를 직접 넣어도 됩니다."},
       {x:64.9, y:25.29, w:6.55, h:2.91, plain:true, front:true, scroll:"1", tip:"<b>조회</b>하면 기간 안의 확정 판매·반품 줄이 모두 나옵니다."},
       {x:8.32, y:28.59, w:38.51, h:1.45, plain:true, notint:true, scroll:"1", tip:"조회한 상품과 <b>지금 가격표 매입가</b>가 표시됩니다."},
-      {x:8.45, y:30.43, w:61.17, h:17.05, num:"2", numCorner:true, notint:true, tip:"조회된 <b>확정 판매·반품</b> 줄입니다 · 뺄 줄은 체크를 풉니다."},
+      {x:5.89, y:30.43, w:63.72, h:17.05, num:"2", numCorner:true, numInsetTop:true, notint:true, tip:"조회된 <b>확정 판매·반품</b> 줄입니다 · 뺄 줄은 체크를 풉니다."},
       {x:8.51, y:33.04, w:2.1, h:14.34, fill:true, front:true, scroll:"2", tip:"체크를 푼 줄은 <b>그대로</b> 두고, 체크한 줄만 바뀝니다."},
       {x:69.61, y:30.43, w:21.94, h:17.05, fill:true, notint:true, scroll:"3", tip:"새 매입가를 넣으면 <b>새 매입단가·총 매입가·마진</b>이 바로 계산됩니다."},
-      {x:8.32, y:87.11, w:20.56, h:2.42, num:"3", numCorner:true, tip:"<b>새 매입가(낱개)</b> 칸에 바꿀 값을 입력합니다."},
+      {x:5.89, y:87.11, w:22.99, h:2.42, num:"3", numCorner:true, tip:"<b>새 매입가(낱개)</b> 칸에 바꿀 값을 입력합니다."},
       {x:16.04, y:87.21, w:12.77, h:2.23, fill:true, red:true, front:true, scroll:"3", tip:"입력하는 즉시 <b>노란 열</b>이 새 값으로 계산됩니다."},
       {x:29.01, y:87.11, w:13.56, h:2.42, yellow:true, scroll:"★1", tip:"체크하면 <b>가격표 매입가</b>도 이 값으로 바뀝니다."},
       {x:50.23, y:87.11, w:28.29, h:2.42, plain:true, notint:true, scroll:"3", tip:"체크한 줄의 <b>총 매입가·마진</b> 합계가 바뀌기 전과 후로 함께 표시됩니다."},
@@ -30103,8 +30103,8 @@ const VIDEOS = [
       { t:84.39, title:"판매 등록 — 문서불러오기 · 엑셀업로드", tags:["문서불러오기", "엑셀업로드", "판매가변경"], inner:1 },
       { t:135.96, title:"판매 등록 — 검색모드 · 결제 · 저장", tags:["검색모드", "결제정보", "신규등록"], inner:1 },
       { t:219.79, title:"판매 조회 — 판매입력", subs:["s-saleq"], tags:["판매조회", "판매입력", "매출내역보기", "인쇄"], inner:1 },
-      { t:290.06, title:"판매 조회 — 판매(출고)대기 · 매출정보 통합", tags:["판매대기", "매출정보통합"], inner:1 },
-      { t:344.86, title:"판매 조회 — 판매가점검 · 판매완료 · 판매반품", tags:["판매가점검", "판매완료", "판매반품"], inner:1 },
+      { t:290.06, title:"판매 조회 — 판매(출고)대기 · 매출정보 통합", pages:["ssale2w"], tags:["판매대기", "매출정보통합"], inner:1 },
+      { t:344.86, title:"판매 조회 — 판매가점검 · 판매완료 · 판매반품", pages:["ssale2g", "ssale2d"], tags:["판매가점검", "판매완료", "판매반품"], inner:1 },
       { t:388.04, title:"판매 조회 — 매입가 일괄 수정", subs:["s-saleq"], pages:["ssale2p"], tags:["매입가일괄수정", "매입가", "매입가수정", "원가", "마진", "판매완료", "반영내역", "되돌리기", "가격표매입가"] },
       { t:441.73, title:"매입가 일괄 수정 — 새 매입가 입력", tags:["새매입가", "새매입단가", "새마진"], inner:1 },
       { t:460.8, title:"매입가 일괄 수정 — 반영 내역 · 확인 · 반영", tags:["반영내역", "되돌리기", "반영확인", "가격표매입가"], inner:1 },
@@ -30563,7 +30563,15 @@ function gotoVideoPage() {
     for (const c of NAVSECS()) for (const s of (c.subs||[])) if (!s.type && String(s.id).replace(/-s\d+$/, "") === id) return [c, s]; return null; };
   const hit = findNav(sid) || findNav(v.subId);
   if (hit) { document.getElementById("vidBanner")?.classList.remove("active"); openSub(hit[0].id, hit[1].id);
-    const pi = pg ? (hit[1].pages || []).indexOf(pg) : -1; if (pi > 0) goPage(pi); }   // PAGES-VIDEO: 보던 챕터의 페이지(탭)로
+    const pi = pg ? (hit[1].pages || []).indexOf(pg) : -1; if (pi > 0) { goPage(pi); videoSubTabFrom((curSection && curSection.sub) || hit[1], pg); } }   // PAGES-VIDEO: 보던 챕터의 페이지(탭)로
+}
+// VIDEO-SUBTAB-FROM(2026-10-26): 영상에서 앰버 서브 탭(editReturn 페이지)으로 바로 왔을 때 — 그 서브 탭을 여는 버튼이 있는 탭을 '원래 탭'(EDIT_FROM)으로
+//   → 서브 탭을 다시 누르면 그 탭으로 돌아감(적혀 있지 않으면 예전처럼 첫 탭). ssale2e(수정)는 수정 버튼이 여러 탭에 있어 적지 않음(첫 탭 = 판매입력)
+const VIDEO_SUBTAB_FROM = { ssale2p: "ssale2d" };   // 판매 조회 › 매입가 일괄 수정 ← 판매완료 탭의 [매입가 일괄 수정] 버튼
+function videoSubTabFrom(sub, pg) {
+  const ers = sub && sub.editReturn ? (Array.isArray(sub.editReturn) ? sub.editReturn : [sub.editReturn]) : [];
+  const from = ers.includes(pg) && VIDEO_SUBTAB_FROM[pg] ? (sub.pages || []).indexOf(VIDEO_SUBTAB_FROM[pg]) : -1;
+  if (from >= 0 && !ers.includes(sub.pages[from])) EDIT_FROM = from;
 }
 document.addEventListener("keydown", e => { if (e.key === "Escape" && document.getElementById("vid-modal")?.classList.contains("open")) closeVideo(); });
 
