@@ -24926,7 +24926,7 @@ SIM["ssale2w"] = { start:"wait", screens:{
 } };
 
 /* ═══════════════════════ 페이지 5 · 판매완료 (ssale2d) ═══════════════════════ */
-IMGS["ssale2d"] = "images/판매조회-판매완료버튼-판매완료.png";
+IMGS["ssale2d"] = "images/판매조회-매입가-판매완료.png";
 DESCS["ssale2d"] = [
   {type:"note", text:"판매완료 탭으로 오면 <b>판매가 완료</b>된 것입니다."},
   {type:"step", num:"1", title:`📋 완료 문서 확인`, body:"완료된 판매 문서를 모아 보며 <span class='ui-btn'>인쇄</span>로 전표를 출력합니다.", subs:[
@@ -24934,11 +24934,14 @@ DESCS["ssale2d"] = [
     "<span class='ui-btn'>판매반품</span> 버튼을 누르면 <b>판매 반품 조회</b>의 <b>반품완료</b> 탭으로 이동합니다.",
     "이 탭에서는 <span class='ui-btn'>수정</span> 버튼을 사용할 수 없습니다.",
   ]},
+  {type:"step", num:"★", ystar:true, title:`🏷️ 매입가 일괄 수정`, body:"이미 판매가 끝난 전표의 <b>매입가(원가)</b>를 상품 단위로 한 번에 고쳐 마진을 바로잡습니다.", subs:[
+    "🔗 <b class='dlink' onclick=\"goPage(6)\">매입가 일괄 수정</b> 페이지 바로가기",
+  ]},
 ];
 SIM["ssale2d"] = { start:"done", screens:{
 
   // ═══════════ 판매완료 탭 (활성 · 판매대기의 판매완료 버튼으로 이동) ═══════════
-  "done":{img:"images/판매조회-판매완료버튼-판매완료.png",
+  "done":{img:"images/판매조회-매입가-판매완료.png",
     btns:[
       {x:24.4, y:9.2, w:5, h:2.4, lite:true, tip:"현재 <b>판매 조회</b> 화면입니다 (매출관리 &gt; 판매 관리)."},   // 리본 카테고리
       // ── 상태 탭 바 ──
@@ -24955,8 +24958,10 @@ SIM["ssale2d"] = { start:"done", screens:{
       {x:88.0, y:20.0, w:6.2,  h:3.1, plain:true, tip:"<b>상세검색</b>으로 여러 조건을 지정해 문서를 조회합니다."},
       {x:94.1, y:20.0, w:5.2,  h:3.1, plain:true, option:true, optionWin:{x:47, y:23.5, w:52}, tip:"<b>옵션</b> 버튼으로 문서저장·레이아웃 메뉴를 표시합니다."},
       // ── 액션 버튼 줄 ──
-      {x:57.3, y:23.5, w:8.0,  h:2.7, plain:true, tip:"<b>매출내역보기</b>로 선택한 문서의 매출 내역을 확인합니다."},
-      {x:65.3, y:23.5, w:6.1,  h:2.7, plain:true, scroll:"1", tip:"선택한 판매 문서를 <b>인쇄</b>해 전표를 출력합니다."},
+      {x:42.8, y:23.5, w:8.0,  h:2.7, plain:true, tip:"<b>매출내역보기</b>로 선택한 문서의 매출 내역을 확인합니다."},
+      {x:50.8, y:23.5, w:6.1,  h:2.7, plain:true, scroll:"1", tip:"선택한 판매 문서를 <b>인쇄</b>해 전표를 출력합니다."},
+      {x:57.3, y:23.5, w:6.1,  h:2.7, plain:true, tip:"<b>담당자</b>를 바꾸는 버튼입니다."},
+      {x:63.5, y:23.5, w:8.3,  h:2.7, yellow:true, scroll:"★1", tip:"판매가 끝난 전표의 <b>매입가</b>를 상품 단위로 한 번에 고칩니다."},   // 2026-10-26 새 버튼 → ssale2p
       {x:72.0, y:23.5, w:6.1,  h:2.7, plain:true, scroll:"1", tip:"<b>판매반품</b> 버튼을 누르면 <b>판매 반품 조회</b>의 반품완료 탭으로 이동합니다."},
       {x:78.1, y:23.5, w:8.8,  h:2.7, plain:true, toggle:true, to:"m_doc", scroll:"1", tip:"<b>문서수정관리</b>로 영수·배송·결제·마감 정보를 고칩니다."},
       {x:87.0, y:23.5, w:6.2,  h:2.7, plain:true, scroll:"1", tip:"이 단계에서는 <b>수정</b> 버튼을 사용할 수 없습니다."},
@@ -29616,6 +29621,52 @@ const POS_VIDEOS = [
   {id:"pos-dispose", subId:"pos-dispose", alsoSubs:[], title:"자가폐기", cat:"영수증 합치기·포인트·자가폐기 › 자가폐기", src:"videos/pos-dispose.mp4", poster:"videos/pos-dispose.jpg", dur:"1:25", desc:"팔 수 없게 된 상품을 자가소비·폐기 등록 창에서 사유를 골라 등록하는 방법을 알려드려요.", tags:["자가폐기", "자가소비", "폐기", "파손", "대분류", "소분류", "등록", "승인대기", "폐기영수증"], chapters:[{t:9.4, title:"자가폐기 창", subs:["pos-dispose"]}, {t:44.3, title:"사유 고르기", subs:["pos-dispose"]}, {t:56.1, title:"등록", subs:["pos-dispose"]}], pos:true, yt:"64pJjnkgm6k"},
 ];
 /* ▲ MPAGES:pos */
+/* ▼ MPAGES:pcost */
+// ── 매출관리 › 판매 조회 › 판매완료의 '매입가 일괄 수정' 버튼으로 여는 창 (사용자 설명서 PDF·녹화, 2026-10-26) ──
+// build_pcost.py 가 만듦(여기서 고치지 말 것). 그림: 판매완료 목록 위에 창(새 매입가 입력 상태)을 얹은 합성, 반영 내역은 팝업
+IMGS["ssale2p"] = "images/판매조회-매입가-일괄수정.png";
+DESCS["ssale2p"] = [
+  {type:"note", red:true, text:"⚠️ 로그인한 매장의 <b>판매완료(확정)</b> 전표만 수정됩니다."},
+  {type:"note", text:"판매가 끝난 전표의 <b>매입가(원가)</b>를 상품 단위로 한 번에 고쳐 마진을 바로잡는 화면입니다. 🔗 <b class='dlink' onclick=\"goPage(4)\">판매완료</b> 탭의 <span class='ui-btn'>매입가 일괄 수정</span> 버튼으로 엽니다."},
+  {type:"step", num:"1", title:"🔍 기간·상품 조회", subs:["<b>판매 기간</b>을 정하고, 상품 칸의 돋보기로 상품 통합검색 창을 열어 상품을 선택합니다.", "%%상품코드를 알면 직접 입력해도 됩니다.", "<span class='ui-btn'>조회</span>를 누르면 기간 안의 확정 판매·반품 줄이 모두 나오고, 위쪽에 <b>지금 가격표 매입가</b>가 함께 보입니다."]},
+  {type:"step", num:"2", title:"☑️ 바꿀 줄 고르기", body:"수정에서 뺄 줄은 맨 왼쪽 <b>체크</b>를 풉니다.", subs:["%%체크를 푼 줄은 그대로 두고, 체크한 줄만 바뀝니다."]},
+  {type:"step", num:"3", title:"✏️ 새 매입가 입력", subs:["<b>새 매입가(낱개)</b> 칸에 바꿀 매입가를 입력합니다.", "입력하는 즉시 노란 열에 <b>새 매입단가·새 총 매입가·새 마진</b>이 계산되고, 아래에 총 매입가·마진의 <b>바뀌기 전 → 후</b>가 나옵니다.", "%%묶음 단위 줄은 낱개 매입가 × 내품수로 자동 계산됩니다."]},
+  {type:"step", num:"4", title:"💾 확인·반영", subs:["내용을 검토한 뒤 <span class='ui-btn'>확인</span>을 누르면 바뀔 내용을 요약한 <b>반영 확인</b> 창이 뜹니다.", "<span class='ui-btn'>반영</span>을 누르면 체크한 전표의 매입가가 새 값으로 바뀝니다."]},
+  {type:"step", num:"★", ystar:true, title:"🏷️ 가격표 매입가도 바꾸기", body:"<b>가격표 매입가도 이 값으로 바꾸기</b>에 체크하면 가격표(상품 마스터)의 매입가도 같은 값으로 바뀝니다.", subs:["%%체크하지 않으면 과거 전표만 고쳐지고, 이후 판매에는 기존 매입가가 적용됩니다."]},
+  {type:"step", num:"★", ystar:true, title:"↩️ 반영 내역", body:"<span class='ui-btn'>반영 내역</span>에서 지금까지 반영한 작업을 봅니다.", subs:["작업을 고르고 <span class='ui-btn'>되돌리기</span>를 누르면 그 작업이 바꾼 판매 줄·전표·가격표가 반영 전 값으로 돌아갑니다.", "%%그 사이 다른 곳에서 바뀐 줄은 건너뜁니다."]},
+  {type:"note", text:"바뀐 결과는 🔗 <b class='dlink' onclick=\"goPage(4)\">판매완료</b> 탭의 <span class='ui-btn'>매출내역보기</span>에서 확인할 수 있습니다."},
+];
+SIM["ssale2p"] = { start:"1", screens:{
+  "1":{img:"images/판매조회-매입가-일괄수정.png",
+    btns:[
+      {x:24.4, y:9.2, w:5, h:2.4, lite:true, tip:"현재 <b>판매 조회</b> 화면입니다 (매출관리 &gt; 판매 관리)."},
+      {x:8.38, y:23.16, w:13.36, h:1.74, plain:true, notint:true, tip:"로그인한 <b>매장</b>의 확정 판매만 고칩니다."},
+      {x:8.19, y:25.0, w:63.46, h:3.49, num:"1", numCorner:true, notint:true, tip:"<b>판매 기간</b>과 상품을 정하고 조회합니다."},
+      {x:35.36, y:25.29, w:29.4, h:2.91, plain:true, front:true, search:true, searchWin:{x:8.2, y:28.6, w:84}, tip:"돋보기로 <b>상품 통합검색</b> 창을 열어 상품을 고릅니다 · 상품코드를 직접 넣어도 됩니다."},
+      {x:64.9, y:25.29, w:6.55, h:2.91, plain:true, front:true, scroll:"1", tip:"<b>조회</b>하면 기간 안의 확정 판매·반품 줄이 모두 나옵니다."},
+      {x:8.32, y:28.59, w:38.51, h:1.45, plain:true, notint:true, scroll:"1", tip:"조회한 상품과 <b>지금 가격표 매입가</b>가 표시됩니다."},
+      {x:8.45, y:30.43, w:61.17, h:17.05, num:"2", numCorner:true, notint:true, tip:"조회된 <b>확정 판매·반품</b> 줄입니다 · 뺄 줄은 체크를 풉니다."},
+      {x:8.51, y:33.04, w:2.1, h:14.34, fill:true, front:true, scroll:"2", tip:"체크를 푼 줄은 <b>그대로</b> 두고, 체크한 줄만 바뀝니다."},
+      {x:69.61, y:30.43, w:21.94, h:17.05, fill:true, notint:true, scroll:"3", tip:"새 매입가를 넣으면 <b>새 매입단가·총 매입가·마진</b>이 바로 계산됩니다."},
+      {x:8.32, y:87.11, w:20.56, h:2.42, num:"3", numCorner:true, tip:"<b>새 매입가(낱개)</b> 칸에 바꿀 값을 입력합니다."},
+      {x:16.04, y:87.21, w:12.77, h:2.23, fill:true, red:true, front:true, scroll:"3", tip:"입력하는 즉시 <b>노란 열</b>이 새 값으로 계산됩니다."},
+      {x:29.01, y:87.11, w:13.56, h:2.42, yellow:true, scroll:"★1", tip:"체크하면 <b>가격표 매입가</b>도 이 값으로 바뀝니다."},
+      {x:50.23, y:87.11, w:28.29, h:2.42, plain:true, notint:true, scroll:"3", tip:"체크한 줄의 <b>총 매입가·마진</b> 합계가 바뀌기 전과 후로 함께 표시됩니다."},
+      {x:8.32, y:89.92, w:43.61, h:3.2, plain:true, notint:true, scroll:"3", tip:"<b>묶음 단위</b> 줄은 낱개 매입가 × 내품수로 계산됩니다."},
+      {x:69.09, y:89.92, w:7.33, h:3.2, yellow:true, to:"p_hist", toggle:true, scroll:"★2", tip:"<b>반영 내역</b>에서 반영한 작업을 보고 되돌릴 수 있습니다."},
+      {x:76.56, y:89.92, w:7.47, h:3.2, num:"4", numRight:true, tip:"<b>확인</b>을 누르면 반영 확인 창이 뜨고, 반영하면 체크한 전표의 매입가가 바뀝니다."},
+      {x:84.15, y:89.92, w:7.47, h:3.2, plain:true, tip:"<b>닫기</b>를 누르면 바꾸지 않고 창을 닫습니다."},
+    ]},
+  "p_hist":{img:"images/판매조회-매입가-반영내역.png", win:{x:8.6, y:26.1, w:82.6},
+    btns:[
+      {x:0.48, y:6.18, w:21.32, h:2.85, plain:true, notint:true, tip:"이전에 <b>반영한 작업</b>이 나옵니다."},
+      {x:0.63, y:9.67, w:98.73, h:80.19, yellow:true, num:"1", numCorner:true, notint:true, tip:"되돌릴 <b>작업</b>을 고릅니다."},
+      {x:0.48, y:93.5, w:63.07, h:5.07, plain:true, notint:true, tip:"그 사이 다른 곳에서 바뀐 줄은 <b>건너뜁니다</b>."},
+      {x:80.67, y:93.5, w:9.59, h:5.07, yellow:true, num:"2", numCorner:true, tip:"<b>되돌리기</b>를 누르면 그 작업이 바꾼 값이 반영 전으로 돌아갑니다."},
+      {x:90.41, y:93.5, w:9.03, h:5.07, plain:true, close:true, tip:"<b>닫기</b>를 누르면 창이 닫힙니다."},
+    ]},
+} };
+/* ▲ MPAGES:pcost */
 attachSharedPopups();
 // S버전 카테고리 정의 — ref: 전체버전 sub id / title: S버전 표기명 / tab: 시작 탭 index / g: 그룹 / prep: 준비중 항목
 const S_DEF = [
@@ -29741,7 +29792,7 @@ const S_DEF = [
   { chapter:"S 4", title:"매출관리", icon:"💰", ribbon:"images/매출관리-1.png", sRibbonAll:true, items:[
     {g:"견적서 관리"}, {sub:{ id:"s-qt",  title:"견적서 등록", subtitles:{ "sqt1":"매출처·상품을 지정해 견적서 등록" }, pages:["sqt1"], tips:{} }},{sub:{ id:"s-qtq", title:"견적서 조회", subtitles:{ "sqt2":"작성중 견적서 확인·제출완료 처리", "sqt2h":"보류 견적서 확인·작성중 복귀", "sqt2c":"취소 견적서 확인·인쇄", "sqt2d":"제출완료 견적서 인쇄" }, pages:["sqt2","sqt2h","sqt2c","sqt2d"], pageLabels:["작성중","보류","취소","제출완료"], tips:{} }},{sub:{ id:"s-qts", title:"견적서 현황", subtitles:{ "sqt3":"견적 내역 피벗 현황 조회" }, pages:["sqt3"], tips:{} }},
     {g:"주문서 관리"}, {sub:{ id:"s-ordq", title:"주문서 조회", subtitles:{ "sord2":"등록한 주문서 확인·출고(매입)계획으로 이동", "sord2c":"취소한 주문서 확인 (수정·취소 비활성)", "sord2r":"반려(점검)한 주문서 확인·주문서입력으로 복구", "sord2p":"작업관리·포장시작으로 포장 단계 진행", "sord2k":"포장 완료 후 출고대기중으로 이동", "sord2w":"배송시작으로 출고완료(배송) 처리", "sord2d":"배송 완료 후 주문서완료로 마무리", "sord2f":"완료된 주문서 확인 (처리 종료)", "sord2a":"진행 중인 모든 주문서를 한눈에 확인", "sord2e":"주문서 내용 수정" }, pages:["sord2","sord2c","sord2r","sord2p","sord2k","sord2w","sord2d","sord2f","sord2a","sord2e"], pageLabels:["주문서입력","취소","반려(점검)","출고(매입)계획","포장중","출고대기중","출고완료(배송)","주문서완료","전체(진행중)","수정"], editReturn:"sord2e", tips:{} }},{sub:{ id:"s-ord", title:"주문서 등록", subtitles:{ "sord1":"매출처·상품을 지정해 주문서 등록" }, pages:["sord1"], tips:{} }},{sub:{ id:"s-bar", title:"문서 바코드 관리", subtitles:{ "sbar1":"주문서 바코드 인쇄 상품 관리" }, pages:["sbar1"], tips:{} }},{sub:{ id:"s-hwq", title:"회수 조회", subtitles:{ "shw1":"등록한 회수 주문서 확인·회수(반품)요청 처리", "shw1c":"취소한 문서 확인·회수입력 복구", "shw1q":"요청 문서 확인·회수완료 처리", "shw1i":"회수가 진행 중인 문서 확인", "shw1d":"완료된 문서 확인·회수지시서 인쇄", "shw1r":"반려된 회수 문서 확인", "shw1e":"회수 주문서 내용 수정" }, pages:["shw1","shw1c","shw1q","shw1i","shw1d","shw1r","shw1e"], pageLabels:["회수입력","취소","회수(반품)요청","회수중","회수(반품)완료","반려","수정"], sTab:2, editReturn:"shw1e", tips:{} }},{sub:{ id:"s-hw", title:"회수 등록", subtitles:{ "shw2":"회수(반품) 주문서 등록" }, pages:["shw2"], tips:{} }},{sub:{ id:"s-box", title:"박스상품 인쇄관리", subtitles:{ "sbox1":"주문서 박스 인쇄 상품 관리" }, pages:["sbox1"], tips:{} }},
-    {g:"판매관리"}, {sub:{ id:"s-sale", title:"판매 등록", subtitles:{ "ssale1":"매출처·상품을 지정해 판매 등록" }, pages:["ssale1"], tips:{} }},{sub:{ id:"s-saleq", title:"판매 조회", subtitles:{ "ssale2":"등록한 판매 문서 확인·판매대기 처리", "ssale2c":"취소한 판매 문서 확인", "ssale2g":"판매가 점검·판매완료 처리", "ssale2w":"출고 대기 문서 확인·매출정보 통합", "ssale2d":"판매가 끝난 문서 확인·반품", "ssale2e":"판매 문서 내용 수정" }, pages:["ssale2","ssale2c","ssale2g","ssale2w","ssale2d","ssale2e"], pageLabels:["판매입력","판매취소","판매가점검","판매(출고)대기","판매완료","수정"], editReturn:"ssale2e", tips:{} }},{sub:{ id:"s-nosale", title:"미판매 상품", subtitles:{ "ssale3":"기간 내 판매되지 않은 상품 조회" }, pages:["ssale3"], tips:{} }},{sub:{ id:"s-srb", title:"판매 반품 등록", subtitles:{ "ssr1":"판매 반품 주문서 등록" }, pages:["ssr1"], tips:{} }},{sub:{ id:"s-srq", title:"판매 반품 조회", subtitles:{ "ssr2":"등록한 반품 문서 확인·반품대기 처리", "ssr2c":"취소한 반품 문서 확인", "ssr2w":"회수 대기 문서 확인·반품완료 확정", "ssr2d":"완료된 반품 문서 확인·명세서 인쇄" }, pages:["ssr2","ssr2c","ssr2w","ssr2d"], pageLabels:["반품입력","반품취소","반품(회수)대기","반품완료"], tips:{} }},
+    {g:"판매관리"}, {sub:{ id:"s-sale", title:"판매 등록", subtitles:{ "ssale1":"매출처·상품을 지정해 판매 등록" }, pages:["ssale1"], tips:{} }},{sub:{ id:"s-saleq", title:"판매 조회", subtitles:{ "ssale2":"등록한 판매 문서 확인·판매대기 처리", "ssale2c":"취소한 판매 문서 확인", "ssale2g":"판매가 점검·판매완료 처리", "ssale2w":"출고 대기 문서 확인·매출정보 통합", "ssale2d":"판매가 끝난 문서 확인·반품", "ssale2e":"판매 문서 내용 수정", "ssale2p":"판매완료 전표의 매입가 한 번에 고치기" }, pages:["ssale2","ssale2c","ssale2g","ssale2w","ssale2d","ssale2e","ssale2p"], pageLabels:["판매입력","판매취소","판매가점검","판매(출고)대기","판매완료","수정","매입가 일괄 수정"], editReturn:["ssale2e","ssale2p"], tips:{} }},{sub:{ id:"s-nosale", title:"미판매 상품", subtitles:{ "ssale3":"기간 내 판매되지 않은 상품 조회" }, pages:["ssale3"], tips:{} }},{sub:{ id:"s-srb", title:"판매 반품 등록", subtitles:{ "ssr1":"판매 반품 주문서 등록" }, pages:["ssr1"], tips:{} }},{sub:{ id:"s-srq", title:"판매 반품 조회", subtitles:{ "ssr2":"등록한 반품 문서 확인·반품대기 처리", "ssr2c":"취소한 반품 문서 확인", "ssr2w":"회수 대기 문서 확인·반품완료 확정", "ssr2d":"완료된 반품 문서 확인·명세서 인쇄" }, pages:["ssr2","ssr2c","ssr2w","ssr2d"], pageLabels:["반품입력","반품취소","반품(회수)대기","반품완료"], tips:{} }},
     {g:"매출현황"}, {ref:"12-1", title:"시간대 매출현황", tab:1},{ref:"12-1", title:"영업 일보", tab:3},{ref:"12-1", title:"월별 현황", tab:4},{ref:"6-6c", title:"판매 현황", pages:["273"]},{ref:"6-6b"},{sub:{ id:"s-vsl", title:"매입처별 매출현황", subtitles:{ "svsl1":"기간·매입처로 조회 → 매입처별 잔고·재고·매출 확인", "svsl1b":"매입처 행 더블클릭 → 상품별 매출·마진 확인", "svsl1c":"상품 행 더블클릭 → 판매일·요일별 매출 확인", "svsl1d":"일자 행 더블클릭 → 전표별 매출·결제·상품 상세" }, pages:["svsl1","svsl1b","svsl1c","svsl1d"], pageLabels:["매입처별 현황","매입처 상품 매출현황","매입처 일자별 매출현황","상품 일 매출현황"], tips:{} }},
     {g:"배송관리"}, {prep:"배송조회"},{prep:"배송 회수 조회"},{prep:"기사별 배송현황"},
     {g:"이력신고관리"}, {sub:{ id:"s-uni", title:"유니패스 신고", subtitles:{ "suni1":"유니패스 수입신고 자료 생성·신고" }, pages:["suni1"], tips:{} }},{sub:{ id:"s-unq", title:"유니패스 조회", subtitles:{ "sunq1":"신고 건 확인·발행중으로 넘기기", "sunq1c":"취소한 발행 건 확인", "sunq1n":"발행안함으로 분류한 건 확인", "sunq1i":"발행 진행 중인 건 확인·완료 처리", "sunq1d":"발행 완료된 건 확인" }, pages:["sunq1","sunq1c","sunq1n","sunq1i","sunq1d"], pageLabels:["발행대기","취소","발행안함","발행중","발행완료"], tips:{} }},{sub:{ id:"s-hsw", title:"이력제 신고 작성", subtitles:{ "shsw1":"수입 농·축·수산물 이력제 신고서 작성" }, pages:["shsw1"], tips:{} }},{sub:{ id:"s-hsq", title:"이력제 신고 조회", subtitles:{ "shsq1":"작성한 신고 건 확인·발행중 처리", "shsq1c":"취소한 신고 건 확인", "shsq1n":"발행하지 않기로 한 건 확인", "shsq1i":"발행 중인 건 확인·발행완료 처리", "shsq1d":"발행이 완료된 신고 건 확인" }, pages:["shsq1","shsq1c","shsq1n","shsq1i","shsq1d"], pageLabels:["대기","취소","발행안함","발행중","발행완료"], tips:{} }},
@@ -31370,7 +31421,7 @@ function renderSection() {
       const lbl = hasLbl ? sub.pageLabels[i] : (i + 1);
       const gapStyle = (sub.pageGap && sub.pageGap[i]) ? ` style="margin-left:${sub.pageGap[i]}px"` : '';
       const _isSub = sub.editReturn ? (Array.isArray(sub.editReturn) ? sub.editReturn.includes(pg) : pg === sub.editReturn) : false;
-      html += `<div class="pnav-dot${hasLbl ? ' wide' : ''}${_isSub ? ' sub' : ''}${i===curPageIdx?' active':''}"${gapStyle} onclick="${sub.editReturn&&pg===sub.editReturn?`goEditTab(${i})`:`goPage(${i})`}">${lbl}</div>`;
+      html += `<div class="pnav-dot${hasLbl ? ' wide' : ''}${_isSub ? ' sub' : ''}${i===curPageIdx?' active':''}"${gapStyle} onclick="${_isSub?`goEditTab(${i})`:`goPage(${i})`}">${lbl}</div>`;
     });
     }
     const _navRight = (sub.pageLabels && sub.pageLabels[curPageIdx] != null) ? sub.pageLabels[curPageIdx] : `${curPageIdx+1} / ${sub.pages.length}`;
@@ -31666,7 +31717,8 @@ function goPage(idx) {
 }
 function goEditTab(idx) {
   const _sub = curSection && curSection.sub;
-  if (_sub && _sub.editReturn && _sub.pages[curPageIdx] === _sub.editReturn && EDIT_FROM != null) goPage(EDIT_FROM);
+  const _ers = _sub && _sub.editReturn ? (Array.isArray(_sub.editReturn) ? _sub.editReturn : [_sub.editReturn]) : [];
+  if (_sub && _ers.includes(_sub.pages[curPageIdx]) && curPageIdx === idx && EDIT_FROM != null) goPage(EDIT_FROM);   // 지금 서브 탭을 또 누르면 원래 탭으로
   else goPage(idx);
 }
 function goBackEdit() {
