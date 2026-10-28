@@ -16677,7 +16677,7 @@ SIM["sbp1"] = { start:"1", screens:{
       ..._SBP_GRID(false, true),
     ]},
   // 둘 다 체크
-  "c_both":{img:"images/개별선택모드+상세화면새창으로보기 둘다 체크했을때.png",
+  "c_both":{img:"images/개별선택모드-상세화면새창으로보기-둘다체크.png",
     btns:[
       ..._SBP_TOOL(true, true),
       ..._SBP_GRID(true, true),
@@ -17530,7 +17530,7 @@ SIM["sbc3"] = { start:"1", screens:{
       {x:89.5, y:91.4, w:9.6,  h:4.8,  plain:true, tip:"담긴 목록과 설정을 모두 <b>초기화</b>합니다."},
     ]},
   // 결과 — 로케이션 1건을 담고 템플릿 '로케이션바코드 600*600' 을 골라 QR 미리보기가 뜬 화면
-  "res":{img:"images/바코드인쇄관리-로케이션바코드인쇄-로케이션선택+탬플릿선택.png",
+  "res":{img:"images/바코드인쇄관리-로케이션바코드인쇄-로케이션선택-탬플릿선택.png",
     btns:[
       {x:0.2,  y:20.2, w:9.2,  h:2.9,  plain:true, page:0, tip:"상품 라벨을 뽑는 <b>상품정보 바코드 인쇄</b> 탭으로 이동합니다."},
       {x:9.5,  y:20.2, w:9.0,  h:2.9,  plain:true, page:1, tip:"할인쿠폰 라벨을 뽑는 <b>쿠폰정보 바코드 인쇄</b> 탭으로 이동합니다."},
@@ -17545,7 +17545,7 @@ SIM["sbc3"] = { start:"1", screens:{
       {x:89.5, y:91.4, w:9.6,  h:4.8,  plain:true, to:"1", tip:"담긴 목록과 설정을 모두 <b>초기화</b>합니다."},
     ]},
   // 761x549 → win.w = 761/1530*100 = 49.7 (본화면 1530 기준, 1:1 배율) · win.x=25 로 화면 중앙 배치
-  "p_loc":{img:"images/로케이션바코드인쇄-+로케이션.png", win:{x:25, y:24, w:49.7},
+  "p_loc":{img:"images/로케이션바코드인쇄-로케이션추가.png", win:{x:25, y:24, w:49.7},
     btns:[
       {x:1.8,  y:7.7,  w:82.5, h:5.5,  yellow:true, num:"1", numCorner:true, tip:"찾을 <b>위치정보</b>의 이름이나 코드를 입력합니다."},
       {x:84.4, y:7.7,  w:13.9, h:5.5,  yellow:true, num:"2", numCorner:true, tip:"<b>검색</b> 버튼을 클릭하면 조건에 맞는 위치정보가 조회됩니다."},
@@ -29254,9 +29254,9 @@ DESCS["pos4evirm"] = [
   {type:"step", num:"★", ystar:true, title:"📌 가능한 작업", subs:["<b>할인그룹 수정하기</b> : <span class='ui-btn'>수정</span> 버튼을 눌러 할인그룹 내용을 수정할 수 있습니다.", "<b>전단계로 되돌리기</b> : <span class='ui-btn'>준비중으로</span> 버튼을 눌러 이전 단계로 되돌립니다."]},
   {type:"note", text:"포스에서 행사 상품을 찍으면 할인이 붙는 모습은 🔗 <b class='dlink' onclick=\"goPage(1)\">2+1 행사(포스)</b> 에서 볼 수 있습니다."},
 ];
-IMGS["pos4event"] = "images/포스-2+1할인-수정.png";
+IMGS["pos4event"] = "images/포스-2플러스1할인-수정.png";
 SIM["pos4event"] = { start:"1", screens:{
-  "1":{img:"images/포스-2+1할인-수정.png",
+  "1":{img:"images/포스-2플러스1할인-수정.png",
     btns:[
       {x:0.3, y:10.65, w:49.33, h:3.8, num:"1", numCorner:true, tip:"행사 상품의 <b>바코드</b>를 찍습니다."},
       {x:0.3, y:14.54, w:49.33, h:3.8, num:"2", numCorner:true, tip:"행사 조건에 맞으면 <b>할인 줄</b>이 자동으로 붙습니다."},
@@ -29270,7 +29270,7 @@ DESCS["pos4event"] = [
   {type:"step", num:"1", title:"📷 행사 상품 찍기", body:"행사 상품의 바코드를 찍으면 상품 목록에 들어갑니다."},
   {type:"step", num:"2", title:"🏷️ 할인 줄 자동 생성", subs:["상품의 수량이 <b>행사 조건</b>에 맞으면 상품 아래에 <b>└할인</b> 줄이 자동으로 생기며 할인이 적용됩니다.", "할인 줄에는 할인되는 수량과 금액이 <b>마이너스(-)</b>로 나오고, 조건에 맞을 때마다 할인도 늘어납니다.", "<b>📌 2+1 예시</b> (3개를 살 때마다 1개 값 할인)<br>· 1개 · 2개 → 할인 없음<br>· 3개 · 4개 · 5개 → <b>1개 값</b> 할인<br>· 6개 → <b>2개 값</b> 할인"]},
   {type:"step", num:"3", title:"💰 받을 금액 확인", body:"합계에서 할인이 빠진 받을 금액을 확인하고 결제해 주세요."},
-  {type:"bullet", title:"🧾 영수증", body:"영수증에는 행사 상품에 <b>(할인)</b> 표시가 붙고 할인 금액도 함께 나옵니다.", subs:["<img src='images/포스-영수증-2+1-수정.png' alt='2+1 영수증' style='display:block;width:260px;max-width:100%;margin:6px auto 0'>"]},
+  {type:"bullet", title:"🧾 영수증", body:"영수증에는 행사 상품에 <b>(할인)</b> 표시가 붙고 할인 금액도 함께 나옵니다.", subs:["<img src='images/포스-영수증-2플러스1-수정.png' alt='2+1 영수증' style='display:block;width:260px;max-width:100%;margin:6px auto 0'>"]},
   {type:"note", text:"IRM(ERP)에서 행사를 등록·시작하고 끝내는 방법은 🔗 <b class='dlink' onclick=\"goPage(0)\">2+1 행사 설정(IRM(ERP))</b> 에서 볼 수 있습니다."},
 ];
 IMGS["pos4limirm"] = "images/IRM-제한-준비중.png";
@@ -29498,14 +29498,14 @@ IMGS["pos7merge"] = "images/포스-합치기-빈화면.png";
 SIM["pos7merge"] = { start:"1", screens:{
   "1":{img:"images/포스-합치기-빈화면.png",
     btns:[
-      {x:12.96, y:15.74, w:24.74, h:26.3, pic:"images/포스-합치기-영수증스캔.webp", picBare:true},
+      {x:12.96, y:15.74, w:24.74, h:26.3, pic:"images/포스-합치기-영수증스캔.png", picBare:true},
       {x:12.22, y:15.0, w:26.22, h:27.78, front:true, notint:true, num:"1", numCorner:true, to:"2", clickme:{dir:"right"}, tip:"첫 번째 영수증의 <b>바코드</b>를 찍습니다."},
       {x:77.56, y:1.48, w:7.33, h:4.07, plain:true, tip:"영수증이 없으면 <b>매출검색</b>으로 찾습니다."},
     ]},
   "2":{img:"images/포스-합치기-첫영수증.png",
     btns:[
       {x:0.3, y:10.65, w:49.33, h:7.69, plain:true, notint:true, tip:"첫 번째 영수증의 <b>상품</b>이 들어왔습니다."},
-      {x:12.96, y:23.15, w:24.74, h:26.3, pic:"images/포스-합치기-영수증스캔.webp", picBare:true},
+      {x:12.96, y:23.15, w:24.74, h:26.3, pic:"images/포스-합치기-영수증스캔.png", picBare:true},
       {x:12.22, y:22.41, w:26.22, h:27.78, front:true, notint:true, num:"2", numCorner:true, to:"3", clickme:{dir:"right"}, tip:"이어서 두 번째 영수증의 <b>바코드</b>를 찍습니다."},
     ]},
   "3":{img:"images/포스-합치기-합치기알림.png",
@@ -29740,7 +29740,7 @@ DESCS["pos7dispose"] = [
   {type:"bullet", title:"🧾 영수증", body:"폐기 처리 영수증에는 <b>[폐기처리] - 승인대기</b> 표시와 등록한 상품이 나옵니다.", subs:["<img src='images/포스-영수증-자가폐기.png' alt='폐기 처리 영수증' style='display:block;width:260px;max-width:100%;margin:6px auto 0'>"]},
 ];
 // 포스 페이지 표시(엔진의 POS-MERGE 패치가 이 페이지에서만 작동)
-["pos1tour","pos1key1","pos1power","pos1down","pos1scan","pos1split","pos1find","pos2card","pos2cash","pos2after","pos2transfer","pos2pay","pos2multi","pos2cancel","pos2hold","pos3reg","pos3sale","pos3find","pos3bank","pos4gift","pos4evirm","pos4event","pos4limirm","pos4limit","pos5kind","pos5instant","pos5after","pos6open","pos6close","pos7merge","pos7mergefind","pos7point","pos7dispose"].forEach(k => { if (SIM[k]) SIM[k].pos = true; });
+["pos1power","pos1down","pos1tour","pos1key1","pos1scan","pos1split","pos1find","pos2card","pos2cash","pos2after","pos2transfer","pos2pay","pos2multi","pos2cancel","pos2hold","pos3reg","pos3sale","pos3find","pos3bank","pos4gift","pos4evirm","pos4event","pos4limirm","pos4limit","pos5kind","pos5instant","pos5after","pos6open","pos6close","pos7merge","pos7mergefind","pos7point","pos7dispose"].forEach(k => { if (SIM[k]) SIM[k].pos = true; });
 // 포스 강의 — yt(유튜브 아이디)가 있는 것만 모아보기·페이지 버튼에 나옴(영상작업/유튜브/youtube_ids.json → 다시 merge_into_s.py)
 const POS_VIDEOS = [
   {id:"pos-power", subId:"pos-power", alsoSubs:[], title:"포스 켜기", cat:"포스 켜고 상품 찍기 › 포스 켜기", src:"videos/pos-power.mp4", poster:"videos/pos-power.jpg", dur:"1:08", desc:"바탕화면의 포스 아이콘으로 포스를 켜고 로그인하는 방법과, 내림 버튼으로 포스 창을 작업 표시줄로 내리는 방법을 알려드려요.", tags:["포스켜기", "로그인", "포스아이콘", "사원ID", "ID저장", "비밀번호", "숫자판", "업데이트", "내림", "작업표시줄"], chapters:[{t:10.0, title:"포스 켜기", subs:["pos-power"]}, {t:15.1, title:"로그인", subs:["pos-power"]}, {t:49.8, title:"창 내리기", subs:["pos-power"]}], pos:true, yt:"mqxoMd3Q4DU"},
@@ -29994,7 +29994,7 @@ const S_DEF = [
     {g:"권한관리"}, {ref:"env13"},{ref:"env03", title:"사원 메뉴 설정"},{ref:"env14", title:"버튼 권한 관리"},{prep:"즐겨찾기 메뉴관리"},
   ]},
   ── */
-  /* ▼ MPAGES-SDEF:pos */ /* 포스 설명서 7개 장 — 포스메뉴얼/_build/merge_into_s.py 가 만듦(여기서 고치지 말 것). 새 S 장은 이 줄 위에 */ {chapter:"포스 1", id:"pos-ch1", pos:true, title:"포스 켜고 상품 찍기", icon:"🛒", items:[{sub:{id:"pos-tour", title:"포스 화면 둘러보기", subtitles:{pos1tour:"판매 화면 구역별 안내"}, pages:["pos1tour"], tips:{}}}, {sub:{id:"pos-shortcut", title:"단축키 설정", subtitles:{pos1key1:"기능 버튼 편집을 켜고 단축키를 바꿔 저장하기"}, pages:["pos1key1"], tips:{}}}, {sub:{id:"pos-power", title:"포스 켜기", subtitles:{pos1power:"포스 아이콘으로 켜고 로그인하기", pos1down:"내림으로 포스 창 내리기"}, pages:["pos1power", "pos1down"], pageLabels:["켜기·로그인", "창 내리기"], tips:{}}}, {sub:{id:"pos-scan", title:"상품 찍기·수량", subtitles:{pos1scan:"바코드를 찍고 수량 바꾸기", pos1split:"같은 상품을 나누어 찍었을 때"}, pages:["pos1scan", "pos1split"], pageLabels:["상품 찍기·수량", "나누어 찍기"], tips:{}}}, {sub:{id:"pos-find", title:"상품 찾기·상품검색", subtitles:{pos1find:"찾기 칸·상품검색 창으로 상품 찾기"}, pages:["pos1find"], tips:{}}}]}, {chapter:"포스 2", id:"pos-ch2", pos:true, title:"결제 받기", icon:"💳", items:[{sub:{id:"pos-cardcash", title:"카드결제·현금결제", subtitles:{pos2card:"카드로 결제 받기", pos2cash:"현금으로 받고 현금영수증 번호 받기", pos2after:"계산한 뒤에 현금영수증 발급하기", pos2transfer:"계좌이체로 결제 받기"}, pages:["pos2card", "pos2cash", "pos2after", "pos2transfer"], pageLabels:["카드 결제", "현금 결제·현금영수증", "계산 후 현금영수증", "계좌이체"], tips:{}}}, {sub:{id:"pos-pay", title:"페이 결제", subtitles:{pos2pay:"휴대폰 간편결제로 결제 받기"}, pages:["pos2pay"], tips:{}}}, {sub:{id:"pos-multi", title:"복합 결제", subtitles:{pos2multi:"현금과 카드로 나누어 받기", pos2cancel:"나누어 받은 결제 취소하기"}, pages:["pos2multi", "pos2cancel"], pageLabels:["현금+카드 결제", "복합 결제 취소"], tips:{}}}, {sub:{id:"pos-hold", title:"결제 보류", subtitles:{pos2hold:"계산 보류하고 다시 불러오기"}, pages:["pos2hold"], tips:{}}}]}, {chapter:"포스 3", id:"pos-ch3", pos:true, title:"반품 받기", icon:"↩️", items:[{sub:{id:"pos-return-reg", title:"반품 등록(전환 매장)", subtitles:{pos3reg:"예전 포스에서 산 상품을 반품 등록으로 환불"}, pages:["pos3reg"], tips:{}}}, {sub:{id:"pos-return-cancel", title:"환불하기", subtitles:{pos3sale:"매출검색으로 거래를 찾아 전표취소"}, pages:["pos3sale"], tips:{}}}, {sub:{id:"pos-return-find", title:"영수증 없이 찾기", subtitles:{pos3find:"금액·날짜·승인번호·회원·상품으로 찾기"}, pages:["pos3find"], tips:{}}}, {sub:{id:"pos-return-bank", title:"계좌이체 환불", subtitles:{pos3bank:"계좌이체 결제를 계좌·현금으로 환불"}, pages:["pos3bank"], tips:{}}}]}, {chapter:"포스 4", id:"pos-ch4", pos:true, title:"증정·할인과 행사·제한상품", icon:"🎁", items:[{sub:{id:"pos-gift", title:"증정·할인", subtitles:{pos4gift:"상품 바로 할인하기·증정품 0원으로 찍기"}, pages:["pos4gift"], tips:{}}}, {sub:{id:"pos-event", title:"행사·제한상품", subtitles:{pos4evirm:"IRM(ERP)에서 2+1 행사 등록·시작·끝내기", pos4event:"2+1 행사 상품 찍기", pos4limirm:"IRM(ERP)에서 제한상품 등록·제한 시작", pos4limit:"제한상품 찍기"}, pages:["pos4evirm", "pos4event", "pos4limirm", "pos4limit"], pageLabels:["2+1 행사 설정(IRM(ERP))", "2+1 행사(포스)", "제한상품 설정(IRM(ERP))", "제한상품(포스)"], tips:{}}}]}, {chapter:"포스 5", id:"pos-ch5", pos:true, title:"외국인 손님 세금 환급", icon:"🌏", items:[{sub:{id:"pos-refund", title:"즉시환급·사후환급", subtitles:{pos5kind:"사후환급·즉시환급 알아보기", pos5instant:"계산할 때 즉시환급하기", pos5after:"결제 마친 거래에 사후환급 발행하기"}, pages:["pos5kind", "pos5instant", "pos5after"], pageLabels:["사후·즉시환급", "즉시환급하기", "사후환급하기"], tips:{}}}]}, {chapter:"포스 6", id:"pos-ch6", pos:true, title:"하루 마감하기", icon:"🧾", items:[{sub:{id:"pos-close", title:"매출 마감", subtitles:{pos6open:"관리메뉴에서 매출마감 열기", pos6close:"준비금·권종 입력과 계산원 마감"}, pages:["pos6open", "pos6close"], pageLabels:["매출마감 열기", "매출마감"], tips:{}}}]}, {chapter:"포스 7", id:"pos-ch7", pos:true, title:"영수증 합치기·포인트·자가폐기", icon:"🧩", items:[{sub:{id:"pos-merge", title:"영수증 합치기", subtitles:{pos7merge:"영수증 바코드 두 번 찍어 합치기", pos7mergefind:"매출검색 · 재주문으로 합치기"}, pages:["pos7merge", "pos7mergefind"], pageLabels:["영수증이 있을 때", "영수증이 없을 때"], tips:{}}}, {sub:{id:"pos-point", title:"포인트로 결제하기", subtitles:{pos7point:"회원 찾아 포인트로 결제하기"}, pages:["pos7point"], tips:{}}}, {sub:{id:"pos-dispose", title:"자가폐기", subtitles:{pos7dispose:"팔 수 없는 상품 자가소비·폐기 등록하기"}, pages:["pos7dispose"], tips:{}}}]}, /* ▲ MPAGES-SDEF:pos */
+  /* ▼ MPAGES-SDEF:pos */ /* 포스 설명서 7개 장 — 포스메뉴얼/_build/merge_into_s.py 가 만듦(여기서 고치지 말 것). 새 S 장은 이 줄 위에 */ {chapter:"포스 1", id:"pos-ch1", pos:true, title:"포스 켜고 상품 찍기", icon:"🛒", items:[{sub:{id:"pos-power", title:"포스 켜기", subtitles:{pos1power:"포스 아이콘으로 켜고 로그인하기", pos1down:"내림으로 포스 창 내리기"}, pages:["pos1power", "pos1down"], pageLabels:["켜기·로그인", "창 내리기"], tips:{}}}, {sub:{id:"pos-tour", title:"포스 화면 둘러보기", subtitles:{pos1tour:"판매 화면 구역별 안내"}, pages:["pos1tour"], tips:{}}}, {sub:{id:"pos-shortcut", title:"단축키 설정", subtitles:{pos1key1:"기능 버튼 편집을 켜고 단축키를 바꿔 저장하기"}, pages:["pos1key1"], tips:{}}}, {sub:{id:"pos-scan", title:"상품 찍기·수량", subtitles:{pos1scan:"바코드를 찍고 수량 바꾸기", pos1split:"같은 상품을 나누어 찍었을 때"}, pages:["pos1scan", "pos1split"], pageLabels:["상품 찍기·수량", "나누어 찍기"], tips:{}}}, {sub:{id:"pos-find", title:"상품 찾기·상품검색", subtitles:{pos1find:"찾기 칸·상품검색 창으로 상품 찾기"}, pages:["pos1find"], tips:{}}}]}, {chapter:"포스 2", id:"pos-ch2", pos:true, title:"결제 받기", icon:"💳", items:[{sub:{id:"pos-cardcash", title:"카드결제·현금결제", subtitles:{pos2card:"카드로 결제 받기", pos2cash:"현금으로 받고 현금영수증 번호 받기", pos2after:"계산한 뒤에 현금영수증 발급하기", pos2transfer:"계좌이체로 결제 받기"}, pages:["pos2card", "pos2cash", "pos2after", "pos2transfer"], pageLabels:["카드 결제", "현금 결제·현금영수증", "계산 후 현금영수증", "계좌이체"], tips:{}}}, {sub:{id:"pos-pay", title:"페이 결제", subtitles:{pos2pay:"휴대폰 간편결제로 결제 받기"}, pages:["pos2pay"], tips:{}}}, {sub:{id:"pos-multi", title:"복합 결제", subtitles:{pos2multi:"현금과 카드로 나누어 받기", pos2cancel:"나누어 받은 결제 취소하기"}, pages:["pos2multi", "pos2cancel"], pageLabels:["현금+카드 결제", "복합 결제 취소"], tips:{}}}, {sub:{id:"pos-hold", title:"결제 보류", subtitles:{pos2hold:"계산 보류하고 다시 불러오기"}, pages:["pos2hold"], tips:{}}}]}, {chapter:"포스 3", id:"pos-ch3", pos:true, title:"반품 받기", icon:"↩️", items:[{sub:{id:"pos-return-reg", title:"반품 등록(전환 매장)", subtitles:{pos3reg:"예전 포스에서 산 상품을 반품 등록으로 환불"}, pages:["pos3reg"], tips:{}}}, {sub:{id:"pos-return-cancel", title:"환불하기", subtitles:{pos3sale:"매출검색으로 거래를 찾아 전표취소"}, pages:["pos3sale"], tips:{}}}, {sub:{id:"pos-return-find", title:"영수증 없이 찾기", subtitles:{pos3find:"금액·날짜·승인번호·회원·상품으로 찾기"}, pages:["pos3find"], tips:{}}}, {sub:{id:"pos-return-bank", title:"계좌이체 환불", subtitles:{pos3bank:"계좌이체 결제를 계좌·현금으로 환불"}, pages:["pos3bank"], tips:{}}}]}, {chapter:"포스 4", id:"pos-ch4", pos:true, title:"증정·할인과 행사·제한상품", icon:"🎁", items:[{sub:{id:"pos-gift", title:"증정·할인", subtitles:{pos4gift:"상품 바로 할인하기·증정품 0원으로 찍기"}, pages:["pos4gift"], tips:{}}}, {sub:{id:"pos-event", title:"행사·제한상품", subtitles:{pos4evirm:"IRM(ERP)에서 2+1 행사 등록·시작·끝내기", pos4event:"2+1 행사 상품 찍기", pos4limirm:"IRM(ERP)에서 제한상품 등록·제한 시작", pos4limit:"제한상품 찍기"}, pages:["pos4evirm", "pos4event", "pos4limirm", "pos4limit"], pageLabels:["2+1 행사 설정(IRM(ERP))", "2+1 행사(포스)", "제한상품 설정(IRM(ERP))", "제한상품(포스)"], tips:{}}}]}, {chapter:"포스 5", id:"pos-ch5", pos:true, title:"외국인 손님 세금 환급", icon:"🌏", items:[{sub:{id:"pos-refund", title:"즉시환급·사후환급", subtitles:{pos5kind:"사후환급·즉시환급 알아보기", pos5instant:"계산할 때 즉시환급하기", pos5after:"결제 마친 거래에 사후환급 발행하기"}, pages:["pos5kind", "pos5instant", "pos5after"], pageLabels:["사후·즉시환급", "즉시환급하기", "사후환급하기"], tips:{}}}]}, {chapter:"포스 6", id:"pos-ch6", pos:true, title:"하루 마감하기", icon:"🧾", items:[{sub:{id:"pos-close", title:"매출 마감", subtitles:{pos6open:"관리메뉴에서 매출마감 열기", pos6close:"준비금·권종 입력과 계산원 마감"}, pages:["pos6open", "pos6close"], pageLabels:["매출마감 열기", "매출마감"], tips:{}}}]}, {chapter:"포스 7", id:"pos-ch7", pos:true, title:"영수증 합치기·포인트·자가폐기", icon:"🧩", items:[{sub:{id:"pos-merge", title:"영수증 합치기", subtitles:{pos7merge:"영수증 바코드 두 번 찍어 합치기", pos7mergefind:"매출검색 · 재주문으로 합치기"}, pages:["pos7merge", "pos7mergefind"], pageLabels:["영수증이 있을 때", "영수증이 없을 때"], tips:{}}}, {sub:{id:"pos-point", title:"포인트로 결제하기", subtitles:{pos7point:"회원 찾아 포인트로 결제하기"}, pages:["pos7point"], tips:{}}}, {sub:{id:"pos-dispose", title:"자가폐기", subtitles:{pos7dispose:"팔 수 없는 상품 자가소비·폐기 등록하기"}, pages:["pos7dispose"], tips:{}}}]}, /* ▲ MPAGES-SDEF:pos */
 ];
 // S_DEF → SECTIONS와 동일 구조로 변환 (sub 객체는 전체버전과 공유 — 내용 수정 시 양쪽 자동 반영)
 const SECTIONS_S = (function(){
