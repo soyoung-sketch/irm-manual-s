@@ -28324,15 +28324,15 @@ IMGS["pos1key1"] = "images/포스-단축키-편집화면.png";
 SIM["pos1key1"] = { start:"1", screens:{
   "1":{img:"images/포스-단축키-편집화면.png",
     btns:[
-      {x:0.59, y:1.48, w:12.44, h:4.07, num:"1", numRight:true, to:"p_menu", toggle:true, clickme:{dir:"down"}, tip:"<b>로고</b>를 누르면 관리메뉴가 열립니다."},
+      {x:0.59, y:1.48, w:12.44, h:4.07, num:"1", numRight:true, to:"p_menu", toggle:true, clickme:{dir:"down"}, tipDn:true, tip:"<b>로고</b>를 누르면 관리메뉴가 열립니다."},
       {x:87.26, y:64.35, w:6.0, h:8.43, num:"2", numCorner:true, to:"p_deco", toggle:true, rclick:true, clickme:{dir:"up", text:"오른쪽 클릭!"}, tip:"마우스 <b>오른쪽 버튼</b>으로 눌러야 꾸미기 창이 열립니다."},
       {x:74.3, y:79.54, w:25.41, h:2.22, yellow:true, scroll:"★1", tip:"버튼마다 작게 적힌 글자가 <b>단축키</b>입니다."},
-      {x:15.11, y:1.48, w:23.11, h:4.07, plain:true, tip:"기능 버튼 <b>편집 중</b>이라는 안내가 나옵니다."},
+      {x:15.11, y:1.48, w:23.11, h:4.07, num:"3", numRight:true, tipDn:true, tip:"아직 <b>편집 중</b>입니다. 저장해야 바꾼 단축키가 적용됩니다."},
       {x:74.3, y:64.35, w:12.52, h:8.43, plain:true, tip:"편집 중에는 기능 버튼마다 <b>분홍색 테두리</b>가 생깁니다."},
       {x:93.63, y:64.35, w:6.07, h:8.43, plain:true, tip:"기능 버튼 <b>다음 판</b>으로 넘깁니다."},
       {x:74.3, y:82.31, w:25.41, h:17.31, plain:true, notint:true, tip:"버튼을 끌면 <b>자리</b>가, 모서리를 끌면 크기가 바뀝니다."},
-      {x:77.56, y:1.48, w:7.33, h:4.07, plain:true, tip:"지난 <b>결제 내역</b>을 찾습니다."},
-      {x:85.7, y:1.48, w:6.07, h:4.07, plain:true, tip:"<b>보류</b>한 계산을 다시 불러옵니다."},
+      {x:77.56, y:1.48, w:7.33, h:4.07, plain:true, tipDn:true, tip:"지난 <b>결제 내역</b>을 찾습니다."},
+      {x:85.7, y:1.48, w:6.07, h:4.07, plain:true, tipDn:true, tip:"<b>보류</b>한 계산을 다시 불러옵니다."},
     ]},
   "p_menu":{img:"images/포스-단축키-관리메뉴.png", win:{x:10.96, y:15.0, w:78.07},
     btns:[
@@ -28372,24 +28372,23 @@ SIM["pos1key1"] = { start:"1", screens:{
     ]},
 } };
 DESCS["pos1key1"] = [
-  {type:"note", red:true, text:"기능 버튼 꾸미기 창은 기능 버튼 편집이 켜진 상태에서 버튼을 <b>마우스 오른쪽 버튼</b>으로 눌러야만 열립니다. <span class='ui-btn'>할인</span> 버튼을 그냥 누르면 열리지 않습니다."},
+  {type:"step", num:"★", ystar:true, title:"💡 단축키란?", subs:["기능 버튼 아래쪽에 작게 적힌 글자가 그 버튼의 <b>단축키</b>입니다.", "키보드에서 이 키를 누르면 버튼을 누른 것과 똑같이 그 기능이 <b>바로 실행</b>됩니다."]},
   {type:"note", text:"기능 버튼 편집을 켜고 기능 버튼 아래 작게 적힌 <b>단축키</b>를 원하는 키로 바꾸는 화면입니다."},
   {type:"step", num:"1", title:"🛠️ 기능 버튼 편집 켜기", subs:["1. 왼쪽 위 <b>로고</b>를 누르면 관리메뉴가 열립니다.", "⬇", "2. 분류에서 <b>화면 꾸미기</b>를 고릅니다.", "⬇", "3. <span class='ui-btn'>기능 버튼 크기 · 자리 편집 켜기 (K)</span>를 누릅니다.", "%%편집이 켜지면 기능 버튼마다 분홍색 테두리가 생깁니다. 버튼을 끌면 자리가, 모서리를 끌면 크기가 바뀝니다."]},
-  {type:"step", num:"2", title:"✏️ 할인 버튼 단축키 바꾸기", subs:["<span class='ui-btn'>할인</span> 버튼 위에서 <b>마우스 오른쪽 버튼</b>을 누르면 기능 버튼 꾸미기 창이 열립니다.", "%%이 창에서 버튼 이름과 색, 글자 모양도 바꿀 수 있습니다.", "⬇", "1. <b>단축키</b> 칸을 누르고 키보드에서 새로 쓸 키를 누릅니다.", "%%칸에 새 단축키가 들어가고 미리보기에도 바로 보입니다.", "⬇", "2. <span class='ui-btn'>확인 (Ctrl+Enter)</span> 버튼을 누릅니다."]},
-  {type:"step", num:"★", ystar:true, title:"💡 단축키란?", subs:["기능 버튼 아래쪽에 작게 적힌 글자가 그 버튼의 <b>단축키</b>입니다.", "키보드에서 이 키를 누르면 버튼을 누른 것과 똑같이 그 기능이 <b>바로 실행</b>됩니다."]},
+  {type:"step", num:"2", title:"✏️ 할인 버튼 단축키 바꾸기", subs:["<span class='ui-btn'>할인</span> 버튼 위에서 <b style='color:#ff0000'>마우스 오른쪽 버튼</b>을 누르면 기능 버튼 꾸미기 창이 열립니다.", "%%이 창에서 버튼 이름과 색, 글자 모양도 바꿀 수 있습니다.", "⬇", "1. <b>단축키</b> 칸을 누르고 키보드에서 새로 쓸 키를 누릅니다.", "%%칸에 새 단축키가 들어가고 미리보기에도 바로 보입니다.", "⬇", "2. <span class='ui-btn'>확인 (Ctrl+Enter)</span> 버튼을 누릅니다."]},
   {type:"step", num:"★", ystar:true, title:"🔑 쓸 수 있는 키", subs:["쓸 수 있는 키(<b>F2~F12 · Alt+글자 · = · -</b>)는 단축키 칸 옆에 안내돼 있습니다.", "%%Alt 와 함께 숫자를 눌러도 됩니다.", "이미 다른 버튼이 쓰는 키를 누르면 어느 버튼이 쓰는지 알려 주고 <b>들어가지 않습니다</b>. 이때는 다른 키를 누릅니다.", "<img src='images/포스-단축키-이미사용.png' alt='이미 다른 버튼이 쓰는 키라는 안내' style='display:block;width:100%;max-width:380px;margin:6px auto 0'>"]},
-  {type:"note", text:"창이 닫혀도 <span class='ui-btn'>할인</span> 버튼에는 아직 예전 단축키가 보입니다. 바꾼 단축키는 편집을 <b>저장</b>해야 적용됩니다. 🔗 <b class='dlink' onclick=\"goPage(1)\">저장하기</b>"},
+  {type:"step", num:"3", title:"⚠️ 주의! 아직 편집이 완료되지 않았어요!", subs:["창이 닫혀도 <span class='ui-btn'>할인</span> 버튼에는 아직 예전 단축키가 보입니다.", "바꾼 단축키는 편집을 <b>저장</b>해야 적용됩니다. 🔗 <b class='dlink' onclick=\"goPage(1)\">저장하기</b> 바로가기"]},
 ];
 IMGS["pos1key2"] = "images/포스-단축키-저장화면.png";
 SIM["pos1key2"] = { start:"1", screens:{
   "1":{img:"images/포스-단축키-저장화면.png",
     btns:[
-      {x:0.59, y:1.48, w:12.44, h:4.07, num:"1", numRight:true, to:"p_menu2", toggle:true, clickme:{dir:"down"}, tip:"<b>로고</b>를 누르면 관리메뉴가 열립니다."},
+      {x:0.59, y:1.48, w:12.44, h:4.07, num:"1", numRight:true, to:"p_menu2", toggle:true, clickme:{dir:"down"}, tipDn:true, tip:"<b>로고</b>를 누르면 관리메뉴가 열립니다."},
       {x:87.26, y:64.35, w:6.0, h:8.43, yellow:true, scroll:"★1", tip:"저장하면 <b>새 단축키</b>가 보입니다."},
-      {x:15.11, y:1.48, w:15.56, h:4.07, plain:true, tip:"<b>저장</b>이 끝났다는 안내가 나옵니다."},
+      {x:15.11, y:1.48, w:15.56, h:4.07, plain:true, tipDn:true, tip:"<b>저장</b>이 끝났다는 안내가 나옵니다."},
       {x:74.3, y:79.54, w:25.41, h:2.22, plain:true, tip:"버튼마다 작게 적힌 글자가 <b>단축키</b>입니다."},
-      {x:77.56, y:1.48, w:7.33, h:4.07, plain:true, tip:"지난 <b>결제 내역</b>을 찾습니다."},
-      {x:85.7, y:1.48, w:6.07, h:4.07, plain:true, tip:"<b>보류</b>한 계산을 다시 불러옵니다."},
+      {x:77.56, y:1.48, w:7.33, h:4.07, plain:true, tipDn:true, tip:"지난 <b>결제 내역</b>을 찾습니다."},
+      {x:85.7, y:1.48, w:6.07, h:4.07, plain:true, tipDn:true, tip:"<b>보류</b>한 계산을 다시 불러옵니다."},
     ]},
   "p_menu2":{img:"images/포스-단축키-관리메뉴2.png", win:{x:10.96, y:15.0, w:78.07},
     btns:[
