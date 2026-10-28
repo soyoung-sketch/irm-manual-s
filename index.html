@@ -1391,6 +1391,8 @@ body.print .pos-clickme { display:none; }
 #sidebar.collapsed .nav-irm-head { opacity:0; height:0; padding:0; }
 .sim-spot.pos-rc-nudge .pcm-pill { animation:pcmNudge 0.7s ease-in-out; }
 @keyframes pcmNudge { 0%,100%{transform:translateX(0) scale(1)} 15%{transform:translateX(-6px) scale(1.14)} 35%{transform:translateX(6px) scale(1.14)} 55%{transform:translateX(-5px) scale(1.1)} 75%{transform:translateX(4px) scale(1.05)} }
+/* POS-MERGE ENGINE v4 */
+#simWrap:has(#simWin) #simOverlay .pos-clickme { visibility:hidden; }
 /* ▲ POS-MERGE CSS */
 </style>
 </head>
@@ -28320,17 +28322,47 @@ DESCS["pos1find"] = [
   {type:"bullet", title:"🔎 상품검색 창", body:"<span class='ui-btn'>상품검색</span> 버튼으로 열리는 창입니다.", subs:["1. 검색어 칸에 상품 이름 또는 상품코드 또는 바코드 앞뒤 자리를 입력합니다.", "%%검색어 칸에 바코드를 찍어서 찾을 수도 있습니다.", "⬇", "2. <span class='ui-btn'>검색</span> 버튼을 누릅니다.", "⬇", "3. 찾은 상품마다 <b>재고와 가격, 로케이션 정보</b>가 함께 보입니다. 담을 상품을 누르면 목록에 바로 담깁니다."]},
 ];
 // ── 포스 1 · 단축키 설정 ──
-IMGS["pos1key1"] = "images/포스-단축키-편집화면.png";
+IMGS["pos1key1"] = "images/포스-단축키-판매화면.png";
 SIM["pos1key1"] = { start:"1", screens:{
-  "1":{img:"images/포스-단축키-편집화면.png",
+  "1":{img:"images/포스-단축키-판매화면.png",
     btns:[
       {x:0.59, y:1.48, w:12.44, h:4.07, num:"1", numRight:true, to:"p_menu", toggle:true, clickme:{dir:"down"}, tipDn:true, tip:"<b>로고</b>를 누르면 관리메뉴가 열립니다."},
-      {x:87.26, y:64.35, w:6.0, h:8.43, num:"2", numCorner:true, to:"p_deco", toggle:true, rclick:true, clickme:{dir:"up", text:"오른쪽 클릭!"}, tip:"마우스 <b>오른쪽 버튼</b>으로 눌러야 꾸미기 창이 열립니다."},
       {x:74.3, y:79.54, w:25.41, h:2.22, yellow:true, scroll:"★1", tip:"버튼마다 작게 적힌 글자가 <b>단축키</b>입니다."},
-      {x:15.11, y:1.48, w:23.11, h:4.07, num:"3", numRight:true, tipDn:true, tip:"아직 <b>편집 중</b>입니다. 저장해야 바꾼 단축키가 적용됩니다."},
+      {x:87.26, y:64.35, w:6.0, h:8.43, plain:true, tip:"기능 버튼 <b>편집</b>을 켜야 단축키를 바꿀 수 있습니다."},
+      {x:93.63, y:64.35, w:6.07, h:8.43, plain:true, tip:"기능 버튼 <b>다음 판</b>으로 넘깁니다."},
+      {x:77.56, y:1.48, w:7.33, h:4.07, plain:true, tipDn:true, tip:"지난 <b>결제 내역</b>을 찾습니다."},
+      {x:85.7, y:1.48, w:6.07, h:4.07, plain:true, tipDn:true, tip:"<b>보류</b>한 계산을 다시 불러옵니다."},
+    ]},
+  "2":{img:"images/포스-단축키-편집화면.png",
+    btns:[
+      {x:87.26, y:64.35, w:6.0, h:8.43, num:"2", numCorner:true, to:"p_deco", toggle:true, rclick:true, clickme:{dir:"up", text:"오른쪽 클릭!", css:"left:85%"}, tip:"마우스 <b>오른쪽 버튼</b>으로 눌러야 꾸미기 창이 열립니다."},
+      {x:0.59, y:1.48, w:12.44, h:4.07, plain:true, tipDn:true, tip:"<b>로고</b>를 누르면 관리메뉴가 열립니다."},
+      {x:15.11, y:1.48, w:23.11, h:4.07, plain:true, tipDn:true, tip:"기능 버튼 <b>편집 중</b>이라는 안내가 나옵니다."},
       {x:74.3, y:64.35, w:12.52, h:8.43, plain:true, tip:"편집 중에는 기능 버튼마다 <b>분홍색 테두리</b>가 생깁니다."},
       {x:93.63, y:64.35, w:6.07, h:8.43, plain:true, tip:"기능 버튼 <b>다음 판</b>으로 넘깁니다."},
       {x:74.3, y:82.31, w:25.41, h:17.31, plain:true, notint:true, tip:"버튼을 끌면 <b>자리</b>가, 모서리를 끌면 크기가 바뀝니다."},
+      {x:74.3, y:79.54, w:25.41, h:2.22, plain:true, tip:"버튼마다 작게 적힌 글자가 <b>단축키</b>입니다."},
+      {x:77.56, y:1.48, w:7.33, h:4.07, plain:true, tipDn:true, tip:"지난 <b>결제 내역</b>을 찾습니다."},
+      {x:85.7, y:1.48, w:6.07, h:4.07, plain:true, tipDn:true, tip:"<b>보류</b>한 계산을 다시 불러옵니다."},
+    ]},
+  "3":{img:"images/포스-단축키-편집화면.png",
+    btns:[
+      {x:15.11, y:1.48, w:23.11, h:4.07, num:"3", numRight:true, tipDn:true, tip:"아직 <b>편집 중</b>입니다. 저장해야 바꾼 단축키가 적용됩니다."},
+      {x:0.59, y:1.48, w:12.44, h:4.07, num:"4", numRight:true, to:"p_menu2", toggle:true, clickme:{dir:"down"}, tipDn:true, tip:"다시 <b>로고</b>를 누르면 관리메뉴가 열립니다."},
+      {x:87.26, y:64.35, w:6.0, h:8.43, plain:true, scroll:"3", tip:"창이 닫혀도 아직 <b>예전 단축키</b>가 보입니다."},
+      {x:74.3, y:64.35, w:12.52, h:8.43, plain:true, tip:"편집 중에는 기능 버튼마다 <b>분홍색 테두리</b>가 생깁니다."},
+      {x:93.63, y:64.35, w:6.07, h:8.43, plain:true, tip:"기능 버튼 <b>다음 판</b>으로 넘깁니다."},
+      {x:74.3, y:82.31, w:25.41, h:17.31, plain:true, notint:true, tip:"버튼을 끌면 <b>자리</b>가, 모서리를 끌면 크기가 바뀝니다."},
+      {x:74.3, y:79.54, w:25.41, h:2.22, plain:true, tip:"버튼마다 작게 적힌 글자가 <b>단축키</b>입니다."},
+      {x:77.56, y:1.48, w:7.33, h:4.07, plain:true, tipDn:true, tip:"지난 <b>결제 내역</b>을 찾습니다."},
+      {x:85.7, y:1.48, w:6.07, h:4.07, plain:true, tipDn:true, tip:"<b>보류</b>한 계산을 다시 불러옵니다."},
+    ]},
+  "4":{img:"images/포스-단축키-저장화면.png",
+    btns:[
+      {x:87.26, y:64.35, w:6.0, h:8.43, yellow:true, scroll:"★3", tip:"저장하면 <b>새 단축키</b>가 보입니다."},
+      {x:15.11, y:1.48, w:15.56, h:4.07, plain:true, tipDn:true, tip:"<b>저장</b>이 끝났다는 안내가 나옵니다."},
+      {x:0.59, y:1.48, w:12.44, h:4.07, plain:true, tipDn:true, tip:"<b>로고</b>를 누르면 관리메뉴가 열립니다."},
+      {x:74.3, y:79.54, w:25.41, h:2.22, plain:true, tip:"버튼마다 작게 적힌 글자가 <b>단축키</b>입니다."},
       {x:77.56, y:1.48, w:7.33, h:4.07, plain:true, tipDn:true, tip:"지난 <b>결제 내역</b>을 찾습니다."},
       {x:85.7, y:1.48, w:6.07, h:4.07, plain:true, tipDn:true, tip:"<b>보류</b>한 계산을 다시 불러옵니다."},
     ]},
@@ -28354,7 +28386,7 @@ SIM["pos1key1"] = { start:"1", screens:{
       {x:61.57, y:64.46, w:36.81, h:7.66, plain:true, scroll:"1", tip:"<b>서버 설정</b>을 다시 받아 바로 적용합니다."},
       {x:23.24, y:55.48, w:36.72, h:7.53, plain:true, scroll:"1", tip:"어떤 <b>기능</b>을 어떤 차례로 둘지 정합니다."},
       {x:1.61, y:48.75, w:19.92, h:8.85, yellow:true, num:"2", numCorner:true, scroll:"1", tip:"분류에서 <b>화면 꾸미기</b>를 고릅니다."},
-      {x:23.24, y:64.46, w:36.72, h:7.66, yellow:true, num:"3", numCorner:true, scroll:"1", close:true, tip:"누르면 <b>기능 버튼 편집</b>이 켜집니다."},
+      {x:23.24, y:64.46, w:36.72, h:7.66, yellow:true, num:"3", numCorner:true, scroll:"1", to:"2", clickme:{dir:"down"}, tip:"누르면 <b>기능 버튼 편집</b>이 켜집니다."},
     ]},
   "p_deco":{img:"images/포스-단축키-꾸미기창.png", win:{x:12.52, y:13.89, w:74.96},
     btns:[
@@ -28368,63 +28400,47 @@ SIM["pos1key1"] = { start:"1", screens:{
       {x:17.49, y:82.95, w:20.85, h:4.62, yellow:true, num:"1", numCorner:true, scroll:"2", tip:"칸을 누르고 키보드에서 <b>새 키</b>를 누릅니다."},
       {x:39.13, y:82.95, w:58.79, h:4.62, yellow:true, scroll:"★2", tip:"쓸 수 있는 <b>키</b>가 안내돼 있습니다."},
       {x:78.56, y:43.72, w:7.91, h:11.54, fill:true, faint:true, front:true, scroll:"2", tip:"<b>미리보기</b>에도 새 단축키가 바로 보입니다."},
-      {x:66.7, y:90.9, w:15.42, h:7.05, yellow:true, num:"2", numCorner:true, scroll:"2", close:true, tip:"<b>확인</b>을 누르면 창이 닫힙니다."},
+      {x:66.7, y:90.9, w:15.42, h:7.05, yellow:true, num:"2", numCorner:true, scroll:"3", to:"3", clickme:{dir:"down"}, tip:"<b>확인</b>을 누르면 창이 닫힙니다."},
+    ]},
+  "p_menu2":{img:"images/포스-단축키-관리메뉴2.png", win:{x:10.96, y:15.0, w:78.07},
+    btns:[
+      {x:26.19, y:90.09, w:72.2, h:7.27, plain:true, close:true, scroll:"4", tip:"<b>닫기</b>를 누르면 관리메뉴가 닫힙니다."},
+      {x:1.61, y:12.42, w:22.87, h:11.23, plain:true, scroll:"4", tip:"하루 영업을 마칠 때 <b>매출마감</b>을 엽니다."},
+      {x:26.19, y:12.42, w:22.87, h:11.23, plain:true, scroll:"4", tip:"포스 <b>환경설정</b> 창을 엽니다."},
+      {x:50.85, y:12.42, w:22.87, h:11.23, plain:true, scroll:"4", tip:"<b>상품등록</b> 창을 엽니다."},
+      {x:75.43, y:12.42, w:22.87, h:11.23, plain:true, scroll:"4", tip:"<b>매출처</b>(회원) 등록 창을 엽니다."},
+      {x:1.61, y:90.09, w:22.87, h:7.27, plain:true, scroll:"4", tip:"결제 중이 아닐 때 <b>포스</b>를 끕니다."},
+      {x:1.61, y:28.53, w:19.92, h:19.02, plain:true, notint:true, scroll:"4", tip:"분류를 누르면 그 분류의 <b>메뉴</b>가 나옵니다."},
+      {x:1.61, y:58.78, w:19.92, h:8.85, plain:true, scroll:"4", tip:"분류를 누르면 그 분류의 <b>메뉴</b>가 나옵니다."},
+      {x:1.61, y:48.75, w:19.92, h:8.85, plain:true, scroll:"4", tip:"<b>화면 꾸미기</b> 분류의 메뉴가 나와 있습니다."},
+      {x:23.24, y:28.8, w:36.72, h:7.66, plain:true, scroll:"4", tip:"<b>상품판·분류·숫자패드</b>의 폭과 열 수를 정합니다."},
+      {x:61.57, y:28.8, w:36.81, h:7.66, plain:true, scroll:"4", tip:"<b>상품판</b>에 상품을 넣고 빼는 편집을 켭니다."},
+      {x:23.24, y:37.65, w:36.72, h:7.53, plain:true, scroll:"4", tip:"화면 <b>영역</b>의 크기와 자리를 바꾸는 편집을 켭니다."},
+      {x:61.57, y:37.65, w:36.81, h:7.53, plain:true, scroll:"4", tip:"상품 목록 <b>열</b>의 차례·보이기·폭을 정합니다."},
+      {x:23.24, y:46.63, w:36.72, h:7.66, plain:true, scroll:"4", tip:"저장된 영역 배치를 지우고 <b>기본</b>으로 되돌립니다."},
+      {x:61.57, y:46.63, w:36.81, h:7.66, plain:true, scroll:"4", tip:"화면에 <b>보일 항목</b>을 정합니다."},
+      {x:61.57, y:55.48, w:36.81, h:7.53, plain:true, scroll:"4", tip:"<b>영수증</b> 모양을 고르고 편집합니다."},
+      {x:61.57, y:64.46, w:36.81, h:7.66, plain:true, scroll:"4", tip:"<b>서버 설정</b>을 다시 받아 바로 적용합니다."},
+      {x:23.24, y:55.48, w:36.72, h:7.53, yellow:true, scroll:"★4", to:"1", tip:"<b>취소</b>를 누르면 저장하지 않고 편집을 끝냅니다."},
+      {x:23.24, y:64.46, w:36.72, h:7.66, yellow:true, num:"2", numCorner:true, scroll:"4", to:"p_scope", clickme:{dir:"down"}, tip:"<b>저장하고 끄기</b>를 누르면 저장 범위 창이 열립니다."},
+    ]},
+  "p_scope":{img:"images/포스-단축키-저장범위.png", win:{x:22.67, y:30.46, w:54.67},
+    btns:[
+      {x:2.44, y:20.05, w:95.26, h:50.13, plain:true, notint:true, scroll:"4", tip:"기능 버튼을 <b>매장 공통</b>으로 저장할지 묻습니다."},
+      {x:35.5, y:74.67, w:30.08, h:21.11, yellow:true, num:"3", numCorner:true, scroll:"4", to:"4", clickme:{dir:"down"}, tip:"<b>예</b>를 누르면 이 매장의 모든 포스에 저장됩니다."},
+      {x:67.89, y:74.67, w:29.81, h:21.11, yellow:true, scroll:"4", to:"4", tip:"<b>아니요</b>를 누르면 이 포스에만 저장됩니다."},
     ]},
 } };
 DESCS["pos1key1"] = [
   {type:"step", num:"★", ystar:true, title:"💡 단축키란?", subs:["기능 버튼 아래쪽에 작게 적힌 글자가 그 버튼의 <b>단축키</b>입니다.", "키보드에서 이 키를 누르면 버튼을 누른 것과 똑같이 그 기능이 <b>바로 실행</b>됩니다."]},
-  {type:"note", text:"기능 버튼 편집을 켜고 기능 버튼 아래 작게 적힌 <b>단축키</b>를 원하는 키로 바꾸는 화면입니다."},
+  {type:"note", text:"기능 버튼 편집을 켜고 기능 버튼 아래 작게 적힌 <b>단축키</b>를 원하는 키로 바꾼 뒤 <b>저장</b>하는 화면입니다."},
   {type:"step", num:"1", title:"🛠️ 기능 버튼 편집 켜기", subs:["1. 왼쪽 위 <b>로고</b>를 누르면 관리메뉴가 열립니다.", "⬇", "2. 분류에서 <b>화면 꾸미기</b>를 고릅니다.", "⬇", "3. <span class='ui-btn'>기능 버튼 크기 · 자리 편집 켜기 (K)</span>를 누릅니다.", "%%편집이 켜지면 기능 버튼마다 분홍색 테두리가 생깁니다. 버튼을 끌면 자리가, 모서리를 끌면 크기가 바뀝니다."]},
   {type:"step", num:"2", title:"✏️ 할인 버튼 단축키 바꾸기", subs:["<span class='ui-btn'>할인</span> 버튼 위에서 <b style='color:#ff0000'>마우스 오른쪽 버튼</b>을 누르면 기능 버튼 꾸미기 창이 열립니다.", "%%이 창에서 버튼 이름과 색, 글자 모양도 바꿀 수 있습니다.", "⬇", "1. <b>단축키</b> 칸을 누르고 키보드에서 새로 쓸 키를 누릅니다.", "%%칸에 새 단축키가 들어가고 미리보기에도 바로 보입니다.", "⬇", "2. <span class='ui-btn'>확인 (Ctrl+Enter)</span> 버튼을 누릅니다."]},
   {type:"step", num:"★", ystar:true, title:"🔑 쓸 수 있는 키", subs:["쓸 수 있는 키(<b>F2~F12 · Alt+글자 · = · -</b>)는 단축키 칸 옆에 안내돼 있습니다.", "%%Alt 와 함께 숫자를 눌러도 됩니다.", "이미 다른 버튼이 쓰는 키를 누르면 어느 버튼이 쓰는지 알려 주고 <b>들어가지 않습니다</b>. 이때는 다른 키를 누릅니다.", "<img src='images/포스-단축키-이미사용.png' alt='이미 다른 버튼이 쓰는 키라는 안내' style='display:block;width:100%;max-width:380px;margin:6px auto 0'>"]},
-  {type:"step", num:"3", title:"⚠️ 주의! 아직 편집이 완료되지 않았어요!", subs:["창이 닫혀도 <span class='ui-btn'>할인</span> 버튼에는 아직 예전 단축키가 보입니다.", "바꾼 단축키는 편집을 <b>저장</b>해야 적용됩니다. 🔗 <b class='dlink' onclick=\"goPage(1)\">저장하기</b> 바로가기"]},
-];
-IMGS["pos1key2"] = "images/포스-단축키-저장화면.png";
-SIM["pos1key2"] = { start:"1", screens:{
-  "1":{img:"images/포스-단축키-저장화면.png",
-    btns:[
-      {x:0.59, y:1.48, w:12.44, h:4.07, num:"1", numRight:true, to:"p_menu2", toggle:true, clickme:{dir:"down"}, tipDn:true, tip:"<b>로고</b>를 누르면 관리메뉴가 열립니다."},
-      {x:87.26, y:64.35, w:6.0, h:8.43, yellow:true, scroll:"★1", tip:"저장하면 <b>새 단축키</b>가 보입니다."},
-      {x:15.11, y:1.48, w:15.56, h:4.07, plain:true, tipDn:true, tip:"<b>저장</b>이 끝났다는 안내가 나옵니다."},
-      {x:74.3, y:79.54, w:25.41, h:2.22, plain:true, tip:"버튼마다 작게 적힌 글자가 <b>단축키</b>입니다."},
-      {x:77.56, y:1.48, w:7.33, h:4.07, plain:true, tipDn:true, tip:"지난 <b>결제 내역</b>을 찾습니다."},
-      {x:85.7, y:1.48, w:6.07, h:4.07, plain:true, tipDn:true, tip:"<b>보류</b>한 계산을 다시 불러옵니다."},
-    ]},
-  "p_menu2":{img:"images/포스-단축키-관리메뉴2.png", win:{x:10.96, y:15.0, w:78.07},
-    btns:[
-      {x:26.19, y:90.09, w:72.2, h:7.27, plain:true, close:true, scroll:"1", tip:"<b>닫기</b>를 누르면 관리메뉴가 닫힙니다."},
-      {x:1.61, y:12.42, w:22.87, h:11.23, plain:true, scroll:"1", tip:"하루 영업을 마칠 때 <b>매출마감</b>을 엽니다."},
-      {x:26.19, y:12.42, w:22.87, h:11.23, plain:true, scroll:"1", tip:"포스 <b>환경설정</b> 창을 엽니다."},
-      {x:50.85, y:12.42, w:22.87, h:11.23, plain:true, scroll:"1", tip:"<b>상품등록</b> 창을 엽니다."},
-      {x:75.43, y:12.42, w:22.87, h:11.23, plain:true, scroll:"1", tip:"<b>매출처</b>(회원) 등록 창을 엽니다."},
-      {x:1.61, y:90.09, w:22.87, h:7.27, plain:true, scroll:"1", tip:"결제 중이 아닐 때 <b>포스</b>를 끕니다."},
-      {x:1.61, y:28.53, w:19.92, h:19.02, plain:true, notint:true, scroll:"1", tip:"분류를 누르면 그 분류의 <b>메뉴</b>가 나옵니다."},
-      {x:1.61, y:58.78, w:19.92, h:8.85, plain:true, scroll:"1", tip:"분류를 누르면 그 분류의 <b>메뉴</b>가 나옵니다."},
-      {x:1.61, y:48.75, w:19.92, h:8.85, plain:true, scroll:"1", tip:"<b>화면 꾸미기</b> 분류의 메뉴가 나와 있습니다."},
-      {x:23.24, y:28.8, w:36.72, h:7.66, plain:true, scroll:"1", tip:"<b>상품판·분류·숫자패드</b>의 폭과 열 수를 정합니다."},
-      {x:61.57, y:28.8, w:36.81, h:7.66, plain:true, scroll:"1", tip:"<b>상품판</b>에 상품을 넣고 빼는 편집을 켭니다."},
-      {x:23.24, y:37.65, w:36.72, h:7.53, plain:true, scroll:"1", tip:"화면 <b>영역</b>의 크기와 자리를 바꾸는 편집을 켭니다."},
-      {x:61.57, y:37.65, w:36.81, h:7.53, plain:true, scroll:"1", tip:"상품 목록 <b>열</b>의 차례·보이기·폭을 정합니다."},
-      {x:23.24, y:46.63, w:36.72, h:7.66, plain:true, scroll:"1", tip:"저장된 영역 배치를 지우고 <b>기본</b>으로 되돌립니다."},
-      {x:61.57, y:46.63, w:36.81, h:7.66, plain:true, scroll:"1", tip:"화면에 <b>보일 항목</b>을 정합니다."},
-      {x:61.57, y:55.48, w:36.81, h:7.53, plain:true, scroll:"1", tip:"<b>영수증</b> 모양을 고르고 편집합니다."},
-      {x:61.57, y:64.46, w:36.81, h:7.66, plain:true, scroll:"1", tip:"<b>서버 설정</b>을 다시 받아 바로 적용합니다."},
-      {x:23.24, y:55.48, w:36.72, h:7.53, yellow:true, scroll:"★2", tip:"<b>취소</b>를 누르면 저장하지 않고 편집을 끝냅니다."},
-      {x:23.24, y:64.46, w:36.72, h:7.66, yellow:true, num:"2", numCorner:true, scroll:"1", to:"p_scope", clickme:{dir:"down"}, tip:"<b>저장하고 끄기</b>를 누르면 저장 범위 창이 열립니다."},
-    ]},
-  "p_scope":{img:"images/포스-단축키-저장범위.png", win:{x:22.67, y:30.46, w:54.67},
-    btns:[
-      {x:2.44, y:20.05, w:95.26, h:50.13, plain:true, notint:true, scroll:"1", tip:"기능 버튼을 <b>매장 공통</b>으로 저장할지 묻습니다."},
-      {x:35.5, y:74.67, w:30.08, h:21.11, yellow:true, num:"3", numCorner:true, scroll:"1", close:true, tip:"<b>예</b>를 누르면 이 매장의 모든 포스에 저장됩니다."},
-      {x:67.89, y:74.67, w:29.81, h:21.11, yellow:true, scroll:"1", close:true, tip:"<b>아니요</b>를 누르면 이 포스에만 저장됩니다."},
-    ]},
-} };
-DESCS["pos1key2"] = [
-  {type:"note", text:"기능 버튼 편집을 <b>저장</b>해서 바꾼 단축키를 적용하는 화면입니다."},
-  {type:"step", num:"1", title:"💾 저장하고 끄기", subs:["1. 다시 왼쪽 위 <b>로고</b>를 눌러 관리메뉴를 엽니다.", "⬇", "2. 화면 꾸미기에서 <span class='ui-btn'>기능 버튼 편집 — 저장하고 끄기 (K)</span>를 누릅니다.", "⬇", "3. 저장 범위 창에서 <b>예</b>를 누르면 이 매장의 모든 포스에 저장됩니다.", "%%이 포스에만 저장하려면 <b>아니요</b>를 누릅니다."]},
+  {type:"step", num:"3", title:"⚠️ 주의! 아직 편집이 완료되지 않았어요!", subs:["창이 닫혀도 <span class='ui-btn'>할인</span> 버튼에는 아직 예전 단축키가 보입니다.", "바꾼 단축키는 편집을 <b>저장</b>해야 적용됩니다."]},
+  {type:"step", num:"4", title:"💾 저장하고 끄기", subs:["1. 다시 왼쪽 위 <b>로고</b>를 눌러 관리메뉴를 엽니다.", "⬇", "2. 화면 꾸미기에서 <span class='ui-btn'>기능 버튼 편집 — 저장하고 끄기 (K)</span>를 누릅니다.", "⬇", "3. 저장 범위 창에서 <b>예</b>를 누르면 이 매장의 모든 포스에 저장됩니다.", "%%이 포스에만 저장하려면 <b>아니요</b>를 누릅니다."]},
   {type:"step", num:"★", ystar:true, title:"✅ 새 단축키 확인", subs:["저장이 끝나면 <span class='ui-btn'>할인</span> 버튼 아래에 새로 정한 <b>단축키</b>가 보입니다.", "이제 키보드에서 이 키를 누르면 할인 기능이 바로 실행됩니다."]},
   {type:"step", num:"★", ystar:true, title:"↩️ 저장하지 않고 끝내기", body:"바꾼 내용을 버리고 편집을 끝내려면 <span class='ui-btn'>기능 버튼 편집 — 취소 (2)</span>를 누릅니다."},
-  {type:"note", text:"단축키를 바꾸는 방법은 🔗 <b class='dlink' onclick=\"goPage(0)\">단축키 바꾸기</b> 에서 확인할 수 있습니다."},
 ];
 // ── 포스 2 · 카드결제·현금결제 ──
 IMGS["pos2card"] = "images/포스-결제-판매화면.png";
@@ -29711,12 +29727,12 @@ DESCS["pos7dispose"] = [
   {type:"bullet", title:"🧾 영수증", body:"폐기 처리 영수증에는 <b>[폐기처리] - 승인대기</b> 표시와 등록한 상품이 나옵니다.", subs:["<img src='images/포스-영수증-자가폐기.png' alt='폐기 처리 영수증' style='display:block;width:260px;max-width:100%;margin:6px auto 0'>"]},
 ];
 // 포스 페이지 표시(엔진의 POS-MERGE 패치가 이 페이지에서만 작동)
-["pos1tour","pos1key1","pos1key2","pos1power","pos1down","pos1scan","pos1split","pos1find","pos2card","pos2cash","pos2after","pos2transfer","pos2pay","pos2multi","pos2cancel","pos2hold","pos3reg","pos3sale","pos3find","pos3bank","pos4gift","pos4evirm","pos4event","pos4limirm","pos4limit","pos5kind","pos5instant","pos5after","pos6open","pos6close","pos7merge","pos7mergefind","pos7point","pos7dispose"].forEach(k => { if (SIM[k]) SIM[k].pos = true; });
+["pos1tour","pos1key1","pos1power","pos1down","pos1scan","pos1split","pos1find","pos2card","pos2cash","pos2after","pos2transfer","pos2pay","pos2multi","pos2cancel","pos2hold","pos3reg","pos3sale","pos3find","pos3bank","pos4gift","pos4evirm","pos4event","pos4limirm","pos4limit","pos5kind","pos5instant","pos5after","pos6open","pos6close","pos7merge","pos7mergefind","pos7point","pos7dispose"].forEach(k => { if (SIM[k]) SIM[k].pos = true; });
 // 포스 강의 — yt(유튜브 아이디)가 있는 것만 모아보기·페이지 버튼에 나옴(영상작업/유튜브/youtube_ids.json → 다시 merge_into_s.py)
 const POS_VIDEOS = [
   {id:"pos-power", subId:"pos-power", alsoSubs:[], title:"포스 켜기", cat:"포스 켜고 상품 찍기 › 포스 켜기", src:"videos/pos-power.mp4", poster:"videos/pos-power.jpg", dur:"1:08", desc:"바탕화면의 포스 아이콘으로 포스를 켜고 로그인하는 방법과, 내림 버튼으로 포스 창을 작업 표시줄로 내리는 방법을 알려드려요.", tags:["포스켜기", "로그인", "포스아이콘", "사원ID", "ID저장", "비밀번호", "숫자판", "업데이트", "내림", "작업표시줄"], chapters:[{t:10.0, title:"포스 켜기", subs:["pos-power"]}, {t:15.1, title:"로그인", subs:["pos-power"]}, {t:49.8, title:"창 내리기", subs:["pos-power"]}], pos:true, yt:"mqxoMd3Q4DU"},
   {id:"pos-scan", subId:"pos-scan", alsoSubs:["pos-find", "pos-tour"], title:"상품 찍기", cat:"포스 켜고 상품 찍기 › 상품 찍기", src:"videos/pos-scan.mp4", poster:"videos/pos-scan.jpg", dur:"2:16", desc:"바코드로 상품을 찍고 수량을 바꾸는 방법, 같은 상품을 나누어 찍었을 때, 찾기와 상품검색으로 상품을 찾는 방법을 알려드려요.", tags:["상품찍기", "바코드", "스캔", "수량", "플러스", "마이너스", "숫자판", "합계", "상품버튼", "나누어찍기", "영수증", "찾기", "상품검색", "재고", "로케이션"], chapters:[{t:9.5, title:"상품 스캔", subs:["pos-scan"], tags:["바코드", "스캔", "띵"]}, {t:31.6, title:"수량 입력", subs:["pos-scan"], tags:["수량", "플러스", "마이너스", "숫자판"]}, {t:54.4, title:"상품 버튼으로 넣기", subs:["pos-scan"], tags:["상품버튼"]}, {t:59.6, title:"같은 상품을 나누어 찍었을 때", subs:["pos-scan"], tags:["나누어찍기", "영수증"]}, {t:75.2, title:"목록에서 상품 찾기", subs:["pos-find"], tags:["찾기", "주의", "수량"]}, {t:94.8, title:"상품검색으로 담기", subs:["pos-find"], tags:["상품검색", "재고", "로케이션"]}], pos:true, yt:"dFYJf2DdtEE"},
-  {id:"pos-shortcut", subId:"pos-shortcut", alsoSubs:[], title:"단축키 설정", cat:"포스 켜고 상품 찍기 › 단축키 설정", src:"videos/pos-shortcut.mp4", poster:"videos/pos-shortcut.jpg", dur:"2:20", desc:"기능 버튼 아래에 적힌 단축키가 무엇인지, 기능 버튼 편집을 켜고 할인 버튼을 마우스 오른쪽 버튼으로 눌러 단축키를 바꾸고 저장하는 방법을 알려드려요.", tags:["단축키", "기능버튼", "키보드", "관리메뉴", "화면꾸미기", "기능버튼편집", "오른쪽클릭", "기능버튼꾸미기", "할인", "미리보기", "저장하고끄기", "편집취소", "저장범위", "매장공통"], chapters:[{t:9.6, title:"단축키란?", subs:["pos-shortcut"], pages:["pos1key1"], tags:["단축키", "키보드"]}, {t:26.2, title:"편집 켜기", subs:["pos-shortcut"], pages:["pos1key1"], tags:["관리메뉴", "화면꾸미기", "기능버튼편집"]}, {t:46.6, title:"단축키 바꾸기", subs:["pos-shortcut"], pages:["pos1key1"], tags:["오른쪽클릭", "기능버튼꾸미기", "미리보기"]}, {t:92.8, title:"저장하기", subs:["pos-shortcut"], pages:["pos1key2"], tags:["저장하고끄기", "편집취소", "저장범위"]}], pos:true, yt:"YnKkTETJt_o"},
+  {id:"pos-shortcut", subId:"pos-shortcut", alsoSubs:[], title:"단축키 설정", cat:"포스 켜고 상품 찍기 › 단축키 설정", src:"videos/pos-shortcut.mp4", poster:"videos/pos-shortcut.jpg", dur:"2:20", desc:"기능 버튼 아래에 적힌 단축키가 무엇인지, 기능 버튼 편집을 켜고 할인 버튼을 마우스 오른쪽 버튼으로 눌러 단축키를 바꾸고 저장하는 방법을 알려드려요.", tags:["단축키", "기능버튼", "키보드", "관리메뉴", "화면꾸미기", "기능버튼편집", "오른쪽클릭", "기능버튼꾸미기", "할인", "미리보기", "저장하고끄기", "편집취소", "저장범위", "매장공통"], chapters:[{t:9.6, title:"단축키란?", subs:["pos-shortcut"], pages:["pos1key1"], tags:["단축키", "키보드"]}, {t:26.2, title:"편집 켜기", subs:["pos-shortcut"], pages:["pos1key1"], tags:["관리메뉴", "화면꾸미기", "기능버튼편집"]}, {t:46.6, title:"단축키 바꾸기", subs:["pos-shortcut"], pages:["pos1key1"], tags:["오른쪽클릭", "기능버튼꾸미기", "미리보기"]}, {t:92.8, title:"저장하기", subs:["pos-shortcut"], pages:["pos1key1"], tags:["저장하고끄기", "편집취소", "저장범위"]}], pos:true, yt:"YnKkTETJt_o"},
   {id:"pos-cardcash", subId:"pos-cardcash", alsoSubs:[], title:"카드결제·현금결제", cat:"결제 받기 › 카드결제·현금결제", src:"videos/pos-cardcash.mp4", poster:"videos/pos-cardcash.jpg", dur:"3:54", desc:"카드결제와 현금결제, 현금영수증 번호 받기, 계산 뒤 현금영수증 발급, 계좌이체 결제 방법을 알려드려요.", tags:["카드결제", "현금결제", "현금영수증", "회원입력", "매출검색", "거래상세", "계좌이체", "입금확인", "금전함"], chapters:[{t:10.8, title:"카드 결제", subs:["pos-cardcash"], tags:["카드결제", "제휴카드", "승인"]}, {t:55.6, title:"현금 결제", subs:["pos-cardcash"], tags:["현금결제", "거스름돈"]}, {t:69.9, title:"현금영수증", subs:["pos-cardcash"], tags:["현금영수증", "계산원", "회원입력", "금전함"]}, {t:99.8, title:"계산 후 현금영수증", subs:["pos-cardcash"], tags:["매출검색", "거래조회", "거래상세", "현금영수", "식별번호"]}, {t:147.0, title:"계좌이체", subs:["pos-cardcash"], tags:["계좌이체", "입금확인", "입금자", "계좌전표"]}], pos:true, yt:"wgVlIoREGDo"},
   {id:"pos-pay", subId:"pos-pay", alsoSubs:[], title:"페이 결제", cat:"결제 받기 › 페이 결제", src:"videos/pos-pay.mp4", poster:"videos/pos-pay.jpg", dur:"1:22", desc:"손님이 휴대폰 간편결제로 계산할 때 페이 버튼을 고르고 손님 휴대폰의 QR·바코드를 찍는 방법, 매출검색에서 결제 내역을 확인하는 방법을 알려드려요.", tags:["PAY", "페이", "간편결제", "QR", "바코드", "네이버페이", "카카오페이", "가맹"], chapters:[{t:9.7, title:"페이 결제 창", subs:["pos-pay"], tags:["PAY", "간편결제", "네이버페이", "카카오페이"]}, {t:38.5, title:"바코드 찍기", subs:["pos-pay"], tags:["QR", "바코드", "스캐너", "승인"]}, {t:48.6, title:"결제 확인", subs:["pos-pay"], tags:["영수증", "매출검색", "거래상세"]}], pos:true, yt:"SbQq6Tx7TrU"},
   {id:"pos-multi", subId:"pos-multi", alsoSubs:[], title:"복합 결제", cat:"결제 받기 › 복합 결제", src:"videos/pos-multi.mp4", poster:"videos/pos-multi.jpg", dur:"3:56", desc:"결제를 현금과 카드, 카드 두 장으로 나누어 받는 방법과 나누어 받은 결제를 전표취소로 한 번에 취소하는 방법을 알려드려요.", tags:["복합결제", "남은금액", "카드두장", "전표취소", "환불", "승인취소", "매출검색"], chapters:[{t:9.3, title:"현금+카드 결제", subs:["pos-multi"], tags:["복합결제", "남은금액", "현금", "카드"]}, {t:71.8, title:"카드+카드 결제", subs:["pos-multi"], tags:["카드두장", "나누어결제"]}, {t:114.9, title:"복합 결제 취소", subs:["pos-multi"], tags:["전표취소", "환불안내", "취소진행"]}, {t:177.9, title:"카드 두 장 취소", subs:["pos-multi"], tags:["카드두장", "주의", "전표취소"]}], pos:true, yt:"p8_5_ch70Zk"},
@@ -29965,7 +29981,7 @@ const S_DEF = [
     {g:"권한관리"}, {ref:"env13"},{ref:"env03", title:"사원 메뉴 설정"},{ref:"env14", title:"버튼 권한 관리"},{prep:"즐겨찾기 메뉴관리"},
   ]},
   ── */
-  /* ▼ MPAGES-SDEF:pos */ /* 포스 설명서 7개 장 — 포스메뉴얼/_build/merge_into_s.py 가 만듦(여기서 고치지 말 것). 새 S 장은 이 줄 위에 */ {chapter:"포스 1", id:"pos-ch1", pos:true, title:"포스 켜고 상품 찍기", icon:"🛒", items:[{sub:{id:"pos-tour", title:"포스 화면 둘러보기", subtitles:{pos1tour:"판매 화면 구역별 안내"}, pages:["pos1tour"], tips:{}}}, {sub:{id:"pos-shortcut", title:"단축키 설정", subtitles:{pos1key1:"기능 버튼 편집을 켜고 단축키 바꾸기", pos1key2:"편집을 저장해 바꾼 단축키 적용하기"}, pages:["pos1key1", "pos1key2"], pageLabels:["단축키 바꾸기", "저장하기"], tips:{}}}, {sub:{id:"pos-power", title:"포스 켜기", subtitles:{pos1power:"포스 아이콘으로 켜고 로그인하기", pos1down:"내림으로 포스 창 내리기"}, pages:["pos1power", "pos1down"], pageLabels:["켜기·로그인", "창 내리기"], tips:{}}}, {sub:{id:"pos-scan", title:"상품 찍기·수량", subtitles:{pos1scan:"바코드를 찍고 수량 바꾸기", pos1split:"같은 상품을 나누어 찍었을 때"}, pages:["pos1scan", "pos1split"], pageLabels:["상품 찍기·수량", "나누어 찍기"], tips:{}}}, {sub:{id:"pos-find", title:"상품 찾기·상품검색", subtitles:{pos1find:"찾기 칸·상품검색 창으로 상품 찾기"}, pages:["pos1find"], tips:{}}}]}, {chapter:"포스 2", id:"pos-ch2", pos:true, title:"결제 받기", icon:"💳", items:[{sub:{id:"pos-cardcash", title:"카드결제·현금결제", subtitles:{pos2card:"카드로 결제 받기", pos2cash:"현금으로 받고 현금영수증 번호 받기", pos2after:"계산한 뒤에 현금영수증 발급하기", pos2transfer:"계좌이체로 결제 받기"}, pages:["pos2card", "pos2cash", "pos2after", "pos2transfer"], pageLabels:["카드 결제", "현금 결제·현금영수증", "계산 후 현금영수증", "계좌이체"], tips:{}}}, {sub:{id:"pos-pay", title:"페이 결제", subtitles:{pos2pay:"휴대폰 간편결제로 결제 받기"}, pages:["pos2pay"], tips:{}}}, {sub:{id:"pos-multi", title:"복합 결제", subtitles:{pos2multi:"현금과 카드로 나누어 받기", pos2cancel:"나누어 받은 결제 취소하기"}, pages:["pos2multi", "pos2cancel"], pageLabels:["현금+카드 결제", "복합 결제 취소"], tips:{}}}, {sub:{id:"pos-hold", title:"결제 보류", subtitles:{pos2hold:"계산 보류하고 다시 불러오기"}, pages:["pos2hold"], tips:{}}}]}, {chapter:"포스 3", id:"pos-ch3", pos:true, title:"반품 받기", icon:"↩️", items:[{sub:{id:"pos-return-reg", title:"반품 등록(전환 매장)", subtitles:{pos3reg:"예전 포스에서 산 상품을 반품 등록으로 환불"}, pages:["pos3reg"], tips:{}}}, {sub:{id:"pos-return-cancel", title:"환불하기", subtitles:{pos3sale:"매출검색으로 거래를 찾아 전표취소"}, pages:["pos3sale"], tips:{}}}, {sub:{id:"pos-return-find", title:"영수증 없이 찾기", subtitles:{pos3find:"금액·날짜·승인번호·회원·상품으로 찾기"}, pages:["pos3find"], tips:{}}}, {sub:{id:"pos-return-bank", title:"계좌이체 환불", subtitles:{pos3bank:"계좌이체 결제를 계좌·현금으로 환불"}, pages:["pos3bank"], tips:{}}}]}, {chapter:"포스 4", id:"pos-ch4", pos:true, title:"증정·할인과 행사·제한상품", icon:"🎁", items:[{sub:{id:"pos-gift", title:"증정·할인", subtitles:{pos4gift:"상품 바로 할인하기·증정품 0원으로 찍기"}, pages:["pos4gift"], tips:{}}}, {sub:{id:"pos-event", title:"행사·제한상품", subtitles:{pos4evirm:"IRM(ERP)에서 2+1 행사 등록·시작·끝내기", pos4event:"2+1 행사 상품 찍기", pos4limirm:"IRM(ERP)에서 제한상품 등록·제한 시작", pos4limit:"제한상품 찍기"}, pages:["pos4evirm", "pos4event", "pos4limirm", "pos4limit"], pageLabels:["2+1 행사 설정(IRM(ERP))", "2+1 행사(포스)", "제한상품 설정(IRM(ERP))", "제한상품(포스)"], tips:{}}}]}, {chapter:"포스 5", id:"pos-ch5", pos:true, title:"외국인 손님 세금 환급", icon:"🌏", items:[{sub:{id:"pos-refund", title:"즉시환급·사후환급", subtitles:{pos5kind:"사후환급·즉시환급 알아보기", pos5instant:"계산할 때 즉시환급하기", pos5after:"결제 마친 거래에 사후환급 발행하기"}, pages:["pos5kind", "pos5instant", "pos5after"], pageLabels:["사후·즉시환급", "즉시환급하기", "사후환급하기"], tips:{}}}]}, {chapter:"포스 6", id:"pos-ch6", pos:true, title:"하루 마감하기", icon:"🧾", items:[{sub:{id:"pos-close", title:"매출 마감", subtitles:{pos6open:"관리메뉴에서 매출마감 열기", pos6close:"준비금·권종 입력과 계산원 마감"}, pages:["pos6open", "pos6close"], pageLabels:["매출마감 열기", "매출마감"], tips:{}}}]}, {chapter:"포스 7", id:"pos-ch7", pos:true, title:"영수증 합치기·포인트·자가폐기", icon:"🧩", items:[{sub:{id:"pos-merge", title:"영수증 합치기", subtitles:{pos7merge:"영수증 바코드 두 번 찍어 합치기", pos7mergefind:"매출검색 · 재주문으로 합치기"}, pages:["pos7merge", "pos7mergefind"], pageLabels:["영수증이 있을 때", "영수증이 없을 때"], tips:{}}}, {sub:{id:"pos-point", title:"포인트로 결제하기", subtitles:{pos7point:"회원 찾아 포인트로 결제하기"}, pages:["pos7point"], tips:{}}}, {sub:{id:"pos-dispose", title:"자가폐기", subtitles:{pos7dispose:"팔 수 없는 상품 자가소비·폐기 등록하기"}, pages:["pos7dispose"], tips:{}}}]}, /* ▲ MPAGES-SDEF:pos */
+  /* ▼ MPAGES-SDEF:pos */ /* 포스 설명서 7개 장 — 포스메뉴얼/_build/merge_into_s.py 가 만듦(여기서 고치지 말 것). 새 S 장은 이 줄 위에 */ {chapter:"포스 1", id:"pos-ch1", pos:true, title:"포스 켜고 상품 찍기", icon:"🛒", items:[{sub:{id:"pos-tour", title:"포스 화면 둘러보기", subtitles:{pos1tour:"판매 화면 구역별 안내"}, pages:["pos1tour"], tips:{}}}, {sub:{id:"pos-shortcut", title:"단축키 설정", subtitles:{pos1key1:"기능 버튼 편집을 켜고 단축키를 바꿔 저장하기"}, pages:["pos1key1"], tips:{}}}, {sub:{id:"pos-power", title:"포스 켜기", subtitles:{pos1power:"포스 아이콘으로 켜고 로그인하기", pos1down:"내림으로 포스 창 내리기"}, pages:["pos1power", "pos1down"], pageLabels:["켜기·로그인", "창 내리기"], tips:{}}}, {sub:{id:"pos-scan", title:"상품 찍기·수량", subtitles:{pos1scan:"바코드를 찍고 수량 바꾸기", pos1split:"같은 상품을 나누어 찍었을 때"}, pages:["pos1scan", "pos1split"], pageLabels:["상품 찍기·수량", "나누어 찍기"], tips:{}}}, {sub:{id:"pos-find", title:"상품 찾기·상품검색", subtitles:{pos1find:"찾기 칸·상품검색 창으로 상품 찾기"}, pages:["pos1find"], tips:{}}}]}, {chapter:"포스 2", id:"pos-ch2", pos:true, title:"결제 받기", icon:"💳", items:[{sub:{id:"pos-cardcash", title:"카드결제·현금결제", subtitles:{pos2card:"카드로 결제 받기", pos2cash:"현금으로 받고 현금영수증 번호 받기", pos2after:"계산한 뒤에 현금영수증 발급하기", pos2transfer:"계좌이체로 결제 받기"}, pages:["pos2card", "pos2cash", "pos2after", "pos2transfer"], pageLabels:["카드 결제", "현금 결제·현금영수증", "계산 후 현금영수증", "계좌이체"], tips:{}}}, {sub:{id:"pos-pay", title:"페이 결제", subtitles:{pos2pay:"휴대폰 간편결제로 결제 받기"}, pages:["pos2pay"], tips:{}}}, {sub:{id:"pos-multi", title:"복합 결제", subtitles:{pos2multi:"현금과 카드로 나누어 받기", pos2cancel:"나누어 받은 결제 취소하기"}, pages:["pos2multi", "pos2cancel"], pageLabels:["현금+카드 결제", "복합 결제 취소"], tips:{}}}, {sub:{id:"pos-hold", title:"결제 보류", subtitles:{pos2hold:"계산 보류하고 다시 불러오기"}, pages:["pos2hold"], tips:{}}}]}, {chapter:"포스 3", id:"pos-ch3", pos:true, title:"반품 받기", icon:"↩️", items:[{sub:{id:"pos-return-reg", title:"반품 등록(전환 매장)", subtitles:{pos3reg:"예전 포스에서 산 상품을 반품 등록으로 환불"}, pages:["pos3reg"], tips:{}}}, {sub:{id:"pos-return-cancel", title:"환불하기", subtitles:{pos3sale:"매출검색으로 거래를 찾아 전표취소"}, pages:["pos3sale"], tips:{}}}, {sub:{id:"pos-return-find", title:"영수증 없이 찾기", subtitles:{pos3find:"금액·날짜·승인번호·회원·상품으로 찾기"}, pages:["pos3find"], tips:{}}}, {sub:{id:"pos-return-bank", title:"계좌이체 환불", subtitles:{pos3bank:"계좌이체 결제를 계좌·현금으로 환불"}, pages:["pos3bank"], tips:{}}}]}, {chapter:"포스 4", id:"pos-ch4", pos:true, title:"증정·할인과 행사·제한상품", icon:"🎁", items:[{sub:{id:"pos-gift", title:"증정·할인", subtitles:{pos4gift:"상품 바로 할인하기·증정품 0원으로 찍기"}, pages:["pos4gift"], tips:{}}}, {sub:{id:"pos-event", title:"행사·제한상품", subtitles:{pos4evirm:"IRM(ERP)에서 2+1 행사 등록·시작·끝내기", pos4event:"2+1 행사 상품 찍기", pos4limirm:"IRM(ERP)에서 제한상품 등록·제한 시작", pos4limit:"제한상품 찍기"}, pages:["pos4evirm", "pos4event", "pos4limirm", "pos4limit"], pageLabels:["2+1 행사 설정(IRM(ERP))", "2+1 행사(포스)", "제한상품 설정(IRM(ERP))", "제한상품(포스)"], tips:{}}}]}, {chapter:"포스 5", id:"pos-ch5", pos:true, title:"외국인 손님 세금 환급", icon:"🌏", items:[{sub:{id:"pos-refund", title:"즉시환급·사후환급", subtitles:{pos5kind:"사후환급·즉시환급 알아보기", pos5instant:"계산할 때 즉시환급하기", pos5after:"결제 마친 거래에 사후환급 발행하기"}, pages:["pos5kind", "pos5instant", "pos5after"], pageLabels:["사후·즉시환급", "즉시환급하기", "사후환급하기"], tips:{}}}]}, {chapter:"포스 6", id:"pos-ch6", pos:true, title:"하루 마감하기", icon:"🧾", items:[{sub:{id:"pos-close", title:"매출 마감", subtitles:{pos6open:"관리메뉴에서 매출마감 열기", pos6close:"준비금·권종 입력과 계산원 마감"}, pages:["pos6open", "pos6close"], pageLabels:["매출마감 열기", "매출마감"], tips:{}}}]}, {chapter:"포스 7", id:"pos-ch7", pos:true, title:"영수증 합치기·포인트·자가폐기", icon:"🧩", items:[{sub:{id:"pos-merge", title:"영수증 합치기", subtitles:{pos7merge:"영수증 바코드 두 번 찍어 합치기", pos7mergefind:"매출검색 · 재주문으로 합치기"}, pages:["pos7merge", "pos7mergefind"], pageLabels:["영수증이 있을 때", "영수증이 없을 때"], tips:{}}}, {sub:{id:"pos-point", title:"포인트로 결제하기", subtitles:{pos7point:"회원 찾아 포인트로 결제하기"}, pages:["pos7point"], tips:{}}}, {sub:{id:"pos-dispose", title:"자가폐기", subtitles:{pos7dispose:"팔 수 없는 상품 자가소비·폐기 등록하기"}, pages:["pos7dispose"], tips:{}}}]}, /* ▲ MPAGES-SDEF:pos */
 ];
 // S_DEF → SECTIONS와 동일 구조로 변환 (sub 객체는 전체버전과 공유 — 내용 수정 시 양쪽 자동 반영)
 const SECTIONS_S = (function(){
