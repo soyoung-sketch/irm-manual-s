@@ -858,8 +858,7 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 /* 주의 환기: 로드 시 3번 점멸 후 정지 */
 @keyframes simBlink3 { 0%,100%{opacity:1} 50%{opacity:0.1} }
 .sim-blink { animation: simBlink3 0.45s ease-in-out 3; }
-
-/* ═══ PDA 매입등록 플로팅 버튼 + 뷰어 (다크 스타일) ═══ */
+/* ═══ PDA 버튼(옛 S PDA 버튼 — 모양 그대로) + 새 PDA 메뉴얼 바로가기 카드 (2026-11, 사용자 결정 (c)) ═══ */
 .pda-fab{position:absolute;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2100;pointer-events:none;}
 .pda-fab .pda-fab-circle,.pda-fab .pda-fab-dn,.pda-fab .pda-fab-up{pointer-events:auto;}
 .pda-fab-circle{flex-shrink:0;width:clamp(135px,11.7vw,186px);height:clamp(135px,11.7vw,186px);border-radius:50%;background:#264580;border:3px solid #5876a8;box-shadow:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:#fff;box-sizing:border-box;padding:12px;transition:transform .12s;}
@@ -867,22 +866,6 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .pda-fab-ico{line-height:1;color:#fff;display:flex;}
 .pda-fab-ico svg{width:clamp(45px,3.9vw,60px);height:clamp(45px,3.9vw,60px);display:block;}
 .pda-fab-txt{font-size:clamp(15px,1.35vw,19px);font-weight:800;text-align:center;line-height:1.2;color:#fff;}
-.pda-back{position:fixed;inset:0;background:rgba(4,8,16,.7);backdrop-filter:blur(3px);z-index:3000;display:none;align-items:center;justify-content:center;}
-.pda-back.on{display:flex;}
-/* 선택 카드 (다크, 1.5배) */
-.pda-choice{display:flex;gap:38px;flex-wrap:wrap;justify-content:center;}
-.pda-choice-btn{width:345px;padding:52px 34px;background:#212836;border:2.5px solid #35415a;border-radius:28px;text-align:center;cursor:pointer;box-shadow:0 14px 44px rgba(0,0,0,.5);transition:.16s;}
-.pda-choice-btn:hover{border-color:#3b82f6;transform:translateY(-6px);box-shadow:0 20px 52px rgba(59,130,246,.4);}
-.pda-choice-ico{font-size:66px;line-height:1;}
-.pda-choice-t{margin-top:18px;font-size:25px;font-weight:800;color:#eaf0f8;}
-.pda-choice-s{margin-top:9px;font-size:18px;color:#9aa7b8;}
-/* 뷰어 (다크, 큰 창) */
-.pda-view{width:min(960px,96vw);max-height:92vh;background:#1a2029;border:1px solid #2c3547;border-radius:20px;box-shadow:0 26px 70px rgba(0,0,0,.6);display:none;flex-direction:column;overflow:hidden;}
-.pda-view.on{display:flex;}
-.pda-vhead{display:flex;align-items:center;justify-content:space-between;padding:18px 26px;border-bottom:1px solid #2c3547;background:linear-gradient(135deg,#222c3d,#1a2029);}
-.pda-vhead h3{margin:0;font-size:21px;font-weight:800;color:#7cb2ff;display:flex;align-items:center;gap:9px;}
-.pda-x{cursor:pointer;font-size:22px;color:#8595aa;border:none;background:none;line-height:1;}
-.pda-x:hover{color:#e5e9f0;}
 .pda-fab-dn{position:absolute;top:0;right:6%;width:24px;height:24px;border-radius:50%;background:#0f172a;color:#cbd5e1;display:flex;align-items:center;justify-content:center;font-size:11px;cursor:pointer;z-index:3;border:1px solid #334155;box-shadow:0 2px 8px rgba(0,0,0,.35);}
 .pda-fab-dn:hover{background:#1e293b;color:#fff;}
 .pda-fab .pda-fab-up{display:none;}
@@ -890,47 +873,22 @@ body { font-family: "Noto Sans KR", sans-serif; background: var(--bg); color: va
 .pda-fab.down .pda-fab-circle,.pda-fab.down .pda-fab-dn{display:none;}
 .pda-fab.down .pda-fab-up{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;height:100%;background:#0f172a;color:#eaf0f8;border:1px solid #334155;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.4);white-space:nowrap;}
 .pda-fab.down .pda-fab-up:hover{background:#1e293b;}
-.pda-body{padding:26px 30px;overflow-y:auto;flex:1;color:#dde4ee;}
-.pda-foot{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid #2c3547;}
-.pda-arrow{border:1px solid #3a4557;background:#232c3b;border-radius:11px;padding:9px 20px;cursor:pointer;font-weight:700;color:#c5d0de;font-size:16px;}
-.pda-arrow:hover:not(:disabled){border-color:#3b82f6;color:#7cb2ff;}
-.pda-arrow:disabled{opacity:.32;cursor:default;}
-.pda-dots{display:flex;gap:10px;}
-.pda-dot{width:34px;height:34px;border-radius:10px;border:1px solid #3a4557;background:#232c3b;cursor:pointer;font-weight:800;color:#9aa7b8;font-size:16px;}
-.pda-dot.on{background:#3b82f6;color:#fff;border-color:#3b82f6;}
-/* 콘텐츠 (다크·큰글씨) */
-.pda-h{font-size:21px;font-weight:800;color:#7cb2ff;margin:0 0 18px;}
-.pda-steps{list-style:none;margin:0;padding:0;}
-.pda-steps li{display:flex;gap:16px;padding-bottom:19px;position:relative;}
-.pda-steps li:not(:last-child):before{content:'';position:absolute;left:14px;top:32px;bottom:2px;width:2px;background:#324058;}
-.pda-sn{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#3b82f6;color:#fff;font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;z-index:1;}
-.pda-st{font-size:17.5px;font-weight:700;color:#eaf0f8;}
-.pda-sd{font-size:15.5px;color:#9fb0c4;margin-top:5px;line-height:1.55;}
-.pda-sd b{color:#dbe6f2;}
-.pda-warn{border:1px solid #6b3535;background:#2b1e21;border-radius:13px;padding:15px 18px;margin-top:18px;}
-.pda-warn .wt{font-weight:800;color:#f87171;font-size:16.5px;}
-.pda-warn .wd{font-size:15.5px;color:#e0aeae;margin-top:6px;line-height:1.55;}
-.pda-warn .wd b{color:#fca5a5;}
-.pda-note{border:1px solid #6b6440;background:#20242c;border-radius:13px;padding:15px 18px;margin-top:18px;}
-.pda-note .nt{font-weight:800;color:#eaf0f8;font-size:16.5px;}
-.pda-note .nd{font-size:15.5px;color:#c5d0de;margin-top:6px;line-height:1.55;}
-.pda-note .nd b{color:#eaf0f8;}
-.pda-flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:20px;}
-.pda-flow span{background:#243247;border:1px solid #35507a;color:#8fbcff;border-radius:22px;padding:7px 16px;font-size:15px;font-weight:700;}
-.pda-flow span.done{background:#1e3a2e;border-color:#2f6b4c;color:#6ee7b7;}
-.pda-flow i{color:#5f7089;font-style:normal;font-weight:700;font-size:16px;}
-.pda-cols{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start;}
-.pda-col{flex:1;min-width:280px;}
-.pda-col.imgcol{flex:0 0 auto;}
-.pda-img{max-width:100%;border-radius:14px;display:block;box-shadow:0 8px 26px rgba(0,0,0,.45);}
-.pda-chip{display:inline-flex;align-items:center;gap:4px;background:#28303f;border:1px solid #3a4557;border-radius:8px;padding:6px 12px;font-size:14px;font-weight:700;color:#c5d0de;}
-.pda-chip.on{background:#3b82f6;color:#fff;border-color:#3b82f6;}
-.pda-tbl{width:100%;border-collapse:collapse;font-size:15.5px;}
-.pda-tbl th{background:#243247;color:#8fbcff;text-align:left;padding:12px 14px;border:1px solid #35507a;font-weight:800;}
-.pda-tbl td{padding:12px 14px;border:1px solid #2f3a4d;color:#c5d0de;vertical-align:top;line-height:1.6;}
-.pda-tbl td.k{font-weight:800;color:#8fbcff;white-space:nowrap;}
-.pda-hl{color:#8fbcff;font-weight:700;}
-.pda-intro{font-size:16.5px;color:#c5d0de;line-height:1.7;background:#212a38;border-radius:12px;padding:17px 20px;border:1px solid #2f3a4d;}
+/* 바로가기 카드: S 설명 칸(GUIDE 머리·흰 카드·회색 줄·dlink)과 같은 색·크기 — 새 디자인 아님. 버튼 옆에 뜨고 버튼·사이드바는 안 가림 */
+.pda-pop{position:fixed;left:0;top:0;z-index:3000;display:none;width:min(400px,calc(100vw - 32px));background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 14px 48px rgba(0,0,0,.25);overflow:hidden;}
+.pda-pop.on{display:block;}
+.pda-pop-card{display:none;}
+.pda-pop-card.on{display:block;}
+.pda-pop-head{position:relative;background:linear-gradient(135deg,var(--navy) 0%,#1e3a6e 100%);padding:12px 44px 12px 16px;}
+.pda-pop-label{display:block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:1.5px;margin-bottom:4px;}
+.pda-pop-title{display:block;font-size:15px;font-weight:800;color:#fff;letter-spacing:-0.2px;}
+.pda-pop-x{position:absolute;top:10px;right:10px;width:26px;height:26px;border:none;background:none;color:rgba(255,255,255,0.7);font-size:15px;line-height:1;cursor:pointer;}
+.pda-pop-x:hover{color:#fff;}
+.pda-pop-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;}
+.pda-pop-line{font-size:14px;color:#475569;line-height:1.65;padding:6px 10px 6px 12px;background:#F8FAFC;border-radius:7px;border-left:2px solid #CBD5E1;}
+.pda-pop-line.note{background:transparent;border-left:none;padding:0 2px;font-size:13px;color:#64748B;}
+.pda-pop-link{font-size:14px;color:#334155;line-height:1.65;padding:0 2px;}
+.pda-pop .dlink{color:#2563eb;font-weight:700;text-decoration:underline;cursor:pointer;}   /* S 의 .desc-body .dlink 와 같은 모양(카드는 .desc-body 밖이라 따로) */
+.pda-pop .dlink:hover{color:#1d4ed8;}
 
 /* 정적(확대/목록) 표시: 비대화형 + 클릭배지/말풍선 숨김 */
 .annot-static .annot-num-tip, .annot-static .annot-click-ico { display:none !important; }
@@ -1407,6 +1365,41 @@ body.print .pos-clickme { display:none; }
 .nav-grp-head.nav-pos-head { padding:6px 12px; margin-top:-4px; }
 #sidebar.collapsed .nav-grp-head.nav-irm-head, #sidebar.collapsed .nav-grp-head.nav-pos-head { padding:0; margin:0; }
 /* ▲ POS-MERGE CSS */
+/* ▼ PDA-MERGE CSS — PDA 메뉴얼(PDA메뉴얼/_build/merge_pda_into_s.py) */
+/* 사이드바 'PDA 메뉴얼' 묶음(포스 v5·v7 과 같은 모양) */
+#sidebar:not(.collapsed) #navArea.grp-off-pda [data-grp="pda"]:not(.nav-grp-head) { display:none; }
+.nav-pda-head { font-size:11px; font-weight:800; letter-spacing:0.6px; color:rgba(255,255,255,0.55); padding:2px 12px 6px; white-space:nowrap; overflow:hidden; }
+#sidebar.collapsed .nav-pda-head { opacity:0; height:0; padding:0; }
+.nav-grp-head.nav-pda-head { padding:6px 12px; margin-top:-4px; }
+#sidebar.collapsed .nav-grp-head.nav-pda-head { padding:0; margin:0; }
+/* 검색 'PDA' 표시 · 홈 카드 */
+.pos-badge.grp-pda-badge { background:#0F766E; }
+.grp-pda-home { border-color:#5EEAD4; background:linear-gradient(180deg,#F0FDFA,#fff); }
+.sr-item img.grp-phone-thumb { width:56px !important; }
+/* 폰 화면 페이지: 폰 그림(앱 화면 1080x2102, 가로:세로 0.5138)을 폰 테두리 안에 알맞은 고정 폭으로 가운데. 칸·말풍선은 % 라 그대로 맞음.
+   폭(테두리 포함 border-box) = (페이지 칸 최대 높이 - 위아래 여백 40 - 테두리 52) x 0.5138 + 좌우 테두리 20 → 그림 칸이 페이지 칸(100vh-140, 쪽 탭이 있으면 100vh-196) 안에 들어감
+   1680x1000 에서 폰 그림 395px(쪽 스크롤 없음), 낮은 화면은 테두리 포함 280px 까지 줄고(그보다 낮으면 쪽이 조금 스크롤) 큰 화면은 440px 까지 */
+.page-layout.pda-layout .img-section:has(> #simWrap) { display:flex; justify-content:center; align-items:flex-start; padding:18px 0 22px; background:#E9EDF3; }
+.page-layout.pda-layout #simWrap { width:clamp(280px, calc((100vh - 232px) * 0.5138 + 20px), 440px) !important; flex:none; border:10px solid #1B2230; border-top-width:24px; border-bottom-width:28px;
+  border-radius:32px; box-shadow:0 12px 30px rgba(13,27,62,0.28), inset 0 0 0 1px rgba(255,255,255,0.06); background:#000; }
+.page-layout.pda-layout:has(> .desc-panel.has-nav) #simWrap { width:clamp(280px, calc((100vh - 288px) * 0.5138 + 20px), 440px) !important; }
+.page-layout.pda-layout #simWrap::before { content:""; position:absolute; top:-15px; left:50%; width:54px; height:5px; margin-left:-27px; border-radius:3px; background:#3A4458; pointer-events:none; }
+.page-layout.pda-layout #simWrap::after { content:""; position:absolute; bottom:-18px; left:50%; width:88px; height:5px; margin-left:-44px; border-radius:3px; background:#3A4458; pointer-events:none; }
+.page-layout.pda-layout #simWrap > .sim-img { border-radius:6px; }
+/* 장 목록 카드: 폰 화면 썸네일은 좁게(다른 카드보다 길어지지 않게) + 폰 테두리 */
+.card-img-wrap[data-phone] { width:40% !important; margin:0 auto 10px !important; border:5px solid #1B2230 !important; border-top-width:9px !important; border-bottom-width:11px !important; border-radius:12px !important; background:#000; }
+/* ▲ PDA-MERGE CSS */
+/* ▼ PDA-MERGE CSS v2 — (10-28) 폰 화면의 '눌러요!'·'바코드 찍기' 표시를 폰 그림 크기에 맞춰 줄임
+   1680x1000(폰 그림 395px)은 포스와 같은 12.5px·손 21px·여백 10/9px, 1366x768(폰 그림 275px)은 10px·13px·5/4.5px — 그 사이는 화면 높이에 비례
+   흔들림은 3px(포스 6px) — 입력칸 안 '바코드 찍기'(👈)가 [입력]·안내 글자에 닿지 않게(qa/verify_pda4.js 가 흔들림 끝까지 재서 검사) */
+.page-layout.pda-layout #simOverlay .pcm-pill { font-size:clamp(10px, calc(100vh * 0.010776 + 1.724px), 12.5px);
+  padding:0.32em clamp(5px, calc((100vh - 536px) * 0.02155), 10px) 0.32em clamp(4.5px, calc((100vh - 536px) * 0.0194), 9px); }
+.page-layout.pda-layout #simOverlay .pcm-hand { font-size:clamp(13px, calc((100vh - 391px) * 0.03448), 21px); }
+@keyframes pdaBobL { 0%,100%{transform:translate(0,-50%)} 50%{transform:translate(-3px,-50%)} }
+@keyframes pdaBobD { 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,3px)} }
+.page-layout.pda-layout #simOverlay .pos-clickme.right { animation-name:pdaBobL; }
+.page-layout.pda-layout #simOverlay .pos-clickme.down { animation-name:pdaBobD; }
+/* ▲ PDA-MERGE CSS v2 */
 </style>
 </head>
 <body>
@@ -29806,6 +29799,678 @@ SIM["ssale2p"] = { start:"1", screens:{
     ]},
 } };
 /* ▲ MPAGES:pcost */
+/* ▼ MPAGES:pda */
+// ========== PDA 메뉴얼 (PDA메뉴얼/_build/pages_pda.py → merge_pda_into_s.py 가 만듦 — 여기서 고치지 말 것) ==========
+// ── PDA 1 · 앱 설치·로그인 ──
+IMGS["pda1install"] = "images/PDA-설치-1홈.png";
+SIM["pda1install"] = { start:"1", screens:{
+  "1":{img:"images/PDA-설치-1홈.png",
+    btns:[
+      {x:52.31, y:28.07, w:18.98, h:11.66, num:"1", numCorner:true, to:"2", clickme:{dir:"down"}, tip:"<b>Play 스토어</b>를 엽니다."},
+    ]},
+  "2":{img:"images/PDA-설치-2검색탭.png",
+    btns:[
+      {x:40.74, y:92.06, w:18.52, h:7.47, num:"2", numCorner:true, tip:"<b>검색</b> 탭을 누르면 이 화면이 나옵니다."},
+      {x:5.56, y:0.67, w:73.15, h:6.95, num:"3", numCorner:true, to:"3", clickme:{dir:"down", css:"flex-direction:row;margin-top:-10px;left:72%"}, tip:"검색창에 <b>아이리젠</b>을 입력해 검색합니다."},
+    ]},
+  "3":{img:"images/PDA-설치-3검색결과.png",
+    btns:[
+      {x:3.7, y:18.08, w:92.59, h:8.8, num:"4", numCorner:true, to:"4", clickme:{dir:"right", css:"left:auto;right:12%"}, tip:"<b>아이리젠 PDA</b>를 누릅니다."},
+      {x:1.85, y:1.43, w:96.3, h:5.23, plain:true, tip:"<b>아이리젠</b>으로 검색한 결과입니다."},
+      {x:3.7, y:28.07, w:92.59, h:53.76, plain:true, notint:true, tip:"이름이 비슷한 <b>다른 아이리젠 앱</b>도 나옵니다."},
+    ]},
+  "4":{img:"images/PDA-설치-4앱정보.png",
+    btns:[
+      {x:78.24, y:9.75, w:16.67, h:7.23, num:"5", numCorner:true, to:"5", clickme:{dir:"left"}, tip:"<b>설치</b>를 누르면 내려받아 설치합니다."},
+      {x:3.7, y:9.75, w:73.15, h:7.23, plain:true, tip:"<b>아이리젠 PDA</b> 앱인지 확인합니다."},
+      {x:3.7, y:19.74, w:92.59, h:6.66, plain:true, tip:"앱 <b>크기</b>와 이용 연령·다운로드 수입니다."},
+    ]},
+  "5":{img:"images/PDA-설치-5열기.png",
+    btns:[
+      {x:78.24, y:9.75, w:16.67, h:7.23, num:"6", numCorner:true, tip:"<b>열기</b>를 누르면 앱이 열립니다."},
+      {x:3.7, y:9.75, w:73.15, h:7.23, plain:true, tip:"'<b>설치됨</b>'이 나오면 설치가 끝난 것입니다."},
+    ]},
+} };
+DESCS["pda1install"] = [
+  {type:"note", text:"<b>아이리젠 PDA</b> 앱은 PDA 기기와 휴대폰에서 모두 씁니다. 바코드를 찍기 편한 PDA 기기를 권장합니다.<br><b>한눈에 보기</b><br><span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>▶️ Play 스토어</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🔍 아이리젠 검색</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>⬇️ 설치</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>📲 열기</span>"},
+  {type:"step", num:"1", title:"▶️ Play 스토어 열기", body:"<b>Play 스토어</b> 앱을 엽니다."},
+  {type:"step", num:"2", title:"🔍 검색 탭", body:"<span class='ui-btn'>검색</span> 탭을 누릅니다."},
+  {type:"step", num:"3", title:"⌨️ 아이리젠 검색", body:"검색창에 <b>아이리젠</b>을 입력해 검색합니다."},
+  {type:"step", num:"4", title:"📱 아이리젠 PDA 고르기", subs:["검색 결과에서 <b>아이리젠 PDA</b>를 누릅니다.", "%%아이리젠 보고서·키오스크처럼 이름이 비슷한 앱도 나오니 헷갈리지 않게 고릅니다."]},
+  {type:"step", num:"5", title:"⬇️ 설치", subs:["<span class='ui-btn'>설치</span>를 누릅니다.", "%%내려받기와 설치가 끝날 때까지 기다립니다."]},
+  {type:"step", num:"6", title:"📲 열기", subs:["'설치됨'이 나오면 <span class='ui-btn'>열기</span>를 누릅니다.", "%%처음 열면 환경설정 화면이 나옵니다.", "🔗 <b class='dlink' onclick=\"openSub('pda-ch1','pda-login',true)\">로그인</b>"]},
+  {type:"bullet", title:"🌐 인터넷 주소로 받기", body:"Play 스토어 대신 <b>update.iregen.co.kr</b>에 들어가 'PDA 다운로드'로 받을 수도 있습니다."},
+];
+IMGS["pda1login"] = "images/PDA-로그인-1환경설정.png";
+SIM["pda1login"] = { start:"1", screens:{
+  "1":{img:"images/PDA-로그인-1환경설정.png",
+    btns:[
+      {x:2.41, y:24.07, w:95.19, h:11.61, num:"1", numCorner:true, tip:"<b>사업자번호</b>를 숫자만 입력합니다."},
+      {x:2.41, y:36.16, w:95.19, h:6.95, num:"2", numCorner:true, to:"2", clickme:{dir:"down"}, tip:"<b>조회</b>를 누르면 우리 회사가 나옵니다."},
+      {x:2.41, y:10.75, w:95.19, h:11.04, yellow:true, scroll:"★1", tip:"PDA 기기는 <b>포인트 모바일</b>, 휴대폰은 스마트폰(카메라)을 고릅니다."},
+      {x:1.85, y:1.43, w:96.3, h:6.18, plain:true, tip:"앱을 처음 열면 <b>환경설정</b> 화면이 나옵니다."},
+      {x:2.41, y:91.44, w:95.19, h:6.85, plain:true, tip:"회사를 고르기 전에는 <b>확인</b>이 눌리지 않습니다."},
+    ]},
+  "2":{img:"images/PDA-로그인-2회사목록_m1030.png",
+    btns:[
+      {x:3.15, y:48.14, w:93.7, h:14.27, num:"3", numCorner:true, to:"3", clickme:{dir:"down"}, tip:"우리 <b>회사</b>를 누릅니다."},
+      {x:2.41, y:10.75, w:95.19, h:11.04, yellow:true, scroll:"★1", tip:"PDA 기기는 <b>포인트 모바일</b>, 휴대폰은 스마트폰(카메라)을 고릅니다."},
+      {x:2.41, y:24.07, w:95.19, h:11.61, plain:true, tip:"입력한 <b>사업자번호</b>입니다."},
+      {x:2.41, y:91.44, w:95.19, h:6.85, plain:true, tip:"회사를 고르면 <b>확인</b>이 켜집니다."},
+    ]},
+  "3":{img:"images/PDA-로그인-3회사선택_m1030.png",
+    btns:[
+      {x:2.41, y:91.44, w:95.19, h:6.85, num:"4", numCorner:true, to:"4", clickme:{dir:"up"}, tip:"<b>확인</b>을 누르면 권한을 묻는 창이 뜹니다."},
+      {x:2.41, y:10.75, w:95.19, h:11.04, yellow:true, scroll:"★1", tip:"PDA 기기는 <b>포인트 모바일</b>, 휴대폰은 스마트폰(카메라)을 고릅니다."},
+      {x:2.41, y:24.07, w:95.19, h:11.61, plain:true, tip:"입력한 <b>사업자번호</b>입니다."},
+      {x:3.15, y:48.14, w:93.7, h:14.27, plain:true, notint:true, tip:"고른 <b>회사</b>는 파란색으로 바뀝니다."},
+    ]},
+  "4":{img:"images/PDA-로그인-4카메라.png",
+    btns:[
+      {x:5.56, y:76.4, w:88.89, h:4.95, num:"5", numCorner:true, to:"5", clickme:{dir:"down", css:"flex-direction:row;margin-top:-12px;left:84%"}, tip:"<b>앱 사용 중에만 허용</b>을 누릅니다."},
+      {x:5.56, y:62.32, w:88.89, h:11.7, plain:true, notint:true, tip:"바코드를 찍을 <b>카메라</b>를 쓸지 묻습니다."},
+    ]},
+  "5":{img:"images/PDA-로그인-5연락처.png",
+    btns:[
+      {x:5.56, y:83.25, w:88.89, h:4.95, num:"5", numCorner:true, to:"6", clickme:{dir:"down", css:"flex-direction:row;margin-top:-12px;left:84%"}, tip:"<b>허용</b>을 누르면 다음 권한 창이 뜹니다."},
+      {x:5.56, y:61.85, w:88.89, h:19.03, plain:true, notint:true, tip:"<b>연락처</b> 권한을 허용할지 묻습니다."},
+    ]},
+  "6":{img:"images/PDA-로그인-6알림.png",
+    btns:[
+      {x:5.56, y:83.25, w:88.89, h:4.95, num:"5", numCorner:true, to:"7", clickme:{dir:"down", css:"flex-direction:row;margin-top:-12px;left:84%"}, tip:"<b>허용</b>을 누르면 로그인 화면이 나옵니다."},
+      {x:5.56, y:71.6, w:88.89, h:9.28, plain:true, notint:true, tip:"<b>알림</b>을 보낼지 묻습니다."},
+    ]},
+  "7":{img:"images/PDA-로그인-7LOGIN.png",
+    btns:[
+      {x:7.78, y:17.03, w:84.44, h:18.41, num:"6", numCorner:true, to:"8", clickme:{dir:"right", css:"left:auto;right:6%;top:34%"}, tip:"<b>아이디</b>와 비밀번호를 입력합니다."},
+      {x:7.78, y:35.63, w:61.11, h:3.33, yellow:true, scroll:"★2", tip:"체크해 두면 다음부터 <b>로그인</b>이 편합니다."},
+      {x:7.41, y:8.09, w:85.19, h:8.66, plain:true, tip:"고른 회사의 <b>로그인</b> 화면입니다."},
+    ]},
+  "8":{img:"images/PDA-로그인-8입력.png",
+    btns:[
+      {x:7.78, y:39.25, w:84.44, h:7.85, num:"7", numCorner:true, to:"9", clickme:{dir:"right", css:"left:auto;right:5%"}, tip:"<b>로그인</b>을 누르면 홈 화면이 나옵니다."},
+      {x:7.78, y:35.63, w:61.11, h:3.33, yellow:true, scroll:"★2", tip:"체크해 두면 다음부터 <b>로그인</b>이 편합니다."},
+      {x:7.78, y:17.03, w:84.44, h:18.41, plain:true, tip:"<b>아이디</b>와 비밀번호를 입력한 모습입니다."},
+      {x:7.41, y:8.09, w:85.19, h:8.66, plain:true, tip:"고른 회사의 <b>로그인</b> 화면입니다."},
+    ]},
+  "9":{img:"images/PDA-로그인-9홈_m1030.png",
+    btns:[
+      {x:2.78, y:1.33, w:32.41, h:4.19, yellow:true, scroll:"★3", tip:"<b>메뉴</b>를 열면 권한이 있는 메뉴가 모두 나옵니다."},
+      {x:2.22, y:8.8, w:68.15, h:6.9, plain:true, tip:"로그인한 <b>사원</b>과 매장이 나옵니다."},
+      {x:2.22, y:17.03, w:25.56, h:2.95, plain:true, tip:"자주 쓰는 메뉴를 <b>빠른 실행</b>에서 바로 엽니다."},
+      {x:3.06, y:20.79, w:29.63, h:12.61, yellow:true, scroll:"★3", tip:"<b>매장상품정보</b>를 바로 엽니다."},
+      {x:67.31, y:20.79, w:29.63, h:12.61, yellow:true, scroll:"★3", tip:"<b>매장상품관리</b>를 바로 엽니다."},
+      {x:67.31, y:34.68, w:29.63, h:12.61, yellow:true, scroll:"★3", tip:"<b>매입입고</b>를 바로 엽니다."},
+      {x:35.19, y:48.62, w:29.63, h:12.61, yellow:true, scroll:"★3", tip:"<b>일괄매입</b>을 바로 엽니다."},
+      {x:3.06, y:48.62, w:29.63, h:12.61, yellow:true, scroll:"★3", tip:"<b>매입완료목록</b>을 바로 엽니다."},
+    ]},
+} };
+DESCS["pda1login"] = [
+  {type:"note", text:"앱을 처음 열면 <b>환경설정</b>에서 회사를 고르고, 권한을 허용한 뒤 로그인합니다.<br><b>한눈에 보기</b><br><span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🏢 사업자번호 조회</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>✅ 회사 확인</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🔓 권한 허용</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🔑 로그인</span>"},
+  {type:"step", num:"1", title:"🔢 사업자번호 입력", body:"<b>사업자번호</b>를 숫자만 입력합니다."},
+  {type:"step", num:"2", title:"🔍 조회", body:"<span class='ui-btn'>조회</span>를 누르면 우리 회사가 나옵니다."},
+  {type:"step", num:"3", title:"🏢 회사 고르기", body:"<b>회사</b>를 누르면 파란색으로 바뀝니다."},
+  {type:"step", num:"4", title:"✅ 확인", subs:["<span class='ui-btn'>확인</span>을 누릅니다.", "%%권한을 묻는 창이 차례로 뜹니다."]},
+  {type:"step", num:"5", title:"🔓 권한 허용", subs:["카메라·연락처·알림 권한 창이 차례로 뜨면 모두 <b>허용</b>합니다.", "%%카메라는 <span class='ui-btn'>앱 사용 중에만 허용</span>, 연락처·알림은 <span class='ui-btn'>허용</span>을 누릅니다."]},
+  {type:"step", num:"6", title:"🔑 아이디·비밀번호", subs:["로그인 화면에 <b>아이디와 비밀번호</b>를 입력합니다.", "%%LOGIN 아래에 고른 회사의 회사코드가 나옵니다."]},
+  {type:"step", num:"7", title:"➡️ 로그인", body:"<span class='ui-btn'>로그인</span>을 누르면 홈 화면이 나옵니다."},
+  {type:"step", num:"★", ystar:true, title:"📟 스캐너 종류", subs:["PDA 기기는 <b>포인트 모바일</b>을 고릅니다.", "휴대폰은 <b>스마트폰(카메라)</b>을 고릅니다.", "%%PDA 기기는 기기에 달린 스캐너로, 휴대폰은 카메라로 바코드를 찍습니다."]},
+  {type:"step", num:"★", ystar:true, title:"💾 ID 저장·자동 로그인", subs:["<b>ID 저장</b>을 체크하면 다음에 아이디를 다시 입력하지 않아도 됩니다.", "<b>자동 로그인</b>을 체크하면 다음부터 앱을 열 때 바로 로그인됩니다."]},
+  {type:"step", num:"★", ystar:true, title:"🏠 홈 화면", subs:["<b>빠른 실행</b>에서 자주 쓰는 메뉴를 바로 엽니다.", "<span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch2','pda-buy',true)\">매입입고</b></span> · <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch2','pda-batch',true)\">일괄매입등록</b></span> · <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch2','pda-done',true)\">매입완료목록</b></span> · <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch3','pda-info',true)\">매장상품정보</b></span> · <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch3','pda-manage',true)\">매장상품관리</b></span>", "%%☰ <b>메뉴</b>를 누르면 권한이 있는 메뉴가 모두 나옵니다. 상품매대지정·상품매대이동은 메뉴의 매장관리에 있습니다.", "<span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch4','pda-shelf-assign',true)\">상품매대지정</b></span> · <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch4','pda-shelf-move',true)\">상품매대이동</b></span>"]},
+  {type:"bullet", title:"🔐 PDA 메뉴 권한", subs:["PDA의 모든 메뉴와 기능(매입가·판매가 수정, 상품 등록·수정 등)은 IRM(ERP) <b>사업장 사원 관리</b>의 PDA 메뉴권한 탭에서 정합니다.", "%%메뉴가 안 보이거나 바꿀 수 없으면 관리자에게 문의합니다.", "<span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('s-ch5','s-sa',true);setTimeout(function(){goPage(2)},80)\">사업장 사원 관리 › PDA 메뉴권한</b></span>"]},
+];
+// ── PDA 2 · 매입하기 ──
+IMGS["pda2buy"] = "images/PDA-매입입고-1목록_m1030.png";
+SIM["pda2buy"] = { start:"1", screens:{
+  "1":{img:"images/PDA-매입입고-1목록_m1030.png",
+    btns:[
+      {x:67.41, y:91.06, w:31.3, h:8.28, num:"1", numCorner:true, to:"2", clickme:{dir:"up"}, tip:"<b>신규등록</b>을 누르면 매입입고등록 화면이 열립니다."},
+      {x:1.67, y:15.79, w:96.67, h:20.36, plain:true, notint:true, tip:"<b>전표</b>마다 매입처·수량/합계·매입일이 나옵니다."},
+      {x:2.04, y:9.32, w:95.93, h:4.57, plain:true, tip:"등록한 <b>매입입고</b> 전표가 나옵니다."},
+    ]},
+  "2":{img:"images/PDA-매입입고-2등록.png",
+    btns:[
+      {x:78.33, y:18.36, w:15.37, h:8.47, num:"2", numCorner:true, to:"3", clickme:{dir:"left"}, tip:"<b>매입처</b>를 누르면 매입처 검색 창이 열립니다."},
+      {x:3.33, y:18.36, w:75.0, h:8.47, plain:true, tip:"고른 <b>매입처</b>가 나옵니다."},
+      {x:1.67, y:38.77, w:96.67, h:19.17, plain:true, notint:true, tip:"찍은 <b>상품</b>이 이 목록에 담깁니다."},
+      {x:2.04, y:9.32, w:95.93, h:4.57, plain:true, tip:"새 매입을 담는 <b>매입입고등록</b> 화면입니다."},
+    ]},
+  "3":{img:"images/PDA-매입입고-3매입처검색_m1030.png",
+    btns:[
+      {x:6.76, y:35.39, w:86.39, h:7.99, num:"3", numCorner:true, to:"4", clickme:{dir:"right", css:"left:auto;right:4%"}, tip:"이번에 받은 <b>매입처</b>를 누릅니다."},
+      {x:6.48, y:7.71, w:69.63, h:5.61, plain:true, tip:"<b>상호명</b>·코드·사업자번호로 찾습니다."},
+      {x:76.11, y:7.71, w:17.22, h:5.61, plain:true, tip:"<b>검색</b>을 누르면 매입처 목록이 나옵니다."},
+      {x:3.7, y:75.4, w:92.59, h:3.0, plain:true, tip:"<b>쪽</b>을 넘겨 다른 매입처를 봅니다."},
+    ]},
+  "4":{img:"images/PDA-매입입고-4매입처확인_m1030.png",
+    btns:[
+      {x:74.63, y:55.19, w:17.04, h:7.23, num:"3", numCorner:true, to:"5", clickme:{dir:"down"}, tip:"<b>예</b>를 누르면 매입처가 들어갑니다."},
+      {x:53.7, y:55.19, w:20.93, h:7.23, plain:true, to:"3", tip:"<b>취소</b>를 누르면 다시 고릅니다."},
+      {x:9.26, y:44.72, w:83.33, h:7.61, plain:true, notint:true, tip:"고른 <b>매입처</b>가 맞는지 묻습니다."},
+    ]},
+  "5":{img:"images/PDA-매입입고-5매입처.png",
+    btns:[
+      {x:15.74, y:64.7, w:46.3, h:19.03, pic:"images/PDA-스캔-상품.png", picBare:true},
+      {x:15.74, y:64.7, w:46.3, h:19.03, num:"4", numCorner:true, front:true, to:"6", clickme:{dir:"right", text:"바코드 찍기"}, tip:"들어온 <b>상품 바코드</b>를 PDA로 찍습니다."},
+      {x:65.19, y:29.88, w:28.52, h:5.33, yellow:true, scroll:"★1", tip:"휴대폰은 <b>상품추가</b>를 눌러 바코드를 넣습니다."},
+      {x:3.33, y:18.36, w:75.0, h:8.47, plain:true, tip:"고른 <b>매입처</b>가 나옵니다."},
+      {x:1.67, y:38.77, w:96.67, h:19.17, plain:true, notint:true, tip:"찍은 <b>상품</b>이 이 목록에 담깁니다."},
+    ]},
+  "6":{img:"images/PDA-매입입고-6상품창.png",
+    btns:[
+      {x:71.85, y:7.18, w:21.85, h:5.76, num:"5", numRight:true, to:"7", clickme:{dir:"up", css:"flex-direction:row;left:13.5%"}, tip:"수량이 많으면 <b>수량</b>을 직접 입력합니다."},
+      {x:50.0, y:26.74, w:44.63, h:13.7, plain:true, notint:true, tip:"같은 상품을 또 찍으면 <b>총 수량</b>이 하나씩 늘어납니다."},
+      {x:1.85, y:1.71, w:62.96, h:4.57, plain:true, tip:"찍은 <b>상품</b>의 단가·수량이 나옵니다."},
+    ]},
+  "7":{img:"images/PDA-매입입고-7수량.png",
+    btns:[
+      {x:5.19, y:40.87, w:89.44, h:5.61, num:"5", numCorner:true, to:"8", clickme:{dir:"right", css:"left:auto;right:4%"}, tip:"<b>확인</b>을 누르면 목록의 매입수가 바뀝니다."},
+      {x:71.85, y:7.18, w:21.85, h:5.76, plain:true, tip:"직접 입력한 <b>수량</b>입니다."},
+      {x:50.0, y:26.74, w:44.63, h:13.7, plain:true, notint:true, tip:"<b>총 수량</b>도 같이 바뀝니다."},
+    ]},
+  "8":{img:"images/PDA-매입입고-8담김.png",
+    btns:[
+      {x:49.63, y:92.58, w:49.07, h:6.76, num:"6", numCorner:true, to:"9", clickme:{dir:"up"}, tip:"상품을 다 담았으면 <b>등록</b>을 누릅니다."},
+      {x:1.67, y:38.77, w:96.67, h:19.17, plain:true, notint:true, tip:"입력한 수량이 <b>매입수</b>에 나옵니다."},
+      {x:3.33, y:18.36, w:75.0, h:8.47, plain:true, tip:"고른 <b>매입처</b>가 나옵니다."},
+    ]},
+  "9":{img:"images/PDA-매입입고-9매입정보.png",
+    btns:[
+      {x:77.22, y:43.39, w:17.41, h:5.71, num:"7", numCorner:true, to:"10", clickme:{dir:"down"}, tip:"<b>등록</b>을 누르면 전표가 저장됩니다."},
+      {x:62.96, y:43.39, w:14.26, h:5.71, plain:true, to:"8", tip:"<b>취소</b>를 누르면 등록하지 않습니다."},
+      {x:3.7, y:7.52, w:90.0, h:5.99, plain:true, tip:"<b>매입일</b>을 확인합니다."},
+      {x:3.7, y:14.18, w:90.0, h:6.09, plain:true, tip:"<b>입고부서</b>를 확인합니다."},
+      {x:3.7, y:20.93, w:90.0, h:12.75, plain:true, tip:"필요하면 <b>매입처 담당자</b>·비고를 넣습니다."},
+      {x:8.33, y:35.2, w:32.41, h:4.28, plain:true, tip:"<b>무상지원</b> 여부를 정합니다."},
+    ]},
+  "10":{img:"images/PDA-매입입고-10저장_m1030.png",
+    btns:[
+      {x:50.56, y:36.68, w:21.48, h:4.52, num:"8", numCorner:true, to:"11", clickme:{dir:"up", css:"left:88%"}, tip:"<b>금액확인</b>을 누르면 IRM(ERP)에 확인을 요청합니다."},
+      {x:28.33, y:1.14, w:43.33, h:6.66, plain:true, tipDn:true, tip:"'<b>저장 되었습니다.</b>' 안내가 뜨면 등록된 것입니다."},
+      {x:1.67, y:15.79, w:96.67, h:20.36, plain:true, notint:true, tip:"방금 등록한 <b>전표</b>가 새로 생깁니다."},
+    ]},
+  "11":{img:"images/PDA-매입입고-11금액확인_m1030.png",
+    btns:[
+      {x:74.07, y:54.23, w:17.78, h:5.33, num:"8", numCorner:true, to:"12", clickme:{dir:"down"}, tip:"<b>확인</b>을 누르면 금액 확인을 요청합니다."},
+      {x:57.41, y:54.23, w:16.67, h:5.33, plain:true, to:"10", tip:"<b>취소</b>를 누르면 요청하지 않습니다."},
+      {x:8.33, y:47.1, w:84.26, h:5.71, plain:true, notint:true, tip:"<b>금액 확인</b>을 요청할지 묻습니다."},
+    ]},
+  "12":{img:"images/PDA-매입입고-12완료_m1030.png",
+    btns:[
+      {x:2.04, y:9.32, w:95.93, h:4.57, yellow:true, scroll:"★2", tip:"요청한 전표는 빠지고 <b>IRM(ERP)</b>에서 승인합니다."},
+      {x:28.33, y:1.14, w:43.33, h:6.66, plain:true, tipDn:true, tip:"'<b>완료되었습니다.</b>' 안내가 뜨면 요청된 것입니다."},
+    ]},
+} };
+DESCS["pda2buy"] = [
+  {type:"note", text:"들어온 상품을 PDA로 찍어 <b>매입입고</b>를 등록하고, IRM(ERP)에 금액 확인을 요청합니다.<br><b>한눈에 보기</b><br><span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🆕 신규등록</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🏢 매입처</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>📦 상품 찍기</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>✅ 등록</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>💰 금액확인</span>"},
+  {type:"step", num:"1", title:"🆕 신규등록", subs:["매입입고관리에서 <span class='ui-btn'>신규등록</span>을 누릅니다.", "%%매입입고관리는 홈 화면 빠른 실행의 매입입고나 ☰ 메뉴에서 엽니다."]},
+  {type:"step", num:"2", title:"🏢 매입처 열기", subs:["매입입고등록에서 <span class='ui-btn'>매입처</span>를 누릅니다.", "%%그림에는 전에 하던 매입처·상품이 남아 있습니다."]},
+  {type:"step", num:"3", title:"🔍 매입처 고르기", subs:["상호명·코드·사업자번호로 검색해 이번에 받은 <b>매입처</b>를 누릅니다.", "%%선택 확인 창이 뜨면 <span class='ui-btn'>예</span>를 누릅니다."]},
+  {type:"step", num:"4", title:"📦 상품 바코드 찍기", subs:["들어온 상품의 <b>바코드</b>를 PDA로 찍으면 상품이 바로 목록에 담깁니다.", "%%같은 상품을 또 찍으면 수량이 하나씩 늘어납니다."]},
+  {type:"step", num:"5", title:"🔢 수량 입력", subs:["하나씩 찍는 것이 기본이지만, 수량이 많으면 상품 창의 <b>수량</b> 칸에 직접 입력합니다.", "%%<span class='ui-btn'>확인</span>을 누르면 목록의 매입수가 바뀝니다."]},
+  {type:"step", num:"6", title:"✅ 등록", body:"상품을 다 담았으면 <span class='ui-btn'>등록</span>을 누릅니다."},
+  {type:"step", num:"7", title:"📝 매입정보", subs:["매입정보 창에서 <b>매입일·입고부서</b>를 확인하고 <span class='ui-btn'>등록</span>을 누릅니다.", "%%'저장 되었습니다.' 안내와 함께 매입입고관리에 새 전표가 생깁니다."]},
+  {type:"step", num:"8", title:"💰 금액확인 요청", subs:["새 전표의 <span class='ui-btn'>금액확인</span>을 누르고 확인 창에서 <span class='ui-btn'>확인</span>을 누릅니다.", "%%'완료되었습니다.' 안내가 뜨고, 요청한 전표는 이 목록에서 빠집니다."]},
+  {type:"step", num:"★", ystar:true, title:"📱 휴대폰으로 찍을 때", subs:["PDA 기기는 기기에 달린 <b>스캐너</b>로 찍으면 상품이 바로 목록에 담깁니다.", "휴대폰은 <span class='ui-btn'>상품추가</span>를 눌러 '바코드 입력' 창을 열고 <span class='ui-btn'>바코드스캔</span>으로 카메라로 찍은 뒤 <span class='ui-btn'>입력</span>을 누릅니다.", "<img src='images/PDA-매입입고-바코드입력.png' alt='휴대폰의 바코드 입력 창' style='display:block;width:260px;max-width:100%;margin:6px auto 0;border-radius:8px'>"]},
+  {type:"step", num:"★", ystar:true, title:"🖥️ IRM(ERP)에서 매입완료", subs:["금액확인 다음 승인은 <b>IRM(ERP)</b>에서만 합니다.", "%%매입관리 › 매입 조회의 금액확인 탭에서 전표를 선택하고 <span class='ui-btn'>매입완료</span>를 누릅니다.", "<span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-pq',true);setTimeout(function(){goPage(2)},80)\">매입 조회 › 금액확인</b></span> · <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-pq',true);setTimeout(function(){goPage(4)},80)\">매입완료 탭</b></span>", "%%매입완료한 전표는 PDA의 매입완료목록에서도 볼 수 있습니다.", "<span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch2','pda-done',true)\">매입완료목록</b></span>"]},
+];
+IMGS["pda2batch"] = "images/PDA-일괄매입-1관리.png";
+SIM["pda2batch"] = { start:"1", screens:{
+  "1":{img:"images/PDA-일괄매입-1관리.png",
+    btns:[
+      {x:1.3, y:92.58, w:97.41, h:6.76, num:"1", numCorner:true, to:"2", clickme:{dir:"up"}, tip:"<b>일괄매입등록</b>을 누르면 등록 화면이 열립니다."},
+      {x:2.04, y:15.79, w:95.93, h:23.69, plain:true, notint:true, tip:"등록한 <b>일괄매입</b> 문서가 이 목록에 나옵니다."},
+    ]},
+  "2":{img:"images/PDA-일괄매입-2등록.png",
+    btns:[
+      {x:15.74, y:54.71, w:46.3, h:19.03, pic:"images/PDA-스캔-상품.png", picBare:true},
+      {x:15.74, y:54.71, w:46.3, h:19.03, num:"2", numCorner:true, front:true, to:"3", clickme:{dir:"right", text:"바코드 찍기"}, tip:"매입처를 고르지 않고 <b>상품 바코드</b>를 찍습니다."},
+      {x:50.37, y:17.98, w:43.33, h:5.61, yellow:true, scroll:"★1", tip:"휴대폰은 <b>상품추가</b>를 눌러 바코드를 넣습니다."},
+      {x:2.04, y:27.12, w:95.93, h:15.6, plain:true, notint:true, tip:"찍은 <b>상품</b>이 이 목록에 쌓입니다."},
+    ]},
+  "3":{img:"images/PDA-일괄매입-3수량.png",
+    btns:[
+      {x:5.19, y:40.53, w:89.44, h:5.9, num:"3", numCorner:true, to:"4", clickme:{dir:"right", css:"left:auto;right:4%"}, tip:"수량을 확인하고 <b>확인</b>을 누릅니다."},
+      {x:71.85, y:6.85, w:21.85, h:5.71, yellow:true, scroll:"★2", tip:"수량이 많으면 <b>수량</b>을 직접 입력합니다."},
+      {x:50.0, y:26.45, w:44.63, h:13.8, plain:true, notint:true, tip:"담을 <b>총 수량</b>입니다."},
+      {x:1.85, y:1.71, w:74.07, h:4.57, plain:true, tip:"찍은 <b>상품</b>의 단가·수량이 나옵니다."},
+    ]},
+  "4":{img:"images/PDA-일괄매입-4목록.png",
+    btns:[
+      {x:19.44, y:75.45, w:37.04, h:15.22, pic:"images/PDA-스캔-상품.png", picBare:true},
+      {x:19.44, y:75.45, w:37.04, h:15.22, num:"4", numCorner:true, front:true, to:"5", clickme:{dir:"right", text:"바코드 찍기"}, tip:"다음 <b>상품 바코드</b>를 이어서 찍습니다."},
+      {x:12.96, y:32.83, w:26.85, h:2.85, yellow:true, scroll:"★3", tip:"상품마다 다른 <b>매입처</b>가 섞여 있어도 됩니다."},
+      {x:12.96, y:56.42, w:25.93, h:2.76, yellow:true, scroll:"★3", tip:"상품마다 다른 <b>매입처</b>가 섞여 있어도 됩니다."},
+      {x:50.37, y:17.98, w:43.33, h:5.61, yellow:true, scroll:"★1", tip:"휴대폰은 <b>상품추가</b>를 눌러 바코드를 넣습니다."},
+    ]},
+  "5":{img:"images/PDA-일괄매입-5미지정.png",
+    btns:[
+      {x:74.44, y:54.95, w:17.22, h:7.18, num:"5", numCorner:true, to:"6", clickme:{dir:"down"}, tip:"<b>예</b>를 누르면 매입처 지정 창이 열립니다."},
+      {x:55.56, y:54.95, w:18.89, h:7.18, plain:true, to:"4", tip:"<b>취소</b>를 누르면 지정하지 않습니다."},
+      {x:8.33, y:44.24, w:84.26, h:8.56, plain:true, notint:true, tip:"찍은 상품에 <b>매입처</b>가 없으면 이 창이 뜹니다."},
+    ]},
+  "6":{img:"images/PDA-일괄매입-6매입처지정_m1030.png",
+    btns:[
+      {x:77.04, y:72.6, w:17.59, h:5.8, num:"5", numCorner:true, to:"7", clickme:{dir:"down"}, tip:"매입처를 고르고 <b>확인</b>을 누릅니다."},
+      {x:7.96, y:34.44, w:84.63, h:10.47, plain:true, notint:true, tip:"고른 <b>매입처</b>는 파란색으로 바뀝니다."},
+      {x:8.7, y:18.74, w:69.63, h:5.76, plain:true, tip:"<b>매입처명</b>·코드·사업자번호로 찾습니다."},
+      {x:78.33, y:18.74, w:15.19, h:5.76, plain:true, tip:"<b>검색</b>을 누르면 매입처 목록이 나옵니다."},
+      {x:3.7, y:8.09, w:91.67, h:8.33, plain:true, notint:true, tip:"매입처를 지정할 <b>상품</b>입니다."},
+    ]},
+  "7":{img:"images/PDA-일괄매입-7지정완료.png",
+    btns:[
+      {x:5.19, y:40.53, w:89.44, h:5.9, num:"5", numCorner:true, to:"8", clickme:{dir:"right", css:"left:auto;right:4%"}, tip:"수량을 확인하고 <b>확인</b>을 누릅니다."},
+      {x:20.93, y:1.14, w:57.96, h:6.37, plain:true, tipDn:true, tip:"'<b>매입처 지정 완료 했습니다.</b>' 안내가 뜹니다."},
+      {x:71.85, y:6.85, w:21.85, h:5.71, yellow:true, scroll:"★2", tip:"수량이 많으면 <b>수량</b>을 직접 입력합니다."},
+    ]},
+  "8":{img:"images/PDA-일괄매입-8목록.png",
+    btns:[
+      {x:49.63, y:92.58, w:49.07, h:6.76, num:"6", numCorner:true, to:"9", clickme:{dir:"up"}, tip:"상품을 다 담았으면 <b>등록</b>을 누릅니다."},
+      {x:12.96, y:32.83, w:26.85, h:2.85, yellow:true, scroll:"★3", tip:"상품마다 다른 <b>매입처</b>가 섞여 있어도 됩니다."},
+      {x:12.96, y:56.42, w:25.93, h:2.76, yellow:true, scroll:"★3", tip:"상품마다 다른 <b>매입처</b>가 섞여 있어도 됩니다."},
+      {x:12.96, y:79.92, w:16.67, h:2.76, yellow:true, scroll:"★3", tip:"상품마다 다른 <b>매입처</b>가 섞여 있어도 됩니다."},
+    ]},
+  "9":{img:"images/PDA-일괄매입-9일괄매입창.png",
+    btns:[
+      {x:77.22, y:32.54, w:17.22, h:5.52, num:"7", numCorner:true, to:"10", clickme:{dir:"down"}, tip:"<b>등록</b>을 누르면 확인 창이 뜹니다."},
+      {x:62.96, y:32.54, w:14.26, h:5.52, plain:true, to:"8", tip:"<b>취소</b>를 누르면 등록하지 않습니다."},
+      {x:5.93, y:7.23, w:87.41, h:6.09, plain:true, tip:"<b>입고예정일</b>을 확인합니다."},
+      {x:5.93, y:13.7, w:87.41, h:5.52, plain:true, tip:"<b>입고부서</b>를 확인합니다."},
+      {x:75.93, y:26.07, w:17.59, h:2.66, plain:true, tip:"담은 <b>품목수</b>입니다."},
+    ]},
+  "10":{img:"images/PDA-일괄매입-10등록확인.png",
+    btns:[
+      {x:74.44, y:57.56, w:17.59, h:7.23, num:"7", numCorner:true, to:"11", clickme:{dir:"down"}, tip:"<b>예</b>를 누르면 일괄매입이 저장됩니다."},
+      {x:55.56, y:57.56, w:18.89, h:7.23, plain:true, to:"9", tip:"<b>취소</b>를 누르면 등록하지 않습니다."},
+      {x:8.33, y:41.86, w:84.26, h:12.84, plain:true, notint:true, tip:"입고예정일과 <b>품목수</b>를 확인합니다."},
+    ]},
+  "11":{img:"images/PDA-일괄매입-11문서.png",
+    btns:[
+      {x:65.56, y:41.1, w:29.44, h:4.85, num:"8", numCorner:true, to:"12", clickme:{dir:"down"}, tip:"<b>작성완료</b>를 누르면 IRM(ERP)으로 넘깁니다."},
+      {x:28.33, y:1.14, w:43.33, h:6.66, plain:true, tipDn:true, tip:"'<b>저장 되었습니다.</b>' 안내와 함께 문서가 생깁니다."},
+      {x:1.67, y:15.79, w:96.67, h:24.93, plain:true, notint:true, tip:"등록한 <b>일괄매입</b> 문서입니다."},
+    ]},
+  "12":{img:"images/PDA-일괄매입-12작성완료.png",
+    btns:[
+      {x:73.52, y:55.95, w:18.52, h:5.52, num:"8", numCorner:true, to:"13", clickme:{dir:"down"}, tip:"<b>작성완료</b>를 누르면 작성이 끝납니다."},
+      {x:57.41, y:55.95, w:16.11, h:5.52, plain:true, to:"11", tip:"<b>취소</b>를 누르면 끝내지 않습니다."},
+      {x:8.33, y:45.67, w:84.26, h:7.14, plain:true, notint:true, tip:"이 문서의 <b>작성</b>을 끝낼지 묻습니다."},
+    ]},
+  "13":{img:"images/PDA-일괄매입-13완료.png",
+    btns:[
+      {x:2.04, y:9.32, w:95.93, h:4.57, yellow:true, scroll:"★4", tip:"작성완료한 문서는 <b>IRM(ERP)</b>에서 승인합니다."},
+      {x:28.33, y:1.14, w:43.33, h:6.66, plain:true, tipDn:true, tip:"'<b>완료 되었습니다.</b>' 안내가 뜨면 끝난 것입니다."},
+      {x:2.04, y:15.79, w:95.93, h:23.69, plain:true, notint:true, tip:"작성완료한 문서는 <b>목록</b>에서 빠집니다."},
+    ]},
+} };
+DESCS["pda2batch"] = [
+  {type:"note", text:"매입처가 섞여 들어온 상품도 순서 없이 찍으면 IRM(ERP)에 <b>매입처별로 나뉘어</b> 등록됩니다.<br><b>한눈에 보기</b><br><span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🆕 일괄매입등록</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>📦 상품 찍기</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>✅ 등록</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>📮 작성완료</span>"},
+  {type:"step", num:"1", title:"🆕 일괄매입등록", subs:["일괄매입관리에서 <span class='ui-btn'>일괄매입등록</span>을 누릅니다.", "%%일괄매입관리는 홈 화면 빠른 실행의 일괄매입이나 ☰ 메뉴에서 엽니다."]},
+  {type:"step", num:"2", title:"📦 상품 바코드 찍기", subs:["매입처를 고르지 않고 들어온 상품의 <b>바코드</b>를 PDA로 찍습니다.", "%%찍은 상품은 바로 목록에 담깁니다."]},
+  {type:"step", num:"3", title:"✅ 상품 창 확인", body:"상품 창에서 수량을 확인하고 <span class='ui-btn'>확인</span>을 누릅니다."},
+  {type:"step", num:"4", title:"🔀 이어서 찍기", subs:["다른 상품도 <b>순서 없이</b> 이어서 찍습니다.", "%%매입처가 달라도 한 문서에 함께 담깁니다."]},
+  {type:"step", num:"5", title:"🏷️ 매입처 지정", subs:["매입처가 없는 상품을 찍으면 '매입처 지정 하시겠습니까?' 창이 뜹니다. <span class='ui-btn'>예</span>를 누릅니다.", "%%매입처를 검색해 고르고 <span class='ui-btn'>확인</span>을 누르면 상품 창이 뜹니다. 수량을 확인하고 <span class='ui-btn'>확인</span>을 누릅니다.", "%%매입처가 없는 상품은 IRM(ERP) 사업장 상품관리에서 미리 지정해 둘 수도 있습니다.", "<span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('s-ch2','7-1',true)\">사업장 상품관리</b></span>"]},
+  {type:"step", num:"6", title:"✅ 등록", body:"상품을 다 담았으면 <span class='ui-btn'>등록</span>을 누릅니다."},
+  {type:"step", num:"7", title:"📝 일괄매입 등록", subs:["일괄매입 창에서 <b>입고예정일·입고부서</b>를 확인하고 <span class='ui-btn'>등록</span>을 누릅니다.", "%%확인 창에서 <span class='ui-btn'>예</span>를 누르면 '저장 되었습니다.' 안내와 함께 일괄매입관리에 문서가 생깁니다."]},
+  {type:"step", num:"8", title:"📮 작성완료", subs:["문서의 <span class='ui-btn'>작성완료</span>를 누르고 확인 창에서 <span class='ui-btn'>작성완료</span>를 한 번 더 누릅니다.", "%%'완료 되었습니다.' 안내가 뜨고, 문서는 이 목록에서 빠집니다."]},
+  {type:"step", num:"★", ystar:true, title:"📱 휴대폰으로 찍을 때", subs:["PDA 기기는 기기에 달린 <b>스캐너</b>로 찍으면 상품이 바로 목록에 담깁니다.", "휴대폰은 <span class='ui-btn'>상품추가</span>를 눌러 '바코드 입력' 창을 열고 <span class='ui-btn'>바코드스캔</span>으로 카메라로 찍은 뒤 <span class='ui-btn'>입력</span>을 누릅니다.", "<img src='images/PDA-매입입고-바코드입력.png' alt='휴대폰의 바코드 입력 창' style='display:block;width:260px;max-width:100%;margin:6px auto 0;border-radius:8px'>"]},
+  {type:"step", num:"★", ystar:true, title:"🔢 수량 직접 입력", subs:["하나씩 찍는 것이 기본이지만, 수량이 많으면 상품 창의 <b>수량</b> 칸에 직접 입력합니다."]},
+  {type:"step", num:"★", ystar:true, title:"🔀 매입처가 섞여도 됩니다", subs:["목록의 상품마다 <b>매입처</b>가 나옵니다.", "%%택배처럼 여러 매입처 상품이 섞여 와도 구분하지 않고 찍으면, IRM(ERP)에 매입처별 전표로 나뉘어 올라갑니다."]},
+  {type:"step", num:"★", ystar:true, title:"🖥️ IRM(ERP)에서 매입완료", subs:["작성완료한 일괄매입은 IRM(ERP) 매입관리 › 매입 조회의 <b>금액확인</b> 탭에 매입처별로 나뉘어 올라옵니다.", "%%전표를 선택하고 <span class='ui-btn'>매입완료</span>를 누르면 매입이 끝납니다.", "<span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-pq',true);setTimeout(function(){goPage(2)},80)\">매입 조회 › 금액확인</b></span> · <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('s-ch3','s-pq',true);setTimeout(function(){goPage(4)},80)\">매입완료 탭</b></span>", "%%매입완료한 전표는 PDA의 매입완료목록에서도 볼 수 있습니다.", "<span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch2','pda-done',true)\">매입완료목록</b></span>"]},
+];
+IMGS["pda2done"] = "images/PDA-매입완료-1메뉴_m1030.png";
+SIM["pda2done"] = { start:"1", screens:{
+  "1":{img:"images/PDA-매입완료-1메뉴_m1030.png",
+    btns:[
+      {x:1.85, y:60.8, w:70.19, h:5.9, num:"1", numCorner:true, to:"2", clickme:{dir:"down", css:"flex-direction:row"}, tip:"<b>매입완료목록</b>을 누릅니다."},
+      {x:1.85, y:23.22, w:70.19, h:11.42, plain:true, notint:true, tip:"<b>매입입고관리</b>·일괄매입관리도 이 메뉴에서 엽니다."},
+    ]},
+  "2":{img:"images/PDA-매입완료-2목록.png",
+    btns:[
+      {x:50.56, y:58.8, w:44.63, h:4.95, num:"2", numCorner:true, to:"3", clickme:{dir:"down"}, tip:"<b>수정</b>을 누르면 매입입고수정 화면이 열립니다."},
+      {x:1.3, y:15.6, w:97.22, h:17.32, yellow:true, scroll:"★1", tip:"기간·상품·매입처로 골라 <b>조회</b>합니다."},
+      {x:1.67, y:34.63, w:96.67, h:23.79, plain:true, notint:true, tip:"IRM(ERP)에서 <b>매입완료</b>한 전표가 나옵니다."},
+    ]},
+  "3":{img:"images/PDA-매입완료-3수정.png",
+    btns:[
+      {x:6.11, y:25.59, w:87.78, h:6.18, yellow:true, scroll:"★2", tip:"매입완료 전표는 매입일 기준 <b>3개월</b> 안에만 고칩니다."},
+      {x:1.67, y:44.43, w:96.67, h:19.41, plain:true, notint:true, tip:"이 전표에 담긴 <b>상품</b>입니다."},
+      {x:49.63, y:92.58, w:49.07, h:6.76, plain:true, tip:"고친 뒤 <b>수정완료</b>를 누릅니다."},
+    ]},
+} };
+DESCS["pda2done"] = [
+  {type:"note", text:"IRM(ERP)에서 <b>매입완료</b>한 전표를 PDA에서 확인합니다.<br><b>한눈에 보기</b><br><span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>☰ 메뉴</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>📋 매입완료목록</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>✏️ 수정</span>"},
+  {type:"step", num:"1", title:"📋 매입완료목록 열기", body:"☰ 메뉴의 매입완료에서 <b>매입완료목록</b>을 누릅니다."},
+  {type:"step", num:"2", title:"✏️ 수정", subs:["전표의 <span class='ui-btn'>수정</span>을 누르면 매입입고수정 화면이 열립니다.", "%%고친 뒤 <span class='ui-btn'>수정완료</span>를 누릅니다."]},
+  {type:"step", num:"★", ystar:true, title:"🔍 조회", body:"시작·종료 매입일, 상품코드/바코드, 상품명, <b>매입처</b>로 골라 <span class='ui-btn'>조회</span>를 누릅니다."},
+  {type:"step", num:"★", ystar:true, title:"⏳ 3개월 안에만 수정", body:"매입완료 전표는 <b>매입일 기준 3개월</b> 안에만 수정할 수 있습니다."},
+  {type:"note", text:"PDA에서 등록한 전표는 IRM(ERP)에서 매입완료한 뒤 이 목록에 나옵니다.<br><span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch2','pda-buy',true)\">매입입고</b></span> · <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch2','pda-batch',true)\">일괄매입등록</b></span>"},
+];
+// ── PDA 3 · 상품 관리 ──
+IMGS["pda3info"] = "images/PDA-매장상품정보-1빈화면.png";
+SIM["pda3info"] = { start:"1", screens:{
+  "1":{img:"images/PDA-매장상품정보-1빈화면.png",
+    btns:[
+      {x:6.39, y:10.13, w:67.69, h:5.42, num:"1", numCorner:true, to:"2", clickme:{dir:"down", text:"바코드 찍기", css:"flex-direction:row"}, tip:"확인할 <b>상품 바코드</b>를 PDA로 찍습니다."},
+      {x:22.22, y:61.85, w:55.56, h:22.84, pic:"images/PDA-스캔-상품.png", picBare:true},
+      {x:22.22, y:61.85, w:55.56, h:22.84, plain:true, front:true, to:"2", tip:"PDA로 <b>상품 바코드</b>를 찍는 모습입니다."},
+      {x:74.63, y:10.13, w:19.07, h:5.42, yellow:true, scroll:"★1", tip:"휴대폰은 <b>스캔</b>을 눌러 카메라로 찍습니다."},
+      {x:2.04, y:19.46, w:95.93, h:16.98, plain:true, tip:"상품을 찍기 전이라 <b>상품 정보</b>가 없습니다."},
+      {x:2.04, y:38.11, w:95.93, h:11.37, plain:true, tip:"상품을 찍으면 <b>위치 정보</b>도 나옵니다."},
+    ]},
+  "2":{img:"images/PDA-매장상품정보-2상품정보.png",
+    btns:[
+      {x:5.37, y:58.61, w:89.35, h:5.19, num:"2", numCorner:true, to:"3", clickme:{dir:"right", css:"left:auto;right:1.5%"}, tip:"<b>ESL 가격 재반영</b>을 누르면 확인 창이 뜹니다."},
+      {x:79.63, y:37.58, w:16.67, h:3.24, yellow:true, scroll:"★2", tip:"상품의 <b>현재고</b>가 나옵니다."},
+      {x:3.7, y:42.48, w:92.59, h:3.9, yellow:true, scroll:"★3", tip:"지금 <b>매입·판매</b>할 수 있는 상품인지 나옵니다."},
+      {x:2.04, y:87.87, w:95.93, h:12.04, yellow:true, scroll:"★4", to:"8", tip:"위치를 누르면 그 매대의 <b>재고 설정</b> 창이 열립니다."},
+      {x:74.63, y:10.13, w:19.07, h:5.42, yellow:true, scroll:"★1", tip:"휴대폰은 <b>스캔</b>을 눌러 카메라로 찍습니다."},
+      {x:6.39, y:10.13, w:67.69, h:5.42, plain:true, tip:"다른 <b>상품</b>을 찍으면 그 상품 정보로 바뀝니다."},
+      {x:3.7, y:20.98, w:59.81, h:4.33, plain:true, tip:"이 상품의 <b>매입처</b>가 나옵니다."},
+      {x:64.07, y:20.98, w:31.02, h:4.33, plain:true, tip:"매입처가 비어 있으면 <b>매입처 지정</b>으로 고릅니다."},
+      {x:3.7, y:25.93, w:92.59, h:7.94, plain:true, notint:true, tip:"찍은 <b>상품</b>의 코드와 이름입니다."},
+      {x:3.7, y:34.73, w:61.11, h:2.66, plain:true, tip:"상품 <b>공지</b>가 나옵니다."},
+      {x:3.7, y:47.34, w:92.59, h:9.99, plain:true, notint:true, tip:"<b>매입가·판매가</b>와 행사가가 나옵니다."},
+      {x:3.7, y:65.18, w:92.59, h:13.56, plain:true, notint:true, tip:"최근 90일 <b>판매</b>(전체매장·매장·배송)가 나옵니다."},
+      {x:2.04, y:82.45, w:95.93, h:5.38, plain:true, tip:"상품이 놓인 <b>위치</b>(매대)가 나옵니다."},
+    ]},
+  "3":{img:"images/PDA-매장상품정보-3ESL확인.png",
+    btns:[
+      {x:75.0, y:55.42, w:16.67, h:6.85, num:"2", numCorner:true, to:"4", clickme:{dir:"down"}, tip:"<b>예</b>를 누르면 현재 판매가를 ESL에 다시 반영합니다."},
+      {x:57.41, y:55.42, w:16.67, h:6.85, plain:true, to:"2", tip:"<b>취소</b>를 누르면 반영하지 않습니다."},
+      {x:9.26, y:45.2, w:81.48, h:7.14, plain:true, notint:true, tip:"현재 <b>판매가</b>를 ESL에 다시 반영할지 묻습니다."},
+    ]},
+  "4":{img:"images/PDA-매장상품정보-4ESL알림.png",
+    btns:[
+      {x:75.0, y:53.71, w:16.67, h:6.85, num:"2", numCorner:true, to:"5", clickme:{dir:"down"}, tip:"<b>확인</b>을 눌러 알림을 닫습니다."},
+      {x:9.26, y:47.1, w:81.48, h:3.33, plain:true, notint:true, tip:"ESL(전자가격표)에 <b>판매가</b>가 다시 반영됐습니다."},
+    ]},
+  "5":{img:"images/PDA-매장상품정보-5매입처지정.png",
+    btns:[
+      {x:64.07, y:20.98, w:31.02, h:4.33, num:"3", numCorner:true, to:"6", clickme:{dir:"left"}, tip:"<b>매입처 지정</b>을 누르면 매입처 지정 창이 열립니다."},
+      {x:3.7, y:20.98, w:59.81, h:4.33, plain:true, tip:"이 상품은 <b>매입처</b>가 비어 있습니다."},
+      {x:3.7, y:25.93, w:92.59, h:7.94, plain:true, notint:true, tip:"매입처를 지정할 <b>상품</b>입니다."},
+      {x:2.04, y:87.87, w:95.93, h:12.04, yellow:true, scroll:"★4", to:"8", tip:"위치를 누르면 그 매대의 <b>재고 설정</b> 창이 열립니다."},
+    ]},
+  "6":{img:"images/PDA-매장상품정보-6매입처선택_m1030.png",
+    btns:[
+      {x:78.7, y:73.12, w:15.56, h:4.9, num:"3", numCorner:true, to:"7", clickme:{dir:"down"}, tip:"매입처를 고르고 <b>확인</b>을 누릅니다."},
+      {x:63.89, y:73.12, w:14.44, h:4.9, plain:true, to:"5", tip:"<b>취소</b>를 누르면 지정하지 않습니다."},
+      {x:83.8, y:2.38, w:9.72, h:4.52, plain:true, to:"5", tip:"<b>X</b>를 누르면 창이 닫힙니다."},
+      {x:3.7, y:2.38, w:79.17, h:4.52, plain:true, tip:"매입처를 고르는 <b>매입처 지정</b> 창입니다."},
+      {x:4.81, y:7.61, w:90.37, h:13.08, plain:true, notint:true, tip:"매입처를 지정할 <b>상품</b>입니다."},
+      {x:6.85, y:23.03, w:76.11, h:5.38, plain:true, tip:"<b>매입처명</b>·코드·사업자번호로 찾습니다."},
+      {x:83.33, y:23.03, w:10.0, h:5.38, plain:true, tip:"<b>검색</b>을 누르면 매입처 목록이 나옵니다."},
+      {x:7.04, y:48.57, w:84.54, h:7.99, plain:true, notint:true, tip:"고른 <b>매입처</b>는 파란색으로 바뀝니다."},
+      {x:3.7, y:65.89, w:92.59, h:5.0, plain:true, tip:"<b>쪽</b>을 넘겨 다른 매입처를 봅니다."},
+    ]},
+  "7":{img:"images/PDA-매장상품정보-7지정완료.png",
+    btns:[
+      {x:23.15, y:1.09, w:54.63, h:6.47, plain:true, tipDn:true, tip:"'<b>매입처가 지정되었습니다.</b>' 안내가 뜹니다."},
+      {x:3.7, y:20.22, w:92.59, h:4.76, plain:true, tip:"지정한 <b>매입처</b>가 나옵니다."},
+    ]},
+  "8":{img:"images/PDA-매장상품정보-8재고설정.png",
+    btns:[
+      {x:6.76, y:14.03, w:86.39, h:17.65, yellow:true, scroll:"★4", tip:"단위·현재고를 뺀 <b>재고 한도</b>를 고칠 수 있습니다."},
+      {x:77.78, y:36.16, w:16.57, h:4.52, plain:true, tip:"고친 재고 한도는 <b>수정</b>으로 반영합니다."},
+      {x:61.11, y:36.16, w:15.74, h:4.52, plain:true, to:"2", tip:"<b>취소</b>를 누르면 고치지 않고 닫습니다."},
+      {x:83.8, y:2.38, w:9.72, h:4.52, plain:true, to:"2", tip:"<b>X</b>를 누르면 창이 닫힙니다."},
+      {x:3.7, y:2.38, w:79.17, h:4.52, plain:true, tip:"누른 <b>위치</b>(매대)의 재고 설정 창입니다."},
+      {x:5.28, y:7.9, w:43.15, h:5.33, plain:true, tip:"<b>단위</b>는 고칠 수 없습니다."},
+      {x:50.0, y:7.9, w:43.15, h:5.33, plain:true, tip:"<b>현재고</b>는 고칠 수 없습니다."},
+    ]},
+} };
+DESCS["pda3info"] = [
+  {type:"note", text:"상품 바코드를 PDA로 찍어 <b>상품 정보와 매대 위치</b>를 확인합니다.<br><b>한눈에 보기</b><br><span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>📦 상품 찍기</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🔎 상품 정보</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>💡 ESL 가격 재반영</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🏢 매입처 지정</span>"},
+  {type:"step", num:"1", title:"📦 상품 바코드 찍기", subs:["☰ 메뉴 › 매장관리의 <b>매장상품정보</b>에서 상품 바코드를 PDA로 찍습니다.", "%%찍으면 바로 상품 정보와 위치 정보가 나옵니다."]},
+  {type:"step", num:"2", title:"💡 ESL 가격 재반영", subs:["자주 쓰는 기능입니다. <span class='ui-btn'>ESL 가격 재반영</span>을 누르면 현재 판매가를 <b>ESL(전자가격표)</b>에 다시 반영합니다.", "%%확인 창에서 <span class='ui-btn'>예</span>를 누르고, 알림이 뜨면 <span class='ui-btn'>확인</span>을 누릅니다."]},
+  {type:"step", num:"3", title:"🏢 매입처 지정", subs:["매입처가 비어 있으면 <span class='ui-btn'>매입처 지정</span>을 누릅니다.", "%%매입처명·코드·사업자번호로 <span class='ui-btn'>검색</span>해 매입처를 고르고 <span class='ui-btn'>확인</span>을 누르면 '매입처가 지정되었습니다.' 안내와 함께 매입처가 나옵니다."]},
+  {type:"step", num:"★", ystar:true, title:"📟 PDA 기기와 휴대폰", subs:["PDA 기기는 기기에 달린 <b>스캐너</b>로 바코드를 찍습니다.", "휴대폰은 <span class='ui-btn'>스캔</span>을 눌러 <b>카메라</b>로 찍습니다."]},
+  {type:"step", num:"★", ystar:true, title:"📊 현재고", subs:["상품의 <b>현재고</b>가 나옵니다.", "%%매대마다의 재고 한도는 위치 정보에서 봅니다."]},
+  {type:"step", num:"★", ystar:true, title:"✅ 매입·판매 가능", body:"지금 이 상품을 <b>매입</b>할 수 있는지, <b>판매</b>할 수 있는지 나옵니다."},
+  {type:"step", num:"★", ystar:true, title:"📍 위치 정보 · 재고 한도", subs:["<b>위치 정보</b>에 이 상품이 놓인 매대(로케이션)가 나옵니다.", "%%위치를 누르면 그 매대의 재고 설정 창이 열립니다.", "%%<span class='ui-btn'>수정</span>으로 단위와 현재고를 뺀 <b>재고 한도</b>(최대·안전·최소재고)를 고칠 수 있습니다. <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"simGo('pda3info','8')\">화면 보기</b></span>", "매대는 <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch4','pda-shelf-assign',true)\">상품매대지정</b></span>에서 정합니다."]},
+  {type:"note", text:"상품 정보를 등록·수정하려면 <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch3','pda-manage',true)\">매장상품관리</b></span>에서 합니다. 매입가·판매가는 <b>권한</b>이 있으면 이 메뉴에서도 고칠 수 있습니다."},
+];
+IMGS["pda3manage"] = "images/PDA-매장상품관리-1목록.png";
+SIM["pda3manage"] = { start:"1", screens:{
+  "1":{img:"images/PDA-매장상품관리-1목록.png",
+    btns:[
+      {x:2.04, y:21.98, w:95.93, h:13.04, num:"1", numCorner:true, to:"2", clickme:{dir:"right", css:"left:auto;right:20%;top:66%"}, tip:"고칠 <b>상품</b>을 누르면 상품 수정 창이 열립니다."},
+      {x:75.93, y:9.75, w:21.3, h:4.04, yellow:true, scroll:"★4", to:"10", tip:"<b>상품등록</b>을 누르면 새 상품을 간단히 등록합니다."},
+      {x:2.04, y:9.75, w:72.96, h:4.04, plain:true, tip:"매장 상품 <b>목록</b>과 총건수가 나옵니다."},
+      {x:2.04, y:16.22, w:95.93, h:5.33, plain:true, tip:"<b>통합검색</b>으로 상품명이나 바코드를 찾습니다."},
+      {x:2.04, y:35.3, w:95.93, h:11.7, plain:true, notint:true, tip:"상품마다 <b>재고·마진</b>·판매가·매입가가 나옵니다."},
+    ]},
+  "2":{img:"images/PDA-매장상품관리-2상품수정.png",
+    btns:[
+      {x:6.48, y:59.94, w:85.56, h:5.33, num:"2", numCorner:true, to:"3", clickme:{dir:"right", css:"left:auto;right:12.5%"}, tip:"원산지 <b>대분류</b> 칸을 누릅니다."},
+      {x:3.33, y:15.46, w:91.76, h:4.9, yellow:true, scroll:"★1", tip:"<b>기본정보</b>·상세·내품/바코드·사진 탭으로 나뉩니다."},
+      {x:5.56, y:9.04, w:75.46, h:5.47, plain:true, tip:"상품 정보를 고치는 <b>상품 수정</b> 창입니다."},
+      {x:81.94, y:9.04, w:9.26, h:5.47, plain:true, to:"1", tip:"<b>X</b>를 누르면 저장하지 않고 창이 닫힙니다."},
+      {x:6.48, y:21.84, w:85.56, h:5.33, plain:true, tip:"<b>상품바코드</b>는 바꿀 수 없는 칸입니다."},
+      {x:6.48, y:27.97, w:85.56, h:5.33, plain:true, tip:"<b>상품명</b>도 이 창에서 고칠 수 있습니다."},
+      {x:6.48, y:34.21, w:85.56, h:21.46, plain:true, notint:true, tip:"상품 <b>분류</b>(대·중·소분류)입니다."},
+      {x:6.48, y:66.37, w:85.56, h:9.28, plain:true, notint:true, tip:"<b>매입가·판매가</b>와 마진이 나옵니다."},
+    ]},
+  "3":{img:"images/PDA-매장상품관리-3원산지.png",
+    btns:[
+      {x:6.48, y:43.86, w:87.5, h:5.9, num:"2", numCorner:true, to:"4", clickme:{dir:"right", css:"left:auto;right:4%"}, tip:"원산지 <b>대분류</b>를 고릅니다."},
+      {x:6.48, y:49.76, w:87.5, h:17.32, plain:true, notint:true, tip:"다른 <b>원산지</b> 대분류입니다."},
+    ]},
+  "4":{img:"images/PDA-매장상품관리-4원산지완료.png",
+    btns:[
+      {x:28.24, y:41.1, w:63.8, h:5.28, num:"3", numCorner:true, to:"5", clickme:{dir:"down"}, tip:"<b>매입가·판매가</b> 칸을 눌러 금액을 고칩니다."},
+      {x:6.48, y:18.74, w:85.56, h:17.65, plain:true, notint:true, tip:"대분류를 고르면 <b>중분류·소분류</b>가 차례로 나옵니다."},
+      {x:6.48, y:37.35, w:85.56, h:2.85, plain:true, tip:"매입가와 판매가로 <b>마진</b>이 계산됩니다."},
+      {x:6.48, y:79.64, w:85.56, h:5.33, plain:true, tip:"<b>매입처</b>는 이 칸을 눌러 고릅니다."},
+      {x:75.56, y:88.44, w:16.67, h:4.38, plain:true, tip:"다 고친 뒤 <b>저장</b>을 누릅니다."},
+      {x:59.26, y:88.44, w:15.37, h:4.38, plain:true, to:"1", tip:"<b>취소</b>를 누르면 고치지 않고 닫습니다."},
+    ]},
+  "5":{img:"images/PDA-매장상품관리-5금액.png",
+    btns:[
+      {x:6.48, y:79.64, w:85.56, h:5.33, num:"4", numCorner:true, to:"6", clickme:{dir:"right", css:"left:auto;right:13.5%"}, tip:"<b>매입처</b> 칸을 누르면 매입처 검색 창이 열립니다."},
+      {x:28.24, y:41.1, w:63.8, h:5.28, plain:true, tip:"고친 <b>매입가·판매가</b>입니다."},
+      {x:6.48, y:37.35, w:85.56, h:2.85, plain:true, tip:"고친 금액으로 <b>마진</b>이 다시 계산됩니다."},
+    ]},
+  "6":{img:"images/PDA-매장상품관리-6매입처검색_m1030.png",
+    btns:[
+      {x:6.76, y:23.5, w:86.39, h:11.85, num:"4", numCorner:true, to:"7", clickme:{dir:"right", css:"left:auto;right:4%"}, tip:"고를 <b>매입처</b>를 누릅니다."},
+      {x:3.7, y:2.38, w:79.17, h:4.52, plain:true, tip:"매입처를 찾는 <b>매입처 검색</b> 창입니다."},
+      {x:83.8, y:2.38, w:9.72, h:4.52, plain:true, to:"5", tip:"<b>X</b>를 누르면 창이 닫힙니다."},
+      {x:6.76, y:7.9, w:70.09, h:5.33, plain:true, tip:"<b>상호명</b>·코드·사업자번호로 찾습니다."},
+      {x:77.69, y:7.9, w:15.46, h:5.33, plain:true, tip:"<b>검색</b>을 누르면 매입처 목록이 나옵니다."},
+      {x:3.7, y:74.02, w:92.59, h:5.71, plain:true, tip:"<b>쪽</b>을 넘겨 다른 매입처를 봅니다."},
+    ]},
+  "7":{img:"images/PDA-매장상품관리-7매입처확인_m1030.png",
+    btns:[
+      {x:75.0, y:55.42, w:16.67, h:6.85, num:"4", numCorner:true, to:"8", clickme:{dir:"down"}, tip:"<b>예</b>를 누르면 매입처 칸에 들어갑니다."},
+      {x:57.41, y:55.42, w:16.67, h:6.85, plain:true, to:"6", tip:"<b>취소</b>를 누르면 다시 고릅니다."},
+      {x:9.26, y:39.01, w:83.33, h:13.8, plain:true, notint:true, tip:"고른 <b>매입처</b>가 맞는지 묻습니다."},
+    ]},
+  "8":{img:"images/PDA-매장상품관리-8저장전.png",
+    btns:[
+      {x:75.56, y:86.06, w:16.67, h:5.14, num:"5", numCorner:true, to:"9", clickme:{dir:"down", css:"flex-direction:row"}, tip:"다 고쳤으면 <b>저장</b>을 누릅니다."},
+      {x:59.26, y:86.06, w:15.37, h:5.14, plain:true, to:"1", tip:"<b>취소</b>를 누르면 고치지 않고 닫습니다."},
+      {x:74.07, y:35.2, w:17.96, h:2.85, yellow:true, scroll:"★2", tip:"고친 금액으로 <b>마진</b>이 다시 계산됐습니다."},
+      {x:60.93, y:38.68, w:31.11, h:5.28, yellow:true, scroll:"★3", tip:"판매가도 IRM(ERP)에서 <b>권한</b>을 받아야 바꿀 수 있습니다."},
+      {x:28.24, y:38.68, w:31.02, h:5.28, plain:true, tip:"고친 <b>매입가</b>입니다."},
+      {x:6.48, y:77.26, w:85.56, h:5.28, plain:true, tip:"고른 <b>매입처</b>가 들어갔습니다."},
+      {x:6.48, y:16.32, w:85.56, h:17.6, plain:true, notint:true, tip:"고른 <b>원산지</b>가 들어갔습니다."},
+    ]},
+  "9":{img:"images/PDA-매장상품관리-9저장.png",
+    btns:[
+      {x:24.07, y:1.38, w:52.04, h:14.13, plain:true, tipDn:true, tip:"<b>안내</b>가 뜨면 저장된 것입니다."},
+      {x:2.04, y:21.98, w:95.93, h:13.04, plain:true, notint:true, tip:"고친 내용이 <b>목록</b>에 바로 나옵니다."},
+    ]},
+  "10":{img:"images/PDA-매장상품관리-10신규기본.png",
+    btns:[
+      {x:5.56, y:9.04, w:75.46, h:5.47, yellow:true, scroll:"★4", tip:"새 상품을 간단히 등록하는 <b>신규 상품 등록 (간이)</b> 창입니다."},
+      {x:81.94, y:9.04, w:9.26, h:5.47, plain:true, to:"1", tip:"<b>X</b>를 누르면 저장하지 않고 창이 닫힙니다."},
+      {x:3.33, y:15.46, w:46.67, h:4.9, plain:true, tip:"바코드·이름·분류·가격을 넣는 <b>기본정보</b> 탭입니다."},
+      {x:50.0, y:15.46, w:45.09, h:4.9, plain:true, to:"11", tip:"<b>상세</b>를 누르면 세부 항목이 나옵니다."},
+      {x:6.48, y:21.84, w:85.56, h:5.33, yellow:true, scroll:"★4", tip:"<b>상품바코드</b>는 PDA로 찍으면 바로 들어갑니다."},
+      {x:6.48, y:27.97, w:85.56, h:5.33, plain:true, tip:"<b>상품명</b>은 꼭 넣습니다."},
+      {x:6.48, y:34.21, w:85.56, h:9.13, plain:true, tip:"상품 <b>분류</b>를 고릅니다."},
+      {x:6.48, y:47.67, w:85.56, h:5.28, plain:true, tip:"<b>원산지</b>를 고릅니다."},
+      {x:6.48, y:54.61, w:85.56, h:5.33, plain:true, tip:"<b>매입가·판매가</b>를 넣습니다."},
+    ]},
+  "11":{img:"images/PDA-매장상품관리-11신규상세.png",
+    btns:[
+      {x:5.56, y:9.04, w:75.46, h:5.47, yellow:true, scroll:"★4", tip:"새 상품을 간단히 등록하는 <b>신규 상품 등록 (간이)</b> 창입니다."},
+      {x:81.94, y:9.04, w:9.26, h:5.47, plain:true, to:"1", tip:"<b>X</b>를 누르면 저장하지 않고 창이 닫힙니다."},
+      {x:3.33, y:15.46, w:46.67, h:4.9, plain:true, to:"10", tip:"<b>기본정보</b>를 누르면 기본정보 탭으로 돌아갑니다."},
+      {x:50.0, y:15.46, w:45.09, h:4.9, plain:true, tip:"세부 항목을 정하는 <b>상세</b> 탭입니다."},
+      {x:5.56, y:21.65, w:87.04, h:18.32, plain:true, tip:"<b>매입형태</b>·성인인증을 정합니다."},
+      {x:5.56, y:40.91, w:87.04, h:9.04, plain:true, tip:"<b>보관방법</b>을 정합니다."},
+      {x:5.56, y:50.67, w:87.04, h:36.39, plain:true, tip:"<b>유니패스</b>·검수·로트번호 사용 여부를 정합니다."},
+    ]},
+} };
+DESCS["pda3manage"] = [
+  {type:"note", text:"PDA에서 <b>상품 정보와 가격</b>을 고칩니다.<br><b>한눈에 보기</b><br><span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>📋 상품 열기</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🌏 원산지</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>💰 매입가·판매가</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🏢 매입처</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>💾 저장</span>"},
+  {type:"step", num:"1", title:"📋 상품 열기", subs:["☰ 메뉴 › 매장관리의 <b>매장상품관리</b>에서 고칠 상품을 누릅니다.", "%%통합검색으로 상품명이나 바코드를 찾을 수 있습니다. 상품을 누르면 상품 수정 창이 열립니다."]},
+  {type:"step", num:"2", title:"🌏 원산지 고르기", subs:["원산지 <b>대분류</b> 칸을 눌러 목록에서 고릅니다.", "%%대분류를 고르면 중분류, 중분류를 고르면 소분류 칸이 차례로 나옵니다."]},
+  {type:"step", num:"3", title:"💰 매입가·판매가", subs:["<b>매입가·판매가</b> 칸을 눌러 금액을 고칩니다.", "%%마진은 저절로 다시 계산됩니다."]},
+  {type:"step", num:"4", title:"🏢 매입처", subs:["<b>매입처</b> 칸을 누르면 매입처 검색 창이 열립니다. <span class='ui-btn'>검색</span>을 누르고 매입처를 누릅니다.", "%%확인 창에서 <span class='ui-btn'>예</span>를 누르면 매입처 칸에 들어갑니다."]},
+  {type:"step", num:"5", title:"💾 저장", subs:["다 고쳤으면 <span class='ui-btn'>저장</span>을 누릅니다.", "%%'상품이 수정되었습니다.' 안내가 뜨고, 고친 내용이 목록에 바로 반영됩니다. '상품이 등록되었습니다.' 안내가 함께 뜨기도 합니다."]},
+  {type:"step", num:"★", ystar:true, title:"🗂️ 상품 수정 창의 탭", body:"상품 수정 창은 <b>기본정보 · 상세 · 내품/바코드 · 사진</b> 탭으로 나뉩니다."},
+  {type:"step", num:"★", ystar:true, title:"📈 마진 자동 계산", body:"매입가나 판매가를 고치면 <b>마진</b>이 바로 다시 계산됩니다."},
+  {type:"step", num:"★", ystar:true, title:"🔐 PDA 권한", subs:["판매가뿐 아니라 PDA의 모든 기능은 IRM(ERP)에서 <b>권한</b>을 받아야 쓸 수 있습니다.", "%%권한이 필요하면 관리자에게 문의합니다. 권한은 IRM(ERP) 사업장 사원 관리의 PDA 메뉴권한 탭에서 정합니다.", "<span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('s-ch5','s-sa',true);setTimeout(function(){goPage(2)},80)\">사업장 사원 관리 › PDA 메뉴권한</b></span>"]},
+  {type:"step", num:"★", ystar:true, title:"🆕 신규 상품 등록 (간이)", subs:["목록의 <span class='ui-btn'>+ 상품등록</span>을 누르면 새 상품을 간단히 등록하는 <b>신규 상품 등록 (간이)</b> 창이 열립니다.", "<b>상품바코드</b> 칸은 PDA로 찍으면 바로 들어갑니다.", "%%기본정보 탭에 상품바코드·상품명·분류·매입가·판매가를 넣고, 상세 탭에서 매입형태·보관방법·판매상태 같은 항목을 정합니다.", "%%* 표시 칸은 꼭 넣습니다. <span class='ui-btn'>X</span>를 누르면 저장하지 않고 닫힙니다. <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"simGo('pda3manage','10')\">화면 보기</b></span>"]},
+  {type:"note", text:"매장상품관리는 상품 정보를 <b>등록·수정</b>합니다. <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch3','pda-info',true)\">매장상품정보</b></span>는 상품 정보를 확인하고, 권한이 있으면 매입가·판매가도 고칠 수 있습니다."},
+];
+// ── PDA 4 · 매대 설정 ──
+IMGS["pda4label"] = "images/PDA-매대바코드-준비.jpg";
+SIM["pda4label"] = { start:"1", phone:false, screens:{
+  "1":{img:"images/PDA-매대바코드-준비.jpg",
+    btns:[
+      {x:4.67, y:8.61, w:41.41, h:29.17, num:"1", numCorner:true, notint:true, tip:"IRM(ERP)에서 인쇄한 <b>매대 바코드</b> 라벨입니다."},
+      {x:5.33, y:12.96, w:4.44, h:24.44, plain:true, scroll:"2", tip:"<b>화살표</b> 부분을 점선을 따라 뒤로 접습니다."},
+      {x:41.56, y:12.96, w:4.44, h:24.44, plain:true, scroll:"2", tip:"<b>화살표</b> 부분을 점선을 따라 뒤로 접습니다."},
+      {x:10.0, y:16.57, w:24.37, h:4.44, yellow:true, scroll:"★1", tip:"<b>로케이션명</b>(매대 위치)입니다."},
+      {x:51.48, y:8.61, w:46.44, h:29.17, num:"2", numCorner:true, notint:true, tip:"접으면 앞면에 <b>로케이션명과 바코드</b>가 보입니다."},
+      {x:16.44, y:73.52, w:18.0, h:12.59, num:"3", numCorner:true, tip:"매대 <b>레일</b>에 라벨을 꽂습니다."},
+      {x:63.56, y:73.52, w:22.0, h:12.59, num:"4", numCorner:true, tip:"이 <b>바코드</b>를 PDA로 찍습니다."},
+    ]},
+} };
+DESCS["pda4label"] = [
+  {type:"note", text:"상품매대지정·상품매대이동에서 찍는 <b>매대(로케이션) 바코드</b> 라벨을 준비합니다.<br><b>한눈에 보기</b><br><span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🖨️ 인쇄</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>✂️ 뒤로 접기</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>📌 레일에 꽂기</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>📟 PDA로 찍기</span>"},
+  {type:"step", num:"1", title:"🖨️ IRM(ERP)에서 인쇄", subs:["매장관리Ⅱ › <b>로케이션 관리</b>에서 분류를 고르고 <b>인쇄</b> 아이콘을 누릅니다.", "🔗 <b class='dlink' onclick=\"openSub('s-ch5','8b-3a',true)\">로케이션 관리</b>", "%%인쇄 아이콘을 누르면 바코드 인쇄관리로 넘어가 라벨을 인쇄합니다.", "🔗 <b class='dlink' onclick=\"openSub('s-ch5','7-3a',true);setTimeout(function(){goPage(2)},80)\">로케이션 바코드 인쇄하기</b>", "라벨은 <b>노란 라벨 용지</b>에 인쇄합니다.", "%%IRM(ERP) 미리보기에서는 라벨이 흰색으로 보여도 괜찮습니다."]},
+  {type:"step", num:"2", title:"✂️ 화살표 부분 뒤로 접기", subs:["라벨 양쪽 <b>화살표</b> 부분을 점선을 따라 뒤로 접습니다.", "%%접으면 화살표 부분은 뒤로 넘어가고, 앞면에 로케이션명과 바코드가 보입니다."]},
+  {type:"step", num:"3", title:"📌 매대 레일에 꽂기", body:"바코드가 앞으로 보이게 <b>매대 레일</b>에 꽂습니다."},
+  {type:"step", num:"4", title:"📟 PDA로 찍기", subs:["이 <b>바코드</b>를 PDA로 찍어 매대를 고릅니다.", "🔗 <b class='dlink' onclick=\"openSub('pda-ch4','pda-shelf-assign',true)\">상품매대지정</b> · 🔗 <b class='dlink' onclick=\"openSub('pda-ch4','pda-shelf-move',true)\">상품매대이동</b>"]},
+  {type:"step", num:"★", ystar:true, title:"🏷️ 로케이션명", subs:["바코드 위 글자는 이 라벨의 <b>로케이션명</b>입니다.", "%%대분류 > 중분류 > 소분류 > 세분류 차례로 적혀 있어 어느 매대 라벨인지 알 수 있습니다."]},
+  {type:"bullet", title:"🎬 움직이는 그림으로 보기", body:"라벨을 접어 매대 레일에 꽂는 과정입니다.", subs:["<img src='images/PDA-매대바코드-접기.png' alt='라벨 접어 꽂기' style='display:block;width:340px;max-width:100%;margin:6px auto 0;border-radius:8px'>"]},
+];
+IMGS["pda4assign"] = "images/PDA-매대지정-1빈화면.png";
+SIM["pda4assign"] = { start:"1", screens:{
+  "1":{img:"images/PDA-매대지정-1빈화면.png",
+    btns:[
+      {x:6.11, y:18.36, w:87.87, h:5.52, num:"1", numCorner:true, to:"2", clickme:{dir:"right", text:"바코드 찍기", css:"left:auto;right:19.5%"}, tip:"매대에 꽂아 둔 <b>매대 바코드</b>를 찍습니다."},
+      {x:22.22, y:56.14, w:55.56, h:22.84, pic:"images/PDA-스캔-매대.png", picBare:true},
+      {x:22.22, y:56.14, w:55.56, h:22.84, plain:true, front:true, to:"2", tip:"PDA로 <b>매대 바코드</b>를 찍는 모습입니다."},
+      {x:5.74, y:24.45, w:88.52, h:3.14, plain:true, tip:"찍은 매대의 <b>위치</b>가 나옵니다."},
+      {x:2.04, y:40.91, w:95.93, h:6.8, plain:true, tip:"매대를 찍기 전이라 <b>매대 정보</b>가 없습니다."},
+      {x:6.11, y:29.31, w:28.61, h:7.85, yellow:true, scroll:"★1", tip:"휴대폰은 <b>바코드스캔</b>을 눌러 카메라로 찍습니다."},
+    ]},
+  "2":{img:"images/PDA-매대지정-2매대.png",
+    btns:[
+      {x:6.11, y:18.36, w:87.87, h:5.52, num:"2", numCorner:true, to:"3", clickme:{dir:"right", text:"바코드 찍기", css:"left:auto;right:19.5%"}, tip:"이 매대에 놓을 <b>상품 바코드</b>를 찍습니다."},
+      {x:24.07, y:71.36, w:51.85, h:21.31, pic:"images/PDA-스캔-상품.png", picBare:true},
+      {x:24.07, y:71.36, w:51.85, h:21.31, plain:true, front:true, to:"3", tip:"PDA로 <b>상품 바코드</b>를 찍는 모습입니다."},
+      {x:5.74, y:24.45, w:88.52, h:3.14, plain:true, tip:"찍은 <b>매대 위치</b>가 나옵니다."},
+      {x:2.04, y:40.91, w:95.93, h:25.12, plain:true, notint:true, tip:"이 매대에 이미 지정된 <b>상품</b>입니다."},
+      {x:6.11, y:29.31, w:28.61, h:7.85, yellow:true, scroll:"★1", tip:"휴대폰은 <b>바코드스캔</b>을 눌러 카메라로 찍습니다."},
+    ]},
+  "3":{img:"images/PDA-매대지정-3저장.png",
+    btns:[
+      {x:35.74, y:29.31, w:28.7, h:7.85, num:"3", numCorner:true, to:"4", clickme:{dir:"down", css:"flex-direction:row;margin-top:-12px"}, tip:"<b>목록보기</b>를 누르면 이 매대의 상품이 모두 나옵니다."},
+      {x:28.89, y:1.33, w:42.22, h:6.57, plain:true, tipDn:true, tip:"'<b>저장되었습니다.</b>' 안내가 뜨면 등록된 것입니다."},
+      {x:2.04, y:40.91, w:95.93, h:25.88, plain:true, notint:true, tip:"방금 찍은 <b>상품</b>이 이 매대에 등록됐습니다."},
+      {x:6.11, y:18.36, w:87.87, h:5.52, plain:true, tip:"다른 상품도 이어서 찍으면 <b>같은 매대</b>에 등록됩니다."},
+      {x:5.74, y:24.45, w:88.52, h:3.14, plain:true, tip:"상품을 등록한 <b>매대 위치</b>입니다."},
+      {x:6.11, y:67.36, w:87.78, h:5.33, plain:true, tip:"<b>재고 한도</b>(최대·안전·최소재고)를 고칩니다."},
+    ]},
+  "4":{img:"images/PDA-매대지정-4목록.png",
+    btns:[
+      {x:2.04, y:40.91, w:95.93, h:15.98, plain:true, notint:true, tip:"방금 등록한 <b>상품</b>도 목록에 나옵니다."},
+      {x:2.04, y:62.8, w:95.93, h:19.22, plain:true, notint:true, tip:"이 매대에 먼저 지정돼 있던 <b>상품</b>입니다."},
+      {x:6.11, y:57.23, w:87.78, h:4.8, yellow:true, scroll:"★2", tip:"<b>수정·삭제</b>로 재고 한도를 고치거나 이 매대에서 뺍니다."},
+      {x:6.11, y:82.35, w:87.78, h:4.76, yellow:true, scroll:"★2", tip:"<b>수정·삭제</b>로 재고 한도를 고치거나 이 매대에서 뺍니다."},
+      {x:5.74, y:24.45, w:88.52, h:3.14, plain:true, tip:"목록을 보고 있는 <b>매대 위치</b>입니다."},
+    ]},
+} };
+DESCS["pda4assign"] = [
+  {type:"note", text:"매대 바코드와 상품 바코드를 차례로 찍어 <b>상품이 놓일 매대</b>를 정합니다.<br><b>한눈에 보기</b><br><span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🏷️ 매대 바코드</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>📦 상품 바코드</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>✅ 저장</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>📋 목록보기</span>"},
+  {type:"step", num:"1", title:"🏷️ 매대 바코드 찍기", subs:["입력칸에 매대에 꽂아 둔 <b>매대(로케이션) 바코드</b>를 찍습니다.", "%%매대 위치가 나오고, 이 매대에 이미 지정된 상품이 아래에 나옵니다.", "🔗 <b class='dlink' onclick=\"openSub('pda-ch4','pda-shelf-label',true)\">매대 바코드 준비</b>"]},
+  {type:"step", num:"2", title:"📦 상품 바코드 찍기", subs:["이어서 이 매대에 놓을 <b>상품 바코드</b>를 찍습니다.", "%%'저장되었습니다.' 안내와 함께 상품이 이 매대에 등록됩니다.", "다른 상품도 이어서 찍으면 같은 매대에 차례로 등록됩니다."]},
+  {type:"step", num:"3", title:"📋 목록보기", body:"<span class='ui-btn'>목록보기</span>를 누르면 이 매대에 지정된 상품이 모두 나옵니다."},
+  {type:"step", num:"★", ystar:true, title:"📟 PDA 기기와 휴대폰", subs:["PDA 기기는 기기에 달린 <b>스캐너</b>로 바코드를 찍습니다.", "휴대폰은 <span class='ui-btn'>바코드스캔</span>을 눌러 <b>카메라</b>로 찍습니다."]},
+  {type:"step", num:"★", ystar:true, title:"✏️ 목록에서 고치기", subs:["<span class='ui-btn'>수정</span>으로 단위와 현재고를 뺀 <b>재고 한도</b>(최대·안전·최소재고)를 고칩니다.", "<span class='ui-btn'>삭제</span>를 누르면 그 상품을 이 매대에서 뺍니다."]},
+  {type:"qa", q:"'바코드 정보가 정확하지 않습니다.' 알림이 뜨면?", a:"<b style='color:#0D1B3E'><span class='ui-btn'>확인</span>을 누르고 바코드를 다시 찍습니다.</b>", subs:["<img src='images/PDA-매대지정-오류알림.png' alt='바코드 정보가 정확하지 않습니다 알림' style='display:block;width:260px;max-width:100%;margin:6px auto 0;border-radius:8px'>", "바코드가 가려지거나 구겨지지 않았는지 확인하고 다시 찍습니다.", "계속 뜨면 IRM(ERP)에 등록된 바코드인지 관리자에게 문의합니다."]},
+  {type:"note", text:"IRM(ERP)에서는 🔗 <b class='dlink' onclick=\"openSub('s-ch5','8b-3c',true)\">로케이션 상품 등록</b>에서 매대를 지정합니다."},
+];
+IMGS["pda4move"] = "images/PDA-매대이동-1첫화면.png";
+SIM["pda4move"] = { start:"1", screens:{
+  "1":{img:"images/PDA-매대이동-1첫화면.png",
+    btns:[
+      {x:6.11, y:18.36, w:87.87, h:5.52, num:"1", numCorner:true, to:"2", clickme:{dir:"right", text:"바코드 찍기", css:"left:auto;right:19.5%"}, tip:"상품을 <b>옮겨 놓을 매대</b>의 바코드를 찍습니다."},
+      {x:22.22, y:56.14, w:55.56, h:22.84, pic:"images/PDA-스캔-매대.png", picBare:true},
+      {x:22.22, y:56.14, w:55.56, h:22.84, plain:true, front:true, to:"2", tip:"PDA로 <b>매대 바코드</b>를 찍는 모습입니다."},
+      {x:6.11, y:32.49, w:87.87, h:4.66, yellow:true, scroll:"★1", tip:"휴대폰은 <b>바코드스캔</b>을 눌러 카메라로 찍습니다."},
+    ]},
+  "2":{img:"images/PDA-매대이동-2매대.png",
+    btns:[
+      {x:6.11, y:18.36, w:87.87, h:5.52, num:"2", numCorner:true, to:"3", clickme:{dir:"right", text:"바코드 찍기", css:"left:auto;right:19.5%"}, tip:"<b>옮길 상품</b>의 바코드를 찍습니다."},
+      {x:22.22, y:56.14, w:55.56, h:22.84, pic:"images/PDA-스캔-상품.png", picBare:true},
+      {x:22.22, y:56.14, w:55.56, h:22.84, plain:true, front:true, to:"3", tip:"PDA로 <b>상품 바코드</b>를 찍는 모습입니다."},
+      {x:5.74, y:24.45, w:88.52, h:6.37, plain:true, tip:"<b>옮겨 놓을 매대</b>의 위치가 나옵니다."},
+      {x:2.04, y:40.91, w:95.93, h:6.8, plain:true, tip:"이 매대에 등록된 <b>상품</b>이 아직 없습니다."},
+      {x:6.11, y:32.49, w:87.87, h:4.66, yellow:true, scroll:"★1", tip:"휴대폰은 <b>바코드스캔</b>을 눌러 카메라로 찍습니다."},
+    ]},
+  "3":{img:"images/PDA-매대이동-3확인창.png",
+    btns:[
+      {x:75.0, y:57.18, w:16.57, h:6.85, num:"3", numCorner:true, to:"4", clickme:{dir:"down"}, tip:"<b>예</b>를 누르면 찍은 매대로 옮깁니다."},
+      {x:57.96, y:57.18, w:16.11, h:6.85, plain:true, to:"2", tip:"<b>취소</b>를 누르면 옮기지 않습니다."},
+      {x:6.3, y:36.16, w:87.5, h:18.55, plain:true, notint:true, tip:"옮길 상품이 <b>지금 지정된 매대</b>가 나옵니다."},
+    ]},
+  "4":{img:"images/PDA-매대이동-4완료.png",
+    btns:[
+      {x:3.7, y:51.76, w:92.69, h:2.95, yellow:true, scroll:"★2", to:"5", tip:"<b>원래 매대</b>에서 찍은 매대로 옮겼습니다."},
+      {x:28.89, y:1.33, w:42.22, h:6.57, plain:true, tipDn:true, tip:"'<b>이동되었습니다.</b>' 안내가 뜨면 옮긴 것입니다."},
+      {x:2.04, y:40.82, w:96.02, h:10.75, plain:true, notint:true, tip:"방금 옮긴 상품이 <b>이번에 처리한 상품</b>에 나옵니다."},
+      {x:2.04, y:57.14, w:95.93, h:7.23, plain:true, notint:true, tip:"옮긴 상품이 <b>이 매대의 상품</b>으로 나옵니다."},
+      {x:5.74, y:24.45, w:88.52, h:6.37, plain:true, tip:"상품을 옮겨 놓은 <b>매대 위치</b>입니다."},
+    ]},
+  "5":{img:"images/PDA-매대이동-5원래매대.png",
+    btns:[
+      {x:2.04, y:40.91, w:95.93, h:25.12, yellow:true, notint:true, scroll:"★2", tip:"옮긴 상품은 빠지고 <b>남은 상품</b>만 나옵니다."},
+      {x:5.74, y:24.45, w:88.52, h:3.14, plain:true, tip:"다시 찍은 <b>원래 매대</b>의 위치입니다."},
+      {x:2.04, y:9.32, w:95.93, h:4.95, plain:true, tip:"<b>상품매대지정</b>에서 원래 매대를 다시 찍은 화면입니다."},
+    ]},
+} };
+DESCS["pda4move"] = [
+  {type:"note", text:"<b>옮겨 놓을 매대</b>를 먼저 찍고 옮길 상품을 찍으면 상품의 매대가 바뀝니다.<br><b>한눈에 보기</b><br><span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🏷️ 옮겨 놓을 매대</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>📦 옮길 상품</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>✅ 예</span>"},
+  {type:"step", num:"1", title:"🏷️ 옮겨 놓을 매대 찍기", subs:["상품을 옮겨 놓을 매대의 <b>매대 바코드</b>를 찍습니다.", "%%'매대:' 줄에 찍은 매대 위치가 나옵니다.", "🔗 <b class='dlink' onclick=\"openSub('pda-ch4','pda-shelf-label',true)\">매대 바코드 준비</b>"]},
+  {type:"step", num:"2", title:"📦 옮길 상품 찍기", subs:["옮길 <b>상품 바코드</b>를 찍으면 '매대 이동' 창이 열립니다.", "%%창에는 그 상품이 지금 지정된 매대가 나옵니다."]},
+  {type:"step", num:"3", title:"✅ 옮기기", subs:["'현재 매대로 옮길까요?'에서 <span class='ui-btn'>예</span>를 누릅니다.", "%%'이동되었습니다.' 안내와 함께 <b>이번에 처리한 상품</b>에 옮긴 상품이 나옵니다."]},
+  {type:"step", num:"★", ystar:true, title:"📟 PDA 기기와 휴대폰", subs:["PDA 기기는 기기에 달린 <b>스캐너</b>로 바코드를 찍습니다.", "휴대폰은 <span class='ui-btn'>바코드스캔</span>을 눌러 <b>카메라</b>로 찍습니다."]},
+  {type:"step", num:"★", ystar:true, title:"🔄 원래 매대에서는 빠집니다", subs:["옮긴 상품은 원래 있던 매대에서 <b>지워집니다</b>.", "🔗 <b class='dlink' onclick=\"openSub('pda-ch4','pda-shelf-assign',true)\">상품매대지정</b>에서 원래 매대를 찍으면 확인할 수 있습니다. <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"simGo('pda4move','5')\">화면 보기</b></span>"]},
+];
+// PDA 페이지 표시: 포스 페이지 동작(POS-MERGE 패치)을 같이 씀
+["pda1install","pda1login","pda2buy","pda2batch","pda2done","pda3info","pda3manage","pda4label","pda4assign","pda4move"].forEach(k => { if (SIM[k]) SIM[k].pos = true; });
+// PDA 강의 — yt(유튜브 아이디)가 있는 것만 모아보기 [PDA 강의] 탭·페이지 버튼에 나옴(영상작업/유튜브/youtube_ids.json → 다시 merge_pda_into_s.py)
+const PDA_VIDEOS = [
+  {id:"pda-install", subId:"pda-install", alsoSubs:["pda-login"], title:"앱 설치·로그인", cat:"앱 설치·로그인 › 설치·환경설정·로그인", src:"videos/pda-install.mp4", poster:"videos/pda-install.jpg", dur:"1:40", desc:"Play 스토어에서 아이리젠 PDA 앱을 설치하고, 환경설정에서 스캐너 종류와 회사를 고른 뒤 권한을 허용하고 처음 로그인하는 방법을 알려드려요.", tags:["PDA", "아이리젠PDA", "앱설치", "Play스토어", "환경설정", "스캐너", "포인트모바일", "사업자번호", "권한", "로그인", "자동로그인", "빠른실행"], chapters:[{t:10.1, title:"앱 설치", subs:["pda-install"], tags:["앱설치", "Play스토어"]}, {t:39.2, title:"환경설정", subs:["pda-login"], tags:["환경설정", "스캐너", "사업자번호"]}, {t:60.7, title:"권한 허용", subs:["pda-login"], tags:["권한", "카메라"]}, {t:71.3, title:"로그인", subs:["pda-login"], tags:["로그인", "아이디저장", "자동로그인"]}], grp:"pda", yt:"aEunmepRElg"},
+  {id:"pda-buy", subId:"pda-buy", alsoSubs:["pda-done"], title:"매입입고", cat:"매입하기 › 매입입고", src:"videos/pda-buy.mp4", poster:"videos/pda-buy.jpg", dur:"2:31", desc:"매입처를 고르고 들어온 상품의 바코드를 PDA로 찍어 매입을 등록한 뒤 금액확인을 요청하고, IRM(ERP)에서 매입완료한 전표를 PDA 매입완료목록에서 확인하는 방법을 알려드려요.", tags:["매입입고", "신규등록", "매입처", "바코드", "스캔", "수량", "금액확인", "매입완료", "매입조회", "매입완료목록"], chapters:[{t:10.6, title:"매입처 고르기", subs:["pda-buy"], tags:["매입처", "신규등록"]}, {t:39.5, title:"상품 바코드 찍기", subs:["pda-buy"], tags:["바코드", "스캔", "수량"]}, {t:64.6, title:"등록·금액확인", subs:["pda-buy"], tags:["등록", "금액확인"]}, {t:93.5, title:"IRM(ERP) 매입완료", subs:["pda-buy"], tags:["IRM", "매입조회", "매입완료"]}, {t:121.2, title:"매입완료목록 확인", subs:["pda-done"], tags:["매입완료목록", "수정"]}], grp:"pda", yt:"GzTvCeO2soM"},
+  {id:"pda-batch", subId:"pda-batch", alsoSubs:[], title:"일괄매입등록", cat:"매입하기 › 일괄매입등록", src:"videos/pda-batch.mp4", poster:"videos/pda-batch.jpg", dur:"2:38", desc:"매입처가 섞여 온 상품을 PDA로 한 번에 찍어 등록하고, 매입처가 없는 상품은 매입처를 지정한 뒤 IRM(ERP)에서 매입처별로 매입완료하는 방법을 알려드려요.", tags:["일괄매입등록", "일괄매입관리", "바코드", "스캔", "수량", "매입처지정", "작성완료", "금액확인", "매입완료", "매입조회"], chapters:[{t:11.5, title:"일괄매입등록 열기", subs:["pda-batch"], tags:["일괄매입관리"]}, {t:22.9, title:"상품 바코드 찍기", subs:["pda-batch"], tags:["바코드", "스캔", "수량"]}, {t:57.8, title:"매입처 지정", subs:["pda-batch"], tags:["매입처지정"]}, {t:91.8, title:"등록·작성완료", subs:["pda-batch"], tags:["등록", "작성완료"]}, {t:118.1, title:"IRM(ERP) 매입완료", subs:["pda-batch"], tags:["IRM", "매입조회", "매입완료"]}], grp:"pda", yt:"Dx-4ADc4FYc"},
+  {id:"pda-info", subId:"pda-info", alsoSubs:[], title:"매장상품정보", cat:"상품 관리 › 매장상품정보", src:"videos/pda-info.mp4", poster:"videos/pda-info.jpg", dur:"1:40", desc:"PDA로 상품 바코드를 찍어 상품 정보·현재고·매대 위치와 재고 한도를 확인하고, ESL 가격 재반영과 매입처 지정을 하는 방법을 알려드려요.", tags:["매장상품정보", "바코드", "스캔", "현재고", "위치", "매대", "재고한도", "ESL", "가격재반영", "매입처지정"], chapters:[{t:11.6, title:"상품 바코드 찍기", subs:["pda-info"], tags:["바코드", "스캔"]}, {t:27.9, title:"상품 정보 보기", subs:["pda-info"], tags:["현재고", "매입가", "판매가"]}, {t:34.8, title:"위치·재고 한도", subs:["pda-info"], tags:["위치", "매대", "재고한도"]}, {t:47.4, title:"ESL 가격 재반영", subs:["pda-info"], tags:["ESL", "가격재반영"]}, {t:66.3, title:"매입처 지정", subs:["pda-info"], tags:["매입처지정"]}], grp:"pda", yt:"WCmrpCQWtVg"},
+  {id:"pda-manage", subId:"pda-manage", alsoSubs:[], title:"매장상품관리", cat:"상품 관리 › 매장상품관리", src:"videos/pda-manage.mp4", poster:"videos/pda-manage.jpg", dur:"1:55", desc:"PDA 매장상품관리에서 상품의 원산지·매입가·판매가·매입처를 고쳐 저장하고, 새 상품을 간단히 등록하는 방법을 알려드려요.", tags:["매장상품관리", "상품수정", "원산지", "매입가", "판매가", "마진", "매입처", "저장", "상품등록", "신규상품"], chapters:[{t:10.5, title:"상품 열기", subs:["pda-manage"], tags:["상품수정", "통합검색"]}, {t:30.0, title:"원산지 고르기", subs:["pda-manage"], tags:["원산지"]}, {t:41.7, title:"매입가·판매가", subs:["pda-manage"], tags:["매입가", "판매가", "마진"]}, {t:57.0, title:"매입처·저장", subs:["pda-manage"], tags:["매입처", "저장"]}, {t:82.9, title:"새 상품 등록", subs:["pda-manage"], tags:["상품등록", "신규상품"]}], grp:"pda", yt:"k3cj1ZifuLw"},
+  {id:"pda-assign", subId:"pda-shelf-assign", alsoSubs:["pda-shelf-label"], title:"상품매대지정", cat:"매대 설정 › 상품매대지정", src:"videos/pda-assign.mp4", poster:"videos/pda-assign.jpg", dur:"2:10", desc:"IRM(ERP)에서 매대(로케이션) 바코드를 인쇄해 매대에 꽂고, PDA로 매대 바코드와 상품 바코드를 차례로 찍어 상품의 매대를 정하는 방법을 알려드려요.", tags:["상품매대지정", "매대", "로케이션", "매대바코드", "라벨", "로케이션관리", "바코드인쇄", "목록보기", "재고한도", "수정", "삭제"], chapters:[{t:10.4, title:"매대 바코드 인쇄", subs:["pda-shelf-label"], tags:["로케이션관리", "바코드인쇄", "라벨"]}, {t:42.1, title:"접어서 매대에 꽂기", subs:["pda-shelf-label"], tags:["라벨", "접기", "레일"]}, {t:60.7, title:"매대 바코드 찍기", subs:["pda-shelf-assign"], tags:["매대바코드", "스캔"]}, {t:89.0, title:"상품 바코드 찍기", subs:["pda-shelf-assign"], tags:["상품바코드", "저장"]}, {t:103.5, title:"목록에서 수정·삭제", subs:["pda-shelf-assign"], tags:["목록보기", "수정", "삭제", "재고한도"]}], grp:"pda", yt:"QhUWMtkXEcg"},
+  {id:"pda-move", subId:"pda-shelf-move", alsoSubs:[], title:"상품매대이동", cat:"매대 설정 › 상품매대이동", src:"videos/pda-move.mp4", poster:"videos/pda-move.jpg", dur:"1:26", desc:"옮겨 놓을 매대 바코드와 옮길 상품 바코드를 PDA로 찍어 상품을 다른 매대로 옮기고, 원래 매대에서 빠진 것을 확인하는 방법을 알려드려요.", tags:["상품매대이동", "매대", "로케이션", "매대바코드", "이동", "원래매대", "상품매대지정"], chapters:[{t:9.9, title:"매대 바코드 찍기", subs:["pda-shelf-move"], tags:["매대바코드", "스캔"]}, {t:32.5, title:"상품 바코드 찍기", subs:["pda-shelf-move"], tags:["상품바코드"]}, {t:42.5, title:"현재 매대로 이동", subs:["pda-shelf-move"], tags:["이동", "현재매대"]}, {t:56.2, title:"원래 매대 확인", subs:["pda-shelf-move"], tags:["원래매대", "상품매대지정"]}], grp:"pda", yt:"67HdtSiXN4Y"},
+];
+// 미리보기 스위치(엔진 v4): true = 유튜브 아이디가 없는 PDA 강의도 보임(PDA_PREVIEW=1 사본만) · 진짜 S 는 false
+const PDA_VIDEOS_ALL = false;
+/* ▲ MPAGES:pda */
 attachSharedPopups();
 // S버전 카테고리 정의 — ref: 전체버전 sub id / title: S버전 표기명 / tab: 시작 탭 index / g: 그룹 / prep: 준비중 항목
 const S_DEF = [
@@ -29995,6 +30660,7 @@ const S_DEF = [
   ]},
   ── */
   /* ▼ MPAGES-SDEF:pos */ /* 포스 설명서 7개 장 — 포스메뉴얼/_build/merge_into_s.py 가 만듦(여기서 고치지 말 것). 새 S 장은 이 줄 위에 */ {chapter:"포스 1", id:"pos-ch1", pos:true, title:"포스 켜고 상품 찍기", icon:"🛒", items:[{sub:{id:"pos-power", title:"포스 켜기", subtitles:{pos1power:"포스 아이콘으로 켜고 로그인하기", pos1down:"내림으로 포스 창 내리기"}, pages:["pos1power", "pos1down"], pageLabels:["켜기·로그인", "창 내리기"], tips:{}}}, {sub:{id:"pos-tour", title:"포스 화면 둘러보기", subtitles:{pos1tour:"판매 화면 구역별 안내"}, pages:["pos1tour"], tips:{}}}, {sub:{id:"pos-shortcut", title:"단축키 설정", subtitles:{pos1key1:"기능 버튼 편집을 켜고 단축키를 바꿔 저장하기"}, pages:["pos1key1"], tips:{}}}, {sub:{id:"pos-scan", title:"상품 찍기·수량", subtitles:{pos1scan:"바코드를 찍고 수량 바꾸기", pos1split:"같은 상품을 나누어 찍었을 때"}, pages:["pos1scan", "pos1split"], pageLabels:["상품 찍기·수량", "나누어 찍기"], tips:{}}}, {sub:{id:"pos-find", title:"상품 찾기·상품검색", subtitles:{pos1find:"찾기 칸·상품검색 창으로 상품 찾기"}, pages:["pos1find"], tips:{}}}]}, {chapter:"포스 2", id:"pos-ch2", pos:true, title:"결제 받기", icon:"💳", items:[{sub:{id:"pos-cardcash", title:"카드결제·현금결제", subtitles:{pos2card:"카드로 결제 받기", pos2cash:"현금으로 받고 현금영수증 번호 받기", pos2after:"계산한 뒤에 현금영수증 발급하기", pos2transfer:"계좌이체로 결제 받기"}, pages:["pos2card", "pos2cash", "pos2after", "pos2transfer"], pageLabels:["카드 결제", "현금 결제·현금영수증", "계산 후 현금영수증", "계좌이체"], tips:{}}}, {sub:{id:"pos-pay", title:"페이 결제", subtitles:{pos2pay:"휴대폰 간편결제로 결제 받기"}, pages:["pos2pay"], tips:{}}}, {sub:{id:"pos-multi", title:"복합 결제", subtitles:{pos2multi:"현금과 카드로 나누어 받기", pos2cancel:"나누어 받은 결제 취소하기"}, pages:["pos2multi", "pos2cancel"], pageLabels:["현금+카드 결제", "복합 결제 취소"], tips:{}}}, {sub:{id:"pos-hold", title:"결제 보류", subtitles:{pos2hold:"계산 보류하고 다시 불러오기"}, pages:["pos2hold"], tips:{}}}]}, {chapter:"포스 3", id:"pos-ch3", pos:true, title:"반품 받기", icon:"↩️", items:[{sub:{id:"pos-return-reg", title:"반품 등록(전환 매장)", subtitles:{pos3reg:"예전 포스에서 산 상품을 반품 등록으로 환불"}, pages:["pos3reg"], tips:{}}}, {sub:{id:"pos-return-cancel", title:"환불하기", subtitles:{pos3sale:"매출검색으로 거래를 찾아 전표취소"}, pages:["pos3sale"], tips:{}}}, {sub:{id:"pos-return-find", title:"영수증 없이 찾기", subtitles:{pos3find:"금액·날짜·승인번호·회원·상품으로 찾기"}, pages:["pos3find"], tips:{}}}, {sub:{id:"pos-return-bank", title:"계좌이체 환불", subtitles:{pos3bank:"계좌이체 결제를 계좌·현금으로 환불"}, pages:["pos3bank"], tips:{}}}]}, {chapter:"포스 4", id:"pos-ch4", pos:true, title:"증정·할인과 행사·제한상품", icon:"🎁", items:[{sub:{id:"pos-gift", title:"증정·할인", subtitles:{pos4gift:"상품 바로 할인하기·증정품 0원으로 찍기"}, pages:["pos4gift"], tips:{}}}, {sub:{id:"pos-event", title:"행사·제한상품", subtitles:{pos4evirm:"IRM(ERP)에서 2+1 행사 등록·시작·끝내기", pos4event:"2+1 행사 상품 찍기", pos4limirm:"IRM(ERP)에서 제한상품 등록·제한 시작", pos4limit:"제한상품 찍기"}, pages:["pos4evirm", "pos4event", "pos4limirm", "pos4limit"], pageLabels:["2+1 행사 설정(IRM(ERP))", "2+1 행사(포스)", "제한상품 설정(IRM(ERP))", "제한상품(포스)"], tips:{}}}]}, {chapter:"포스 5", id:"pos-ch5", pos:true, title:"외국인 손님 세금 환급", icon:"🌏", items:[{sub:{id:"pos-refund", title:"즉시환급·사후환급", subtitles:{pos5kind:"사후환급·즉시환급 알아보기", pos5instant:"계산할 때 즉시환급하기", pos5after:"결제 마친 거래에 사후환급 발행하기"}, pages:["pos5kind", "pos5instant", "pos5after"], pageLabels:["사후·즉시환급", "즉시환급하기", "사후환급하기"], tips:{}}}]}, {chapter:"포스 6", id:"pos-ch6", pos:true, title:"하루 마감하기", icon:"🧾", items:[{sub:{id:"pos-close", title:"매출 마감", subtitles:{pos6open:"관리메뉴에서 매출마감 열기", pos6close:"준비금·권종 입력과 계산원 마감"}, pages:["pos6open", "pos6close"], pageLabels:["매출마감 열기", "매출마감"], tips:{}}}]}, {chapter:"포스 7", id:"pos-ch7", pos:true, title:"영수증 합치기·포인트·자가폐기", icon:"🧩", items:[{sub:{id:"pos-merge", title:"영수증 합치기", subtitles:{pos7merge:"영수증 바코드 두 번 찍어 합치기", pos7mergefind:"매출검색 · 재주문으로 합치기"}, pages:["pos7merge", "pos7mergefind"], pageLabels:["영수증이 있을 때", "영수증이 없을 때"], tips:{}}}, {sub:{id:"pos-point", title:"포인트로 결제하기", subtitles:{pos7point:"회원 찾아 포인트로 결제하기"}, pages:["pos7point"], tips:{}}}, {sub:{id:"pos-dispose", title:"자가폐기", subtitles:{pos7dispose:"팔 수 없는 상품 자가소비·폐기 등록하기"}, pages:["pos7dispose"], tips:{}}}]}, /* ▲ MPAGES-SDEF:pos */
+  /* ▼ MPAGES-SDEF:pda */ /* PDA 메뉴얼 4개 장 — PDA메뉴얼/_build/merge_pda_into_s.py 가 만듦(여기서 고치지 말 것). 새 S 장은 포스 줄 위에 */ {chapter:"PDA 1", id:"pda-ch1", pos:true, grp:"pda", title:"앱 설치·로그인", icon:"📲", items:[{sub:{id:"pda-install", title:"앱 설치", subtitles:{pda1install:"Play 스토어에서 아이리젠 PDA 설치"}, pages:["pda1install"], tips:{}, searchAlias:["앱 다운로드", "어플 설치", "어플 다운로드", "앱 설치", "플레이스토어", "Play 스토어", "구글 플레이", "아이리젠 PDA 설치"]}}, {sub:{id:"pda-login", title:"로그인", subtitles:{pda1login:"환경설정 · 권한 허용 · 로그인"}, pages:["pda1login"], tips:{}, searchAlias:["환경설정", "사업자번호", "스캐너 종류", "포인트 모바일", "권한 허용", "자동 로그인", "ID 저장", "회사 선택", "처음 실행", "권한", "PDA메뉴권한"]}}]}, {chapter:"PDA 2", id:"pda-ch2", pos:true, grp:"pda", title:"매입하기", icon:"🚚", items:[{sub:{id:"pda-buy", title:"매입입고", subtitles:{pda2buy:"매입처 → 상품 바코드 찍기 → 등록 → 금액확인"}, pages:["pda2buy"], tips:{}, searchAlias:["매입입고관리", "매입입고등록", "입고 등록", "금액확인", "금액 확인 요청", "신규등록", "매입처 선택", "상품 스캔"]}}, {sub:{id:"pda-batch", title:"일괄매입등록", subtitles:{pda2batch:"매입처가 섞인 상품 찍기 → 등록 → 작성완료"}, pages:["pda2batch"], tips:{}, searchAlias:["일괄매입", "일괄매입관리", "작성완료", "매입처 지정", "매입처 미지정", "택배 입고"]}}, {sub:{id:"pda-done", title:"매입완료목록", subtitles:{pda2done:"IRM(ERP)에서 매입완료한 전표 확인·수정"}, pages:["pda2done"], tips:{}, searchAlias:["매입완료", "매입 완료 목록", "매입입고수정", "매입 승인"]}}]}, {chapter:"PDA 3", id:"pda-ch3", pos:true, grp:"pda", title:"상품 관리", icon:"📋", items:[{sub:{id:"pda-info", title:"매장상품정보", subtitles:{pda3info:"상품 바코드 찍기 → 상품 정보 · 위치 · ESL 가격 재반영"}, pages:["pda3info"], tips:{}, searchAlias:["상품 정보", "상품정보", "ESL", "ESL 가격 재반영", "가격 재반영", "전자가격표", "현재고", "위치 정보", "재고 한도", "매입처 지정"]}}, {sub:{id:"pda-manage", title:"매장상품관리", subtitles:{pda3manage:"상품 수정 → 원산지 · 매입가·판매가 · 매입처 → 저장"}, pages:["pda3manage"], tips:{}, searchAlias:["상품 수정", "상품관리", "판매가 변경", "매입가 변경", "원산지", "마진", "상품등록", "신규 상품 등록", "간이 등록"]}}]}, {chapter:"PDA 4", id:"pda-ch4", pos:true, grp:"pda", title:"매대 설정", icon:"🏷️", items:[{sub:{id:"pda-shelf-label", title:"매대 바코드 준비", subtitles:{pda4label:"매대 바코드 라벨 인쇄 · 접기 · 꽂기"}, pages:["pda4label"], tips:{}, searchAlias:["로케이션 바코드", "로케이션 라벨", "로케이션명", "매대 라벨", "매대 바코드 인쇄", "바코드 라벨", "라벨 접기"]}}, {sub:{id:"pda-shelf-assign", title:"상품매대지정", subtitles:{pda4assign:"매대 바코드 → 상품 바코드를 찍어 매대 지정"}, pages:["pda4assign"], tips:{}, searchAlias:["매대 지정", "로케이션 지정"]}}, {sub:{id:"pda-shelf-move", title:"상품매대이동", subtitles:{pda4move:"옮겨 놓을 매대 → 옮길 상품을 찍어 매대 옮기기"}, pages:["pda4move"], tips:{}, searchAlias:["매대 이동", "로케이션 이동"]}}]}, /* ▲ MPAGES-SDEF:pda */
 ];
 // S_DEF → SECTIONS와 동일 구조로 변환 (sub 객체는 전체버전과 공유 — 내용 수정 시 양쪽 자동 반영)
 const SECTIONS_S = (function(){
@@ -30003,7 +30669,7 @@ const SECTIONS_S = (function(){
   const sSubs = {}; S_DEF.forEach(d => (d.items||[]).forEach(it => { if (it.sub) sSubs[it.sub.id] = it.sub; }));
   let prepN = 0, cloneN = 0;
   return S_DEF.map((def, ci) => ({
-    id: def.id || "s-ch"+(S_DEF.filter(d => !d.pos).indexOf(def)+1), ...(def.pos ? { pos: true } : {}), chapter: def.chapter, title: def.title, icon: def.icon, ribbon: def.ribbon, sRibbonAll: def.sRibbonAll,
+    id: def.id || "s-ch"+(S_DEF.filter(d => !d.pos).indexOf(def)+1), ...(def.pos ? { pos: true } : {}), ...(def.grp ? { grp: def.grp } : {}), chapter: def.chapter, title: def.title, icon: def.icon, ribbon: def.ribbon, sRibbonAll: def.sRibbonAll,
     subs: def.items.map(it => {
       if (it.g) return { id: "s-g"+(ci+1)+"-"+(++cloneN), type: "divider", title: it.g };
       if (it.sub) return it.sub; // S버전 전용 페이지 (전체버전에 없는 화면)
@@ -30032,6 +30698,75 @@ function NAVSECS(){ return VER === "s" ? SECTIONS_S : SECTIONS; }
 function posCh(ch) { return !!(ch && ch.pos); }                       // 포스 장?
 function posNow() { return !!(curSection && posCh(curSection.ch)); }  // 지금 포스 장 페이지를 보는 중?
 function posPg(pg) { return !!(SIM[pg] && SIM[pg].pos); }           // 포스 페이지?
+// PDA-MERGE ENGINE v1 — PDA 메뉴얼 합치기(PDA메뉴얼/_build/merge_pda_into_s.py). PDA 장 = pos:true + grp:"pda" → 포스 페이지 동작을 같이 쓰고,
+//   묶음(IRM·POS·PDA)마다 갈리는 곳(사이드바 머리글·홈 카드·검색 별칭·표시·모아보기 탭)만 chGrp() 로 나눔
+function chGrp(ch) { return !ch ? "irm" : (ch.grp || (ch.pos ? "pos" : "irm")); }   // 장 묶음: irm | pos | pda
+function grpNow() { return curSection ? chGrp(curSection.ch) : "irm"; }           // 지금 보는 장의 묶음
+function vGrp(v) { return v.grp || (v.pos ? "pos" : "irm"); }                      // 영상 묶음
+const GRP_BADGE = { pos: '<span class="pos-badge">POS</span>', pda: '<span class="pos-badge grp-pda-badge">PDA</span>' };
+function grpBadge(ch) { return GRP_BADGE[chGrp(ch)] || ""; }                      // 검색·AI 결과의 'POS'·'PDA' 표시
+function vgBadge(v) { return GRP_BADGE[vGrp(v)] || ""; }
+const GRP_PDA_ALIASES = ["pda", "피디에이", "pda메뉴얼", "pda매뉴얼", "pda설명서", "아이리젠pda", "피디에이메뉴얼", "아이리젠피디에이"];   // 이 말로 찾으면 PDA 메뉴 전체
+function grpPhone(ch, pg) { return chGrp(ch) === "pda" && !!SIM[pg] && SIM[pg].phone !== false; }   // PDA 폰 화면 페이지?(ERP 화면·사진은 phone:false)
+// PDA-MERGE ENGINE v3 — (10-28) PDA 페이지 설명 칸 아래 여백: 노란 칸·번호 칸을 누르면 짝 카드가 설명 칸 맨 위로(기본 규칙) — 목록 끝 카드도.
+//   S 의 simSizeSpacer 는 마지막 .desc-bullet 만 보고, 포스·PDA 쪽은 그림을 불러오기 전(설명 칸 높이 = 그림 높이)에 재서 여백이 0 에 가까움
+//   → PDA 장에서만(grpNow() === "pda") 마지막 카드(종류 상관없이) 높이로 여백을 다시 재고, 카드로 올리기 직전·창 크기 바뀔 때도 다시 잼. IRM·POS 는 그대로
+function pdaSizeSpacer(sp, body) {
+  const fit = () => { if (!sp.isConnected) return; const last = sp.previousElementSibling;
+    sp.style.height = Math.max(0, body.clientHeight - (last ? last.offsetHeight : 0) - 20) + "px"; };
+  fit(); clearTimeout(pdaSizeSpacer._t); pdaSizeSpacer._t = setTimeout(fit, 450);   // 폰 그림을 불러온 뒤(설명 칸 높이가 정해진 뒤) 한 번 더
+  if (!pdaSizeSpacer._rs) { pdaSizeSpacer._rs = true;   // 창 크기가 바뀌면 다시(처음 PDA 페이지를 열 때 한 번만 등록 — 맨 위 코드에 두지 않음: numcheck 의 window 대역)
+    window.addEventListener("resize", () => { if (curSection && grpNow() === "pda") simSizeSpacer(); }); }
+}
+// PDA-MERGE ENGINE v2 — (10-28) 사이드바 따라가기 · 메뉴 검색 별칭 · 포스·PDA 장 목록 썸네일
+// navReveal: 검색·링크·장 카드·'이전페이지로'로 페이지를 열면 사이드바도 그 자리로 — 접힌 묶음(IRM·POS·PDA 머리글)을 펴고,
+//   그 장의 하위 목록을 열고(접힌 소묶음도 펼침), 지금 메뉴가 사이드바 밖이면 가운데로 내림. 사이드바를 눌러 연 메뉴는 이미 보여서 그대로
+function navReveal(ch, sub, pageIdx) {
+  if (!ch) return;
+  navGrpOpen(chGrp(ch));
+  const sl = document.getElementById("sl-" + ch.id), cb = document.querySelector(`.ch-btn[data-ch-id="${ch.id}"]`);
+  if (!sl) return;
+  if (!sl.classList.contains("open")) {
+    document.querySelectorAll(".sub-list").forEach(s => s.classList.remove("open"));
+    document.querySelectorAll(".ch-btn").forEach(b => b.classList.remove("active"));
+    sl.classList.add("open"); if (cb) cb.classList.add("active");
+  }
+  let btn = null;
+  if (sub) {
+    const bs = [...sl.querySelectorAll(".sub-btn")].filter(b => b.dataset.subId === sub.id);
+    btn = bs.find(b => b.dataset.pageIdx != null && +b.dataset.pageIdx === (pageIdx || 0)) || bs[0] || null;
+    if (btn && !sl.querySelector(`.sub-btn.active[data-sub-id="${sub.id}"]`))   // '이전페이지로'처럼 openSub 를 안 거친 경우 — 표시도 openSub 와 같게
+      document.querySelectorAll(".sub-btn").forEach(b => b.classList.toggle("active", b.dataset.subId === sub.id));
+    for (let e = btn && btn.parentElement; e && e !== sl; e = e.parentElement)   // 접힌 소묶음(구분 묶음 · 그 안의 탭 묶음)을 바깥까지 모두 펼침
+      if (e.classList.contains("sub-group-body") && e.classList.contains("collapsed")) { e.classList.remove("collapsed");
+        const ar = e.parentElement && e.parentElement.querySelector(":scope > .sub-group-header .sub-group-arrow"); if (ar) ar.style.transform = ""; }
+  }
+  clearTimeout(navReveal._t);
+  navReveal._t = setTimeout(() => {   // 하위 목록 열림(max-height 0.3s)이 끝난 뒤 자리를 잼
+    const sb = document.getElementById("sidebar"); if (!sb) return;
+    const t = (sb.classList.contains("collapsed") || !btn) ? cb : btn; if (!t || !t.getClientRects().length) return;
+    const r = t.getBoundingClientRect(), q = sb.getBoundingClientRect();
+    if (r.top < q.top + 8 || r.bottom > q.bottom - 8) sb.scrollTop += r.top - q.top - (q.height - r.height) / 2;
+  }, 340);
+}
+// grpSubAlias: 메뉴 검색이 제목 말고 sub.searchAlias(PDA 메뉴 데이터)로도 찾음 — 띄어쓰기 무시 · 일부만 쳐도 찾음(제목 찾기와 같은 방식)
+function grpSubAlias(sub, qn) { return !!(sub && sub.searchAlias && qn && sub.searchAlias.some(a => String(a).toLowerCase().replace(/\s+/g, "").includes(qn))); }
+// grpThumbSkip: 장 목록 썸네일에서 움직이는 그림(pic) 자리와 그 위를 덮는 칸은 그리지 않음(그림 없이 빈 빨간 테두리만 남아서) — 포스·PDA 페이지만
+function grpThumbSkip(sim, sc, b) {
+  if (!sim || !sim.pos || b.fill) return false;
+  if (b.pic) return true;
+  const area = q => Math.max(0, q.w) * Math.max(0, q.h);
+  return (sc.btns || []).some(p => p.pic && p !== b && area(b) > 0 && (Math.max(0, Math.min(b.x + b.w, p.x + p.w) - Math.max(b.x, p.x)) * Math.max(0, Math.min(b.y + b.h, p.y + p.h) - Math.max(b.y, p.y))) >= 0.8 * area(b));
+}
+function vgGrpNames() { return VIDEOS.some(v => vGrp(v) === "pda") ? "IRM·POS·PDA" : "IRM·POS"; }
+function grpHomeOpen(id, g) {   // 홈의 묶음 카드(📱 PDA 메뉴얼): 첫 장을 열고(이미 펼쳐져 있어도 닫지 않음) 사이드바를 그 묶음 머리글이 보이게 내림
+  navGrpOpen(g);
+  const ch = NAVSECS().find(c => c.id === id); if (!ch) return;
+  const sl = document.getElementById("sl-" + id);
+  if (sl && sl.classList.contains("open")) showChapter(ch); else openChCard(id);
+  setTimeout(() => { const sb = document.getElementById("sidebar"), hd = document.querySelector(".nav-" + g + "-head"); if (!sb || !hd) return;
+    sb.scrollTop += hd.getBoundingClientRect().top - sb.getBoundingClientRect().top - 10; }, 320);
+}
 // POS-MERGE ENGINE v3: 오른쪽 클릭으로만 여는 칸(rclick:true) · 팝업 옅은 칠(faint) — 포스 단축키 설정
 function posRcLeft(el) {   // rclick 칸을 왼쪽으로 눌렀을 때 — true 면 그대로 엶(터치 화면)
   if (window.matchMedia && matchMedia("(hover: none)").matches) return true;
@@ -30040,7 +30775,7 @@ function posRcLeft(el) {   // rclick 칸을 왼쪽으로 눌렀을 때 — true 
   return false;
 }
 // POS-MERGE ENGINE v5: 사이드바 'IRM(ERP) 설명서'·'POS 설명서' 묶음 열고 닫기(머리글 클릭 · 이 브라우저에 기억 · 닫힌 묶음의 장을 열면 묶음도 펼침)
-let NAVGRP_OFF = (() => { try { const o = JSON.parse(localStorage.getItem("irmS.navGrpOff") || "{}"); return (o && typeof o === "object" && !Array.isArray(o)) ? { irm: o.irm === true, pos: o.pos === true } : {}; } catch (e) { return {}; } })();
+let NAVGRP_OFF = (() => { try { const o = JSON.parse(localStorage.getItem("irmS.navGrpOff") || "{}"); return (o && typeof o === "object" && !Array.isArray(o)) ? { irm: o.irm === true, pos: o.pos === true, pda: o.pda === true } : {}; } catch (e) { return {}; } })();
 function navGrpHead(g, cls, label) {
   const h = document.createElement("button");
   h.type = "button"; h.className = cls + " nav-grp-head"; h.dataset.grp = g;
@@ -30594,6 +31329,11 @@ const VIDEOS = [
 let _curVideo = null;
 // POS-MERGE: 포스 강의(MPAGES:pos 의 POS_VIDEOS) — 유튜브 아이디(yt)가 생긴 영상만 모아보기·페이지 버튼에 나옴
 if (typeof POS_VIDEOS !== "undefined") POS_VIDEOS.forEach(v => { if (v.yt) VIDEOS.push(v); });
+// PDA-MERGE: PDA 강의(MPAGES:pda 의 PDA_VIDEOS, grp:"pda") — 유튜브 아이디(yt)가 생긴 영상만
+// PDA-MERGE ENGINE v4 — (10-29) 미리보기 스위치: PDA 블록의 PDA_VIDEOS_ALL 이 true(PDA_PREVIEW=1 로 만든 사본)면 유튜브 아이디가 없는 PDA 강의도 모아보기·페이지 버튼에.
+//   진짜 S 는 PDA_VIDEOS_ALL = false → 아이디(yt)가 있는 영상만(포스와 같은 규칙)
+function pdaVideosAll() { return typeof PDA_VIDEOS_ALL !== "undefined" && PDA_VIDEOS_ALL === true; }
+if (typeof PDA_VIDEOS !== "undefined") PDA_VIDEOS.forEach(v => { if (v.yt || pdaVideosAll()) VIDEOS.push(v); });
 // 복제 메뉴(id 뒤 -sN)·다른 장에 다시 넣은 메뉴(baseId)는 원래 id 로도 영상을 찾는다 — 정확히 맞는 영상이 먼저
 function _subBaseId(sub) { return sub.baseId || String(sub.id).replace(/-s\d+$/, ""); }
 function _vidHas(v, id) { return v.subId === id || (v.alsoSubs || []).includes(id); }
@@ -30768,7 +31508,7 @@ function showVideoGallery() {
     <div class="vg-head"><div class="vg-head-text">
     <span class="vg-kicker">▶ VIDEO LECTURES</span>
     <div class="vg-title">동영상 강의 모아보기</div>
-    <div class="vg-desc">IRM·POS 사용법을 영상으로 쉽게 배워보세요. 탭을 고르고 폴더를 누르면 메뉴별 강의가 나오고, 검색하면 IRM·POS 강의를 함께 찾아요.</div>
+    <div class="vg-desc">${vgGrpNames()} 사용법을 영상으로 쉽게 배워보세요. 탭을 고르고 폴더를 누르면 메뉴별 강의가 나오고, 검색하면 ${vgGrpNames()} 강의를 함께 찾아요.</div>
     </div><a class="vg-ytch" href="https://www.youtube.com/@Iregen-manual" target="_blank" rel="noopener"><svg viewBox="0 0 22 16" aria-hidden="true"><rect width="22" height="16" rx="4.5" fill="#fff"/><path d="M9 4.6v6.8l5.8-3.4z" fill="#FF0000"/></svg>유튜브 채널 보러가기</a></div>
     <div class="vg-search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
@@ -30779,7 +31519,7 @@ function showVideoGallery() {
     <div class="vg-count" id="vgCount"></div>
     <div class="vg-grid" id="vgGrid"></div>
   </div>`;
-  _vgTab = (posNow() && VIDEOS.some(v => v.pos)) ? "pos" : "irm";   // POS-MERGE: 포스 페이지에서 열면 POS 탭
+  { const _g = grpNow(); _vgTab = (_g !== "irm" && VIDEOS.some(v => vGrp(v) === _g)) ? _g : "irm"; }   // POS-MERGE: 포스 페이지에서 열면 POS 탭 (PDA-MERGE: PDA 페이지 → PDA 탭)
   _vgFolder = null;
   renderVideoGrid("");
   { const _m = document.getElementById("main"); if (_m) _m.scrollTop = 0; }
@@ -30790,17 +31530,20 @@ const VG_ICON = { "즐겨찾기":"⭐", "기초관리":"🗂️", "매입관리"
 let _vgFolder = null;
 let _vgGroup = null;   // 탭 폴더 안의 하위 폴더(VIDEOS 의 group)
 // POS-MERGE: 모아보기 [IRM 강의][POS 강의] 탭 — 포스 폴더 = 포스 장 제목. 검색은 두 탭 모두에서 찾음
-const POS_VG_FOLDERS = SECTIONS_S.filter(c => c.pos).map(c => c.title);
-const POS_VG_ICON = {}; SECTIONS_S.forEach(c => { if (c.pos) POS_VG_ICON[c.title] = c.icon; });
+const POS_VG_FOLDERS = SECTIONS_S.filter(c => chGrp(c) === "pos").map(c => c.title);   // PDA-MERGE: POS 묶음 장만(PDA 장도 pos:true)
+const POS_VG_ICON = {}; SECTIONS_S.forEach(c => { if (chGrp(c) === "pos") POS_VG_ICON[c.title] = c.icon; });
+const PDA_VG_FOLDERS = SECTIONS_S.filter(c => chGrp(c) === "pda").map(c => c.title);   // PDA-MERGE: PDA 폴더 = PDA 장 제목
+const PDA_VG_ICON = {}; SECTIONS_S.forEach(c => { if (chGrp(c) === "pda") PDA_VG_ICON[c.title] = c.icon; });
 let _vgTab = "irm";
-function vgPool() { const p = _vgTab === "pos"; return VIDEOS.filter(v => !!v.pos === p); }
-function vgIdx(v) { return VIDEOS.filter(x => !!x.pos === !!v.pos).indexOf(v); }   // 자기 탭 안 순번
+function vgPool() { return VIDEOS.filter(v => vGrp(v) === _vgTab); }   // PDA-MERGE: 탭 = 묶음(irm | pos | pda)
+function vgIdx(v) { return VIDEOS.filter(x => vGrp(x) === vGrp(v)).indexOf(v); }   // 자기 탭 안 순번
 function vgRenderTabs(q) {
   const el = document.getElementById("vgTabs"); if (!el) return;
-  const ni = VIDEOS.filter(v => !v.pos).length, np = VIDEOS.filter(v => v.pos).length;
+  const ni = VIDEOS.filter(v => vGrp(v) === "irm").length, np = VIDEOS.filter(v => vGrp(v) === "pos").length, nd = VIDEOS.filter(v => vGrp(v) === "pda").length;   // PDA-MERGE
   el.className = "vg-tabs" + (q ? " searching" : "");
   el.innerHTML = `<button class="vg-tab${_vgTab === "irm" ? " on" : ""}" onclick="vgSetTab('irm')">IRM 강의<span class="vg-tab-n">${ni}</span></button>`
-    + `<button class="vg-tab${_vgTab === "pos" ? " on" : ""}" onclick="vgSetTab('pos')">POS 강의<span class="vg-tab-n">${np || "준비 중"}</span></button>`;
+    + `<button class="vg-tab${_vgTab === "pos" ? " on" : ""}" onclick="vgSetTab('pos')">POS 강의<span class="vg-tab-n">${np || "준비 중"}</span></button>`
+    + (nd ? `<button class="vg-tab${_vgTab === "pda" ? " on" : ""}" onclick="vgSetTab('pda')">PDA 강의<span class="vg-tab-n">${nd}</span></button>` : "");   // PDA-MERGE: PDA 영상이 있을 때만
 }
 function vgSetTab(t) {
   _vgTab = t; _vgFolder = null; _vgGroup = null;
@@ -30809,6 +31552,7 @@ function vgSetTab(t) {
   { const _m = document.getElementById("main"); if (_m) _m.scrollTop = 0; }
 }
 function vgFolderOf(v) {
+  if (vGrp(v) === "pda") { const _t = (v.cat || "").split("›")[0].replace(/[|\s]/g, ""); return PDA_VG_FOLDERS.find(f => f.replace(/\s/g, "") === _t) || PDA_VG_FOLDERS[0]; }   // PDA-MERGE
   if (v.pos) { const _t = (v.cat || "").split("›")[0].replace(/[|\s]/g, ""); return POS_VG_FOLDERS.find(f => f.replace(/\s/g, "") === _t) || POS_VG_FOLDERS[0]; }   // POS-MERGE
   const t = (v.cat || "").split("›")[0].replace(/[|\s]/g, "");
   return VG_FOLDERS.find(f => f.replace(/\s/g, "") === t) || "기초관리";
@@ -30828,10 +31572,10 @@ function vgOpenFolder(f) {
 function renderVideoFolders() {
   const esc = s => s.replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
   document.getElementById("vgCrumb").innerHTML = "";
-  const _p = _vgTab === "pos", F = _p ? POS_VG_FOLDERS : VG_FOLDERS, IC = _p ? POS_VG_ICON : VG_ICON, pool = vgPool();   // POS-MERGE: 탭
+  const _p = _vgTab !== "irm", _d = _vgTab === "pda", F = _d ? PDA_VG_FOLDERS : (_p ? POS_VG_FOLDERS : VG_FOLDERS), IC = _d ? PDA_VG_ICON : (_p ? POS_VG_ICON : VG_ICON), pool = vgPool();   // PDA-MERGE: PDA 탭   // POS-MERGE: 탭
   if (_p && !pool.length) {
-    document.getElementById("vgCount").textContent = "POS 강의 준비 중";
-    document.getElementById("vgGrid").innerHTML = `<div class="vg-empty">POS 강의 영상은 <b>준비 중</b>이에요.<br>영상이 올라가면 여기에서 바로 볼 수 있어요.</div>`;
+    document.getElementById("vgCount").textContent = (_d ? "PDA" : "POS") + " 강의 준비 중";
+    document.getElementById("vgGrid").innerHTML = `<div class="vg-empty">${_d ? "PDA" : "POS"} 강의 영상은 <b>준비 중</b>이에요.<br>영상이 올라가면 여기에서 바로 볼 수 있어요.</div>`;
     return;
   }
   document.getElementById("vgCount").textContent = `폴더 ${F.length}개 · 전체 ${pool.length}개 강의`;
@@ -30846,7 +31590,7 @@ function renderVideoGrid(q) {
   vgRenderTabs((q || "").trim());   // POS-MERGE
   if (!(q || "").trim() && _vgFolder === null) { renderVideoFolders(); return; }
   { const _c = document.getElementById("vgCrumb"); if (_c) _c.innerHTML = (q || "").trim() ? `<button class="vg-back" onclick="vgOpenFolder(null)">← 전체 폴더</button>` : (_vgGroup ? `<button class="vg-back" onclick="vgOpenGroup(null)">← ${_vgFolder}</button><span class="vg-crumb-name">📁 ${_vgGroup}</span>`
-         : `<button class="vg-back" onclick="vgOpenFolder(null)">← 전체 폴더</button><span class="vg-crumb-name">${VG_ICON[_vgFolder] || POS_VG_ICON[_vgFolder] || ""} ${_vgFolder}</span>`); }
+         : `<button class="vg-back" onclick="vgOpenFolder(null)">← 전체 폴더</button><span class="vg-crumb-name">${VG_ICON[_vgFolder] || POS_VG_ICON[_vgFolder] || PDA_VG_ICON[_vgFolder] || ""} ${_vgFolder}</span>`); }
   const esc = s => s.replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
   const qn = (q || "").trim().toLowerCase().replace(/\s+/g, "");
   const hl = s => {
@@ -30889,7 +31633,7 @@ function renderVideoGrid(q) {
         ${v.dur ? `<span class="vg-dur">${v.dur}</span>` : ``}
       </div>
       <div class="vg-body">
-        <div class="vg-cat">${v.pos ? '<span class="pos-badge">POS</span>' : ''}${hl(v.cat)}</div>
+        <div class="vg-cat">${vgBadge(v)}${hl(v.cat)}</div>
         <div class="vg-name">${hl(v.title)}</div>
         <div class="vg-text">${hl(v.desc)}</div>
         ${(v.chapters || []).some(chapHit) ? `<div class="vg-chaps">` + v.chapters.filter(chapHit).slice(0, 4).map(c =>
@@ -31290,18 +32034,22 @@ function buildNav() {
     nav.appendChild(vb);
   }
   let _posHead = false;   // POS-MERGE: 사이드바 'POS 설명서' 머리글
+  let _pdaHead = false;   // PDA-MERGE: 사이드바 'PDA 메뉴얼' 머리글
   let _irmHead = false;   // POS-MERGE ENGINE v2: 사이드바 'IRM(ERP) 설명서' 머리글
   NAVSECS().forEach(ch => { if (ch.hidden) return;
     if (!posCh(ch) && !_irmHead) { _irmHead = true;
       nav.appendChild(navGrpHead("irm", "nav-irm-head", "IRM(ERP) 메뉴얼")); }
-    if (posCh(ch) && !_posHead) { _posHead = true;
+    if (chGrp(ch) === "pda" && !_pdaHead) { _pdaHead = true;   // PDA-MERGE: POS 다음 구분선 + 'PDA 메뉴얼' 머리글
+      const _sp = document.createElement("div"); _sp.className = "nav-pos-sep"; nav.appendChild(_sp);
+      nav.appendChild(navGrpHead("pda", "nav-pda-head", "PDA 메뉴얼")); }
+    if (chGrp(ch) === "pos" && !_posHead) { _posHead = true;
       const _sep = document.createElement("div"); _sep.className = "nav-pos-sep"; nav.appendChild(_sep);
       nav.appendChild(navGrpHead("pos", "nav-pos-head", "POS 메뉴얼")); }
     const btn = document.createElement("button");
     btn.className = "ch-btn";
     btn.dataset.title = ch.title;
     btn.innerHTML = `<span class="ch-icon-wrap">${ch.icon}</span><span class="ch-text">${ch.title}</span><span class="ch-cnt">${ch.subs.filter(s=>s.type!=='divider').reduce((n,s)=>n+(s.tabNav&&s.pageLabels?s.pageLabels.length:1),0)}</span>`;
-    btn.dataset.chId = ch.id; btn.dataset.grp = posCh(ch) ? "pos" : "irm";
+    btn.dataset.chId = ch.id; btn.dataset.grp = chGrp(ch);
     btn.onclick = () => toggleCh(ch, btn);
     btn.addEventListener("mouseenter", () => showTooltip(btn, ch.title));
     btn.addEventListener("mouseleave", hideTooltip);
@@ -31309,7 +32057,7 @@ function buildNav() {
 
     const subList = document.createElement("div");
     subList.className = "sub-list";
-    subList.id = "sl-" + ch.id; subList.dataset.grp = posCh(ch) ? "pos" : "irm";
+    subList.id = "sl-" + ch.id; subList.dataset.grp = chGrp(ch);
     let currentGroupBody = null;
     ch.subs.forEach(sub => {
       if (sub.type === "divider") {
@@ -31391,7 +32139,7 @@ function buildNav() {
 }
 
 function toggleCh(ch, btn) {
-  navGrpOpen(posCh(ch) ? "pos" : "irm");   // POS-MERGE ENGINE v5: 닫힌 묶음의 장을 열면 묶음도 펼침
+  navGrpOpen(chGrp(ch));   // POS-MERGE ENGINE v5: 닫힌 묶음의 장을 열면 묶음도 펼침
   const sl = document.getElementById("sl-"+ch.id);
   const isOpen = sl.classList.contains("open");
   document.querySelectorAll(".sub-list").forEach(s=>s.classList.remove("open"));
@@ -31445,6 +32193,7 @@ function goPrev() {
     _prevSection = null;
     document.getElementById("prev-btn").style.display = "none";
     showSection(ch, sub, pageIdx);
+    navReveal(ch, sub, pageIdx);   // PDA-MERGE ENGINE v2
   }
 }
 
@@ -31478,11 +32227,17 @@ function showWelcome() {
       <div class="cc-cnt">${ch.subs.length}개 메뉴</div>
     </div>`;
   });
-  { const _pc = NAVSECS().filter(c => posCh(c) && !c.hidden);   // POS-MERGE: 홈 'POS 설명서' 카드
+  { const _pc = NAVSECS().filter(c => chGrp(c) === "pos" && !c.hidden);   // POS-MERGE: 홈 'POS 설명서' 카드
     if (_pc.length) html += `<div class="ch-card pos-home-card" onclick="posHomeOpen('${_pc[0].id}')">
       <div class="cc-icon">🛒</div>
       <div class="cc-title">POS 메뉴얼</div>
       <div class="cc-cnt">${_pc.length}개 장 · ${_pc.reduce((n, c) => n + c.subs.filter(s => s.type !== "divider").length, 0)}개 메뉴</div>
+    </div>`; }
+  { const _dc = NAVSECS().filter(c => chGrp(c) === "pda" && !c.hidden);   // PDA-MERGE: 홈 'PDA 메뉴얼' 카드
+    if (_dc.length) html += `<div class="ch-card grp-pda-home" onclick="grpHomeOpen('${_dc[0].id}','pda')">
+      <div class="cc-icon">📱</div>
+      <div class="cc-title">PDA 메뉴얼</div>
+      <div class="cc-cnt">${_dc.length}개 장 · ${_dc.reduce((n, c) => n + c.subs.filter(s => s.type !== "divider").length, 0)}개 메뉴</div>
     </div>`; }
   html += `</div></div>`;
   document.getElementById("content").innerHTML = html;
@@ -31494,7 +32249,7 @@ function openChCard(chId) {
   if (!ch) return;
   const btn = document.querySelector(`.ch-btn[data-ch-id="${chId}"]`);
   { const _sl = document.getElementById("sl-" + chId);   // POS-MERGE ENGINE v7: 이미 펼쳐진 장이면 접지 말고 그 장 화면으로
-    if (_sl && _sl.classList.contains("open")) { navGrpOpen(posCh(ch) ? "pos" : "irm"); showChapter(ch); return; } }
+    if (_sl && _sl.classList.contains("open")) { navGrpOpen(chGrp(ch)); showChapter(ch); return; } }
   toggleCh(ch, btn);
 }
 
@@ -31526,7 +32281,7 @@ function showChapter(ch) {
     } else if (hasImg && ch.id !== 'ch1') {
       const ov = SIM[firstPg] ? simCardOverlay(firstPg) : overlayHTML(firstPg, true);
       if (ov) {
-        html += `<div class="card-img-wrap annot-static" data-ch="${ch.id}" data-sub="${sub.id}" style="position:relative;width:100%;margin-bottom:10px;border:1px solid var(--border);border-radius:6px;overflow:hidden;"><img class="screen-img" src="${cardImg}" style="width:100%;display:block;"${VER === "s" ? ` onload="sCardCrop(this)"` : ``}>${ov}</div>`;
+        html += `<div class="card-img-wrap annot-static" data-ch="${ch.id}" data-sub="${sub.id}"${grpPhone(ch, firstPg) ? ' data-phone="1"' : ''} style="position:relative;width:100%;margin-bottom:10px;border:1px solid var(--border);border-radius:6px;overflow:hidden;"><img class="screen-img" src="${cardImg}" style="width:100%;display:block;"${VER === "s" ? ` onload="sCardCrop(this)"` : ``}>${ov}</div>`;
       } else {
         html += `<img src="${cardImg}" style="width:100%;border-radius:6px;margin-bottom:10px;border:1px solid var(--border)">`;
       }
@@ -31567,6 +32322,7 @@ function openSub(chId, subId, fromLink=false) {
     else b.classList.remove("active");
   });
   showSection(ch, sub);
+  navReveal(ch, sub, curPageIdx);   // PDA-MERGE ENGINE v2: 사이드바도 이 메뉴로
 }
 
 // ========== SHOW SECTION ==========
@@ -31637,7 +32393,7 @@ function renderSection() {
   // 2열 레이아웃
   const noImg = NO_IMG_PAGES.includes(pg);
   const skipImg = noImg || ch.id === 'ch1';
-  html += `<div class="page-layout${noImg?' no-img-layout':''}${posCh(ch)?' pos-layout':''}" style="max-height:${maxH};${skipImg?'grid-template-columns:1fr;':''}">`;
+  html += `<div class="page-layout${noImg?' no-img-layout':''}${posCh(ch)?' pos-layout':''}${grpPhone(ch, pg)?' pda-layout':''}" style="max-height:${maxH};${skipImg?'grid-template-columns:1fr;':''}">`;
 
   // 좌측: 이미지 or 흐름도 (ch1은 이미지 영역 없음)
   if (!skipImg) {
@@ -32079,6 +32835,7 @@ function simCardOverlay(pg) {
   let h = "";
   if (sim.cat) h += `<div class="sim-cat" style="left:${sim.cat.x}%;top:${sim.cat.y}%;width:${sim.cat.w}%;height:${sim.cat.h}%;"></div>`;
   (sc.btns||[]).forEach(b => {
+    if (grpThumbSkip(sim, sc, b)) return;   // PDA-MERGE ENGINE v2: 움직이는 그림 자리는 썸네일에서 뺌(포스·PDA)
     const pos = `left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;`;
     if (b.fill) { h += `<div class="sim-fill${b.red?' red':''}${b.soft?' soft':''}${(sim.pos&&b.faint)?' faint':''}" style="${pos}"></div>`; return; }
     const ico = b.num ? `<span class="sim-num${b.numRight?' r':''}">${b.num}</span>` : "";
@@ -32174,6 +32931,7 @@ function simNavSetup(pg) {
 function simSizeSpacer() {
   const sp = document.getElementById("descScrollSpacer"); if (!sp) return;
   const body = document.querySelector(".desc-body"); if (!body) return;
+  if (grpNow() === "pda") { pdaSizeSpacer(sp, body); return; }   // PDA-MERGE ENGINE v3: 마지막 카드(종류 상관없이)도 맨 위로
   const cards = body.querySelectorAll(".desc-bullet");
   const last = cards[cards.length - 1];
   const lastH = last ? last.offsetHeight : 0;
@@ -32387,6 +33145,7 @@ function simDragStart(e, pg, to, idx) {
 // 설명 카드를 스크롤 영역 맨 위로 이동 + 강조
 function _simScrollTo(target) {
   const body = document.querySelector(".desc-body"); if (!body || !target) return;
+  if (grpNow() === "pda") simSizeSpacer();   // PDA-MERGE ENGINE v3: 목록 끝 ★ 카드도 설명 칸 맨 위까지 올라오게
   const _pos = posNow(), _tb = _pos && document.getElementById("topbar");   // POS-MERGE: 포스 장은 설명 칸이 그림 높이만큼 길어 페이지가 스크롤됨
   const _top = _pos ? Math.max(body.getBoundingClientRect().top, _tb ? _tb.getBoundingClientRect().bottom : 0, 0) : body.getBoundingClientRect().top;
   const delta = (target.getBoundingClientRect().top - _top) - 8;
@@ -32546,7 +33305,7 @@ function doSearch(q) {
   NAVSECS().forEach(ch => { if (ch.hidden) return;
     ch.subs.forEach(sub => {
       if (sub.type === "divider") return;
-      if (sub.title.toLowerCase().replace(/\s+/g, "").includes(qn) || ch.title.toLowerCase().replace(/\s+/g, "").includes(qn) || (posCh(ch) && ["pos", "포스", "pos메뉴얼", "포스메뉴얼", "pos매뉴얼", "포스매뉴얼", "pos설명서", "포스설명서"].includes(qn))) {
+      if (sub.title.toLowerCase().replace(/\s+/g, "").includes(qn) || ch.title.toLowerCase().replace(/\s+/g, "").includes(qn) || (chGrp(ch) === "pos" && ["pos", "포스", "pos메뉴얼", "포스메뉴얼", "pos매뉴얼", "포스매뉴얼", "pos설명서", "포스설명서"].includes(qn)) || (chGrp(ch) === "pda" && GRP_PDA_ALIASES.includes(qn)) || grpSubAlias(sub, qn)) {   // PDA-MERGE ENGINE v2: searchAlias
         results.push({ch, sub});
       }
     });
@@ -32559,10 +33318,10 @@ function doSearch(q) {
     const title = r.sub.title.replace(hlRe, m=>`<mark>${m}</mark>`);
     const firstPg = r.sub.pages[0];
     html += `<div class="sr-item" onclick="openSubFromSearch('${r.ch.id}','${r.sub.id}')">
-      <div class="sr-ch">${posCh(r.ch)?'<span class="pos-badge">POS</span>':''}${r.ch.icon} ${r.ch.title}</div>
+      <div class="sr-ch">${grpBadge(r.ch)}${r.ch.icon} ${r.ch.title}</div>
       <div style="display:flex;align-items:center;gap:12px">`;
     if (IMGS[firstPg]) {
-      html += `<img src="${IMGS[firstPg]}" style="width:120px;border-radius:5px;border:1px solid var(--border);flex-shrink:0">`;
+      html += `<img src="${IMGS[firstPg]}"${grpPhone(r.ch, firstPg) ? ' class="grp-phone-thumb"' : ''} style="width:120px;border-radius:5px;border:1px solid var(--border);flex-shrink:0">`;
     }
     html += `<div><div class="sr-title">${title}</div><div style="font-size:11px;color:var(--text-muted);margin-top:3px">${r.sub.pages.length}페이지</div></div>
       ${videoForSub(r.sub) ? `<button class="vid-mini" style="margin-left:auto" onclick="event.stopPropagation();playSubVideo('${r.sub.id}')">▶ 동영상 강의 보기</button>` : ``}
@@ -32693,7 +33452,7 @@ function aiChatSend() {
     if (results.length) {
       body = `"<b>${aiEsc(q)}</b>" 관련 메뉴를 <b>${results.length}건</b> 찾았어요. 클릭하면 설명을 보여드릴게요. 👇`;
       results.forEach(r => {
-        body += `<div class="ai-result" onclick="aiShowDesc('${r.ch.id}','${r.sub.id}')">📄 <span>${posCh(r.ch)?'<span class="pos-badge">POS</span>':''}${r.ch.title} · ${aiEsc(r.title)}</span>${videoForSub(r.sub) ? `<button class="vid-mini" style="margin-left:auto;padding:3px 9px;font-size:11px" title="동영상 강의 보기" onclick="event.stopPropagation();playSubVideo('${r.sub.id}')">▶ 동영상 강의</button>` : ``}</div>`;
+        body += `<div class="ai-result" onclick="aiShowDesc('${r.ch.id}','${r.sub.id}')">📄 <span>${grpBadge(r.ch)}${r.ch.title} · ${aiEsc(r.title)}</span>${videoForSub(r.sub) ? `<button class="vid-mini" style="margin-left:auto;padding:3px 9px;font-size:11px" title="동영상 강의 보기" onclick="event.stopPropagation();playSubVideo('${r.sub.id}')">▶ 동영상 강의</button>` : ``}</div>`;
       });
     } else {
       body = `"<b>${aiEsc(q)}</b>" 관련 메뉴를 찾지 못했어요. 😅<br>조금 더 구체적인 키워드(예: <b>재고조정</b>, <b>매대진열</b>, <b>경비</b>, <b>보고서</b>)로 다시 검색해보세요.`;
@@ -32727,7 +33486,7 @@ function aiShowDesc(chId, subId) {
   const title = (sub.title || "").replace(/<br\s*\/?>/gi, " ");
   const pg = (sub.pages || [])[0];
   const d = pg ? DESCS[pg] : null;
-  let body = `<div class="ai-d-head">📘 ${posCh(ch)?'<span class="pos-badge">POS</span>':''}${ch.title} · ${aiEsc(title)}</div>`;
+  let body = `<div class="ai-d-head">📘 ${grpBadge(ch)}${ch.title} · ${aiEsc(title)}</div>`;
   if (d && d.length) body += aiDescHtml(d);
   else body += `<div class="ai-d-sub" style="color:var(--text-muted)">이 페이지는 설명이 준비 중입니다.</div>`;
   body += `<button class="ai-goto" onclick="aiGo('${chId}','${subId}')">이 페이지로 이동 →</button>`;
@@ -33348,109 +34107,86 @@ document.addEventListener("click", function (e) {
 </script>
 
 <!-- ═══ PDA 매입등록 오버레이 ═══ -->
-<div class="pda-back" id="pdaBack">
-  <div class="pda-choice" id="pdaChoice">
-    <div class="pda-choice-btn" onclick="pdaPick('buy')"><div class="pda-choice-ico">🧾</div><div class="pda-choice-t">PDA 매입등록</div><div class="pda-choice-s">바코드 스캔으로 매입 등록</div></div>
-    <div class="pda-choice-btn" onclick="pdaPick('batch')"><div class="pda-choice-ico">📚</div><div class="pda-choice-t">PDA 일괄매입등록</div><div class="pda-choice-s">연속 스캔 · 매입처 자동</div></div>
+<!-- (2026-11 사용자 결정 (c)) 옛 'PDA로 …' 버튼 창(다크 뷰어)을 새 PDA 메뉴얼 페이지 바로가기 카드로 바꿈.
+     버튼(pdaFab)은 그대로 — 누르면 이 카드만 열리고(쪽을 옮기지 않음), 같은 버튼을 다시 누르면 닫힘. 쪽 이동은 카드의 🔗 링크로만.
+     원본은 PDA메뉴얼/_build/oldbtn/_orig/ · 고칠 때는 PDA메뉴얼/_build/oldbtn/ 에서(합치기 순서표 참고) -->
+<div class="pda-pop" id="pdaPop" role="dialog" aria-hidden="true">
+  <div class="pda-pop-card" data-pk="buy">
+    <div class="pda-pop-head"><span class="pda-pop-label">PDA 메뉴얼</span><b class="pda-pop-title">📱 PDA로 매입등록하기</b><button type="button" class="pda-pop-x" onclick="pdaClose()" title="닫기">✕</button></div>
+    <div class="pda-pop-body">
+      <div class="pda-pop-line">들어온 상품을 PDA로 찍어 <b>매입입고</b>를 등록하고, IRM(ERP)에 금액 확인을 요청합니다.</div>
+      <div class="pda-pop-line">금액확인 다음 승인은 <b>IRM(ERP)</b>에서만 합니다.</div>
+      <div class="pda-pop-link">🔗 <b class='dlink' onclick="pdaClose();openSub('pda-ch2','pda-buy',true)">PDA 매입입고</b> 페이지 바로가기</div>
+      <div class="pda-pop-link">🔗 <b class='dlink' onclick="pdaClose();openSub('pda-ch2','pda-batch',true)">PDA 일괄매입등록</b> 페이지 바로가기</div>
+    </div>
   </div>
-  <div class="pda-view" id="pdaView">
-    <div class="pda-vhead"><h3 id="pdaTitle">📱 PDA</h3><button class="pda-x" onclick="pdaClose()">✕</button></div>
-    <div class="pda-body" id="pdaBody"></div>
-    <div class="pda-foot"><button class="pda-arrow" id="pdaPrev" onclick="pdaNav(-1)">‹ 이전</button><div class="pda-dots" id="pdaDots"></div><button class="pda-arrow" id="pdaNext" onclick="pdaNav(1)">다음 ›</button></div>
+  <div class="pda-pop-card" data-pk="plan">
+    <div class="pda-pop-head"><span class="pda-pop-label">PDA 메뉴얼</span><b class="pda-pop-title">📱 PDA로 발주계획 등록하기</b><button type="button" class="pda-pop-x" onclick="pdaClose()" title="닫기">✕</button></div>
+    <div class="pda-pop-body">
+      <div class="pda-pop-line">발주한 상품이 들어오면 PDA <b>매입입고</b>로 등록합니다.</div>
+      <div class="pda-pop-line note">PDA 메뉴얼에는 발주계획 등록 페이지가 따로 없습니다.</div>
+      <div class="pda-pop-link">🔗 <b class='dlink' onclick="pdaClose();openSub('pda-ch2','pda-buy',true)">PDA 매입입고</b> 페이지 바로가기</div>
+    </div>
+  </div>
+  <div class="pda-pop-card" data-pk="ret">
+    <div class="pda-pop-head"><span class="pda-pop-label">PDA 메뉴얼</span><b class="pda-pop-title">📱 PDA로 매입반품 등록하기</b><button type="button" class="pda-pop-x" onclick="pdaClose()" title="닫기">✕</button></div>
+    <div class="pda-pop-body">
+      <div class="pda-pop-line">PDA로 매입처를 고르고 상품을 찍는 방법은 <b>매입입고</b>에서 볼 수 있습니다.</div>
+      <div class="pda-pop-line note">PDA 메뉴얼에는 매입 반품 페이지가 따로 없습니다.</div>
+      <div class="pda-pop-link">🔗 <b class='dlink' onclick="pdaClose();openSub('pda-ch2','pda-buy',true)">PDA 매입입고</b> 페이지 바로가기</div>
+    </div>
+  </div>
+  <div class="pda-pop-card" data-pk="price">
+    <div class="pda-pop-head"><span class="pda-pop-label">PDA 메뉴얼</span><b class="pda-pop-title">📱 PDA로 판매가 수정하기</b><button type="button" class="pda-pop-x" onclick="pdaClose()" title="닫기">✕</button></div>
+    <div class="pda-pop-body">
+      <div class="pda-pop-line">PDA <b>매장상품관리</b>에서 상품을 열어 매입가·판매가를 고치고 저장합니다.</div>
+      <div class="pda-pop-line">판매가뿐 아니라 PDA의 모든 기능은 IRM(ERP)에서 <b>권한</b>을 받아야 쓸 수 있습니다.</div>
+      <div class="pda-pop-link">🔗 <b class='dlink' onclick="pdaClose();openSub('pda-ch3','pda-manage',true)">PDA 매장상품관리</b> 페이지 바로가기</div>
+      <div class="pda-pop-link">🔗 <b class='dlink' onclick="pdaClose();openSub('pda-ch3','pda-info',true)">PDA 매장상품정보</b> 페이지 바로가기</div>
+      <div class="pda-pop-link">🔗 <b class='dlink' onclick="pdaClose();openSub('s-ch5','s-sa',true);setTimeout(function(){goPage(2)},80)">사업장 사원 관리 › PDA 메뉴권한</b> 바로가기</div>
+    </div>
   </div>
 </div>
 <script>
-const PDA_CONTENT = {
- price: { title:"📱 PDA로 판매가 수정하기", pages:[
-  `<p class="pda-h">매장상품정보 — 스캔 한 번으로 확인·수정</p>
-   <div class="pda-cols">
-   <div class="pda-col imgcol"><img src="images/판매가수정.png" class="pda-img" alt="매장상품정보"></div>
-   <div class="pda-col">
-   <p style="font-weight:800;color:#eaf0f8;font-size:16px;margin:0 0 10px">이 화면에서 바로 할 수 있는 것</p>
-   <ul class="pda-steps">
-   <li><span class="pda-sn">1</span><div><div class="pda-st">매입/판매 상태 토글</div><div class="pda-sd">가능↔중지를 누르는 즉시 저장됩니다. 매입 중지 상품은 매입 화면에서 스캔이 차단됩니다.</div></div></li>
-   <li><span class="pda-sn">2</span><div><div class="pda-st" style="color:#38bdf8">매입가·판매가 수정</div><div class="pda-sd">금액 영역을 탭하면 수정 창이 열립니다 (<b>권한 필요</b>). 저장하면 <b>POS에도 실시간 반영</b>됩니다.</div></div></li>
-   <li><span class="pda-sn">3</span><div><div class="pda-st">매대 위치</div><div class="pda-sd">위치를 탭하면 최대/안전/최소재고를 수정할 수 있습니다. 매입처가 없으면 <b>[매입처 지정]</b> 버튼으로 바로 지정됩니다.</div></div></li>
-   </ul>
-   </div></div>`,
- ]},
- buy: { title:"📱 PDA 매입등록", pages:[
-  `<p class="pda-h">매입 · 입고 — 매입입고관리</p>
-   <div class="pda-flow"><span>신규등록</span><i>→</i><span>매입처 선택</span><i>→</i><span>상품 스캔</span><i>→</i><span>단가·수량 확인</span><i>→</i><span>등록(저장)</span><i>→</i><span class="done">매입확정</span></div>
-   <div class="pda-cols">
-   <div class="pda-col imgcol"><img src="images/매입입고관리.png" class="pda-img" alt="매입입고관리"></div>
-   <div class="pda-col">
-   <p style="font-weight:800;color:#eaf0f8;font-size:16px;margin:0 0 10px">목록 화면 구성</p>
-   <ul class="pda-steps">
-   <li><span class="pda-sn">1</span><div><div class="pda-st">매입 전표 카드</div><div class="pda-sd">작성 중인 매입 건. 문서번호·매입처·수량/합계·매입일을 확인합니다.</div></div></li>
-   <li><span class="pda-sn">2</span><div><div class="pda-st">카드 버튼</div><div class="pda-sd">취소(전표 취소)·수정(상품 추가/변경)·금액확인(합계 검토)·<b>매입확정</b>(재고 반영 확정).</div></div></li>
-   <li><span class="pda-sn">3</span><div><div class="pda-st">검수입고</div><div class="pda-sd">발주서 바코드(11로 시작)를 스캔해 발주 수량과 실수령 수량을 비교하며 입고합니다.</div></div></li>
-   <li><span class="pda-sn">4</span><div><div class="pda-st">신규등록</div><div class="pda-sd">새 매입 전표 작성 시작.</div></div></li>
-   </ul>
-   </div></div>`,
-  `<p class="pda-h">매입 등록하기</p>
-   <ul class="pda-steps">
-   <li><span class="pda-sn">1</span><div><div class="pda-st">[신규등록]을 누릅니다</div><div class="pda-sd">매입입고등록 화면이 열립니다.</div></div></li>
-   <li><span class="pda-sn">2</span><div><div class="pda-st">[매입처] 버튼으로 매입처를 선택합니다</div><div class="pda-sd">선택하지 않고 스캔하면 <b>"매입처를 먼저 선택해주세요"</b> 안내가 뜹니다.</div></div></li>
-   <li><span class="pda-sn">3</span><div><div class="pda-st">상품 바코드를 스캔합니다</div><div class="pda-sd">스캔 즉시 <b>상품정보 창</b>이 열립니다. 같은 상품을 다시 스캔하면 수량이 자동 +1.</div></div></li>
-   <li><span class="pda-sn">4</span><div><div class="pda-st">단가와 수량을 확인·수정하고 [확인]</div><div class="pda-sd">다음 장의 <b>상품정보 창</b> 설명 참고.</div></div></li>
-   <li><span class="pda-sn">5</span><div><div class="pda-st">모든 상품 스캔 후 [등록]을 누릅니다</div><div class="pda-sd">매입일 · 매입처 담당자 · 비고 입력 창이 열립니다. 무상지원 여부도 여기서 체크.</div></div></li>
-   <li><span class="pda-sn">6</span><div><div class="pda-st">저장 후 목록에서 [매입확정]</div><div class="pda-sd"><b>확정해야 재고에 반영</b>됩니다.</div></div></li>
-   </ul>`,
-  `<p class="pda-h">상품정보 창</p>
-   <div class="pda-cols">
-   <div class="pda-col imgcol"><img src="images/상품정보창.png" class="pda-img" alt="상품정보 창"></div>
-   <div class="pda-col">
-   <p style="font-weight:800;color:#eaf0f8;font-size:16px;margin:0 0 10px">필드 설명</p>
-   <ul class="pda-steps">
-   <li><span class="pda-sn">1</span><div><div class="pda-st">매입단가</div><div class="pda-sd">수정하면 합계·마진율이 자동 재계산됩니다.</div></div></li>
-   <li><span class="pda-sn">2</span><div><div class="pda-st">수량</div><div class="pda-sd">단위가 BOX(10)이면 총 수량은 10개 단위로 계산됩니다.</div></div></li>
-   <li><span class="pda-sn">3</span><div><div class="pda-st">판매단가·마진율</div><div class="pda-sd">한쪽을 바꾸면 다른 쪽이 자동 계산됩니다.</div></div></li>
-   <li><span class="pda-sn">4</span><div><div class="pda-st">유효일·로트번호</div><div class="pda-sd">의약품 QR 스캔 시 자동 입력, 직접 수정도 가능.</div></div></li>
-   </ul>
-   </div></div>
-   <div class="pda-warn"><div class="wt">수정칸이 회색으로 잠겨 있나요?</div><div class="wd">매입단가·판매단가 수정은 <b>관리자가 부여한 권한</b>이 있어야 합니다.</div></div>
-   <div class="pda-warn"><div class="wt">"매입이 중지된 상품입니다"</div><div class="wd">매입 중지로 설정된 상품은 스캔해도 담기지 않습니다. 매장상품정보에서 매입 상태를 <b>가능</b>으로 바꾼 뒤 다시 스캔하세요.</div></div>`
- ]},
- batch: { title:"📱 PDA 일괄매입등록", pages:[
-  `<p class="pda-h">일괄매입관리</p>
-   <div class="pda-flow"><span>일괄매입등록</span><i>→</i><span>상품 연속 스캔</span><i>→</i><span>매입처 자동 매핑</span><i>→</i><span>수량·매입가 확인</span><i>→</i><span>등록</span><i>→</i><span class="done">작성완료</span></div>
-   <div class="pda-intro">매입처를 골라가며 등록할 필요 없이 <b>상품을 연속으로 스캔</b>하면 상품마다 등록된 기본 매입처가 자동으로 붙습니다. 이후 <b>매입처별로 매입이 나뉘는</b> 구조입니다.</div>
-   <p style="font-weight:800;color:#eaf0f8;font-size:16px;margin:18px 0 9px">상세 안내</p>
-   <table class="pda-tbl">
-   <tr><th style="width:132px">항목</th><th>내용</th></tr>
-   <tr><td class="k">매입처 자동 표시</td><td>스캔한 상품 카드에 🏭 <span class="pda-hl">매입처명</span>이 자동 표시됩니다. 매입처가 없는 상품은 <span class="pda-hl">매입처 지정 창</span>이 떠서 바로 지정합니다.</td></tr>
-   <tr><td class="k">수량·매입가 수정</td><td>상품을 탭하면 상품정보 창에서 <span class="pda-hl">수량과 매입가</span>를 수정할 수 있습니다. <b>(판매단가·마진율은 이 화면에서 잠금)</b></td></tr>
-   <tr><td class="k">등록</td><td>[등록] → <span class="pda-hl">입고예정일·입고부서·비고</span> 입력(제목: 일괄매입) → 저장하면 목록에 문서가 생성됩니다.</td></tr>
-   <tr><td class="k">목록 관리</td><td>카드의 <span class="pda-hl">취소 / 수정 / 작성완료</span> 버튼으로 관리. <b>작성완료</b> 시 해당 건의 작성이 종료됩니다.</td></tr>
-   </table>`
- ]},
- plan: { title:"📱 PDA 발주계획 등록", pages:[
-  `<p class="pda-h">발주계획관리 · 매입발주관리</p>
-   <div class="pda-flow"><span>발주계획서등록</span><i>→</i><span>상품 스캔·수량 입력</span><i>→</i><span>등록</span><i>→</i><span>발주서작성</span><i>→</i><span class="done">매입발주관리에서 조회</span></div>
-   <ul class="pda-steps">
-   <li><span class="pda-sn">1</span><div><div class="pda-st">발주계획관리에서 [발주계획서등록]</div><div class="pda-sd">상품을 스캔하면 매입처가 자동으로 붙습니다. 발주 단계에서는 단가가 잠기고 <b>수량만</b> 입력합니다.</div></div></li>
-   <li><span class="pda-sn">2</span><div><div class="pda-st">[등록]에서 입고예정일·입고부서 입력</div><div class="pda-sd">저장하면 목록에 발주계획 카드가 생성됩니다.</div></div></li>
-   <li><span class="pda-sn">3</span><div><div class="pda-st">카드의 [발주서작성]</div><div class="pda-sd">계획이 완료 처리되고 <b>발주서가 자동 생성</b>됩니다. 생성된 발주서는 매입발주관리에서 확인합니다.</div></div></li>
-   </ul>
-   <div class="pda-note"><div class="nt">발주서 바코드</div><div class="nd">발주서의 바코드를 <b>매입입고관리 → 검수입고</b>에서 스캔하면 발주 내용이 그대로 불러와져 입고 검수를 빠르게 할 수 있습니다.</div></div>`
- ]},
- ret: { title:"📱 PDA 매입반품 등록", pages:[
-  `<p class="pda-h">매입반품</p>
-   <div class="pda-flow"><span>반품등록</span><i>→</i><span>매입처 선택·상품 스캔</span><i>→</i><span>저장</span><i>→</i><span>회수요청</span><i>→</i><span class="done">반품완료</span></div>
-   <div class="pda-intro"><b>매입반품목록</b>에서 <b>[반품등록]</b>으로 시작하며, 등록 방법은 매입입고와 동일합니다(매입처 선택 → 스캔 → 수량 → 저장, 저장 창에서 <b>반품일</b> 입력). 저장된 반품 건은 카드의 <b>회수요청 → 반품완료</b> 순서로 처리합니다.</div>`
- ]}
-};
-let pdaCur=null, pdaIdx=0;
-function pdaOpen(pk){var b=document.getElementById('pdaBack');b.classList.add('on');if(pk){document.getElementById('pdaChoice').style.display='none';pdaPick(pk);}else{document.getElementById('pdaChoice').style.display='flex';document.getElementById('pdaView').classList.remove('on');}}
-function pdaPick(t){pdaCur=t;pdaIdx=0;document.getElementById('pdaChoice').style.display='none';document.getElementById('pdaView').classList.add('on');document.getElementById('pdaTitle').textContent=PDA_CONTENT[t].title;pdaRender();}
-function pdaRender(){var c=PDA_CONTENT[pdaCur];document.querySelector('.pda-foot').style.display=c.pages.length>1?'':'none';document.getElementById('pdaBody').innerHTML=c.pages[pdaIdx];document.getElementById('pdaDots').innerHTML=c.pages.map(function(_,i){return '<button class="pda-dot '+(i===pdaIdx?'on':'')+'" onclick="pdaGoto('+i+')">'+(i+1)+'</button>';}).join('');document.getElementById('pdaPrev').disabled=pdaIdx===0;document.getElementById('pdaNext').disabled=pdaIdx===c.pages.length-1;document.getElementById('pdaBody').scrollTop=0;}
-function pdaNav(d){var c=PDA_CONTENT[pdaCur];pdaIdx=Math.max(0,Math.min(c.pages.length-1,pdaIdx+d));pdaRender();}
-function pdaGoto(i){pdaIdx=i;pdaRender();}
-function pdaClose(){document.getElementById('pdaBack').classList.remove('on');}
-function pdaFabDown(){window._pdaDown=true;document.querySelectorAll('.pda-fab').forEach(function(f){f.classList.add('down');});}
-function pdaFabUp(){window._pdaDown=false;document.querySelectorAll('.pda-fab').forEach(function(f){f.classList.remove('down');});}
-document.addEventListener('DOMContentLoaded',function(){document.getElementById('pdaBack').addEventListener('click',function(e){if(e.target.id==='pdaBack')pdaClose();});document.addEventListener('keydown',function(e){if(!document.getElementById('pdaBack').classList.contains('on'))return;if(e.key==='Escape')pdaClose();if(document.getElementById('pdaView').classList.contains('on')){if(e.key==='ArrowLeft')pdaNav(-1);if(e.key==='ArrowRight')pdaNav(1);}});});
+// 옛 PDA 버튼(엔진의 pdaFab 렌더)이 부르는 이름은 그대로: pdaOpen(pk) · pdaFabDown() · pdaFabUp() · window._pdaDown
+let pdaCur = null;
+function pdaOpen(pk) {
+  pk = pk || "buy";   // 매입 등록 버튼은 pdaKey 가 없음
+  var pop = document.getElementById("pdaPop"); if (!pop) return;
+  if (pop.classList.contains("on") && pdaCur === pk) { pdaClose(); return; }   // 같은 버튼을 다시 누르면 닫힘(toggle)
+  var card = pop.querySelector('.pda-pop-card[data-pk="' + pk + '"]'); if (!card) return;
+  pdaCur = pk;
+  pop.querySelectorAll(".pda-pop-card").forEach(function (c) { c.classList.toggle("on", c === card); });
+  pop.classList.add("on"); pop.setAttribute("aria-hidden", "false");
+  pdaPlace();
+}
+function pdaPlace() {   // 버튼 왼쪽에 붙여 띄움 — 사이드바(메뉴)는 안 덮음: 왼쪽에 자리가 없으면 버튼 오른쪽(둘 다 없으면 아래·위). 버튼은 가리지 않음(다시 눌러 닫을 수 있게)
+  var pop = document.getElementById("pdaPop"); if (!pop || !pop.classList.contains("on")) return;
+  var c = document.querySelector("#simOverlay .pda-fab:not(.down) .pda-fab-circle") || document.querySelector(".pda-fab:not(.down) .pda-fab-circle");
+  var vw = window.innerWidth, vh = window.innerHeight, m = 8, gap = 14, pw = pop.offsetWidth, ph = pop.offsetHeight, left, top;
+  var sb = document.getElementById("sidebar"), sr = sb ? sb.getBoundingClientRect() : null;
+  var minL = Math.max(m, sr && sr.width > 0 ? sr.right + m : m), maxL = vw - pw - m;   // 사이드바 오른쪽 끝 + 8px 보다 왼쪽에는 안 놓음
+  if (c) {
+    var r = c.getBoundingClientRect();
+    top = r.bottom - ph;
+    if (r.left - gap - pw >= minL) left = r.left - gap - pw;          // 버튼 왼쪽
+    else if (r.right + gap <= maxL) left = r.right + gap;              // 버튼 오른쪽
+    else { left = r.left + (r.width - pw) / 2; top = r.bottom + gap + ph <= vh - m ? r.bottom + gap : r.top - gap - ph; }   // 좁은 화면: 버튼 아래(안 되면 위)
+  } else { left = (minL + vw - m - pw) / 2; top = (vh - ph) / 2; }
+  left = Math.max(m, Math.min(Math.max(left, minL), maxL)); top = Math.max(m, Math.min(top, vh - ph - m));   // 화면 밖으로는 안 나감(화면이 아주 좁으면 화면 안이 먼저)
+  pop.style.left = Math.round(left) + "px"; pop.style.top = Math.round(top) + "px";
+}
+function pdaClose() { var pop = document.getElementById("pdaPop"); if (!pop) return; pop.classList.remove("on"); pop.setAttribute("aria-hidden", "true"); pdaCur = null; }
+function pdaFabDown() { pdaClose(); window._pdaDown = true; document.querySelectorAll(".pda-fab").forEach(function (f) { f.classList.add("down"); }); }
+function pdaFabUp() { window._pdaDown = false; document.querySelectorAll(".pda-fab").forEach(function (f) { f.classList.remove("down"); }); }
+document.addEventListener("click", function (e) {   // 카드 밖을 누르면 닫힘(버튼·카드 안은 빼고 — 버튼은 pdaOpen 이 toggle)
+  var pop = document.getElementById("pdaPop"); if (!pop || !pop.classList.contains("on")) return;
+  if (e.target.closest && e.target.closest("#pdaPop, .pda-fab")) return;
+  pdaClose();
+}, true);
+document.addEventListener("keydown", function (e) { if (e.key === "Escape" && pdaCur) pdaClose(); });
+window.addEventListener("resize", function () { if (pdaCur) pdaPlace(); });
+document.addEventListener("scroll", function () { if (pdaCur) pdaPlace(); }, true);   // 쪽을 굴려도 카드가 버튼 옆에 붙어 있게
 </script>
 
 </body>
