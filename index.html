@@ -30814,6 +30814,7 @@ function posRcLeft(el) {   // rclick 칸을 왼쪽으로 눌렀을 때 — true 
 }
 // POS-MERGE ENGINE v5: 사이드바 'IRM(ERP) 설명서'·'POS 설명서' 묶음 열고 닫기(머리글 클릭 · 이 브라우저에 기억 · 닫힌 묶음의 장을 열면 묶음도 펼침)
 let NAVGRP_OFF = (() => { try { const o = JSON.parse(localStorage.getItem("irmS.navGrpOff") || "{}"); return (o && typeof o === "object" && !Array.isArray(o)) ? { irm: o.irm === true, pos: o.pos === true, pda: o.pda === true } : {}; } catch (e) { return {}; } })();
+NAVGRP_OFF.pos = NAVGRP_OFF.pda = true;   // PDA-MERGE ENGINE v5 — (11-02) 'POS 메뉴얼'·'PDA 메뉴얼' 묶음은 열 때마다 접힌 채로 시작(펼쳐 둔 기억은 안 씀) · IRM 은 기억 그대로. 장·메뉴를 열면 navGrpOpen 이 그 묶음을 펼침
 function navGrpHead(g, cls, label) {
   const h = document.createElement("button");
   h.type = "button"; h.className = cls + " nav-grp-head"; h.dataset.grp = g;
