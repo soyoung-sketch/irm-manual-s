@@ -29948,6 +29948,140 @@ DESCS["pda1help"] = [
   {type:"step", num:"3", title:"👇 내용 보기", body:"아래로 내리면 기능별 자세한 설명이 이어집니다."},
   {type:"step", num:"★", ystar:true, title:"📋 목차", body:"시작하기(로그인·홈), 매입·입고, 점간이동, 포장 관리·수금, 배송 관리, 매장관리, 공지·소통, 환경 설정, 자주 나오는 메시지·문제 해결이 있습니다."},
 ];
+IMGS["pda1scan"] = "images/PDA-매장상품정보-1빈화면.png";
+SIM["pda1scan"] = { start:"1", screens:{
+  "1":{img:"images/PDA-매장상품정보-1빈화면.png",
+    btns:[
+      {x:6.48, y:50.52, w:87.04, h:30.73, pic:"images/PDA-바코드읽기-양쪽버튼.png", picBare:true},
+      {x:6.48, y:50.52, w:87.04, h:30.73, num:"1", numCorner:true, front:true, to:"2", clickme:{dir:"down", css:"flex-direction:row"}, tip:"PDA 양쪽 옆면의 <b>스캔 버튼</b>을 동시에 누릅니다."},
+      {x:5.56, y:9.8, w:66.94, h:6.09, yellow:true, scroll:"★2", to:"4", tip:"찍히지 않으면 <b>숫자</b>를 직접 입력합니다."},
+      {x:72.5, y:9.8, w:21.94, h:6.09, yellow:true, scroll:"★1", tip:"휴대폰은 화면의 <b>스캔</b>을 눌러 카메라로 찍습니다."},
+      {x:2.04, y:19.03, w:95.93, h:17.89, plain:true, tip:"찍기 전에는 '<b>상품을 스캔해 주세요.</b>'가 나옵니다."},
+    ]},
+  "2":{img:"images/PDA-매장상품정보-1빈화면.png",
+    btns:[
+      {x:6.48, y:49.76, w:87.04, h:30.73, pic:"images/PDA-바코드읽기-빛맞추기.png", picBare:true},
+      {x:6.48, y:49.76, w:87.04, h:30.73, num:"2", numCorner:true, front:true, to:"3", clickme:{dir:"down", text:"바코드 찍기", css:"flex-direction:row"}, tip:"버튼을 누른 채 <b>빛</b>을 바코드에 맞춥니다."},
+      {x:28.7, y:86.49, w:42.59, h:12.75, pic:"images/PDA-바코드읽기-의약품QR찍기.png", picBare:true},
+      {x:28.7, y:86.49, w:42.59, h:12.75, yellow:true, front:true, scroll:"★3", tip:"약 상자의 <b>의약품 QR</b>도 같은 방법으로 찍습니다."},
+      {x:5.56, y:9.8, w:66.94, h:6.09, yellow:true, scroll:"★2", to:"4", tip:"찍히지 않으면 <b>숫자</b>를 직접 입력합니다."},
+      {x:72.5, y:9.8, w:21.94, h:6.09, yellow:true, scroll:"★1", tip:"휴대폰은 화면의 <b>스캔</b>을 눌러 카메라로 찍습니다."},
+    ]},
+  "3":{img:"images/PDA-매장상품정보-2상품정보.png",
+    btns:[
+      {x:2.04, y:19.03, w:95.93, h:18.55, plain:true, notint:true, tip:"'삑' 소리와 함께 <b>상품 정보</b>가 바로 나옵니다."},
+      {x:56.85, y:9.8, w:15.65, h:6.09, plain:true, tip:"스캔 버튼으로 찍으면 <b>입력</b>을 누르지 않아도 됩니다."},
+      {x:72.5, y:9.8, w:21.94, h:6.09, yellow:true, scroll:"★1", tip:"휴대폰은 화면의 <b>스캔</b>을 눌러 카메라로 찍습니다."},
+    ]},
+  "4":{img:"images/PDA-바코드읽기-4직접입력.png",
+    btns:[
+      {x:5.56, y:9.8, w:51.3, h:6.09, yellow:true, scroll:"★2", tip:"바코드 아래에 적힌 <b>숫자</b>를 입력합니다."},
+      {x:56.85, y:9.8, w:15.65, h:6.09, yellow:true, scroll:"★2", to:"3", tip:"<b>입력</b>을 누르면 찍은 것과 같은 정보가 나옵니다."},
+      {x:72.5, y:9.8, w:21.94, h:6.09, yellow:true, scroll:"★1", tip:"휴대폰은 화면의 <b>스캔</b>을 눌러 카메라로 찍습니다."},
+      {x:2.04, y:19.03, w:95.93, h:17.89, plain:true, tip:"<b>입력</b>을 누르기 전이라 아직 비어 있습니다."},
+    ]},
+} };
+DESCS["pda1scan"] = [
+  {type:"note", text:"PDA의 여러 화면에서 <b>상품 바코드</b>를 읽는 방법은 세 가지입니다. 여기서는 매장상품정보 화면으로 봅니다.<br><b>한눈에 보기</b><br><span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>📟 좌우 버튼 동시에</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🔦 빛을 바코드에</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🔔 삑 → 상품 정보</span>"},
+  {type:"step", num:"1", title:"📟 좌우 스캔 버튼 동시에", subs:["PDA 본체 양쪽 옆면의 <b>스캔 버튼</b>을 동시에 누릅니다.", "%%한 손으로 엄지는 왼쪽, 검지는 오른쪽 버튼을 누르면 위쪽 끝의 창에서 빛이 나옵니다.", "%%좌우 버튼을 동시에 눌러야 스캔됩니다."]},
+  {type:"step", num:"2", title:"🔦 빛을 바코드에 맞추기", subs:["버튼을 누른 채 <b>빛</b>을 바코드에 맞춥니다.", "%%'삑' 소리가 나면 상품 정보가 바로 나옵니다. <span class='ui-btn'>입력</span>·<span class='ui-btn'>등록</span>은 누르지 않아도 됩니다."]},
+  {type:"step", num:"★", ystar:true, title:"📷 휴대폰은 화면의 [스캔]", subs:["스캔 버튼이 없는 휴대폰은 화면의 <span class='ui-btn'>스캔</span>을 누릅니다.", "%%카메라가 열리면 바코드를 비춥니다. 바코드가 읽히면 상품 정보가 나옵니다.", "%%화면에 따라 카메라가 열린 채로 이어서 계속 찍을 수 있습니다.", "%%<img src='images/PDA-바코드읽기-카메라.png' alt='휴대폰 카메라로 바코드 비추기' style='display:block;width:280px;max-width:100%;margin:6px auto 0;border-radius:8px'>"]},
+  {type:"step", num:"★", ystar:true, title:"⌨️ 숫자 직접 입력", subs:["바코드가 훼손돼 찍히지 않으면 <b>상품 바코드</b> 칸을 누르고 바코드 아래 숫자를 입력합니다.", "%%<span class='ui-btn'>입력</span> 또는 <span class='ui-btn'>등록</span>을 누르면 찍은 것과 같은 상품 정보가 나옵니다. <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"simGo('pda1scan','4')\">화면 보기</b></span>"]},
+  {type:"step", num:"★", ystar:true, title:"💊 의약품 QR", subs:["약 상자의 정사각형 <b>의약품 QR</b>(GS1 DataMatrix)도 같은 방법으로 찍습니다.", "%%상품이 자동으로 조회되고, 코드에 담긴 유효기간·로트번호가 자동으로 들어갑니다.", "%%<img src='images/PDA-바코드읽기-의약품QR.png' alt='약 상자의 정사각형 의약품 QR' style='display:block;width:280px;max-width:100%;margin:6px auto 0;border-radius:8px'>"]},
+  {type:"note", text:"상품 바코드를 찍는 다른 화면도 같은 방법입니다. <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch2','pda-buy',true)\">매입입고</b></span> · <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch2','pda-batch',true)\">일괄매입등록</b></span> · <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch3','pda-info',true)\">매장상품정보</b></span>"},
+];
+IMGS["pda1list"] = "images/PDA-상품목록-1목록.png";
+SIM["pda1list"] = { start:"1", screens:{
+  "1":{img:"images/PDA-상품목록-1목록.png",
+    btns:[
+      {x:2.04, y:44.29, w:95.93, h:25.69, num:"1", numRight:true, to:"2", clickme:{dir:"right", css:"left:auto;right:4%;top:86%"}, tip:"상품 줄을 <b>짧게 탭</b>하면 수정 창이 열립니다."},
+      {x:5.56, y:45.2, w:7.96, h:4.28, yellow:true, front:true, scroll:"★1", to:"7", tip:"<b>핸들</b>을 위아래로 끌면 순서가 바뀝니다."},
+      {x:2.04, y:70.03, w:95.93, h:22.74, plain:true, tip:"선택 모드가 아닐 때는 <b>밀어도</b> 아무 일도 없습니다."},
+      {x:2.04, y:9.04, w:95.93, h:5.14, plain:true, tip:"PDA <b>등록 화면</b>의 상품 목록은 모두 같은 방법입니다."},
+      {x:5.93, y:34.87, w:28.8, h:5.61, plain:true, tip:"선택 모드에서 고른 상품을 <b>선택삭제</b>로 지웁니다."},
+    ]},
+  "2":{img:"images/PDA-상품목록-2수정창.png",
+    btns:[
+      {x:86.11, y:1.14, w:10.19, h:5.52, num:"2", numRight:true, to:"3", tipDn:true, clickme:{dir:"left", text:"닫기"}, tip:"창을 <b>닫으면</b> 상품 목록으로 돌아옵니다."},
+      {x:2.41, y:7.14, w:95.0, h:30.92, plain:true, notint:true, tip:"<b>수량</b>과 상품 정보를 고칠 수 있습니다."},
+      {x:5.19, y:38.34, w:89.44, h:5.61, plain:true, tip:"고친 뒤 <b>확인</b>을 누릅니다."},
+    ]},
+  "3":{img:"images/PDA-상품목록-3닫은뒤.png",
+    btns:[
+      {x:2.04, y:44.29, w:95.93, h:25.69, num:"3", numRight:true, to:"4", clickme:{dir:"right", css:"left:auto;right:4%;top:86%"}, tip:"상품 줄을 <b>길게</b>(약 0.6초) 누릅니다."},
+      {x:5.56, y:45.2, w:7.96, h:4.28, yellow:true, front:true, scroll:"★1", to:"7", tip:"<b>핸들</b>을 위아래로 끌면 순서가 바뀝니다."},
+      {x:2.04, y:70.03, w:95.93, h:22.74, plain:true, tip:"선택 모드가 아닐 때는 <b>밀어도</b> 아무 일도 없습니다."},
+      {x:2.04, y:9.04, w:95.93, h:5.14, plain:true, tip:"창을 닫으면 <b>상품 목록</b>으로 돌아옵니다."},
+    ]},
+  "4":{img:"images/PDA-상품목록-4선택모드.png",
+    btns:[
+      {x:2.04, y:77.5, w:95.93, h:15.27, num:"4", numRight:true, to:"5", clickme:{dir:"up", css:"flex-direction:row;left:auto;right:3%"}, tip:"선택 모드에서는 줄을 <b>밀어도</b> 선택됩니다."},
+      {x:2.04, y:44.29, w:95.93, h:7.28, plain:true, tip:"<b>선택 모드</b>로 바뀌고 체크박스가 나타납니다."},
+      {x:2.04, y:51.67, w:95.93, h:25.78, plain:true, notint:true, tip:"길게 누른 줄이 <b>선택</b>됩니다."},
+      {x:5.93, y:34.87, w:28.8, h:5.61, plain:true, tip:"고른 상품은 <b>선택삭제</b>로 한 번에 지웁니다."},
+    ]},
+  "5":{img:"images/PDA-상품목록-5밀기.png",
+    btns:[
+      {x:2.04, y:64.22, w:95.93, h:25.74, num:"4", numRight:true, to:"6", clickme:{dir:"right", css:"left:auto;right:14%;top:42%"}, tip:"줄을 <b>밀면</b> 그 줄이 선택됩니다."},
+      {x:2.04, y:38.44, w:95.93, h:25.74, plain:true, notint:true, tip:"<b>체크</b>된 줄이 선택된 상품입니다."},
+      {x:5.93, y:25.36, w:28.8, h:5.66, plain:true, tip:"고른 상품은 <b>선택삭제</b>로 한 번에 지웁니다."},
+    ]},
+  "6":{img:"images/PDA-상품목록-6두줄선택.png",
+    btns:[
+      {x:5.93, y:25.36, w:28.8, h:5.66, num:"5", numCorner:true, tip:"<b>선택삭제</b>를 누르면 고른 상품이 한 번에 지워집니다."},
+      {x:2.04, y:38.44, w:95.93, h:25.74, plain:true, notint:true, tip:"<b>체크</b>된 줄이 선택된 상품입니다."},
+      {x:2.04, y:64.22, w:95.93, h:25.74, plain:true, notint:true, tip:"선택된 줄을 한 번 더 <b>밀면</b> 선택이 풀립니다."},
+    ]},
+  "7":{img:"images/PDA-상품목록-7순서바뀜.png",
+    btns:[
+      {x:5.56, y:39.58, w:7.96, h:4.28, yellow:true, front:true, scroll:"★1", to:"1", tip:"<b>핸들</b>을 다시 끌면 원래 순서로 돌아옵니다."},
+      {x:2.04, y:38.44, w:95.93, h:25.74, plain:true, notint:true, tip:"핸들로 끌어 올린 <b>줄</b>이 맨 위로 왔습니다."},
+      {x:2.04, y:64.22, w:95.93, h:25.74, plain:true, notint:true, tip:"먼저 있던 <b>줄</b>은 한 칸 내려갔습니다."},
+    ]},
+  "8":{img:"images/PDA-상품목록-8재스캔1.png",
+    btns:[
+      {x:15.74, y:68.51, w:41.67, h:17.13, pic:"images/PDA-스캔-상품.png", picBare:true},
+      {x:15.74, y:68.51, w:41.67, h:17.13, yellow:true, front:true, scroll:"★2", to:"9", tip:"같은 상품 바코드를 <b>한 번 더</b> 찍습니다."},
+      {x:50.46, y:26.07, w:43.24, h:14.46, plain:true, tip:"처음 찍은 상품의 <b>총 수량</b>입니다."},
+    ]},
+  "9":{img:"images/PDA-상품목록-9재스캔2.png",
+    btns:[
+      {x:15.74, y:68.51, w:41.67, h:17.13, pic:"images/PDA-스캔-상품.png", picBare:true},
+      {x:15.74, y:68.51, w:41.67, h:17.13, yellow:true, front:true, scroll:"★2", to:"10", tip:"한 번 더 찍으면 <b>수량</b>이 또 더해집니다."},
+      {x:50.46, y:26.07, w:43.24, h:14.46, yellow:true, scroll:"★2", tip:"같은 상품을 다시 찍으면 <b>수량</b>이 더해집니다."},
+    ]},
+  "10":{img:"images/PDA-상품목록-10재스캔3.png",
+    btns:[
+      {x:50.46, y:26.07, w:43.24, h:14.46, yellow:true, scroll:"★2", tip:"찍을 때마다 <b>수량</b>이 늘어납니다."},
+    ]},
+  "11":{img:"images/PDA-상품목록-11작성중.png",
+    btns:[
+      {x:2.5, y:0.0, w:95.0, h:47.15, yellow:true, tipDn:true, scroll:"★3", to:"12", tip:"작성 중에 <b>뒤로 가기</b>로 나가도 임시 저장됩니다."},
+    ]},
+  "12":{img:"images/PDA-상품목록-12관리목록.png",
+    btns:[
+      {x:66.85, y:91.06, w:31.85, h:8.37, yellow:true, scroll:"★3", to:"13", tip:"<b>신규등록</b>을 다시 누르면 작성하던 내용이 나옵니다."},
+      {x:2.04, y:9.04, w:95.93, h:5.04, plain:true, tip:"화면을 나오면 <b>매입입고관리</b> 목록이 나옵니다."},
+    ]},
+  "13":{img:"images/PDA-상품목록-13다시열기.png",
+    btns:[
+      {x:2.04, y:37.39, w:95.93, h:27.78, yellow:true, scroll:"★3", tip:"작성하던 <b>내용</b>이 그대로 나옵니다."},
+      {x:1.3, y:92.58, w:48.06, h:6.76, plain:true, tip:"<b>다시작성</b>을 누르면 임시 저장이 지워집니다."},
+      {x:50.56, y:92.58, w:48.15, h:6.76, plain:true, tip:"<b>등록</b>으로 저장을 마쳐도 임시 저장이 지워집니다."},
+    ]},
+} };
+DESCS["pda1list"] = [
+  {type:"note", text:"PDA <b>등록 화면</b>의 상품 목록은 모두 같은 방법으로 다룹니다. 여기서는 매입입고수정 화면으로 봅니다.<br><b>한눈에 보기</b><br><span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>👆 짧게 탭 = 수정 창</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>✋ 길게 = 선택 모드</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>👉 밀기 = 선택·해제</span> <span style='color:#94a3b8'>▸</span> <span style='display:inline-block;background:#fff;border:1.5px solid #f9a8d4;color:#be185d;border-radius:999px;padding:2px 10px;font-weight:700;font-size:12.5px;margin:2px 0'>🗑️ 선택삭제</span>"},
+  {type:"step", num:"1", title:"👆 짧게 탭", body:"상품 줄을 <b>짧게 탭</b>하면 수량과 상품 정보를 고칠 수 있는 창이 열립니다."},
+  {type:"step", num:"2", title:"✖️ 창 닫기", body:"창을 닫으면 다시 <b>상품 목록</b>으로 돌아옵니다."},
+  {type:"step", num:"3", title:"✋ 길게 누르기", body:"상품 줄을 <b>0.6초쯤 길게</b> 누르면 선택 모드로 바뀌고 체크박스가 나타납니다."},
+  {type:"step", num:"4", title:"👉 오른쪽으로 밀기", subs:["선택 모드에서는 줄을 <b>오른쪽으로 밀어도</b> 그 줄이 선택됩니다.", "선택된 줄을 한 번 더 밀면 선택이 풀립니다.", "%%선택 모드가 아닐 때는 밀어도 아무 일도 일어나지 않습니다."]},
+  {type:"step", num:"5", title:"🗑️ 선택삭제", body:"여러 상품을 고른 뒤 <span class='ui-btn'>선택삭제</span>를 누르면 한 번에 지워집니다."},
+  {type:"step", num:"★", ystar:true, title:"↕️ 순서 바꾸기", subs:["줄 왼쪽의 <b>핸들</b>을 잡고 위나 아래로 끌면 상품 순서가 바뀝니다.", "%%핸들을 다시 끌면 원래 순서로 돌아옵니다. <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"simGo('pda1list','7')\">화면 보기</b></span>"]},
+  {type:"step", num:"★", ystar:true, title:"🔁 같은 상품 다시 찍기", subs:["같은 상품 바코드를 한 번 더 찍으면 <b>수량</b>이 자동으로 더해집니다.", "%%찍을 때마다 수량이 늘어납니다. <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"simGo('pda1list','8')\">화면 보기</b></span>"]},
+  {type:"step", num:"★", ystar:true, title:"💾 임시 저장", subs:["매입입고등록에서 작성하던 중에 화면을 나가도 내용이 <b>임시 저장</b>됩니다.", "%%다시 <span class='ui-btn'>신규등록</span>을 누르면 작성하던 내용이 그대로 나와 이어서 작성합니다. <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"simGo('pda1list','11')\">화면 보기</b></span>", "%%저장을 마치거나 <span class='ui-btn'>다시작성</span>을 누르면 임시 저장한 내용은 지워집니다."]},
+  {type:"note", text:"상품을 찍어 담는 화면에서 같은 방법으로 씁니다. <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch2','pda-buy',true)\">매입입고</b></span> · <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"openSub('pda-ch2','pda-done',true)\">매입완료목록</b></span>"},
+];
 // ── PDA 2 · 매입하기 ──
 IMGS["pda2buy"] = "images/PDA-매입입고-1목록_m1030.png";
 SIM["pda2buy"] = { start:"1", screens:{
@@ -30495,10 +30629,12 @@ DESCS["pda4move"] = [
   {type:"step", num:"★", ystar:true, title:"🔄 원래 매대에서는 빠집니다", subs:["옮긴 상품은 원래 있던 매대에서 <b>지워집니다</b>.", "🔗 <b class='dlink' onclick=\"openSub('pda-ch4','pda-shelf-assign',true)\">상품매대지정</b>에서 원래 매대를 찍으면 확인할 수 있습니다. <span style='white-space:nowrap'>🔗 <b class='dlink' onclick=\"simGo('pda4move','5')\">화면 보기</b></span>"]},
 ];
 // PDA 페이지 표시: 포스 페이지 동작(POS-MERGE 패치)을 같이 씀
-["pda1install","pda1login","pda1help","pda2buy","pda2batch","pda2done","pda3info","pda3manage","pda4label","pda4assign","pda4move"].forEach(k => { if (SIM[k]) SIM[k].pos = true; });
+["pda1install","pda1login","pda1help","pda1scan","pda1list","pda2buy","pda2batch","pda2done","pda3info","pda3manage","pda4label","pda4assign","pda4move"].forEach(k => { if (SIM[k]) SIM[k].pos = true; });
 // PDA 강의 — yt(유튜브 아이디)가 있는 것만 모아보기 [PDA 강의] 탭·페이지 버튼에 나옴(영상작업/유튜브/youtube_ids.json → 다시 merge_pda_into_s.py)
 const PDA_VIDEOS = [
   {id:"pda-install", subId:"pda-install", alsoSubs:["pda-login", "pda-help"], title:"앱 설치·로그인", cat:"앱 설치·로그인 › 설치·환경설정·로그인", src:"videos/pda-install.mp4", poster:"videos/pda-install.jpg", dur:"1:55", desc:"Play 스토어에서 아이리젠 PDA 앱을 설치하고, 환경설정에서 스캐너 종류와 회사를 고른 뒤 권한을 허용하고 처음 로그인하고, 앱 안의 사용설명서를 찾는 방법까지 알려드려요.", tags:["PDA", "아이리젠PDA", "앱설치", "Play스토어", "환경설정", "스캐너", "포인트모바일", "사업자번호", "권한", "로그인", "자동로그인", "빠른실행", "사용설명서"], chapters:[{t:10.1, title:"앱 설치", subs:["pda-install"], tags:["앱설치", "Play스토어"]}, {t:39.2, title:"환경설정", subs:["pda-login"], tags:["환경설정", "스캐너", "사업자번호"]}, {t:60.7, title:"권한 허용", subs:["pda-login"], tags:["권한", "카메라"]}, {t:71.3, title:"로그인", subs:["pda-login"], tags:["로그인", "아이디저장", "자동로그인"]}, {t:93.7, title:"사용설명서 보기", subs:["pda-help"], tags:["사용설명서", "목차"]}], grp:"pda", yt:"UXWOw4fwZiA"},
+  {id:"pda-scan", subId:"pda-scan", alsoSubs:[], title:"바코드 읽기", cat:"앱 설치·로그인 › 바코드 읽기", src:"videos/pda-scan.mp4", poster:"videos/pda-scan.jpg", dur:"1:55", desc:"PDA 본체 양쪽의 스캔 버튼을 동시에 눌러 바코드를 찍는 방법과, 휴대폰에서 화면의 스캔 버튼으로 카메라로 찍는 방법, 숫자를 직접 입력하는 방법, 약 상자의 의약품 QR 코드를 읽는 방법을 알려드려요.", tags:["바코드", "스캔", "스캔버튼", "좌우버튼", "카메라스캔", "직접입력", "의약품QR", "DataMatrix", "유효기간", "로트번호"], chapters:[{t:10.2, title:"스캔 버튼", subs:["pda-scan"], tags:["스캔버튼", "좌우동시"]}, {t:42.8, title:"카메라 스캔", subs:["pda-scan"], tags:["카메라", "스캔"]}, {t:66.2, title:"직접 입력", subs:["pda-scan"], tags:["직접입력", "입력", "등록"]}, {t:85.6, title:"의약품 QR", subs:["pda-scan"], tags:["의약품QR", "유효기간", "로트번호"]}], grp:"pda", yt:"MsrdqnUz7ac"},
+  {id:"pda-list", subId:"pda-list", alsoSubs:[], title:"상품목록 다루기", cat:"앱 설치·로그인 › 상품목록 다루기", src:"videos/pda-list.mp4", poster:"videos/pda-list.jpg", dur:"2:01", desc:"PDA 등록 화면의 상품 목록에서 짧게 탭해 수정 창을 열고, 길게 눌러 선택 모드로 여러 상품을 지우고, 밀어서 고르거나 핸들로 순서를 바꾸는 방법과 같은 상품을 다시 찍을 때 수량, 작성 중 화면을 나갔을 때의 임시 저장까지 알려드려요.", tags:["상품목록", "짧게탭", "길게누르기", "선택모드", "선택삭제", "밀기", "핸들", "순서바꾸기", "재스캔", "임시저장"], chapters:[{t:10.7, title:"짧게 탭", subs:["pda-list"], tags:["짧게탭", "수정창"]}, {t:23.4, title:"길게 누르기", subs:["pda-list"], tags:["길게누르기", "선택모드", "선택삭제"]}, {t:35.8, title:"오른쪽으로 밀기", subs:["pda-list"], tags:["밀기", "선택", "해제"]}, {t:55.7, title:"순서 바꾸기", subs:["pda-list"], tags:["핸들", "순서"]}, {t:68.0, title:"같은 상품 재스캔", subs:["pda-list"], tags:["재스캔", "수량"]}, {t:78.9, title:"화면 이탈", subs:["pda-list"], tags:["화면이탈", "임시저장", "신규등록"]}], grp:"pda", yt:"QB4WOMzPf6k"},
   {id:"pda-buy", subId:"pda-buy", alsoSubs:["pda-done"], title:"매입입고", cat:"매입하기 › 매입입고", src:"videos/pda-buy.mp4", poster:"videos/pda-buy.jpg", dur:"2:42", desc:"매입처를 고르고 들어온 상품의 바코드를 PDA로 찍어 매입을 등록한 뒤 금액확인을 요청하고, IRM(ERP)에서 매입완료한 전표를 PDA 매입완료목록에서 확인하는 방법을 알려드려요.", tags:["매입입고", "신규등록", "매입처", "바코드", "스캔", "수량", "금액확인", "매입완료", "매입조회", "매입완료목록"], chapters:[{t:10.6, title:"매입처 고르기", subs:["pda-buy"], tags:["매입처", "신규등록"]}, {t:39.5, title:"상품 바코드 찍기", subs:["pda-buy"], tags:["바코드", "스캔", "수량"]}, {t:64.6, title:"등록·금액확인", subs:["pda-buy"], tags:["등록", "금액확인"]}, {t:93.5, title:"IRM(ERP) 매입완료", subs:["pda-buy"], tags:["IRM", "매입조회", "매입완료"]}, {t:121.2, title:"매입완료목록 확인", subs:["pda-done"], tags:["매입완료목록", "수정"]}], grp:"pda", yt:"mLPw1l5BqNQ"},
   {id:"pda-batch", subId:"pda-batch", alsoSubs:[], title:"일괄매입등록", cat:"매입하기 › 일괄매입등록", src:"videos/pda-batch.mp4", poster:"videos/pda-batch.jpg", dur:"2:38", desc:"매입처가 섞여 온 상품을 PDA로 한 번에 찍어 등록하고, 매입처가 없는 상품은 매입처를 지정한 뒤 IRM(ERP)에서 매입처별로 매입완료하는 방법을 알려드려요.", tags:["일괄매입등록", "일괄매입관리", "바코드", "스캔", "수량", "매입처지정", "작성완료", "금액확인", "매입완료", "매입조회"], chapters:[{t:11.5, title:"일괄매입등록 열기", subs:["pda-batch"], tags:["일괄매입관리"]}, {t:22.9, title:"상품 바코드 찍기", subs:["pda-batch"], tags:["바코드", "스캔", "수량"]}, {t:57.8, title:"매입처 지정", subs:["pda-batch"], tags:["매입처지정"]}, {t:91.8, title:"등록·작성완료", subs:["pda-batch"], tags:["등록", "작성완료"]}, {t:118.1, title:"IRM(ERP) 매입완료", subs:["pda-batch"], tags:["IRM", "매입조회", "매입완료"]}], grp:"pda", yt:"Dx-4ADc4FYc"},
   {id:"pda-info", subId:"pda-info", alsoSubs:[], title:"매장상품정보", cat:"상품 관리 › 매장상품정보", src:"videos/pda-info.mp4", poster:"videos/pda-info.jpg", dur:"1:40", desc:"PDA로 상품 바코드를 찍어 상품 정보·현재고·매대 위치와 재고 한도를 확인하고, ESL 가격 재반영과 매입처 지정을 하는 방법을 알려드려요.", tags:["매장상품정보", "바코드", "스캔", "현재고", "위치", "매대", "재고한도", "ESL", "가격재반영", "매입처지정"], chapters:[{t:11.6, title:"상품 바코드 찍기", subs:["pda-info"], tags:["바코드", "스캔"]}, {t:27.9, title:"상품 정보 보기", subs:["pda-info"], tags:["현재고", "매입가", "판매가"]}, {t:34.8, title:"위치·재고 한도", subs:["pda-info"], tags:["위치", "매대", "재고한도"]}, {t:47.4, title:"ESL 가격 재반영", subs:["pda-info"], tags:["ESL", "가격재반영"]}, {t:66.3, title:"매입처 지정", subs:["pda-info"], tags:["매입처지정"]}], grp:"pda", yt:"WCmrpCQWtVg"},
@@ -30698,7 +30834,7 @@ const S_DEF = [
   ]},
   ── */
   /* ▼ MPAGES-SDEF:pos */ /* 포스 설명서 7개 장 — 포스메뉴얼/_build/merge_into_s.py 가 만듦(여기서 고치지 말 것). 새 S 장은 이 줄 위에 */ {chapter:"포스 1", id:"pos-ch1", pos:true, title:"포스 켜고 상품 찍기", icon:"🛒", items:[{sub:{id:"pos-power", title:"포스 켜기", subtitles:{pos1power:"포스 아이콘으로 켜고 로그인하기", pos1down:"내림으로 포스 창 내리기"}, pages:["pos1power", "pos1down"], pageLabels:["켜기·로그인", "창 내리기"], tips:{}}}, {sub:{id:"pos-tour", title:"포스 화면 둘러보기", subtitles:{pos1tour:"판매 화면 구역별 안내"}, pages:["pos1tour"], tips:{}}}, {sub:{id:"pos-shortcut", title:"단축키 설정", subtitles:{pos1key1:"기능 버튼 편집을 켜고 단축키를 바꿔 저장하기"}, pages:["pos1key1"], tips:{}}}, {sub:{id:"pos-scan", title:"상품 찍기·수량", subtitles:{pos1scan:"바코드를 찍고 수량 바꾸기", pos1split:"같은 상품을 나누어 찍었을 때"}, pages:["pos1scan", "pos1split"], pageLabels:["상품 찍기·수량", "나누어 찍기"], tips:{}}}, {sub:{id:"pos-find", title:"상품 찾기·상품검색", subtitles:{pos1find:"찾기 칸·상품검색 창으로 상품 찾기"}, pages:["pos1find"], tips:{}}}]}, {chapter:"포스 2", id:"pos-ch2", pos:true, title:"결제 받기", icon:"💳", items:[{sub:{id:"pos-cardcash", title:"카드결제·현금결제", subtitles:{pos2card:"카드로 결제 받기", pos2cash:"현금으로 받고 현금영수증 번호 받기", pos2after:"계산한 뒤에 현금영수증 발급하기", pos2transfer:"계좌이체로 결제 받기"}, pages:["pos2card", "pos2cash", "pos2after", "pos2transfer"], pageLabels:["카드 결제", "현금 결제·현금영수증", "계산 후 현금영수증", "계좌이체"], tips:{}}}, {sub:{id:"pos-pay", title:"페이 결제", subtitles:{pos2pay:"휴대폰 간편결제로 결제 받기"}, pages:["pos2pay"], tips:{}}}, {sub:{id:"pos-multi", title:"복합 결제", subtitles:{pos2multi:"현금과 카드로 나누어 받기", pos2cancel:"나누어 받은 결제 취소하기"}, pages:["pos2multi", "pos2cancel"], pageLabels:["현금+카드 결제", "복합 결제 취소"], tips:{}}}, {sub:{id:"pos-hold", title:"결제 보류", subtitles:{pos2hold:"계산 보류하고 다시 불러오기"}, pages:["pos2hold"], tips:{}}}]}, {chapter:"포스 3", id:"pos-ch3", pos:true, title:"반품 받기", icon:"↩️", items:[{sub:{id:"pos-return-reg", title:"반품 등록(전환 매장)", subtitles:{pos3reg:"예전 포스에서 산 상품을 반품 등록으로 환불"}, pages:["pos3reg"], tips:{}}}, {sub:{id:"pos-return-cancel", title:"환불하기", subtitles:{pos3sale:"매출검색으로 거래를 찾아 전표취소"}, pages:["pos3sale"], tips:{}}}, {sub:{id:"pos-return-find", title:"영수증 없이 찾기", subtitles:{pos3find:"금액·날짜·승인번호·회원·상품으로 찾기"}, pages:["pos3find"], tips:{}}}, {sub:{id:"pos-return-bank", title:"계좌이체 환불", subtitles:{pos3bank:"계좌이체 결제를 계좌·현금으로 환불"}, pages:["pos3bank"], tips:{}}}]}, {chapter:"포스 4", id:"pos-ch4", pos:true, title:"증정·할인과 행사·제한상품", icon:"🎁", items:[{sub:{id:"pos-gift", title:"증정·할인", subtitles:{pos4gift:"상품 바로 할인하기·증정품 0원으로 찍기"}, pages:["pos4gift"], tips:{}}}, {sub:{id:"pos-event", title:"행사·제한상품", subtitles:{pos4evirm:"IRM(ERP)에서 2+1 행사 등록·시작·끝내기", pos4event:"2+1 행사 상품 찍기", pos4limirm:"IRM(ERP)에서 제한상품 등록·제한 시작", pos4limit:"제한상품 찍기"}, pages:["pos4evirm", "pos4event", "pos4limirm", "pos4limit"], pageLabels:["2+1 행사 설정(IRM(ERP))", "2+1 행사(포스)", "제한상품 설정(IRM(ERP))", "제한상품(포스)"], tips:{}}}]}, {chapter:"포스 5", id:"pos-ch5", pos:true, title:"외국인 손님 세금 환급", icon:"🌏", items:[{sub:{id:"pos-refund", title:"즉시환급·사후환급", subtitles:{pos5kind:"사후환급·즉시환급 알아보기", pos5instant:"계산할 때 즉시환급하기", pos5after:"결제 마친 거래에 사후환급 발행하기"}, pages:["pos5kind", "pos5instant", "pos5after"], pageLabels:["사후·즉시환급", "즉시환급하기", "사후환급하기"], tips:{}}}]}, {chapter:"포스 6", id:"pos-ch6", pos:true, title:"하루 마감하기", icon:"🧾", items:[{sub:{id:"pos-close", title:"매출 마감", subtitles:{pos6open:"관리메뉴에서 매출마감 열기", pos6close:"준비금·권종 입력과 계산원 마감"}, pages:["pos6open", "pos6close"], pageLabels:["매출마감 열기", "매출마감"], tips:{}}}]}, {chapter:"포스 7", id:"pos-ch7", pos:true, title:"영수증 합치기·포인트·자가폐기", icon:"🧩", items:[{sub:{id:"pos-merge", title:"영수증 합치기", subtitles:{pos7merge:"영수증 바코드 두 번 찍어 합치기", pos7mergefind:"매출검색 · 재주문으로 합치기"}, pages:["pos7merge", "pos7mergefind"], pageLabels:["영수증이 있을 때", "영수증이 없을 때"], tips:{}}}, {sub:{id:"pos-point", title:"포인트로 결제하기", subtitles:{pos7point:"회원 찾아 포인트로 결제하기"}, pages:["pos7point"], tips:{}}}, {sub:{id:"pos-dispose", title:"자가폐기", subtitles:{pos7dispose:"팔 수 없는 상품 자가소비·폐기 등록하기"}, pages:["pos7dispose"], tips:{}}}]}, /* ▲ MPAGES-SDEF:pos */
-  /* ▼ MPAGES-SDEF:pda */ /* PDA 메뉴얼 4개 장 — PDA메뉴얼/_build/merge_pda_into_s.py 가 만듦(여기서 고치지 말 것). 새 S 장은 포스 줄 위에 */ {chapter:"PDA 1", id:"pda-ch1", pos:true, grp:"pda", title:"앱 설치·로그인", icon:"📲", items:[{sub:{id:"pda-install", title:"앱 설치", subtitles:{pda1install:"Play 스토어에서 아이리젠 PDA 설치"}, pages:["pda1install"], tips:{}, searchAlias:["앱 다운로드", "어플 설치", "어플 다운로드", "앱 설치", "플레이스토어", "Play 스토어", "구글 플레이", "아이리젠 PDA 설치"]}}, {sub:{id:"pda-login", title:"로그인", subtitles:{pda1login:"환경설정 · 권한 허용 · 로그인"}, pages:["pda1login"], tips:{}, searchAlias:["환경설정", "사업자번호", "스캐너 종류", "포인트 모바일", "권한 허용", "자동 로그인", "ID 저장", "회사 선택", "처음 실행", "권한", "PDA메뉴권한"]}}, {sub:{id:"pda-help", title:"사용설명서 보기", subtitles:{pda1help:"☰ 메뉴 › 사용설명서"}, pages:["pda1help"], tips:{}, searchAlias:["사용설명서", "설명서", "도움말", "PDA 설명서", "매뉴얼"]}}]}, {chapter:"PDA 2", id:"pda-ch2", pos:true, grp:"pda", title:"매입하기", icon:"🚚", items:[{sub:{id:"pda-buy", title:"매입입고", subtitles:{pda2buy:"매입처 → 상품 바코드 찍기 → 등록 → 금액확인"}, pages:["pda2buy"], tips:{}, searchAlias:["매입입고관리", "매입입고등록", "입고 등록", "금액확인", "금액 확인 요청", "신규등록", "매입처 선택", "상품 스캔"]}}, {sub:{id:"pda-batch", title:"일괄매입등록", subtitles:{pda2batch:"매입처가 섞인 상품 찍기 → 등록 → 작성완료"}, pages:["pda2batch"], tips:{}, searchAlias:["일괄매입", "일괄매입관리", "작성완료", "매입처 지정", "매입처 미지정", "택배 입고"]}}, {sub:{id:"pda-done", title:"매입완료목록", subtitles:{pda2done:"IRM(ERP)에서 매입완료한 전표 확인·수정"}, pages:["pda2done"], tips:{}, searchAlias:["매입완료", "매입 완료 목록", "매입입고수정", "매입 승인", "편집창", "상품 카드"]}}]}, {chapter:"PDA 3", id:"pda-ch3", pos:true, grp:"pda", title:"상품 관리", icon:"📋", items:[{sub:{id:"pda-info", title:"매장상품정보", subtitles:{pda3info:"상품 바코드 찍기 → 상품 정보 · 위치 · ESL 가격 재반영"}, pages:["pda3info"], tips:{}, searchAlias:["상품 정보", "상품정보", "ESL", "ESL 가격 재반영", "가격 재반영", "전자가격표", "현재고", "위치 정보", "재고 한도", "매입처 지정"]}}, {sub:{id:"pda-manage", title:"매장상품관리", subtitles:{pda3manage:"상품 수정 → 원산지 · 매입가·판매가 · 매입처 → 저장"}, pages:["pda3manage"], tips:{}, searchAlias:["상품 수정", "상품관리", "판매가 변경", "매입가 변경", "원산지", "마진", "상품등록", "신규 상품 등록", "간이 등록"]}}]}, {chapter:"PDA 4", id:"pda-ch4", pos:true, grp:"pda", title:"매대 설정", icon:"🏷️", items:[{sub:{id:"pda-shelf-label", title:"매대 바코드 준비", subtitles:{pda4label:"매대 바코드 라벨 인쇄 · 접기 · 꽂기"}, pages:["pda4label"], tips:{}, searchAlias:["로케이션 바코드", "로케이션 라벨", "로케이션명", "매대 라벨", "매대 바코드 인쇄", "바코드 라벨", "라벨 접기"]}}, {sub:{id:"pda-shelf-assign", title:"상품매대지정", subtitles:{pda4assign:"매대 바코드 → 상품 바코드를 찍어 매대 지정"}, pages:["pda4assign"], tips:{}, searchAlias:["매대 지정", "로케이션 지정"]}}, {sub:{id:"pda-shelf-move", title:"상품매대이동", subtitles:{pda4move:"옮겨 놓을 매대 → 옮길 상품을 찍어 매대 옮기기"}, pages:["pda4move"], tips:{}, searchAlias:["매대 이동", "로케이션 이동"]}}]}, /* ▲ MPAGES-SDEF:pda */
+  /* ▼ MPAGES-SDEF:pda */ /* PDA 메뉴얼 4개 장 — PDA메뉴얼/_build/merge_pda_into_s.py 가 만듦(여기서 고치지 말 것). 새 S 장은 포스 줄 위에 */ {chapter:"PDA 1", id:"pda-ch1", pos:true, grp:"pda", title:"앱 설치·로그인", icon:"📲", items:[{sub:{id:"pda-install", title:"앱 설치", subtitles:{pda1install:"Play 스토어에서 아이리젠 PDA 설치"}, pages:["pda1install"], tips:{}, searchAlias:["앱 다운로드", "어플 설치", "어플 다운로드", "앱 설치", "플레이스토어", "Play 스토어", "구글 플레이", "아이리젠 PDA 설치"]}}, {sub:{id:"pda-login", title:"로그인", subtitles:{pda1login:"환경설정 · 권한 허용 · 로그인"}, pages:["pda1login"], tips:{}, searchAlias:["환경설정", "사업자번호", "스캐너 종류", "포인트 모바일", "권한 허용", "자동 로그인", "ID 저장", "회사 선택", "처음 실행", "권한", "PDA메뉴권한"]}}, {sub:{id:"pda-help", title:"사용설명서 보기", subtitles:{pda1help:"☰ 메뉴 › 사용설명서"}, pages:["pda1help"], tips:{}, searchAlias:["사용설명서", "설명서", "도움말", "PDA 설명서", "매뉴얼"]}}, {sub:{id:"pda-scan", title:"바코드 읽기", subtitles:{pda1scan:"좌우 스캔 버튼 · 화면 [스캔] · 직접 입력 · 의약품 QR"}, pages:["pda1scan"], tips:{}, searchAlias:["스캔", "스캔 버튼", "바코드 스캔", "바코드 찍기", "좌우 버튼", "카메라 스캔", "직접 입력", "바코드 입력", "숫자 입력", "의약품 QR", "의약품 큐알", "QR", "DataMatrix", "데이터매트릭스", "유효기간", "로트번호"]}}, {sub:{id:"pda-list", title:"상품목록 다루기", subtitles:{pda1list:"짧게 탭 · 길게 누르기 · 밀기 · 순서 · 재스캔 · 임시 저장"}, pages:["pda1list"], tips:{}, searchAlias:["상품목록", "상품 목록", "짧게 탭", "수정 창", "길게 누르기", "선택 모드", "선택삭제", "밀기", "오른쪽 밀기", "핸들", "순서 바꾸기", "재스캔", "다시 찍기", "수량 합산", "임시 저장", "임시저장", "화면 이탈", "다시작성"]}}]}, {chapter:"PDA 2", id:"pda-ch2", pos:true, grp:"pda", title:"매입하기", icon:"🚚", items:[{sub:{id:"pda-buy", title:"매입입고", subtitles:{pda2buy:"매입처 → 상품 바코드 찍기 → 등록 → 금액확인"}, pages:["pda2buy"], tips:{}, searchAlias:["매입입고관리", "매입입고등록", "입고 등록", "금액확인", "금액 확인 요청", "신규등록", "매입처 선택", "상품 스캔"]}}, {sub:{id:"pda-batch", title:"일괄매입등록", subtitles:{pda2batch:"매입처가 섞인 상품 찍기 → 등록 → 작성완료"}, pages:["pda2batch"], tips:{}, searchAlias:["일괄매입", "일괄매입관리", "작성완료", "매입처 지정", "매입처 미지정", "택배 입고"]}}, {sub:{id:"pda-done", title:"매입완료목록", subtitles:{pda2done:"IRM(ERP)에서 매입완료한 전표 확인·수정"}, pages:["pda2done"], tips:{}, searchAlias:["매입완료", "매입 완료 목록", "매입입고수정", "매입 승인", "편집창", "상품 카드"]}}]}, {chapter:"PDA 3", id:"pda-ch3", pos:true, grp:"pda", title:"상품 관리", icon:"📋", items:[{sub:{id:"pda-info", title:"매장상품정보", subtitles:{pda3info:"상품 바코드 찍기 → 상품 정보 · 위치 · ESL 가격 재반영"}, pages:["pda3info"], tips:{}, searchAlias:["상품 정보", "상품정보", "ESL", "ESL 가격 재반영", "가격 재반영", "전자가격표", "현재고", "위치 정보", "재고 한도", "매입처 지정"]}}, {sub:{id:"pda-manage", title:"매장상품관리", subtitles:{pda3manage:"상품 수정 → 원산지 · 매입가·판매가 · 매입처 → 저장"}, pages:["pda3manage"], tips:{}, searchAlias:["상품 수정", "상품관리", "판매가 변경", "매입가 변경", "원산지", "마진", "상품등록", "신규 상품 등록", "간이 등록"]}}]}, {chapter:"PDA 4", id:"pda-ch4", pos:true, grp:"pda", title:"매대 설정", icon:"🏷️", items:[{sub:{id:"pda-shelf-label", title:"매대 바코드 준비", subtitles:{pda4label:"매대 바코드 라벨 인쇄 · 접기 · 꽂기"}, pages:["pda4label"], tips:{}, searchAlias:["로케이션 바코드", "로케이션 라벨", "로케이션명", "매대 라벨", "매대 바코드 인쇄", "바코드 라벨", "라벨 접기"]}}, {sub:{id:"pda-shelf-assign", title:"상품매대지정", subtitles:{pda4assign:"매대 바코드 → 상품 바코드를 찍어 매대 지정"}, pages:["pda4assign"], tips:{}, searchAlias:["매대 지정", "로케이션 지정"]}}, {sub:{id:"pda-shelf-move", title:"상품매대이동", subtitles:{pda4move:"옮겨 놓을 매대 → 옮길 상품을 찍어 매대 옮기기"}, pages:["pda4move"], tips:{}, searchAlias:["매대 이동", "로케이션 이동"]}}]}, /* ▲ MPAGES-SDEF:pda */
 ];
 // S_DEF → SECTIONS와 동일 구조로 변환 (sub 객체는 전체버전과 공유 — 내용 수정 시 양쪽 자동 반영)
 const SECTIONS_S = (function(){
