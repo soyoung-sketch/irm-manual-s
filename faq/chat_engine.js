@@ -220,7 +220,7 @@ function aiTermScore(a, it) {
 }
 function aiSlotScore(slot, it) {
   let best = aiTermScore(slot.w, it);
-  slot.syn.forEach(s => { best = Math.max(best, 0.88 * aiTermScore(s, it)); });
+  slot.syn.forEach(s => { best = Math.max(best, 0.84 * aiTermScore(s, it)); });
   return best;
 }
 const AI_HOW_T = /(등록|입력|설정|작성|발급|전송|지급|관리|켜기|하기|결제|찍기|설치|로그인)/;
@@ -232,7 +232,7 @@ const AI_ACT = [
   ["취소", /취소/], ["수정", /(수정|고치|고쳐|바꾸|바꿔|변경|틀리게|틀렸)/], ["되돌리기", /(되돌|복구|원래대로|살려|다시\s*살)/],
   ["삭제", /(삭제|지우|지워|없애)/], ["반려", /반려/], ["인쇄", /(인쇄|출력|뽑)/],
 ];
-const AI_MISTAKE = /(잘못|실수|엉뚱|틀리게|틀렸|잘\s*못\s*(눌|넣|입력|등록|잡)|착각)/;
+const AI_MISTAKE = /(잘못|실수|엉뚱|틀리게|틀렸|오타|잘\s*못\s*(눌|넣|입력|등록|잡)|착각)/;
 function aiActKey(label) { const t = aiStripTags(label); for (const [k, re] of AI_ACT) if (re.test(t)) return k; return ""; }
 function aiActsOf(cards) {
   const acts = [];
@@ -240,20 +240,35 @@ function aiActsOf(cards) {
     let m = l.match(/^\s*<b>([^<]{1,10})<\/b>\s*:\s*/), key = "";
     if (m) key = aiActKey(m[1]);
     else { const b = l.match(/class=['"]ui-btn['"]>([^<]{1,12})<\/span>/); if (b && /(로|으로|을|를)\s/.test(aiStripTags(l))) key = aiActKey(b[1]); }
-    if (!key) return;
     const plain = aiStripTags(l);
+    const neg = /(할\s*수\s*없|사용할\s*수\s*없|불가|안\s*됩니다|못\s*합니다|비활성)/.test(plain);
+    if (!key) {
+      // "이 단계에서는 [수정]·[취소] 버튼을 사용할 수 없습니다", "수정이나 되돌리기가 불가능" 같은 '못 함' 문장 — 나오는 할 일마다
+      if (neg) AI_ACT.forEach(([k, re]) => {
+        // 할 일 낱말이 '못 함' 말 바로 앞(30자 안)에 있고, '취소한 문서'처럼 상태를 뜻하지 않을 때만
+        const g = new RegExp(re.source, "g"); let m2, hit = false;
+        while ((m2 = g.exec(plain))) { const after = plain.slice(m2.index + m2[0].length); if (/^(한|된|하신|되어|돼서)/.test(after)) continue; if (/^.{0,30}?(할\s*수\s*없|사용할\s*수\s*없|불가|안\s*됩니다|못\s*합니다|비활성)/.test(after)) { hit = true; break; } }
+        if (hit && !acts.some(a => a.key === k && a.html === aiLine(l))) acts.push({ key: k, html: aiLine(l), cannot: true });
+      });
+      return;
+    }
     // '수정 버튼으로 고칠 수 있습니다(매입처는 수정불가)'처럼 할 수 있는 말이 같이 있으면 '못 함'이 아님
-    const neg = /(할\s*수\s*없|사용할\s*수\s*없|불가|안\s*됩니다|못\s*합니다|비활성)/.test(plain), pos = /(수\s*있습니다|고칩니다|합니다\s*\(|버튼으로|(로|으로)\s+\S+(합니다|엽니다|고칩니다|처리))/.test(plain);
+    const pos = /(수\s*있습니다|고칩니다|합니다\s*\(|버튼으로|(로|으로)\s+\S+(합니다|엽니다|고칩니다|처리))/.test(plain);
     acts.push({ key, html: aiLine(l), cannot: neg && !pos });
   }));
   return acts;
 }
 function aiActKeys(q) {
   const keys = AI_ACT.filter(([k, re]) => re.test(q)).map(([k]) => k).filter(k => k !== "인쇄" || /(인쇄|출력)/.test(q));
+  if (keys.includes("삭제") && !keys.includes("취소")) keys.push("취소");     // '지우고 싶다'는 메뉴얼에서 [취소]로 없애는 경우가 많음
+  // "취소를 실수로 눌렀어요 살려 주세요"의 '취소'는 할 일이 아니라 지금 상태(취소 탭)
+  if (keys.length > 1 && keys.includes("취소") && /취소\s*(한|된|했|해\s*버|를\s*(실수로\s*)?눌|눌렀)/.test(q)) keys.splice(keys.indexOf("취소"), 1);
   if (!keys.length && AI_MISTAKE.test(q)) return { keys: ["수정", "취소", "되돌리기", "삭제"], mistake: true, q };
   return { keys, mistake: AI_MISTAKE.test(q), q };
 }
 // 등록 화면의 '수정'(예: 판매가 수정)은 문서를 바로잡는 일이 아니라서 뺀다
+// '안 되는 단계'까지 포함 — 답 모양을 고를 때(못 한다는 것도 답이다)
+function aiAnyAct(it, keys) { return !/(등록|입력|작성|발급)$/.test(it.title) && it.pages.some(p => p.acts.some(a => keys.includes(a.key))); }
 function aiHasAct(it, keys) { return !/(등록|입력|작성|발급)$/.test(it.title) && it.pages.some(p => p.acts.some(a => keys.includes(a.key) && !a.cannot)); }
 // 알림 문구를 그대로 붙여 물을 때: 메뉴얼 안에 같은 글이 있는지
 function aiPhrase(q) {
@@ -293,6 +308,10 @@ function aiRank(q) {
     if (phraseMiss && strong < 0.99) ev *= 0.8;
     if (boost.some(t => it.titleN.includes(t))) { sc += 0.12; ev = Math.max(ev, 0.8); }
     if (phrase && it.hayN.includes(phrase)) { sc += 0.5; ev = 1; }
+    { // 질문에 이 화면의 탭 이름(입고반려·매입취소·판매완료…)이 그대로 있으면 거의 이 화면
+      const tl = it.pages.map(p => aiNorm((p.label || "").replace(/^\d+\s*/, ""))).filter(t => t.length >= 3 && !AI_GENERIC.includes(t) && t !== it.titleN);
+      if (tl.some(t => qAll.includes(t))) { sc += 0.15; ev = Math.max(ev, 0.85); }
+    }
     if (qn.length >= 3 && it.titleN === qn && !(act.mistake && /(등록|입력|작성|발급)$/.test(it.title))) sc += 0.2;                      // 메뉴 이름 그대로
     if (it.titleN.startsWith(slots.length ? slots[0].w : "\u0000")) sc += 0.02;
     sc -= 0.002 * it.titleN.length;
@@ -387,13 +406,31 @@ function aiActAnswer(it, act, confident) {
   let h = confident ? "" : `<div class="ai-lead">혹시 이 화면을 찾으세요?</div>`;
   h += `<div class="ai-ans-head">${grpBadge(it.ch)}${aiEsc(it.title)}</div><div class="ai-path">📍 ${aiPathHtml(it)}</div>`;
   { // 질문에 단계(탭) 이름이 있으면 그 단계에서 되는지부터
-    const qn = aiNorm(act.q || ""), named = it.pages.map(p => (p.label || "").replace(/^\d+\s*/, "")).filter(t => t.length >= 2 && qn.includes(aiNorm(t)) && !keys.some(k => aiNorm(t) === aiNorm(k)));
-    const no = named.filter(t => cannot.includes(t)), yes = named.filter(t => rows.some(r => r.tabs.includes(t)));
-    if (no.length) h += `<div class="ai-verdict no">⚠️ <b>${no.map(aiEsc).join("·")}</b> 단계에서는 ${verbs.join("·") || keys[0]}할 수 없어요.</div>`;
-    else if (yes.length) h += `<div class="ai-verdict yes">✅ <b>${yes.map(aiEsc).join("·")}</b> 단계에서 할 수 있어요.</div>`;
+    const tabOf = p => (p.label || "").replace(/^\d+\s*/, "");
+    const qn = aiNorm(act.q || "");
+    it.pages.filter(p => { const t = tabOf(p); return t.length >= 2 && qn.includes(aiNorm(t)) && !keys.some(k => aiNorm(t) === aiNorm(k)); }).forEach(p => {
+      const t = aiEsc(tabOf(p)), mine = p.acts.filter(a => keys.includes(a.key));
+      const can = [...new Set(mine.filter(a => !a.cannot).map(a => a.key))], no = [...new Set(mine.filter(a => a.cannot).map(a => a.key))].filter(k => !can.includes(k));
+      if (no.length) h += `<div class="ai-verdict no">⚠️ <b>${t}</b> 단계에서는 ${no.join("·")}할 수 없어요.${can.length ? ` (${can.join("·")}은 할 수 있어요)` : ""}</div>`;
+      else if (can.length) h += `<div class="ai-verdict yes">✅ <b>${t}</b> 단계에서 ${can.join("·")}할 수 있어요.</div>`;
+      else {
+        const star = p.cards.find(c => c.ystar || /가능한\s*작업/.test(aiStripTags(c.title)));
+        h += `<div class="ai-verdict no">⚠️ <b>${t}</b> 탭의 '가능한 작업'에는 ${keys.join("·")} 안내가 없어요.</div>` + (star ? aiCardHtml(star) : "");
+      }
+    });
+  }
+  if (!rows.length) {
+    h += `<div class="ai-sum"><b>${aiEsc(it.title)}</b>에는 ${keys.join("·")}할 수 있는 단계가 메뉴얼에 없어요.</div>`;
+    if (cannot.length) h += `<div class="ai-more">⚠️ <b>${cannot.map(aiEsc).join("·")}</b> 탭에서는 할 수 없어요.</div>`;
+    // 고칠 수는 없어도 취소하고 다시 하거나 되돌릴 수 있으면 그걸 대신 안내
+    const alt = [];
+    it.pages.forEach(p => p.acts.filter(a => !a.cannot && ["취소", "되돌리기", "수정"].includes(a.key) && !keys.includes(a.key)).forEach(a => { if (!alt.some(x => x.html === a.html)) alt.push({ tab: (p.label || it.title).replace(/^\d+\s*/, ""), html: a.html, i: p.i }); }));
+    if (alt.length) h += `<div class="ai-chips-l">대신 이렇게 할 수 있어요</div><div class="ai-actrows">` + alt.slice(0, 3).map(r => `<div class="ai-actrow"><span class="ai-acttab">${aiEsc(r.tab)}</span><span class="ai-actline">${r.html}</span></div>`).join("") + `</div>`;
+    h += aiCsHtml("꼭 바로잡아야 하면");
+    return h + aiActsHtml(it, alt.length ? alt[0].i : 0);
   }
   h += `<div class="ai-sum">${act.mistake ? "잘못 처리한 건 걱정 마세요 🙂 " : ""}<b>${aiEsc(it.title)}</b>에서 <b>${verbs.join("·")}</b>할 수 있어요.</div>`;
-  if (/(조회|목록)/.test(it.title)) h += `<ol class="ai-steps"><li><b>문서가 있는 탭을 누릅니다</b><span>아래 표의 탭</span></li><li><b>목록에서 그 문서를 체크합니다</b></li><li><b>${verbs.map(v => `<span class='ui-btn'>${v}</span>`).join(" / ")} 버튼을 누릅니다</b><span>확인창이 나오면 [예]를 누릅니다.</span></li></ol>`;
+  if (/(조회|목록)/.test(it.title)) h +=`<ol class="ai-steps"><li><b>문서가 있는 탭을 누릅니다</b><span>아래 표의 탭</span></li><li><b>목록에서 그 문서를 체크합니다</b></li><li><b>${verbs.map(v => `<span class='ui-btn'>${v}</span>`).join(" / ")} 버튼을 누릅니다</b><span>확인창이 나오면 [예]를 누릅니다.</span></li></ol>`;
   h += `<div class="ai-actrows">` + shown.map(r => `<div class="ai-actrow"><span class="ai-acttab">${r.tabs.map(aiEsc).join(" · ")}</span><span class="ai-actline">${r.html}</span></div>`).join("") + `</div>`;
   if (cannot.length) h += `<div class="ai-more">⚠️ <b>${cannot.map(aiEsc).join("·")}</b> 탭에서는 ${verbs.join("·")}할 수 없어요.</div>`;
   h += `<div class="ai-more">※ 버튼이 켜져 있어도 다음 단계로 넘어간 문서는 막힐 수 있어요. 안 되면 고객센터로 문의해 주세요.</div>`;
@@ -402,7 +439,7 @@ function aiActAnswer(it, act, confident) {
 }
 function aiMenuAnswer(x, slots, intent, confident, phrase, act) {
   const it = x.it, f = aiFocus(it, slots, intent, phrase);
-  if (act && act.keys.length && aiHasAct(it, act.keys)) return aiActAnswer(it, act, confident);
+  if (act && act.keys.length && aiAnyAct(it, act.keys)) return aiActAnswer(it, act, confident);
   let h = "";
   if (!confident) h += `<div class="ai-lead">혹시 이 화면을 찾으세요?</div>`;
   h += `<div class="ai-ans-head">${grpBadge(it.ch)}${aiEsc(it.title)}</div><div class="ai-path">📍 ${aiPathHtml(it)}</div>`;
@@ -472,6 +509,11 @@ function aiAnswer(q) {
     let html = aiFaqAnswer(faq.f);
     html += `<div class="ai-foot">해결이 안 되셨나요? <a href="javascript:void(0)" onclick="aiAppendMsg('bot', aiCsHtml(''))">고객센터 안내</a></div>`;
     return { kind: "faq", faq: faq.f.q, top: top ? top.it.title : "", html };
+  }
+  // 취소·수정처럼 '할 일'이 분명하고 그 일이 적힌 화면이면, 근거가 조금 약해도 그 화면의 되는 탭·안 되는 탭으로 답
+  if (top && r.act.keys.length && top.sc >= 0.5 && top.ev >= 0.5 && aiAnyAct(top.it, r.act.keys) && (top.ev < 0.65 || top.sc < 0.45)) {
+    let html = aiActAnswer(top.it, r.act, false) + aiChipsHtml(chips, "다른 후보");
+    return { kind: "maybe", top: top.it.title, sc: +top.sc.toFixed(2), intent, html, list: r.list.slice(0, 4).map(x => x.it.title + ":" + x.sc.toFixed(2)) };
   }
   if (top && !r.phraseMiss && top.sc >= 0.55 && top.ev >= 0.5 && (top.ev < 0.65 || top.sc < 0.45)) {
     let html = aiMenuAnswer(top, r.slots, intent, false, r.phrase, r.act);

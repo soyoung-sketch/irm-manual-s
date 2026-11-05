@@ -1,0 +1,4 @@
+const R=require(require("path").join(__dirname, "_eval_m_result.json"));const n=s=>String(s||"").replace(/[\s·\/]+/g,"");
+let t1=0,t4=0,tab=0,tabN=0,no=0,noN=0;const bad=[];
+R.forEach(r=>{const e=r.expect.map(n);const ok1=["menu","maybe","faq"].includes(r.kind)&&e.includes(n(r.top));const ok4=ok1||r.list.slice(0,4).some(x=>e.includes(n(x)));if(ok1)t1++;if(ok4)t4++;if(r.tab){tabN++;if(r.tabHit)tab++;}if(r.no){noN++;if(r.noHit)no++;else bad.push(`[불가 놓침] ${r.q} → ${r.kind} ${r.top} [${r.tab}] ${r.verdict}`);}if(!ok1)bad.push(`${r.q}\n   기대 ${r.expect.join(",")} [${r.tab}] → ${r.kind} ${r.top} | ${r.list.slice(1,4).join(" / ")}`);});
+console.log(`실수 질문 ${R.length}: 1순위 ${t1} (${(100*t1/R.length).toFixed(0)}%), 4순위 안 ${t4} (${(100*t4/R.length).toFixed(0)}%), 탭까지 짚음 ${tab}/${tabN}, 안 되는 단계 알려 줌 ${no}/${noN}`);if(process.argv[2])console.log(bad.join("\n"));
