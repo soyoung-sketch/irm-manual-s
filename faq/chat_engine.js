@@ -1,7 +1,7 @@
 // ----- 채팅 도우미(브라우저 안에서만 — 서버·외부 전송 없음) -----
 // 질문 말투를 걷어내고 핵심어만 → ① 회사 자주 묻는 질문(AI_FAQ) ② 메뉴얼 카드에서 답 만들기 ③ 못 찾으면 고객센터 안내.
 // 원본: faq/chat_engine.js → node faq/build_faq.js 가 index.html 의 AI_CHAT:BEGIN~END 사이에 넣는다.
-const AI_CS = { name: "아이리젠 고객센터", tel: "", hours: "" }; // 전화번호·상담 시간이 정해지면 채운다
+const AI_CS = { name: "아이리젠 고객센터", tel: "070-4152-3621", email: "help@iregen.co.kr", hours: "" }; // 홈페이지 '전화 문의'·'이메일 문의'와 같게(11-05 사용자), 상담 시간은 정해지면
 /*FAQ_DATA*/
 
 let aiIndex = null;
@@ -385,8 +385,9 @@ function aiActsHtml(it, pageIdx) {
   return h + `</div>`;
 }
 function aiCsHtml(lead) {
-  const tel = AI_CS.tel ? ` <a class="ai-tel" href="tel:${AI_CS.tel.replace(/[^0-9]/g, "")}">📞 ${aiEsc(AI_CS.tel)}</a>` : "";
-  return `${lead ? `<div class="ai-cs-lead">${lead}</div>` : ""}<div class="ai-cs"><b>${aiEsc(AI_CS.name)}</b>로 문의해 주세요.${tel}${AI_CS.hours ? `<div class="ai-cs-h">상담 시간 ${aiEsc(AI_CS.hours)}</div>` : ""}</div>`;
+  const tel = AI_CS.tel ? `<a class="ai-cs-row" href="tel:${AI_CS.tel.replace(/[^0-9]/g, "")}">📞 <b>${aiEsc(AI_CS.tel)}</b></a>` : "";
+  const mail = AI_CS.email ? `<a class="ai-cs-row" href="mailto:${aiEsc(AI_CS.email)}">✉️ <b>${aiEsc(AI_CS.email)}</b></a>` : "";
+  return `${lead ? `<div class="ai-cs-lead">${lead}</div>` : ""}<div class="ai-cs"><b>${aiEsc(AI_CS.name)}</b>로 문의해 주세요.${tel || mail ? `<div class="ai-cs-rows">${tel}${mail}</div>` : ""}${AI_CS.hours ? `<div class="ai-cs-h">상담 시간 ${aiEsc(AI_CS.hours)}</div>` : ""}</div>`;
 }
 function aiChipsHtml(items, label) {
   if (!items.length) return "";
