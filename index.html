@@ -33981,6 +33981,7 @@ function aiActAnswer(it, act, confident) {
   if (/(조회|목록)/.test(it.title)) h += `<ol class="ai-steps"><li><b>문서가 있는 탭을 누릅니다</b><span>아래 표의 탭</span></li><li><b>목록에서 그 문서를 체크합니다</b></li><li><b>${verbs.map(v => `<span class='ui-btn'>${v}</span>`).join(" / ")} 버튼을 누릅니다</b><span>확인창이 나오면 [예]를 누릅니다.</span></li></ol>`;
   h += `<div class="ai-actrows">` + shown.map(r => `<div class="ai-actrow"><span class="ai-acttab">${r.tabs.map(aiEsc).join(" · ")}</span><span class="ai-actline">${r.html}</span></div>`).join("") + `</div>`;
   if (cannot.length) h += `<div class="ai-more">⚠️ <b>${cannot.map(aiEsc).join("·")}</b> 탭에서는 ${verbs.join("·")}할 수 없어요.</div>`;
+  h += `<div class="ai-more">※ 버튼이 켜져 있어도 다음 단계로 넘어간 문서는 막힐 수 있어요. 안 되면 고객센터로 문의해 주세요.</div>`;
   h += aiActsHtml(it, shown.length ? shown[0].i : 0);
   return h;
 }
