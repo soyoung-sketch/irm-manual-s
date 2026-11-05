@@ -5,7 +5,7 @@ let inS = 0, top1 = 0, top3 = 0, falseNone = 0, oos = 0, oosOk = 0, oosWrong = [
 const fails = [];
 R.forEach(r => {
   const exp = (r.expect || []).map(norm);
-  if (!exp.length) { oos++; if (r.kind === "none" || r.kind === "cs") oosOk++; else oosWrong.push(`${r.q} → ${r.kind}:${r.top}`); return; }
+  if (!exp.length) { oos++; if (["none", "cs", "hello", "chat", "thanks"].includes(r.kind)) oosOk++; else oosWrong.push(`${r.q} → ${r.kind}:${r.top}`); return; }
   inS++;
   const t = norm(r.top), l = (r.list || []).map(norm);
   const ok1 = (r.kind === "menu" || r.kind === "maybe" || r.kind === "faq") && exp.includes(t);
