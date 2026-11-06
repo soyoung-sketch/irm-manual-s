@@ -14,6 +14,6 @@ R.forEach(r => {
   if (r.kind === "none") falseNone++;
   if (!ok1) fails.push(`[${r.intent}] ${r.q}\n     기대: ${r.expect.join(", ")}\n     결과: ${r.kind} ${r.top} ${r.sc || ""} | ${l.slice(0, 4).join(" / ")}`);
 });
-console.log(`메뉴얼 안 질문 ${inS}개: 1순위 정답 ${top1} (${(100 * top1 / inS).toFixed(1)}%), 4순위 안 ${top3} (${(100 * top3 / inS).toFixed(1)}%), 못 찾음 처리 ${falseNone}`);
-console.log(`메뉴얼 밖 질문 ${oos}개: 고객센터 안내 ${oosOk} (${oos ? (100 * oosOk / oos).toFixed(1) : 0}%)`);
-if (process.argv.includes("-v")) { console.log("\n--- 틀린 것 ---\n" + fails.join("\n")); console.log("\n--- 메뉴얼 밖인데 답함 ---\n" + oosWrong.join("\n")); }
+console.log(`매뉴얼 안 질문 ${inS}개: 1순위 정답 ${top1} (${(100 * top1 / inS).toFixed(1)}%), 4순위 안 ${top3} (${(100 * top3 / inS).toFixed(1)}%), 못 찾음 처리 ${falseNone}`);
+console.log(`매뉴얼 밖 질문 ${oos}개: 고객센터 안내 ${oosOk} (${oos ? (100 * oosOk / oos).toFixed(1) : 0}%)`);
+if (process.argv.includes("-v")) { console.log("\n--- 틀린 것 ---\n" + fails.join("\n")); console.log("\n--- 매뉴얼 밖인데 답함 ---\n" + oosWrong.join("\n")); }

@@ -1,5 +1,5 @@
 // ----- 채팅 도우미(브라우저 안에서만 — 서버·외부 전송 없음) -----
-// 질문 말투를 걷어내고 핵심어만 → ① 회사 자주 묻는 질문(AI_FAQ) ② 메뉴얼 카드에서 답 만들기 ③ 못 찾으면 고객센터 안내.
+// 질문 말투를 걷어내고 핵심어만 → ① 회사 자주 묻는 질문(AI_FAQ) ② 매뉴얼 카드에서 답 만들기 ③ 못 찾으면 고객센터 안내.
 // 원본: faq/chat_engine.js → node faq/build_faq.js 가 index.html 의 AI_CHAT:BEGIN~END 사이에 넣는다.
 const AI_CS = { name: "아이리젠 고객센터", tel: "070-4152-3621", email: "help@iregen.co.kr", hours: "" }; // 홈페이지 '전화 문의'·'이메일 문의'와 같게(11-05 사용자), 상담 시간은 정해지면
 /*FAQ_DATA*/
@@ -56,7 +56,7 @@ const AI_FILLER = ["어떻게해야하나요","어떻게해야되나요","어떻
   "하나요","했는데","했어요","해주세요","해줘","해요","합니다","하는데","하면","할때","하기","좀","요좀","왜","제가","저","우리","거","것","그","이거","그거","이건","좀요","요"];
 // 띄어 쓴 낱말 끝의 조사
 const AI_JOSA = /(별로는|별로|에서는|에서|으로는|으로|에는|에게|한테|까지|부터|처럼|이랑|랑|하고|은|는|이|가|을|를|에|로|도|만|의|요)$/;
-// 같은 뜻 낱말(왼쪽 말이 나오면 오른쪽 메뉴얼 용어로도 찾는다)
+// 같은 뜻 낱말(왼쪽 말이 나오면 오른쪽 매뉴얼 용어로도 찾는다)
 const AI_SYN = [
   [["주문","오더"], ["발주"]], [["거래처"], ["매입처","매출처"]], [["납품업체","공급업체","업체"], ["매입처"]], [["도매처","도매거래처","납품한","주문받"], ["매출처","주문서"]],
   [["회원","단골"], ["매출처","회원"]], [["손님","고객"], ["회원"]], [["가격","값","금액"], ["단가","판매가"]], [["가격표","프라이스카드","쇼카드","가격판"], ["가격표","pop"]],
@@ -89,7 +89,7 @@ const AI_INTENT = [
   ["what", /(뭐(예|에|야|지|죠)|뭔가|무엇|무슨\s*뜻|뜻이|의미|이란|차이)/],
   ["how", /(어떻게|어케|어떡|방법|하는\s*법|하려면|순서|절차|하고\s*싶|할\s*수\s*있|가능)/],
 ];
-// 메뉴얼이 다루지 않는 일(기계 고장·요금·계약·설치 일정·다른 회사 프로그램 등) → 고객센터로
+// 매뉴얼이 다루지 않는 일(기계 고장·요금·계약·설치 일정·다른 회사 프로그램 등) → 고객센터로
 const AI_OUT = /(전원|고장|깜빡|먹통|부팅|종이\s*(가|이)?\s*(걸|안\s*나)|용지|프린터\s*(가|에서|기)|모니터\s*(가|화면)|인터넷|와이파이|wifi|랜선|공유기|설치\s*(기사|일정|날짜|비용)|기사님|방문\s*(해|일정|가능)|요금|자동이체|계약|해지|약정|비용|청구|부가세\s*신고|종합소득세|4대\s*보험|배달앱|배민|쿠팡이츠|요기요|다른\s*(회사|업체)|타사|비교하면|데이터.{0,8}옮겨|이전해\s*주)/i;
 function aiIntent(q) { for (const [k, re] of AI_INTENT) if (re.test(q)) return k; return "how"; }
 function aiStripFiller(s) {
@@ -106,15 +106,15 @@ function aiKeywords(q) {
     const orig = x;
     if (x.length > 1) x = x.replace(AI_JOSA, "");
     if (x.length >= 3) x = x.replace(/(하는|하고|해서|하면|하려|했는|했어|하기|되는|되고|돼서|됐어|했|해|하)$/, "") || x;
-    if (x.length >= 3 && /[한할함된될]$/.test(x) && vocab.includes(x.slice(0, -1))) x = x.slice(0, -1);   // '등록한'·'지급한' → 메뉴얼 낱말
-    if (x !== orig && orig.length >= 3 && /가$/.test(orig) && vocab.includes(orig)) x = orig;   // '판매가'처럼 조사 같은 글자로 끝나는 메뉴얼 낱말은 그대로
+    if (x.length >= 3 && /[한할함된될]$/.test(x) && vocab.includes(x.slice(0, -1))) x = x.slice(0, -1);   // '등록한'·'지급한' → 매뉴얼 낱말
+    if (x !== orig && orig.length >= 3 && /가$/.test(orig) && vocab.includes(orig)) x = orig;   // '판매가'처럼 조사 같은 글자로 끝나는 매뉴얼 낱말은 그대로
     return [x];
   }).flat().map(w => w.replace(/[^0-9a-z가-힣+]/g, "")).map(w => aiSegment(w, vocab)).flat().map(w => w.length >= 3 ? w.replace(/별$/, "") : w).filter(w => w && !AI_FILLER.includes(w));
   const out = [];
   words.forEach(w => { if (w.length >= 2 || /[0-9a-z]/.test(w) || ["돈","값","표","앱"].includes(w)) { if (!out.includes(w)) out.push(w); } });
   return out;
 }
-// 띄어 쓰지 않은 긴 낱말("오늘카드현금결제금액") → 메뉴얼 낱말·같은 뜻 말로 앞에서부터 가장 길게 맞춰 쪼갬
+// 띄어 쓰지 않은 긴 낱말("오늘카드현금결제금액") → 매뉴얼 낱말·같은 뜻 말로 앞에서부터 가장 길게 맞춰 쪼갬
 function aiSegment(w, vocab) {
   if (w.length < 5 || vocab.includes(w)) return [w];
   const dict = new Set(vocab.concat(...AI_SYN.map(x => x[0])));
@@ -134,7 +134,7 @@ function aiSynFor(w) {
   return add;
 }
 
-// ── 메뉴얼 → 검색 목록(메뉴마다 카드 단위) ──
+// ── 매뉴얼 → 검색 목록(메뉴마다 카드 단위) ──
 function aiCleanHtml(s) {
   return String(s || "")
     .replace(/<b class=['"]dlink['"] onclick=(["'])((?:(?!\1).)*)\1>(.*?)<\/b>/g, (m, qt, fn, txt) => /^openSub\(/.test(fn) ? m : `<b>${txt}</b>`)
@@ -227,7 +227,7 @@ const AI_HOW_T = /(등록|입력|설정|작성|발급|전송|지급|관리|켜�
 const AI_LOOK_T = /(조회|현황|목록|내역|원장|통계|순위)/;
 const AI_LOOK_Q = /(조회|확인|현황|목록|내역|보기|봐|보려|보고|보는|찾아보|얼마나|몇|통계|합계|매출액)/;
 const AI_FIX_Q = /(취소|수정|삭제|되돌|복구|고치|바꾸|변경|반려|보류|완료처리|승인)/;
-// ── 실수 바로잡기: 질문의 '할 일'(취소·수정·되돌리기…)과 메뉴얼 카드의 '가능한 작업' 줄을 맞춘다 ──
+// ── 실수 바로잡기: 질문의 '할 일'(취소·수정·되돌리기…)과 매뉴얼 카드의 '가능한 작업' 줄을 맞춘다 ──
 const AI_ACT = [
   ["취소", /취소/], ["수정", /(수정|고치|고쳐|바꾸|바꿔|변경|틀리게|틀렸)/], ["되돌리기", /(되돌|복구|원래대로|살려|다시\s*살)/],
   ["삭제", /(삭제|지우|지워|없애)/], ["반려", /반려/], ["인쇄", /(인쇄|출력|뽑)/],
@@ -260,7 +260,7 @@ function aiActsOf(cards) {
 }
 function aiActKeys(q) {
   const keys = AI_ACT.filter(([k, re]) => re.test(q)).map(([k]) => k).filter(k => k !== "인쇄" || /(인쇄|출력)/.test(q));
-  if (keys.includes("삭제") && !keys.includes("취소")) keys.push("취소");     // '지우고 싶다'는 메뉴얼에서 [취소]로 없애는 경우가 많음
+  if (keys.includes("삭제") && !keys.includes("취소")) keys.push("취소");     // '지우고 싶다'는 매뉴얼에서 [취소]로 없애는 경우가 많음
   // "취소를 실수로 눌렀어요 살려 주세요"의 '취소'는 할 일이 아니라 지금 상태(취소 탭)
   if (keys.length > 1 && keys.includes("취소") && /취소\s*(한|된|했|해\s*버|를\s*(실수로\s*)?눌|눌렀)/.test(q)) keys.splice(keys.indexOf("취소"), 1);
   if (!keys.length && AI_MISTAKE.test(q)) return { keys: ["수정", "취소", "되돌리기", "삭제"], mistake: true, q };
@@ -270,7 +270,7 @@ function aiActKeys(q) {
 // '안 되는 단계'까지 포함 — 답 모양을 고를 때(못 한다는 것도 답이다)
 function aiAnyAct(it, keys) { return !/(등록|입력|작성|발급)$/.test(it.title) && it.pages.some(p => p.acts.some(a => keys.includes(a.key))); }
 function aiHasAct(it, keys) { return !/(등록|입력|작성|발급)$/.test(it.title) && it.pages.some(p => p.acts.some(a => keys.includes(a.key) && !a.cannot)); }
-// 알림 문구를 그대로 붙여 물을 때: 메뉴얼 안에 같은 글이 있는지
+// 알림 문구를 그대로 붙여 물을 때: 매뉴얼 안에 같은 글이 있는지
 function aiPhrase(q) {
   const p = aiNorm(q.replace(/(라고|이라고|이라는|라는|하고|가|이)?\s*(떠요|뜹니다|뜨는데|떴어요|떴는데|나와요|나오는데|나옵니다|메시지|메세지|알림|창이|문구)[\s\S]*$/, ""));
   return p.length >= 6 ? p : "";
@@ -281,10 +281,10 @@ function aiRank(q) {
   const intent = aiIntent(q), phrase = intent === "error" ? aiPhrase(q) : "";
   if (!kws.length && !phrase) return { kws, slots: [], list: [], intent };
   let slots = kws.map(w => { const syn = aiSynFor(w); return { w, syn, wt: (AI_GENERIC.includes(w) ? 0.35 : 1) * Math.max(aiIdf(w), ...syn.map(aiIdf)) }; });
-  // 메뉴얼 어디에도 없는 낱말(말끝·군말)은 빼기 — 다 빠지면 그대로
+  // 매뉴얼 어디에도 없는 낱말(말끝·군말)은 빼기 — 다 빠지면 그대로
   slots.forEach(s => { s.best = Math.max(0, ...idx.map(it => aiSlotScore(s, it))); });
   const kept = slots.filter(s => s.best >= 0.35);
-  // 메뉴얼에 없는 낱말이 섞여 있으면(메뉴얼 밖 질문일 수 있음) 확신을 낮춘다
+  // 매뉴얼에 없는 낱말이 섞여 있으면(매뉴얼 밖 질문일 수 있음) 확신을 낮춘다
   const qAll0 = aiNorm(q), lost = slots.filter(s => s.best < 0.35 && s.w.length >= 2 && !AI_SYN.some(([from]) => from.some(f => s.w.includes(f) || f.includes(s.w)))).length;
   const known = kept.length ? kept.length / (kept.length + lost) : 0;
   if (kept.length) slots = kept;
@@ -421,7 +421,7 @@ function aiActAnswer(it, act, confident) {
     });
   }
   if (!rows.length) {
-    h += `<div class="ai-sum"><b>${aiEsc(it.title)}</b>에는 ${keys.join("·")}할 수 있는 단계가 메뉴얼에 없어요.</div>`;
+    h += `<div class="ai-sum"><b>${aiEsc(it.title)}</b>에는 ${keys.join("·")}할 수 있는 단계가 매뉴얼에 없어요.</div>`;
     if (cannot.length) h += `<div class="ai-more">⚠️ <b>${cannot.map(aiEsc).join("·")}</b> 탭에서는 할 수 없어요.</div>`;
     // 고칠 수는 없어도 취소하고 다시 하거나 되돌릴 수 있으면 그걸 대신 안내
     const alt = [];
@@ -492,15 +492,15 @@ function aiFaqAnswer(f) {
 function aiAsk(t) { const i = document.getElementById("aiChatInput"); if (i) { i.value = t; aiChatSend(); } }
 // 질문 하나 → 답(html) — 화면 없이도 돌릴 수 있게(시험용) 나눠 둠
 function aiAnswer(q) {
-  const qs = q.trim();
-  if (/^(안녕|하이|hi|hello|ㅎㅇ)/i.test(qs)) return { kind: "hello", html: "안녕하세요! 😊 궁금한 걸 평소 말투로 물어보세요. 메뉴얼에서 찾아 바로 답해 드릴게요." };
+  const qs = q.trim().replace(/메뉴얼/g, "매뉴얼");   // '메뉴얼'로 물어도 '매뉴얼'과 같게 찾기(11-06 표기를 매뉴얼로 바꿈)
+  if (/^(안녕|하이|hi|hello|ㅎㅇ)/i.test(qs)) return { kind: "hello", html: "안녕하세요! 😊 궁금한 걸 평소 말투로 물어보세요. 매뉴얼에서 찾아 바로 답해 드릴게요." };
   if (/(고마|감사|땡큐|thank)/i.test(qs) && qs.length < 15) return { kind: "thanks", html: "도움이 됐다니 다행이에요! 😊 더 궁금한 게 있으면 언제든 물어보세요." };
-  if (/(점심|저녁\s*메뉴|날씨|심심|배고프|뭐\s*먹지|놀아|사랑해|ㅋㅋㅋ)/.test(qs)) return { kind: "chat", html: "저는 IRM 메뉴얼 도우미라 그건 잘 몰라요 😅 프로그램 쓰다가 궁금한 게 생기면 언제든 물어보세요!" };
+  if (/(점심|저녁\s*메뉴|날씨|심심|배고프|뭐\s*먹지|놀아|사랑해|ㅋㅋㅋ)/.test(qs)) return { kind: "chat", html: "저는 IRM 매뉴얼 도우미라 그건 잘 몰라요 😅 프로그램 쓰다가 궁금한 게 생기면 언제든 물어보세요!" };
   if (/(고객센터|상담원|상담사|전화번호|연락처|사람이랑|직원이랑\s*통화)/.test(qs)) return { kind: "cs", html: aiCsHtml("상담원과 직접 이야기하고 싶으시면") };
   const r = aiRank(qs), intent = r.intent || aiIntent(qs);
   if (AI_OUT.test(qs) && !(r.list[0] && r.list[0].ev >= 0.99 && r.list[0].sc >= 1)) {
     const near = r.list.slice(0, 2).filter(x => x.sc >= 0.6 && x.ev >= 0.75).map(x => ({ t: aiEsc(x.it.title), on: `aiShowMenu('${x.it.ch.id}','${x.it.sub.id}')` }));
-    return { kind: "none", top: "", html: aiCsHtml("이 내용은 메뉴얼이 아니라 <b>고객센터</b>에서 직접 도와드려야 해요. 🙏") + aiChipsHtml(near, "메뉴얼에서 관련 화면") };
+    return { kind: "none", top: "", html: aiCsHtml("이 내용은 매뉴얼이 아니라 <b>고객센터</b>에서 직접 도와드려야 해요. 🙏") + aiChipsHtml(near, "매뉴얼에서 관련 화면") };
   }
   const faq = aiFaqRank(qs, r.slots);
   const top = r.list[0];
@@ -523,7 +523,7 @@ function aiAnswer(q) {
     return { kind: "maybe", top: top.it.title, sc: +top.sc.toFixed(2), intent, html, list: r.list.slice(0, 4).map(x => x.it.title + ":" + x.sc.toFixed(2)) };
   }
   if (!top || top.sc < 0.45 || top.ev < 0.65) {
-    let html = aiCsHtml(`음… 메뉴얼에서 딱 맞는 답을 찾지 못했어요. 😥`);
+    let html = aiCsHtml(`음… 매뉴얼에서 딱 맞는 답을 찾지 못했어요. 😥`);
     const near = r.list.slice(0, 3).filter(x => x.sc >= 0.4 && x.ev >= 0.6).map(x => ({ t: aiEsc(x.it.title), on: `aiShowMenu('${x.it.ch.id}','${x.it.sub.id}')` }));
     if (near.length) html += aiChipsHtml(near, "혹시 이 화면인가요?");
     return { kind: "none", top: top ? top.it.title : "", sc: top ? top.sc : 0, html };
